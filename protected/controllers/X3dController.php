@@ -6,31 +6,25 @@ class X3dController extends Controller
 	{
 		$x3dContent = array(
 			'basePlattform'=>array(
-					'size'=>array('width'=>20, 'height'=>0.1, 'length'=>20),
-					'position'=>array('x'=>0, 'y'=>0, 'z'=>0),
+					'size'=>array('width'=>62, 'height'=>0.1, 'length'=>108),
 					'colour'=>array('r'=>0, 'g'=>0.5, 'b'=>1)
 			),
 			'boxes'=>array(
 				'box1'=>array(
-					'size'=>array('width'=>0.2, 'height'=>0.2, 'length'=>0.2),
-					'position'=>array('x'=>-3.5, 'y'=>0, 'z'=>-3.5),
+					'size'=>array('width'=>1, 'height'=>1, 'length'=>1),
+					'position'=>array('x'=>31, 'y'=>0, 'z'=>90),
 					'colour'=>array('r'=>0, 'g'=>1, 'b'=>0)
 					),
 				'box2'=>array(
-					'size'=>array('width'=>0.2, 'height'=>0.2, 'length'=>0.2),
-					'position'=>array('x'=>3.5, 'y'=>0, 'z'=>3.5),
-					'colour'=>array('r'=>0, 'g'=>0, 'b'=>1)
+					'size'=>array('width'=>1, 'height'=>1, 'length'=>1),
+					'position'=>array('x'=>31, 'y'=>0, 'z'=>18),
+					'colour'=>array('r'=>0, 'g'=>1, 'b'=>0)
 					)
 			),
 			'edges'=>array(
 				'edge1'=>array(
-					'startPos'=>array('x'=>-3.5, 'y'=>0, 'z'=>-3.5),
-					'endPos'=>array('x'=>3.5, 'y'=>0, 'z'=>3.5),
-					'colour'=>array('r'=>0, 'g'=>1, 'b'=>0)
-					),
-				'edge2'=>array(
-					'startPos'=>array('x'=>0, 'y'=>0, 'z'=>0),
-					'endPos'=>array('x'=>-2, 'y'=>0, 'z'=>2),
+					'startPos'=>array('x'=>31, 'y'=>0, 'z'=>71),
+					'endPos'=>array('x'=>31, 'y'=>0, 'z'=>36),
 					'colour'=>array('r'=>0, 'g'=>1, 'b'=>0)
 					)
 			)

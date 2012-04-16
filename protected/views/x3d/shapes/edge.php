@@ -32,10 +32,6 @@ $kreuzprodukt = array('x'=> $winkelVektor[y] * $edgeVektor[z] - $winkelVektor[z]
 if ($kreuzprodukt[y] > 0) {
 	$erg = -$erg;
 }
-
-echo $erg . " -kp:- " . $kreuzprodukt[x] . " " . $kreuzprodukt[y] . " " . $kreuzprodukt[z];
-
-
 ?>
 
 <Group>
