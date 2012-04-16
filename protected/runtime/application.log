@@ -1,0 +1,57 @@
+2012/04/15 22:52:04 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "gx3".' in /Users/stefan/Sites/3dArch/yii/framework/web/CWebApplication.php:280
+Stack trace:
+#0 /Users/stefan/Sites/3dArch/yii/framework/web/CWebApplication.php(135): CWebApplication->runController('gx3')
+#1 /Users/stefan/Sites/3dArch/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#2 /Users/stefan/Sites/3dArch/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/~stefan/3dArch/index.php?r=gx3
+---
+2012/04/15 23:26:10 [error] [exception.CException] exception 'CException' with message 'Property "X3dController.basePlattform" is not defined.' in /Users/stefan/Sites/3dArch/yii/framework/base/CComponent.php:131
+Stack trace:
+#0 /Users/stefan/Sites/3dArch/protected/views/x3d/index.php(15): CComponent->__get('basePlattform')
+#1 /Users/stefan/Sites/3dArch/yii/framework/web/CBaseController.php(127): require('/Users/stefan/S...')
+#2 /Users/stefan/Sites/3dArch/yii/framework/web/CBaseController.php(96): CBaseController->renderInternal('/Users/stefan/S...', Array, true)
+#3 /Users/stefan/Sites/3dArch/yii/framework/web/CController.php(870): CBaseController->renderFile('/Users/stefan/S...', Array, true)
+#4 /Users/stefan/Sites/3dArch/yii/framework/web/CController.php(783): CController->renderPartial('index', Array, true)
+#5 /Users/stefan/Sites/3dArch/protected/controllers/X3dController.php(11): CController->render('index', Array)
+#6 /Users/stefan/Sites/3dArch/yii/framework/web/actions/CInlineAction.php(50): X3dController->actionIndex()
+#7 /Users/stefan/Sites/3dArch/yii/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#8 /Users/stefan/Sites/3dArch/yii/framework/web/CController.php(287): CController->runAction(Object(CInlineAction))
+#9 /Users/stefan/Sites/3dArch/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#10 /Users/stefan/Sites/3dArch/yii/framework/web/CWebApplication.php(276): CController->run('index')
+#11 /Users/stefan/Sites/3dArch/yii/framework/web/CWebApplication.php(135): CWebApplication->runController('x3d/index')
+#12 /Users/stefan/Sites/3dArch/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#13 /Users/stefan/Sites/3dArch/index.php(13): CApplication->run()
+#14 {main}
+REQUEST_URI=/~stefan/3dArch/index.php?r=x3d/index
+HTTP_REFERER=http://localhost/~stefan/3dArch/index.php
+---
+2012/04/16 02:25:46 [error] [Kategorie] nachricht
+in /Users/stefan/Sites/3dArch/protected/views/x3d/shapes/edge.php (12)
+in /Users/stefan/Sites/3dArch/protected/views/x3d/index.php (14)
+in /Users/stefan/Sites/3dArch/protected/controllers/X3dController.php (27)
+2012/04/16 02:28:12 [error] [Kategorie] nachricht
+in /Users/stefan/Sites/3dArch/protected/views/x3d/shapes/edge.php (12)
+in /Users/stefan/Sites/3dArch/protected/views/x3d/index.php (14)
+in /Users/stefan/Sites/3dArch/protected/controllers/X3dController.php (27)
+2012/04/16 05:15:30 [error] [php] Division by zero (/Users/stefan/Sites/3dArch/protected/views/x3d/shapes/edge.php:27)
+Stack trace:
+#0 /Users/stefan/Sites/3dArch/yii/framework/web/CController.php(870): X3dController->renderFile()
+#1 /Users/stefan/Sites/3dArch/protected/views/x3d/index.php(14): X3dController->renderPartial()
+#2 /Users/stefan/Sites/3dArch/yii/framework/web/CBaseController.php(127): require()
+#3 /Users/stefan/Sites/3dArch/yii/framework/web/CBaseController.php(96): X3dController->renderInternal()
+#4 /Users/stefan/Sites/3dArch/yii/framework/web/CController.php(870): X3dController->renderFile()
+#5 /Users/stefan/Sites/3dArch/yii/framework/web/CController.php(783): X3dController->renderPartial()
+#6 /Users/stefan/Sites/3dArch/protected/controllers/X3dController.php(27): X3dController->render()
+#7 /Users/stefan/Sites/3dArch/yii/framework/web/actions/CInlineAction.php(50): X3dController->actionIndex()
+#8 /Users/stefan/Sites/3dArch/yii/framework/web/CController.php(309): CInlineAction->runWithParams()
+#9 /Users/stefan/Sites/3dArch/yii/framework/web/CController.php(287): X3dController->runAction()
+#10 /Users/stefan/Sites/3dArch/yii/framework/web/CController.php(266): X3dController->runActionWithFilters()
+#11 /Users/stefan/Sites/3dArch/yii/framework/web/CWebApplication.php(276): X3dController->run()
+#12 /Users/stefan/Sites/3dArch/yii/framework/web/CWebApplication.php(135): CWebApplication->runController()
+#13 /Users/stefan/Sites/3dArch/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#14 /Users/stefan/Sites/3dArch/index.php(13): CWebApplication->run()
+REQUEST_URI=/~stefan/3dArch/index.php?r=x3d/index
+in /Users/stefan/Sites/3dArch/protected/views/x3d/shapes/edge.php (27)
+in /Users/stefan/Sites/3dArch/protected/views/x3d/index.php (14)
+in /Users/stefan/Sites/3dArch/protected/controllers/X3dController.php (27)

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv='Content-Type' content='text/html;charset=utf-8'></meta>
+    <link rel='stylesheet' type='text/css' href='http://www.x3dom.org/x3dom/release/x3dom.css'></link>
+    <script type='text/javascript' src='http://www.x3dom.org/x3dom/release/x3dom.js'></script>
+  </head>
+  <body>
+    <x3d id='someUniqueId' showStat='false' showLog='false' width='400px' height='400px'>
+      <scene DEF='scene'>
+        <group>
+          <transform scale='0.028 0.028 0.028'>
+            <background skyColor='1 1 1'></background>
+            <transform scale='30.02 18 1' translation='30.173 29.639 0'>
+              <transform rotation='1 0 0 1.57'>
+                <shape>
+                  <appearance>
+                    <material DEF='AOPT_Material_137088320' ambientIntensity='0.33' diffuseColor='1 1 1'></material>
+                    <imageTexture url='"node1.png"'></imageTexture>
+                  </appearance>
+                  <cylinder DEF='AOPT_Cylinder_155340288' side='false'></cylinder>
+                </shape>
+              </transform>
+            </transform>
+            <transform scale='31.118 18 1' translation='101.382 19 0'>
+              <transform rotation='1 0 0 1.57'>
+                <shape>
+                  <appearance>
+                    <material USE='AOPT_Material_137088320'></material>
+                    <imageTexture url='"node3.png"'></imageTexture>
+                  </appearance>
+                  <cylinder USE='AOPT_Cylinder_155340288'></cylinder>
+                </shape>
+              </transform>
+            </transform>
+            <group>
+              <transform center='0 5 0' rotation='-0 0 -35.605 -4.564' translation='65.778 19.32 0'>
+                <shape>
+                  <appearance DEF='AOPT_Appearance_155295744'>
+                    <material ambientIntensity='0.33' diffuseColor='0 0 0'></material>
+                  </appearance>
+                  <cylinder bottom='false' top='false' height='0.666'></cylinder>
+                </shape>
+                <transform translation='0 5.333 0'>
+                  <shape>
+                    <appearance USE='AOPT_Appearance_155295744'></appearance>
+                    <cone bottomRadius='3.5' height='10'></cone>
+                  </shape>
+                </transform>
+              </transform>
+            </group>
+          </transform>
+          <viewpoint position='2.463 0.87 7.929'></viewpoint>
+        </group>
+      </scene>
+    </x3d>
+  </body>
+</html>

@@ -1,0 +1,4 @@
+digraph G {
+	main [z=0]
+	main -> parse;
+}
