@@ -3,8 +3,8 @@
 class GraphVizController extends Controller
 {
 	
-	private $dotfile = '/Users/stefan/Sites/3dArch/protected/views/graphViz/simpleGraph.dot';
-	private $outputfile = '/Users/stefan/Sites/3dArch/protected/views/graphViz/simpleGraph.adot';
+	private $dotfile = '/Users/stefan/Sites/3dArch/x3d/simpleGraph2D.dot';
+	private $outputfile = '/Users/stefan/Sites/3dArch/x3d/simpleGraph2D.adot';
 	
 	public function actionIndex()
 	{

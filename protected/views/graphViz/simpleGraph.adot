@@ -1,7 +1,0 @@
-digraph G {
-	node [label="\N"];
-	graph [bb="0,0,62,108"];
-	main [pos="31,90", width="0.83813", height="0.5"];
-	parse [pos="31,18", width="0.86682", height="0.5"];
-	main -> parse [pos="e,31,36.104 31,71.697 31,63.983 31,54.712 31,46.112"];
-}
