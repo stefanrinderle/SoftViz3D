@@ -1596,3 +1596,244 @@ in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (35)
 in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (18)
 in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (59)
 in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (37)
+2012/04/17 02:18:34 [error] [php] Invalid argument supplied for foreach() (/Users/stefan/Sites/3dArch/protected/views/x3d/index.php:9)
+Stack trace:
+#0 /Users/stefan/Sites/3dArch/yii/framework/web/CController.php(870): X3dController->renderFile()
+#1 /Users/stefan/Sites/3dArch/yii/framework/web/CController.php(783): X3dController->renderPartial()
+#2 /Users/stefan/Sites/3dArch/protected/controllers/X3dController.php(49): X3dController->render()
+#3 /Users/stefan/Sites/3dArch/yii/framework/web/actions/CInlineAction.php(50): X3dController->actionIndex()
+#4 /Users/stefan/Sites/3dArch/yii/framework/web/CController.php(309): CInlineAction->runWithParams()
+#5 /Users/stefan/Sites/3dArch/yii/framework/web/CController.php(287): X3dController->runAction()
+#6 /Users/stefan/Sites/3dArch/yii/framework/web/CController.php(266): X3dController->runActionWithFilters()
+#7 /Users/stefan/Sites/3dArch/yii/framework/web/CWebApplication.php(276): X3dController->run()
+#8 /Users/stefan/Sites/3dArch/yii/framework/web/CWebApplication.php(135): CWebApplication->runController()
+#9 /Users/stefan/Sites/3dArch/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#10 /Users/stefan/Sites/3dArch/index.php(13): CWebApplication->run()
+REQUEST_URI=/~stefan/3dArch/index.php?r=x3d/index
+in /Users/stefan/Sites/3dArch/protected/views/x3d/index.php (9)
+in /Users/stefan/Sites/3dArch/protected/controllers/X3dController.php (49)
+in /Users/stefan/Sites/3dArch/index.php (13)
+2012/04/17 02:28:25 [error] [parser] 0
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (58)
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (37)
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (11)
+2012/04/17 02:28:25 [error] [parser] 1
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (58)
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (37)
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (11)
+2012/04/17 02:28:25 [error] [parser] 2
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (58)
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (37)
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (11)
+2012/04/17 02:28:25 [error] [parser] 3
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (58)
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (37)
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (11)
+2012/04/17 02:28:25 [error] [parser] 4
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (58)
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (37)
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (11)
+2012/04/17 02:28:35 [error] [parser] e,31,36.104
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (58)
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (37)
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (11)
+2012/04/17 02:28:35 [error] [parser] 31,71.697
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (58)
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (37)
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (11)
+2012/04/17 02:28:35 [error] [parser] 31,63.983
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (58)
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (37)
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (11)
+2012/04/17 02:28:35 [error] [parser] 31,54.712
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (58)
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (37)
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (11)
+2012/04/17 02:28:35 [error] [parser] 31,46.112
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (58)
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (37)
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (11)
+2012/04/17 02:28:54 [error] [parser] Array
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (58)
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (37)
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (11)
+2012/04/17 02:28:54 [error] [parser] Array
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (58)
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (37)
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (11)
+2012/04/17 02:28:54 [error] [parser] Array
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (58)
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (37)
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (11)
+2012/04/17 02:28:54 [error] [parser] Array
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (58)
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (37)
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (11)
+2012/04/17 02:28:54 [error] [parser] Array
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (58)
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (37)
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (11)
+2012/04/17 02:29:08 [error] [parser] 1
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (58)
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (37)
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (11)
+2012/04/17 02:29:08 [error] [parser] 1
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (58)
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (37)
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (11)
+2012/04/17 02:29:08 [error] [parser] 1
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (58)
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (37)
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (11)
+2012/04/17 02:29:08 [error] [parser] 1
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (58)
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (37)
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (11)
+2012/04/17 02:29:08 [error] [parser] 1
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (58)
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (37)
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (11)
+2012/04/17 02:29:29 [error] [parser] e,31,36.104
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (58)
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (37)
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (11)
+2012/04/17 02:29:29 [error] [parser] 31,71.697
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (58)
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (37)
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (11)
+2012/04/17 02:29:29 [error] [parser] 31,63.983
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (58)
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (37)
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (11)
+2012/04/17 02:29:29 [error] [parser] 31,54.712
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (58)
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (37)
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (11)
+2012/04/17 02:29:29 [error] [parser] 31,46.112
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (58)
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (37)
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (11)
+2012/04/17 02:30:34 [error] [parser] e,31,36.104
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (58)
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (37)
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (11)
+2012/04/17 02:30:34 [error] [parser] 5
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (59)
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (37)
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (11)
+2012/04/17 02:30:34 [error] [parser] 31,71.697
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (58)
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (37)
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (11)
+2012/04/17 02:30:34 [error] [parser] 5
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (59)
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (37)
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (11)
+2012/04/17 02:30:34 [error] [parser] 31,63.983
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (58)
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (37)
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (11)
+2012/04/17 02:30:34 [error] [parser] 5
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (59)
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (37)
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (11)
+2012/04/17 02:30:34 [error] [parser] 31,54.712
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (58)
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (37)
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (11)
+2012/04/17 02:30:34 [error] [parser] 5
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (59)
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (37)
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (11)
+2012/04/17 02:30:34 [error] [parser] 31,46.112
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (58)
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (37)
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (11)
+2012/04/17 02:30:34 [error] [parser] 5
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (59)
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (37)
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (11)
+2012/04/17 02:30:51 [error] [parser] e,31,36.104
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (58)
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (37)
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (11)
+2012/04/17 02:30:51 [error] [parser] 1
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (59)
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (37)
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (11)
+2012/04/17 02:30:51 [error] [parser] 31,71.697
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (58)
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (37)
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (11)
+2012/04/17 02:30:51 [error] [parser] 1
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (59)
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (37)
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (11)
+2012/04/17 02:30:51 [error] [parser] 31,63.983
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (58)
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (37)
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (11)
+2012/04/17 02:30:51 [error] [parser] 1
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (59)
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (37)
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (11)
+2012/04/17 02:30:51 [error] [parser] 31,54.712
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (58)
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (37)
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (11)
+2012/04/17 02:30:51 [error] [parser] 1
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (59)
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (37)
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (11)
+2012/04/17 02:30:51 [error] [parser] 31,46.112
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (58)
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (37)
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (11)
+2012/04/17 02:30:51 [error] [parser] 1
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (59)
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (37)
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (11)
+2012/04/17 02:31:24 [error] [parser] e,31,36.104
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (58)
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (37)
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (11)
+2012/04/17 02:31:24 [error] [parser] 31,71.697
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (58)
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (37)
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (11)
+2012/04/17 02:31:24 [error] [parser] 31,63.983
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (58)
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (37)
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (11)
+2012/04/17 02:31:24 [error] [parser] 31,54.712
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (58)
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (37)
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (11)
+2012/04/17 02:31:24 [error] [parser] 31,46.112
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (58)
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (37)
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (11)
+2012/04/17 02:31:57 [error] [parser] e,31,36.104
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (58)
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (37)
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (11)
+2012/04/17 02:32:05 [error] [parser] e,31,36.104
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (58)
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (37)
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (11)
+2012/04/17 02:32:05 [error] [parser] 31,71.697
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (58)
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (37)
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (11)
+2012/04/17 02:32:05 [error] [parser] 31,63.983
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (58)
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (37)
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (11)
+2012/04/17 02:32:05 [error] [parser] 31,54.712
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (58)
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (37)
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (11)
+2012/04/17 02:32:05 [error] [parser] 31,46.112
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (58)
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (37)
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (11)

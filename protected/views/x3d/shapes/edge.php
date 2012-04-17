@@ -1,8 +1,8 @@
 <?php 
 
 // bleibt fest
-$coneHeight = 0.5;
-$cylinderRadius = 0.2;
+$coneHeight = 3;
+$cylinderRadius = 1;
 
 $startpoint = $startPos;
 $endpoint = $endPos;

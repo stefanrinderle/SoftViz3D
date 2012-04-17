@@ -29,6 +29,7 @@ class DotParser extends CApplicationComponent
 		// retrieve boundbox rectangle: graph [bb="0,0,62,108"]; --> 0,0,62,108
 		$this->getNewLine();
 		$bb = $this->retrieveParam($this->actualLine, 'bb');
+		$bb = explode(",", $bb);
 		
 		$this->getNewLine();
 		$nodes = $this->retrieveNodes();
@@ -51,6 +52,14 @@ class DotParser extends CApplicationComponent
 			$edge = array();
 			$edge['pos'] = $this->retrieveParam($line, 'pos');
 			
+			$edge['pos'] = explode(" ", $edge['pos']);
+			
+			foreach ($edge['pos'] as $key => $value) {
+				$edge['pos'][$key] = explode(",", $value);
+			}
+			
+			
+			
 			$edges[$this->retrieveName($line)] = $edge;
 			
 			$this->getNewLine();
@@ -68,6 +77,7 @@ class DotParser extends CApplicationComponent
 		while (!($this->isEdge($line) || $this->isEnd($line))) {
 			$node = array();
 			$node['pos'] = $this->retrieveParam($line, 'pos');
+			$node['pos'] = explode(",", $node['pos']);
 			
 			$nodes[$this->retrieveName($line)] = $node; 
 			

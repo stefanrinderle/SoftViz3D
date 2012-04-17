@@ -2,33 +2,50 @@
 
 class X3dController extends Controller
 {
+	private $dotfile = '/Users/stefan/Sites/3dArch/x3d/simpleGraph2D.dot';
+	private $outputfile = '/Users/stefan/Sites/3dArch/x3d/simpleGraph2D.adot';
+	
 	public function actionIndex()
 	{
-		$x3dContent = array(
-			'basePlattform'=>array(
-					'size'=>array('width'=>62, 'height'=>0.1, 'length'=>108),
+		// get layout and parse result --------------------
+		$result = Yii::app()->dotLayout->layout($this->dotfile, $this->outputfile);
+		$graph =  Yii::app()->dotParser->parse($this->outputfile);
+		
+		// map to x3d -------------------------------------
+		$x3dContent = array();
+		
+		// Bounding Box
+		$x3dContent['bb'] = array(
+					'size'=>array('width'=>$graph['bb'][2], 'height'=>0.1, 'length'=>$graph['bb'][3]),
 					'colour'=>array('r'=>0, 'g'=>0.5, 'b'=>1)
-			),
-			'boxes'=>array(
-				'box1'=>array(
-					'size'=>array('width'=>1, 'height'=>1, 'length'=>1),
-					'position'=>array('x'=>31, 'y'=>0, 'z'=>90),
-					'colour'=>array('r'=>0, 'g'=>1, 'b'=>0)
-					),
-				'box2'=>array(
-					'size'=>array('width'=>1, 'height'=>1, 'length'=>1),
-					'position'=>array('x'=>31, 'y'=>0, 'z'=>18),
-					'colour'=>array('r'=>0, 'g'=>1, 'b'=>0)
-					)
-			),
-			'edges'=>array(
-				'edge1'=>array(
-					'startPos'=>array('x'=>31, 'y'=>0, 'z'=>71),
-					'endPos'=>array('x'=>31, 'y'=>0, 'z'=>36),
-					'colour'=>array('r'=>0, 'g'=>1, 'b'=>0)
-					)
-			)
 		);
+		
+		// Nodes
+		$x3dContent['nodes'] = array();
+		foreach ($graph['nodes'] as $key => $value) {
+			$x3dContent['nodes'][$key] = array(
+				'name'=>$key,
+				'size'=>array('width'=>5, 'height'=>5, 'length'=>5),
+				'position'=>array('x' => $value['pos'][0] - $x3dContent['bb'][size][width] / 2, 
+								  'y' => 0, 
+								  'z' => $value['pos'][1] - $x3dContent['bb'][size][length] / 2),
+				'colour'=>array('r'=>0, 'g'=>1, 'b'=>0)
+			);
+		}
+		
+		// Edges
+		$x3dContent['edges'] = array();
+		foreach ($graph['edges'] as $key => $value) {
+			$x3dContent['edges'][$key] = array(
+				'startPos'=>array('x' => $value['pos'][1][0] - $x3dContent['bb'][size][width] / 2, 
+								  'y' => 0, 
+								  'z' => $value['pos'][1][1] - $x3dContent['bb'][size][length] / 2),
+				'endPos'=>array('x' => $value['pos'][0][1] - $x3dContent['bb'][size][width] / 2, 
+								'y' => 0, 
+								'z' => $value['pos'][0][2] - $x3dContent['bb'][size][length] / 2),
+				'colour'=>array('r'=>0, 'g'=>1, 'b'=>0)
+			);
+		}
 		
 		$this->render('index', $x3dContent);
 	}
@@ -50,31 +67,4 @@ class X3dController extends Controller
 		}
 	}
 	 */
-	
-	// Uncomment the following methods and override them if needed
-	/*
-	public function filters()
-	{
-		// return the filter configuration for this controller, e.g.:
-		return array(
-			'inlineFilterName',
-			array(
-				'class'=>'path.to.FilterClass',
-				'propertyName'=>'propertyValue',
-			),
-		);
-	}
-
-	public function actions()
-	{
-		// return external action classes, e.g.:
-		return array(
-			'action1'=>'path.to.ActionClass',
-			'action2'=>array(
-				'class'=>'path.to.AnotherActionClass',
-				'propertyName'=>'propertyValue',
-			),
-		);
-	}
-	*/
 }

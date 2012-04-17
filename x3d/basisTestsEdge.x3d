@@ -29,7 +29,7 @@
   <Scene>
       <Group>
       <Shape DEF='basePlattform'>
-        <Box size='10 0.1 10'/>
+        <Box size='2 0.1 2'/>
         <Appearance>
           <Material diffuseColor='0 0.5 1'/>
           <!-- TODO add ImageTexture, MovieTexture, PixelTexture, TextureTransform, FillProperties, and/or LineProperties nodes here -->
