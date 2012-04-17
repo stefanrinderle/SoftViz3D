@@ -57,7 +57,10 @@ class GraphVizController extends Controller
 		//Yii::log($this->actualLine, 'error', 'parser');
 		
 		while (!$this->isEnd($line)) {
-			array_push($edges, $this->retrieveParam($line, 'pos'));
+			$edge = array();
+			$edge['pos'] = $this->retrieveParam($line, 'pos');
+			
+			$edges[$this->retrieveName($line)] = $edge;
 			
 			$this->getNewLine();
 			$line = $this->actualLine;
@@ -72,7 +75,10 @@ class GraphVizController extends Controller
 		$line = $this->actualLine;
 		
 		while (!($this->isEdge($line) || $this->isEnd($line))) {
-			array_push($nodes, $this->retrieveParam($line, 'pos'));
+			$node = array();
+			$node['pos'] = $this->retrieveParam($line, 'pos');
+			
+			$nodes[$this->retrieveName($line)] = $node; 
 			
 			$this->getNewLine();
 			$line = $this->actualLine;
@@ -93,6 +99,16 @@ class GraphVizController extends Controller
 		}
 	}
 
+	private function retrieveName($line) {
+		$startParamsPos = strpos($line, "[");
+		
+		if ($startParamsPos === false) {
+			return trim($line);
+		} else {
+			return trim(substr($line, 0, $startParamsPos));
+		}
+	}
+	
 	private function retrieveParam($line, $param) {
 		$result = "";
 		// get the beginning of the param
