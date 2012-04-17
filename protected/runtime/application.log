@@ -324,3 +324,943 @@ REQUEST_URI=/~stefan/3dArch/index.php?r=x3d/index
 in /Users/stefan/Sites/3dArch/protected/views/x3d/index.php (36)
 in /Users/stefan/Sites/3dArch/protected/views/x3d/index.php (36)
 in /Users/stefan/Sites/3dArch/protected/controllers/X3dController.php (33)
+2012/04/16 22:37:38 [error] [php] require_once(lib/GraphViz.php) [<a href='function.require-once'>function.require-once</a>]: failed to open stream: No such file or directory (/Users/stefan/Sites/3dArch/protected/views/graphViz/index.php:7)
+Stack trace:
+#0 /Users/stefan/Sites/3dArch/yii/framework/web/CBaseController.php(96): GraphVizController->renderInternal()
+#1 /Users/stefan/Sites/3dArch/yii/framework/web/CController.php(870): GraphVizController->renderFile()
+#2 /Users/stefan/Sites/3dArch/yii/framework/web/CController.php(783): GraphVizController->renderPartial()
+#3 /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php(7): GraphVizController->render()
+#4 /Users/stefan/Sites/3dArch/yii/framework/web/actions/CInlineAction.php(50): GraphVizController->actionIndex()
+#5 /Users/stefan/Sites/3dArch/yii/framework/web/CController.php(309): CInlineAction->runWithParams()
+#6 /Users/stefan/Sites/3dArch/yii/framework/web/CController.php(287): GraphVizController->runAction()
+#7 /Users/stefan/Sites/3dArch/yii/framework/web/CController.php(266): GraphVizController->runActionWithFilters()
+#8 /Users/stefan/Sites/3dArch/yii/framework/web/CWebApplication.php(276): GraphVizController->run()
+#9 /Users/stefan/Sites/3dArch/yii/framework/web/CWebApplication.php(135): CWebApplication->runController()
+#10 /Users/stefan/Sites/3dArch/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#11 /Users/stefan/Sites/3dArch/index.php(13): CWebApplication->run()
+REQUEST_URI=/~stefan/3dArch/index.php?r=graphViz/index
+in /Users/stefan/Sites/3dArch/protected/views/graphViz/index.php (7)
+in /Users/stefan/Sites/3dArch/protected/views/graphViz/index.php (7)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (7)
+2012/04/16 22:38:40 [error] [php] require_once(../../lib/GraphViz.php) [<a href='function.require-once'>function.require-once</a>]: failed to open stream: No such file or directory (/Users/stefan/Sites/3dArch/protected/views/graphViz/index.php:7)
+Stack trace:
+#0 /Users/stefan/Sites/3dArch/yii/framework/web/CBaseController.php(96): GraphVizController->renderInternal()
+#1 /Users/stefan/Sites/3dArch/yii/framework/web/CController.php(870): GraphVizController->renderFile()
+#2 /Users/stefan/Sites/3dArch/yii/framework/web/CController.php(783): GraphVizController->renderPartial()
+#3 /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php(7): GraphVizController->render()
+#4 /Users/stefan/Sites/3dArch/yii/framework/web/actions/CInlineAction.php(50): GraphVizController->actionIndex()
+#5 /Users/stefan/Sites/3dArch/yii/framework/web/CController.php(309): CInlineAction->runWithParams()
+#6 /Users/stefan/Sites/3dArch/yii/framework/web/CController.php(287): GraphVizController->runAction()
+#7 /Users/stefan/Sites/3dArch/yii/framework/web/CController.php(266): GraphVizController->runActionWithFilters()
+#8 /Users/stefan/Sites/3dArch/yii/framework/web/CWebApplication.php(276): GraphVizController->run()
+#9 /Users/stefan/Sites/3dArch/yii/framework/web/CWebApplication.php(135): CWebApplication->runController()
+#10 /Users/stefan/Sites/3dArch/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#11 /Users/stefan/Sites/3dArch/index.php(13): CWebApplication->run()
+REQUEST_URI=/~stefan/3dArch/index.php?r=graphViz/index
+in /Users/stefan/Sites/3dArch/protected/views/graphViz/index.php (7)
+in /Users/stefan/Sites/3dArch/protected/views/graphViz/index.php (7)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (7)
+2012/04/16 22:38:41 [error] [php] require_once(../../lib/GraphViz.php) [<a href='function.require-once'>function.require-once</a>]: failed to open stream: No such file or directory (/Users/stefan/Sites/3dArch/protected/views/graphViz/index.php:7)
+Stack trace:
+#0 /Users/stefan/Sites/3dArch/yii/framework/web/CBaseController.php(96): GraphVizController->renderInternal()
+#1 /Users/stefan/Sites/3dArch/yii/framework/web/CController.php(870): GraphVizController->renderFile()
+#2 /Users/stefan/Sites/3dArch/yii/framework/web/CController.php(783): GraphVizController->renderPartial()
+#3 /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php(7): GraphVizController->render()
+#4 /Users/stefan/Sites/3dArch/yii/framework/web/actions/CInlineAction.php(50): GraphVizController->actionIndex()
+#5 /Users/stefan/Sites/3dArch/yii/framework/web/CController.php(309): CInlineAction->runWithParams()
+#6 /Users/stefan/Sites/3dArch/yii/framework/web/CController.php(287): GraphVizController->runAction()
+#7 /Users/stefan/Sites/3dArch/yii/framework/web/CController.php(266): GraphVizController->runActionWithFilters()
+#8 /Users/stefan/Sites/3dArch/yii/framework/web/CWebApplication.php(276): GraphVizController->run()
+#9 /Users/stefan/Sites/3dArch/yii/framework/web/CWebApplication.php(135): CWebApplication->runController()
+#10 /Users/stefan/Sites/3dArch/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#11 /Users/stefan/Sites/3dArch/index.php(13): CWebApplication->run()
+REQUEST_URI=/~stefan/3dArch/index.php?r=graphViz/index
+in /Users/stefan/Sites/3dArch/protected/views/graphViz/index.php (7)
+in /Users/stefan/Sites/3dArch/protected/views/graphViz/index.php (7)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (7)
+2012/04/16 22:39:33 [error] [php] require_once(../../lib/GraphViz.php) [<a href='function.require-once'>function.require-once</a>]: failed to open stream: No such file or directory (/Users/stefan/Sites/3dArch/protected/views/graphViz/index.php:7)
+Stack trace:
+#0 /Users/stefan/Sites/3dArch/yii/framework/web/CBaseController.php(96): GraphVizController->renderInternal()
+#1 /Users/stefan/Sites/3dArch/yii/framework/web/CController.php(870): GraphVizController->renderFile()
+#2 /Users/stefan/Sites/3dArch/yii/framework/web/CController.php(783): GraphVizController->renderPartial()
+#3 /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php(7): GraphVizController->render()
+#4 /Users/stefan/Sites/3dArch/yii/framework/web/actions/CInlineAction.php(50): GraphVizController->actionIndex()
+#5 /Users/stefan/Sites/3dArch/yii/framework/web/CController.php(309): CInlineAction->runWithParams()
+#6 /Users/stefan/Sites/3dArch/yii/framework/web/CController.php(287): GraphVizController->runAction()
+#7 /Users/stefan/Sites/3dArch/yii/framework/web/CController.php(266): GraphVizController->runActionWithFilters()
+#8 /Users/stefan/Sites/3dArch/yii/framework/web/CWebApplication.php(276): GraphVizController->run()
+#9 /Users/stefan/Sites/3dArch/yii/framework/web/CWebApplication.php(135): CWebApplication->runController()
+#10 /Users/stefan/Sites/3dArch/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#11 /Users/stefan/Sites/3dArch/index.php(13): CWebApplication->run()
+REQUEST_URI=/~stefan/3dArch/index.php?r=graphViz/index
+in /Users/stefan/Sites/3dArch/protected/views/graphViz/index.php (7)
+in /Users/stefan/Sites/3dArch/protected/views/graphViz/index.php (7)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (7)
+2012/04/16 22:41:54 [error] [php] Object of class Image_GraphViz could not be converted to string (/Users/stefan/Sites/3dArch/protected/views/graphViz/index.php:16)
+Stack trace:
+#0 /Users/stefan/Sites/3dArch/yii/framework/web/CController.php(870): GraphVizController->renderFile()
+#1 /Users/stefan/Sites/3dArch/yii/framework/web/CController.php(783): GraphVizController->renderPartial()
+#2 /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php(7): GraphVizController->render()
+#3 /Users/stefan/Sites/3dArch/yii/framework/web/actions/CInlineAction.php(50): GraphVizController->actionIndex()
+#4 /Users/stefan/Sites/3dArch/yii/framework/web/CController.php(309): CInlineAction->runWithParams()
+#5 /Users/stefan/Sites/3dArch/yii/framework/web/CController.php(287): GraphVizController->runAction()
+#6 /Users/stefan/Sites/3dArch/yii/framework/web/CController.php(266): GraphVizController->runActionWithFilters()
+#7 /Users/stefan/Sites/3dArch/yii/framework/web/CWebApplication.php(276): GraphVizController->run()
+#8 /Users/stefan/Sites/3dArch/yii/framework/web/CWebApplication.php(135): CWebApplication->runController()
+#9 /Users/stefan/Sites/3dArch/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#10 /Users/stefan/Sites/3dArch/index.php(13): CWebApplication->run()
+REQUEST_URI=/~stefan/3dArch/index.php?r=graphViz/index
+in /Users/stefan/Sites/3dArch/protected/views/graphViz/index.php (16)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (7)
+in /Users/stefan/Sites/3dArch/index.php (13)
+2012/04/16 22:56:26 [error] [exception.CException] exception 'CException' with message 'Property "GraphVizController.graph" is not defined.' in /Users/stefan/Sites/3dArch/yii/framework/base/CComponent.php:131
+Stack trace:
+#0 /Users/stefan/Sites/3dArch/protected/views/graphViz/index.php(49): CComponent->__get('graph')
+#1 /Users/stefan/Sites/3dArch/yii/framework/web/CBaseController.php(127): require('/Users/stefan/S...')
+#2 /Users/stefan/Sites/3dArch/yii/framework/web/CBaseController.php(96): CBaseController->renderInternal('/Users/stefan/S...', NULL, true)
+#3 /Users/stefan/Sites/3dArch/yii/framework/web/CController.php(870): CBaseController->renderFile('/Users/stefan/S...', NULL, true)
+#4 /Users/stefan/Sites/3dArch/yii/framework/web/CController.php(783): CController->renderPartial('index', NULL, true)
+#5 /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php(7): CController->render('index')
+#6 /Users/stefan/Sites/3dArch/yii/framework/web/actions/CInlineAction.php(50): GraphVizController->actionIndex()
+#7 /Users/stefan/Sites/3dArch/yii/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#8 /Users/stefan/Sites/3dArch/yii/framework/web/CController.php(287): CController->runAction(Object(CInlineAction))
+#9 /Users/stefan/Sites/3dArch/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#10 /Users/stefan/Sites/3dArch/yii/framework/web/CWebApplication.php(276): CController->run('index')
+#11 /Users/stefan/Sites/3dArch/yii/framework/web/CWebApplication.php(135): CWebApplication->runController('graphViz/index')
+#12 /Users/stefan/Sites/3dArch/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#13 /Users/stefan/Sites/3dArch/index.php(13): CApplication->run()
+#14 {main}
+REQUEST_URI=/~stefan/3dArch/index.php?r=graphViz/index
+HTTP_REFERER=http://localhost/~stefan/3dArch/index.php?r=x3d/index
+---
+2012/04/16 23:02:14 [error] [exception.CException] exception 'CException' with message 'Property "GraphVizController.binPath" is not defined.' in /Users/stefan/Sites/3dArch/yii/framework/base/CComponent.php:131
+Stack trace:
+#0 /Users/stefan/Sites/3dArch/protected/views/graphViz/index.php(52): CComponent->__get('binPath')
+#1 /Users/stefan/Sites/3dArch/yii/framework/web/CBaseController.php(127): require('/Users/stefan/S...')
+#2 /Users/stefan/Sites/3dArch/yii/framework/web/CBaseController.php(96): CBaseController->renderInternal('/Users/stefan/S...', NULL, true)
+#3 /Users/stefan/Sites/3dArch/yii/framework/web/CController.php(870): CBaseController->renderFile('/Users/stefan/S...', NULL, true)
+#4 /Users/stefan/Sites/3dArch/yii/framework/web/CController.php(783): CController->renderPartial('index', NULL, true)
+#5 /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php(7): CController->render('index')
+#6 /Users/stefan/Sites/3dArch/yii/framework/web/actions/CInlineAction.php(50): GraphVizController->actionIndex()
+#7 /Users/stefan/Sites/3dArch/yii/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#8 /Users/stefan/Sites/3dArch/yii/framework/web/CController.php(287): CController->runAction(Object(CInlineAction))
+#9 /Users/stefan/Sites/3dArch/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#10 /Users/stefan/Sites/3dArch/yii/framework/web/CWebApplication.php(276): CController->run('index')
+#11 /Users/stefan/Sites/3dArch/yii/framework/web/CWebApplication.php(135): CWebApplication->runController('graphViz/index')
+#12 /Users/stefan/Sites/3dArch/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#13 /Users/stefan/Sites/3dArch/index.php(13): CApplication->run()
+#14 {main}
+REQUEST_URI=/~stefan/3dArch/index.php?r=graphViz/index
+HTTP_REFERER=http://localhost/~stefan/3dArch/index.php?r=x3d/index
+---
+2012/04/16 23:43:00 [error] [exception.CException] exception 'CException' with message 'Property "GraphVizController.message" is not defined.' in /Users/stefan/Sites/3dArch/yii/framework/base/CComponent.php:131
+Stack trace:
+#0 /Users/stefan/Sites/3dArch/protected/views/graphViz/index.php(6): CComponent->__get('message')
+#1 /Users/stefan/Sites/3dArch/yii/framework/web/CBaseController.php(127): require('/Users/stefan/S...')
+#2 /Users/stefan/Sites/3dArch/yii/framework/web/CBaseController.php(96): CBaseController->renderInternal('/Users/stefan/S...', Array, true)
+#3 /Users/stefan/Sites/3dArch/yii/framework/web/CController.php(870): CBaseController->renderFile('/Users/stefan/S...', Array, true)
+#4 /Users/stefan/Sites/3dArch/yii/framework/web/CController.php(783): CController->renderPartial('index', Array, true)
+#5 /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php(41): CController->render('index', Array)
+#6 /Users/stefan/Sites/3dArch/yii/framework/web/actions/CInlineAction.php(50): GraphVizController->actionIndex()
+#7 /Users/stefan/Sites/3dArch/yii/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#8 /Users/stefan/Sites/3dArch/yii/framework/web/CController.php(287): CController->runAction(Object(CInlineAction))
+#9 /Users/stefan/Sites/3dArch/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#10 /Users/stefan/Sites/3dArch/yii/framework/web/CWebApplication.php(276): CController->run('index')
+#11 /Users/stefan/Sites/3dArch/yii/framework/web/CWebApplication.php(135): CWebApplication->runController('graphViz/index')
+#12 /Users/stefan/Sites/3dArch/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#13 /Users/stefan/Sites/3dArch/index.php(13): CApplication->run()
+#14 {main}
+REQUEST_URI=/~stefan/3dArch/index.php?r=graphViz/index
+HTTP_REFERER=http://localhost/~stefan/3dArch/index.php?r=x3d/index
+---
+2012/04/16 23:43:47 [error] [exception.CException] exception 'CException' with message 'Property "GraphVizController.message" is not defined.' in /Users/stefan/Sites/3dArch/yii/framework/base/CComponent.php:131
+Stack trace:
+#0 /Users/stefan/Sites/3dArch/protected/views/graphViz/index.php(6): CComponent->__get('message')
+#1 /Users/stefan/Sites/3dArch/yii/framework/web/CBaseController.php(127): require('/Users/stefan/S...')
+#2 /Users/stefan/Sites/3dArch/yii/framework/web/CBaseController.php(96): CBaseController->renderInternal('/Users/stefan/S...', Array, true)
+#3 /Users/stefan/Sites/3dArch/yii/framework/web/CController.php(870): CBaseController->renderFile('/Users/stefan/S...', Array, true)
+#4 /Users/stefan/Sites/3dArch/yii/framework/web/CController.php(783): CController->renderPartial('index', Array, true)
+#5 /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php(41): CController->render('index', Array)
+#6 /Users/stefan/Sites/3dArch/yii/framework/web/actions/CInlineAction.php(50): GraphVizController->actionIndex()
+#7 /Users/stefan/Sites/3dArch/yii/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#8 /Users/stefan/Sites/3dArch/yii/framework/web/CController.php(287): CController->runAction(Object(CInlineAction))
+#9 /Users/stefan/Sites/3dArch/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#10 /Users/stefan/Sites/3dArch/yii/framework/web/CWebApplication.php(276): CController->run('index')
+#11 /Users/stefan/Sites/3dArch/yii/framework/web/CWebApplication.php(135): CWebApplication->runController('graphViz/index')
+#12 /Users/stefan/Sites/3dArch/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#13 /Users/stefan/Sites/3dArch/index.php(13): CApplication->run()
+#14 {main}
+REQUEST_URI=/~stefan/3dArch/index.php?r=graphViz/index
+HTTP_REFERER=http://localhost/~stefan/3dArch/index.php?r=x3d/index
+---
+2012/04/17 00:32:32 [error] [php] feof() expects parameter 1 to be resource, null given (/Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php:58)
+Stack trace:
+#0 /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php(11): GraphVizController->parseAdotFile()
+#1 /Users/stefan/Sites/3dArch/yii/framework/web/actions/CInlineAction.php(50): GraphVizController->actionIndex()
+#2 /Users/stefan/Sites/3dArch/yii/framework/web/CController.php(309): CInlineAction->runWithParams()
+#3 /Users/stefan/Sites/3dArch/yii/framework/web/CController.php(287): GraphVizController->runAction()
+#4 /Users/stefan/Sites/3dArch/yii/framework/web/CController.php(266): GraphVizController->runActionWithFilters()
+#5 /Users/stefan/Sites/3dArch/yii/framework/web/CWebApplication.php(276): GraphVizController->run()
+#6 /Users/stefan/Sites/3dArch/yii/framework/web/CWebApplication.php(135): CWebApplication->runController()
+#7 /Users/stefan/Sites/3dArch/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#8 /Users/stefan/Sites/3dArch/index.php(13): CWebApplication->run()
+REQUEST_URI=/~stefan/3dArch/index.php?r=graphViz/index
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (58)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (28)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (11)
+2012/04/17 00:32:46 [error] [php] feof() expects parameter 1 to be resource, null given (/Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php:58)
+Stack trace:
+#0 /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php(11): GraphVizController->parseAdotFile()
+#1 /Users/stefan/Sites/3dArch/yii/framework/web/actions/CInlineAction.php(50): GraphVizController->actionIndex()
+#2 /Users/stefan/Sites/3dArch/yii/framework/web/CController.php(309): CInlineAction->runWithParams()
+#3 /Users/stefan/Sites/3dArch/yii/framework/web/CController.php(287): GraphVizController->runAction()
+#4 /Users/stefan/Sites/3dArch/yii/framework/web/CController.php(266): GraphVizController->runActionWithFilters()
+#5 /Users/stefan/Sites/3dArch/yii/framework/web/CWebApplication.php(276): GraphVizController->run()
+#6 /Users/stefan/Sites/3dArch/yii/framework/web/CWebApplication.php(135): CWebApplication->runController()
+#7 /Users/stefan/Sites/3dArch/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#8 /Users/stefan/Sites/3dArch/index.php(13): CWebApplication->run()
+REQUEST_URI=/~stefan/3dArch/index.php?r=graphViz/index
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (58)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (28)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (11)
+2012/04/17 00:32:47 [error] [php] feof() expects parameter 1 to be resource, null given (/Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php:58)
+Stack trace:
+#0 /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php(11): GraphVizController->parseAdotFile()
+#1 /Users/stefan/Sites/3dArch/yii/framework/web/actions/CInlineAction.php(50): GraphVizController->actionIndex()
+#2 /Users/stefan/Sites/3dArch/yii/framework/web/CController.php(309): CInlineAction->runWithParams()
+#3 /Users/stefan/Sites/3dArch/yii/framework/web/CController.php(287): GraphVizController->runAction()
+#4 /Users/stefan/Sites/3dArch/yii/framework/web/CController.php(266): GraphVizController->runActionWithFilters()
+#5 /Users/stefan/Sites/3dArch/yii/framework/web/CWebApplication.php(276): GraphVizController->run()
+#6 /Users/stefan/Sites/3dArch/yii/framework/web/CWebApplication.php(135): CWebApplication->runController()
+#7 /Users/stefan/Sites/3dArch/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#8 /Users/stefan/Sites/3dArch/index.php(13): CWebApplication->run()
+REQUEST_URI=/~stefan/3dArch/index.php?r=graphViz/index
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (58)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (28)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (11)
+2012/04/17 00:39:28 [error] [parser] hallo
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (42)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (30)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (11)
+2012/04/17 00:39:52 [error] [parser] }
+
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (48)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (30)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (11)
+2012/04/17 00:39:52 [error] [parser] 
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (48)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (30)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (11)
+2012/04/17 00:56:42 [error] [parser] bla
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (13)
+in /Users/stefan/Sites/3dArch/index.php (13)
+2012/04/17 00:56:44 [error] [parser] bla
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (13)
+in /Users/stefan/Sites/3dArch/index.php (13)
+2012/04/17 00:56:45 [error] [parser] bla
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (13)
+in /Users/stefan/Sites/3dArch/index.php (13)
+2012/04/17 00:57:06 [error] [parser] bla
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (13)
+in /Users/stefan/Sites/3dArch/index.php (13)
+2012/04/17 00:57:28 [error] [parser] bla
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (13)
+in /Users/stefan/Sites/3dArch/index.php (13)
+2012/04/17 00:57:44 [error] [parser] digraph G {
+
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (24)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (32)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (16)
+2012/04/17 00:57:44 [error] [parser] 	node [label="\N"];
+
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (24)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (34)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (16)
+2012/04/17 00:57:53 [error] [parser] digraph G {
+
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (24)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (32)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (16)
+2012/04/17 00:57:53 [error] [parser] 	node [label="\N"];
+
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (24)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (34)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (16)
+2012/04/17 00:57:53 [error] [parser] 	graph [bb="0,0,62,108"];
+
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (24)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (37)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (16)
+2012/04/17 00:57:54 [error] [parser] digraph G {
+
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (24)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (32)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (16)
+2012/04/17 00:57:54 [error] [parser] 	node [label="\N"];
+
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (24)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (34)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (16)
+2012/04/17 00:57:54 [error] [parser] 	graph [bb="0,0,62,108"];
+
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (24)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (37)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (16)
+2012/04/17 00:58:06 [error] [parser] digraph G {
+
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (24)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (32)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (16)
+2012/04/17 00:58:06 [error] [parser] 	node [label="\N"];
+
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (24)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (34)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (16)
+2012/04/17 00:58:06 [error] [parser] 	graph [bb="0,0,62,108"];
+
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (24)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (37)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (16)
+2012/04/17 01:00:06 [error] [parser] digraph G {
+
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (24)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (32)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (16)
+2012/04/17 01:00:06 [error] [parser] 	node [label="\N"];
+
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (24)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (34)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (16)
+2012/04/17 01:00:06 [error] [parser] 	graph [bb="0,0,62,108"];
+
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (24)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (37)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (16)
+2012/04/17 01:00:06 [error] [parser] 	main [pos="31,90", width="0.83813", height="0.5"];
+
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (24)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (40)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (16)
+2012/04/17 01:00:06 [error] [parser] 	parse [pos="31,18", width="0.86682", height="0.5"];
+
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (24)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (75)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (41)
+2012/04/17 01:00:06 [error] [parser] 	main -> parse [pos="e,31,36.104 31,71.697 31,63.983 31,54.712 31,46.112"];
+
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (24)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (75)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (41)
+2012/04/17 01:01:08 [error] [parser] digraph G {
+
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (24)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (32)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (16)
+2012/04/17 01:01:08 [error] [parser] 	node [label="\N"];
+
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (24)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (34)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (16)
+2012/04/17 01:01:08 [error] [parser] 	graph [bb="0,0,62,108"];
+
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (24)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (37)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (16)
+2012/04/17 01:01:08 [error] [parser] 	main [pos="31,90", width="0.83813", height="0.5"];
+
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (24)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (40)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (16)
+2012/04/17 01:01:08 [error] [parser] 	parse [pos="31,18", width="0.86682", height="0.5"];
+
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (24)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (77)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (41)
+2012/04/17 01:01:08 [error] [parser] 	main -> parse [pos="e,31,36.104 31,71.697 31,63.983 31,54.712 31,46.112"];
+
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (24)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (77)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (41)
+2012/04/17 01:02:52 [error] [parser] digraph G {
+
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (24)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (32)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (16)
+2012/04/17 01:02:52 [error] [parser] 	node [label="\N"];
+
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (24)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (34)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (16)
+2012/04/17 01:02:52 [error] [parser] 	graph [bb="0,0,62,108"];
+
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (24)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (37)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (16)
+2012/04/17 01:02:52 [error] [parser] 	main [pos="31,90", width="0.83813", height="0.5"];
+
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (24)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (40)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (16)
+2012/04/17 01:02:52 [error] [parser] 	parse [pos="31,18", width="0.86682", height="0.5"];
+
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (24)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (75)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (41)
+2012/04/17 01:02:52 [error] [parser] 	main -> parse [pos="e,31,36.104 31,71.697 31,63.983 31,54.712 31,46.112"];
+
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (24)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (75)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (41)
+2012/04/17 01:02:52 [error] [php] fclose() expects parameter 1 to be resource, null given (/Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php:45)
+Stack trace:
+#0 /Users/stefan/Sites/3dArch/yii/framework/web/actions/CInlineAction.php(50): GraphVizController->actionIndex()
+#1 /Users/stefan/Sites/3dArch/yii/framework/web/CController.php(309): CInlineAction->runWithParams()
+#2 /Users/stefan/Sites/3dArch/yii/framework/web/CController.php(287): GraphVizController->runAction()
+#3 /Users/stefan/Sites/3dArch/yii/framework/web/CController.php(266): GraphVizController->runActionWithFilters()
+#4 /Users/stefan/Sites/3dArch/yii/framework/web/CWebApplication.php(276): GraphVizController->run()
+#5 /Users/stefan/Sites/3dArch/yii/framework/web/CWebApplication.php(135): CWebApplication->runController()
+#6 /Users/stefan/Sites/3dArch/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#7 /Users/stefan/Sites/3dArch/index.php(13): CWebApplication->run()
+REQUEST_URI=/~stefan/3dArch/index.php?r=graphViz/index
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (45)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (16)
+in /Users/stefan/Sites/3dArch/index.php (13)
+2012/04/17 01:02:53 [error] [parser] digraph G {
+
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (24)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (32)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (16)
+2012/04/17 01:02:53 [error] [parser] 	node [label="\N"];
+
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (24)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (34)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (16)
+2012/04/17 01:02:53 [error] [parser] 	graph [bb="0,0,62,108"];
+
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (24)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (37)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (16)
+2012/04/17 01:02:53 [error] [parser] 	main [pos="31,90", width="0.83813", height="0.5"];
+
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (24)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (40)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (16)
+2012/04/17 01:02:53 [error] [parser] 	parse [pos="31,18", width="0.86682", height="0.5"];
+
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (24)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (75)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (41)
+2012/04/17 01:02:53 [error] [parser] 	main -> parse [pos="e,31,36.104 31,71.697 31,63.983 31,54.712 31,46.112"];
+
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (24)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (75)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (41)
+2012/04/17 01:02:53 [error] [php] fclose() expects parameter 1 to be resource, null given (/Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php:45)
+Stack trace:
+#0 /Users/stefan/Sites/3dArch/yii/framework/web/actions/CInlineAction.php(50): GraphVizController->actionIndex()
+#1 /Users/stefan/Sites/3dArch/yii/framework/web/CController.php(309): CInlineAction->runWithParams()
+#2 /Users/stefan/Sites/3dArch/yii/framework/web/CController.php(287): GraphVizController->runAction()
+#3 /Users/stefan/Sites/3dArch/yii/framework/web/CController.php(266): GraphVizController->runActionWithFilters()
+#4 /Users/stefan/Sites/3dArch/yii/framework/web/CWebApplication.php(276): GraphVizController->run()
+#5 /Users/stefan/Sites/3dArch/yii/framework/web/CWebApplication.php(135): CWebApplication->runController()
+#6 /Users/stefan/Sites/3dArch/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#7 /Users/stefan/Sites/3dArch/index.php(13): CWebApplication->run()
+REQUEST_URI=/~stefan/3dArch/index.php?r=graphViz/index
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (45)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (16)
+in /Users/stefan/Sites/3dArch/index.php (13)
+2012/04/17 01:03:18 [error] [parser] digraph G {
+
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (24)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (32)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (16)
+2012/04/17 01:03:18 [error] [parser] 	node [label="\N"];
+
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (24)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (34)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (16)
+2012/04/17 01:03:18 [error] [parser] 	graph [bb="0,0,62,108"];
+
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (24)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (37)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (16)
+2012/04/17 01:03:18 [error] [parser] 	main [pos="31,90", width="0.83813", height="0.5"];
+
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (24)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (40)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (16)
+2012/04/17 01:03:18 [error] [parser] 	parse [pos="31,18", width="0.86682", height="0.5"];
+
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (24)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (75)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (41)
+2012/04/17 01:03:18 [error] [parser] 	main -> parse [pos="e,31,36.104 31,71.697 31,63.983 31,54.712 31,46.112"];
+
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (24)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (75)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (41)
+2012/04/17 01:04:15 [error] [parser] digraph G {
+
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (24)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (32)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (16)
+2012/04/17 01:04:15 [error] [parser] 	node [label="\N"];
+
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (24)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (34)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (16)
+2012/04/17 01:04:15 [error] [parser] 	graph [bb="0,0,62,108"];
+
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (24)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (37)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (16)
+2012/04/17 01:04:15 [error] [parser] 	main [pos="31,90", width="0.83813", height="0.5"];
+
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (24)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (40)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (16)
+2012/04/17 01:04:15 [error] [parser] 	parse [pos="31,18", width="0.86682", height="0.5"];
+
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (24)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (75)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (41)
+2012/04/17 01:04:15 [error] [parser] 	main -> parse [pos="e,31,36.104 31,71.697 31,63.983 31,54.712 31,46.112"];
+
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (24)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (75)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (41)
+2012/04/17 01:04:30 [error] [parser] digraph G {
+
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (24)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (32)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (16)
+2012/04/17 01:04:30 [error] [parser] 	node [label="\N"];
+
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (24)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (34)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (16)
+2012/04/17 01:04:30 [error] [parser] 	graph [bb="0,0,62,108"];
+
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (24)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (37)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (16)
+2012/04/17 01:04:30 [error] [parser] 	main [pos="31,90", width="0.83813", height="0.5"];
+
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (24)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (40)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (16)
+2012/04/17 01:04:30 [error] [parser] 	parse [pos="31,18", width="0.86682", height="0.5"];
+
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (24)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (77)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (41)
+2012/04/17 01:04:30 [error] [parser] 	main -> parse [pos="e,31,36.104 31,71.697 31,63.983 31,54.712 31,46.112"];
+
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (24)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (77)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (41)
+2012/04/17 01:04:30 [error] [parser] 	main -> parse [pos="e,31,36.104 31,71.697 31,63.983 31,54.712 31,46.112"];
+
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (57)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (43)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (16)
+2012/04/17 01:05:09 [error] [parser] digraph G {
+
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (24)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (32)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (16)
+2012/04/17 01:05:09 [error] [parser] 	node [label="\N"];
+
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (24)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (34)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (16)
+2012/04/17 01:05:09 [error] [parser] 	graph [bb="0,0,62,108"];
+
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (24)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (37)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (16)
+2012/04/17 01:05:09 [error] [parser] 	main [pos="31,90", width="0.83813", height="0.5"];
+
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (24)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (40)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (16)
+2012/04/17 01:05:09 [error] [parser] 	parse [pos="31,18", width="0.86682", height="0.5"];
+
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (24)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (79)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (41)
+2012/04/17 01:05:09 [error] [parser] 	main -> parse [pos="e,31,36.104 31,71.697 31,63.983 31,54.712 31,46.112"];
+
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (24)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (79)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (41)
+2012/04/17 01:05:09 [error] [parser] 	main -> parse [pos="e,31,36.104 31,71.697 31,63.983 31,54.712 31,46.112"];
+
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (57)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (43)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (16)
+2012/04/17 01:05:09 [error] [parser] }
+
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (24)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (62)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (43)
+2012/04/17 01:05:09 [error] [parser] }
+
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (66)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (43)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (16)
+2012/04/17 01:06:55 [error] [parser] digraph G {
+
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (24)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (32)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (16)
+2012/04/17 01:06:55 [error] [parser] 	node [label="\N"];
+
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (24)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (34)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (16)
+2012/04/17 01:06:55 [error] [parser] 	graph [bb="0,0,62,108"];
+
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (24)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (37)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (16)
+2012/04/17 01:06:55 [error] [parser] 	main [pos="31,90", width="0.83813", height="0.5"];
+
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (24)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (40)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (16)
+2012/04/17 01:06:55 [error] [parser] 	main [pos="31,90", width="0.83813", height="0.5"];
+
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (57)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (43)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (16)
+2012/04/17 01:06:55 [error] [parser] 	parse [pos="31,18", width="0.86682", height="0.5"];
+
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (24)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (62)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (43)
+2012/04/17 01:06:55 [error] [parser] 	parse [pos="31,18", width="0.86682", height="0.5"];
+
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (66)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (43)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (16)
+2012/04/17 01:07:08 [error] [parser] digraph G {
+
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (24)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (32)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (16)
+2012/04/17 01:07:08 [error] [parser] 	node [label="\N"];
+
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (24)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (34)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (16)
+2012/04/17 01:07:08 [error] [parser] 	graph [bb="0,0,62,108"];
+
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (24)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (37)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (16)
+2012/04/17 01:07:08 [error] [parser] 	main [pos="31,90", width="0.83813", height="0.5"];
+
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (24)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (40)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (16)
+2012/04/17 01:07:08 [error] [parser] 	parse [pos="31,18", width="0.86682", height="0.5"];
+
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (24)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (79)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (41)
+2012/04/17 01:07:08 [error] [parser] 	main -> parse [pos="e,31,36.104 31,71.697 31,63.983 31,54.712 31,46.112"];
+
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (24)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (79)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (41)
+2012/04/17 01:07:08 [error] [parser] 	main -> parse [pos="e,31,36.104 31,71.697 31,63.983 31,54.712 31,46.112"];
+
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (57)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (43)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (16)
+2012/04/17 01:07:08 [error] [parser] }
+
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (24)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (62)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (43)
+2012/04/17 01:07:08 [error] [parser] }
+
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (66)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (43)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (16)
+2012/04/17 01:07:36 [error] [parser] digraph G {
+
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (24)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (32)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (16)
+2012/04/17 01:07:36 [error] [parser] 	node [label="\N"];
+
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (24)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (34)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (16)
+2012/04/17 01:07:36 [error] [parser] 	graph [bb="0,0,62,108"];
+
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (24)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (37)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (16)
+2012/04/17 01:07:36 [error] [parser] 	main [pos="31,90", width="0.83813", height="0.5"];
+
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (24)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (40)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (16)
+2012/04/17 01:07:36 [error] [parser] 	parse [pos="31,18", width="0.86682", height="0.5"];
+
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (24)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (79)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (41)
+2012/04/17 01:07:36 [error] [parser] 	main -> parse [pos="e,31,36.104 31,71.697 31,63.983 31,54.712 31,46.112"];
+
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (24)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (79)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (41)
+2012/04/17 01:07:36 [error] [parser] 	main -> parse [pos="e,31,36.104 31,71.697 31,63.983 31,54.712 31,46.112"];
+
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (57)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (43)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (16)
+2012/04/17 01:07:36 [error] [parser] }
+
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (24)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (62)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (43)
+2012/04/17 01:07:36 [error] [parser] }
+
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (66)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (43)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (16)
+2012/04/17 01:07:48 [error] [parser] digraph G {
+
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (24)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (32)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (16)
+2012/04/17 01:07:48 [error] [parser] 	node [label="\N"];
+
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (24)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (34)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (16)
+2012/04/17 01:07:48 [error] [parser] 	graph [bb="0,0,62,108"];
+
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (24)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (37)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (16)
+2012/04/17 01:07:48 [error] [parser] 	main [pos="31,90", width="0.83813", height="0.5"];
+
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (24)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (40)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (16)
+2012/04/17 01:07:48 [error] [parser] 	parse [pos="31,18", width="0.86682", height="0.5"];
+
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (24)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (79)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (41)
+2012/04/17 01:07:48 [error] [parser] 	main -> parse [pos="e,31,36.104 31,71.697 31,63.983 31,54.712 31,46.112"];
+
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (24)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (79)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (41)
+2012/04/17 01:07:48 [error] [parser] 	main -> parse [pos="e,31,36.104 31,71.697 31,63.983 31,54.712 31,46.112"];
+
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (57)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (43)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (16)
+2012/04/17 01:07:48 [error] [parser] }
+
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (24)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (62)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (43)
+2012/04/17 01:07:48 [error] [parser] }
+
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (66)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (43)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (16)
+2012/04/17 01:09:15 [error] [parser] digraph G {
+
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (24)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (32)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (16)
+2012/04/17 01:09:15 [error] [parser] 	node [label="\N"];
+
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (24)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (34)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (16)
+2012/04/17 01:09:15 [error] [parser] 	graph [bb="0,0,62,108"];
+
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (24)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (37)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (16)
+2012/04/17 01:09:15 [error] [parser] 	main [pos="31,90", width="0.83813", height="0.5"];
+
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (24)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (40)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (16)
+2012/04/17 01:09:15 [error] [parser] 	parse [pos="31,18", width="0.86682", height="0.5"];
+
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (24)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (77)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (41)
+2012/04/17 01:09:15 [error] [parser] 	main -> parse [pos="e,31,36.104 31,71.697 31,63.983 31,54.712 31,46.112"];
+
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (24)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (77)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (41)
+2012/04/17 01:09:15 [error] [parser] }
+
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (24)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (62)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (43)
+2012/04/17 01:14:28 [error] [parser] digraph G {
+
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (24)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (32)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (16)
+2012/04/17 01:14:28 [error] [parser] 	node [label="\N"];
+
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (24)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (34)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (16)
+2012/04/17 01:14:28 [error] [parser] 	graph [bb="0,0,62,108"];
+
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (24)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (37)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (16)
+2012/04/17 01:14:28 [error] [parser] 	main [pos="31,90", width="0.83813", height="0.5"];
+
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (24)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (40)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (16)
+2012/04/17 01:14:28 [error] [parser] 	parse [pos="31,18", width="0.86682", height="0.5"];
+
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (24)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (77)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (41)
+2012/04/17 01:14:28 [error] [parser] 	main -> parse [pos="e,31,36.104 31,71.697 31,63.983 31,54.712 31,46.112"];
+
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (24)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (77)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (41)
+2012/04/17 01:14:28 [error] [parser] }
+
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (24)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (62)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (43)
+2012/04/17 01:14:29 [error] [parser] digraph G {
+
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (24)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (32)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (16)
+2012/04/17 01:14:29 [error] [parser] 	node [label="\N"];
+
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (24)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (34)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (16)
+2012/04/17 01:14:29 [error] [parser] 	graph [bb="0,0,62,108"];
+
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (24)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (37)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (16)
+2012/04/17 01:14:29 [error] [parser] 	main [pos="31,90", width="0.83813", height="0.5"];
+
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (24)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (40)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (16)
+2012/04/17 01:14:29 [error] [parser] 	parse [pos="31,18", width="0.86682", height="0.5"];
+
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (24)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (77)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (41)
+2012/04/17 01:14:29 [error] [parser] 	main -> parse [pos="e,31,36.104 31,71.697 31,63.983 31,54.712 31,46.112"];
+
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (24)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (77)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (41)
+2012/04/17 01:14:29 [error] [parser] }
+
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (24)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (62)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (43)
+2012/04/17 01:14:30 [error] [parser] digraph G {
+
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (24)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (32)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (16)
+2012/04/17 01:14:30 [error] [parser] 	node [label="\N"];
+
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (24)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (34)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (16)
+2012/04/17 01:14:30 [error] [parser] 	graph [bb="0,0,62,108"];
+
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (24)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (37)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (16)
+2012/04/17 01:14:30 [error] [parser] 	main [pos="31,90", width="0.83813", height="0.5"];
+
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (24)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (40)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (16)
+2012/04/17 01:14:30 [error] [parser] 	parse [pos="31,18", width="0.86682", height="0.5"];
+
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (24)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (77)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (41)
+2012/04/17 01:14:30 [error] [parser] 	main -> parse [pos="e,31,36.104 31,71.697 31,63.983 31,54.712 31,46.112"];
+
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (24)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (77)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (41)
+2012/04/17 01:14:30 [error] [parser] }
+
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (24)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (62)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (43)
+2012/04/17 01:15:08 [error] [parser] digraph G {
+
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (24)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (32)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (16)
+2012/04/17 01:15:08 [error] [parser] 	node [label="\N"];
+
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (24)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (34)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (16)
+2012/04/17 01:15:08 [error] [parser] 	graph [bb="0,0,62,108"];
+
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (24)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (37)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (16)
+2012/04/17 01:15:08 [error] [parser] 	main [pos="31,90", width="0.83813", height="0.5"];
+
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (24)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (40)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (16)
+2012/04/17 01:15:08 [error] [parser] 	parse [pos="31,18", width="0.86682", height="0.5"];
+
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (24)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (77)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (41)
+2012/04/17 01:15:08 [error] [parser] 	main -> parse [pos="e,31,36.104 31,71.697 31,63.983 31,54.712 31,46.112"];
+
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (24)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (77)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (41)
+2012/04/17 01:15:08 [error] [parser] 	main -> parse [pos="e,31,36.104 31,71.697 31,63.983 31,54.712 31,46.112"];
+
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (24)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (62)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (43)
+2012/04/17 01:15:08 [error] [parser] 	main -> parse [pos="e,31,36.104 31,71.697 31,63.983 31,54.712 31,46.112"];
+
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (24)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (62)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (43)
+2012/04/17 01:15:08 [error] [parser] }
+
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (24)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (62)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (43)
