@@ -1264,3 +1264,335 @@ in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (43)
 in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (24)
 in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (62)
 in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (43)
+2012/04/17 01:26:21 [error] [parser] digraph G {
+
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (24)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (32)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (16)
+2012/04/17 01:26:21 [error] [parser] 	node [label="\N"];
+
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (24)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (34)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (16)
+2012/04/17 01:26:21 [error] [parser] 	graph [bb="0,0,62,108"];
+
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (24)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (37)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (16)
+2012/04/17 01:26:21 [error] [parser] 	main [pos="31,90", width="0.83813", height="0.5"];
+
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (24)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (40)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (16)
+2012/04/17 01:26:21 [error] [parser] 	parse [pos="31,18", width="0.86682", height="0.5"];
+
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (24)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (77)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (41)
+2012/04/17 01:26:21 [error] [parser] 	main -> parse [pos="e,31,36.104 31,71.697 31,63.983 31,54.712 31,46.112"];
+
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (24)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (77)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (41)
+2012/04/17 01:26:21 [error] [parser] }
+
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (24)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (62)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (43)
+2012/04/17 01:27:27 [error] [parser] digraph G {
+
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (24)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (32)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (16)
+2012/04/17 01:27:27 [error] [parser] 	node [label="\N"];
+
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (24)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (34)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (16)
+2012/04/17 01:27:27 [error] [parser] 	graph [bb="0,0,62,108"];
+
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (24)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (37)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (16)
+2012/04/17 01:27:27 [error] [parser] 	main [pos="31,90", width="0.83813", height="0.5"];
+
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (24)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (40)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (16)
+2012/04/17 01:27:27 [error] [parser] 	parse [pos="31,18", width="0.86682", height="0.5"];
+
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (24)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (80)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (41)
+2012/04/17 01:27:27 [error] [parser] 	main -> parse [pos="e,31,36.104 31,71.697 31,63.983 31,54.712 31,46.112"];
+
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (24)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (80)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (41)
+2012/04/17 01:27:27 [error] [parser] }
+
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (24)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (62)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (43)
+2012/04/17 01:28:17 [error] [parser] digraph G {
+
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (24)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (32)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (16)
+2012/04/17 01:28:17 [error] [parser] 	node [label="\N"];
+
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (24)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (34)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (16)
+2012/04/17 01:28:17 [error] [parser] 	graph [bb="0,0,62,108"];
+
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (24)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (37)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (16)
+2012/04/17 01:28:17 [error] [parser] 	main [pos="31,90", width="0.83813", height="0.5"];
+
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (24)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (40)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (16)
+2012/04/17 01:28:17 [error] [parser] 	parse [pos="31,18", width="0.86682", height="0.5"];
+
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (24)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (83)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (41)
+2012/04/17 01:28:17 [error] [parser] 	main -> parse [pos="e,31,36.104 31,71.697 31,63.983 31,54.712 31,46.112"];
+
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (24)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (83)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (41)
+2012/04/17 01:28:17 [error] [parser] }
+
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (24)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (65)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (43)
+2012/04/17 01:35:25 [error] [parser] digraph G {
+
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (24)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (32)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (16)
+2012/04/17 01:35:25 [error] [parser] 	node [label="\N"];
+
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (24)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (34)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (16)
+2012/04/17 01:35:25 [error] [parser] 	graph [bb="0,0,62,108"];
+
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (24)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (37)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (16)
+2012/04/17 01:35:25 [error] [parser] 	main [pos="31,90", width="0.83813", height="0.5"];
+
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (24)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (40)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (16)
+2012/04/17 01:35:25 [error] [parser] 	parse [pos="31,18", width="0.86682", height="0.5"];
+
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (24)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (83)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (41)
+2012/04/17 01:35:25 [error] [parser] 	main -> parse [pos="e,31,36.104 31,71.697 31,63.983 31,54.712 31,46.112"];
+
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (24)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (83)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (41)
+2012/04/17 01:35:25 [error] [parser] }
+
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (24)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (65)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (43)
+2012/04/17 01:35:27 [error] [parser] digraph G {
+
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (24)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (32)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (16)
+2012/04/17 01:35:27 [error] [parser] 	node [label="\N"];
+
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (24)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (34)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (16)
+2012/04/17 01:35:27 [error] [parser] 	graph [bb="0,0,62,108"];
+
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (24)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (37)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (16)
+2012/04/17 01:35:27 [error] [parser] 	main [pos="31,90", width="0.83813", height="0.5"];
+
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (24)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (40)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (16)
+2012/04/17 01:35:27 [error] [parser] 	parse [pos="31,18", width="0.86682", height="0.5"];
+
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (24)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (83)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (41)
+2012/04/17 01:35:27 [error] [parser] 	main -> parse [pos="e,31,36.104 31,71.697 31,63.983 31,54.712 31,46.112"];
+
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (24)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (83)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (41)
+2012/04/17 01:35:27 [error] [parser] }
+
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (24)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (65)
+in /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php (43)
+2012/04/17 01:41:12 [error] [exception.CException] exception 'CException' with message 'Property "DotParser.outputfile" is not defined.' in /Users/stefan/Sites/3dArch/yii/framework/base/CComponent.php:131
+Stack trace:
+#0 /Users/stefan/Sites/3dArch/protected/components/DotParser.php(19): CComponent->__get('outputfile')
+#1 /Users/stefan/Sites/3dArch/protected/components/DotParser.php(8): DotParser->parseAdotFile()
+#2 /Users/stefan/Sites/3dArch/protected/controllers/GraphVizController.php(17): DotParser->parse('/Users/stefan/S...')
+#3 /Users/stefan/Sites/3dArch/yii/framework/web/actions/CInlineAction.php(50): GraphVizController->actionIndex()
+#4 /Users/stefan/Sites/3dArch/yii/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#5 /Users/stefan/Sites/3dArch/yii/framework/web/CController.php(287): CController->runAction(Object(CInlineAction))
+#6 /Users/stefan/Sites/3dArch/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /Users/stefan/Sites/3dArch/yii/framework/web/CWebApplication.php(276): CController->run('index')
+#8 /Users/stefan/Sites/3dArch/yii/framework/web/CWebApplication.php(135): CWebApplication->runController('graphViz/index')
+#9 /Users/stefan/Sites/3dArch/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#10 /Users/stefan/Sites/3dArch/index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/~stefan/3dArch/index.php?r=graphViz/index
+HTTP_REFERER=http://localhost/~stefan/3dArch/index.php?r=x3d/index
+---
+2012/04/17 01:42:13 [error] [parser] digraph G {
+
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (18)
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (26)
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (11)
+2012/04/17 01:42:13 [error] [parser] 	node [label="\N"];
+
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (18)
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (28)
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (11)
+2012/04/17 01:42:13 [error] [parser] 	graph [bb="0,0,62,108"];
+
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (18)
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (31)
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (11)
+2012/04/17 01:42:13 [error] [parser] 	main [pos="31,90", width="0.83813", height="0.5"];
+
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (18)
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (34)
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (11)
+2012/04/17 01:42:13 [error] [parser] 	parse [pos="31,18", width="0.86682", height="0.5"];
+
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (18)
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (77)
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (35)
+2012/04/17 01:42:13 [error] [parser] 	main -> parse [pos="e,31,36.104 31,71.697 31,63.983 31,54.712 31,46.112"];
+
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (18)
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (77)
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (35)
+2012/04/17 01:42:13 [error] [parser] }
+
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (18)
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (59)
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (37)
+2012/04/17 01:43:02 [error] [parser] digraph G {
+
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (18)
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (26)
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (11)
+2012/04/17 01:43:02 [error] [parser] 	node [label="\N"];
+
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (18)
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (28)
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (11)
+2012/04/17 01:43:02 [error] [parser] 	graph [bb="0,0,62,108"];
+
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (18)
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (31)
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (11)
+2012/04/17 01:43:02 [error] [parser] 	main [pos="31,90", width="0.83813", height="0.5"];
+
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (18)
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (34)
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (11)
+2012/04/17 01:43:02 [error] [parser] 	parse [pos="31,18", width="0.86682", height="0.5"];
+
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (18)
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (77)
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (35)
+2012/04/17 01:43:02 [error] [parser] 	main -> parse [pos="e,31,36.104 31,71.697 31,63.983 31,54.712 31,46.112"];
+
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (18)
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (77)
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (35)
+2012/04/17 01:43:02 [error] [parser] }
+
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (18)
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (59)
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (37)
+2012/04/17 01:43:07 [error] [parser] digraph G {
+
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (18)
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (26)
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (11)
+2012/04/17 01:43:07 [error] [parser] 	node [label="\N"];
+
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (18)
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (28)
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (11)
+2012/04/17 01:43:07 [error] [parser] 	graph [bb="0,0,62,108"];
+
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (18)
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (31)
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (11)
+2012/04/17 01:43:07 [error] [parser] 	main [pos="31,90", width="0.83813", height="0.5"];
+
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (18)
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (34)
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (11)
+2012/04/17 01:43:07 [error] [parser] 	parse [pos="31,18", width="0.86682", height="0.5"];
+
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (18)
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (77)
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (35)
+2012/04/17 01:43:07 [error] [parser] 	main -> parse [pos="e,31,36.104 31,71.697 31,63.983 31,54.712 31,46.112"];
+
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (18)
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (77)
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (35)
+2012/04/17 01:43:07 [error] [parser] }
+
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (18)
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (59)
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (37)
+2012/04/17 01:43:09 [error] [parser] digraph G {
+
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (18)
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (26)
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (11)
+2012/04/17 01:43:09 [error] [parser] 	node [label="\N"];
+
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (18)
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (28)
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (11)
+2012/04/17 01:43:09 [error] [parser] 	graph [bb="0,0,62,108"];
+
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (18)
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (31)
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (11)
+2012/04/17 01:43:09 [error] [parser] 	main [pos="31,90", width="0.83813", height="0.5"];
+
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (18)
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (34)
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (11)
+2012/04/17 01:43:09 [error] [parser] 	parse [pos="31,18", width="0.86682", height="0.5"];
+
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (18)
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (77)
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (35)
+2012/04/17 01:43:09 [error] [parser] 	main -> parse [pos="e,31,36.104 31,71.697 31,63.983 31,54.712 31,46.112"];
+
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (18)
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (77)
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (35)
+2012/04/17 01:43:09 [error] [parser] }
+
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (18)
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (59)
+in /Users/stefan/Sites/3dArch/protected/components/DotParser.php (37)

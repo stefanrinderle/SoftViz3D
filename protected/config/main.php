@@ -30,6 +30,12 @@ return array(
 
 	// application components
 	'components'=>array(
+		'dotParser'=>array(
+			'class'=>'DotParser',
+		),
+		'dotLayout'=>array(
+			'class'=>'DotLayout',
+		),
 		'user'=>array(
 			// enable cookie-based authentication
 			'allowAutoLogin'=>true,
