@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.0//EN" "http://www.web3d.org/specifications/x3d-3.0.dtd">
+
+<X3D profile="Immersive" version="3.0">
+  <head>
+    <component name="NURBS" level="1"/>
+  </head>
+  <Scene>
+    <Group>
+      <Shape/>
+    </Group>
+    <Group>
+      <Shape>
+        <Box size="1 1 1"/>
+        <Appearance>
+          <Material diffuseColor="1 0 0"/>
+        </Appearance>
+      </Shape>
+      <Shape DEF="KURVE">
+        <NurbsCurve order="4" weight="1 1 1 1 1">
+          <Coordinate point="0 0 0, 3 3 0, 6 0 0, 9 -3 0, 12 0 0"/>
+        </NurbsCurve>
+        <Appearance>
+          <Material diffuseColor="1 0 0" emissiveColor="1 0 0" shininess="1" specularColor="1 0 0"/>
+          <LineProperties linetype="5" linewidthScaleFactor="100"/>
+        </Appearance>
+      </Shape>
+    </Group>
+  </Scene>
+</X3D>

@@ -15,6 +15,7 @@ class DotParser extends CApplicationComponent
 	
 	private function getNewLine() {
 		$this->actualLine = fgets($this->parseFileHandle);
+		return $this->actualLine;
 	}
 	
 	private function parseAdotFile($adotFile) {
@@ -26,23 +27,39 @@ class DotParser extends CApplicationComponent
 		// ommit second line: node [label="\N"];
 		$this->getNewLine();
 
-		// retrieve boundbox rectangle: graph [bb="0,0,62,108"]; --> 0,0,62,108
-		$this->getNewLine();
-		$bb = $this->retrieveParam($this->actualLine, 'bb');
-		$bb = explode(",", $bb);
-		
-		$this->getNewLine();
-		$nodes = $this->retrieveNodes();
-		
-		$edges = $this->retrieveEdges($file_handle);
+		$graph = $this->parseGraph();
 
 		fclose($this->parseFileHandle);
 
-		$graph = array('bb'=>$bb, 'nodes'=>$nodes, 'edges'=>$edges);
-		
 		return $graph;
 	}
 
+	private function parseGraph() {
+		$subgraph = array();
+		
+		// retrieve boundbox rectangle: graph [bb="0,0,62,108"]; --> 0,0,62,108
+		$this->getNewLine();
+		$bb = $this->retrieveBoundingBox();
+		
+		$line = $this->getNewLine();
+		while (!(strpos($line, "subgraph") === false)) {
+			array_push($subgraph, $this->parseGraph());
+			
+			$line = $this->getNewLine();
+		}
+		
+		$nodes = $this->retrieveNodes();
+		
+		$edges = $this->retrieveEdges($file_handle);
+		
+		return array('bb'=>$bb, 'nodes'=>$nodes, 'edges'=>$edges, 'subgraph'=>$subgraph);
+	}
+	
+	private function retrieveBoundingBox() {
+		$bb = $this->retrieveParam($this->actualLine, 'bb');
+		return explode(",", $bb);
+	}
+	
 	private function retrieveEdges() {
 		$edges = array();
 

@@ -3,7 +3,10 @@
 $this->renderPartial('shapes/box', 
 	array(
 		'size'=>$size,
-		'position'=>array('x'=>0, 'y'=>0, 'z'=>0),
+		// adjust to start at 0,0,0
+		'position'=>array('x' => $position[x] + $size[width] / 2, 
+						  'y' => 0, 
+						  'z' => $position[z] + $size[length] / 2),
 		'colour'=>$colour
 		)
 );
