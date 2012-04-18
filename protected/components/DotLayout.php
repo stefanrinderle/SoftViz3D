@@ -11,14 +11,14 @@ class DotLayout extends CApplicationComponent
 		} else {
 			// Create adot file
 			$command = '/usr/local/bin/dot';
-			$command .= ' -o' .escapeshellarg($destinationFilePath)
-			.' '  .escapeshellarg($sourceFilePath)
-			.' 2>&1';
+			$command .= ' -o ' . escapeshellarg($destinationFilePath)
+			. ' '  . escapeshellarg($sourceFilePath)
+			. ' 2>&1';
 
 			exec($command, $msg, $return_val);
 
 			if ($return_val != 0) {
-				$error = "failure creating adot file: " + $msg;
+				$error = "failure creating adot file: " . $msg[0];
 			}
 		}
 

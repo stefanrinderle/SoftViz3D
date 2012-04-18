@@ -2,13 +2,13 @@
 
 class X3dController extends Controller
 {
-	private $dotfile = '/Users/stefan/Sites/3dArch/x3d/simpleGraph2D.dot';
+	private $dotfile = '/Users/stefan/Sites/3dArch/x3d/subgraph.dot';
 	private $outputfile = '/Users/stefan/Sites/3dArch/x3d/subgraph.adot';
 	
 	public function actionIndex()
 	{
 		// get layout and parse result --------------------
-		//$result = Yii::app()->dotLayout->layout($this->dotfile, $this->outputfile);
+		$result = Yii::app()->dotLayout->layout($this->dotfile, $this->outputfile);
 		$graph =  Yii::app()->dotParser->parse($this->outputfile);
 		
 		// map to x3d -------------------------------------
@@ -42,8 +42,6 @@ class X3dController extends Controller
 								  	  'y' => 0, 
 								      'z' => $graph['bb'][1]),
 		);
-		
-		print_r($result['bb']['position']);
 		
 		// Nodes
 		$result['nodes'] = array();
