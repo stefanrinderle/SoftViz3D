@@ -63,6 +63,17 @@ class X3dController extends Controller
 		// Edges
 		$result['edges'] = array();
 		foreach ($graph['edges'] as $key => $value) {
+			
+			// convert edge section points
+			$sections = array();
+			for ($i = 2; $i < count($value['pos']); $i++) {
+				$section = array('x' => $value['pos'][$i][0], 
+								 'y' => 0, 
+								 'z' => $value['pos'][$i][1]);
+				
+				array_push($sections, $section);
+			}			
+			
 			$result['edges'][$key] = array(
 				'startPos'=>array('x' => $value['pos'][1][0], 
 								  'y' => 0, 
@@ -70,6 +81,7 @@ class X3dController extends Controller
 				'endPos'=>array('x' => $value['pos'][0][1], 
 								'y' => 0, 
 								'z' => $value['pos'][0][2]),
+				'sections'=>$sections,
 				'colour'=>array('r'=>0, 'g'=>1, 'b'=>0)
 			);
 		}

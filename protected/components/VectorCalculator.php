@@ -3,11 +3,17 @@
 class VectorCalculator extends CApplicationComponent
 {
 	
-	public function rotationXAxis() {
+	public function vector($vector1, $vector2) {
+		return array('x'=>$vector2[x] - $vector1[x],
+					 'y'=>$vector2[y] - $vector1[y],
+					 'z'=>$vector2[z] - $vector1[z]);
+	}
+	
+	public function rotationXAxis($vector) {
 		$baseXVektor = array('x'=>1, 'y'=>0, 'z'=>0);
 
-		$angle = Yii::app()->vectorCalculator->angle($edgeVektor, $baseXVektor);
-		$crossProduct = Yii::app()->vectorCalculator->crossProduct($baseXVektor, $edgeVektor);
+		$angle = Yii::app()->vectorCalculator->angle($vector, $baseXVektor);
+		$crossProduct = Yii::app()->vectorCalculator->crossProduct($baseXVektor, $vector);
 		
 		if ($crossProduct[y] > 0) {
 			$angle = -$angle;
