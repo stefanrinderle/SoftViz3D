@@ -34,10 +34,13 @@ class X3dController extends Controller
 		if ($isMainGraph) {
 			$colour = array('r'=>1, 'g'=>1, 'b'=>1);
 			$height = 0.1;
+			$transpareny = 1;
 		} else {
-			$colour = array('r'=>0, 'g'=>0.5, 'b'=>1);
+			$colour = array('r'=>0.3, 'g'=>0.3, 'b'=>0.5);
 			$height = 1;
+			$transpareny = 0.2;
 		}
+		
 		// Bounding Box
 		$result['bb'] = array(
 					'size'=>array('width'=>$width, 'height'=>$height, 'length'=>$length),
@@ -45,6 +48,7 @@ class X3dController extends Controller
 					'position'=>array('x' => $graph['bb'][0], 
 								  	  'y' => 0, 
 								      'z' => $graph['bb'][1]),
+					'transparency'=>$transpareny
 		);
 		
 		// Nodes
@@ -56,7 +60,8 @@ class X3dController extends Controller
 				'position'=>array('x' => $value['pos'][0], 
 								  'y' => 0, 
 								  'z' => $value['pos'][1]),
-				'colour'=>array('r'=>0, 'g'=>1, 'b'=>0)
+				'colour'=>array('r'=>0, 'g'=>1, 'b'=>0),
+				'transparency'=>0
 			);
 		}
 		

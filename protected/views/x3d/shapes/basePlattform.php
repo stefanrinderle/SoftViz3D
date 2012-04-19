@@ -7,7 +7,8 @@ $this->renderPartial('shapes/box',
 		'position'=>array('x' => $position[x] + $size[width] / 2, 
 						  'y' => 0, 
 						  'z' => $position[z] + $size[length] / 2),
-		'colour'=>$colour
+		'colour'=>$colour,
+		'transparency'=>$transparency
 		)
 );
 

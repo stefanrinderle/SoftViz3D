@@ -9,8 +9,10 @@ if (count($sections) > 3) {
 												 'endPos'=>$sections[0]));
 	
 	for ($i = 1; $i < count($sections); $i++) {
-		$this->renderPartial('shapes/edgeSection', array('startPos'=>$sections[$i - 1], 
-												 		 'endPos'=>$sections[$i]));
+		if ($sections[$i - 1] != $sections[$i]) {
+			$this->renderPartial('shapes/edgeSection', array('startPos'=>$sections[$i - 1], 
+													 		 'endPos'=>$sections[$i]));
+		}
 	}
 	
 	$this->renderPartial('shapes/edgeEnd', array('startPos'=>$sections[count($sections) - 1], 
