@@ -36,6 +36,9 @@ return array(
 		'dotLayout'=>array(
 			'class'=>'DotLayout',
 		),
+		'vectorCalculator'=>array(
+			'class'=>'VectorCalculator',
+		),
 		'user'=>array(
 			// enable cookie-based authentication
 			'allowAutoLogin'=>true,

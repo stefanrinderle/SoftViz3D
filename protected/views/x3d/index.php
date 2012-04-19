@@ -2,9 +2,9 @@
 
 <x3d xmlns="http://www.x3dom.org/x3dom" showStat="true" showLog="false" x="0px" y="0px" width="900px" height="600px" altImg="helloX3D-alt.png">
 <Scene>
-	<Transform translation='<?php echo (- ($content['main']['bb']['size']['width'] / 2)); ?> 
-							0 
-							<?php echo (- ($content['main']['bb']['size']['length'] / 2)); ?>'>
+	<Transform translation='<?php echo $translation['x'] . ' ' .  
+								  	   $translation['y'] . ' ' .
+								       $translation['z']; ?>'>
     <Group>
       <?php 
       

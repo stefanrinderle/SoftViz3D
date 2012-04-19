@@ -20,7 +20,11 @@ class X3dController extends Controller
 			array_push($x3dContent, $this->adjustGraphToX3d($graph, false));
 		}
 		
-		$this->render('index', array(content=>$x3dContent));
+		$translation = array('x'=> (- ($x3dContent['main']['bb']['size']['width'] / 2)),
+							 'y'=> 0,
+							 'z'=> (- ($x3dContent['main']['bb']['size']['length'] / 2)));
+		
+		$this->render('index', array(translation=>$translation, content=>$x3dContent));
 	}
 	
 	private function adjustGraphToX3d($graph, $isMainGraph) { 
