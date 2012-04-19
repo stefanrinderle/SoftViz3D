@@ -15,7 +15,7 @@
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/form.css" />
 
 	<!-- include x3dom scripts -->
-	<link rel="stylesheet" type="text/css" href="http://http://x3dom.org/download/x3dom.css" />
+	<link rel="stylesheet" type="text/css" href="http://x3dom.org/download/x3dom.css" />
 	<script type="text/javascript" src="http://x3dom.org/download/x3dom.js"></script>
 	
 	<!-- link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/x3dom/x3dom.css" />
