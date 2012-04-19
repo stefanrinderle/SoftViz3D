@@ -2,8 +2,8 @@
 
 class X3dController extends Controller
 {
-	private $dotfile = '/Users/stefan/Sites/3dArch/x3d/world.dot';
-	private $outputfile = '/Users/stefan/Sites/3dArch/x3d/world.adot';
+	private $dotfile = '/Users/stefan/Sites/3dArch/x3d/subgraph.dot';
+	private $outputfile = '/Users/stefan/Sites/3dArch/x3d/subgraph.adot';
 	
 	public function actionIndex()
 	{
@@ -32,9 +32,9 @@ class X3dController extends Controller
 		$length = $graph['bb'][3] - $graph['bb'][1];
 		
 		if ($isMainGraph) {
-			$colour = array('r'=>1, 'g'=>1, 'b'=>1);
+			$colour = array('r'=>0, 'g'=>0.5, 'b'=>0.5);
 			$height = 0.1;
-			$transpareny = 1;
+			$transpareny = 0.2;
 		} else {
 			$colour = array('r'=>0.3, 'g'=>0.3, 'b'=>0.5);
 			$height = 1;
