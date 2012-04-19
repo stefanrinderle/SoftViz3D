@@ -1,7 +1,9 @@
 <?php $this->breadcrumbs=array('X3d');?>
 
-<x3d xmlns="http://www.x3dom.org/x3dom" showStat="true" showLog="false" x="0px" y="0px" width="900px" height="600px" altImg="helloX3D-alt.png">
+<x3d xmlns="http://www.x3dom.org/x3dom" x="0px" y="0px" width="900px" height="600px" altImg="helloX3D-alt.png">
 <Scene>
+	<param name="showLog" value="true" ></param>
+	<param name="showStat" value="true" ></param>
 	<Transform translation='<?php echo $translation['x'] . ' ' .  
 								  	   $translation['y'] . ' ' .
 								       $translation['z']; ?>'>
@@ -24,7 +26,6 @@
       ?>
     </Group>
     </Transform>
-     <viewpoint position='0 300 400' 
-     			orientation='1 0 0 -0.78'></viewpoint>
+     <viewpoint position='0 300 400' orientation='1 0 0 -0.78'></viewpoint>
   </Scene>
 </x3d>
