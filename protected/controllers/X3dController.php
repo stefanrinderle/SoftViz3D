@@ -5,6 +5,8 @@ class X3dController extends Controller
 	private $dotfile = '/Users/stefan/Sites/3dArch/x3d/parser.dot';
 	private $outputfile = '/Users/stefan/Sites/3dArch/x3d/parser.adot';
 	
+	private $subgraphLevel = 0;
+	
 	public function actionIndex()
 	{
 		// get layout and parse result --------------------
@@ -14,7 +16,7 @@ class X3dController extends Controller
 		// map to x3d -------------------------------------
 		$x3dContent = array();
 		
-		$x3dContent['main'] = $this->adjustGraphToX3d($graph, true);
+		$x3dContent['main'] = $this->adjustGraphToX3d($graph);
 		
 		$x3dContent = array_merge($x3dContent, $this->adjustSubGraphToX3d($graph['subgraph']));
 		
@@ -26,21 +28,22 @@ class X3dController extends Controller
 	}
 	
 	private function adjustSubGraphToX3d($subgraph, $result=array()) {
+		$this->subgraphLevel++;
 		foreach ($subgraph as $key => $value) {
-			array_push($result, $this->adjustGraphToX3d($value, false));
+			array_push($result, $this->adjustGraphToX3d($value));
 			
 			if (count($value['subgraph'])) {
 				$result = $this->adjustSubGraphToX3d($value['subgraph'], $result);
 			}
 		}
-		
+		$this->subgraphLevel--;
 		return $result;
 	}
 	
-	private function adjustGraphToX3d($graph, $isMainGraph) {
+	private function adjustGraphToX3d($graph) {
 		$result = array(); 
 		// Bounding Box
-		$result['bb'] = $this->adjustBb($graph['bb'], $isMainGraph);
+		$result['bb'] = $this->adjustBb($graph['bb']);
 		
 		// Nodes
 		$result['nodes'] = array();
@@ -57,25 +60,26 @@ class X3dController extends Controller
 		return $result;
 	} 
 	
-	private function adjustBb($bb, $isMainGraph) {
+	private function adjustBb($bb) {
 		$width = $bb[2] - $bb[0];
 		$length = $bb[3] - $bb[1];
 		
-		if ($isMainGraph) {
-			$colour = array('r'=>0, 'g'=>0.5, 'b'=>0.5);
+		if ($this->subgraphLevel == 0) {
+			$colour = array('r'=>0, 'g'=>0, 'b'=>1);
 			$height = 0.1;
-			$transpareny = 0.2;
+			$transpareny = 0.9;
 		} else {
-			$colour = array('r'=>0.3, 'g'=>0.3, 'b'=>0.5);
+			$colourValue = $this->subgraphLevel * 0.3;
+			$colour = array('r'=>0, 'g'=>$colourValue, 'b'=>0);
 			$height = 1;
-			$transpareny = 0.2;
+			$transpareny = 0.9 - $this->subgraphLevel * 0.1;
 		}
 		
 		$result = array(
 					'size'=>array('width'=>$width, 'height'=>$height, 'length'=>$length),
 					'colour'=>$colour,
 					'position'=>array('x' => $bb[0], 
-								  	  'y' => 0, 
+								  	  'y' => - $this->subgraphLevel * 20, 
 								      'z' => $bb[1]),
 					'transparency'=>$transpareny
 		);
@@ -88,7 +92,7 @@ class X3dController extends Controller
 				'name'=>$name,
 				'size'=>array('width'=>5, 'height'=>5, 'length'=>5),
 				'position'=>array('x' => $node['pos'][0], 
-								  'y' => 0, 
+								  'y' => - $this->subgraphLevel * 20, 
 								  'z' => $node['pos'][1]),
 				'colour'=>array('r'=>0, 'g'=>1, 'b'=>0),
 				'transparency'=>0

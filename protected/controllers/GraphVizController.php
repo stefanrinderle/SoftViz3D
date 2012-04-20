@@ -28,7 +28,7 @@ class GraphVizController extends Controller
 	}
 	
 	public function actionDirectory() {
-		$path = "/Users/stefan/Sites/3dArch/protected/views/";
+		$path = "/Users/stefan/Sites/3dArch/protected/";
 		
 		$result = Yii::app()->xToDotParser->parseDirectoryToArray($path);
 		
