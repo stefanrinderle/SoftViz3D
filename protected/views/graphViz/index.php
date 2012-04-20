@@ -1,12 +1,18 @@
 <?php
 $this->breadcrumbs=array(
-	'Graph Viz',
+	'Graph Viz', 'Index'
 );?>
 
-<h1>Einlesen, Layout und parsen von dot-Files</h1>
+<h1>GraphViz Features</h1>
 
-<p>Datei: <?php echo $input; ?></p>
+<h2>Parse a directory structure in an php array</h2>
 
-<?php 
-$this->renderPartial('../dumpArray', array('dumpArray'=>$graph));
-?>
+<p>
+<?php echo CHtml::link('directory',array('graphViz/directory')); ?>
+</p>
+
+<h2>Convert a dot file to adot and parse the generated file to an php array</h2>
+
+<p>
+<?php echo CHtml::link('dotToArray',array('graphViz/dotToArray')); ?>
+</p>

@@ -52,8 +52,7 @@ class DotParser extends CApplicationComponent
 		$bb = $this->retrieveBoundingBox();
 		
 		$line = $this->getNewLine();
-		while (!(strpos($line, "subgraph") === false) ||
-			   !(strpos($line, "{") === false)) {
+		while (!(strpos($line, "subgraph") === false) || !(strpos($line, "{") === false)) {
 			array_push($subgraph, $this->parseGraph());
 			
 			$line = $this->getNewLine();

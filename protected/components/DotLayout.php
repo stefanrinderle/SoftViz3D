@@ -10,7 +10,7 @@ class DotLayout extends CApplicationComponent
 			$error = "Error loading source dot file: " + $sourceFilePath;
 		} else {
 			// Create adot file
-			$command = '/usr/local/bin/dot';
+			$command = '/usr/local/bin/dot ';
 			$command .= ' -o ' . escapeshellarg($destinationFilePath)
 			. ' '  . escapeshellarg($sourceFilePath)
 			. ' 2>&1';

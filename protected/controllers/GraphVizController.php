@@ -3,23 +3,37 @@
 class GraphVizController extends Controller
 {
 	
-	private $dotfile = '/Users/stefan/Sites/3dArch/x3d/subgraph.dot';
-	private $outputfile = '/Users/stefan/Sites/3dArch/x3d/subgraph.adot';
-	
 	public function actionIndex()
 	{
 		//Yii::log("bla", 'error', 'parser');
 		//Yii::log($this->actualLine, 'error', 'parser');
 		
-		$result = Yii::app()->dotLayout->layout($this->dotfile, $this->outputfile);
+		$this->render('index');
+	}
+	
+	public function actionDotToArray() {
+		$dotfile = '/Users/stefan/Sites/3dArch/x3d/parser.dot';
+		$outputfile = '/Users/stefan/Sites/3dArch/x3d/parser.adot';
+	
+		$result = Yii::app()->dotLayout->layout($dotfile, $outputfile);
 		
 		if (!empty($result)) {
 			$this->render('error', array(error=>$result));
 		} else {
-			$graph =  Yii::app()->dotParser->parse($this->outputfile);
+			$graph =  Yii::app()->dotParser->parse($outputfile);
 			
-			$this->render('index', array(input=>$this->dotfile, 
+			$this->render('dotToArray', array(input=>$dotfile, 
 										 graph=>$graph));
 		}
+	}
+	
+	public function actionDirectory() {
+		$path = "/Users/stefan/Sites/3dArch/protected/views/";
+		
+		$result = Yii::app()->xToDotParser->parseDirectoryToArray($path);
+		
+		$dotfile = Yii::app()->xToDotParser->createDotFile($result);
+		
+		$this->render('directory', array(directoryStructure=>$result, dotFile=>$dotfile));
 	}
 }

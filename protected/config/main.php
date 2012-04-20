@@ -39,6 +39,9 @@ return array(
 		'vectorCalculator'=>array(
 			'class'=>'VectorCalculator',
 		),
+		'xToDotParser'=>array(
+			'class'=>'XToDotParser',
+		),
 		'user'=>array(
 			// enable cookie-based authentication
 			'allowAutoLogin'=>true,
