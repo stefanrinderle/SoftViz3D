@@ -3,16 +3,11 @@ $this->breadcrumbs=array(
 	'Graph Viz - Directory',
 );?>
 
-<?php 
-$this->renderPartial('../dumpArray', array('dumpArray'=>$directoryStructure));
-?>
-
-<br /><br /><br /><br />
+<h2><?php echo $fileName; ?></h2>
 
 <?php 
-
-//foreach ($dotFile as $key => $value) {
-//	echo $value . '<br />';
-//}
+foreach ($fileContent as $line) {
+    echo $line . "<br />";
+}
 
 ?>

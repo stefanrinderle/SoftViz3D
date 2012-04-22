@@ -1,21 +1,29 @@
 <?php
 
-class XToDotParser extends CApplicationComponent
+class DirectoryToDotParser extends CApplicationComponent
 {
 	
-	public function parseDirectoryToArray($path) {
+	public function parse($path, $outputFile) {
+		$directoryArray = $this->parseDirectoryToArray($path);
+		
+		if ($outputFile) {
+			$this->createDotFile($directoryArray, $outputFile);
+		}
+	}
+	
+	private function parseDirectoryToArray($path) {
 		$it = new DirectoryIterator($path);
 		
 		return $this->directoryIteratorToArray($it);
 	}
 	
-	public function createDotFile($array) {
+	private function createDotFile($array, $outputFile) {
 		$lines = $this->createDotFileLines($array);
 		
-		$this->write_data($lines, '/Users/stefan/Sites/3dArch/x3d/parser.dot');
+		$this->write_data($lines, $outputFile);
 	}
 	
-	public function createDotFileLines($array, $firstLevel=true) {
+	private function createDotFileLines($array, $firstLevel=true) {
 		$result = array();
 		
 		if ($firstLevel) {

@@ -1,64 +1,4 @@
 digraph G {
-_htaccess;
-subgraph cluster_commands {
-subgraph cluster_shell {
-}
-}
-subgraph cluster_components {
-Controller_php;
-DotLayout_php;
-DotParser_php;
-UserIdentity_php;
-VectorCalculator_php;
-XToDotParser_php;
-}
-subgraph cluster_config {
-console_php;
-main_php;
-test_php;
-}
-subgraph cluster_controllers {
-GraphVizController_php;
-SiteController_php;
-X3dController_php;
-}
-subgraph cluster_data {
-goanna_db;
-schema_mysql_sql;
-schema_sqlite_sql;
-testdrive_db;
-}
-subgraph cluster_extensions {
-}
-subgraph cluster_messages {
-}
-subgraph cluster_migrations {
-}
-subgraph cluster_models {
-ContactForm_php;
-LoginForm_php;
-}
-subgraph cluster_runtime {
-application_log;
-subgraph cluster_gii-1.1.10 {
-ControllerCode_php;
-}
-}
-subgraph cluster_tests {
-bootstrap_php;
-subgraph cluster_fixtures {
-}
-subgraph cluster_functional {
-SiteTest_php;
-}
-phpunit_xml;
-subgraph cluster_report {
-}
-subgraph cluster_unit {
-}
-WebTestCase_php;
-}
-subgraph cluster_views {
 dumpArray_php;
 subgraph cluster_graphViz {
 directory_php;
@@ -91,8 +31,4 @@ edgeEnd_php;
 edgeSection_php;
 }
 }
-}
-yiic;
-yiic_bat;
-yiic_php;
 }

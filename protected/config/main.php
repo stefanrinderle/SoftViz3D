@@ -39,8 +39,8 @@ return array(
 		'vectorCalculator'=>array(
 			'class'=>'VectorCalculator',
 		),
-		'xToDotParser'=>array(
-			'class'=>'XToDotParser',
+		'directoryToDotParser'=>array(
+			'class'=>'DirectoryToDotParser',
 		),
 		'user'=>array(
 			// enable cookie-based authentication

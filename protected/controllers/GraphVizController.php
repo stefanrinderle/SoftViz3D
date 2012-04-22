@@ -11,6 +11,17 @@ class GraphVizController extends Controller
 		$this->render('index');
 	}
 	
+	public function actionDirectory() {
+		$path = "/Users/stefan/Sites/3dArch/protected/views/";
+		$outputFile = '/Users/stefan/Sites/3dArch/x3d/parser.dot';
+		
+		Yii::app()->directoryToDotParser->parse($path, $outputFile);
+		
+		$fileContent = file ($outputFile);
+		
+		$this->render('directory', array(fileContent=>$fileContent, fileName=>$outputFile));
+	}
+	
 	public function actionDotToArray() {
 		$dotfile = '/Users/stefan/Sites/3dArch/x3d/parser.dot';
 		$outputfile = '/Users/stefan/Sites/3dArch/x3d/parser.adot';
@@ -27,13 +38,5 @@ class GraphVizController extends Controller
 		}
 	}
 	
-	public function actionDirectory() {
-		$path = "/Users/stefan/Sites/3dArch/protected/";
-		
-		$result = Yii::app()->xToDotParser->parseDirectoryToArray($path);
-		
-		$dotfile = Yii::app()->xToDotParser->createDotFile($result);
-		
-		$this->render('directory', array(directoryStructure=>$result, dotFile=>$dotfile));
-	}
+	
 }
