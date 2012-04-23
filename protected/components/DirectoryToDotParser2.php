@@ -45,7 +45,7 @@ class DirectoryToDotParser2 extends CApplicationComponent
 				array_push($this->edges, $key . ' -> ' . str_replace(".", "_", $node[0]) . ' [lhead=cluster_' . $key . ']');
 			} else {
 				// Knoten
-				array_push($result, str_replace(".", "_", $value) . ';');
+				array_push($result, str_replace(".", "_", $value) . ' [label="."];');
 			}
 		}
 		
