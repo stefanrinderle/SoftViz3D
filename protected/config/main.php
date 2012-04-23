@@ -42,6 +42,9 @@ return array(
 		'directoryToDotParser'=>array(
 			'class'=>'DirectoryToDotParser',
 		),
+		'directoryToDotParser2'=>array(
+			'class'=>'DirectoryToDotParser2',
+		),
 		'user'=>array(
 			// enable cookie-based authentication
 			'allowAutoLogin'=>true,

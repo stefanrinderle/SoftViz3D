@@ -34,7 +34,9 @@ class DotParser extends CApplicationComponent
 		
 		// ommit first line: digraph G {
 		$this->getNewLine();
-		// ommit second line: node [label="\N"];
+		// ommit second line: graph [compound=true, nodesep="1.0"];;
+		$this->getNewLine();
+		// ommit third line: node [label="\N"];
 		$this->getNewLine();
 
 		$graph = $this->parseGraph();

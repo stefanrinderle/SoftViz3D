@@ -1,39 +1,53 @@
 digraph G {
-	node [label="\N"];
-	graph [bb="0,0,2364,84"];
+	graph [compound=true, nodesep="1.0"];
+	node [label="\N", shape=box, width="0.1", height="0.1"];
+	graph [bb="0,0,1568,182"];
 	subgraph cluster_graphViz {
-		graph [bb="159,16,711,68"];
-		directory_php [pos="638,42", width="1.8084", height="0.5"];
-		dotToArray_php [pos="480,42", width="2.087", height="0.5"];
-		error_php [pos="338,42", width="1.3627", height="0.5"];
-		index_php [pos="219,42", width="1.4278", height="0.5"];
+		graph [bb="404,70,716,112"];
+		directory_php [label=".", width="0.26042", height="0.34444", pos="698,91"];
+		dotToArray_php [label=".", width="0.26042", height="0.34444", pos="606,91"];
+		error_php [label=".", width="0.26042", height="0.34444", pos="514,91"];
+		index_php [label=".", width="0.26042", height="0.34444", pos="422,91"];
 	}
 	subgraph cluster_layouts {
-		graph [bb="719,16,1127,68"];
-		column1_php [pos="1055,42", width="1.7798", height="0.5"];
-		column2_php [pos="909,42", width="1.7798", height="0.5"];
-		main_php [pos="777,42", width="1.3703", height="0.5"];
+		graph [bb="772,70,992,112"];
+		column1_php [label=".", width="0.26042", height="0.34444", pos="974,91"];
+		column2_php [label=".", width="0.26042", height="0.34444", pos="882,91"];
+		main_php [label=".", width="0.26042", height="0.34444", pos="790,91"];
+	}
+	subgraph cluster_pages {
+		graph [bb="22,8,58,50"];
+		about_php [label=".", width="0.26042", height="0.34444", pos="40,29"];
 	}
 	subgraph cluster_site {
-		graph [bb="1135,8,1515,76"];
-		subgraph cluster_pages {
-			graph [bb="1387,16,1507,68"];
-			about_php [pos="1447,42", width="1.4278", height="0.5"];
-		}
-		contact_php [pos="1319,42", width="1.6143", height="0.5"];
-		login_php [pos="1193,42", width="1.3917", height="0.5"];
+		graph [bb="8,70,348,112"];
+		_DS_Store [label=".", width="0.26042", height="0.34444", pos="330,91"];
+		contact_php [label=".", width="0.26042", height="0.34444", pos="238,91"];
+		login_php [label=".", width="0.26042", height="0.34444", pos="146,91"];
+		pages [width="0.65192", height="0.34444", pos="40,91"];
+	}
+	subgraph cluster_shapes {
+		graph [bb="1048,70,1452,112"];
+		basePlattform_php [label=".", width="0.26042", height="0.34444", pos="1434,91"];
+		box_php [label=".", width="0.26042", height="0.34444", pos="1342,91"];
+		edge_php [label=".", width="0.26042", height="0.34444", pos="1250,91"];
+		edgeEnd_php [label=".", width="0.26042", height="0.34444", pos="1158,91"];
+		edgeSection_php [label=".", width="0.26042", height="0.34444", pos="1066,91"];
 	}
 	subgraph cluster_x3d {
-		graph [bb="1523,8,2356,76"];
-		subgraph cluster_shapes {
-			graph [bb="1621,16,2348,68"];
-			basePlattform_php [pos="2256,42", width="2.3193", height="0.5"];
-			box_php [pos="2109,42", width="1.2338", height="0.5"];
-			edge_php [pos="1998,42", width="1.3414", height="0.5"];
-			edgeEnd_php [pos="1867,42", width="1.7797", height="0.5"];
-			edgeSection_php [pos="1707,42", width="2.1465", height="0.5"];
-		}
-		db_php [pos="1571,42", width="1.1112", height="0.5"];
+		graph [bb="1399,132,1560,174"];
+		db_php [label=".", width="0.26042", height="0.34444", pos="1542,153"];
+		shapes [width="0.73142", height="0.34444", pos="1434,153"];
 	}
-	dumpArray_php [pos="74,42", width="2.0676", height="0.5"];
+	dumpArray_php [label=".", width="0.26042", height="0.34444", pos="534,153"];
+	graphViz [width="0.92539", height="0.34444", pos="698,153"];
+	layouts [width="0.78084", height="0.34444", pos="974,153"];
+	site [width="0.48223", height="0.34444", pos="276,153"];
+	x3d [width="0.50694", height="0.34444", pos="384,153"];
+	graphViz -> directory_php [lhead=cluster_graphViz, pos="e,698,112 698,140.43 698,132.88 698,122.78 698,113.76"];
+	layouts -> column1_php [lhead=cluster_layouts, pos="e,974,112 974,140.43 974,132.88 974,122.78 974,113.76"];
+	pages -> about_php [lhead=cluster_pages, pos="e,40,50 40,78.431 40,70.878 40,60.779 40,51.758"];
+	site -> _DS_Store [lhead=cluster_site, pos="e,312.1,111.89 286.41,140.43 291.75,134.5 298.51,126.99 305.1,119.67"];
+	shapes -> basePlattform_php [lhead=cluster_shapes, pos="e,1434,112 1434,140.43 1434,132.88 1434,122.78 1434,113.76"];
+	x3d -> _DS_Store [lhead=cluster_x3d, pos="e,339.3,102.33 373.59,140.43 365.83,131.81 355.09,119.88 346.21,110.01"];
 }

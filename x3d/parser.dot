@@ -1,34 +1,51 @@
 digraph G {
-dumpArray_php;
+compound=true; nodesep=1.0;
+node [label="\N", shape=box, width="0.1", height="0.1"];
+_DS_Store [label="."];
+dumpArray_php [label="."];
+graphViz;
+layouts;
+site;
+x3d;
 subgraph cluster_graphViz {
-directory_php;
-dotToArray_php;
-error_php;
-index_php;
+directory_php [label="."];
+dotToArray_php [label="."];
+error_php [label="."];
+index_php [label="."];
 }
 subgraph cluster_layouts {
-column1_php;
-column2_php;
-main_php;
+column1_php [label="."];
+column2_php [label="."];
+main_php [label="."];
+}
+subgraph cluster_pages {
+about_php [label="."];
 }
 subgraph cluster_site {
-contact_php;
-error_php;
-index_php;
-login_php;
-subgraph cluster_pages {
-about_php;
+_DS_Store [label="."];
+contact_php [label="."];
+error_php [label="."];
+index_php [label="."];
+login_php [label="."];
+pages;
 }
+subgraph cluster_shapes {
+basePlattform_php [label="."];
+box_php [label="."];
+edge_php [label="."];
+edgeEnd_php [label="."];
+edgeSection_php [label="."];
 }
 subgraph cluster_x3d {
-db_php;
-index_php;
-subgraph cluster_shapes {
-basePlattform_php;
-box_php;
-edge_php;
-edgeEnd_php;
-edgeSection_php;
+_DS_Store [label="."];
+db_php [label="."];
+index_php [label="."];
+shapes;
 }
-}
+graphViz -> directory_php [lhead=cluster_graphViz]
+layouts -> column1_php [lhead=cluster_layouts]
+pages -> about_php [lhead=cluster_pages]
+site -> _DS_Store [lhead=cluster_site]
+shapes -> basePlattform_php [lhead=cluster_shapes]
+x3d -> _DS_Store [lhead=cluster_x3d]
 }
