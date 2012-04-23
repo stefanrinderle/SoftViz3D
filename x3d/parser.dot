@@ -1,5 +1,5 @@
 digraph G {
-compound=true; nodesep=1.0;
+compound=true; nodesep=1.0; rankdir=LR;
 _DS_Store;
 dumpArray_php;
 graphViz;

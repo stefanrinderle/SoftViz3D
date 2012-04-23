@@ -1,53 +1,53 @@
 digraph G {
-	graph [compound=true, nodesep="1.0"];
+	graph [compound=true, nodesep="1.0", rankdir=LR];
 	node [label="\N"];
-	graph [bb="0,0,3102,212"];
+	graph [bb="0,0,510,1796"];
 	subgraph cluster_graphViz {
-		graph [bb="704,80,1418,132"];
-		directory_php [pos="1345,106", width="1.8084", height="0.5"];
-		dotToArray_php [pos="1133,106", width="2.087", height="0.5"];
-		error_php [pos="937,106", width="1.3627", height="0.5"];
-		index_php [pos="764,106", width="1.4278", height="0.5"];
+		graph [bb="186,440,354,816"];
+		directory_php [pos="270,790", width="1.8113", height="0.5"];
+		dotToArray_php [pos="270,682", width="2.0907", height="0.5"];
+		error_php [pos="270,574", width="1.3642", height="0.5"];
+		index_php [pos="270,466", width="1.439", height="0.5"];
 	}
 	subgraph cluster_layouts {
-		graph [bb="1474,80,1990,132"];
-		column1_php [pos="1918,106", width="1.7798", height="0.5"];
-		column2_php [pos="1718,106", width="1.7798", height="0.5"];
-		main_php [pos="1532,106", width="1.3703", height="0.5"];
+		graph [bb="198,872,342,1140"];
+		column1_php [pos="270,1114", width="1.7818", height="0.5"];
+		column2_php [pos="270,1006", width="1.7818", height="0.5"];
+		main_php [pos="270,898", width="1.3794", height="0.5"];
 	}
 	subgraph cluster_pages {
-		graph [bb="8,8,128,60"];
-		about_php [pos="68,34", width="1.4278", height="0.5"];
+		graph [bb="382,8,502,60"];
+		about_php [pos="442,34", width="1.439", height="0.5"];
 	}
 	subgraph cluster_site {
-		graph [bb="27,80,648,132"];
-		_DS_Store [pos="587,106", width="1.4781", height="0.5"];
-		contact_php [pos="403,106", width="1.6143", height="0.5"];
-		login_php [pos="223,106", width="1.3917", height="0.5"];
-		pages [pos="68,106", width="0.917", height="0.5"];
+		graph [bb="204,8,336,384"];
+		_DS_Store [pos="270,358", width="1.484", height="0.5"];
+		contact_php [pos="270,250", width="1.6176", height="0.5"];
+		login_php [pos="270,142", width="1.3945", height="0.5"];
+		pages [pos="270,34", width="0.91733", height="0.5"];
 	}
 	subgraph cluster_shapes {
-		graph [bb="2046,80,2989,132"];
-		basePlattform_php [pos="2897,106", width="2.3193", height="0.5"];
-		box_php [pos="2696,106", width="1.2338", height="0.5"];
-		edge_php [pos="2531,106", width="1.3414", height="0.5"];
-		edgeEnd_php [pos="2346,106", width="1.7797", height="0.5"];
-		edgeSection_php [pos="2132,106", width="2.1465", height="0.5"];
+		graph [bb="178,1196,362,1680"];
+		basePlattform_php [pos="270,1654", width="2.333", height="0.5"];
+		box_php [pos="270,1546", width="1.2454", height="0.5"];
+		edge_php [pos="270,1438", width="1.3494", height="0.5"];
+		edgeEnd_php [pos="270,1330", width="1.7815", height="0.5"];
+		edgeSection_php [pos="270,1222", width="2.1541", height="0.5"];
 	}
 	subgraph cluster_x3d {
-		graph [bb="2852,152,3094,204"];
-		db_php [pos="3046,178", width="1.1112", height="0.5"];
-		shapes [pos="2897,178", width="1.0109", height="0.5"];
+		graph [bb="27,1628,123,1788"];
+		db_php [pos="75,1762", width="1.1113", height="0.5"];
+		shapes [pos="75,1654", width="1.0217", height="0.5"];
 	}
-	dumpArray_php [pos="988,178", width="2.0676", height="0.5"];
-	graphViz [pos="1345,178", width="1.2832", height="0.5"];
-	layouts [pos="1918,178", width="1.0685", height="0.5"];
-	site [pos="524,178", width="0.75", height="0.5"];
-	x3d [pos="650,178", width="0.75", height="0.5"];
-	graphViz -> directory_php [lhead=cluster_graphViz, pos="e,1345,132 1345,159.7 1345,151.98 1345,142.71 1345,134.11"];
-	layouts -> column1_php [lhead=cluster_layouts, pos="e,1918,132 1918,159.7 1918,151.98 1918,142.71 1918,134.11"];
-	pages -> about_php [lhead=cluster_pages, pos="e,68,60 68,87.697 68,79.983 68,70.712 68,62.112"];
-	site -> _DS_Store [lhead=cluster_site, pos="e,564.69,131.79 537.36,162.15 543.31,155.54 550.57,147.48 557.68,139.58"];
-	shapes -> basePlattform_php [lhead=cluster_shapes, pos="e,2897,132 2897,159.7 2897,151.98 2897,142.71 2897,134.11"];
-	x3d -> _DS_Store [lhead=cluster_x3d, pos="e,602.11,123.79 636.64,162.15 628.58,153.2 618.12,141.58 608.88,131.31"];
+	dumpArray_php [pos="75,601", width="2.0797", height="0.5"];
+	graphViz [pos="75,790", width="1.2887", height="0.5"];
+	layouts [pos="75,1114", width="1.0815", height="0.5"];
+	site [pos="75,412", width="0.75", height="0.5"];
+	x3d [pos="75,304", width="0.75", height="0.5"];
+	graphViz -> directory_php [lhead=cluster_graphViz, pos="e,186.47,790 121.74,790 138.16,790 157.32,790 176.28,790"];
+	layouts -> column1_php [lhead=cluster_layouts, pos="e,198,1114 114.13,1114 137.32,1114 167.71,1114 195.42,1114"];
+	pages -> about_php [lhead=cluster_pages, pos="e,382,34 303.38,34 324.98,34 354.06,34 379.92,34"];
+	site -> _DS_Store [lhead=cluster_site, pos="e,204.16,376.14 100.05,405.27 123.65,398.67 160.87,388.26 194.37,378.88"];
+	shapes -> basePlattform_php [lhead=cluster_shapes, pos="e,178,1654 111.85,1654 129.99,1654 152.93,1654 175.64,1654"];
+	x3d -> _DS_Store [lhead=cluster_x3d, pos="e,228.45,346.66 100.05,310.73 129.55,318.98 180.33,333.19 218.54,343.88"];
 }
