@@ -1,39 +1,194 @@
 digraph G {
+	graph [compound=true, nodesep="1.0"];
 	node [label="\N"];
-	graph [bb="0,0,2364,84"];
+	graph [lhead=cluster_unit,
+		bb="0,0,8378,284"];
+	subgraph cluster_shell {
+		graph [lhead="",
+			bb=""];
+	}
+	subgraph cluster_commands {
+		graph [lhead="",
+			bb="8296,224,8370,276"];
+		shell [pos="8333,250", width="0.80938", height="0.5"];
+	}
+	subgraph cluster_components {
+		graph [lhead="",
+			bb="8,152,1701,204"];
+		Controller_php [pos="1623,178", width="1.9451", height="0.5"];
+		DirectoryToDotParser_php [pos="1365,178", width="3.2225", height="0.5"];
+		DirectoryToDotParser2_php [pos="1056,178", width="3.3452", height="0.5"];
+		DotLayout_php [pos="791,178", width="2.0026", height="0.5"];
+		DotParser_php [pos="578,178", width="1.9023", height="0.5"];
+		UserIdentity_php [pos="358,178", width="2.1753", height="0.5"];
+		VectorCalculator_php [pos="112,178", width="2.6497", height="0.5"];
+	}
+	subgraph cluster_config {
+		graph [lhead="",
+			bb="1757,152,2224,204"];
+		console_php [pos="2156,178", width="1.6507", height="0.5"];
+		main_php [pos="1974,178", width="1.3703", height="0.5"];
+		test_php [pos="1809,178", width="1.205", height="0.5"];
+	}
+	subgraph cluster_controllers {
+		graph [lhead="",
+			bb="2280,152,3000,204"];
+		GraphVizController_php [pos="2884,178", width="2.9798", height="0.5"];
+		SiteController_php [pos="2619,178", width="2.362", height="0.5"];
+		X3dController_php [pos="2375,178", width="2.3983", height="0.5"];
+	}
+	subgraph cluster_data {
+		graph [lhead="",
+			bb="3055,152,3844,204"];
+		goanna_db [pos="3783,178", width="1.4779", height="0.5"];
+		schema_mysql_sql [pos="3573,178", width="2.3407", height="0.5"];
+		schema_sqlite_sql [pos="3335,178", width="2.2617", height="0.5"];
+		testdrive_db [pos="3122,178", width="1.6219", height="0.5"];
+	}
+	subgraph cluster_extensions {
+		graph [lhead="",
+			bb=""];
+	}
+	subgraph cluster_messages {
+		graph [lhead="",
+			bb=""];
+	}
+	subgraph cluster_migrations {
+		graph [lhead="",
+			bb=""];
+	}
+	subgraph cluster_models {
+		graph [lhead="",
+			bb="4130,152,4529,204"];
+		ContactForm_php [pos="4440,178", width="2.2544", height="0.5"];
+		LoginForm_php [pos="4212,178", width="2.0603", height="0.5"];
+	}
+	subgraph cluster_gii {
+		graph [lhead="",
+			bb=""];
+	}
+	{
+		graph [lhead="",
+			bb=""];
+		ControllerCode_php [pos="4960,106", width="2.5059", height="0.5"];
+	}
+	subgraph cluster_runtime {
+		graph [lhead="",
+			bb="4585,152,5121,204"];
+		"-1.1" [pos="5086,178", width="0.75", height="0.5"];
+		".10" [pos="4960,178", width="0.75", height="0.5"];
+		application_log [pos="4790,178", width="1.9737", height="0.5"];
+		gii [pos="4620,178", width="0.75", height="0.5"];
+	}
+	subgraph cluster_fixtures {
+		graph [lhead="",
+			bb=""];
+	}
+	subgraph cluster_functional {
+		graph [lhead="",
+			bb="5863,80,6001,132"];
+		SiteTest_php [pos="5932,106", width="1.699", height="0.5"];
+	}
+	subgraph cluster_report {
+		graph [lhead="",
+			bb=""];
+	}
+	subgraph cluster_unit {
+		graph [lhead="",
+			bb=""];
+	}
+	subgraph cluster_tests {
+		graph [lhead="",
+			bb="5177,152,6346,204"];
+		bootstrap_php [pos="6272,178", width="1.8374", height="0.5"];
+		fixtures [pos="6094,178", width="1.1112", height="0.5"];
+		functional [pos="5932,178", width="1.3915", height="0.5"];
+		phpunit_xml [pos="5749,178", width="1.6722", height="0.5"];
+		report [pos="5583,178", width="0.94575", height="0.5"];
+		unit [pos="5450,178", width="0.75", height="0.5"];
+		WebTestCase_php [pos="5268,178", width="2.2852", height="0.5"];
+	}
 	subgraph cluster_graphViz {
-		graph [bb="159,16,711,68"];
-		directory_php [pos="638,42", width="1.8084", height="0.5"];
-		dotToArray_php [pos="480,42", width="2.087", height="0.5"];
-		error_php [pos="338,42", width="1.3627", height="0.5"];
-		index_php [pos="219,42", width="1.4278", height="0.5"];
+		graph [lhead="",
+			bb="6057,80,6771,132"];
+		directory_php [pos="6698,106", width="1.8084", height="0.5"];
+		dotToArray_php [pos="6486,106", width="2.087", height="0.5"];
+		error_php [pos="6290,106", width="1.3627", height="0.5"];
+		index_php [pos="6117,106", width="1.4278", height="0.5"];
 	}
 	subgraph cluster_layouts {
-		graph [bb="719,16,1127,68"];
-		column1_php [pos="1055,42", width="1.7798", height="0.5"];
-		column2_php [pos="909,42", width="1.7798", height="0.5"];
-		main_php [pos="777,42", width="1.3703", height="0.5"];
+		graph [lhead="",
+			bb="6827,80,7171,132"];
+		column1_php [pos="7099,106", width="1.7798", height="0.5"];
+		column2_php [pos="6899,106", width="1.7798", height="0.5"];
+	}
+	subgraph cluster_pages {
+		graph [lhead="",
+			bb="7202,8,7322,60"];
+		about_php [pos="7262,34", width="1.4278", height="0.5"];
 	}
 	subgraph cluster_site {
-		graph [bb="1135,8,1515,76"];
-		subgraph cluster_pages {
-			graph [bb="1387,16,1507,68"];
-			about_php [pos="1447,42", width="1.4278", height="0.5"];
-		}
-		contact_php [pos="1319,42", width="1.6143", height="0.5"];
-		login_php [pos="1193,42", width="1.3917", height="0.5"];
+		graph [lhead="",
+			bb="7227,80,7669,132"];
+		contact_php [pos="7603,106", width="1.6143", height="0.5"];
+		login_php [pos="7423,106", width="1.3917", height="0.5"];
+		pages [pos="7268,106", width="0.917", height="0.5"];
+	}
+	subgraph cluster_shapes {
+		graph [lhead="",
+			bb="7377,8,8320,60"];
+		basePlattform_php [pos="8228,34", width="2.3193", height="0.5"];
+		box_php [pos="8027,34", width="1.2338", height="0.5"];
+		edge_php [pos="7862,34", width="1.3414", height="0.5"];
+		edgeEnd_php [pos="7677,34", width="1.7797", height="0.5"];
+		edgeSection_php [pos="7463,34", width="2.1465", height="0.5"];
 	}
 	subgraph cluster_x3d {
-		graph [bb="1523,8,2356,76"];
-		subgraph cluster_shapes {
-			graph [bb="1621,16,2348,68"];
-			basePlattform_php [pos="2256,42", width="2.3193", height="0.5"];
-			box_php [pos="2109,42", width="1.2338", height="0.5"];
-			edge_php [pos="1998,42", width="1.3414", height="0.5"];
-			edgeEnd_php [pos="1867,42", width="1.7797", height="0.5"];
-			edgeSection_php [pos="1707,42", width="2.1465", height="0.5"];
-		}
-		db_php [pos="1571,42", width="1.1112", height="0.5"];
+		graph [lhead="",
+			bb="8050,80,8292,132"];
+		db_php [pos="8244,106", width="1.1112", height="0.5"];
+		shapes [pos="8095,106", width="1.0109", height="0.5"];
 	}
-	dumpArray_php [pos="74,42", width="2.0676", height="0.5"];
+	subgraph cluster_views {
+		graph [lhead="",
+			bb="7027,152,7759,204"];
+		dumpArray_php [pos="7676,178", width="2.0676", height="0.5"];
+		graphViz [pos="7081,178", width="1.2832", height="0.5"];
+		layouts [pos="7238,178", width="1.0685", height="0.5"];
+		site [pos="7376,178", width="0.75", height="0.5"];
+		x3d [pos="7502,178", width="0.75", height="0.5"];
+	}
+	_DS_Store [pos="1094,250", width="1.4781", height="0.5"];
+	_htaccess [pos="1267,250", width="1.3339", height="0.5"];
+	commands [pos="1440,250", width="1.4566", height="0.5"];
+	components [pos="1623,250", width="1.5931", height="0.5"];
+	config [pos="2156,250", width="0.97471", height="0.5"];
+	controllers [pos="2884,250", width="1.4491", height="0.5"];
+	data [pos="3783,250", width="0.75167", height="0.5"];
+	extensions [pos="3934,250", width="1.4278", height="0.5"];
+	messages [pos="4105,250", width="1.3126", height="0.5"];
+	migrations [pos="4277,250", width="1.4492", height="0.5"];
+	models [pos="4440,250", width="1.0685", height="0.5"];
+	runtime [pos="4790,250", width="1.1399", height="0.5"];
+	tests [pos="6272,250", width="0.78062", height="0.5"];
+	views [pos="7676,250", width="0.92453", height="0.5"];
+	yiic [pos="7851,250", width="0.75", height="0.5"];
+	yiic_bat [pos="8013,250", width="1.1687", height="0.5"];
+	yiic_php [pos="8182,250", width="1.2338", height="0.5"];
+	components -> Controller_php [lhead=cluster_components, pos="e,1623,204 1623,231.7 1623,223.98 1623,214.71 1623,206.11"];
+	config -> console_php [lhead=cluster_config, pos="e,2156,204 2156,231.7 2156,223.98 2156,214.71 2156,206.11"];
+	controllers -> GraphVizController_php [lhead=cluster_controllers, pos="e,2884,204 2884,231.7 2884,223.98 2884,214.71 2884,206.11"];
+	data -> goanna_db [lhead=cluster_data, pos="e,3783,204 3783,231.7 3783,223.98 3783,214.71 3783,206.11"];
+	models -> ContactForm_php [lhead=cluster_models, pos="e,4440,204 4440,231.7 4440,223.98 4440,214.71 4440,206.11"];
+	".10" -> ControllerCode_php [lhead=cluster_gii, "-1.1"=true, ".10"=true, pos="e,4960,124.1 4960,159.7 4960,151.98 4960,142.71 4960,134.11"];
+	runtime -> application_log [lhead=cluster_runtime, pos="e,4790,204 4790,231.7 4790,223.98 4790,214.71 4790,206.11"];
+	functional -> SiteTest_php [lhead=cluster_functional, pos="e,5932,132 5932,159.7 5932,151.98 5932,142.71 5932,134.11"];
+	tests -> bootstrap_php [lhead=cluster_tests, pos="e,6272,204 6272,231.7 6272,223.98 6272,214.71 6272,206.11"];
+	graphViz -> directory_php [lhead=cluster_graphViz, pos="e,6770.8,124.02 7038.5,170.74 6984.8,162.66 6889.8,147.77 6809,132 6799.8,130.21 6790.2,128.22 6780.7,126.17"];
+	layouts -> column1_php [lhead=cluster_layouts, pos="e,7148.4,131.89 7212.8,164.32 7197.4,156.53 7176.8,146.2 7157.5,136.46"];
+	pages -> about_php [lhead=cluster_pages, pos="e,7263.5,60 7266.5,87.697 7265.9,79.983 7265.1,70.712 7264.3,62.112"];
+	site -> contact_php [lhead=cluster_site, pos="e,7511.9,131.56 7398.2,167.49 7410.2,162.54 7425.3,156.59 7439,152 7446,149.66 7472.4,142.31 7502.1,134.21"];
+	shapes -> basePlattform_php [lhead=cluster_shapes, pos="e,8181,59.747 8119.1,92.324 8133.9,84.532 8153.5,74.206 8172,64.467"];
+	x3d -> db_php [lhead=cluster_x3d, pos="e,8167,132 7523,166.55 7535,161.13 7550.5,155.03 7565,152 7823.7,98.07 7901.4,176.2 8157,133.7"];
+	views -> dumpArray_php [lhead=cluster_views, pos="e,7676,204 7676,231.7 7676,223.98 7676,214.71 7676,206.11"];
 }

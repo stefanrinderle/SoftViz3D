@@ -79,7 +79,7 @@ class X3dController extends Controller
 					'size'=>array('width'=>$width, 'height'=>$height, 'length'=>$length),
 					'colour'=>$colour,
 					'position'=>array('x' => $bb[0], 
-								  	  'y' => - $this->subgraphLevel * 20, 
+								  	  'y' => 0, 
 								      'z' => $bb[1]),
 					'transparency'=>$transpareny
 		);
@@ -92,7 +92,7 @@ class X3dController extends Controller
 				'name'=>$name,
 				'size'=>array('width'=>5, 'height'=>5, 'length'=>5),
 				'position'=>array('x' => $node['pos'][0], 
-								  'y' => - $this->subgraphLevel * 20, 
+								  'y' => 0, 
 								  'z' => $node['pos'][1]),
 				'colour'=>array('r'=>0, 'g'=>1, 'b'=>0),
 				'transparency'=>0
@@ -114,10 +114,10 @@ class X3dController extends Controller
 			
 			$result = array(
 				'startPos'=>array('x' => $edge['pos'][1][0], 
-								  'y' => - $this->subgraphLevel * 20, 
+								  'y' => 0, 
 								  'z' => $edge['pos'][1][1]),
 				'endPos'=>array('x' => $edge['pos'][0][1], 
-								'y' => - $this->subgraphLevel * 20, 
+								'y' => 0, 
 								'z' => $edge['pos'][0][2]),
 				'sections'=>$sections,
 				'colour'=>array('r'=>0, 'g'=>1, 'b'=>0)
