@@ -58,8 +58,8 @@ function setRuntime(typename, id) {
 
 <x3d id="the_x3delement" xmlns="http://www.x3dom.org/x3dom" x="0px" y="0px" width="900px" height="600px">
 <Scene>
-	<param name="showLog" value="true" ></param>
-	<param name="showStat" value="true" ></param>
+	<param name="showLog" value="false" ></param>
+	<param name="showStat" value="false" ></param>
 	<Transform translation='<?php echo $translation['x'] . ' ' .  
 								  	   $translation['y'] . ' ' .
 								       $translation['z']; ?>'>
