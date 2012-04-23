@@ -1,87 +1,11 @@
 digraph G {
 compound=true; nodesep=1.0;
 _DS_Store;
-_htaccess;
-commands;
-components;
-config;
-controllers;
-data;
-extensions;
-messages;
-migrations;
-models;
-runtime;
-tests;
-views;
-yiic;
-yiic_bat;
-yiic_php;
-subgraph cluster_shell {
-}
-subgraph cluster_commands {
-shell;
-}
-subgraph cluster_components {
-Controller_php;
-DirectoryToDotParser_php;
-DirectoryToDotParser2_php;
-DotLayout_php;
-DotParser_php;
-UserIdentity_php;
-VectorCalculator_php;
-}
-subgraph cluster_config {
-console_php;
-main_php;
-test_php;
-}
-subgraph cluster_controllers {
-GraphVizController_php;
-SiteController_php;
-X3dController_php;
-}
-subgraph cluster_data {
-goanna_db;
-schema_mysql_sql;
-schema_sqlite_sql;
-testdrive_db;
-}
-subgraph cluster_extensions {
-}
-subgraph cluster_messages {
-}
-subgraph cluster_migrations {
-}
-subgraph cluster_models {
-ContactForm_php;
-LoginForm_php;
-}
-subgraph cluster_gii-1.1.10 {
-ControllerCode_php;
-}
-subgraph cluster_runtime {
-application_log;
-gii-1.1.10;
-}
-subgraph cluster_fixtures {
-}
-subgraph cluster_functional {
-SiteTest_php;
-}
-subgraph cluster_report {
-}
-subgraph cluster_unit {
-}
-subgraph cluster_tests {
-bootstrap_php;
-fixtures;
-functional;
-phpunit_xml;
-report;
-unit;
-WebTestCase_php;
-}
+dumpArray_php;
+graphViz;
+layouts;
+site;
+x3d;
 subgraph cluster_graphViz {
 directory_php;
 dotToArray_php;
@@ -97,6 +21,7 @@ subgraph cluster_pages {
 about_php;
 }
 subgraph cluster_site {
+_DS_Store;
 contact_php;
 error_php;
 index_php;
@@ -111,39 +36,15 @@ edgeEnd_php;
 edgeSection_php;
 }
 subgraph cluster_x3d {
+_DS_Store;
 db_php;
 index_php;
 shapes;
 }
-subgraph cluster_views {
-dumpArray_php;
-graphViz;
-layouts;
-site;
-x3d;
-}
-shell ->  [lhead=cluster_shell]
-commands ->  [lhead=cluster_commands]
-components -> Controller_php [lhead=cluster_components]
-config -> console_php [lhead=cluster_config]
-controllers -> GraphVizController_php [lhead=cluster_controllers]
-data -> goanna_db [lhead=cluster_data]
-extensions ->  [lhead=cluster_extensions]
-messages ->  [lhead=cluster_messages]
-migrations ->  [lhead=cluster_migrations]
-models -> ContactForm_php [lhead=cluster_models]
-gii-1.1.10 -> ControllerCode_php [lhead=cluster_gii-1.1.10]
-runtime -> application_log [lhead=cluster_runtime]
-fixtures ->  [lhead=cluster_fixtures]
-functional -> SiteTest_php [lhead=cluster_functional]
-report ->  [lhead=cluster_report]
-unit ->  [lhead=cluster_unit]
-tests -> bootstrap_php [lhead=cluster_tests]
 graphViz -> directory_php [lhead=cluster_graphViz]
 layouts -> column1_php [lhead=cluster_layouts]
 pages -> about_php [lhead=cluster_pages]
-site -> contact_php [lhead=cluster_site]
+site -> _DS_Store [lhead=cluster_site]
 shapes -> basePlattform_php [lhead=cluster_shapes]
-x3d -> db_php [lhead=cluster_x3d]
-views -> dumpArray_php [lhead=cluster_views]
+x3d -> _DS_Store [lhead=cluster_x3d]
 }

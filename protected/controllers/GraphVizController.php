@@ -12,7 +12,7 @@ class GraphVizController extends Controller
 	}
 	
 	public function actionDirectory() {
-		$path = "/Users/stefan/Sites/3dArch/protected/";
+		$path = "/Users/stefan/Sites/3dArch/protected/views/";
 		$outputFile = '/Users/stefan/Sites/3dArch/x3d/parser.dot';
 		
 		Yii::app()->directoryToDotParser2->parse($path, $outputFile);
@@ -23,7 +23,7 @@ class GraphVizController extends Controller
 	}
 	
 	public function actionDirectoryArray() {
-		$path = "/Users/stefan/Sites/3dArch/protected/";
+		$path = "/Users/stefan/Sites/3dArch/protected/views/";
 		
 		$array = Yii::app()->directoryToDotParser2->parseDirectoryToArray($path);
 		
