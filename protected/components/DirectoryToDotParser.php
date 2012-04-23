@@ -3,6 +3,9 @@
 class DirectoryToDotParser extends CApplicationComponent
 {
 	
+	private $lastNode;
+	private $lastGraph;
+	
 	public function parse($path, $outputFile) {
 		$directoryArray = $this->parseDirectoryToArray($path);
 		

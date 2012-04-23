@@ -114,16 +114,16 @@ class X3dController extends Controller
 			
 			$result = array(
 				'startPos'=>array('x' => $edge['pos'][1][0], 
-								  'y' => 0, 
+								  'y' => - $this->subgraphLevel * 20, 
 								  'z' => $edge['pos'][1][1]),
 				'endPos'=>array('x' => $edge['pos'][0][1], 
-								'y' => 0, 
+								'y' => - $this->subgraphLevel * 20, 
 								'z' => $edge['pos'][0][2]),
 				'sections'=>$sections,
 				'colour'=>array('r'=>0, 'g'=>1, 'b'=>0)
 			);
 			
-			return result;
+			return $result;
 	}
 	
 	public function actionDb() {
