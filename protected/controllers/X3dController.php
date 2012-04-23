@@ -92,7 +92,7 @@ class X3dController extends Controller
 				'name'=>$name,
 				'size'=>array('width'=>5, 'height'=>5, 'length'=>5),
 				'position'=>array('x' => $node['pos'][0], 
-								  'y' => 0, 
+								  'y' => $node['z'], 
 								  'z' => $node['pos'][1]),
 				'colour'=>array('r'=>0, 'g'=>1, 'b'=>0),
 				'transparency'=>0

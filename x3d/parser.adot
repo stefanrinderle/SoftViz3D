@@ -1,53 +1,25 @@
 digraph G {
-	graph [compound=true, nodesep="1.0"];
-	node [label="\N", shape=box, width="0.1", height="0.1"];
-	graph [bb="0,0,1568,182"];
+	graph [compound=true, nodesep="1.0", dim=3];
+	node [label="\N"];
+	graph [bb="0,0,372.59,273.44"];
 	subgraph cluster_graphViz {
-		graph [bb="404,70,716,112"];
-		directory_php [label=".", width="0.26042", height="0.34444", pos="698,91"];
-		dotToArray_php [label=".", width="0.26042", height="0.34444", pos="606,91"];
-		error_php [label=".", width="0.26042", height="0.34444", pos="514,91"];
-		index_php [label=".", width="0.26042", height="0.34444", pos="422,91"];
+		graph [bb="179.7,150,372.59,273.44"];
+		directory_php [z="5.002867", pos="254.21,168", width="1.8084", height="0.5"];
+		dotToArray_php [z="-38.982071", pos="254.83,232.37", width="2.087", height="0.5"];
+		error_php [z="-4.269009", pos="320.72,255.44", width="1.3627", height="0.5"];
+		index_php [z="38.248210", pos="321.18,190.09", width="1.4278", height="0.5"];
 	}
-	subgraph cluster_layouts {
-		graph [bb="772,70,992,112"];
-		column1_php [label=".", width="0.26042", height="0.34444", pos="974,91"];
-		column2_php [label=".", width="0.26042", height="0.34444", pos="882,91"];
-		main_php [label=".", width="0.26042", height="0.34444", pos="790,91"];
-	}
-	subgraph cluster_pages {
-		graph [bb="22,8,58,50"];
-		about_php [label=".", width="0.26042", height="0.34444", pos="40,29"];
-	}
-	subgraph cluster_site {
-		graph [bb="8,70,348,112"];
-		_DS_Store [label=".", width="0.26042", height="0.34444", pos="330,91"];
-		contact_php [label=".", width="0.26042", height="0.34444", pos="238,91"];
-		login_php [label=".", width="0.26042", height="0.34444", pos="146,91"];
-		pages [width="0.65192", height="0.34444", pos="40,91"];
-	}
-	subgraph cluster_shapes {
-		graph [bb="1048,70,1452,112"];
-		basePlattform_php [label=".", width="0.26042", height="0.34444", pos="1434,91"];
-		box_php [label=".", width="0.26042", height="0.34444", pos="1342,91"];
-		edge_php [label=".", width="0.26042", height="0.34444", pos="1250,91"];
-		edgeEnd_php [label=".", width="0.26042", height="0.34444", pos="1158,91"];
-		edgeSection_php [label=".", width="0.26042", height="0.34444", pos="1066,91"];
-	}
-	subgraph cluster_x3d {
-		graph [bb="1399,132,1560,174"];
-		db_php [label=".", width="0.26042", height="0.34444", pos="1542,153"];
-		shapes [width="0.73142", height="0.34444", pos="1434,153"];
-	}
-	dumpArray_php [label=".", width="0.26042", height="0.34444", pos="534,153"];
-	graphViz [width="0.92539", height="0.34444", pos="698,153"];
-	layouts [width="0.78084", height="0.34444", pos="974,153"];
-	site [width="0.48223", height="0.34444", pos="276,153"];
-	x3d [width="0.50694", height="0.34444", pos="384,153"];
-	graphViz -> directory_php [lhead=cluster_graphViz, pos="e,698,112 698,140.43 698,132.88 698,122.78 698,113.76"];
-	layouts -> column1_php [lhead=cluster_layouts, pos="e,974,112 974,140.43 974,132.88 974,122.78 974,113.76"];
-	pages -> about_php [lhead=cluster_pages, pos="e,40,50 40,78.431 40,70.878 40,60.779 40,51.758"];
-	site -> _DS_Store [lhead=cluster_site, pos="e,312.1,111.89 286.41,140.43 291.75,134.5 298.51,126.99 305.1,119.67"];
-	shapes -> basePlattform_php [lhead=cluster_shapes, pos="e,1434,112 1434,140.43 1434,132.88 1434,122.78 1434,113.76"];
-	x3d -> _DS_Store [lhead=cluster_x3d, pos="e,339.3,102.33 373.59,140.43 365.83,131.81 355.09,119.88 346.21,110.01"];
+	dumpArray_php [z="5.002867", pos="74.434,18", width="2.0676", height="0.5"];
+	graphViz [z="-38.982071", pos="75.052,82.37", width="1.2832", height="0.5"];
+	layouts [z="-4.269009", pos="140.94,105.44", width="1.0685", height="0.5"];
+	site [z="38.248210", pos="141.41,40.091", width="0.75", height="0.5"];
+	x3d [z="0.000000", pos="131.57,168", width="0.75", height="0.5"];
+	dumpArray_php -> graphViz [pos="e,74.878,64.273 74.609,36.274 74.662,41.756 74.721,47.905 74.778,53.882"];
+	graphViz -> layouts [pos="e,109.91,94.577 109.54,94.446 109.6,94.468 109.66,94.489 109.73,94.511"];
+	layouts -> site [pos="e,141.28,58.197 141.07,87.237 141.11,81.43 141.16,74.86 141.2,68.508"];
+	site -> dumpArray_php [pos="e,116.4,31.842 116.85,31.99 116.77,31.966 116.7,31.941 116.62,31.917"];
+	directory_php -> dotToArray_php [pos="e,254.66,214.27 254.39,186.27 254.44,191.76 254.5,197.91 254.56,203.88"];
+	dotToArray_php -> error_php [pos="e,297.6,247.35 297.3,247.24 297.35,247.26 297.4,247.28 297.45,247.29"];
+	error_php -> index_php [pos="e,321.05,208.2 320.85,237.24 320.89,231.43 320.94,224.86 320.98,218.51"];
+	index_php -> directory_php [pos="e,283.04,177.51 283.39,177.63 283.33,177.61 283.27,177.59 283.21,177.57"];
 }

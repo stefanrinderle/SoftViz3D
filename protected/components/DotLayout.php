@@ -11,6 +11,7 @@ class DotLayout extends CApplicationComponent
 		} else {
 			// Create adot file
 			$command  = '/usr/local/bin/dot';
+			$command .=  ' -Kneato';
 			$command .= ' -o ' . escapeshellarg($destinationFilePath);
 			$command .= ' '  . escapeshellarg($sourceFilePath);
 			$command .= ' 2>&1';
