@@ -1,0 +1,7 @@
+digraph G {
+	node [label="\N"];
+	graph [bb="0,0,350,132"];
+	Knoten28 [width="1.6458", height="1.6528", pos="59,66"];
+	sechs [width="0.89939", height="0.48712", pos="169,66"];
+	Knoten81 [width="1.8125", height="1.8194", pos="285,66"];
+}

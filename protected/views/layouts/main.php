@@ -37,6 +37,7 @@
 		<?php $this->widget('zii.widgets.CMenu',array(
 			'items'=>array(
 				array('label'=>'Home', 'url'=>array('/site/index')),
+				array('label'=>'Tree', 'url'=>array('/tree/index')),
 				array('label'=>'GraphViz', 'url'=>array('/graphViz/index')),
 				array('label'=>'X3D', 'url'=>array('/x3d/index')),
 				array('label'=>'About', 'url'=>array('/site/page', 'view'=>'about')),

@@ -34,8 +34,8 @@ class DotParser extends CApplicationComponent
 		
 		// ommit first line: digraph G {
 		$this->getNewLine();
-		// ommit second line: graph [compound=true, nodesep="1.0"];;
-		$this->getNewLine();
+		// ommit second line: graph [compound=true, nodesep="1.0"];
+		//$this->getNewLine();
 		// ommit third line: node [label="\N"];
 		$this->getNewLine();
 
@@ -106,8 +106,6 @@ class DotParser extends CApplicationComponent
 			$node['pos'] = $this->retrieveParam($line, 'pos');
 			$node['pos'] = explode(",", $node['pos']);
 
-			$node['z'] = $this->retrieveParam($line, 'z');
-			
 			$nodes[$this->retrieveName($line)] = $node; 
 			
 			$this->getNewLine();

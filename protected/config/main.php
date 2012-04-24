@@ -30,6 +30,9 @@ return array(
 
 	// application components
 	'components'=>array(
+		'dotWriter'=>array(
+			'class'=>'DotWriter',
+		),
 		'dotParser'=>array(
 			'class'=>'DotParser',
 		),
