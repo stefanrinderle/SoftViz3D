@@ -106,6 +106,9 @@ class DotParser extends CApplicationComponent
 			$node['pos'] = $this->retrieveParam($line, 'pos');
 			$node['pos'] = explode(",", $node['pos']);
 
+			$node['size']['width'] = $this->retrieveParam($line, 'width');
+			$node['size']['height'] = $this->retrieveParam($line, 'height');
+			
 			$nodes[$this->retrieveName($line)] = $node; 
 			
 			$this->getNewLine();
@@ -145,10 +148,15 @@ class DotParser extends CApplicationComponent
 		// get the beginning of the param
 		$start = strpos($params, $param);
 		// ommit = and "
-		$result = substr($params, $start + strlen($param) + 2);
-
-		$end = strpos($result, '"');
-		$result = substr($result, 0, $end);
+		if (substr($params, $start + strlen($param) + 1, 1) == '"') {
+			$result = substr($params, $start + strlen($param) + 2);
+			$end = strpos($result, '"');
+			$result = substr($result, 0, $end);
+		} else {
+			$result = substr($params, $start + strlen($param) + 1);
+			$end = strpos($result, ',');
+			$result = substr($result, 0, $end);
+		}
 
 		return $result;
 	}

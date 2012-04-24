@@ -30,6 +30,10 @@ return array(
 
 	// application components
 	'components'=>array(
+	
+		'x3dGenerator'=>array(
+			'class'=>'X3dGenerator',
+		),
 		'dotWriter'=>array(
 			'class'=>'DotWriter',
 		),

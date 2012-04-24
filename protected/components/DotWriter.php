@@ -20,7 +20,7 @@ class DotWriter extends CApplicationComponent
 
 		foreach ($nodes as $key => $value) {
 			$nodeString = str_replace(".", "_", $value->name);
-			$nodeString .= '[width="' . $value->size . '", height="' . $value->size . '"]';
+			$nodeString .= '[shape="rectangle" width="' . $value->size->width . '", height="' . $value->size->height . '", fixedsize=true]';
 			$nodeString .= ';';
 			
 			array_push($result, $nodeString);
