@@ -44,10 +44,13 @@ class TreeController extends Controller
 			}
 			
 			// write layout dot file
-			$node->size = $this->calcLayout($elements);
+			$graph = $this->calcLayout($elements);
+			
+			$node->size = new Size($graph['bb'][2] / 72, $graph['bb'][3] / 72);
 			
 			// generate x3d code for this layer
-			$node->x3d = Yii::app()->x3dGenerator->generate($this->layoutFile);
+			$node->x3d = Yii::app()->x3dGenerator->generate($graph);
+
 			$node->main = $main;
 			
 			$node->depth = $depth;
@@ -63,12 +66,13 @@ class TreeController extends Controller
 	 * Writes the current elements in an dot file and generated the layout dot file
 	 */
 	private function calcLayout($elements) {
-		Yii::app()->dotWriter->write($elements, $this->outputFile);
-		$result = Yii::app()->dotLayout->layout($this->outputFile, $this->layoutFile);
+		Yii::app()->dotWriter->writeToFile($elements, $this->outputFile);
+		
+		$layoutDot = Yii::app()->dotLayout->layout($this->outputFile);
+		
+		$graph = Yii::app()->dotArrayParser->parse($layoutDot);
 
-		$graph =  Yii::app()->dotParser->parse($this->layoutFile);
-
-		return new Size($graph['bb'][2] / 72, $graph['bb'][3] / 72);
+		return $graph;
 	}
 
 }

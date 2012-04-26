@@ -3,14 +3,14 @@
 class DotWriter extends CApplicationComponent
 {
 
-	public function write($elements, $outputFile) {
-		$this->createDotFile($elements, $outputFile);
+	public function writeToArray($elements) {
+		return $this->createDotFileLines($elements);
 	}
+	
+	public function writeToFile($elements, $outputFile) {
+		$lines = $this->createDotFileLines($elements);
 
-	private function createDotFile($array, $outputFile) {
-		$lines = $this->createDotFileLines($array);
-
-		$this->write_data($lines, $outputFile);
+		$this->writeFile($lines, $outputFile);
 	}
 
 	private function createDotFileLines($elements) {
@@ -31,7 +31,7 @@ class DotWriter extends CApplicationComponent
 		return $result;
 	}
 
-	private function write_data($data, $fname) {
+	private function writeFile($data, $fname) {
 		$fp = fopen($fname, "w");
 
 		foreach ($data as $key => $value) {
@@ -40,5 +40,5 @@ class DotWriter extends CApplicationComponent
 
 		fclose($fp);
 	}
-
+	
 }

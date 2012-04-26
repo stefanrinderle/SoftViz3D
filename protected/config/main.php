@@ -37,8 +37,11 @@ return array(
 		'dotWriter'=>array(
 			'class'=>'DotWriter',
 		),
-		'dotParser'=>array(
-			'class'=>'DotParser',
+		'dotArrayParser'=>array(
+			'class'=>'DotArrayParser',
+		),
+		'dotFileParser'=>array(
+			'class'=>'DotFileParser',
 		),
 		'dotLayout'=>array(
 			'class'=>'DotLayout',

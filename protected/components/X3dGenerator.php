@@ -3,10 +3,10 @@
 class X3dGenerator extends CApplicationComponent
 {
 	
-	public function generate($inputFile)
+	public function generate($graph)
 	{
 		// get layout and parse result --------------------
-		$graph =  Yii::app()->dotParser->parse($inputFile);
+// 		$graph =  Yii::app()->dotFileParser->parse($inputFile);
 		
 		// map to x3d -------------------------------------
 		$x3dContent = array();

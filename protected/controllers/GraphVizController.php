@@ -39,7 +39,7 @@ class GraphVizController extends Controller
 		if (!empty($result)) {
 			$this->render('error', array(error=>$result));
 		} else {
-			$graph =  Yii::app()->dotParser->parse($outputfile);
+			$graph =  Yii::app()->dotFileParser->parse($outputfile);
 			
 			$this->render('dotToArray', array(input=>$dotfile, 
 										 graph=>$graph));
