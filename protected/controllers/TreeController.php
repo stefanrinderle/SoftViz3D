@@ -3,9 +3,11 @@
 class TreeController extends Controller
 {
 
+	private static $SCALE = 72;
+	
 	private $outputFile = '/Users/stefan/Sites/3dArch/x3d/temp.dot';
-	private $layoutFile = '/Users/stefan/Sites/3dArch/x3d/temp.adot';
-
+	
+	
 	public function actionIndex()
 	{
 		//Yii::log("bla", 'error', 'parser');
@@ -28,7 +30,7 @@ class TreeController extends Controller
 		$this->render('index', array(tree=>$tree));
 	}
 
-	private function postorder($node, $depth, $main=false)
+	private function postorder($node, $depth, $isMain=false)
 	{
 		$elements = array();
 		if ($node instanceof Node) {
@@ -43,23 +45,21 @@ class TreeController extends Controller
 				}
 			}
 			
-			// write layout dot file
+			// create graph array
 			$graph = $this->calcLayout($elements);
 			
-			$node->size = new Size($graph['bb'][2] / 72, $graph['bb'][3] / 72);
-			
 			// generate x3d code for this layer
-			$node->x3d = Yii::app()->x3dGenerator->generate($graph);
+			$node->x3dInfos = Yii::app()->x3dCalculator->calculate($graph, $depth);
 
-			$node->main = $main;
-			
+			$node->isMain = $isMain;
 			$node->depth = $depth;
+			// size of the node is the size of its bounding box
+			$node->size = array(width=>$graph['bb'][2] / self::$SCALE, height=>$graph['bb'][3] / self::$SCALE);
 			
 			return $node->size;
 		} else {
-			return new Size(1, 1);
+			return array(width=>0.5, height=>0.5);
 		}
-		 
 	}
 
 	/**
@@ -78,16 +78,6 @@ class TreeController extends Controller
 }
 
 
-class Size {
-	public $width;
-	public $height;
-
-	public function __construct($width, $height) {
-		$this->width = $width;
-		$this->height = $height;
-	}
-}
-
 class Element {
 	public $name;
 	public $size;
@@ -103,10 +93,8 @@ class Element {
 class Node {
 	public $label;
 	public $content = array();
-	public $width;
-	public $height;
-	public $x3d;
-	public $main;
+	public $x3dInfos;
+	public $isMain;
 	public $depth;
 
 	public function __construct($label, $content) {

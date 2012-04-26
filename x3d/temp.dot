@@ -1,5 +1,11 @@
 digraph G {
-fuenf[shape="rectangle" width="2.83333333333", height="2.33333333333", fixedsize=true, type="node"];
-sechs[shape="rectangle" width="1", height="1", fixedsize=true, type="leaf"];
-elf[shape="rectangle" width="4.08333333333", height="2.33333333333", fixedsize=true, type="node"];
+fuenf[shape="rectangle" width="1.86111111111", 
+								height="1.47222222222", fixedsize=true, 
+								type="node"];
+sechs[shape="rectangle" width="0.5", 
+								height="0.5", fixedsize=true, 
+								type="leaf"];
+elf[shape="rectangle" width="2.52777777778", 
+								height="1.47222222222", fixedsize=true, 
+								type="node"];
 }

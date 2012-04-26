@@ -31,8 +31,8 @@ return array(
 	// application components
 	'components'=>array(
 	
-		'x3dGenerator'=>array(
-			'class'=>'X3dGenerator',
+		'x3dCalculator'=>array(
+			'class'=>'X3dCalculator',
 		),
 		'dotWriter'=>array(
 			'class'=>'DotWriter',

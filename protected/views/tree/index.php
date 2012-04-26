@@ -11,21 +11,34 @@ Yii::app()->clientScript->registerCssFile(
 	'/jui/css/base/jquery-ui.css'
 );
 
-function preorder($node, $self, $transX, $transZ, $modX, $modZ) {
+function generateX3DOM($node, $self, $transX, $transZ) {
 	if ($node instanceof Node) {
-		$self->renderPartial('x3dGroup', array(graph=>$node->x3d,
-											   modifier=>array(x=>$modX, y=>0, z=>$modZ), 
-											   translation=>array(x=>$transX, y=>0, z=>$transZ),
-											   depth=>$node->depth,
-											   main=>$node->main));
+		$nodeWidth = $node->x3dInfos[bb][size][width];
+		$nodeLength = $node->x3dInfos[bb][size][length];
 		
+		// get translation of parent
+		$translation[x] = $transX;
+		$translation[y] = $node->x3dInfos[bb][position][y];
+		$translation[z] = $transZ;
+		
+		if (!$node->isMain) {
+			$translation[x] = $translation[x] - $nodeWidth / 2;
+			$translation[z] = $translation[z] - $nodeLength / 2;
+		} 
+		
+		$self->renderPartial('x3dGroup', array(graph=>$node->x3dInfos, translation=>$translation));
+		
+		// calculate values for the children nodes
 		foreach ($node->content as $key => $value) {
-			if ($node->main) {
-				preorder($value, $self, $node->x3d[nodes][$value->label][position][x], $node->x3d[nodes][$value->label][position][z], 0, 0);
-			} else {
-				preorder($value, $self, $node->x3d[nodes][$value->label][position][x], $node->x3d[nodes][$value->label][position][z], 
-						$transX - ($node->x3d[bb][size][width] / 2), $transZ - ($node->x3d[bb][size][length] / 2));
+			// layout node position
+			$nodePositionX = $node->x3dInfos[nodes][$value->label][position][x];
+			$nodePositionZ = $node->x3dInfos[nodes][$value->label][position][z];
+			
+			if (!$node->isMain) {
+				$nodePositionX = $nodePositionX + ($transX - ($nodeWidth / 2));
+				$nodePositionZ = $nodePositionZ + ($transZ - ($nodeLength / 2));
 			}
+			generateX3DOM($value, $self, $nodePositionX, $nodePositionZ);
 		}
 	}
 }
@@ -37,9 +50,9 @@ function preorder($node, $self, $transX, $transZ, $modX, $modZ) {
 	<param name="showLog" value="false" ></param>
 	<param name="showStat" value="false" ></param>
 	
-	<Transform translation='<?php echo - $tree->x3d[bb][size][width] / 2 . " 0 " . - $tree->x3d[bb][size][length] / 2; ?>'>
+	<Transform translation='<?php echo - $tree->x3dInfos[bb][size][width] / 2 . " 0 " . - $tree->x3dInfos[bb][size][length] / 2; ?>'>
 	
-	<?php preorder($tree, $this, 0, 0, 0, 0); ?>
+	<?php generateX3DOM($tree, $this, 0, 0); ?>
 	
 	</Transform>
 	

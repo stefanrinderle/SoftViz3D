@@ -1,36 +1,26 @@
 <?php
 
-class X3dGenerator extends CApplicationComponent
+class X3dCalculator extends CApplicationComponent
 {
 	
-	public function generate($graph)
+	public function calculate($graph, $depth)
 	{
-		// get layout and parse result --------------------
-// 		$graph =  Yii::app()->dotFileParser->parse($inputFile);
-		
-		// map to x3d -------------------------------------
 		$x3dContent = array();
 		
-		$x3dContent = $this->adjustGraphToX3d($graph);
-		
-		//$translation = array('x'=> (- ($x3dContent['main']['bb']['size']['width'] / 2)),
-		//					 'y'=> 0,
-		//					 'z'=> (- ($x3dContent['main']['bb']['size']['length'] / 2)));
-		
-		//$this->render('index', array(translation=>$translation, content=>$x3dContent));
+		$x3dContent = $this->adjustGraphToX3d($graph, $depth);
 		
 		return $x3dContent;
 	}
 	
-	private function adjustGraphToX3d($graph) {
+	private function adjustGraphToX3d($graph, $depth) {
 		$result = array(); 
 		// Bounding Box
-		$result['bb'] = $this->adjustBb($graph['bb']);
+		$result['bb'] = $this->adjustBb($graph['bb'], $depth);
 		
 		// Nodes
 		$result['nodes'] = array();
 		foreach ($graph['nodes'] as $key => $value) {
-			$result['nodes'][$key] = $this->adjustNode($key, $value);
+			$result['nodes'][$key] = $this->adjustNode($key, $value, $depth);
 		}
 		
 		// Edges
@@ -42,20 +32,19 @@ class X3dGenerator extends CApplicationComponent
 		return $result;
 	} 
 	
-	private function adjustBb($bb) {
+	private function adjustBb($bb, $depth) {
 		$width = $bb[2] - $bb[0];
 		$length = $bb[3] - $bb[1];
 		
-		$colourValue = 1;
-		$colour = array('r'=>0, 'g'=>$colourValue, 'b'=>0);
+		$colour = array('r'=>0, 'g'=>1 - (0.3 * depth), 'b'=>0);
 		$height = 1;
-		$transpareny = 0;
+		$transpareny = 0.6 - (0.3 * $depth);
 		
 		$result = array(
 					'size'=>array('width'=>$width, 'height'=>$height, 'length'=>$length),
 					'colour'=>$colour,
 					'position'=>array('x' => $bb[0], 
-								  	  'y' => 0, 
+								  	  'y' => $depth * 5, 
 								      'z' => $bb[1]),
 					'transparency'=>$transpareny
 		);
@@ -63,32 +52,33 @@ class X3dGenerator extends CApplicationComponent
 		return $result;
 	}
 	
-	private function adjustNode($name, $node) {
+	private function adjustNode($name, $node, $depth) {
+		$nodeHeight = 10;
+		
 		if ($node[type] == "leaf") {
 			$result = array(
 				'name'=>$name,
-				'size'=>array('width'=>$node['size']['width'] * 50, 'height'=>10, 'length'=>$node['size']['height'] * 50),
+				'size'=>array('width'=>$node['size']['width'] * 72 / 2, 'height'=>$nodeHeight, 'length'=>$node['size']['height'] * 72 / 2),
 				'position'=>array('x' => $node['pos'][0], 
-								  'y' => 0, 
+								  'y' => $depth * 5 + ($nodeHeight / 2), 
 								  'z' => $node['pos'][1]),
-				'colour'=>array('r'=>(rand(0, 100) / 100), 'g'=>(rand(0, 100) / 100), 'b'=>(rand(0, 100) / 100)),
+				'colour'=>array('r'=>0, 'g'=>0, 'b'=>0.5),
 				'transparency'=>0
 			);
-			
-			return $result;
 		} else {
+			// its a node with subnodes, so only specify the position and name.
 			$result = array(
 				'name'=>$name,
 				//'size'=>array('width'=>$node['size']['width'] * 50, 'height'=>10, 'length'=>$node['size']['height'] * 50),
 				'position'=>array('x' => $node['pos'][0], 
-								  'y' => 0, 
+								  'y' => $depth * 5 + ($nodeHeight / 2), 
 								  'z' => $node['pos'][1]),
 				//'colour'=>array('r'=>(rand(0, 100) / 100), 'g'=>(rand(0, 100) / 100), 'b'=>(rand(0, 100) / 100)),
 				//'transparency'=>0
 			);
-			
-			return $result;
 		}
+		
+		return $result;
 	}
 	
 	private function adustEdge($edge) {
