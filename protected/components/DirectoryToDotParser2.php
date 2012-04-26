@@ -6,6 +6,13 @@ class DirectoryToDotParser2 extends CApplicationComponent
 	private $subgraphs;
 	private $edges;
 	
+	public function getDirectoryTree($path) {
+		$this->subgraphs = array();
+		$this->edges = array();
+		
+		return $this->parseDirectoryToArray($path);
+	}
+	
 	public function parse($path, $outputFile) {
 		$this->subgraphs = array();
 		$this->edges = array();

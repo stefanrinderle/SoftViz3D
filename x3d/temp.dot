@@ -1,11 +1,53 @@
 digraph G {
-fuenf[shape="rectangle" width="1.86111111111", 
-								height="1.47222222222", fixedsize=true, 
-								type="node"];
-sechs[shape="rectangle" width="0.5", 
+_DS_Store[shape="rectangle" width="0.5", 
 								height="0.5", fixedsize=true, 
 								type="leaf"];
-elf[shape="rectangle" width="2.52777777778", 
-								height="1.47222222222", fixedsize=true, 
+_htaccess[shape="rectangle" width="0.5", 
+								height="0.5", fixedsize=true, 
+								type="leaf"];
+2517[shape="rectangle" width="0.0138888888889", 
+								height="0.0138888888889", fixedsize=true, 
 								type="node"];
+273[shape="rectangle" width="2.79166666667", 
+								height="2.79166666667", fixedsize=true, 
+								type="node"];
+5602[shape="rectangle" width="1.26388888889", 
+								height="1.26388888889", fixedsize=true, 
+								type="node"];
+8388[shape="rectangle" width="1.26388888889", 
+								height="1.33333333333", fixedsize=true, 
+								type="node"];
+9516[shape="rectangle" width="1.26388888889", 
+								height="1.33333333333", fixedsize=true, 
+								type="node"];
+8959[shape="rectangle" width="0", 
+								height="0", fixedsize=true, 
+								type="node"];
+7961[shape="rectangle" width="0", 
+								height="0", fixedsize=true, 
+								type="node"];
+5018[shape="rectangle" width="0", 
+								height="0", fixedsize=true, 
+								type="node"];
+751[shape="rectangle" width="1.26388888889", 
+								height="0.569444444444", fixedsize=true, 
+								type="node"];
+7420[shape="rectangle" width="1.26388888889", 
+								height="0.569444444444", fixedsize=true, 
+								type="node"];
+6461[shape="rectangle" width="1.55555555556", 
+								height="1.55555555556", fixedsize=true, 
+								type="node"];
+9264[shape="rectangle" width="6.29166666667", 
+								height="5.56944444444", fixedsize=true, 
+								type="node"];
+yiic[shape="rectangle" width="0.5", 
+								height="0.5", fixedsize=true, 
+								type="leaf"];
+yiic_bat[shape="rectangle" width="0.5", 
+								height="0.5", fixedsize=true, 
+								type="leaf"];
+yiic_php[shape="rectangle" width="0.5", 
+								height="0.5", fixedsize=true, 
+								type="leaf"];
 }

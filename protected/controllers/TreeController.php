@@ -14,22 +14,36 @@ class TreeController extends Controller
 		//Yii::log($this->actualLine, 'error', 'parser');
 
 		// Test tree object
-		$drei = new Node("drei", array("eins", "zwei"));
-
-		$fuenf = new Node("fuenf", array($drei, "vier"));
+// 		$drei = new Node("drei", array("eins", "zwei"));
+// 		$fuenf = new Node("fuenf", array($drei, "vier"));
+// 		$neun = new Node("neun", array("sieben", "acht"));
+// 		$neun2 = new Node("neun2", array("sieben", "acht"));
+// 		$elf = new Node("elf", array($neun, "zehn", $neun2));
+// 		$tree = new Node("tree", array($fuenf, "sechs", $elf));
 		
-		$neun = new Node("neun", array("sieben", "acht"));
-		$neun2 = new Node("neun2", array("sieben", "acht"));
-		$elf = new Node("elf", array($neun, "zehn", $neun2));
+		$path = "/Users/stefan/Sites/3dArch/protected/views/";
+		$tree = Yii::app()->directoryToDotParser2->getDirectoryTree($path);
 
-		$tree = new Node("tree", array($fuenf, "sechs", $elf));
-
+		$tree = $this->buildTree($tree);
+		
 		// test
 		$this->postorder($tree, 0, true);
 
 		$this->render('index', array(tree=>$tree));
 	}
 
+	private function buildTree($object) {
+		if (is_array($object)) {
+			$array = array();
+			foreach ($object as $key => $value) {
+				array_push($array, $this->buildTree($value));
+			}
+			return new Node(rand(0, 10000), $array);
+		} else {
+			return $object;
+		}
+	}
+	
 	private function postorder($node, $depth, $isMain=false)
 	{
 		$elements = array();
