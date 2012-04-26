@@ -17,7 +17,8 @@ class TreeController extends Controller
 		$fuenf = new Node("fuenf", array($drei, "vier"));
 		
 		$neun = new Node("neun", array("sieben", "acht"));
-		$elf = new Node("elf", array($neun, "zehn"));
+		$neun2 = new Node("neun2", array("sieben", "acht"));
+		$elf = new Node("elf", array($neun, "zehn", $neun2));
 
 		$tree = new Node("tree", array($fuenf, "sechs", $elf));
 
