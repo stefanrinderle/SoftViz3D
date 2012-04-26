@@ -1,5 +1,5 @@
 digraph G {
-fuenf[shape="rectangle" width="3.5", height="1", fixedsize=true];
-sechs[shape="rectangle" width="1", height="1", fixedsize=true];
-elf[shape="rectangle" width="3.5", height="1", fixedsize=true];
+fuenf[shape="rectangle" width="3.5", height="1", fixedsize=true, type="node"];
+sechs[shape="rectangle" width="1", height="1", fixedsize=true, type="leaf"];
+elf[shape="rectangle" width="3.5", height="1", fixedsize=true, type="node"];
 }

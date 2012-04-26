@@ -3,8 +3,8 @@
 class DotWriter extends CApplicationComponent
 {
 
-	public function write($nodes, $outputFile) {
-		$this->createDotFile($nodes, $outputFile);
+	public function write($elements, $outputFile) {
+		$this->createDotFile($elements, $outputFile);
 	}
 
 	private function createDotFile($array, $outputFile) {
@@ -13,17 +13,17 @@ class DotWriter extends CApplicationComponent
 		$this->write_data($lines, $outputFile);
 	}
 
-	private function createDotFileLines($nodes) {
+	private function createDotFileLines($elements) {
 		$result = array();
 
 		array_push($result, 'digraph G {');
 
-		foreach ($nodes as $key => $value) {
-			$nodeString = str_replace(".", "_", $value->name);
-			$nodeString .= '[shape="rectangle" width="' . $value->size->width . '", height="' . $value->size->height . '", fixedsize=true]';
-			$nodeString .= ';';
+		foreach ($elements as $key => $value) {
+			$elementString = str_replace(".", "_", $value->name);
+			$elementString .= '[shape="rectangle" width="' . $value->size->width . '", height="' . $value->size->height . '", fixedsize=true, type="' . $value->type . '"]';
+			$elementString .= ';';
 			
-			array_push($result, $nodeString);
+			array_push($result, $elementString);
 		}
 
 		array_push($result, '}');

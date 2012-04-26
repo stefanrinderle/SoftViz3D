@@ -109,6 +109,8 @@ class DotParser extends CApplicationComponent
 			$node['size']['width'] = $this->retrieveParam($line, 'width');
 			$node['size']['height'] = $this->retrieveParam($line, 'height');
 			
+			$node['type'] = $this->retrieveParam($line, 'type');
+			
 			$nodes[$this->retrieveName($line)] = $node; 
 			
 			$this->getNewLine();

@@ -36,14 +36,16 @@ class TreeController extends Controller
 				$size = $this->postorder($value, $depth);
 
 				if ($value instanceof Node) {
-					array_push($elements, new Element($value->label, $size));
+					array_push($elements, new Element($value->label, $size, "node"));
 				} else {
-					array_push($elements, new Element($value, $size));
+					array_push($elements, new Element($value, $size, "leaf"));
 				}
 			}
-				
+			
+			// write layout dot file
 			$node->size = $this->calcLayout($elements);
-				
+			
+			// generate x3d code for this layer
 			$node->x3d = Yii::app()->x3dGenerator->generate($this->layoutFile);
 			$node->main = $main;
 			
@@ -56,6 +58,9 @@ class TreeController extends Controller
 		 
 	}
 
+	/**
+	 * Writes the current elements in an dot file and generated the layout dot file
+	 */
 	private function calcLayout($elements) {
 		Yii::app()->dotWriter->write($elements, $this->outputFile);
 		$result = Yii::app()->dotLayout->layout($this->outputFile, $this->layoutFile);
@@ -81,10 +86,12 @@ class Size {
 class Element {
 	public $name;
 	public $size;
-
-	public function __construct($name, $size) {
+	public $type;
+	
+	public function __construct($name, $size, $type) {
 		$this->name = $name;
 		$this->size = $size;
+		$this->type = $type;
 	}
 }
 

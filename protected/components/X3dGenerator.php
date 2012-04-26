@@ -46,10 +46,10 @@ class X3dGenerator extends CApplicationComponent
 		$width = $bb[2] - $bb[0];
 		$length = $bb[3] - $bb[1];
 		
-		$colourValue = 0.5;
+		$colourValue = 1;
 		$colour = array('r'=>0, 'g'=>$colourValue, 'b'=>0);
 		$height = 1;
-		$transpareny = 0.9;
+		$transpareny = 0;
 		
 		$result = array(
 					'size'=>array('width'=>$width, 'height'=>$height, 'length'=>$length),
@@ -64,7 +64,8 @@ class X3dGenerator extends CApplicationComponent
 	}
 	
 	private function adjustNode($name, $node) {
-		$result = array(
+		if ($node[type] == "leaf") {
+			$result = array(
 				'name'=>$name,
 				'size'=>array('width'=>$node['size']['width'] * 50, 'height'=>10, 'length'=>$node['size']['height'] * 50),
 				'position'=>array('x' => $node['pos'][0], 
@@ -74,7 +75,20 @@ class X3dGenerator extends CApplicationComponent
 				'transparency'=>0
 			);
 			
-		return $result;
+			return $result;
+		} else {
+			$result = array(
+				'name'=>$name,
+				//'size'=>array('width'=>$node['size']['width'] * 50, 'height'=>10, 'length'=>$node['size']['height'] * 50),
+				'position'=>array('x' => $node['pos'][0], 
+								  'y' => 0, 
+								  'z' => $node['pos'][1]),
+				//'colour'=>array('r'=>(rand(0, 100) / 100), 'g'=>(rand(0, 100) / 100), 'b'=>(rand(0, 100) / 100)),
+				//'transparency'=>0
+			);
+			
+			return $result;
+		}
 	}
 	
 	private function adustEdge($edge) {

@@ -5,7 +5,7 @@ if (!$main) {
 	$translation[z] = $translation[z] - $graph[bb][size][length] / 2;
 }
 
-$translation[y] = - $depth * 10;
+$translation[y] = $depth * 10;
 
 ?>
 
