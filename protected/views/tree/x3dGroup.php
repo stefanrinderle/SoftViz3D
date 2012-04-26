@@ -9,7 +9,7 @@ $translation[y] = $depth * 10;
 
 ?>
 
-<Transform translation='<?php echo $translation[x] + $modifier[x]. " " . $translation[y] . " " . $translation[z]; ?>'>
+<Transform translation='<?php echo ($translation[x] + $modifier[x]). " " . $translation[y] . " " . ($translation[z]  + $modifier[z]); ?>'>
 <Group>
 <?php
 

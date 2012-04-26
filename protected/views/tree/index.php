@@ -24,7 +24,7 @@ function preorder($node, $self, $transX, $transZ, $modX, $modZ) {
 				preorder($value, $self, $node->x3d[nodes][$value->label][position][x], $node->x3d[nodes][$value->label][position][z], 0, 0);
 			} else {
 				preorder($value, $self, $node->x3d[nodes][$value->label][position][x], $node->x3d[nodes][$value->label][position][z], 
-						$transX - ($node->x3d[bb][size][width] / 2), $transZ);
+						$transX - ($node->x3d[bb][size][width] / 2), $transZ - ($node->x3d[bb][size][length] / 2));
 			}
 		}
 	}

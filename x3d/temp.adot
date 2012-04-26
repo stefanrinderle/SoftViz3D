@@ -1,7 +1,7 @@
 digraph G {
 	node [label="\N"];
-	graph [bb="0,0,612,72"];
-	fuenf [shape=rectangle, width="3.5", height=1, fixedsize=true, type="node", pos="126,36"];
-	sechs [shape=rectangle, width=1, height=1, fixedsize=true, type=leaf, pos="306,36"];
-	elf [shape=rectangle, width="3.5", height=1, fixedsize=true, type="node", pos="486,36"];
+	graph [bb="0,0,464,368"];
+	fuenf [shape=rectangle, width="2.8333", height="2.3333", fixedsize=true, type="node", pos="362,284"];
+	sechs [shape=rectangle, width=1, height=1, fixedsize=true, type=leaf, pos="176,236"];
+	elf [shape=rectangle, width="4.0833", height="2.3333", fixedsize=true, type="node", pos="147,84"];
 }
