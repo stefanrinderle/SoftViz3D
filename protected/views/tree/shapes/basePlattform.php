@@ -7,7 +7,8 @@ $this->renderPartial('shapes/box',
 						  'y' => $position[y], 
 						  'z' => $position[z] + $size[length] / 2),
 		'colour'=>$colour,
-		'transparency'=>$transparency
+		'transparency'=>$transparency,
+		'shininess'=>0.9	
 		)
 );
 

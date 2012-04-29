@@ -7,6 +7,7 @@ class TreeController extends Controller
 	
 	private $outputFile = '/Users/stefan/Sites/3dArch/x3d/temp.dot';
 	
+	private $maxDepth = 0;
 	
 	public function actionIndex()
 	{
@@ -14,17 +15,19 @@ class TreeController extends Controller
 		//Yii::log($this->actualLine, 'error', 'parser');
 
 		// Test tree object
-// 		$drei = new Node("drei", array("eins", "zwei"));
-// 		$fuenf = new Node("fuenf", array($drei, "vier"));
-// 		$neun = new Node("neun", array("sieben", "acht"));
-// 		$neun2 = new Node("neun2", array("sieben", "acht"));
-// 		$elf = new Node("elf", array($neun, "zehn", $neun2));
-// 		$tree = new Node("tree", array($fuenf, "sechs", $elf));
+		$drei = new Node("drei", array("eins", "zwei"));
+		$fuenf = new Node("fuenf", array($drei, "vier"));
+		$neun = new Node("neun", array("sieben", "acht"));
+		$neun2 = new Node("neun2", array("sieben", "acht"));
+		$elf = new Node("elf", array($neun, "zehn", $neun2));
+		$tree = new Node("tree", array($fuenf, "sechs", $elf));
 		
-		$path = "/Users/stefan/Sites/3dArch/protected/views/";
-		$tree = Yii::app()->directoryToDotParser2->getDirectoryTree($path);
+		$this->maxDepth = 3;
+		
+// 		$path = "/Users/stefan/Sites/3dArch/protected/views/";
+// 		$tree = Yii::app()->directoryToDotParser2->getDirectoryTree($path);
 
-		$tree = $this->buildTree($tree);
+		$tree = $this->buildTree($tree, 0);
 		
 		// test
 		$this->postorder($tree, 0, true);
@@ -32,11 +35,17 @@ class TreeController extends Controller
 		$this->render('index', array(tree=>$tree));
 	}
 
-	private function buildTree($object) {
+	private function buildTree($object, $depth) {
+		$depth++;
+		
+		if ($depth > $this->maxDepth) {
+			$this->maxDepth = $depth;
+		}
+		
 		if (is_array($object)) {
 			$array = array();
 			foreach ($object as $key => $value) {
-				array_push($array, $this->buildTree($value));
+				array_push($array, $this->buildTree($value, $depth));
 			}
 			return new Node(rand(0, 10000), $array);
 		} else {
@@ -49,6 +58,7 @@ class TreeController extends Controller
 		$elements = array();
 		if ($node instanceof Node) {
 			$depth++;
+			
 			foreach ($node->content as $key => $value) {
 				$size = $this->postorder($value, $depth);
 
@@ -63,7 +73,7 @@ class TreeController extends Controller
 			$graph = $this->calcLayout($elements);
 			
 			// generate x3d code for this layer
-			$node->x3dInfos = Yii::app()->x3dCalculator->calculate($graph, $depth);
+			$node->x3dInfos = Yii::app()->x3dCalculator->calculate($graph, $depth, $this->maxDepth);
 
 			$node->isMain = $isMain;
 			$node->depth = $depth;
@@ -72,7 +82,7 @@ class TreeController extends Controller
 			
 			return $node->size;
 		} else {
-			return array(width=>0.5, height=>0.5);
+			return array(width=>0.1, height=>0.1);
 		}
 	}
 
