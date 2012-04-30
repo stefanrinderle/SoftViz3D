@@ -41,9 +41,9 @@ class TreeController extends Controller
 	private function getSourceDotFile() {
 		$sourceFile = '/Users/stefan/Sites/3dArch/x3d/dependency.dot';
 		
-		$dot = Yii::app()->adotFileParser->parse($sourceFile);
+		$dot = Yii::app()->dotParser->parse($sourceFile);
 		
-		print_r($dot);
+		$this->render('../dumpArray', array(dumpArray=>$dot));
 	}
 
 	private function buildTree($object, $depth) {

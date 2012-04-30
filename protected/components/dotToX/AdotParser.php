@@ -29,6 +29,17 @@ abstract class AdotParser extends CApplicationComponent
 		return array('bb'=>$bb, 'nodes'=>$nodes, 'edges'=>$edges, 'subgraph'=>$subgraph);
 	}
 	
+	protected function checkLineFeed() {
+		// automatical line feed from dot program
+		if (!(strpos($this->actualLine, "[") === false) && (strpos($this->actualLine, "]") === false)) {
+			$line = substr($this->actualLine, 0, strlen($this->actualLine) - 2);
+	
+			// retrieve next line
+			$nextLine = fgets($this->parseFileHandle);
+			$this->actualLine = $line . $nextLine;
+		}
+	}
+	
 	protected function retrieveBoundingBox() {
 		$bb = $this->retrieveParam($this->actualLine, 'bb');
 		return explode(",", $bb);
@@ -96,9 +107,11 @@ abstract class AdotParser extends CApplicationComponent
 	
 	protected function retrieveName($line) {
 		$startParamsPos = strpos($line, "[");
+		
 	
 		if ($startParamsPos === false) {
-			return trim($line);
+			$colonPos = strpos($line, ";");
+			return trim(substr($line, 0, $colonPos));
 		} else {
 			return trim(substr($line, 0, $startParamsPos));
 		}

@@ -6,13 +6,13 @@
 class AdotArrayParser extends AdotParser
 {
 	
-	private $dotTextArray;
+	private $adotTextArray;
 	private $counter = 0;
 	
-	public function parse($dotTextArray)
+	public function parse($adotTextArray)
 	{
 		$this->counter = 0;
-		$this->dotTextArray = $dotTextArray;
+		$this->adotTextArray = $adotTextArray;
 		// ommit first line: digraph G {
 		$this->getNewLine();
 		// ommit second line: graph [compound=true, nodesep="1.0"];
@@ -26,16 +26,9 @@ class AdotArrayParser extends AdotParser
 	}
 	
 	protected function getNewLine() {
-		$this->actualLine = $this->dotTextArray[$this->counter];
+		$this->actualLine = $this->adotTextArray[$this->counter];
 		
-		// automatical line feed from dot program
-		if (!(strpos($this->actualLine, "[") === false) && (strpos($this->actualLine, "]") === false)) {
-			$line = substr($this->actualLine, 0, strlen($this->actualLine) - 2);
-			
-			// retrieve next line
-			$nextLine = fgets($this->parseFileHandle);
-			$this->actualLine = $line . $nextLine;
-		} 
+		$this->checkLineFeed();
 		
 		$this->counter = $this->counter + 1;
 		

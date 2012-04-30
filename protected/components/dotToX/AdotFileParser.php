@@ -29,14 +29,7 @@ class AdotFileParser extends AdotParser
 	protected function getNewLine() {
 		$this->actualLine = fgets($this->parseFileHandle);
 		
-		// automatical line feed from dot program
-		if (!(strpos($this->actualLine, "[") === false) && (strpos($this->actualLine, "]") === false)) {
-			$line = substr($this->actualLine, 0, strlen($this->actualLine) - 2);
-			
-			// retrieve next line
-			$nextLine = fgets($this->parseFileHandle);
-			$this->actualLine = $line . $nextLine;
-		} 
+		$this->checkLineFeed();
 		
 		return $this->actualLine;
 	}
