@@ -1,6 +1,6 @@
 <?php
 
-abstract class DotParser extends CApplicationComponent
+abstract class AdotParser extends CApplicationComponent
 {
 	protected $actualLine;
 	

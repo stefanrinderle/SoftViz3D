@@ -27,6 +27,20 @@ class DotWriter extends CApplicationComponent
 			
 			array_push($result, $elementString);
 		}
+		
+		// create fake edges
+		$firstElement = null;
+		foreach ($elements as $key => $value) {
+			if ($firstElement) {
+				$elementString = str_replace(".", "_", $firstElement->name);
+				$elementString .= ' -> ';
+				$elementString .= str_replace(".", "_", $value->name);
+				$elementString .= ';';
+				
+				array_push($result, $elementString);
+			}
+			$firstElement = $value;
+		}
 
 		array_push($result, '}');
 

@@ -1,14 +1,18 @@
 <?php
 
-class DotFileParser extends DotParser
+/**
+ * Parse an adot file given as array to a graph structure.
+ */
+class AdotArrayParser extends AdotParser
 {
 	
-	private $parseFileHandle;
+	private $dotTextArray;
+	private $counter = 0;
 	
-	public function parse($adotFile)
+	public function parse($dotTextArray)
 	{
-		$this->parseFileHandle = fopen($adotFile, "r");
-		
+		$this->counter = 0;
+		$this->dotTextArray = $dotTextArray;
 		// ommit first line: digraph G {
 		$this->getNewLine();
 		// ommit second line: graph [compound=true, nodesep="1.0"];
@@ -18,13 +22,11 @@ class DotFileParser extends DotParser
 
 		$graph = $this->parseGraph();
 
-		fclose($this->parseFileHandle);
-
 		return $graph;
 	}
 	
 	protected function getNewLine() {
-		$this->actualLine = fgets($this->parseFileHandle);
+		$this->actualLine = $this->dotTextArray[$this->counter];
 		
 		// automatical line feed from dot program
 		if (!(strpos($this->actualLine, "[") === false) && (strpos($this->actualLine, "]") === false)) {
@@ -34,6 +36,8 @@ class DotFileParser extends DotParser
 			$nextLine = fgets($this->parseFileHandle);
 			$this->actualLine = $line . $nextLine;
 		} 
+		
+		$this->counter = $this->counter + 1;
 		
 		return $this->actualLine;
 	}

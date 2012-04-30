@@ -11,7 +11,7 @@ class X3dController extends Controller
 	{
 		// get layout and parse result --------------------
 		$result = Yii::app()->dotLayout->layout($this->dotfile, $this->outputfile);
-		$graph =  Yii::app()->dotFileParser->parse($this->outputfile);
+		$graph =  Yii::app()->adotFileParser->parse($this->outputfile);
 		
 		// map to x3d -------------------------------------
 		$x3dContent = array();

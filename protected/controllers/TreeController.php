@@ -15,24 +15,35 @@ class TreeController extends Controller
 		//Yii::log($this->actualLine, 'error', 'parser');
 
 		// Test tree object
-		$drei = new Node("drei", array("eins", "zwei"));
-		$fuenf = new Node("fuenf", array($drei, "vier"));
-		$neun = new Node("neun", array("sieben", "acht"));
-		$neun2 = new Node("neun2", array("sieben", "acht"));
-		$elf = new Node("elf", array($neun, "zehn", $neun2));
-		$tree = new Node("tree", array($fuenf, "sechs", $elf));
+// 		$drei = new Node("drei", array("eins", "zwei"));
+// 		$fuenf = new Node("fuenf", array($drei, "vier"));
+// // 		$neun = new Node("neun", array("sieben", "acht"));
+// // 		$neun2 = new Node("neun2", array("sieben", "acht"));
+// // 		$elf = new Node("elf", array($neun, "zehn", $neun2));
+// // 		$tree = new Node("tree", array($fuenf, "sechs", $elf));
 		
-		$this->maxDepth = 3;
+// 		$this->maxDepth = 2;
+// 		$tree = $fuenf;
 		
-// 		$path = "/Users/stefan/Sites/3dArch/protected/views/";
-// 		$tree = Yii::app()->directoryToDotParser2->getDirectoryTree($path);
+// // 		$path = "/Users/stefan/Sites/3dArch/protected/views/";
+// // 		$tree = Yii::app()->directoryToDotParser2->getDirectoryTree($path);
 
-		$tree = $this->buildTree($tree, 0);
+// 		$tree = $this->buildTree($tree, 0);
 		
-		// test
-		$this->postorder($tree, 0, true);
+// 		// test
+// 		$this->postorder($tree, 0, true);
 
-		$this->render('index', array(tree=>$tree));
+// 		$this->render('index', array(tree=>$tree));
+
+		$this->getSourceDotFile();
+	}
+	
+	private function getSourceDotFile() {
+		$sourceFile = '/Users/stefan/Sites/3dArch/x3d/dependency.dot';
+		
+		$dot = Yii::app()->adotFileParser->parse($sourceFile);
+		
+		print_r($dot);
 	}
 
 	private function buildTree($object, $depth) {
@@ -94,7 +105,7 @@ class TreeController extends Controller
 		
 		$layoutDot = Yii::app()->dotLayout->layout($this->outputFile);
 		
-		$graph = Yii::app()->dotArrayParser->parse($layoutDot);
+		$graph = Yii::app()->adotArrayParser->parse($layoutDot);
 
 		return $graph;
 	}
