@@ -37,8 +37,8 @@ class X3dCalculator extends CApplicationComponent
 		$length = $bb[3] - $bb[1];
 		
 		$colour = array('r'=>0, 'g'=>1, 'b'=>0);
-		$height = ($maxDepth - $depth) * 50;
-		$transpareny = 0.9;//5 - ($maxDepth - $depth) * 0.1;
+		$height = ($maxDepth - $depth) * 20;
+		$transpareny = 0.9 - ($maxDepth - $depth) * 0.1;
 		
 		$result = array(
 					'size'=>array('width'=>$width, 'height'=>$height, 'length'=>$length),
