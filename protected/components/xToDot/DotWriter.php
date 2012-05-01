@@ -19,12 +19,16 @@ class DotWriter extends CApplicationComponent
 		array_push($result, 'digraph G {');
 
 		foreach ($elements as $key => $value) {
-			$elementString = str_replace(".", "_", $value->label);
-			$elementString .= '[shape="rectangle" width="' . $value->size[width] . '", height="' . $value->size[height] . '", fixedsize=true,';
-			if ($value instanceof Leaf) {
-				$elementString .= ' type="leaf"]';
-			} else if ($value instanceof Node) {
-				$elementString .= ' type="node"]';
+			if ($value instanceOf GraphComponent) {
+				$elementString = str_replace(".", "_", $value->label);
+				$elementString .= '[shape="rectangle" width="' . $value->size[width] . '", height="' . $value->size[height] . '", fixedsize=true,';
+				if ($value instanceof Leaf) {
+					$elementString .= ' type="leaf"]';
+				} else if ($value instanceof Node) {
+					$elementString .= ' type="node"]';
+				}
+			} else if ($value instanceof Edge) {
+				$elementString = str_replace(".", "_", $value->in) . " -> " . str_replace(".", "_", $value->out);
 			}
 			
 			$elementString .= ';';
@@ -32,20 +36,6 @@ class DotWriter extends CApplicationComponent
 			array_push($result, $elementString);
 		}
 		
-// 		// create fake edges
-// 		$firstElement = null;
-// 		foreach ($elements as $key => $value) {
-// 			if ($firstElement) {
-// 				$elementString = str_replace(".", "_", $firstElement->name);
-// 				$elementString .= ' -> ';
-// 				$elementString .= str_replace(".", "_", $value->name);
-// 				$elementString .= ';';
-				
-// 				array_push($result, $elementString);
-// 			}
-// 			$firstElement = $value;
-// 		}
-
 		array_push($result, '}');
 
 		return $result;

@@ -1,4 +1,5 @@
 digraph G {
- node_3[shape="rectangle" width="0.430555555556", height="0.111111111111", fixedsize=true, type="node"];
+ node_5[shape="rectangle" width="0.0833333333333", height="0.722222222222", fixedsize=true, type="node"];
+ node_3[shape="rectangle" width="0.0833333333333", height="0.722222222222", fixedsize=true, type="node"];
 leaf_4[shape="rectangle" width="0.1", height="0.1", fixedsize=true, type="leaf"];
 }

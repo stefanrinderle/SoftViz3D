@@ -1,38 +1,44 @@
 <?php
 
+class LayerLayout {
+	public $bb;
+	public $nodes = array();
+	public $edges = array();
+}
+
 class X3dCalculator extends CApplicationComponent
 {
+	private $layout;
 	
 	public function calculate($graph, $depth, $maxDepth)
 	{
-		$x3dContent = array();
+		$this->layout = new LayerLayout();
 		
-		$x3dContent = $this->adjustGraphToX3d($graph, $depth, $maxDepth);
+		$this->adjustGraphToX3d($graph, $depth, $maxDepth);
 		
-		return $x3dContent;
+		return $this->layout;
 	}
 	
 	private function adjustGraphToX3d($graph, $depth, $maxDepth) {
 // 		print_r("--------" . $graph->label . "--------");
 // 		print_r($graph);
 		
-		$result = array(); 
 		// Bounding Box
-		$result['bb'] = $this->adjustBb($graph['bb'], $depth, $maxDepth);
+		$this->layout->bb = $this->adjustBb($graph['bb'], $depth, $maxDepth);
 		
 		// Nodes
-		$result['nodes'] = array();
+		$nodes = array();
 		foreach ($graph['nodes'] as $key => $value) {
-			$result['nodes'][$key] = $this->adjustNode($key, $value, $depth);
+			$nodes[$key] = $this->adjustNode($key, $value, $depth);
 		}
+		$this->layout->nodes = $nodes;
 		
 		// Edges
-		$result['edges'] = array();
+		$edges = array();
 		foreach ($graph['edges'] as $key => $value) {
-			$result['edges'][$key] = $this->adustEdge($value);
+			$edges[$key] = $this->adustEdge($value);
 		}
-		
-		return $result;
+		$this->layout->edges = $edges;
 	} 
 	
 	private function adjustBb($bb, $depth, $maxDepth) {

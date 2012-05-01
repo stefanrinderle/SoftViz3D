@@ -13,12 +13,12 @@ Yii::app()->clientScript->registerCssFile(
 
 function generateX3DOM($node, $self, $transX, $transZ) {
 	if ($node instanceof Node) {
-		$nodeWidth = $node->x3dInfos[bb][size][width];
-		$nodeLength = $node->x3dInfos[bb][size][length];
+		$nodeWidth = $node->x3dInfos->bb[size][width];
+		$nodeLength = $node->x3dInfos->bb[size][length];
 		
 		// get translation of parent
 		$translation[x] = $transX;
-		$translation[y] = $node->x3dInfos[bb][position][y];
+		$translation[y] = $node->x3dInfos->bb[position][y];
 		$translation[z] = $transZ;
 		
 		if (!$node->isMain) {
@@ -30,9 +30,12 @@ function generateX3DOM($node, $self, $transX, $transZ) {
 		
 		// calculate values for the children nodes
 		foreach ($node->content as $key => $value) {
+			//TODO: check
+			$label = trim($value->label); 
+			
 			// layout node position
-			$nodePositionX = $node->x3dInfos[nodes][$value->label][position][x];
-			$nodePositionZ = $node->x3dInfos[nodes][$value->label][position][z];
+			$nodePositionX = $node->x3dInfos->nodes[$label][position][x];
+			$nodePositionZ = $node->x3dInfos->nodes[$label][position][z];
 			
 			if (!$node->isMain) {
 				$nodePositionX = $nodePositionX + ($transX - ($nodeWidth / 2));
@@ -50,7 +53,7 @@ function generateX3DOM($node, $self, $transX, $transZ) {
 	<param name="showLog" value="false" ></param>
 	<param name="showStat" value="false" ></param>
 	
-	<Transform translation='<?php echo - $tree->x3dInfos[bb][size][width] / 2 . " 0 " . - $tree->x3dInfos[bb][size][length] / 2; ?>'>
+	<Transform translation='<?php echo - $tree->x3dInfos->bb[size][width] / 2 . " 0 " . - $tree->x3dInfos->bb[size][length] / 2; ?>'>
 	
 	<?php generateX3DOM($tree, $this, 0, 0); ?>
 	

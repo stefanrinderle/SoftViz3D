@@ -55,8 +55,8 @@ class DotParser extends AdotParser
 		while (!$this->isEnd($line)) {
 			$label = $this->retrieveName($line);
 			//" name1 -> name 2"
-			$out = trim(substr($dotEdge, 0, strpos($line, "->") - 2)); 
-			$in = trim(substr($dotEdge, strpos($line, "->") + 1));
+			$out = trim(substr($line, 0, strpos($line, "->") - 1)); 
+			$in = trim(substr($line, strpos($line, "->") + 2, strpos($line, ";") - (strpos($line, "->") + 2)));
 			
 			$edge = new Edge($label, $in, $out);
 			

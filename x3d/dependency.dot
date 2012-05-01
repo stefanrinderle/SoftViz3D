@@ -1,4 +1,9 @@
 digraph G {
+	subgraph node_5 {
+		leaf_6;
+		leaf_7;
+		leaf_6 -> leaf_7;
+	}
 	subgraph node_3 {
 		leaf_1;
 		leaf_2;
