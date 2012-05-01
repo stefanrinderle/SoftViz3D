@@ -1,7 +1,7 @@
 <?php
 
 abstract class GraphVisitor {
-	abstract function visitNode(Node $comp, $level, $layoutElements);
+	abstract function visitLayer(Layer $comp, $level, $layoutElements);
 	abstract function visitLeaf(Leaf $comp, $level);
 }
 
@@ -11,7 +11,7 @@ class LayoutVisitor extends GraphVisitor {
 	
 	private $max_level = 0;
 	
-	function visitNode(Node $comp, $level, $layoutElements) {
+	function visitLayer(Layer $comp, $level, $layoutElements) {
 		// create graph array
 		$layerLayout = $this->calcLayerLayout($layoutElements);
 		
@@ -61,20 +61,20 @@ abstract class GraphComponent {
 /**
  * representates the node itself and the layout information for the layer beyond
  */
-class Node extends GraphComponent {
+class Layer extends GraphComponent {
 	public $content;
 	public $x3dInfos;
 	
 	public $isMain;
 	// 	public $depth;
 
-	public $flatEdges;
+	public $edges;
 
 	public function __construct($label) {
 		parent::__construct($label);
 		
 		$this->content = array();
-		$this->flatEdges = array();
+		$this->edges = array();
 	}
 	
 	function acceptPostOrder(GraphVisitor $visitor, $level = 1) {
@@ -83,11 +83,11 @@ class Node extends GraphComponent {
 			$element = $child->acceptPostOrder($visitor, $level + 1);
 			array_push($layoutElements, $element);
 		}
-		foreach ($this->flatEdges as $child) {
+		foreach ($this->edges as $child) {
 			array_push($layoutElements, $child);
 		}
 		
-		return $visitor->visitNode($this, $level, $layoutElements);
+		return $visitor->visitLayer($this, $level, $layoutElements);
 	}
 
 	public function __toString() {

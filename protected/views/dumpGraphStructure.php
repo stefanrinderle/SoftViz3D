@@ -30,7 +30,7 @@ function DumpGraphToTable($graph) {
       print ( '<td title="' . $graphElement->label . '" style="text-align: ' );
       print ( 'center; border: 2px solid #000; padding: 3px;">' );
       
-      if ($graphElement instanceOf Node) {
+      if ($graphElement instanceOf Layer) {
       		
       		DumpGraphToTable ( $graphElement );
 			
@@ -38,7 +38,7 @@ function DumpGraphToTable($graph) {
       		print ( '<table cellpadding="0" cellspacing="5" ' ); 
 		    print ( 'style="border: 4px solid #' . $iBorderColor . '; '); 
 		    print ( 'font-family: Courier New; font-size: .9em;">' ); 
-      		foreach ($graphElement->flatEdges as $edge) {
+      		foreach ($graphElement->edges as $edge) {
       			print ("<tr><td>");
       			print($edge->label);
       			print ("</tr></td>");

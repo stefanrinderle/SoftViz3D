@@ -1,4 +1,5 @@
 digraph G {
- cluster_node_5[shape="rectangle" width="0.430555555556", height="1.33333333333", fixedsize=true, type="node"];
-leaf_4[shape="rectangle" width="0.1", height="0.1", fixedsize=true, type="leaf"];
+ cluster_node_5[shape="rectangle" width="0.430555555556", height="0.111111111111", fixedsize=true,;
+leaf_3[shape="rectangle" width="0.1", height="0.1", fixedsize=true, type="leaf"];
+leaf_1 -> leaf_3;
 }

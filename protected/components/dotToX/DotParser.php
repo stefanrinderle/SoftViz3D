@@ -26,7 +26,7 @@ class DotParser extends AdotParser
 	}
 	
 	protected function parseGraph($label) {
- 		$current = new Node($label);
+ 		$current = new Layer($label);
 		
 		$line = $this->getNewLine();
 		while (!(strpos($line, "subgraph") === false) || !(strpos($line, "{") === false)) {
@@ -42,7 +42,7 @@ class DotParser extends AdotParser
 		$current->content = array_merge($current->content, $nodes);
 		
 		$edges = $this->retrieveEdges();
-		$current->flatEdges = array_merge($current->flatEdges, $edges);
+		$current->edges = array_merge($current->edges, $edges);
 	
 		return $current;
 	}
