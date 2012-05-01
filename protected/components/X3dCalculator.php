@@ -13,6 +13,9 @@ class X3dCalculator extends CApplicationComponent
 	}
 	
 	private function adjustGraphToX3d($graph, $depth, $maxDepth) {
+// 		print_r("--------" . $graph->label . "--------");
+// 		print_r($graph);
+		
 		$result = array(); 
 		// Bounding Box
 		$result['bb'] = $this->adjustBb($graph['bb'], $depth, $maxDepth);
@@ -38,7 +41,7 @@ class X3dCalculator extends CApplicationComponent
 		
 		$colour = array('r'=>0, 'g'=>1, 'b'=>0);
 		$height = 1;//($maxDepth - $depth) * 20;
-		$transpareny = 0.9 - ($maxDepth - $depth) * 0.1;
+		$transpareny = 0;//0.9 - ($maxDepth - $depth) * 0.1;
 		
 		$result = array(
 					'size'=>array('width'=>$width, 'height'=>$height, 'length'=>$length),

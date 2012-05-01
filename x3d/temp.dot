@@ -1,11 +1,4 @@
 digraph G {
-fuenf[shape="rectangle" width="0.638888888889", 
-								height="0.472222222222", fixedsize=true, 
-								type="node"];
-sechs[shape="rectangle" width="0.1", 
-								height="0.1", fixedsize=true, 
-								type="leaf"];
-elf[shape="rectangle" width="0.972222222222", 
-								height="0.472222222222", fixedsize=true, 
-								type="node"];
+ node_3[shape="rectangle" width="0.430555555556", height="0.111111111111", fixedsize=true, type="node"];
+leaf_4[shape="rectangle" width="0.1", height="0.1", fixedsize=true, type="leaf"];
 }
