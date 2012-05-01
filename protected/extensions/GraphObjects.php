@@ -9,43 +9,49 @@ class LayoutVisitor extends GraphVisitor {
 	private static $SCALE = 72;
 	private $outputFile = '/Users/stefan/Sites/3dArch/x3d/temp.dot';
 	
+	private $max_level = 0;
+	
 	function visitNode(Node $comp, $level, $layoutElements) {
 		// create graph array
-		$graph = $this->calcLayout($layoutElements);
+		$layerLayout = $this->calcLayerLayout($layoutElements);
 		
 		// generate x3d code for this layer
-		//TODO MAXDEPTH
-		$comp->x3dInfos = Yii::app()->x3dCalculator->calculate($graph, $level, 0);
+		$comp->x3dInfos = Yii::app()->x3dCalculator->calculate($layerLayout, $level, $this->max_level);
 		
 		$comp->isMain = ($level == 1);
-		// 			$node->depth = $depth;
+		
 		// size of the node is the size of its bounding box
-		$comp->size = array(width=>$graph['bb'][2] / self::$SCALE, height=>$graph['bb'][3] / self::$SCALE);
+		$comp->size = array(width=>$layerLayout['bb'][2] / self::$SCALE, height=>$layerLayout['bb'][3] / self::$SCALE);
 		
 		return $comp;
 	}
 
 	function visitLeaf(leaf $leaf, $level) {
+		if ($this->max_level < $level) $this->max_level = $level;
+		
 		$leaf->size = array(width=>0.1, height=>0.1);
+		$leaf->level = $level;	
 		return $leaf;
 	}
 
 	/**
 	 * Writes the current elements in an dot file and generated the layout dot file
 	 */
-	private function calcLayout($elements) {
+	private function calcLayerLayout($elements) {
 		Yii::app()->dotWriter->writeToFile($elements, $this->outputFile);
-	
 		$layoutDot = Yii::app()->dotLayout->layout($this->outputFile);
 	
-		$graph = Yii::app()->adotArrayParser->parse($layoutDot);
+		$layout = Yii::app()->adotArrayParser->parse($layoutDot);
 	
-		return $graph;
+		return $layout;
 	}
 }
 
-class GraphComponent {
+abstract class GraphComponent {
 	public $label;
+	public $size;
+	
+	abstract function acceptPostOrder(GraphVisitor $visitor, $level);
 	
 	public function __construct($label) {
 		$this->label = $label;
@@ -58,6 +64,8 @@ class GraphComponent {
 class Node extends GraphComponent {
 	public $content;
 	public $x3dInfos;
+	
+	public $isMain;
 	// 	public $depth;
 
 	public $flatEdges;
@@ -69,10 +77,10 @@ class Node extends GraphComponent {
 		$this->flatEdges = array();
 	}
 	
-	function accept(GraphVisitor $visitor, $level = 1) {
+	function acceptPostOrder(GraphVisitor $visitor, $level = 1) {
 		$layoutElements = array();
 		foreach ($this->content as $child) {
-			$element = $child->accept($visitor, $level + 1);
+			$element = $child->acceptPostOrder($visitor, $level + 1);
 			array_push($layoutElements, $element);
 		}
 		foreach ($this->flatEdges as $child) {
@@ -93,7 +101,7 @@ class Leaf extends GraphComponent {
 		parent::__construct($label);
 	}
 
-	function accept(GraphVisitor $visitor, $level = 1) {
+	function acceptPostOrder(GraphVisitor $visitor, $level = 1) {
 		return $visitor->visitLeaf($this, $level);
 	}
 	
