@@ -1,36 +1,46 @@
 <?php
 
 abstract class GraphVisitor {
-	abstract function visitNode(Node $comp, $level);
+	abstract function visitNode(Node $comp, $level, $layoutElements);
 	abstract function visitLeaf(Leaf $comp, $level);
 }
 
-class SimpleSearchVisitor extends GraphVisitor {
-	private $term;
-	private $matches = array();
+class LayoutVisitor extends GraphVisitor {
+	private static $SCALE = 72;
+	private $outputFile = '/Users/stefan/Sites/3dArch/x3d/temp.dot';
 	
-	function __construct($term) {
-		$this->term = preg_quote($term);
+	function visitNode(Node $comp, $level, $layoutElements) {
+		// create graph array
+		$graph = $this->calcLayout($layoutElements);
+		
+		// generate x3d code for this layer
+		//TODO MAXDEPTH
+		$comp->x3dInfos = Yii::app()->x3dCalculator->calculate($graph, $level, 0);
+		
+		$comp->isMain = ($level == 1);
+		// 			$node->depth = $depth;
+		// size of the node is the size of its bounding box
+		$comp->size = array(width=>$graph['bb'][2] / self::$SCALE, height=>$graph['bb'][3] / self::$SCALE);
+		
+		return $comp;
 	}
 
-	function testText($text) {
-		return preg_match("/$this->term/", $text);
+	function visitLeaf(leaf $leaf, $level) {
+		$leaf->size = array(width=>0.1, height=>0.1);
+		return $leaf;
 	}
 
-	function visitNode(Node $comp, $level) {
-		if ($this->testText($comp->label)) {
-			$this->matches[] = $comp;
-		}
-	}
-
-	function visitLeaf(leaf $comp, $level) {
-		if ($this->testText($comp->label)) {
-			$this->matches[] = $comp;
-		}
-	}
-
-	function matches() {
-		return $this->matches;
+	/**
+	 * Writes the current elements in an dot file and generated the layout dot file
+	 */
+	private function calcLayout($elements) {
+		Yii::app()->dotWriter->writeToFile($elements, $this->outputFile);
+	
+		$layoutDot = Yii::app()->dotLayout->layout($this->outputFile);
+	
+		$graph = Yii::app()->adotArrayParser->parse($layoutDot);
+	
+		return $graph;
 	}
 }
 
@@ -48,7 +58,6 @@ class GraphComponent {
 class Node extends GraphComponent {
 	public $content;
 	public $x3dInfos;
-// 	public $isMain;
 	// 	public $depth;
 
 	public $flatEdges;
@@ -61,11 +70,16 @@ class Node extends GraphComponent {
 	}
 	
 	function accept(GraphVisitor $visitor, $level = 1) {
-		$visitor->visitNode($this, $level);
+		$layoutElements = array();
 		foreach ($this->content as $child) {
-			$child->accept($visitor, $level + 1);
+			$element = $child->accept($visitor, $level + 1);
+			array_push($layoutElements, $element);
 		}
-		//TODO add edges foreach
+		foreach ($this->flatEdges as $child) {
+			array_push($layoutElements, $child);
+		}
+		
+		return $visitor->visitNode($this, $level, $layoutElements);
 	}
 
 	public function __toString() {
@@ -80,7 +94,7 @@ class Leaf extends GraphComponent {
 	}
 
 	function accept(GraphVisitor $visitor, $level = 1) {
-		$visitor->visitLeaf($this, $level);
+		return $visitor->visitLeaf($this, $level);
 	}
 	
 	public function __toString() {
