@@ -1,4 +1,6 @@
 digraph G {
- cluster_node_5 [shape="rectangle" width="0.430555555556", height="0.111111111111", fixedsize=true];
+ cluster_node_5 [shape="rectangle" width="0.430555555556", height="0.722222222222", fixedsize=true];
 leaf_3 [shape="rectangle" width="0.1", height="0.1", fixedsize=true, type="leaf"];
+dHole6 [shape="rectangle" width="0.1", height="0.1", fixedsize=true, type="leaf"];
+dHole6 -> leaf_3;
 }

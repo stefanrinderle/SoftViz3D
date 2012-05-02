@@ -18,27 +18,27 @@ class DotParser extends AdotParser
 		// ommit first line: digraph G {
 		$this->getNewLine();
 
-		$graph = $this->parseGraph("MAIN_NODE");
+		$graph = $this->parseGraph("MAIN_NODE", "ROOT");
 
 		fclose($this->parseFileHandle);
 
 		return $graph;
 	}
 	
-	protected function parseGraph($label) {
- 		$current = new Layer($label);
+	protected function parseGraph($label, $parent) {
+ 		$current = new Layer($label, $parent);
 		
 		$line = $this->getNewLine();
 		while (!(strpos($line, "subgraph") === false) || !(strpos($line, "{") === false)) {
 			//subgraph node_3 {
 			$label = substr($line, strpos($line, "subgraph") + strlen("subgraph"), strpos($line, "{") - strlen("subgraph") - 2);
 			
-			array_push($current->content, $this->parseGraph($label));
+			array_push($current->content, $this->parseGraph($label, $current));
 	
 			$line = $this->getNewLine();
 		}
 	
-		$nodes = $this->retrieveLeafs();
+		$nodes = $this->retrieveLeafs($current);
 		$current->content = array_merge($current->content, $nodes);
 		
 		$edges = $this->retrieveEdges();
@@ -69,13 +69,13 @@ class DotParser extends AdotParser
 		return $edges;
 	}
 	
-	protected function retrieveLeafs() {
+	protected function retrieveLeafs($parent) {
 		$leafs = array();
 	
 		$line = $this->actualLine;
 	
 		while (!($this->isEdge($line) || $this->isEnd($line))) {
-			$leaf = new Leaf($this->retrieveName($line));
+			$leaf = new Leaf($this->retrieveName($line), $parent);
 			
 			array_push($leafs, $leaf);
 			
