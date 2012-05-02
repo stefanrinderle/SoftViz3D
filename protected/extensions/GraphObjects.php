@@ -14,10 +14,9 @@ class LayoutVisitor extends GraphVisitor {
 	function visitLayer(Layer $comp, $level, $layoutElements) {
 		// create graph array
 		$layerLayout = $this->calcLayerLayout($layoutElements);
-		
+
 		// generate x3d code for this layer
 		$comp->x3dInfos = Yii::app()->x3dCalculator->calculate($layerLayout, $level, $this->max_level);
-		
 		$comp->isMain = ($level == 1);
 		
 		// size of the node is the size of its bounding box
@@ -25,8 +24,15 @@ class LayoutVisitor extends GraphVisitor {
 		
 		return $comp;
 	}
+	
+	function visitEdge(Edge $edge, $level) {
+// 		print_r(" VISIT: " . $edge->label);
+// 		print_r("<br />");
+// 		print_r(" PATH: ");
+// 		print_r($this->path);
+	}
 
-	function visitLeaf(leaf $leaf, $level) {
+	function visitLeaf(Leaf $leaf, $level) {
 		if ($this->max_level < $level) $this->max_level = $level;
 		
 		$leaf->size = array(width=>0.1, height=>0.1);
@@ -69,6 +75,9 @@ class Layer extends GraphComponent {
 	// 	public $depth;
 
 	public $edges;
+	
+	public $outEdgeCount = 0;
+	public $inEdgeCount = 0;
 
 	public function __construct($label) {
 		parent::__construct($label);
@@ -83,9 +92,23 @@ class Layer extends GraphComponent {
 			$element = $child->acceptPostOrder($visitor, $level + 1);
 			array_push($layoutElements, $element);
 		}
-		foreach ($this->edges as $child) {
-			array_push($layoutElements, $child);
-		}
+// 		if (count($this->edges)) {
+// 			$random = rand(0, 10);
+// 			$leaf = new Leaf("dHole" . $random);
+// 			array_push($layoutElements, $leaf->acceptPostOrder($visitor,  $level + 1));
+// 		}
+// 		foreach ($this->edges as $edge) {
+// 			$isStart = $this->isInLayer($edge->out, $this->content);
+// 			$isEnd = $this->isInLayer($edge->in, $this->content);
+			
+// 			if ($isStart && $isEnd) {
+// 				array_push($layoutElements, $edge);
+// 			} else if ($isStart) {
+// 				array_push($layoutElements, new Edge("dEdge", $edge->out, "dHole" . $random));
+// 			} else if ($isEnd) {
+// 				array_push($layoutElements, new Edge("dEdge", "dHole" . $random, $edge->in));
+// 			}
+// 		}
 		
 		return $visitor->visitLayer($this, $level, $layoutElements);
 	}
@@ -93,7 +116,20 @@ class Layer extends GraphComponent {
 	public function __toString() {
 		return "NODE " . $this->label;
 	}
+	
+	private function isInLayer($edgeString, $layerContent) {
+		foreach ($layerContent as $value) {
+			if ($value instanceOf Leaf) {
+				if ($value->label == $edgeString) {
+					return true;
+				}
+			}
+		} 
+		return false;
+	}
 }
+
+
 
 class Leaf extends GraphComponent {
 	
@@ -106,7 +142,7 @@ class Leaf extends GraphComponent {
 	}
 	
 	public function __toString() {
-		return "LEAFSR " . $this->label;
+		return "LEAF " . $this->label;
 	}
 }
 
@@ -119,6 +155,10 @@ class Edge {
 		$this->label = $label;
 		$this->in = $in;
 		$this->out = $out;
+	}
+	
+	function acceptPostOrder(GraphVisitor $visitor, $level = 1) {
+		return $visitor->visitEdge($this, $level);
 	}
 }
 ?>

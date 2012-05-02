@@ -18,7 +18,7 @@ class DotParser extends AdotParser
 		// ommit first line: digraph G {
 		$this->getNewLine();
 
-		$graph = $this->parseGraph("MAIN NODE");
+		$graph = $this->parseGraph("MAIN_NODE");
 
 		fclose($this->parseFileHandle);
 

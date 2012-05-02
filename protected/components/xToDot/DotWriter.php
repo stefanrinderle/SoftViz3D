@@ -21,12 +21,13 @@ class DotWriter extends CApplicationComponent
 		foreach ($elements as $key => $value) {
 			if ($value instanceOf GraphComponent) {
 				$elementString = str_replace(".", "_", $value->label);
-				$elementString .= '[shape="rectangle" width="' . $value->size[width] . '", height="' . $value->size[height] . '", fixedsize=true,';
+				$elementString .= ' [shape="rectangle" width="' . $value->size[width] . '", height="' . $value->size[height] . '", fixedsize=true';
 				if ($value instanceof Leaf) {
-					$elementString .= ' type="leaf"]';
+					$elementString .= ', type="leaf"';
 				} else if ($value instanceof Node) {
-					$elementString .= ' type="node"]';
+					$elementString .= ', type="node"';
 				}
+				$elementString.= "]";
 			} else if ($value instanceof Edge) {
 				$elementString = str_replace(".", "_", $value->in) . " -> " . str_replace(".", "_", $value->out);
 			}

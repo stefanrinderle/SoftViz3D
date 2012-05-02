@@ -14,12 +14,12 @@ class TreeController extends Controller
 
 		$graphStructure = Yii::app()->dotParser->parse($this->sourceFile);
 		
-		print_r($graphStructure);
-		
 		$layout = new LayoutVisitor();
 		$graphStructure->acceptPostOrder($layout);
 		
-// 		$this->render('index', array(tree=>$graphStructure));
+// 		print_r($layout->path);
+		
+		$this->render('index', array(tree=>$graphStructure));
 		
 	}
 }
