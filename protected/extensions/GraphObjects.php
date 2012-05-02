@@ -58,6 +58,26 @@ class LayoutVisitor extends GraphVisitor {
 	}
 }
 
+class EdgeVisitor {
+	private $tree;
+	
+	public function __construct($tree) {
+		$this->tree = $tree;
+	}
+	
+	function visitLayer(Layer $comp, $level) {
+		print_r($comp->label . "<br />");
+	}
+	
+	function visitLeaf(Leaf $comp, $level) {
+		print_r($comp->label . "<br />");
+	}
+	
+	function visitEdge(Edge $comp, $level) {
+		print_r($comp->in . "<br />");
+	}
+}
+
 abstract class GraphComponent {
 	public $label;
 	public $size;
@@ -87,6 +107,27 @@ class Layer extends GraphComponent {
 	public $outEdgeCount = 0;
 	public $inEdgeCount = 0;
 
+	function accept(EdgeVisitor $visitor, $level = 1) {
+		$this->level = $level;
+		
+		foreach ($this->content as $child) {
+			$child->accept($visitor, $level + 1);
+		}
+		
+		foreach ($this->edges as $edge) {
+			$isStart = $this->isInLayer($edge->out, $this->content);
+			$isEnd = $this->isInLayer($edge->in, $this->content);
+			
+			if ($isStart && $isEnd) {
+				// do nothing, everything is fine
+			} else {
+				
+			}
+			
+			$edge->accept($visitor, $level + 1);
+		}
+	}
+	
 	function acceptPostOrder(GraphVisitor $visitor, $level = 1) {
 		$this->level = $level;
 
@@ -201,6 +242,10 @@ class Layer extends GraphComponent {
 
 class Leaf extends GraphComponent {
 
+	function accept(EdgeVisitor $visitor, $level = 1) {
+		return $visitor->visitLeaf($this, $level);
+	}
+	
 	function acceptPostOrder(GraphVisitor $visitor, $level = 1) {
 		return $visitor->visitLeaf($this, $level);
 	}
@@ -221,6 +266,10 @@ class Edge {
 		$this->out = $out;
 	}
 
+	function accept(EdgeVisitor $visitor, $level = 1) {
+		return $visitor->visitEdge($this, $level);
+	}
+	
 	function acceptPostOrder(GraphVisitor $visitor, $level = 1) {
 		return $visitor->visitEdge($this, $level);
 	}
