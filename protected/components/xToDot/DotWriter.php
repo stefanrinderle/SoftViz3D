@@ -23,11 +23,10 @@ class DotWriter extends CApplicationComponent
 				$elementString = str_replace(".", "_", $value->label);
 				$elementString .= ' [shape="rectangle" width="' . $value->size[width] . '", height="' . $value->size[height] . '", fixedsize=true';
 				
-				$content = TreeElement::model()->findAllByAttributes(array('parent_id'=>$value->id));
-				if (count($content) > 0) {
-					$elementString .= ', type="node"';
-				} else {
+				if ($value->isLeaf) {
 					$elementString .= ', type="leaf"';
+				} else {
+					$elementString .= ', type="node"';
 				}
 				$elementString.= "]";
 			} else if ($value instanceOf EdgeElement) {

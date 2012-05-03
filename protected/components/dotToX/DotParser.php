@@ -66,7 +66,7 @@ class DotParser extends AdotParser
 		$line = $this->actualLine;
 	
 		while (!($this->isEdge($line) || $this->isEnd($line))) {
-			$currentId = TreeElement::createAndSaveTreeElement($this->retrieveName($line), $parent, $level);
+			$currentId = TreeElement::createAndSaveLeafTreeElement($this->retrieveName($line), $parent, $level);
 			
 			$this->getNewLine();
 			$line = $this->actualLine;

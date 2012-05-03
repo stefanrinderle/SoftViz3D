@@ -7,6 +7,8 @@ class TreeElement extends CActiveRecord
 	public $parent_id;
 	public $level;
 	
+	public $isLeaf;
+	
 	// not in database yet
 	public $x3dInfos;
 	public $size;
@@ -32,11 +34,9 @@ class TreeElement extends CActiveRecord
 	public function accept($visitor) {
 		$layoutElements = array();
 		
-		//TODO: Refactor, put an additional flag to table for leaf an layer
-		//--> also in DotWriter...
-		$this->content = TreeElement::model()->findAllByAttributes(array('parent_id'=>$this->id));
-		
-		if (count($this->content) > 0) {
+		if (!$this->isLeaf) {
+			$this->content = TreeElement::model()->findAllByAttributes(array('parent_id'=>$this->id));
+			
 			foreach ($this->content as $child) {
 				$element = $child->accept($visitor);
 				array_push($layoutElements, $element);
@@ -54,15 +54,22 @@ class TreeElement extends CActiveRecord
 	}
 	
 	// factory method
-	public static function createAndSaveTreeElement($label, $parent_id, $level)
+	public static function createAndSaveTreeElement($label, $parent_id, $level, $isLeaf = false)
 	{
 		$element = new self('insert');
 		$element->label=$label;
 		$element->parent_id=$parent_id;
 		$element->level=$level;
+		$element->isLeaf = $isLeaf;
 		
 		$element->save();
 		return $element->id;
+	}
+	
+	// factory method
+	public static function createAndSaveLeafTreeElement($label, $parent_id, $level)
+	{
+		return TreeElement::createAndSaveTreeElement($label, $parent_id, $level, true);
 	}
 }
 
