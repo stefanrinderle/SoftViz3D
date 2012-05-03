@@ -6,13 +6,11 @@ class LayoutVisitor {
 	private $max_level = 0;
 
 	function visitTreeElement(TreeElement $comp, $layoutElements) {
-		// create graph array
+		// create layout array
 		$layerLayout = $this->calcLayerLayout($layoutElements);
 
 		// generate x3d code for this layer
 		$comp->x3dInfos = Yii::app()->x3dCalculator->calculate($layerLayout, $comp->level, $this->max_level);
-// 		$comp->save();
-// 		$comp->isMain = ($level == 1);
 
 		// size of the node is the size of its bounding box
 		$comp->size = array(width=>$layerLayout['bb'][2] / self::$SCALE, height=>$layerLayout['bb'][3] / self::$SCALE);

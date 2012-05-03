@@ -55,7 +55,6 @@ class DotParser extends AdotParser
 			$out_id = TreeElement::model()->find('label=:label', array(':label'=>$out))->id;
 			$in_id = TreeElement::model()->find('label=:label', array(':label'=>$in))->id;
 			EdgeElement::createAndSaveEdgeElement($label, $out_id, $in_id);
-			
 	
 			$this->getNewLine();
 			$line = $this->actualLine;

@@ -28,7 +28,6 @@ function generateX3DOM($node, $self, $transX, $transZ) {
 		$self->renderPartial('x3dGroup', array(graph=>$node->x3dInfos, translation=>$translation));
 		
 		// calculate values for the children nodes
-// 		$content = TreeElement::model()->findAllByAttributes(array('parent_id'=>$node->id));
 		$content = $node->content;
 		
 		foreach ($content as $key => $value) {

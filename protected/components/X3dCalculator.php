@@ -20,9 +20,6 @@ class X3dCalculator extends CApplicationComponent
 	}
 	
 	private function adjustGraphToX3d($graph, $depth, $maxDepth) {
-// 		print_r("--------" . $graph->label . "--------");
-// 		print_r($graph);
-		
 		// Bounding Box
 		$this->layout->bb = $this->adjustBb($graph['bb'], $depth, $maxDepth);
 		
