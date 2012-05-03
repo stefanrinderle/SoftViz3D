@@ -39,11 +39,11 @@ class TreeController extends Controller
 	}
 	
 	public function getDependencyNode($parentId, $level) {
-		$depPrefix = "dependency_";
-		$depNodeLabel = $depPrefix . $source->parent_id;
+		$depPrefix = "dep_";
+		$depNodeLabel = $depPrefix . $parentId;
 	
 		//TODO dont retrieve the whole object, just the id
-		$depNode = TreeElement::model()->findByAttributes(array('parent_id'=>$parent_id, 'label'=>$depNodeLabel));
+		$depNode = TreeElement::model()->findByAttributes(array('parent_id'=>$parentId, 'label'=>$depNodeLabel));
 		if (!$depNode) {
 			$depNodeId = TreeElement::createAndSaveLeafTreeElement($depNodeLabel, $parentId, $level);
 		} else {
