@@ -7,7 +7,7 @@
 // CWebApplication properties can be configured here.
 return array(
 	'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
-	'name'=>'My Web Application',
+	'name'=>'3d Virtualisation',
 
 	// preloading 'log' component
 	'preload'=>array('log'),
@@ -76,7 +76,7 @@ return array(
 		),
 		*/
 		'db'=>array(
-			'connectionString' => 'sqlite:'.dirname(__FILE__).'/../data/graph2.db',
+			'connectionString' => 'sqlite:'.dirname(__FILE__).'/../data/graph.db',
 		),
 		// uncomment the following to use a MySQL database
 		/*

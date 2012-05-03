@@ -1,5 +1,5 @@
 digraph G {
- cluster_node_1 [shape="rectangle" width="0.597222222222", height="1.33333333333", fixedsize=true, type="node"];
+ cluster_node_1 [shape="rectangle" width="0.763888888889", height="1.33333333333", fixedsize=true, type="node"];
  cluster_node_6 [shape="rectangle" width="0.0833333333333", height="0.722222222222", fixedsize=true, type="node"];
- cluster_node_6 ->  cluster_node_1;
+ cluster_node_1 ->  cluster_node_6;
 }

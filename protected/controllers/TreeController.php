@@ -1,8 +1,5 @@
 <?php
 
-Yii::import('application.extensions.*');
-require_once('GraphObjects.php');
-
 class TreeController extends Controller
 {
 	private $sourceFile = '/Users/stefan/Sites/3dArch/x3d/dependency.dot';
@@ -16,7 +13,7 @@ class TreeController extends Controller
 		TreeElement::model()->deleteAll();
 		EdgeElement::model()->deleteAll();
 		
-		$graphStructure = Yii::app()->dotParser->parse($this->sourceFile);
+		Yii::app()->dotParser->parse($this->sourceFile);
 		
 		$edges = EdgeElement::model()->findAll();
 		
@@ -34,24 +31,16 @@ class TreeController extends Controller
 			}
 		}
 		
-		print_r("<br /> done");
-// 		$edgeVisitor = new EdgeVisitor($graphStructure);
-// 		$graphStructure->accept($edgeVisitor);
-		
 		$layout = new LayoutVisitor();
 		$root = TreeElement::model()->findByPk(1);
 		$root->accept($layout);
-		
-// 		$graphStructure->acceptPostOrder($layout);
 		
 		$this->render('index', array(tree=>$root));
 	}
 	
 	public function expandEdge($source, $dest) {
-		
 		while ($source->parent_id != $dest->parent_id) {
 			if ($source->level > $dest->level) {
-				print_r($source->label . " level1 source up to " . $source->parent->label  . "<br />");
 	
 				// TODO: check if theres already an dependeny node
 				$depNodeId = TreeElement::createAndSaveTreeElement("dependency_" . $dest->parent_id, $source->parent_id, $source->level);
@@ -59,7 +48,6 @@ class TreeController extends Controller
 				
 				$source = $source->parent;
 			} else {
-				print_r($dest->label . " level1 dest up to " . $dest->parent->label  . "<br />");
 				//array_push($edges, new Edge("dEdge", $dest->label, $dest->parent->label));
 	
 				// TODO: check if theres already an dependeny node
@@ -74,14 +62,12 @@ class TreeController extends Controller
 		//compute till both have the same parent
 		while ($source->parent_id != $dest->parent_id) {
 			if ($source->level > $dest->level) {
-				print_r($source->label . " level2 source up to " . $source->parent->label  . "<br />");
 
 				$depNodeId = TreeElement::createAndSaveTreeElement("dependency_" . $dest->parent_id, $source->parent_id, $source->level);
 				EdgeElement::createAndSaveEdgeElement($label, $source->id, $depNodeId, $source->parent_id);
 				
 				$source = $source->parent;
 			} else {
-				print_r($dest->label . " level2 dest up to " . $dest->parent->label  . "<br />");
 	
 				$depNodeId = TreeElement::createAndSaveTreeElement("dependency_" . $dest->parent_id, $dest->parent_id, $dest->level);
 				EdgeElement::createAndSaveEdgeElement("dependency", $depNodeId, $dest->id, $dest->parent_id);

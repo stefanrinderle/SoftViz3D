@@ -10,7 +10,6 @@ class TreeElement extends CActiveRecord
 	// not in database yet
 	public $x3dInfos;
 	public $size;
-	
 	public $content;
 	
 	public static function model($className=__CLASS__)
@@ -52,8 +51,6 @@ class TreeElement extends CActiveRecord
 		} else {
 			return $visitor->visitLeafTreeElement($this);
 		}
-		
-		
 	}
 	
 	// factory method

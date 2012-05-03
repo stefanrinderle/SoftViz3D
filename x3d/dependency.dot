@@ -9,5 +9,5 @@ digraph G {
 	subgraph cluster_node_6 {
 		leaf7;
 	}
-	leaf7 -> leaf3;
+	leaf3 -> leaf7;
 }
