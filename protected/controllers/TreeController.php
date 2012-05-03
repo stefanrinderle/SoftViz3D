@@ -11,18 +11,86 @@ class TreeController extends Controller
 	{
 		//Yii::log("bla", 'error', 'parser');
 		//Yii::log($this->actualLine, 'error', 'parser');
-
+	
+		$connection=Yii::app()->db;
+		TreeElement::model()->deleteAll();
+		EdgeElement::model()->deleteAll();
+		
 		$graphStructure = Yii::app()->dotParser->parse($this->sourceFile);
 		
-		$edgeVisitor = new EdgeVisitor($graphStructure);
-		$graphStructure->accept($edgeVisitor);
+		$edges = EdgeElement::model()->findAll();
 		
-// 		$layout = new LayoutVisitor();
+		foreach ($edges as $edge) {
+			// are the nodes of the edge in the same layer?
+			$out = $edge->outElement;
+			$in = $edge->inElement;
+			if ($out->parent_id == $in->parent_id) {
+				$edge->parent_id = $out->parent_id;
+				$edge->save();
+			} else {
+				// search for the common ancestor
+				$this->expandEdge($out, $in);
+				$edge->delete();
+			}
+		}
+		
+		print_r("<br /> done");
+// 		$edgeVisitor = new EdgeVisitor($graphStructure);
+// 		$graphStructure->accept($edgeVisitor);
+		
+		$layout = new LayoutVisitor();
+		$root = TreeElement::model()->findByPk(1);
+		$root->accept($layout);
+		
 // 		$graphStructure->acceptPostOrder($layout);
 		
-// 		print_r($layout->path);
+		$this->render('index', array(tree=>$root));
+	}
+	
+	public function expandEdge($source, $dest) {
 		
-// 		$this->render('index', array(tree=>$graphStructure));
+		while ($source->parent_id != $dest->parent_id) {
+			if ($source->level > $dest->level) {
+				print_r($source->label . " level1 source up to " . $source->parent->label  . "<br />");
+	
+				// TODO: check if theres already an dependeny node
+				$depNodeId = TreeElement::createAndSaveTreeElement("dependency_" . $dest->parent_id, $source->parent_id, $source->level);
+				EdgeElement::createAndSaveEdgeElement($label, $source->id, $depNodeId, $source->parent_id);
+				
+				$source = $source->parent;
+			} else {
+				print_r($dest->label . " level1 dest up to " . $dest->parent->label  . "<br />");
+				//array_push($edges, new Edge("dEdge", $dest->label, $dest->parent->label));
+	
+				// TODO: check if theres already an dependeny node
+				$depNodeId = TreeElement::createAndSaveTreeElement("dependency_" . $dest->parent_id, $dest->parent_id, $dest->level);
+				EdgeElement::createAndSaveEdgeElement("dependency", $depNodeId, $dest->id, $dest->parent_id);
+				
+				$dest = $dest->parent;
+			}
+		}
+	
+		// TODO creating of edges here not tested yet
+		//compute till both have the same parent
+		while ($source->parent_id != $dest->parent_id) {
+			if ($source->level > $dest->level) {
+				print_r($source->label . " level2 source up to " . $source->parent->label  . "<br />");
+
+				$depNodeId = TreeElement::createAndSaveTreeElement("dependency_" . $dest->parent_id, $source->parent_id, $source->level);
+				EdgeElement::createAndSaveEdgeElement($label, $source->id, $depNodeId, $source->parent_id);
+				
+				$source = $source->parent;
+			} else {
+				print_r($dest->label . " level2 dest up to " . $dest->parent->label  . "<br />");
+	
+				$depNodeId = TreeElement::createAndSaveTreeElement("dependency_" . $dest->parent_id, $dest->parent_id, $dest->level);
+				EdgeElement::createAndSaveEdgeElement("dependency", $depNodeId, $dest->id, $dest->parent_id);
+				
+				$dest = $dest->parent;
+			}
+		}
+		
+		EdgeElement::createAndSaveEdgeElement("dependency", $source->id, $dest->id, $dest->parent_id);
 		
 	}
 }

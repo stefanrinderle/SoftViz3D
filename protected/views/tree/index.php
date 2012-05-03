@@ -12,7 +12,6 @@ Yii::app()->clientScript->registerCssFile(
 );
 
 function generateX3DOM($node, $self, $transX, $transZ) {
-	if ($node instanceof Layer) {
 		$nodeWidth = $node->x3dInfos->bb[size][width];
 		$nodeLength = $node->x3dInfos->bb[size][length];
 		
@@ -21,7 +20,7 @@ function generateX3DOM($node, $self, $transX, $transZ) {
 		$translation[y] = $node->x3dInfos->bb[position][y];
 		$translation[z] = $transZ;
 		
-		if (!$node->isMain) {
+		if (!$node->level == 0) {
 			$translation[x] = $translation[x] - $nodeWidth / 2;
 			$translation[z] = $translation[z] - $nodeLength / 2;
 		} 
@@ -29,21 +28,25 @@ function generateX3DOM($node, $self, $transX, $transZ) {
 		$self->renderPartial('x3dGroup', array(graph=>$node->x3dInfos, translation=>$translation));
 		
 		// calculate values for the children nodes
-		foreach ($node->content as $key => $value) {
-			//TODO: check
+// 		$content = TreeElement::model()->findAllByAttributes(array('parent_id'=>$node->id));
+		$content = $node->content;
+		
+		foreach ($content as $key => $value) {
 			$label = trim($value->label); 
 			
 			// layout node position
 			$nodePositionX = $node->x3dInfos->nodes[$label][position][x];
 			$nodePositionZ = $node->x3dInfos->nodes[$label][position][z];
 			
-			if (!$node->isMain) {
+			if (!$node->level == 0) {
 				$nodePositionX = $nodePositionX + ($transX - ($nodeWidth / 2));
 				$nodePositionZ = $nodePositionZ + ($transZ - ($nodeLength / 2));
+			} 
+			//TODO: Why is this required?
+			if ($value->x3dInfos) {
+				generateX3DOM($value, $self, $nodePositionX, $nodePositionZ);
 			}
-			generateX3DOM($value, $self, $nodePositionX, $nodePositionZ);
 		}
-	}
 }
 
 ?>

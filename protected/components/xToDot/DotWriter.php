@@ -19,17 +19,19 @@ class DotWriter extends CApplicationComponent
 		array_push($result, 'digraph G {');
 
 		foreach ($elements as $key => $value) {
-			if ($value instanceOf GraphComponent) {
+			if ($value instanceOf TreeElement) {
 				$elementString = str_replace(".", "_", $value->label);
 				$elementString .= ' [shape="rectangle" width="' . $value->size[width] . '", height="' . $value->size[height] . '", fixedsize=true';
-				if ($value instanceof Leaf) {
-					$elementString .= ', type="leaf"';
-				} else if ($value instanceof Node) {
+				
+				$content = TreeElement::model()->findAllByAttributes(array('parent_id'=>$value->id));
+				if (count($content) > 0) {
 					$elementString .= ', type="node"';
+				} else {
+					$elementString .= ', type="leaf"';
 				}
 				$elementString.= "]";
-			} else if ($value instanceof Edge) {
-				$elementString = str_replace(".", "_", $value->in) . " -> " . str_replace(".", "_", $value->out);
+			} else if ($value instanceOf EdgeElement) {
+				$elementString = str_replace(".", "_", $value->inElement->label) . " -> " . str_replace(".", "_", $value->outElement->label);
 			}
 			
 			$elementString .= ';';

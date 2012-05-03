@@ -5,7 +5,7 @@ abstract class GraphVisitor {
 	abstract function visitLeaf(Leaf $comp, $level);
 }
 
-class LayoutVisitor extends GraphVisitor {
+class LayoutVisitorBak extends GraphVisitor {
 	private static $SCALE = 72;
 	private $outputFile = '/Users/stefan/Sites/3dArch/x3d/temp.dot';
 
@@ -58,26 +58,6 @@ class LayoutVisitor extends GraphVisitor {
 	}
 }
 
-class EdgeVisitor {
-	private $tree;
-	
-	public function __construct($tree) {
-		$this->tree = $tree;
-	}
-	
-	function visitLayer(Layer $comp, $level) {
-		print_r($comp->label . "<br />");
-	}
-	
-	function visitLeaf(Leaf $comp, $level) {
-		print_r($comp->label . "<br />");
-	}
-	
-	function visitEdge(Edge $comp, $level) {
-		print_r($comp->in . "<br />");
-	}
-}
-
 abstract class GraphComponent {
 	public $label;
 	public $size;
@@ -107,27 +87,6 @@ class Layer extends GraphComponent {
 	public $outEdgeCount = 0;
 	public $inEdgeCount = 0;
 
-	function accept(EdgeVisitor $visitor, $level = 1) {
-		$this->level = $level;
-		
-		foreach ($this->content as $child) {
-			$child->accept($visitor, $level + 1);
-		}
-		
-		foreach ($this->edges as $edge) {
-			$isStart = $this->isInLayer($edge->out, $this->content);
-			$isEnd = $this->isInLayer($edge->in, $this->content);
-			
-			if ($isStart && $isEnd) {
-				// do nothing, everything is fine
-			} else {
-				
-			}
-			
-			$edge->accept($visitor, $level + 1);
-		}
-	}
-	
 	function acceptPostOrder(GraphVisitor $visitor, $level = 1) {
 		$this->level = $level;
 
@@ -175,53 +134,6 @@ class Layer extends GraphComponent {
 		return $visitor->visitLayer($this, $level, $layoutElements);
 	}
 
-	public function commonAncestor($source, $dest) {
-		$edges = array();
-
-		$lastSource = $source;
-		$lastDest = $dest;
-		
-		//as long as the node in the next section of
-		//x and y is not one common ancestor
-		//we get the node situated on the smaller
-		//lever closer
-		while ($source->parent != $dest->parent) {
-			if ($source->level > $dest->level) {
-				print_r($source->label . " level1 source up to " . $source->parent->label  . "<br />");
-				
-				$lastSource = $source;
-				$source = $source->parent;
-			} else {
-				print_r($dest->label . " level1 dest up to " . $dest->parent->label  . "<br />");
-				//array_push($edges, new Edge("dEdge", $dest->label, $dest->parent->label));
-				
-				$lastDest = $dest;
-				$dest = $dest->parent;
-			}
-		}
-
-		//now they are in the same section, so we trivially compute the LCA
-		while ($source != $dest) {
-			if ($source->level > $dest->level) {
-				print_r($source->label . " level2 source up to " . $source->parent->label  . "<br />");
-				
-				$lastSource = $source;
-				$source = $source->parent;
-			} else {
-				print_r($dest->label . " level2 dest up to " . $dest->parent->label  . "<br />");
-				
-				$lastDest = $dest;
-				$dest = $dest->parent;
-			}
-		}
-		
-// 		print_r($lastSource . " " . $lastDest);
- 		array_push($edges, new Edge("dEdge", $lastSource->label, $lastDest->label));
-		
-		return $edges;
-	}
-
-
 	public function __toString() {
 		return "NODE " . $this->label;
 	}
@@ -242,10 +154,6 @@ class Layer extends GraphComponent {
 
 class Leaf extends GraphComponent {
 
-	function accept(EdgeVisitor $visitor, $level = 1) {
-		return $visitor->visitLeaf($this, $level);
-	}
-	
 	function acceptPostOrder(GraphVisitor $visitor, $level = 1) {
 		return $visitor->visitLeaf($this, $level);
 	}

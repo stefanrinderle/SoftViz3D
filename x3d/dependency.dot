@@ -1,8 +1,13 @@
 digraph G {
-	subgraph cluster_node_5 {
-		leaf_1;
-		leaf_2;
+	subgraph cluster_node_1 {
+		subgraph cluster_node_2 {
+			leaf3;
+			leaf4;
+		}
+		leaf5;
 	}
-	leaf_3;
-	leaf_3 -> leaf_1;
+	subgraph cluster_node_6 {
+		leaf7;
+	}
+	leaf7 -> leaf3;
 }
