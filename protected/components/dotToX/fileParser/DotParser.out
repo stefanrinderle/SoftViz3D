@@ -6,6 +6,21 @@ State 0:
 
 State 1:
           stmtList ::= * stmt SEMICOLON stmtList
+          stmtList ::= * stmt SEMICOLON
+          stmt ::= * ID
+          stmt ::= * ID EDGEOP ID
+          stmt ::= * SUBGRAPH subgraph
+          subgraph ::= ID OPENBRACE * stmtList CLOSEBRACE
+          subgraph ::= ID OPENBRACE * CLOSEBRACE
+
+                            ID shift  9
+                    CLOSEBRACE shift  13
+                      SUBGRAPH shift  4
+                      stmtList shift  8
+                          stmt shift  12
+
+State 2:
+          stmtList ::= * stmt SEMICOLON stmtList
           stmtList ::= stmt SEMICOLON * stmtList
           stmtList ::= * stmt SEMICOLON
       (2) stmtList ::= stmt SEMICOLON *
@@ -15,11 +30,11 @@ State 1:
 
                             ID shift  9
                       SUBGRAPH shift  4
-                      stmtList shift  16
-                          stmt shift  10
+                      stmtList shift  18
+                          stmt shift  12
                      {default} reduce 2
 
-State 2:
+State 3:
           start ::= DIGRAPH ID OPENBRACE * stmtList CLOSEBRACE
           stmtList ::= * stmt SEMICOLON stmtList
           stmtList ::= * stmt SEMICOLON
@@ -30,47 +45,36 @@ State 2:
                             ID shift  9
                       SUBGRAPH shift  4
                       stmtList shift  11
-                          stmt shift  10
-
-State 3:
-          stmtList ::= * stmt SEMICOLON stmtList
-          stmtList ::= * stmt SEMICOLON
-          stmt ::= * ID
-          stmt ::= * ID EDGEOP ID
-          stmt ::= * SUBGRAPH subgraph
-          subgraph ::= ID OPENBRACE * stmtList CLOSEBRACE
-
-                            ID shift  9
-                      SUBGRAPH shift  4
-                      stmtList shift  6
-                          stmt shift  10
+                          stmt shift  12
 
 State 4:
           stmt ::= SUBGRAPH * subgraph
           subgraph ::= * ID OPENBRACE stmtList CLOSEBRACE
+          subgraph ::= * ID OPENBRACE CLOSEBRACE
 
-                            ID shift  8
-                      subgraph shift  14
+                            ID shift  6
+                      subgraph shift  17
 
 State 5:
           stmt ::= ID EDGEOP * ID
 
-                            ID shift  15
+                            ID shift  16
 
 State 6:
-          subgraph ::= ID OPENBRACE stmtList * CLOSEBRACE
+          subgraph ::= ID * OPENBRACE stmtList CLOSEBRACE
+          subgraph ::= ID * OPENBRACE CLOSEBRACE
 
-                    CLOSEBRACE shift  13
+                     OPENBRACE shift  1
 
 State 7:
           start ::= DIGRAPH * ID OPENBRACE stmtList CLOSEBRACE
 
-                            ID shift  12
+                            ID shift  10
 
 State 8:
-          subgraph ::= ID * OPENBRACE stmtList CLOSEBRACE
+          subgraph ::= ID OPENBRACE stmtList * CLOSEBRACE
 
-                     OPENBRACE shift  3
+                    CLOSEBRACE shift  14
 
 State 9:
       (3) stmt ::= ID *
@@ -80,43 +84,48 @@ State 9:
                      {default} reduce 3
 
 State 10:
-          stmtList ::= stmt * SEMICOLON stmtList
-          stmtList ::= stmt * SEMICOLON
+          start ::= DIGRAPH ID * OPENBRACE stmtList CLOSEBRACE
 
-                     SEMICOLON shift  1
+                     OPENBRACE shift  3
 
 State 11:
           start ::= DIGRAPH ID OPENBRACE stmtList * CLOSEBRACE
 
-                    CLOSEBRACE shift  17
+                    CLOSEBRACE shift  15
 
 State 12:
-          start ::= DIGRAPH ID * OPENBRACE stmtList CLOSEBRACE
+          stmtList ::= stmt * SEMICOLON stmtList
+          stmtList ::= stmt * SEMICOLON
 
-                     OPENBRACE shift  2
+                     SEMICOLON shift  2
 
 State 13:
+      (7) subgraph ::= ID OPENBRACE CLOSEBRACE *
+
+                     {default} reduce 7
+
+State 14:
       (6) subgraph ::= ID OPENBRACE stmtList CLOSEBRACE *
 
                      {default} reduce 6
 
-State 14:
-      (5) stmt ::= SUBGRAPH subgraph *
-
-                     {default} reduce 5
-
 State 15:
+      (0) start ::= DIGRAPH ID OPENBRACE stmtList CLOSEBRACE *
+
+                     {default} reduce 0
+
+State 16:
       (4) stmt ::= ID EDGEOP ID *
 
                      {default} reduce 4
 
-State 16:
+State 17:
+      (5) stmt ::= SUBGRAPH subgraph *
+
+                     {default} reduce 5
+
+State 18:
       (1) stmtList ::= stmt SEMICOLON stmtList *
 
                      {default} reduce 1
-
-State 17:
-      (0) start ::= DIGRAPH ID OPENBRACE stmtList CLOSEBRACE *
-
-                     {default} reduce 0
 

@@ -1,11 +1,19 @@
 digraph G {
-leaf_7 [shape="rectangle" width="0.1", height="0.1", fixedsize=true, type="leaf"];
-cluster_node_4 [shape="rectangle" width="0.578638888889", height="0.722222222222", fixedsize=true, type="node"];
-cluster_node_1 [shape="rectangle" width="0.305555555556", height="1.33333333333", fixedsize=true, type="node"];
-dep_1 [shape="rectangle" width="0.1", height="0.1", fixedsize=true, type="leaf"];
-cluster_node_4 -> dep_1;
-dep_1 -> cluster_node_1;
-cluster_node_4 -> dep_1;
-dep_1 -> cluster_node_1;
-leaf_7 -> cluster_node_4;
+yiic_php [shape="rectangle" width="1", height="1", fixedsize=true, type="leaf"];
+yiic_bat [shape="rectangle" width="1", height="1", fixedsize=true, type="leaf"];
+yiic [shape="rectangle" width="1", height="1", fixedsize=true, type="leaf"];
+cluster_views [shape="rectangle" width="9.52777777778", height="8.08333333333", fixedsize=true, type="node"];
+cluster_tests [shape="rectangle" width="2.75", height="2.75", fixedsize=true, type="node"];
+cluster_runtime [shape="rectangle" width="2.66666666667", height="2.33333333333", fixedsize=true, type="node"];
+cluster_models [shape="rectangle" width="2.25", height="2.25", fixedsize=true, type="node"];
+cluster_migrations [shape="rectangle" width="0", height="0", fixedsize=true, type="node"];
+cluster_messages [shape="rectangle" width="0", height="0", fixedsize=true, type="node"];
+cluster_extensions [shape="rectangle" width="1", height="1", fixedsize=true, type="node"];
+cluster_data [shape="rectangle" width="2.25", height="2.25", fixedsize=true, type="node"];
+cluster_controllers [shape="rectangle" width="2.25", height="2.25", fixedsize=true, type="node"];
+cluster_config [shape="rectangle" width="2.25", height="2.25", fixedsize=true, type="node"];
+cluster_components [shape="rectangle" width="6.91666666667", height="6.33333333333", fixedsize=true, type="node"];
+cluster_commands [shape="rectangle" width="0.0138888888889", height="0.0138888888889", fixedsize=true, type="node"];
+_htaccess [shape="rectangle" width="1", height="1", fixedsize=true, type="leaf"];
+_DS_Store [shape="rectangle" width="1", height="1", fixedsize=true, type="leaf"];
 }

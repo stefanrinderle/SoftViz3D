@@ -64,3 +64,7 @@ stmt(res)  ::= SUBGRAPH subgraph(content). {
 subgraph(res) ::= ID(name) OPENBRACE stmtList(stmts) CLOSEBRACE. {
 	res = array(type => "sub", label => name, content => stmts);
 }
+
+subgraph(res) ::= ID(name) OPENBRACE CLOSEBRACE. {
+	res = array(type => "sub", label => name, content => array());
+}

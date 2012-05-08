@@ -21,7 +21,7 @@ class LayoutVisitor {
 	function visitLeafTreeElement(TreeElement $comp) {
 		if ($this->max_level < $comp->level) $this->max_level = $comp->level;
 
-		$comp->size = array(width=>0.1, height=>0.1);
+		$comp->size = array(width=>1, height=>1);
 		return $comp;
 	}
 

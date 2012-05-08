@@ -6,6 +6,18 @@ class TreeController extends Controller
 	
 	public function actionIndex()
 	{
+		/* directory */
+		$path = "/Users/stefan/Sites/3dArch/yii/";
+		$outputFile = '/Users/stefan/Sites/3dArch/x3d/parser.dot';
+		
+		Yii::app()->directoryToDotParser->parse($path, $outputFile);
+		
+// 		$fileContent = file($outputFile);
+		
+// 		$this->render('directory', array(fileContent=>$fileContent, fileName=>$outputFile));
+		
+		
+		
 		//Yii::log("bla", 'error', 'parser');
 		//Yii::log($this->actualLine, 'error', 'parser');
 		
@@ -13,7 +25,7 @@ class TreeController extends Controller
 		TreeElement::model()->deleteAll();
 		EdgeElement::model()->deleteAll();
 		
-		$result = Yii::app()->dotFileParser->parse($this->sourceFile);
+		$result = Yii::app()->dotFileParser->parse($outputFile);
 		
 		Yii::app()->dotArrayParser->parse($result);
 		
@@ -39,7 +51,11 @@ class TreeController extends Controller
 		$root = TreeElement::model()->findByPk(1);
 		$root->accept($layout);
 		
+		print_r(memory_get_usage() / 8 / 1024 . "<br />");
+		print_r(memory_get_peak_usage() / 8 / 1024 . "<br />");
+		
 		$this->render('index', array(tree=>$root));
+// 		$this->render('default');
 	}
 	
 	public function getDependencyNode($parentId, $level) {
