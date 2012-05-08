@@ -26,7 +26,7 @@ class DotLexer
 
 digraph = "digraph"
 subgraph = "subgraph"
-id = /[a-zA-Z0-9_]+([a-zA-Z0-9_]+)?/
+id = /[a-zA-Z0-9_()]+([a-zA-Z0-9_()]*)?/
 openBrace = /\{/
 closeBrace = /\}/
 semicolon = /\;/
@@ -39,31 +39,31 @@ other = /./
 %statename START
 digraph {
   $this->token = DotParser::TP_DIGRAPH;
-//  echo "digraph: ".$this->value."\n";
+//  echo "digraph: ".$this->value."<br />";
 }
 subgraph {
   $this->token = DotParser::TP_SUBGRAPH;
-//  echo "subgraph: ".$this->value."\n";
+//  echo "subgraph: ".$this->value."<br />";
 }
 id {
   $this->token = DotParser::TP_ID;
-//  echo "id: ".$this->value."\n";
+//  echo "id: ".$this->value."<br />";
 }
 openBrace {
   $this->token = DotParser::TP_OPENBRACE;
-//  echo "openBrace: ".$this->value."\n";
+//  echo "openBrace: ".$this->value."<br />";
 }
 closeBrace {
   $this->token = DotParser::TP_CLOSEBRACE;
-//  echo "closeBrace: ".$this->value."\n";
+//  echo "closeBrace: ".$this->value."<br />";
 }
 semicolon {
   $this->token = DotParser::TP_SEMICOLON;
-//  echo "semicolon: ".$this->value."\n";
+//  echo "semicolon: ".$this->value."<br />";
 }
 edgeop {
   $this->token = DotParser::TP_EDGEOP;
-//  echo "edgeop: ".$this->value."\n";
+//  echo "edgeop: ".$this->value."<br />";
 }
 newLine {
   return false;

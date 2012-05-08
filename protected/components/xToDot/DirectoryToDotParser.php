@@ -33,14 +33,14 @@ class DirectoryToDotParser extends CApplicationComponent
 		foreach ($array as $key => $value) {
 			if (is_array($value)) {
 				// subgraph
-				array_push($result, 'subgraph cluster_' . str_replace(".", "X", str_replace("-", "X", $key)) . ' {');
+				array_push($result, 'subgraph ' . str_replace(".", "X", str_replace("-", "X", $key)) . ' {');
 				
 				$result = array_merge($result, $this->createDotFileLines($value, false));
 				
 				array_push($result, '};');
 			} else {
 				// Knoten
-				array_push($result, str_replace(".", "X", str_replace("-", "X", str_replace("_", "X", $value))) . ';');
+				array_push($result, str_replace(".", "X", str_replace("-", "X", $value)) . ';');
 			}
 		}
 		

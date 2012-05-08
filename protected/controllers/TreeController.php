@@ -7,7 +7,7 @@ class TreeController extends Controller
 	public function actionIndex()
 	{
 		/* directory */
-		$path = "/Users/stefan/Sites/3dArch/yii/";
+		$path = "/Users/stefan/Sites/tvoicerWeb/WebContent/";
 		$outputFile = '/Users/stefan/Sites/3dArch/x3d/parser.dot';
 		
 		Yii::app()->directoryToDotParser->parse($path, $outputFile);

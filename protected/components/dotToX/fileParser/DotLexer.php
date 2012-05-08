@@ -61,7 +61,7 @@ class DotLexer
         if ($this->counter >= strlen($this->data)) {
             return false; // end of input
         }
-        $yy_global_pattern = '/\G(digraph)|\G(subgraph)|\G([a-zA-Z0-9_]+([a-zA-Z0-9_]+)?)|\G(\\{)|\G(\\})|\G(;)|\G(->)|\G(\n)|\G(.)/';
+        $yy_global_pattern = '/\G(digraph)|\G(subgraph)|\G([a-zA-Z0-9_()]+([a-zA-Z0-9_()]*)?)|\G(\\{)|\G(\\})|\G(;)|\G(->)|\G(\n)|\G(.)/';
 
         do {
             if (preg_match($yy_global_pattern,$this->data, $yymatches, null, $this->counter)) {
@@ -102,8 +102,8 @@ class DotLexer
                     continue;
                 } else {
                     $yy_yymore_patterns = array(
-        1 => array(0, "\G(subgraph)|\G([a-zA-Z0-9_]+([a-zA-Z0-9_]+)?)|\G(\\{)|\G(\\})|\G(;)|\G(->)|\G(\n)|\G(.)"),
-        2 => array(0, "\G([a-zA-Z0-9_]+([a-zA-Z0-9_]+)?)|\G(\\{)|\G(\\})|\G(;)|\G(->)|\G(\n)|\G(.)"),
+        1 => array(0, "\G(subgraph)|\G([a-zA-Z0-9_()]+([a-zA-Z0-9_()]*)?)|\G(\\{)|\G(\\})|\G(;)|\G(->)|\G(\n)|\G(.)"),
+        2 => array(0, "\G([a-zA-Z0-9_()]+([a-zA-Z0-9_()]*)?)|\G(\\{)|\G(\\})|\G(;)|\G(->)|\G(\n)|\G(.)"),
         3 => array(1, "\G(\\{)|\G(\\})|\G(;)|\G(->)|\G(\n)|\G(.)"),
         5 => array(1, "\G(\\})|\G(;)|\G(->)|\G(\n)|\G(.)"),
         6 => array(1, "\G(;)|\G(->)|\G(\n)|\G(.)"),
@@ -171,43 +171,43 @@ class DotLexer
     {
 
   $this->token = DotParser::TP_DIGRAPH;
-//  echo "digraph: ".$this->value."\n";
+//  echo "digraph: ".$this->value."<br />";
     }
     function yy_r1_2($yy_subpatterns)
     {
 
   $this->token = DotParser::TP_SUBGRAPH;
-//  echo "subgraph: ".$this->value."\n";
+//  echo "subgraph: ".$this->value."<br />";
     }
     function yy_r1_3($yy_subpatterns)
     {
 
   $this->token = DotParser::TP_ID;
-//  echo "id: ".$this->value."\n";
+//  echo "id: ".$this->value."<br />";
     }
     function yy_r1_5($yy_subpatterns)
     {
 
   $this->token = DotParser::TP_OPENBRACE;
-//  echo "openBrace: ".$this->value."\n";
+//  echo "openBrace: ".$this->value."<br />";
     }
     function yy_r1_6($yy_subpatterns)
     {
 
   $this->token = DotParser::TP_CLOSEBRACE;
-//  echo "closeBrace: ".$this->value."\n";
+//  echo "closeBrace: ".$this->value."<br />";
     }
     function yy_r1_7($yy_subpatterns)
     {
 
   $this->token = DotParser::TP_SEMICOLON;
-//  echo "semicolon: ".$this->value."\n";
+//  echo "semicolon: ".$this->value."<br />";
     }
     function yy_r1_8($yy_subpatterns)
     {
 
   $this->token = DotParser::TP_EDGEOP;
-//  echo "edgeop: ".$this->value."\n";
+//  echo "edgeop: ".$this->value."<br />";
     }
     function yy_r1_9($yy_subpatterns)
     {

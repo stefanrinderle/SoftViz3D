@@ -15,6 +15,12 @@
 
 %token_prefix TP_
 
+%stack_overflow {
+    print_r("Giving up.  Parser stack overflow");
+}
+   
+%stack_size 2000
+
 %parse_accept
 {
     $this->successful = !$this->internalError;
