@@ -1,0 +1,75 @@
+<?php
+class DotLexer
+{
+
+    private $data;
+    public $counter;
+    public $token;
+    public $value;
+    public $node;
+    public $line;
+    private $state = 1;
+
+    function __construct($data)
+    {
+        $this->data = $data;
+        $this->counter = 0;
+        $this->line = 1;
+    }
+
+/*!lex2php
+%input $this->data
+%counter $this->counter
+%token $this->token
+%value $this->value
+%line $this->line
+
+digraph = "digraph"
+subgraph = "subgraph"
+id = /[a-zA-Z0-9_]+(\.[a-zA-Z0-9_]+)?/
+openBrace = /\{/
+closeBrace = /\}/
+semicolon = /\;/
+edgeop = /\->/
+newLine = /\n/
+other = /./
+*/
+
+/*!lex2php
+%statename START
+digraph {
+  $this->token = DotParser::TP_DIGRAPH;
+//  echo "digraph: ".$this->value."\n";
+}
+subgraph {
+  $this->token = DotParser::TP_SUBGRAPH;
+//  echo "subgraph: ".$this->value."\n";
+}
+id {
+  $this->token = DotParser::TP_ID;
+//  echo "id: ".$this->value."\n";
+}
+openBrace {
+  $this->token = DotParser::TP_OPENBRACE;
+//  echo "openBrace: ".$this->value."\n";
+}
+closeBrace {
+  $this->token = DotParser::TP_CLOSEBRACE;
+//  echo "closeBrace: ".$this->value."\n";
+}
+semicolon {
+  $this->token = DotParser::TP_SEMICOLON;
+//  echo "semicolon: ".$this->value."\n";
+}
+edgeop {
+  $this->token = DotParser::TP_EDGEOP;
+//  echo "edgeop: ".$this->value."\n";
+}
+newLine {
+  return false;
+}
+other {
+  return false;
+}
+*/
+}
