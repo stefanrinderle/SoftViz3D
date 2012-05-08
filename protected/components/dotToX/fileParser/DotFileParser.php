@@ -6,8 +6,10 @@ class DotFileParser extends CApplicationComponent
 	public function parse($dotFilePath)
 	{
 		// Create Parser
+		//TODO: not working
+		//print_r('/Applications/XAMPP/xamppfiles/bin/php /Applications/XAMPP/xamppfiles/lib/php/pear/PHP/ParserGenerator/cli.php ' . dirname(__FILE__) . '/DotParser.y');
  		exec('/Applications/XAMPP/xamppfiles/bin/php /Applications/XAMPP/xamppfiles/lib/php/pear/PHP/ParserGenerator/cli.php ' . dirname(__FILE__) . '/DotParser.y');
-
+ 		
 		// Create Lexer
 		require_once 'PHP/LexerGenerator.php';
 		
@@ -24,7 +26,7 @@ class DotFileParser extends CApplicationComponent
 		}
 		$parser->doParse(0, 0);
 		
-		print_r($parser->retvalue);
+		return $parser->retvalue;
 	}
 }
 

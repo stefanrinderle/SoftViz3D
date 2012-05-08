@@ -17,7 +17,8 @@ return array(
 		'application.models.*',
 		'application.components.*',
 		'application.components.dotToX.*',
-		'application.components.xToDot.*'
+		'application.components.xToDot.*',
+		'application.components.dotToX.fileParser.DotFileParser'
 	),
 
 	'modules'=>array(
@@ -45,8 +46,11 @@ return array(
 		'adotFileParser'=>array(
 			'class'=>'AdotFileParser',
 		),
-		'dotParser'=>array(
-				'class'=>'dotParser',
+		'dotArrayParser'=>array(
+				'class'=>'DotArrayParser',
+		),
+		'dotFileParser'=>array(
+				'class'=>'DotFileParser',
 		),
 		'dotLayout'=>array(
 			'class'=>'DotLayout',

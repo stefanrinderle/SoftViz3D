@@ -54,7 +54,7 @@ stmt(res)  ::= ID(name). {
 }
 
 stmt(res)  ::= ID(name1) EDGEOP ID(name2). { 
-	res = array(array(type => "edge", node1 => name1, node2 => name2));
+	res = array(array(label => name1 . " -> " . name2, type => "edge", node1 => name1, node2 => name2));
 }
 
 stmt(res)  ::= SUBGRAPH subgraph(content). {

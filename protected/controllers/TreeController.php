@@ -8,12 +8,16 @@ class TreeController extends Controller
 	{
 		//Yii::log("bla", 'error', 'parser');
 		//Yii::log($this->actualLine, 'error', 'parser');
-	
+		
 		$connection=Yii::app()->db;
 		TreeElement::model()->deleteAll();
 		EdgeElement::model()->deleteAll();
 		
-		Yii::app()->dotParser->parse($this->sourceFile);
+		$result = Yii::app()->dotFileParser->parse($this->sourceFile);
+		
+		Yii::app()->dotArrayParser->parse($result);
+		
+// 		Yii::app()->dotParser->parse($this->sourceFile);
 		
 		$edges = EdgeElement::model()->findAll();
 		

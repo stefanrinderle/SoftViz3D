@@ -765,7 +765,7 @@ static public $yy_action = array(
 #line 770 "/Users/stefan/Sites/3dArch/protected/components/dotToX/fileParser/DotParser.php"
 #line 56 "/Users/stefan/Sites/3dArch/protected/components/dotToX/fileParser/DotParser.y"
     function yy_r4(){ 
-	$this->_retvalue = array(array(type => "edge", node1 => $this->yystack[$this->yyidx + -2]->minor, node2 => $this->yystack[$this->yyidx + 0]->minor));
+	$this->_retvalue = array(array(label => $this->yystack[$this->yyidx + -2]->minor . " -> " . $this->yystack[$this->yyidx + 0]->minor, type => "edge", node1 => $this->yystack[$this->yyidx + -2]->minor, node2 => $this->yystack[$this->yyidx + 0]->minor));
     }
 #line 775 "/Users/stefan/Sites/3dArch/protected/components/dotToX/fileParser/DotParser.php"
 #line 60 "/Users/stefan/Sites/3dArch/protected/components/dotToX/fileParser/DotParser.y"
