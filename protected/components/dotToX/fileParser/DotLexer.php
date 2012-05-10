@@ -200,7 +200,8 @@ class DotLexer
     function yy_r1_7($yy_subpatterns)
     {
 
-  $this->token = DotParser::TP_SEMICOLON;
+	return false;
+//   $this->token = DotParser::TP_SEMICOLON;
 //  echo "semicolon: ".$this->value."<br />";
     }
     function yy_r1_8($yy_subpatterns)
