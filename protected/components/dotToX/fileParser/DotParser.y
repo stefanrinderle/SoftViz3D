@@ -47,11 +47,11 @@ start(res) ::= DIGRAPH ID(name) OPENBRACE stmtList(stmts) CLOSEBRACE. {
 	res = array(type => "main", label => name, content => stmts);
 }
 
-stmtList(res)  ::= stmt(s1) SEMICOLON stmtList(stmts). {
+stmtList(res)  ::= stmt(s1) stmtList(stmts). {
 	res = array_merge(stmts, s1);
 }
 
-stmtList(res)  ::= stmt(content) SEMICOLON. { 
+stmtList(res)  ::= stmt(content). { 
 	res = content;
 }
 

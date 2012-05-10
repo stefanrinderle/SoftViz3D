@@ -37,7 +37,7 @@ class DirectoryToDotParser extends CApplicationComponent
 				
 				$result = array_merge($result, $this->createDotFileLines($value, false));
 				
-				array_push($result, '};');
+				array_push($result, '}');
 			} else {
 				// Knoten
 				array_push($result, str_replace(".", "X", str_replace("-", "X", $value)) . ';');

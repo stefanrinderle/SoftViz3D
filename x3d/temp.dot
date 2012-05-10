@@ -1,20 +1,10 @@
 digraph G {
-tvoicer [shape="rectangle" width="40.4583333333", height="32.875", fixedsize=true, type="node"];
-summaryXejs [shape="rectangle" width="1", height="1", fixedsize=true, type="leaf"];
-steal [shape="rectangle" width="37.4166666667", height="31.0277777778", fixedsize=true, type="node"];
-providerloginXhtml [shape="rectangle" width="1", height="1", fixedsize=true, type="leaf"];
-jsXbat [shape="rectangle" width="1", height="1", fixedsize=true, type="leaf"];
-js [shape="rectangle" width="1", height="1", fixedsize=true, type="leaf"];
-jquery [shape="rectangle" width="39.6527777778", height="42.7777777778", fixedsize=true, type="node"];
-infoXhtml [shape="rectangle" width="1", height="1", fixedsize=true, type="leaf"];
-infoXprodXhtml [shape="rectangle" width="1", height="1", fixedsize=true, type="leaf"];
-indexXhtml [shape="rectangle" width="1", height="1", fixedsize=true, type="leaf"];
-indexXprodXhtml [shape="rectangle" width="1", height="1", fixedsize=true, type="leaf"];
-funcunit [shape="rectangle" width="23.3333333333", height="23.5694444444", fixedsize=true, type="node"];
-documentjs [shape="rectangle" width="20.2083333333", height="21.6944444444", fixedsize=true, type="node"];
-channelXhtml [shape="rectangle" width="1", height="1", fixedsize=true, type="leaf"];
-build_stealXjs [shape="rectangle" width="1", height="1", fixedsize=true, type="leaf"];
-Xhtaccess [shape="rectangle" width="1", height="1", fixedsize=true, type="leaf"];
-Xgitignore [shape="rectangle" width="1", height="1", fixedsize=true, type="leaf"];
+x3d [shape="rectangle" width="3.72222222222", height="4.11111111111", fixedsize=true, type="node"];
+tree [shape="rectangle" width="3.72222222222", height="4.11111111111", fixedsize=true, type="node"];
+site [shape="rectangle" width="2.875", height="3.5", fixedsize=true, type="node"];
+layouts [shape="rectangle" width="2.25", height="2.25", fixedsize=true, type="node"];
+graphViz [shape="rectangle" width="2.25", height="2.25", fixedsize=true, type="node"];
+dumpGraphStructureXphp [shape="rectangle" width="1", height="1", fixedsize=true, type="leaf"];
+dumpArrayXphp [shape="rectangle" width="1", height="1", fixedsize=true, type="leaf"];
 XDS_Store [shape="rectangle" width="1", height="1", fixedsize=true, type="leaf"];
 }

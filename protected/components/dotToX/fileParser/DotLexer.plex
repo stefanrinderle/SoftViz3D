@@ -58,7 +58,8 @@ closeBrace {
 //  echo "closeBrace: ".$this->value."<br />";
 }
 semicolon {
-  $this->token = DotParser::TP_SEMICOLON;
+	return false;
+//   $this->token = DotParser::TP_SEMICOLON;
 //  echo "semicolon: ".$this->value."<br />";
 }
 edgeop {
