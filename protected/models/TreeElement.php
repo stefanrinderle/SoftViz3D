@@ -69,7 +69,7 @@ class TreeElement extends CActiveRecord
 	// factory method
 	public static function createAndSaveLeafTreeElement($label, $parent_id, $level)
 	{
-		return TreeElement::createAndSaveTreeElement($label, $parent_id, $level, true);
+		TreeElement::createAndSaveTreeElement($label, $parent_id, $level, true);
 	}
 }
 

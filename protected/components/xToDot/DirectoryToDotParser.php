@@ -3,24 +3,40 @@
 class DirectoryToDotParser extends CApplicationComponent
 {
 	
-	public function parse($path, $outputFile) {
-		$directoryArray = $this->parseDirectoryToArray($path);
+	public function parseToFile($path, $outputFile) {
+		$lines = $this->getLines($path);
 		
-		if ($outputFile) {
-			$this->createDotFile($directoryArray, $outputFile);
-		}
+		$this->writeLinesToFile($lines, $outputFile);
 	}
 	
-	private function parseDirectoryToArray($path) {
+	public function parseToDotString($path) {
+		$lines = $this->getLines($path);
+
+		return $this->writeLinesToString($lines, $outputFile);
+	}
+	
+	private function getLines($path) {
 		$it = new DirectoryIterator($path);
+		$directoryArray = $this->directoryIteratorToArray($it);
 		
-		return $this->directoryIteratorToArray($it);
+		return $this->createDotFileLines($directoryArray);
 	}
 	
-	private function createDotFile($array, $outputFile) {
-		$lines = $this->createDotFileLines($array);
-		
-		$this->write_data($lines, $outputFile);
+	private function directoryIteratorToArray(DirectoryIterator $it) {
+		$result = array();
+		foreach ($it as $key => $child) {
+			if ($child->isDot()) {
+				continue;
+			}
+			$name = $child->getBasename();
+			if ($child->isDir()) {
+				$subit = new DirectoryIterator($child->getPathname());
+				$result[$name] = $this->directoryIteratorToArray($subit);
+			} else {
+				$result[] = $name;
+			}
+		}
+		return $result;
 	}
 	
 	private function createDotFileLines($array, $firstLevel=true) {
@@ -51,30 +67,23 @@ class DirectoryToDotParser extends CApplicationComponent
 		return $result;
 	}
 	
-	private function write_data($data, $fname) {
-	  $fp = fopen($fname, "w");
+	private function writeLinesToFile($data, $fname) {
+		$fp = fopen($fname, "w");
 	
-	  foreach ($data as $key => $value) {
-	    fwrite($fp, "$value\n");
-	  }
+		foreach ($data as $key => $value) {
+			fwrite($fp, "$value\n");
+		}
 	
-	  fclose($fp);
+		fclose($fp);
 	}
-
-	private function directoryIteratorToArray(DirectoryIterator $it) {
-	    $result = array();
-	    foreach ($it as $key => $child) {
-	        if ($child->isDot()) {
-	            continue;
-	        }
-	        $name = $child->getBasename();
-	        if ($child->isDir()) {
-	            $subit = new DirectoryIterator($child->getPathname());
-	            $result[$name] = $this->directoryIteratorToArray($subit);
-	        } else {
-	            $result[] = $name;
-	        }
-	    }
-	    return $result;
+	
+	private function writeLinesToString($data) {
+		$result = "";
+	
+		foreach ($data as $key => $value) {
+			$result .= $value . "\n";
+		}
+	
+		return $result;
 	}
 }

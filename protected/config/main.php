@@ -46,8 +46,8 @@ return array(
 		'adotFileParser'=>array(
 			'class'=>'AdotFileParser',
 		),
-		'dotArrayParser'=>array(
-				'class'=>'DotArrayParser',
+		'dotInfoToDb'=>array(
+				'class'=>'DotInfoToDb',
 		),
 		'dotFileParser'=>array(
 				'class'=>'DotFileParser',

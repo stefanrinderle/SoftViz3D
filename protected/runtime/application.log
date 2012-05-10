@@ -5175,3 +5175,72 @@ Stack trace:
 REQUEST_URI=/~stefan/3dArch/index.php?r=tree/index
 HTTP_REFERER=http://localhost/~stefan/3dArch/index.php
 ---
+2012/05/10 01:00:05 [error] [exception.Exception] exception 'Exception' with message 'Unexpected SUBGRAPH(subgraph), expected one of: OPENBRACE' in /Users/stefan/Sites/3dArch/protected/components/dotToX/fileParser/DotParser.php:914
+Stack trace:
+#0 /Users/stefan/Sites/3dArch/protected/components/dotToX/fileParser/DotParser.php(1028): DotParser->yy_syntax_error(6, 'subgraph')
+#1 /Users/stefan/Sites/3dArch/protected/components/dotToX/fileParser/DotFileParser.php(25): DotParser->doParse(6, 'subgraph')
+#2 /Users/stefan/Sites/3dArch/protected/controllers/TreeController.php(28): DotFileParser->parse('/Users/stefan/S...')
+#3 /Users/stefan/Sites/3dArch/yii/framework/web/actions/CInlineAction.php(50): TreeController->actionIndex()
+#4 /Users/stefan/Sites/3dArch/yii/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#5 /Users/stefan/Sites/3dArch/yii/framework/web/CController.php(287): CController->runAction(Object(CInlineAction))
+#6 /Users/stefan/Sites/3dArch/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /Users/stefan/Sites/3dArch/yii/framework/web/CWebApplication.php(276): CController->run('index')
+#8 /Users/stefan/Sites/3dArch/yii/framework/web/CWebApplication.php(135): CWebApplication->runController('tree/index')
+#9 /Users/stefan/Sites/3dArch/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#10 /Users/stefan/Sites/3dArch/index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/~stefan/3dArch/index.php?r=tree/index
+HTTP_REFERER=http://localhost/~stefan/3dArch/index.php
+---
+2012/05/10 01:12:04 [error] [exception.CException] exception 'CException' with message 'DirectoryToDotParser and its behaviors do not have a method or closure named "parse".' in /Users/stefan/Sites/3dArch/yii/framework/base/CComponent.php:266
+Stack trace:
+#0 [internal function]: CComponent->__call('parse', Array)
+#1 /Users/stefan/Sites/3dArch/protected/controllers/TreeController.php(29): DirectoryToDotParser->parse('/Users/stefan/S...', '/Users/stefan/S...')
+#2 /Users/stefan/Sites/3dArch/yii/framework/web/actions/CInlineAction.php(50): TreeController->actionIndex()
+#3 /Users/stefan/Sites/3dArch/yii/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#4 /Users/stefan/Sites/3dArch/yii/framework/web/CController.php(287): CController->runAction(Object(CInlineAction))
+#5 /Users/stefan/Sites/3dArch/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /Users/stefan/Sites/3dArch/yii/framework/web/CWebApplication.php(276): CController->run('index')
+#7 /Users/stefan/Sites/3dArch/yii/framework/web/CWebApplication.php(135): CWebApplication->runController('tree/index')
+#8 /Users/stefan/Sites/3dArch/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#9 /Users/stefan/Sites/3dArch/index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/~stefan/3dArch/index.php?r=tree/index
+HTTP_REFERER=http://localhost/~stefan/3dArch/index.php
+---
+2012/05/10 01:48:57 [error] [exception.CException] exception 'CException' with message 'DotInfoToDb and its behaviors do not have a method or closure named "getTime".' in /Users/stefan/Sites/3dArch/yii/framework/base/CComponent.php:266
+Stack trace:
+#0 [internal function]: CComponent->__call('getTime', Array)
+#1 /Users/stefan/Sites/3dArch/protected/components/dotToX/DotInfoToDb.php(9): DotInfoToDb->getTime()
+#2 /Users/stefan/Sites/3dArch/protected/controllers/TreeController.php(38): DotInfoToDb->writeToDb(Array)
+#3 /Users/stefan/Sites/3dArch/yii/framework/web/actions/CInlineAction.php(50): TreeController->actionIndex()
+#4 /Users/stefan/Sites/3dArch/yii/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#5 /Users/stefan/Sites/3dArch/yii/framework/web/CController.php(287): CController->runAction(Object(CInlineAction))
+#6 /Users/stefan/Sites/3dArch/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /Users/stefan/Sites/3dArch/yii/framework/web/CWebApplication.php(276): CController->run('index')
+#8 /Users/stefan/Sites/3dArch/yii/framework/web/CWebApplication.php(135): CWebApplication->runController('tree/index')
+#9 /Users/stefan/Sites/3dArch/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#10 /Users/stefan/Sites/3dArch/index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/~stefan/3dArch/index.php?r=tree/index
+HTTP_REFERER=http://localhost/~stefan/3dArch/index.php
+---
+2012/05/10 01:54:33 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[HY000]: General error: 5 database is locked. The SQL statement executed was: DELETE FROM 'tbl_TreeElement'.
+in /Users/stefan/Sites/3dArch/protected/controllers/TreeController.php (17)
+in /Users/stefan/Sites/3dArch/index.php (13)
+2012/05/10 01:54:33 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[HY000]: General error: 5 database is locked. The SQL statement executed was: DELETE FROM 'tbl_TreeElement'' in /Users/stefan/Sites/3dArch/yii/framework/db/CDbCommand.php:354
+Stack trace:
+#0 /Users/stefan/Sites/3dArch/yii/framework/db/ar/CActiveRecord.php(1751): CDbCommand->execute()
+#1 /Users/stefan/Sites/3dArch/protected/controllers/TreeController.php(17): CActiveRecord->deleteAll()
+#2 /Users/stefan/Sites/3dArch/yii/framework/web/actions/CInlineAction.php(50): TreeController->actionIndex()
+#3 /Users/stefan/Sites/3dArch/yii/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#4 /Users/stefan/Sites/3dArch/yii/framework/web/CController.php(287): CController->runAction(Object(CInlineAction))
+#5 /Users/stefan/Sites/3dArch/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /Users/stefan/Sites/3dArch/yii/framework/web/CWebApplication.php(276): CController->run('index')
+#7 /Users/stefan/Sites/3dArch/yii/framework/web/CWebApplication.php(135): CWebApplication->runController('tree/index')
+#8 /Users/stefan/Sites/3dArch/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#9 /Users/stefan/Sites/3dArch/index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/~stefan/3dArch/index.php?r=tree/index
+HTTP_REFERER=http://localhost/~stefan/3dArch/index.php
+---

@@ -1,13 +1,25 @@
 <?php
 
-class DotArrayParser extends CApplicationComponent {
+class DotInfoToDb extends CApplicationComponent {
 	
-	public function parse($dotArray)
+// 	private $start;
+	
+	public function writeToDb($dotArray)
 	{
+// 		$this->start = $this->getTime();
+		
 		$this->parseGraph($dotArray);
 	}
 	
+// 	function getTime()
+// 	{
+// 		$a = explode (' ',microtime());
+// 		return(double) $a[0] + $a[1];
+// 	}
+	
 	protected function parseGraph($graph, $parent = 0, $level = 0) {
+// 		print_r("parseGraph: " . number_format(($this->getTime() - $this->start),2) . "<br />");
+		
 		$currentId = TreeElement::createAndSaveTreeElement($graph[label], $parent, $level);
 		
 		$edges = array();
@@ -37,6 +49,6 @@ class DotArrayParser extends CApplicationComponent {
 	}
 	
 	protected function retrieveNode($value, $parent, $level) {
-		$currentId = TreeElement::createAndSaveLeafTreeElement($value[label], $parent, $level);
+		TreeElement::createAndSaveLeafTreeElement($value[label], $parent, $level);
 	}
 }

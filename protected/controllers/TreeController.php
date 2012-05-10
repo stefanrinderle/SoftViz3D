@@ -4,31 +4,42 @@ class TreeController extends Controller
 {
 	private $sourceFile = '/Users/stefan/Sites/3dArch/x3d/dependency.dot';
 	
+	function getTime()
+	{
+		$a = explode (' ',microtime());
+		return(double) $a[0] + $a[1];
+	}
+	
 	public function actionIndex()
 	{
-		/* directory */
-		$path = "/Users/stefan/Sites/3darch/protected/views/";
-		$outputFile = '/Users/stefan/Sites/3dArch/x3d/parser.dot';
-		
-		Yii::app()->directoryToDotParser->parse($path, $outputFile);
-		
-// 		$fileContent = file($outputFile);
-		
-// 		$this->render('directory', array(fileContent=>$fileContent, fileName=>$outputFile));
-
-				
-		//Yii::log("bla", 'error', 'parser');
-		//Yii::log($this->actualLine, 'error', 'parser');
-		
+		/* reset database */
 		$connection=Yii::app()->db;
 		TreeElement::model()->deleteAll();
 		EdgeElement::model()->deleteAll();
 		
-		$result = Yii::app()->dotFileParser->parse($outputFile);
+		// STEP 1: Create an input dot file (string)
 		
-		Yii::app()->dotArrayParser->parse($result);
+		/* directory */
+		$path = "/Users/stefan/Sites/tvoicerWeb/";
 		
-// 		Yii::app()->dotParser->parse($this->sourceFile);
+		/* Parse to a file to view the result */
+// 		$outputFile = '/Users/stefan/Sites/3dArch/x3d/parser.dot';
+// 		Yii::app()->directoryToDotParser->parseToFile($path, $outputFile);
+// 		$result = Yii::app()->dotFileParser->parseFile($outputFile);
+		
+		/* parse to string in memory */
+		$dotString = Yii::app()->directoryToDotParser->parseToDotString($path);
+		$result = Yii::app()->dotFileParser->parseString($dotString);
+		unset($dotString);
+		
+		// STEP 2: Write parsed data into database
+		
+		$start = $this->getTime();
+		Yii::app()->dotInfoToDb->writeToDb($result);
+		
+		print_r("write to db: " . number_format(($this->getTime() - $start),2) . "<br />");
+		
+		// STEP 3: Normalize edges
 		
 		$edges = EdgeElement::model()->findAll();
 		
@@ -46,15 +57,14 @@ class TreeController extends Controller
 			}
 		}
 		
+		// STEP 4: calculate the view layout
+		
 		$layout = new LayoutVisitor();
 		$root = TreeElement::model()->findByPk(1);
 		$root->accept($layout);
 		
-		print_r(memory_get_usage() / 8 / 1024 . "<br />");
-		print_r(memory_get_peak_usage() / 8 / 1024 . "<br />");
-		
+		// STEP 5: show the calculated layout
 		$this->render('index', array(tree=>$root));
-// 		$this->render('default');
 	}
 	
 	public function getDependencyNode($parentId, $level) {
