@@ -3,6 +3,8 @@
 class DotFileParser extends CApplicationComponent
 {
 
+	private $generateParser = false;
+	
 	public function parseFile($dotFilePath)
 	{
 		$this->initialize();
@@ -23,9 +25,10 @@ class DotFileParser extends CApplicationComponent
 	
 	private function initialize() {
 		// Create Parser
-		//TODO: not working
-		//print_r('/Applications/XAMPP/xamppfiles/bin/php /Applications/XAMPP/xamppfiles/lib/php/pear/PHP/ParserGenerator/cli.php ' . dirname(__FILE__) . '/DotParser.y');
-		passthru('/Applications/XAMPP/xamppfiles/bin/php /Applications/XAMPP/xamppfiles/lib/php/pear/PHP/ParserGenerator/cli.php ' . dirname(__FILE__) . '/DotParser.y');
+		//TODO: working but makes output, exec is not working...
+		if ($this->generateParser) {
+			passthru('/Applications/XAMPP/xamppfiles/bin/php /Applications/XAMPP/xamppfiles/lib/php/pear/PHP/ParserGenerator/cli.php ' . dirname(__FILE__) . '/DotParser.y');
+		}
 		
 		// Create Lexer
 		require_once 'PHP/LexerGenerator.php';

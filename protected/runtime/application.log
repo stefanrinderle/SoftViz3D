@@ -6743,3 +6743,253 @@ Stack trace:
 REQUEST_URI=/~stefan/3dArch/index.php?r=tree/index
 HTTP_REFERER=http://localhost/~stefan/3dArch/index.php
 ---
+2012/05/11 03:12:50 [error] [exception.CException] exception 'CException' with message 'Property "AdotArrayParser.parseFileHandle" is not defined.' in /Users/stefan/Sites/3dArch/yii/framework/base/CComponent.php:131
+Stack trace:
+#0 /Users/stefan/Sites/3dArch/protected/components/dotToX/AdotParser.php(38): CComponent->__get('parseFileHandle')
+#1 /Users/stefan/Sites/3dArch/protected/components/dotToX/AdotArrayParser.php(31): AdotParser->checkLineFeed()
+#2 /Users/stefan/Sites/3dArch/protected/components/dotToX/AdotParser.php(15): AdotArrayParser->getNewLine()
+#3 /Users/stefan/Sites/3dArch/protected/components/dotToX/AdotArrayParser.php(23): AdotParser->parseGraph()
+#4 /Users/stefan/Sites/3dArch/protected/components/LayoutVisitor.php(35): AdotArrayParser->parse(Array)
+#5 /Users/stefan/Sites/3dArch/protected/components/LayoutVisitor.php(10): LayoutVisitor->calcLayerLayout(Array)
+#6 /Users/stefan/Sites/3dArch/protected/models/TreeElement.php(50): LayoutVisitor->visitTreeElement(Object(TreeElement), Array)
+#7 /Users/stefan/Sites/3dArch/protected/controllers/TreeController.php(67): TreeElement->accept(Object(LayoutVisitor))
+#8 /Users/stefan/Sites/3dArch/yii/framework/web/actions/CInlineAction.php(50): TreeController->actionIndex()
+#9 /Users/stefan/Sites/3dArch/yii/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#10 /Users/stefan/Sites/3dArch/yii/framework/web/CController.php(287): CController->runAction(Object(CInlineAction))
+#11 /Users/stefan/Sites/3dArch/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 /Users/stefan/Sites/3dArch/yii/framework/web/CWebApplication.php(276): CController->run('index')
+#13 /Users/stefan/Sites/3dArch/yii/framework/web/CWebApplication.php(135): CWebApplication->runController('tree/index')
+#14 /Users/stefan/Sites/3dArch/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#15 /Users/stefan/Sites/3dArch/index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/~stefan/3dArch/index.php?r=tree/index
+HTTP_REFERER=http://localhost/~stefan/3dArch/index.php
+---
+2012/05/11 03:13:07 [error] [exception.Exception] exception 'Exception' with message 'Unexpected ID(width), expected one of: CLOSEATTR' in /Users/stefan/Sites/3dArch/protected/components/dotToX/fileParser/DotParser.php:992
+Stack trace:
+#0 /Users/stefan/Sites/3dArch/protected/components/dotToX/fileParser/DotParser.php(1106): DotParser->yy_syntax_error(2, 'width')
+#1 /Users/stefan/Sites/3dArch/protected/components/dotToX/fileParser/DotFileParser.php(42): DotParser->doParse(2, 'width')
+#2 /Users/stefan/Sites/3dArch/protected/components/dotToX/fileParser/DotFileParser.php(12): DotFileParser->parse(Object(DotLexer))
+#3 /Users/stefan/Sites/3dArch/protected/controllers/TreeController.php(34): DotFileParser->parseFile('/Users/stefan/S...')
+#4 /Users/stefan/Sites/3dArch/yii/framework/web/actions/CInlineAction.php(50): TreeController->actionIndex()
+#5 /Users/stefan/Sites/3dArch/yii/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#6 /Users/stefan/Sites/3dArch/yii/framework/web/CController.php(287): CController->runAction(Object(CInlineAction))
+#7 /Users/stefan/Sites/3dArch/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 /Users/stefan/Sites/3dArch/yii/framework/web/CWebApplication.php(276): CController->run('index')
+#9 /Users/stefan/Sites/3dArch/yii/framework/web/CWebApplication.php(135): CWebApplication->runController('tree/index')
+#10 /Users/stefan/Sites/3dArch/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#11 /Users/stefan/Sites/3dArch/index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/~stefan/3dArch/index.php?r=tree/index
+HTTP_REFERER=http://localhost/~stefan/3dArch/index.php
+---
+2012/05/11 03:13:08 [error] [exception.Exception] exception 'Exception' with message 'Unexpected ID(width), expected one of: CLOSEATTR' in /Users/stefan/Sites/3dArch/protected/components/dotToX/fileParser/DotParser.php:992
+Stack trace:
+#0 /Users/stefan/Sites/3dArch/protected/components/dotToX/fileParser/DotParser.php(1106): DotParser->yy_syntax_error(2, 'width')
+#1 /Users/stefan/Sites/3dArch/protected/components/dotToX/fileParser/DotFileParser.php(42): DotParser->doParse(2, 'width')
+#2 /Users/stefan/Sites/3dArch/protected/components/dotToX/fileParser/DotFileParser.php(12): DotFileParser->parse(Object(DotLexer))
+#3 /Users/stefan/Sites/3dArch/protected/controllers/TreeController.php(34): DotFileParser->parseFile('/Users/stefan/S...')
+#4 /Users/stefan/Sites/3dArch/yii/framework/web/actions/CInlineAction.php(50): TreeController->actionIndex()
+#5 /Users/stefan/Sites/3dArch/yii/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#6 /Users/stefan/Sites/3dArch/yii/framework/web/CController.php(287): CController->runAction(Object(CInlineAction))
+#7 /Users/stefan/Sites/3dArch/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 /Users/stefan/Sites/3dArch/yii/framework/web/CWebApplication.php(276): CController->run('index')
+#9 /Users/stefan/Sites/3dArch/yii/framework/web/CWebApplication.php(135): CWebApplication->runController('tree/index')
+#10 /Users/stefan/Sites/3dArch/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#11 /Users/stefan/Sites/3dArch/index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/~stefan/3dArch/index.php?r=tree/index
+HTTP_REFERER=http://localhost/~stefan/3dArch/index.php
+---
+2012/05/11 03:14:20 [error] [exception.Exception] exception 'Exception' with message 'Unexpected ID(width), expected one of: CLOSEATTR' in /Users/stefan/Sites/3dArch/protected/components/dotToX/fileParser/DotParser.php:992
+Stack trace:
+#0 /Users/stefan/Sites/3dArch/protected/components/dotToX/fileParser/DotParser.php(1106): DotParser->yy_syntax_error(2, 'width')
+#1 /Users/stefan/Sites/3dArch/protected/components/dotToX/fileParser/DotFileParser.php(42): DotParser->doParse(2, 'width')
+#2 /Users/stefan/Sites/3dArch/protected/components/dotToX/fileParser/DotFileParser.php(12): DotFileParser->parse(Object(DotLexer))
+#3 /Users/stefan/Sites/3dArch/protected/controllers/TreeController.php(34): DotFileParser->parseFile('/Users/stefan/S...')
+#4 /Users/stefan/Sites/3dArch/yii/framework/web/actions/CInlineAction.php(50): TreeController->actionIndex()
+#5 /Users/stefan/Sites/3dArch/yii/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#6 /Users/stefan/Sites/3dArch/yii/framework/web/CController.php(287): CController->runAction(Object(CInlineAction))
+#7 /Users/stefan/Sites/3dArch/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 /Users/stefan/Sites/3dArch/yii/framework/web/CWebApplication.php(276): CController->run('index')
+#9 /Users/stefan/Sites/3dArch/yii/framework/web/CWebApplication.php(135): CWebApplication->runController('tree/index')
+#10 /Users/stefan/Sites/3dArch/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#11 /Users/stefan/Sites/3dArch/index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/~stefan/3dArch/index.php?r=tree/index
+HTTP_REFERER=http://localhost/~stefan/3dArch/index.php
+---
+2012/05/11 03:14:21 [error] [exception.Exception] exception 'Exception' with message 'Unexpected ID(width), expected one of: CLOSEATTR' in /Users/stefan/Sites/3dArch/protected/components/dotToX/fileParser/DotParser.php:992
+Stack trace:
+#0 /Users/stefan/Sites/3dArch/protected/components/dotToX/fileParser/DotParser.php(1106): DotParser->yy_syntax_error(2, 'width')
+#1 /Users/stefan/Sites/3dArch/protected/components/dotToX/fileParser/DotFileParser.php(42): DotParser->doParse(2, 'width')
+#2 /Users/stefan/Sites/3dArch/protected/components/dotToX/fileParser/DotFileParser.php(12): DotFileParser->parse(Object(DotLexer))
+#3 /Users/stefan/Sites/3dArch/protected/controllers/TreeController.php(34): DotFileParser->parseFile('/Users/stefan/S...')
+#4 /Users/stefan/Sites/3dArch/yii/framework/web/actions/CInlineAction.php(50): TreeController->actionIndex()
+#5 /Users/stefan/Sites/3dArch/yii/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#6 /Users/stefan/Sites/3dArch/yii/framework/web/CController.php(287): CController->runAction(Object(CInlineAction))
+#7 /Users/stefan/Sites/3dArch/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 /Users/stefan/Sites/3dArch/yii/framework/web/CWebApplication.php(276): CController->run('index')
+#9 /Users/stefan/Sites/3dArch/yii/framework/web/CWebApplication.php(135): CWebApplication->runController('tree/index')
+#10 /Users/stefan/Sites/3dArch/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#11 /Users/stefan/Sites/3dArch/index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/~stefan/3dArch/index.php?r=tree/index
+HTTP_REFERER=http://localhost/~stefan/3dArch/index.php
+---
+2012/05/11 03:15:08 [error] [exception.Exception] exception 'Exception' with message 'Unexpected PUNCMARK(,), expected one of: QUOTMARK' in /Users/stefan/Sites/3dArch/protected/components/dotToX/fileParser/DotParser.php:992
+Stack trace:
+#0 /Users/stefan/Sites/3dArch/protected/components/dotToX/fileParser/DotParser.php(1106): DotParser->yy_syntax_error(8, ',')
+#1 /Users/stefan/Sites/3dArch/protected/components/dotToX/fileParser/DotFileParser.php(42): DotParser->doParse(8, ',')
+#2 /Users/stefan/Sites/3dArch/protected/components/dotToX/fileParser/DotFileParser.php(12): DotFileParser->parse(Object(DotLexer))
+#3 /Users/stefan/Sites/3dArch/protected/controllers/TreeController.php(34): DotFileParser->parseFile('/Users/stefan/S...')
+#4 /Users/stefan/Sites/3dArch/yii/framework/web/actions/CInlineAction.php(50): TreeController->actionIndex()
+#5 /Users/stefan/Sites/3dArch/yii/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#6 /Users/stefan/Sites/3dArch/yii/framework/web/CController.php(287): CController->runAction(Object(CInlineAction))
+#7 /Users/stefan/Sites/3dArch/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 /Users/stefan/Sites/3dArch/yii/framework/web/CWebApplication.php(276): CController->run('index')
+#9 /Users/stefan/Sites/3dArch/yii/framework/web/CWebApplication.php(135): CWebApplication->runController('tree/index')
+#10 /Users/stefan/Sites/3dArch/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#11 /Users/stefan/Sites/3dArch/index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/~stefan/3dArch/index.php?r=tree/index
+HTTP_REFERER=http://localhost/~stefan/3dArch/index.php
+---
+2012/05/11 03:15:09 [error] [exception.Exception] exception 'Exception' with message 'Unexpected PUNCMARK(,), expected one of: QUOTMARK' in /Users/stefan/Sites/3dArch/protected/components/dotToX/fileParser/DotParser.php:992
+Stack trace:
+#0 /Users/stefan/Sites/3dArch/protected/components/dotToX/fileParser/DotParser.php(1106): DotParser->yy_syntax_error(8, ',')
+#1 /Users/stefan/Sites/3dArch/protected/components/dotToX/fileParser/DotFileParser.php(42): DotParser->doParse(8, ',')
+#2 /Users/stefan/Sites/3dArch/protected/components/dotToX/fileParser/DotFileParser.php(12): DotFileParser->parse(Object(DotLexer))
+#3 /Users/stefan/Sites/3dArch/protected/controllers/TreeController.php(34): DotFileParser->parseFile('/Users/stefan/S...')
+#4 /Users/stefan/Sites/3dArch/yii/framework/web/actions/CInlineAction.php(50): TreeController->actionIndex()
+#5 /Users/stefan/Sites/3dArch/yii/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#6 /Users/stefan/Sites/3dArch/yii/framework/web/CController.php(287): CController->runAction(Object(CInlineAction))
+#7 /Users/stefan/Sites/3dArch/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 /Users/stefan/Sites/3dArch/yii/framework/web/CWebApplication.php(276): CController->run('index')
+#9 /Users/stefan/Sites/3dArch/yii/framework/web/CWebApplication.php(135): CWebApplication->runController('tree/index')
+#10 /Users/stefan/Sites/3dArch/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#11 /Users/stefan/Sites/3dArch/index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/~stefan/3dArch/index.php?r=tree/index
+HTTP_REFERER=http://localhost/~stefan/3dArch/index.php
+---
+2012/05/11 03:16:42 [error] [exception.Exception] exception 'Exception' with message 'Unexpected PUNCMARK(,), expected one of: QUOTMARK' in /Users/stefan/Sites/3dArch/protected/components/dotToX/fileParser/DotParser.php:992
+Stack trace:
+#0 /Users/stefan/Sites/3dArch/protected/components/dotToX/fileParser/DotParser.php(1106): DotParser->yy_syntax_error(8, ',')
+#1 /Users/stefan/Sites/3dArch/protected/components/dotToX/fileParser/DotFileParser.php(42): DotParser->doParse(8, ',')
+#2 /Users/stefan/Sites/3dArch/protected/components/dotToX/fileParser/DotFileParser.php(12): DotFileParser->parse(Object(DotLexer))
+#3 /Users/stefan/Sites/3dArch/protected/controllers/TreeController.php(34): DotFileParser->parseFile('/Users/stefan/S...')
+#4 /Users/stefan/Sites/3dArch/yii/framework/web/actions/CInlineAction.php(50): TreeController->actionIndex()
+#5 /Users/stefan/Sites/3dArch/yii/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#6 /Users/stefan/Sites/3dArch/yii/framework/web/CController.php(287): CController->runAction(Object(CInlineAction))
+#7 /Users/stefan/Sites/3dArch/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 /Users/stefan/Sites/3dArch/yii/framework/web/CWebApplication.php(276): CController->run('index')
+#9 /Users/stefan/Sites/3dArch/yii/framework/web/CWebApplication.php(135): CWebApplication->runController('tree/index')
+#10 /Users/stefan/Sites/3dArch/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#11 /Users/stefan/Sites/3dArch/index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/~stefan/3dArch/index.php?r=tree/index
+HTTP_REFERER=http://localhost/~stefan/3dArch/index.php
+---
+2012/05/11 03:16:52 [error] [exception.Exception] exception 'Exception' with message 'Unexpected PUNCMARK(,), expected one of: QUOTMARK' in /Users/stefan/Sites/3dArch/protected/components/dotToX/fileParser/DotParser.php:992
+Stack trace:
+#0 /Users/stefan/Sites/3dArch/protected/components/dotToX/fileParser/DotParser.php(1106): DotParser->yy_syntax_error(8, ',')
+#1 /Users/stefan/Sites/3dArch/protected/components/dotToX/fileParser/DotFileParser.php(42): DotParser->doParse(8, ',')
+#2 /Users/stefan/Sites/3dArch/protected/components/dotToX/fileParser/DotFileParser.php(12): DotFileParser->parse(Object(DotLexer))
+#3 /Users/stefan/Sites/3dArch/protected/controllers/TreeController.php(34): DotFileParser->parseFile('/Users/stefan/S...')
+#4 /Users/stefan/Sites/3dArch/yii/framework/web/actions/CInlineAction.php(50): TreeController->actionIndex()
+#5 /Users/stefan/Sites/3dArch/yii/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#6 /Users/stefan/Sites/3dArch/yii/framework/web/CController.php(287): CController->runAction(Object(CInlineAction))
+#7 /Users/stefan/Sites/3dArch/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 /Users/stefan/Sites/3dArch/yii/framework/web/CWebApplication.php(276): CController->run('index')
+#9 /Users/stefan/Sites/3dArch/yii/framework/web/CWebApplication.php(135): CWebApplication->runController('tree/index')
+#10 /Users/stefan/Sites/3dArch/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#11 /Users/stefan/Sites/3dArch/index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/~stefan/3dArch/index.php?r=tree/index
+HTTP_REFERER=http://localhost/~stefan/3dArch/index.php
+---
+2012/05/11 03:17:07 [error] [exception.CException] exception 'CException' with message 'Property "AdotArrayParser.parseFileHandle" is not defined.' in /Users/stefan/Sites/3dArch/yii/framework/base/CComponent.php:131
+Stack trace:
+#0 /Users/stefan/Sites/3dArch/protected/components/dotToX/AdotParser.php(38): CComponent->__get('parseFileHandle')
+#1 /Users/stefan/Sites/3dArch/protected/components/dotToX/AdotArrayParser.php(31): AdotParser->checkLineFeed()
+#2 /Users/stefan/Sites/3dArch/protected/components/dotToX/AdotParser.php(15): AdotArrayParser->getNewLine()
+#3 /Users/stefan/Sites/3dArch/protected/components/dotToX/AdotArrayParser.php(23): AdotParser->parseGraph()
+#4 /Users/stefan/Sites/3dArch/protected/components/LayoutVisitor.php(35): AdotArrayParser->parse(Array)
+#5 /Users/stefan/Sites/3dArch/protected/components/LayoutVisitor.php(10): LayoutVisitor->calcLayerLayout(Array)
+#6 /Users/stefan/Sites/3dArch/protected/models/TreeElement.php(50): LayoutVisitor->visitTreeElement(Object(TreeElement), Array)
+#7 /Users/stefan/Sites/3dArch/protected/controllers/TreeController.php(67): TreeElement->accept(Object(LayoutVisitor))
+#8 /Users/stefan/Sites/3dArch/yii/framework/web/actions/CInlineAction.php(50): TreeController->actionIndex()
+#9 /Users/stefan/Sites/3dArch/yii/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#10 /Users/stefan/Sites/3dArch/yii/framework/web/CController.php(287): CController->runAction(Object(CInlineAction))
+#11 /Users/stefan/Sites/3dArch/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 /Users/stefan/Sites/3dArch/yii/framework/web/CWebApplication.php(276): CController->run('index')
+#13 /Users/stefan/Sites/3dArch/yii/framework/web/CWebApplication.php(135): CWebApplication->runController('tree/index')
+#14 /Users/stefan/Sites/3dArch/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#15 /Users/stefan/Sites/3dArch/index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/~stefan/3dArch/index.php?r=tree/index
+HTTP_REFERER=http://localhost/~stefan/3dArch/index.php
+---
+2012/05/11 03:17:08 [error] [exception.CException] exception 'CException' with message 'Property "AdotArrayParser.parseFileHandle" is not defined.' in /Users/stefan/Sites/3dArch/yii/framework/base/CComponent.php:131
+Stack trace:
+#0 /Users/stefan/Sites/3dArch/protected/components/dotToX/AdotParser.php(38): CComponent->__get('parseFileHandle')
+#1 /Users/stefan/Sites/3dArch/protected/components/dotToX/AdotArrayParser.php(31): AdotParser->checkLineFeed()
+#2 /Users/stefan/Sites/3dArch/protected/components/dotToX/AdotParser.php(15): AdotArrayParser->getNewLine()
+#3 /Users/stefan/Sites/3dArch/protected/components/dotToX/AdotArrayParser.php(23): AdotParser->parseGraph()
+#4 /Users/stefan/Sites/3dArch/protected/components/LayoutVisitor.php(35): AdotArrayParser->parse(Array)
+#5 /Users/stefan/Sites/3dArch/protected/components/LayoutVisitor.php(10): LayoutVisitor->calcLayerLayout(Array)
+#6 /Users/stefan/Sites/3dArch/protected/models/TreeElement.php(50): LayoutVisitor->visitTreeElement(Object(TreeElement), Array)
+#7 /Users/stefan/Sites/3dArch/protected/controllers/TreeController.php(67): TreeElement->accept(Object(LayoutVisitor))
+#8 /Users/stefan/Sites/3dArch/yii/framework/web/actions/CInlineAction.php(50): TreeController->actionIndex()
+#9 /Users/stefan/Sites/3dArch/yii/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#10 /Users/stefan/Sites/3dArch/yii/framework/web/CController.php(287): CController->runAction(Object(CInlineAction))
+#11 /Users/stefan/Sites/3dArch/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 /Users/stefan/Sites/3dArch/yii/framework/web/CWebApplication.php(276): CController->run('index')
+#13 /Users/stefan/Sites/3dArch/yii/framework/web/CWebApplication.php(135): CWebApplication->runController('tree/index')
+#14 /Users/stefan/Sites/3dArch/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#15 /Users/stefan/Sites/3dArch/index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/~stefan/3dArch/index.php?r=tree/index
+HTTP_REFERER=http://localhost/~stefan/3dArch/index.php
+---
+2012/05/11 03:18:46 [error] [php] array_merge() [<a href='function.array-merge'>function.array-merge</a>]: Argument #2 is not an array (/Users/stefan/Sites/3dArch/protected/components/dotToX/fileParser/DotParser.php:851)
+Stack trace:
+#0 /Users/stefan/Sites/3dArch/protected/components/dotToX/fileParser/DotParser.php(1091): DotParser->yy_reduce()
+#1 /Users/stefan/Sites/3dArch/protected/components/dotToX/fileParser/DotFileParser.php(42): DotParser->doParse()
+#2 /Users/stefan/Sites/3dArch/protected/components/dotToX/fileParser/DotFileParser.php(12): DotFileParser->parse()
+#3 /Users/stefan/Sites/3dArch/protected/controllers/TreeController.php(34): DotFileParser->parseFile()
+#4 /Users/stefan/Sites/3dArch/yii/framework/web/actions/CInlineAction.php(50): TreeController->actionIndex()
+#5 /Users/stefan/Sites/3dArch/yii/framework/web/CController.php(309): CInlineAction->runWithParams()
+#6 /Users/stefan/Sites/3dArch/yii/framework/web/CController.php(287): TreeController->runAction()
+#7 /Users/stefan/Sites/3dArch/yii/framework/web/CController.php(266): TreeController->runActionWithFilters()
+#8 /Users/stefan/Sites/3dArch/yii/framework/web/CWebApplication.php(276): TreeController->run()
+#9 /Users/stefan/Sites/3dArch/yii/framework/web/CWebApplication.php(135): CWebApplication->runController()
+#10 /Users/stefan/Sites/3dArch/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#11 /Users/stefan/Sites/3dArch/index.php(13): CWebApplication->run()
+REQUEST_URI=/~stefan/3dArch/index.php?r=tree/index
+in /Users/stefan/Sites/3dArch/protected/components/dotToX/fileParser/DotParser.php (851)
+in /Users/stefan/Sites/3dArch/protected/components/dotToX/fileParser/DotParser.php (938)
+in /Users/stefan/Sites/3dArch/protected/components/dotToX/fileParser/DotParser.php (1091)
+2012/05/11 03:19:07 [error] [exception.CException] exception 'CException' with message 'Property "AdotArrayParser.parseFileHandle" is not defined.' in /Users/stefan/Sites/3dArch/yii/framework/base/CComponent.php:131
+Stack trace:
+#0 /Users/stefan/Sites/3dArch/protected/components/dotToX/AdotParser.php(38): CComponent->__get('parseFileHandle')
+#1 /Users/stefan/Sites/3dArch/protected/components/dotToX/AdotArrayParser.php(31): AdotParser->checkLineFeed()
+#2 /Users/stefan/Sites/3dArch/protected/components/dotToX/AdotParser.php(15): AdotArrayParser->getNewLine()
+#3 /Users/stefan/Sites/3dArch/protected/components/dotToX/AdotArrayParser.php(23): AdotParser->parseGraph()
+#4 /Users/stefan/Sites/3dArch/protected/components/LayoutVisitor.php(35): AdotArrayParser->parse(Array)
+#5 /Users/stefan/Sites/3dArch/protected/components/LayoutVisitor.php(10): LayoutVisitor->calcLayerLayout(Array)
+#6 /Users/stefan/Sites/3dArch/protected/models/TreeElement.php(50): LayoutVisitor->visitTreeElement(Object(TreeElement), Array)
+#7 /Users/stefan/Sites/3dArch/protected/controllers/TreeController.php(67): TreeElement->accept(Object(LayoutVisitor))
+#8 /Users/stefan/Sites/3dArch/yii/framework/web/actions/CInlineAction.php(50): TreeController->actionIndex()
+#9 /Users/stefan/Sites/3dArch/yii/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#10 /Users/stefan/Sites/3dArch/yii/framework/web/CController.php(287): CController->runAction(Object(CInlineAction))
+#11 /Users/stefan/Sites/3dArch/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 /Users/stefan/Sites/3dArch/yii/framework/web/CWebApplication.php(276): CController->run('index')
+#13 /Users/stefan/Sites/3dArch/yii/framework/web/CWebApplication.php(135): CWebApplication->runController('tree/index')
+#14 /Users/stefan/Sites/3dArch/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#15 /Users/stefan/Sites/3dArch/index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/~stefan/3dArch/index.php?r=tree/index
+HTTP_REFERER=http://localhost/~stefan/3dArch/index.php
+---

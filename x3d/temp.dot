@@ -1,6 +1,9 @@
 digraph G {
-zwei [shape="rectangle" width="1", height="1", fixedsize=true, type="leaf"];
-eins [shape="rectangle" width="1", height="1", fixedsize=true, type="leaf"];
-graph [shape="rectangle" width="1", height="1", fixedsize=true, type="leaf"];
-node [shape="rectangle" width="1", height="1", fixedsize=true, type="leaf"];
+x3d [shape="rectangle" width="3.70833333333", height="3.5", fixedsize=true, type="node"];
+tree [shape="rectangle" width="3.72222222222", height="4.11111111111", fixedsize=true, type="node"];
+site [shape="rectangle" width="2.25", height="3.5", fixedsize=true, type="node"];
+layouts [shape="rectangle" width="2.25", height="2.25", fixedsize=true, type="node"];
+graphViz [shape="rectangle" width="2.25", height="2.25", fixedsize=true, type="node"];
+dumpGraphStructureXphp [shape="rectangle" width="1", height="1", fixedsize=true, type="leaf"];
+dumpArrayXphp [shape="rectangle" width="1", height="1", fixedsize=true, type="leaf"];
 }

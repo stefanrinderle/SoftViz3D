@@ -68,12 +68,20 @@ aList(res) ::= ID(name) EQUALS aValue(value). {
 	res = array(name => value);
 }
 
-aList(res) ::= ID(name) EQUALS aValue(value) aList(content). {
+aList(res) ::= ID(name) EQUALS aValue(value) PUNCMARK aList(content). {
 	res = array_merge(array(name => value), content);
 }
 
-aValue(res) ::= QUOTMARK ID(name) QUOTMARK. {
+aValue(res) ::= QUOTMARK aQuotValue(name) QUOTMARK. {
 	res = name;
+}
+
+aQuotValue(res) ::= ID(value). {
+	res = array(value);
+}
+
+aQuotValue(res) ::= ID(value) PUNCMARK aQuotValue(values). {
+	res = array_merge(array(value), values);
 }
 
 aValue(res) ::= ID(name). {

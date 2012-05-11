@@ -26,13 +26,14 @@ class DotLexer
 
 digraph = "digraph"
 subgraph = "subgraph"
-id = /[a-zA-Z0-9_,]+([a-zA-Z0-9_,]*)?/
+id = /[a-zA-Z0-9_]+([a-zA-Z0-9_]*)?/
 openBrace = /\{/
 closeBrace = /\}/
 openAttr = /\[/
 closeAttr = /\]/
 equals = /\=/
 quotmark = /\"/
+puncmark = /\,/
 semicolon = /\;/
 edgeop = /\->/
 newLine = /\n/
@@ -72,6 +73,9 @@ equals {
 }
 quotmark {
   $this->token = DotParser::TP_QUOTMARK;
+}
+puncmark {
+  $this->token = DotParser::TP_PUNCMARK;
 }
 semicolon {
 	return false;
