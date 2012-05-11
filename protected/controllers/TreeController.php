@@ -20,7 +20,7 @@ class TreeController extends Controller
 		// STEP 1: Create an input dot file (string)
 		
 		/* directory */
-		$path = "/Users/stefan/Sites/tvoicerWeb/";
+		$path = "/Users/stefan/Sites/3darch/protected/views/";
 		
 		/* Parse to a file to view the result */
 // 		$outputFile = '/Users/stefan/Sites/3dArch/x3d/parser.dot';
@@ -28,9 +28,12 @@ class TreeController extends Controller
 // 		$result = Yii::app()->dotFileParser->parseFile($outputFile);
 		
 		/* parse to string in memory */
-		$dotString = Yii::app()->directoryToDotParser->parseToDotString($path);
-		$result = Yii::app()->dotFileParser->parseString($dotString);
-		unset($dotString);
+// 		$dotString = Yii::app()->directoryToDotParser->parseToDotString($path);
+		
+		
+		$result = Yii::app()->dotFileParser->parseFile("/Users/stefan/Sites/3darch/x3d/temp.adot");
+		print_r("<br /><br /><br /><br />");
+		print_r($result);
 		
 		// STEP 2: Write parsed data into database
 		

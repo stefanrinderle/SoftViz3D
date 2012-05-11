@@ -57,11 +57,15 @@ class DotLexer
               8 => 0,
               9 => 0,
               10 => 0,
+              11 => 0,
+              12 => 0,
+              13 => 0,
+              14 => 0,
             );
         if ($this->counter >= strlen($this->data)) {
             return false; // end of input
         }
-        $yy_global_pattern = '/\G(digraph)|\G(subgraph)|\G([a-zA-Z0-9_()]+([a-zA-Z0-9_()]*)?)|\G(\\{)|\G(\\})|\G(;)|\G(->)|\G(\n)|\G(.)/';
+        $yy_global_pattern = '/\G(digraph)|\G(subgraph)|\G([a-zA-Z0-9_]+([a-zA-Z0-9_]*)?)|\G(\\{)|\G(\\})|\G(\\[)|\G(\\])|\G(=)|\G(\")|\G(;)|\G(->)|\G(\n)|\G(.)/';
 
         do {
             if (preg_match($yy_global_pattern,$this->data, $yymatches, null, $this->counter)) {
@@ -102,15 +106,19 @@ class DotLexer
                     continue;
                 } else {
                     $yy_yymore_patterns = array(
-        1 => array(0, "\G(subgraph)|\G([a-zA-Z0-9_()]+([a-zA-Z0-9_()]*)?)|\G(\\{)|\G(\\})|\G(;)|\G(->)|\G(\n)|\G(.)"),
-        2 => array(0, "\G([a-zA-Z0-9_()]+([a-zA-Z0-9_()]*)?)|\G(\\{)|\G(\\})|\G(;)|\G(->)|\G(\n)|\G(.)"),
-        3 => array(1, "\G(\\{)|\G(\\})|\G(;)|\G(->)|\G(\n)|\G(.)"),
-        5 => array(1, "\G(\\})|\G(;)|\G(->)|\G(\n)|\G(.)"),
-        6 => array(1, "\G(;)|\G(->)|\G(\n)|\G(.)"),
-        7 => array(1, "\G(->)|\G(\n)|\G(.)"),
-        8 => array(1, "\G(\n)|\G(.)"),
-        9 => array(1, "\G(.)"),
-        10 => array(1, ""),
+        1 => array(0, "\G(subgraph)|\G([a-zA-Z0-9_]+([a-zA-Z0-9_]*)?)|\G(\\{)|\G(\\})|\G(\\[)|\G(\\])|\G(=)|\G(\")|\G(;)|\G(->)|\G(\n)|\G(.)"),
+        2 => array(0, "\G([a-zA-Z0-9_]+([a-zA-Z0-9_]*)?)|\G(\\{)|\G(\\})|\G(\\[)|\G(\\])|\G(=)|\G(\")|\G(;)|\G(->)|\G(\n)|\G(.)"),
+        3 => array(1, "\G(\\{)|\G(\\})|\G(\\[)|\G(\\])|\G(=)|\G(\")|\G(;)|\G(->)|\G(\n)|\G(.)"),
+        5 => array(1, "\G(\\})|\G(\\[)|\G(\\])|\G(=)|\G(\")|\G(;)|\G(->)|\G(\n)|\G(.)"),
+        6 => array(1, "\G(\\[)|\G(\\])|\G(=)|\G(\")|\G(;)|\G(->)|\G(\n)|\G(.)"),
+        7 => array(1, "\G(\\])|\G(=)|\G(\")|\G(;)|\G(->)|\G(\n)|\G(.)"),
+        8 => array(1, "\G(=)|\G(\")|\G(;)|\G(->)|\G(\n)|\G(.)"),
+        9 => array(1, "\G(\")|\G(;)|\G(->)|\G(\n)|\G(.)"),
+        10 => array(1, "\G(;)|\G(->)|\G(\n)|\G(.)"),
+        11 => array(1, "\G(->)|\G(\n)|\G(.)"),
+        12 => array(1, "\G(\n)|\G(.)"),
+        13 => array(1, "\G(.)"),
+        14 => array(1, ""),
     );
 
                     // yymore is needed
@@ -200,22 +208,42 @@ class DotLexer
     function yy_r1_7($yy_subpatterns)
     {
 
+  $this->token = DotParser::TP_OPENATTR;
+    }
+    function yy_r1_8($yy_subpatterns)
+    {
+
+  $this->token = DotParser::TP_CLOSEATTR;
+    }
+    function yy_r1_9($yy_subpatterns)
+    {
+
+  $this->token = DotParser::TP_EQUALS;
+    }
+    function yy_r1_10($yy_subpatterns)
+    {
+
+  $this->token = DotParser::TP_QUOTMARK;
+    }
+    function yy_r1_11($yy_subpatterns)
+    {
+
 	return false;
 //   $this->token = DotParser::TP_SEMICOLON;
 //  echo "semicolon: ".$this->value."<br />";
     }
-    function yy_r1_8($yy_subpatterns)
+    function yy_r1_12($yy_subpatterns)
     {
 
   $this->token = DotParser::TP_EDGEOP;
 //  echo "edgeop: ".$this->value."<br />";
     }
-    function yy_r1_9($yy_subpatterns)
+    function yy_r1_13($yy_subpatterns)
     {
 
   return false;
     }
-    function yy_r1_10($yy_subpatterns)
+    function yy_r1_14($yy_subpatterns)
     {
 
   return false;

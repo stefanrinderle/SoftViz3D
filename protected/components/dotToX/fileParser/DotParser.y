@@ -55,14 +55,46 @@ stmtList(res)  ::= stmt(content). {
 	res = content;
 }
 
+// Attr list
+attrList(res) ::= OPENATTR aList(content) CLOSEATTR. {
+	res = content;
+}
+
+attrList(res) ::= OPENATTR CLOSEATTR. {
+	res = 0;
+}
+
+aList(res) ::= ID(name) EQUALS aValue(value). {
+	res = array(name => value);
+}
+
+aList(res) ::= ID(name) EQUALS aValue(value) aList(content). {
+	res = array_merge(array(name => value), content);
+}
+
+aValue(res) ::= QUOTMARK ID(name) QUOTMARK. {
+	res = name;
+}
+
+aValue(res) ::= ID(name). {
+	res = name;
+}
+
+// Node stmt
 stmt(res)  ::= ID(name). { 
 	res = array(array(type => "node", label => name));
 }
 
+stmt(res)  ::= ID(name) attrList(content). { 
+	res = array(array(type => "node", label => name, attr => content));
+}
+
+// Edge stmt
 stmt(res)  ::= ID(name1) EDGEOP ID(name2). { 
 	res = array(array(label => name1 . " -> " . name2, type => "edge", node1 => name1, node2 => name2));
 }
 
+// Subgraph stmt
 stmt(res)  ::= SUBGRAPH subgraph(content). {
 	res = array(content);
 }

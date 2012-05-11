@@ -1,13 +1,6 @@
 digraph G {
-WebContent [shape="rectangle" width="87.6666666667", height="71.1944444444", fixedsize=true, type="node"];
-tvoicerWebPostReceiveScriptCOPY [shape="rectangle" width="1", height="1", fixedsize=true, type="leaf"];
-tvoicerDeployScriptCOPY [shape="rectangle" width="1", height="1", fixedsize=true, type="leaf"];
-nightlyTest [shape="rectangle" width="1", height="1", fixedsize=true, type="leaf"];
-Xsettings [shape="rectangle" width="3.5", height="3.5", fixedsize=true, type="node"];
-Xproject [shape="rectangle" width="1", height="1", fixedsize=true, type="leaf"];
-Xgitignore [shape="rectangle" width="1", height="1", fixedsize=true, type="leaf"];
-Xgit [shape="rectangle" width="38.9166666667", height="37.1111111111", fixedsize=true, type="node"];
-XDS_Store [shape="rectangle" width="1", height="1", fixedsize=true, type="leaf"];
-Xbuildpath [shape="rectangle" width="1", height="1", fixedsize=true, type="leaf"];
-X_Xproject [shape="rectangle" width="1", height="1", fixedsize=true, type="leaf"];
+zwei [shape="rectangle" width="1", height="1", fixedsize=true, type="leaf"];
+eins [shape="rectangle" width="1", height="1", fixedsize=true, type="leaf"];
+graph [shape="rectangle" width="1", height="1", fixedsize=true, type="leaf"];
+node [shape="rectangle" width="1", height="1", fixedsize=true, type="leaf"];
 }

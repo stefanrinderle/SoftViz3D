@@ -26,9 +26,13 @@ class DotLexer
 
 digraph = "digraph"
 subgraph = "subgraph"
-id = /[a-zA-Z0-9_()]+([a-zA-Z0-9_()]*)?/
+id = /[a-zA-Z0-9_,]+([a-zA-Z0-9_,]*)?/
 openBrace = /\{/
 closeBrace = /\}/
+openAttr = /\[/
+closeAttr = /\]/
+equals = /\=/
+quotmark = /\"/
 semicolon = /\;/
 edgeop = /\->/
 newLine = /\n/
@@ -56,6 +60,18 @@ openBrace {
 closeBrace {
   $this->token = DotParser::TP_CLOSEBRACE;
 //  echo "closeBrace: ".$this->value."<br />";
+}
+openAttr {
+  $this->token = DotParser::TP_OPENATTR;
+}
+closeAttr {
+  $this->token = DotParser::TP_CLOSEATTR;
+}
+equals {
+  $this->token = DotParser::TP_EQUALS;
+}
+quotmark {
+  $this->token = DotParser::TP_QUOTMARK;
 }
 semicolon {
 	return false;
