@@ -10,32 +10,36 @@ class X3dCalculator extends CApplicationComponent
 {
 	private $layout;
 	
-	public function calculate($graph, $depth, $maxDepth)
+	public function calculate($layerLayout, $depth, $maxDepth)
 	{
 		$this->layout = new LayerLayout();
 		
-		$this->adjustGraphToX3d($graph, $depth, $maxDepth);
+		$this->adjustGraphToX3d($layerLayout, $depth, $maxDepth);
 		
 		return $this->layout;
 	}
 	
-	private function adjustGraphToX3d($graph, $depth, $maxDepth) {
+	private function adjustGraphToX3d($layerLayout, $depth, $maxDepth) {
 		// Bounding Box
-		$this->layout->bb = $this->adjustBb($graph['bb'], $depth, $maxDepth);
+		$this->layout->bb = $this->adjustBb($layerLayout['bb'], $depth, $maxDepth);
 		
 		// Nodes
 		$nodes = array();
-		foreach ($graph['nodes'] as $key => $value) {
-			$nodes[$key] = $this->adjustNode($key, $value, $depth);
+		foreach ($layerLayout['content'] as $key => $value) {
+			if ($value['type'] == "node") {
+				$nodes[$key] = $this->adjustNode($value, $depth);
+			}
 		}
 		$this->layout->nodes = $nodes;
 		
-		// Edges
-		$edges = array();
-		foreach ($graph['edges'] as $key => $value) {
-			$edges[$key] = $this->adustEdge($value, $depth);
-		}
-		$this->layout->edges = $edges;
+// 		die();
+		
+// 		// Edges
+// 		$edges = array();
+// 		foreach ($layerLayout['edges'] as $key => $value) {
+// 			$edges[$key] = $this->adustEdge($value, $depth);
+// 		}
+// 		$this->layout->edges = $edges;
 	} 
 	
 	private function adjustBb($bb, $depth, $maxDepth) {
@@ -58,16 +62,16 @@ class X3dCalculator extends CApplicationComponent
 		return $result;
 	}
 	
-	private function adjustNode($name, $node, $depth) {
+	private function adjustNode($node, $depth) {
 		$nodeHeight = 10;
 		
-		if ($node[type] == "leaf") {
+		if ($node['attr'][type] == "leaf") {
 			$result = array(
-				'name'=>$name,
-				'size'=>array('width'=>$node['size']['width'] * 72 / 2, 'height'=>$nodeHeight, 'length'=>$node['size']['height'] * 72 / 2),
-				'position'=>array('x' => $node['pos'][0], 
+				'name'=>$node[label],
+				'size'=>array('width'=>$node['attr']['width'] * 72 / 2, 'height'=>$nodeHeight, 'length'=>$node['attr']['height'] * 72 / 2),
+				'position'=>array('x' => $node['attr']['pos'][0], 
 								  'y' => $nodeHeight / 2 + $depth * 10, 
-								  'z' => $node['pos'][1]),
+								  'z' => $node['attr']['pos'][1]),
 				'colour'=>array('r'=>0, 'g'=>0, 'b'=>0.5),
 				'transparency'=>0
 			);
@@ -76,9 +80,9 @@ class X3dCalculator extends CApplicationComponent
 			$result = array(
 				//'name'=>$name,
 				//'size'=>array('width'=>$node['size']['width'] * 50, 'height'=>10, 'length'=>$node['size']['height'] * 50),
-				'position'=>array('x' => $node['pos'][0], 
+				'position'=>array('x' => $node['attr']['pos'][0], 
 								  'y' => $nodeHeight / 2 + $depth * 10, 
-								  'z' => $node['pos'][1]),
+								  'z' => $node['attr']['pos'][1]),
 				//'colour'=>array('r'=>(rand(0, 100) / 100), 'g'=>(rand(0, 100) / 100), 'b'=>(rand(0, 100) / 100)),
 				//'transparency'=>0
 			);

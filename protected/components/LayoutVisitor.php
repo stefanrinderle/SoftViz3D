@@ -32,9 +32,24 @@ class LayoutVisitor {
 		Yii::app()->dotWriter->writeToFile($elements, $this->outputFile);
 		$layoutDot = Yii::app()->dotLayout->layout($this->outputFile);
 
-		$layout = Yii::app()->adotArrayParser->parse($layoutDot);
-
-		return $layout;
+		$newLayout = Yii::app()->dotFileParser->parseStringArray($layoutDot);
+		
+		$contentResult = array(); 
+		foreach ($newLayout[content] as $key => $value) {
+			if ($value[label] == "graph") {
+				$newLayout[bb] = $value[attr][bb];
+			} else if ($value[label] == "node") {
+				//TODO: extract overall node infos
+			} else {
+				array_push($contentResult, $value);
+			}
+		}
+		$newLayout[content] = $contentResult;
+		
+		print_r($newLayout);
+		print_r("<br /><br /><br /><br />");
+		
+		return $newLayout;
 	}
 }
 ?>

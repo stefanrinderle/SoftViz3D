@@ -23,6 +23,15 @@ class DotFileParser extends CApplicationComponent
 		return $this->parse($lex);
 	}
 	
+	public function parseStringArray($array) {
+		$result = "";
+		foreach ($array as $value) {
+			$result .= $value;
+		}
+		
+		return $this->parseString($result);
+	}
+	
 	private function initialize() {
 		// Create Parser
 		//TODO: working but makes output, exec is not working...

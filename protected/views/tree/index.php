@@ -12,6 +12,9 @@ Yii::app()->clientScript->registerCssFile(
 );
 
 function generateX3DOM($node, $self, $transX, $transZ) {
+		print_r($node->x3dInfos->bb);
+		print_r("<br />");
+	
 		$nodeWidth = $node->x3dInfos->bb[size][width];
 		$nodeLength = $node->x3dInfos->bb[size][length];
 		

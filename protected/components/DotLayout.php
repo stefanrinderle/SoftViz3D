@@ -15,6 +15,9 @@ class DotLayout extends CApplicationComponent
 		// output dot file in $msg
 		exec($command, $msg, $return_val);
 
+		// strange problem with trailing } at the end of the output
+		array_pop($msg);
+		
 		return $msg;
 	}
 }
