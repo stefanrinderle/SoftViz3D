@@ -46,8 +46,8 @@ class LayoutVisitor {
 		}
 		$newLayout[content] = $contentResult;
 		
-		print_r($newLayout);
-		print_r("<br /><br /><br /><br />");
+// 		print_r($newLayout);
+// 		print_r("<br /><br /><br /><br />");
 		
 		return $newLayout;
 	}

@@ -27,12 +27,10 @@ class X3dCalculator extends CApplicationComponent
 		$nodes = array();
 		foreach ($layerLayout['content'] as $key => $value) {
 			if ($value['type'] == "node") {
-				$nodes[$key] = $this->adjustNode($value, $depth);
+				$nodes[$value['label']] = $this->adjustNode($value, $depth);
 			}
 		}
 		$this->layout->nodes = $nodes;
-		
-// 		die();
 		
 // 		// Edges
 // 		$edges = array();
