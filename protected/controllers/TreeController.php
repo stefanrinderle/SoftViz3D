@@ -28,9 +28,8 @@ class TreeController extends Controller
 // 		$result = Yii::app()->dotFileParser->parseFile($outputFile);
 		
 		/* parse to string in memory */
-		$dotString = Yii::app()->directoryToDotParser->parseToDotString($path);
-		$result = Yii::app()->dotFileParser->parseString($dotString);
-		unset($dotString);
+// 		$dotString = Yii::app()->directoryToDotParser->parseToDotString($path);
+		$result = Yii::app()->dotFileParser->parseFile("/Users/stefan/Sites/3darch/x3d/subgraph.dot");
 		
 		// STEP 2: Write parsed data into database
 		

@@ -1,16 +1,13 @@
 digraph G {
 	subgraph cluster_0 {
 		a0;
-		a1 -> a2 -> a3;
+		a1;
+		a0 -> a1;
 	}
 	subgraph cluster_1 {
-		b0 -> b1 -> b2 -> b3;
+		b0;
+		b1;
+		b0 -> b1;
 	}
-	start -> b0;
-	a1 -> b3;
-	b2 -> a3;
-	a3 -> a0;
-	a3 -> end;
-	b3 -> end;
-	start -> end;
+	a0 -> b1;
 }

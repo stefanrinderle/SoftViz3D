@@ -32,12 +32,14 @@ class X3dCalculator extends CApplicationComponent
 		}
 		$this->layout->nodes = $nodes;
 		
-// 		// Edges
-// 		$edges = array();
-// 		foreach ($layerLayout['edges'] as $key => $value) {
-// 			$edges[$key] = $this->adustEdge($value, $depth);
-// 		}
-// 		$this->layout->edges = $edges;
+		// Edges
+		$edges = array();
+		foreach ($layerLayout['content'] as $key => $value) {
+			if ($value['type'] == "edge") {
+				$edges[$value['label']] = $this->adustEdge($value, $depth);
+			}
+		}
+		$this->layout->edges = $edges;
 	} 
 	
 	private function adjustBb($bb, $depth, $maxDepth) {
@@ -90,23 +92,25 @@ class X3dCalculator extends CApplicationComponent
 	}
 	
 	private function adustEdge($edge, $depth) {
-			// convert edge section points
+			$depthMultiplicator = 10;
+
+// 			// convert edge section points
 			$sections = array();
-			for ($i = 2; $i < count($edge['pos']); $i++) {
-				$section = array('x' => $edge['pos'][$i][0], 
-								 'y' => $depth * 3, 
-								 'z' => $edge['pos'][$i][1]);
+// 			for ($i = 2; $i < count($edge['pos']); $i++) {
+// 				$section = array('x' => $edge['pos'][$i][0], 
+// 								 'y' => $depth * $depthMultiplicator, 
+// 								 'z' => $edge['pos'][$i][1]);
 				
-				array_push($sections, $section);
-			}			
-			
+// 				array_push($sections, $section);
+// 			}
+
 			$result = array(
-				'startPos'=>array('x' => $edge['pos'][1][0], 
-								  'y' => $depth * 3, 
-								  'z' => $edge['pos'][1][1]),
-				'endPos'=>array('x' => $edge['pos'][0][1], 
-								'y' => $depth * 3, 
-								'z' => $edge['pos'][0][2]),
+				'startPos'=>array('x' => $edge['attr']['pos'][1], 
+								  'y' => $depth * $depthMultiplicator, 
+								  'z' => $edge['attr']['pos'][2]),
+				'endPos'=>array('x' => $edge['attr']['pos'][3], 
+								'y' => $depth * $depthMultiplicator, 
+								'z' => $edge['attr']['pos'][4]),
 				'sections'=>$sections,
 				'colour'=>array('r'=>0, 'g'=>1, 'b'=>0)
 			);

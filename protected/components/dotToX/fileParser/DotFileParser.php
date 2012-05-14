@@ -28,7 +28,7 @@ class DotFileParser extends CApplicationComponent
 		foreach ($array as $value) {
 			$result .= $value;
 		}
-		
+
 		return $this->parseString($result);
 	}
 	
