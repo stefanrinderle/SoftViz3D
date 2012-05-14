@@ -46,9 +46,6 @@ class LayoutVisitor {
 		}
 		$newLayout[content] = $contentResult;
 		
-		print_r($layoutDot);
-		print_r("<br />");
-		
 		return $newLayout;
 	}
 }

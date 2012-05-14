@@ -1,0 +1,9 @@
+digraph G {
+			subgraph vier {
+				1;
+			}
+			subgraph fuenf {
+				3;
+				2;
+			}
+}

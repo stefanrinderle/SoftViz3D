@@ -20,7 +20,7 @@ class TreeController extends Controller
 		// STEP 1: Create an input dot file (string)
 		
 		/* directory */
-		$path = "/Users/stefan/Sites/3darch/protected/views/";
+		$path = "/Users/stefan/Sites/tvoicerWeb";
 		
 		/* Parse to a file to view the result */
 // 		$outputFile = '/Users/stefan/Sites/3dArch/x3d/parser.dot';
@@ -28,15 +28,15 @@ class TreeController extends Controller
 // 		$result = Yii::app()->dotFileParser->parseFile($outputFile);
 		
 		/* parse to string in memory */
-// 		$dotString = Yii::app()->directoryToDotParser->parseToDotString($path);
-		$result = Yii::app()->dotFileParser->parseFile("/Users/stefan/Sites/3darch/x3d/subgraph.dot");
+		$dotString = Yii::app()->directoryToDotParser->parseToDotString($path);
+		$result = Yii::app()->dotFileParser->parseString($dotString);
 		
 		// STEP 2: Write parsed data into database
 		
 		$start = $this->getTime();
 		Yii::app()->dotInfoToDb->writeToDb($result);
 		
-		print_r("write to db: " . number_format(($this->getTime() - $start),2) . "<br />");
+// 		print_r("write to db: " . number_format(($this->getTime() - $start),2) . "<br />");
 		
 		// STEP 3: Normalize edges
 		
