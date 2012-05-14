@@ -33,18 +33,11 @@ return array(
 
 	// application components
 	'components'=>array(
-	
 		'x3dCalculator'=>array(
 			'class'=>'X3dCalculator',
 		),
 		'dotWriter'=>array(
 			'class'=>'DotWriter',
-		),
-		'adotArrayParser'=>array(
-			'class'=>'AdotArrayParser',
-		),
-		'adotFileParser'=>array(
-			'class'=>'AdotFileParser',
 		),
 		'dotInfoToDb'=>array(
 				'class'=>'DotInfoToDb',
@@ -60,9 +53,6 @@ return array(
 		),
 		'directoryToDotParser'=>array(
 			'class'=>'DirectoryToDotParser',
-		),
-		'directoryToDotParser2'=>array(
-			'class'=>'DirectoryToDotParser2',
 		),
 		'user'=>array(
 			// enable cookie-based authentication

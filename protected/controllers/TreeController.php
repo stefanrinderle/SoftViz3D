@@ -20,7 +20,7 @@ class TreeController extends Controller
 		// STEP 1: Create an input dot file (string)
 		
 		/* directory */
-		$path = "/Users/stefan/Sites/tvoicerWeb";
+		$path = "/Users/stefan/Sites/3darch/protected/views";
 		
 		/* Parse to a file to view the result */
 // 		$outputFile = '/Users/stefan/Sites/3dArch/x3d/parser.dot';
