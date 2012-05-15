@@ -15,6 +15,7 @@ return array(
 	// autoloading model and component classes
 	'import'=>array(
 		'application.models.*',
+		'application.models.forms.*',
 		'application.components.*',
 		'application.components.dotToX.*',
 		'application.components.xToDot.*',
@@ -108,5 +109,6 @@ return array(
 	'params'=>array(
 		// this is used in contact page
 		'adminEmail'=>'webmaster@example.com',
+		'currentResourceFile' => DIRECTORY_SEPARATOR . 'runtime' . DIRECTORY_SEPARATOR . 'actualResource.dot'
 	),
 );

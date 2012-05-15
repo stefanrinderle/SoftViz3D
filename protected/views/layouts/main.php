@@ -37,8 +37,10 @@
 		<?php $this->widget('zii.widgets.CMenu',array(
 			'items'=>array(
 				array('label'=>'Home', 'url'=>array('/site/index')),
+				array('label'=>'Import', 'url'=>array('/import/index')),
+				array('label'=>'File', 'url'=>array('/file/index')),
 				array('label'=>'Tree', 'url'=>array('/tree/index')),
-				array('label'=>'X3D', 'url'=>array('/x3d/index')),
+				array('label'=>'-----', 'url'=>array('')),
 				array('label'=>'About', 'url'=>array('/site/page', 'view'=>'about')),
 				array('label'=>'Contact', 'url'=>array('/site/contact')),
 				array('label'=>'Login', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),

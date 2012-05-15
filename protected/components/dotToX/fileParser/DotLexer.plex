@@ -24,8 +24,8 @@ class DotLexer
 %value $this->value
 %line $this->line
 
-digraph = "digraph"
-subgraph = "subgraph"
+digraph = "digraph "
+subgraph = "subgraph "
 id = /[a-zA-Z0-9_.]+([a-zA-Z0-9_.]*)?/
 openBrace = /\{/
 closeBrace = /\}/
@@ -79,7 +79,7 @@ puncmark {
 }
 semicolon {
 	return false;
-//   $this->token = DotParser::TP_SEMICOLON;
+//  $this->token = DotParser::TP_SEMICOLON;
 //  echo "semicolon: ".$this->value."<br />";
 }
 edgeop {
