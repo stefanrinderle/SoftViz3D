@@ -2,10 +2,6 @@
 
 class ImportController extends Controller
 {
-	private $sourceFile = '/Users/stefan/Sites/3dArch/x3d/dependency.dot';
-	
-	public $layout='//layouts/column2';
-	
 	function getTime()
 	{
 		$a = explode (' ',microtime());

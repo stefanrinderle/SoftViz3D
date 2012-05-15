@@ -4,6 +4,8 @@ class TreeController extends Controller
 {
 	private $sourceFile = '/Users/stefan/Sites/3dArch/x3d/dependency.dot';
 	
+	public $layout='//layouts/column1';
+	
 	function getTime()
 	{
 		$a = explode (' ',microtime());

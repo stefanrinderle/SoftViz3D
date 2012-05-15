@@ -1,3 +1,10 @@
+<?php
+$this->pageTitle=Yii::app()->name . ' - File edit';
+$this->breadcrumbs=array(
+	'File', 'Edit',
+);
+?>
+
 <h2>File Editor</h2>
 
 <?php if(Yii::app()->user->hasFlash('error')): ?>

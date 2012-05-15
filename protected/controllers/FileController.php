@@ -2,8 +2,6 @@
 
 class FileController extends Controller
 {
-	public $layout='//layouts/column2';
-	
 	function getTime()
 	{
 		$a = explode (' ',microtime());
