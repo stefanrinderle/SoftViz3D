@@ -1,7 +1,7 @@
 <?php
-$this->pageTitle=Yii::app()->name . ' - File edit';
+$this->pageTitle=Yii::app()->name . ' - File viewer - edit';
 $this->breadcrumbs=array(
-	'File', 'Edit',
+	'File viewer', 'Edit'
 );
 ?>
 

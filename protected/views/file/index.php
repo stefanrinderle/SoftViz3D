@@ -1,11 +1,11 @@
 <?php
-$this->pageTitle=Yii::app()->name . ' - File edit';
+$this->pageTitle=Yii::app()->name . ' - File viewer';
 $this->breadcrumbs=array(
-	'File', 'Show',
+	'File viewer',
 );
 ?>
 
-<h2>File Viewer</h2>
+<h2>File viewer</h2>
 
 <?php if(Yii::app()->user->hasFlash('error')): ?>
 		<div class="flash-error">

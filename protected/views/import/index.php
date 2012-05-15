@@ -1,3 +1,10 @@
+<?php
+$this->pageTitle=Yii::app()->name . ' - Import';
+$this->breadcrumbs=array(
+	'Import',
+);
+?>
+
 <h2>Import data</h2>
 
 <?php if(Yii::app()->user->hasFlash('success')): ?>

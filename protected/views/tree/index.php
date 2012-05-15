@@ -1,4 +1,8 @@
 <?php
+$this->pageTitle=Yii::app()->name . ' - Tree';
+$this->breadcrumbs=array(
+		'Tree',
+);
 $this->breadcrumbs=array(
 	'Tree', 'Index'
 );

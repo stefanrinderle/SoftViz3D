@@ -2,13 +2,13 @@ digraph G {
 yiicXphp [shape="rectangle" width="1", height="1", fixedsize=true, type="leaf"];
 yiicXbat [shape="rectangle" width="1", height="1", fixedsize=true, type="leaf"];
 yiic [shape="rectangle" width="1", height="1", fixedsize=true, type="leaf"];
-views [shape="rectangle" width="8.08333333333", height="8.95833333333", fixedsize=true, type="node"];
+views [shape="rectangle" width="8.08333333333", height="9.19444444444", fixedsize=true, type="node"];
 tests [shape="rectangle" width="2.25", height="2.25", fixedsize=true, type="node"];
 runtime [shape="rectangle" width="2.25", height="2.25", fixedsize=true, type="node"];
 models [shape="rectangle" width="3.70833333333", height="3.5", fixedsize=true, type="node"];
 data [shape="rectangle" width="2.25", height="2.25", fixedsize=true, type="node"];
 controllers [shape="rectangle" width="2.25", height="2.25", fixedsize=true, type="node"];
 config [shape="rectangle" width="2.25", height="2.25", fixedsize=true, type="node"];
-components [shape="rectangle" width="6.52777777778", height="5.47222222222", fixedsize=true, type="node"];
+components [shape="rectangle" width="6.63888888889", height="7.61111111111", fixedsize=true, type="node"];
 Xhtaccess [shape="rectangle" width="1", height="1", fixedsize=true, type="leaf"];
 }
