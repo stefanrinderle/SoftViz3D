@@ -1,12 +1,20 @@
-<h2>Thats the actual loaded dot file:</h2>
+<h2>File Viewer</h2>
 
-<p><?php echo $filename; ?></p>
+<?php if(Yii::app()->user->hasFlash('error')): ?>
+		<div class="flash-error">
+			<?php echo Yii::app()->user->getFlash('error'); ?>
+		</div>
 
-<p>
-<?php 
+<?php else: ?>
+		
+	<p><?php echo $filename; ?> - <?php echo CHtml::link('Edit file', array('file/edit')); ?></p>
+	
+	<p>
+	<?php 
+	foreach ($fileContent as $value) {
+		echo $value . "<br />";
+	}
+	?>
+	</p>
 
-foreach ($fileContent as $value) {
-	echo $value . "<br />";
-}
-
-?>
+<?php endif; ?>

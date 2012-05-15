@@ -1,14 +1,42 @@
 digraph G {
-yiicXphp [shape="rectangle" width="1", height="1", fixedsize=true, type="leaf"];
-yiicXbat [shape="rectangle" width="1", height="1", fixedsize=true, type="leaf"];
-yiic [shape="rectangle" width="1", height="1", fixedsize=true, type="leaf"];
-views [shape="rectangle" width="6.625", height="6.91666666667", fixedsize=true, type="node"];
-tests [shape="rectangle" width="2.25", height="2.25", fixedsize=true, type="node"];
-runtime [shape="rectangle" width="2.25", height="1", fixedsize=true, type="node"];
-models [shape="rectangle" width="2.25", height="3.5", fixedsize=true, type="node"];
-data [shape="rectangle" width="2.25", height="2.25", fixedsize=true, type="node"];
-controllers [shape="rectangle" width="2.25", height="2.25", fixedsize=true, type="node"];
-config [shape="rectangle" width="2.25", height="2.25", fixedsize=true, type="node"];
-components [shape="rectangle" width="6.52777777778", height="5.47222222222", fixedsize=true, type="node"];
-Xhtaccess [shape="rectangle" width="1", height="1", fixedsize=true, type="leaf"];
+basisTestsXx3d;
+basisTestsEdgeXx3d;
+basisTestsNurbsXx3d;
+basisTestsTextXx3d;
+dependencyXdot;
+layeredLayoutXdot;
+nurbsTestWindowsXx3d;
+parserXadot;
+parserXdot;
+parserXpdf;
+parseraXdot;
+simpleGraphXadot;
+simpleGraphXdot;
+simpleGraph2DXadot;
+simpleGraph2DXdot;
+subgraphXadot;
+subgraphXdot;
+subgraphXpdf;
+subgraphTestXadot;
+subgraphTestXdot;
+subgraphTestXpdf;
+tempXadot;
+tempXdot;
+testTransparencyXx3d;
+tvoicerWebXx3d;
+subgraph vrml {
+3dXhtml;
+3dXvrml;
+node1Xpng;
+node10Xpng;
+node12Xpng;
+node16Xpng;
+node3Xpng;
+node4Xpng;
+node6Xpng;
+node8Xpng;
+}
+worldXadot;
+worldXdot;
+worldXpdf;
 }

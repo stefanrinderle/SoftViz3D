@@ -1,19 +1,37 @@
-<h2>Import data - choose one of the following:</h2>
+<h2>Import data</h2>
 
-<h3>Read server file structure</h3>
+<?php if(Yii::app()->user->hasFlash('success')): ?>
 
-<div class="form">
-	<?php echo $directoryPathForm; ?>
-</div>
+	<div class="flash-success">
+		<?php echo Yii::app()->user->getFlash('success'); ?>
+	</div>
+	
+	<p>
+		<?php echo CHtml::link('Show file', array('file/index')); ?> <br /><br />
+		<?php echo CHtml::link('Edit file', array('file/edit')); ?>	
+	</p>
 
-<h3>Upload dot file</h3>
+<?php else: ?>
+	
+	<?php if(Yii::app()->user->hasFlash('error')): ?>
+		<div class="flash-error">
+			<?php echo Yii::app()->user->getFlash('error'); ?>
+		</div>
+	<?php endif; ?>
+	
 
-<div class="form">
-	<?php echo $uploadForm; ?>
-</div>
+	<p>Please choose one of the following methods:<p/>
+	
+	<h3>Upload own dot file</h3>
+	
+	<div class="form">
+		<?php echo $uploadForm; ?>
+	</div>
+	
+	<h3>Generate dot file from server directory structure</h3>
+	
+	<div class="form">
+		<?php echo $directoryPathForm; ?>
+	</div>
 
-<?php if (Yii::app()->user->hasFlash('success')): ?>
-    <div class="info">
-        <?php echo Yii::app()->user->getFlash('success'); ?>
-    </div>
 <?php endif; ?>

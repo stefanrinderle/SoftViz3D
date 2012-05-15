@@ -29,6 +29,7 @@ mainXphp;
 testXphp;
 }
 subgraph controllers {
+FileControllerXphp;
 ImportControllerXphp;
 SiteControllerXphp;
 TreeControllerXphp;
@@ -39,13 +40,18 @@ graphXdb;
 graphXschemaXsqliteXsql;
 }
 subgraph models {
-ContactFormXphp;
 EdgeElementXphp;
+subgraph forms {
+ContactFormXphp;
+DirectoryPathFormXphp;
+EditFileFormXphp;
 FileUploadXphp;
 LoginFormXphp;
+}
 TreeElementXphp;
 }
 subgraph runtime {
+actualResourceXdot;
 applicationXlog;
 subgraph giiX1X1X10 {
 ControllerCodeXphp;
@@ -61,11 +67,16 @@ WebTestCaseXphp;
 }
 subgraph views {
 dumpArrayXphp;
+subgraph file {
+_editFormXphp;
+editXphp;
+indexXphp;
+}
 subgraph import {
+_directoryPathFormXphp;
 _quoteXphp;
 _uploadFormXphp;
 indexXphp;
-uploadXphp;
 }
 subgraph layouts {
 column1Xphp;
