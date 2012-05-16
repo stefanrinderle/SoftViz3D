@@ -37,7 +37,7 @@ if (is_executable($filePath)) {
 <!-- PHP/LEXERGENERATOR -->
 <?php 
 if(@require_once('PHP/LexerGenerator.php') ) {
-	$this->renderPartial('//main/_showSuccess', array(message=>"PHP/LexerGenerator.php: installed."));
+	$this->renderPartial('//main/_showSuccess', array(message=>"PHP/LexerGenerator.php: installed"));
 } else {
 	$this->renderPartial('//main/_showError', array(message=>"LexerGenerator: Please install --> pear install PHP_LexerGenerator"));
 }

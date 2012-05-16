@@ -12,12 +12,23 @@ class FileController extends Controller
 		$filename = Yii::app()->basePath . Yii::app()->params['currentResourceFile'];
 		
 		$content = array();
+		$depthString = "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
+		$depth = "";
 		
 		if (file_exists($filename) && is_readable($filename)) {
 			$fh = fopen($filename, "r");
 			while (!feof($fh)) {
 				$line = fgets($fh);
-				array_push($content, $line);
+				
+				if (strpos($line, "}")) {
+					$depth = substr($depth, 0, strlen($depth) - strlen($depthString));
+				}
+				
+				array_push($content, $depth . $line);
+				
+				if (strpos($line, "{")) {
+					$depth .= $depthString;
+				} 
 			}
 			# Processing
 			fclose($fh);

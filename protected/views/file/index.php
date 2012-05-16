@@ -16,7 +16,7 @@ $this->breadcrumbs=array(
 		
 	<p><?php echo $filename; ?> - <?php echo CHtml::link('Edit file', array('file/edit')); ?></p>
 	
-	<p>
+	<p style="font-family: monospace;">
 	<?php 
 	foreach ($fileContent as $value) {
 		echo $value . "<br />";

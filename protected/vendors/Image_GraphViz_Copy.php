@@ -906,21 +906,27 @@ class Image_GraphViz_Copy
     function _nodes($nodes, $indent)
     {
         $parsedGraph = '';
-        foreach ($nodes as $node => $attributes) {
-            $parsedGraph .= $indent.$this->_escape($node);
-
-            $attributeList = array();
-
-            foreach ($this->_escapeArray($attributes) as $key => $value) {
-                $attributeList[] = $key.'='.$value;
-            }
-
-            if (!empty($attributeList)) {
-                $parsedGraph .= ' [ '.implode(',', $attributeList).' ]';
-            }
-
-            $parsedGraph .= ";\n";
+        
+        if (!$nodes) {
+        	$nodes = array();
         }
+        
+        foreach ($nodes as $node => $attributes) {
+        	$parsedGraph .= $indent.$this->_escape($node);
+        	 
+        	$attributeList = array();
+        	 
+        	foreach ($this->_escapeArray($attributes) as $key => $value) {
+        		$attributeList[] = $key.'='.$value;
+        	}
+        	 
+        	if (!empty($attributeList)) {
+        		$parsedGraph .= ' [ '.implode(',', $attributeList).' ]';
+        	}
+        	 
+        	$parsedGraph .= ";\n";
+        }
+
         return $parsedGraph;
     }
 

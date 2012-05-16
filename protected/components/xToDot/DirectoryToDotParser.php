@@ -7,12 +7,14 @@ class DirectoryToDotParser extends CApplicationComponent
 {
 	private $graphViz;
 	
+	private $subgraphIdentifier = 0;
+	
 	public function parseToFile($path, $outputFile) {
 		$it = new DirectoryIterator($path);
 		
 		
 		$this->graphViz = new Image_GraphViz_Copy();
-		$this->graphViz->binPath = '/usr/local/bin/';
+// 		$this->graphViz->binPath = '/usr/local/bin/';
 		$this->graphViz->graph['name'] = $it->getPath();
 		
 		$this->_scanDirectory($it);
@@ -22,13 +24,18 @@ class DirectoryToDotParser extends CApplicationComponent
 	
 	private function _scanDirectory(DirectoryIterator $it, $parentLabel = "default") {
 		foreach ($it as $key => $child) {
+			
 			if ($child->isDot()) {
 				continue;
 			}
+			
 			$name = $child->getBasename();
 			
 			if ($child->isDir()) {
 				$subit = new DirectoryIterator($child->getPathname());
+				
+				$name = $name . "_" . $this->subgraphIdentifier++;
+				
 				$this->_addSubgraph($name, $parentLabel);
 				$this->_scanDirectory($subit, $name);
 			} else {
