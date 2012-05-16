@@ -2,15 +2,43 @@
 
 <h1>Welcome to <i><?php echo CHtml::encode(Yii::app()->name); ?></i></h1>
 
-<p>Congratulations! You have successfully created your Yii application.</p>
+<h2>System configuration check:</h2>
 
-<p>You may change the content of this page by modifying the following two files:</p>
-<ul>
-	<li>View file: <tt><?php echo __FILE__; ?></tt></li>
-	<li>Layout file: <tt><?php echo $this->getLayoutFile('main'); ?></tt></li>
-</ul>
+<!-- DATABASE -->
+<?php 
+$filePath = Yii::app()->basePath . '/data/graph.db';
+if (is_writeable($filePath)) {
+	$this->renderPartial('//main/_showSuccess', array(message=>"DB: file " . $filePath . " is writable"));
+} else {
+	$this->renderPartial('//main/_showError', array(message=>"DB: file " . $filePath . " is NOT writable"));
+}
+?>
 
-<p>For more details on how to further develop this application, please read
-the <a href="http://www.yiiframework.com/doc/">documentation</a>.
-Feel free to ask in the <a href="http://www.yiiframework.com/forum/">forum</a>,
-should you have any questions.</p>
+<!-- TEMP DOT FILE -->
+<?php 
+$filePath = Yii::app()->basePath . Yii::app()->params['currentResourceFile'];
+if (is_writeable($filePath)) {
+	$this->renderPartial('//main/_showSuccess', array(message=>"Temporary dot file: " . $filePath . " is writable"));
+} else {
+	$this->renderPartial('//main/_showError', array(message=>"Temporary dot file: " . $filePath . " is NOT writable"));
+}
+?>
+
+<!-- DOT COMMAND / GRAPHVIZ -->
+<?php 
+$filePath = Yii::app()->params['dotCommand'];
+if (is_executable($filePath)) {
+	$this->renderPartial('//main/_showSuccess', array(message=>"Graphviz layout command: " . $filePath . " is executable"));
+} else {
+	$this->renderPartial('//main/_showError', array(message=>"Graphviz layout command: " . $filePath . " is NOT executable"));
+}
+?>
+
+<!-- PHP/LEXERGENERATOR -->
+<?php 
+if(@require_once('PHP/LexerGenerator.php') ) {
+	$this->renderPartial('//main/_showSuccess', array(message=>"PHP/LexerGenerator.php: installed."));
+} else {
+	$this->renderPartial('//main/_showError', array(message=>"LexerGenerator: Please install --> pear install PHP_LexerGenerator"));
+}
+?>

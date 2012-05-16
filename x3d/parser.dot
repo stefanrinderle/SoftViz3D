@@ -1,7 +1,6 @@
 digraph G {
 Xhtaccess;
 subgraph components {
-BreadCrumbXphp;
 ControllerXphp;
 DotLayoutXphp;
 subgraph dotToX {
@@ -18,9 +17,6 @@ DotParserXy;
 LayoutVisitorXphp;
 UserIdentityXphp;
 VectorCalculatorXphp;
-subgraph views {
-BreadCrumbXphp;
-}
 X3dCalculatorXphp;
 subgraph xToDot {
 DirectoryToDotParserXphp;
@@ -70,7 +66,6 @@ phpunitXxml;
 WebTestCaseXphp;
 }
 subgraph views {
-BreadCrumbXphp;
 dumpArrayXphp;
 subgraph file {
 _editFormXphp;
@@ -87,6 +82,10 @@ subgraph layouts {
 column1Xphp;
 column2Xphp;
 mainXphp;
+}
+subgraph main {
+_showErrorXphp;
+_showSuccessXphp;
 }
 subgraph site {
 contactXphp;
