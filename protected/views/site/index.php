@@ -26,7 +26,7 @@ if (is_writeable($filePath)) {
 
 <!-- DOT COMMAND / GRAPHVIZ -->
 <?php 
-$filePath = Yii::app()->params['dotCommand'];
+$filePath = '/usr/local/bin/dot';
 if (is_executable($filePath)) {
 	$this->renderPartial('//main/_showSuccess', array(message=>"Graphviz layout command: " . $filePath . " is executable"));
 } else {

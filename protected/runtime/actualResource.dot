@@ -1,42 +1,44 @@
-digraph G {
-basisTestsXx3d;
-basisTestsEdgeXx3d;
-basisTestsNurbsXx3d;
-basisTestsTextXx3d;
-dependencyXdot;
-layeredLayoutXdot;
-nurbsTestWindowsXx3d;
-parserXadot;
-parserXdot;
-parserXpdf;
-parseraXdot;
-simpleGraphXadot;
-simpleGraphXdot;
-simpleGraph2DXadot;
-simpleGraph2DXdot;
-subgraphXadot;
-subgraphXdot;
-subgraphXpdf;
-subgraphTestXadot;
-subgraphTestXdot;
-subgraphTestXpdf;
-tempXadot;
-tempXdot;
-testTransparencyXx3d;
-tvoicerWebXx3d;
-subgraph vrml {
-3dXhtml;
-3dXvrml;
-node1Xpng;
-node10Xpng;
-node12Xpng;
-node16Xpng;
-node3Xpng;
-node4Xpng;
-node6Xpng;
-node8Xpng;
-}
-worldXadot;
-worldXdot;
-worldXpdf;
+digraph "/Users/stefan/Sites/3dArch/x3d" {
+    "basisTests.x3d";
+    "basisTestsEdge.x3d";
+    "basisTestsNurbs.x3d";
+    "basisTestsText.x3d";
+    "dependency.dot";
+    "image_graphviz.dot";
+    "layeredLayout.dot";
+    "nurbsTestWindows.x3d";
+    "parser.adot";
+    "parser.dot";
+    "parser.pdf";
+    "parsera.dot";
+    "simpleGraph.adot";
+    "simpleGraph.dot";
+    "simpleGraph2D.adot";
+    "simpleGraph2D.dot";
+    "subgraph.adot";
+    "subgraph.dot";
+    "subgraph.pdf";
+    "subgraphTest.adot";
+    "subgraphTest.dot";
+    "subgraphTest.pdf";
+    "temp.adot";
+    "temp.dot";
+    "testTransparency.x3d";
+    "tvoicerWeb.x3d";
+    "world.adot";
+    "world.dot";
+    "world.pdf";
+    subgraph cluster_vrml {
+        graph [ label=vrml ];
+        "3d.html";
+        "3d.vrml";
+        "node1.png";
+        "node10.png";
+        "node12.png";
+        "node16.png";
+        "node3.png";
+        "node4.png";
+        "node6.png";
+        "node8.png";
+    }
 }

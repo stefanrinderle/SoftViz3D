@@ -7,7 +7,7 @@
 // CWebApplication properties can be configured here.
 return array(
 	'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
-	'name'=>'3d Virtualisation',
+	'name'=>'3d virtualization',
 
 	// preloading 'log' component
 	'preload'=>array('log'),
@@ -109,7 +109,6 @@ return array(
 	'params'=>array(
 		// this is used in contact page
 		'adminEmail'=>'webmaster@example.com',
-		'currentResourceFile' => DIRECTORY_SEPARATOR . 'runtime' . DIRECTORY_SEPARATOR . 'actualResource.dot',
-		'dotCommand' => '/usr/local/bin/dot'
+		'currentResourceFile' => DIRECTORY_SEPARATOR . 'runtime' . DIRECTORY_SEPARATOR . 'actualResource.dot'
 	),
 );
