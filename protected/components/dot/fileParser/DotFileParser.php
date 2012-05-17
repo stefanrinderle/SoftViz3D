@@ -1,5 +1,7 @@
 <?php
 
+require_once 'PHP/LexerGenerator.php';
+
 class DotFileParser extends CApplicationComponent
 {
 
@@ -11,13 +13,7 @@ class DotFileParser extends CApplicationComponent
 			exec('/Applications/XAMPP/xamppfiles/bin/php /Applications/XAMPP/xamppfiles/lib/php/pear/PHP/ParserGenerator/cli.php ' . dirname(__FILE__) . '/DotParser.y', $output, $return);
 		}
 		
-		// Create Lexer
-		require_once 'PHP/LexerGenerator.php';
-		
 		$lex = new PHP_LexerGenerator(dirname(__FILE__) . '/DotLexer.plex');
-		
-		include_once("DotParser.php");
-		include_once("DotLexer.php");
 	}
 	
 	public function parseFile($dotFilePath)

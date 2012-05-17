@@ -17,9 +17,10 @@ return array(
 		'application.models.*',
 		'application.models.forms.*',
 		'application.components.*',
-		'application.components.dotToX.*',
-		'application.components.xToDot.*',
-		'application.components.dotToX.fileParser.DotFileParser'
+		'application.components.database.*',
+		'application.components.dot.*',
+		'application.components.dot.fileParser.*',
+		'application.components.x3d.*'
 	),
 
 	'modules'=>array(
@@ -36,6 +37,9 @@ return array(
 	'components'=>array(
 		'x3dCalculator'=>array(
 			'class'=>'X3dCalculator',
+		),
+		'edgeExpander'=>array(
+			'class'=>'EdgeExpander',
 		),
 		'dotWriter'=>array(
 			'class'=>'DotWriter',

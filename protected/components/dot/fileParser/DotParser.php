@@ -96,12 +96,12 @@ class TP_yyStackEntry
 // code external to the class is included here
 
 // declare_class is output here
-#line 2 "/Users/stefan/Sites/3dArch/protected/components/dotToX/fileParser/DotParser.y"
-class DotParser#line 102 "/Users/stefan/Sites/3dArch/protected/components/dotToX/fileParser/DotParser.php"
+#line 2 "/Users/stefan/Sites/3dArch/protected/components/dot/fileParser/DotParser.y"
+class DotParser#line 102 "/Users/stefan/Sites/3dArch/protected/components/dot/fileParser/DotParser.php"
 {
 /* First off, code is included which follows the "include_class" declaration
 ** in the input file. */
-#line 4 "/Users/stefan/Sites/3dArch/protected/components/dotToX/fileParser/DotParser.y"
+#line 4 "/Users/stefan/Sites/3dArch/protected/components/dot/fileParser/DotParser.y"
 
     // states whether the parse was successful or not
     public $successful = true;
@@ -112,7 +112,7 @@ class DotParser#line 102 "/Users/stefan/Sites/3dArch/protected/components/dotToX
     function __construct($lex) {
         $this->lex = $lex;
     }
-#line 118 "/Users/stefan/Sites/3dArch/protected/components/dotToX/fileParser/DotParser.php"
+#line 118 "/Users/stefan/Sites/3dArch/protected/components/dot/fileParser/DotParser.php"
 
 /* Next is all token values, as class constants
 */
@@ -736,10 +736,10 @@ static public $yy_action = array(
             }
             /* Here code is inserted which will execute if the parser
             ** stack ever overflows */
-#line 18 "/Users/stefan/Sites/3dArch/protected/components/dotToX/fileParser/DotParser.y"
+#line 18 "/Users/stefan/Sites/3dArch/protected/components/dot/fileParser/DotParser.y"
 
     print_r("Giving up.  Parser stack overflow");
-#line 748 "/Users/stefan/Sites/3dArch/protected/components/dotToX/fileParser/DotParser.php"
+#line 748 "/Users/stefan/Sites/3dArch/protected/components/dot/fileParser/DotParser.php"
             return;
         }
         $yytos = new TP_yyStackEntry;
@@ -831,91 +831,91 @@ static public $yy_action = array(
     **   function yy_r0($yymsp){ ... }           // User supplied code
     **  #line <lineno> <thisfile>
     */
-#line 46 "/Users/stefan/Sites/3dArch/protected/components/dotToX/fileParser/DotParser.y"
+#line 46 "/Users/stefan/Sites/3dArch/protected/components/dot/fileParser/DotParser.y"
     function yy_r0(){
 	$this->_retvalue = array(type => "main", label => $this->yystack[$this->yyidx + -3]->minor, content => $this->yystack[$this->yyidx + -1]->minor);
     }
-#line 844 "/Users/stefan/Sites/3dArch/protected/components/dotToX/fileParser/DotParser.php"
-#line 50 "/Users/stefan/Sites/3dArch/protected/components/dotToX/fileParser/DotParser.y"
+#line 844 "/Users/stefan/Sites/3dArch/protected/components/dot/fileParser/DotParser.php"
+#line 50 "/Users/stefan/Sites/3dArch/protected/components/dot/fileParser/DotParser.y"
     function yy_r1(){
 	$this->_retvalue = $this->yystack[$this->yyidx + 0]->minor;
     }
-#line 849 "/Users/stefan/Sites/3dArch/protected/components/dotToX/fileParser/DotParser.php"
-#line 54 "/Users/stefan/Sites/3dArch/protected/components/dotToX/fileParser/DotParser.y"
+#line 849 "/Users/stefan/Sites/3dArch/protected/components/dot/fileParser/DotParser.php"
+#line 54 "/Users/stefan/Sites/3dArch/protected/components/dot/fileParser/DotParser.y"
     function yy_r2(){
 	$this->_retvalue = $this->yystack[$this->yyidx + -1]->minor;
     }
-#line 854 "/Users/stefan/Sites/3dArch/protected/components/dotToX/fileParser/DotParser.php"
-#line 58 "/Users/stefan/Sites/3dArch/protected/components/dotToX/fileParser/DotParser.y"
+#line 854 "/Users/stefan/Sites/3dArch/protected/components/dot/fileParser/DotParser.php"
+#line 58 "/Users/stefan/Sites/3dArch/protected/components/dot/fileParser/DotParser.y"
     function yy_r3(){
 	$this->_retvalue = array_merge($this->yystack[$this->yyidx + 0]->minor, $this->yystack[$this->yyidx + -1]->minor);
     }
-#line 859 "/Users/stefan/Sites/3dArch/protected/components/dotToX/fileParser/DotParser.php"
-#line 62 "/Users/stefan/Sites/3dArch/protected/components/dotToX/fileParser/DotParser.y"
+#line 859 "/Users/stefan/Sites/3dArch/protected/components/dot/fileParser/DotParser.php"
+#line 62 "/Users/stefan/Sites/3dArch/protected/components/dot/fileParser/DotParser.y"
     function yy_r4(){ 
 	$this->_retvalue = $this->yystack[$this->yyidx + 0]->minor;
     }
-#line 864 "/Users/stefan/Sites/3dArch/protected/components/dotToX/fileParser/DotParser.php"
-#line 71 "/Users/stefan/Sites/3dArch/protected/components/dotToX/fileParser/DotParser.y"
+#line 864 "/Users/stefan/Sites/3dArch/protected/components/dot/fileParser/DotParser.php"
+#line 71 "/Users/stefan/Sites/3dArch/protected/components/dot/fileParser/DotParser.y"
     function yy_r6(){
 	$this->_retvalue = 0;
     }
-#line 869 "/Users/stefan/Sites/3dArch/protected/components/dotToX/fileParser/DotParser.php"
-#line 75 "/Users/stefan/Sites/3dArch/protected/components/dotToX/fileParser/DotParser.y"
+#line 869 "/Users/stefan/Sites/3dArch/protected/components/dot/fileParser/DotParser.php"
+#line 75 "/Users/stefan/Sites/3dArch/protected/components/dot/fileParser/DotParser.y"
     function yy_r7(){
 	$this->_retvalue = array($this->yystack[$this->yyidx + -2]->minor => $this->yystack[$this->yyidx + 0]->minor);
     }
-#line 874 "/Users/stefan/Sites/3dArch/protected/components/dotToX/fileParser/DotParser.php"
-#line 79 "/Users/stefan/Sites/3dArch/protected/components/dotToX/fileParser/DotParser.y"
+#line 874 "/Users/stefan/Sites/3dArch/protected/components/dot/fileParser/DotParser.php"
+#line 79 "/Users/stefan/Sites/3dArch/protected/components/dot/fileParser/DotParser.y"
     function yy_r8(){
 	$this->_retvalue = array_merge(array($this->yystack[$this->yyidx + -4]->minor => $this->yystack[$this->yyidx + -2]->minor), $this->yystack[$this->yyidx + 0]->minor);
     }
-#line 879 "/Users/stefan/Sites/3dArch/protected/components/dotToX/fileParser/DotParser.php"
-#line 87 "/Users/stefan/Sites/3dArch/protected/components/dotToX/fileParser/DotParser.y"
+#line 879 "/Users/stefan/Sites/3dArch/protected/components/dot/fileParser/DotParser.php"
+#line 87 "/Users/stefan/Sites/3dArch/protected/components/dot/fileParser/DotParser.y"
     function yy_r10(){
 	$this->_retvalue = array($this->yystack[$this->yyidx + 0]->minor);
     }
-#line 884 "/Users/stefan/Sites/3dArch/protected/components/dotToX/fileParser/DotParser.php"
-#line 91 "/Users/stefan/Sites/3dArch/protected/components/dotToX/fileParser/DotParser.y"
+#line 884 "/Users/stefan/Sites/3dArch/protected/components/dot/fileParser/DotParser.php"
+#line 91 "/Users/stefan/Sites/3dArch/protected/components/dot/fileParser/DotParser.y"
     function yy_r11(){
 	$this->_retvalue = array_merge(array($this->yystack[$this->yyidx + -2]->minor), $this->yystack[$this->yyidx + 0]->minor);
     }
-#line 889 "/Users/stefan/Sites/3dArch/protected/components/dotToX/fileParser/DotParser.php"
-#line 95 "/Users/stefan/Sites/3dArch/protected/components/dotToX/fileParser/DotParser.y"
+#line 889 "/Users/stefan/Sites/3dArch/protected/components/dot/fileParser/DotParser.php"
+#line 95 "/Users/stefan/Sites/3dArch/protected/components/dot/fileParser/DotParser.y"
     function yy_r12(){
 	$this->_retvalue = array_merge(array($this->yystack[$this->yyidx + -1]->minor), $this->yystack[$this->yyidx + 0]->minor);
     }
-#line 894 "/Users/stefan/Sites/3dArch/protected/components/dotToX/fileParser/DotParser.php"
-#line 104 "/Users/stefan/Sites/3dArch/protected/components/dotToX/fileParser/DotParser.y"
+#line 894 "/Users/stefan/Sites/3dArch/protected/components/dot/fileParser/DotParser.php"
+#line 104 "/Users/stefan/Sites/3dArch/protected/components/dot/fileParser/DotParser.y"
     function yy_r14(){ 
 	$this->_retvalue = array(array(type => "node", label => $this->yystack[$this->yyidx + 0]->minor));
     }
-#line 899 "/Users/stefan/Sites/3dArch/protected/components/dotToX/fileParser/DotParser.php"
-#line 108 "/Users/stefan/Sites/3dArch/protected/components/dotToX/fileParser/DotParser.y"
+#line 899 "/Users/stefan/Sites/3dArch/protected/components/dot/fileParser/DotParser.php"
+#line 108 "/Users/stefan/Sites/3dArch/protected/components/dot/fileParser/DotParser.y"
     function yy_r15(){ 
 	$this->_retvalue = array(array(type => "node", label => $this->yystack[$this->yyidx + -1]->minor, attr => $this->yystack[$this->yyidx + 0]->minor));
     }
-#line 904 "/Users/stefan/Sites/3dArch/protected/components/dotToX/fileParser/DotParser.php"
-#line 113 "/Users/stefan/Sites/3dArch/protected/components/dotToX/fileParser/DotParser.y"
+#line 904 "/Users/stefan/Sites/3dArch/protected/components/dot/fileParser/DotParser.php"
+#line 113 "/Users/stefan/Sites/3dArch/protected/components/dot/fileParser/DotParser.y"
     function yy_r16(){ 
 	$this->_retvalue = array(array(label => $this->yystack[$this->yyidx + -2]->minor . " -> " . $this->yystack[$this->yyidx + 0]->minor, type => "edge", node1 => $this->yystack[$this->yyidx + -2]->minor, node2 => $this->yystack[$this->yyidx + 0]->minor));
     }
-#line 909 "/Users/stefan/Sites/3dArch/protected/components/dotToX/fileParser/DotParser.php"
-#line 117 "/Users/stefan/Sites/3dArch/protected/components/dotToX/fileParser/DotParser.y"
+#line 909 "/Users/stefan/Sites/3dArch/protected/components/dot/fileParser/DotParser.php"
+#line 117 "/Users/stefan/Sites/3dArch/protected/components/dot/fileParser/DotParser.y"
     function yy_r17(){
 	$this->_retvalue = array(array(label => $this->yystack[$this->yyidx + -3]->minor . " -> " . $this->yystack[$this->yyidx + -1]->minor, type => "edge", node1 => $this->yystack[$this->yyidx + -3]->minor, node2 => $this->yystack[$this->yyidx + -1]->minor, attr => $this->yystack[$this->yyidx + 0]->minor));
     }
-#line 914 "/Users/stefan/Sites/3dArch/protected/components/dotToX/fileParser/DotParser.php"
-#line 126 "/Users/stefan/Sites/3dArch/protected/components/dotToX/fileParser/DotParser.y"
+#line 914 "/Users/stefan/Sites/3dArch/protected/components/dot/fileParser/DotParser.php"
+#line 126 "/Users/stefan/Sites/3dArch/protected/components/dot/fileParser/DotParser.y"
     function yy_r19(){
 	$this->_retvalue = array(type => "sub", label => $this->yystack[$this->yyidx + -3]->minor, content => $this->yystack[$this->yyidx + -1]->minor);
     }
-#line 919 "/Users/stefan/Sites/3dArch/protected/components/dotToX/fileParser/DotParser.php"
-#line 130 "/Users/stefan/Sites/3dArch/protected/components/dotToX/fileParser/DotParser.y"
+#line 919 "/Users/stefan/Sites/3dArch/protected/components/dot/fileParser/DotParser.php"
+#line 130 "/Users/stefan/Sites/3dArch/protected/components/dot/fileParser/DotParser.y"
     function yy_r20(){
 	$this->_retvalue = array(type => "sub", label => $this->yystack[$this->yyidx + -2]->minor, content => array());
     }
-#line 924 "/Users/stefan/Sites/3dArch/protected/components/dotToX/fileParser/DotParser.php"
+#line 924 "/Users/stefan/Sites/3dArch/protected/components/dot/fileParser/DotParser.php"
 
     /**
      * placeholder for the left hand side in a reduce operation.
@@ -1027,7 +1027,7 @@ static public $yy_action = array(
      */
     function yy_syntax_error($yymajor, $TOKEN)
     {
-#line 32 "/Users/stefan/Sites/3dArch/protected/components/dotToX/fileParser/DotParser.y"
+#line 32 "/Users/stefan/Sites/3dArch/protected/components/dot/fileParser/DotParser.y"
 
     $this->internalError = true;
     echo "Syntax Error on line " . $this->lex->line . ": token '" . 
@@ -1040,7 +1040,7 @@ static public $yy_action = array(
     }
 	echo "\n";	
     throw new Exception('Unexpected ' . $this->tokenName($yymajor) . '(' . $TOKEN. '), expected one of: ' . implode(',', $expect));
-#line 1050 "/Users/stefan/Sites/3dArch/protected/components/dotToX/fileParser/DotParser.php"
+#line 1050 "/Users/stefan/Sites/3dArch/protected/components/dot/fileParser/DotParser.php"
     }
 
     /**
@@ -1058,12 +1058,12 @@ static public $yy_action = array(
         }
         /* Here code is inserted which will be executed whenever the
         ** parser accepts */
-#line 25 "/Users/stefan/Sites/3dArch/protected/components/dotToX/fileParser/DotParser.y"
+#line 25 "/Users/stefan/Sites/3dArch/protected/components/dot/fileParser/DotParser.y"
 
     $this->successful = !$this->internalError;
     $this->internalError = false;
     $this->retvalue = $this->_retvalue;
-#line 1074 "/Users/stefan/Sites/3dArch/protected/components/dotToX/fileParser/DotParser.php"
+#line 1074 "/Users/stefan/Sites/3dArch/protected/components/dot/fileParser/DotParser.php"
     }
 
     /**
