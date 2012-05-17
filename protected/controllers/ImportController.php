@@ -43,10 +43,11 @@ class ImportController extends Controller
 		if ($directoryPathform->submitted('submit') && $directoryPathform->validate()) {
 			$path = $directoryPathform->model->path;
 			
+			$includeDot = $directoryPathform->model->includeDot;
 			if (is_dir($path)) {
 				
 				$outputFile = Yii::app()->basePath . Yii::app()->params['currentResourceFile'];
-				Yii::app()->directoryToDotParser->parseToFile($path, $outputFile);
+				Yii::app()->directoryToDotParser->parseToFile($path, $outputFile, $includeDot);
 				
 				Yii::app()->user->setFlash('success', 'Path accepted - Dot file generation finished');
 			} else {

@@ -7,6 +7,9 @@ return array(
             'type' => 'text',
         	'size' => 80
         ),
+    	'includeDot' => array(
+    		'type' => 'checkbox'
+    	),
     ),
  
     'buttons' => array(
