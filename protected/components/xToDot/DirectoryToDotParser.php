@@ -45,10 +45,12 @@ class DirectoryToDotParser extends CApplicationComponent
 	}
 	
 	private function _addNode($label, $parentId = 'default') {
+		$label = str_replace("-", "_", $label);
 		$this->graphViz->addNode($label, array(), $parentId);
 	}
 	
 	private function _addSubgraph($label, $parentId = 'default') {
+		$label = str_replace("-", "_", $label);
 		//TODO: cluster or subgraph
 		//void addSubgraph( string $id, array $title, [array $attributes = array()], [string $group = 'default'])
 		$this->graphViz->addCluster($label, $label, array(), $parentId);

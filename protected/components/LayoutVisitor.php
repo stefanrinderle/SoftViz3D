@@ -30,6 +30,7 @@ class LayoutVisitor {
 	 */
 	private function calcLayerLayout($elements) {
 		Yii::app()->dotWriter->writeToFile($elements, $this->outputFile);
+		
 		$layoutDot = Yii::app()->dotLayout->layout($this->outputFile);
 
 		$newLayout = Yii::app()->dotFileParser->parseStringArray($layoutDot);

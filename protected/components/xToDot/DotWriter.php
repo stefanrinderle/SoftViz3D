@@ -1,56 +1,49 @@
 <?php
 
+Yii::import('application.vendors.*');
+require_once('Image_GraphViz_Copy.php');
+
 class DotWriter extends CApplicationComponent
 {
-
-	public function writeToArray($elements) {
-		return $this->createDotFileLines($elements);
-	}
+	private $graphViz;
 	
 	public function writeToFile($elements, $outputFile) {
-		$lines = $this->createDotFileLines($elements);
-
-		$this->writeFile($lines, $outputFile);
+		$this->graphViz = new Image_GraphViz_Copy();
+	
+		$this->writeElements($elements);
+	
+		$this->graphViz->saveParsedGraph($outputFile);
 	}
-
-	private function createDotFileLines($elements) {
-		$result = array();
-
-		array_push($result, 'digraph G {');
-
+	
+	public function writeToString($elements) {
+		$this->graphViz = new Image_GraphViz_Copy();
+		
+		$this->writeElements($elements);
+		
+		return $this->graphViz->parse();
+	}
+	
+	private function writeElements($elements) {
 		foreach ($elements as $key => $value) {
 			if ($value instanceOf TreeElement) {
-				$elementString = str_replace(".", "_", $value->label);
-				$elementString .= ' [shape="rectangle", width="' . $value->size[width] . '", height="' . $value->size[height] . '", fixedsize=true';
+				$attr = array();
+				$attr['shape'] = "rectangle";
+				$attr['width'] = $value->size[width];
+				$attr['height'] = $value->size[height];
+				$attr['fixedsize'] = "true";
 				
 				if ($value->isLeaf) {
-					$elementString .= ', type="leaf"';
+					$attr['type'] = "leaf";
 				} else {
-					$elementString .= ', type="node"';
+					$attr['type'] = "node";
 				}
-				$elementString.= "]";
+				
+				$this->graphViz->addNode($value->label, $attr);
+				
 			} else if ($value instanceOf EdgeElement) {
 				$elementString = str_replace(".", "_", $value->inElement->label) . " -> " . str_replace(".", "_", $value->outElement->label);
 			}
-			
-			$elementString .= ';';
-			
-			array_push($result, $elementString);
 		}
-		
-		array_push($result, '}');
-
-		return $result;
 	}
 
-	private function writeFile($data, $fname) {
-		$fp = fopen($fname, "w");
-
-		foreach ($data as $key => $value) {
-			fwrite($fp, "$value\n");
-		}
-
-		fclose($fp);
-	}
-	
 }

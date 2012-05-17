@@ -1,33 +1,7 @@
 digraph G {
-cluster_vrml_1 [shape="rectangle", width="4.25", height="4.75", fixedsize=true, type="node"];
-cluster_sdfsdf_0 [shape="rectangle", width="0", height="0", fixedsize=true, type="node"];
-world_pdf [shape="rectangle", width="1", height="1", fixedsize=true, type="leaf"];
-world_dot [shape="rectangle", width="1", height="1", fixedsize=true, type="leaf"];
-world_adot [shape="rectangle", width="1", height="1", fixedsize=true, type="leaf"];
-tvoicerWeb_x3d [shape="rectangle", width="1", height="1", fixedsize=true, type="leaf"];
-testTransparency_x3d [shape="rectangle", width="1", height="1", fixedsize=true, type="leaf"];
-temp_dot [shape="rectangle", width="1", height="1", fixedsize=true, type="leaf"];
-temp_adot [shape="rectangle", width="1", height="1", fixedsize=true, type="leaf"];
-subgraphTest_pdf [shape="rectangle", width="1", height="1", fixedsize=true, type="leaf"];
-subgraphTest_dot [shape="rectangle", width="1", height="1", fixedsize=true, type="leaf"];
-subgraphTest_adot [shape="rectangle", width="1", height="1", fixedsize=true, type="leaf"];
-subgraph_pdf [shape="rectangle", width="1", height="1", fixedsize=true, type="leaf"];
-subgraph_dot [shape="rectangle", width="1", height="1", fixedsize=true, type="leaf"];
-subgraph_adot [shape="rectangle", width="1", height="1", fixedsize=true, type="leaf"];
-simpleGraph2D_dot [shape="rectangle", width="1", height="1", fixedsize=true, type="leaf"];
-simpleGraph2D_adot [shape="rectangle", width="1", height="1", fixedsize=true, type="leaf"];
-simpleGraph_dot [shape="rectangle", width="1", height="1", fixedsize=true, type="leaf"];
-simpleGraph_adot [shape="rectangle", width="1", height="1", fixedsize=true, type="leaf"];
-parsera_dot [shape="rectangle", width="1", height="1", fixedsize=true, type="leaf"];
-parser_pdf [shape="rectangle", width="1", height="1", fixedsize=true, type="leaf"];
-parser_dot [shape="rectangle", width="1", height="1", fixedsize=true, type="leaf"];
-parser_adot [shape="rectangle", width="1", height="1", fixedsize=true, type="leaf"];
-nurbsTestWindows_x3d [shape="rectangle", width="1", height="1", fixedsize=true, type="leaf"];
-layeredLayout_dot [shape="rectangle", width="1", height="1", fixedsize=true, type="leaf"];
-image_graphviz_dot [shape="rectangle", width="1", height="1", fixedsize=true, type="leaf"];
-dependency_dot [shape="rectangle", width="1", height="1", fixedsize=true, type="leaf"];
-basisTestsText_x3d [shape="rectangle", width="1", height="1", fixedsize=true, type="leaf"];
-basisTestsNurbs_x3d [shape="rectangle", width="1", height="1", fixedsize=true, type="leaf"];
-basisTestsEdge_x3d [shape="rectangle", width="1", height="1", fixedsize=true, type="leaf"];
-basisTests_x3d [shape="rectangle", width="1", height="1", fixedsize=true, type="leaf"];
+    "qunit.html" [ shape=rectangle,width=1,height=1,fixedsize=true,type=leaf ];
+    "compare_test.js" [ shape=rectangle,width=1,height=1,fixedsize=true,type=leaf ];
+    "compare.js" [ shape=rectangle,width=1,height=1,fixedsize=true,type=leaf ];
+    "compare.html" [ shape=rectangle,width=1,height=1,fixedsize=true,type=leaf ];
+    "graph" [ shape=rectangle,width=1,height=1,fixedsize=true,type=leaf ];
 }
