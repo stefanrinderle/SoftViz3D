@@ -124,19 +124,19 @@ class DotParser#line 102 "/Users/stefan/Sites/3dArch/protected/components/dotToX
 ** Each symbol here is a terminal symbol in the grammar.
 */
     const TP_DIGRAPH                        =  1;
-    const TP_ID                             =  2;
-    const TP_OPENBRACE                      =  3;
-    const TP_CLOSEBRACE                     =  4;
-    const TP_OPENATTR                       =  5;
-    const TP_CLOSEATTR                      =  6;
-    const TP_EQUALS                         =  7;
-    const TP_PUNCMARK                       =  8;
-    const TP_QUOTMARK                       =  9;
+    const TP_OPENBRACE                      =  2;
+    const TP_CLOSEBRACE                     =  3;
+    const TP_ID                             =  4;
+    const TP_QUOTMARK                       =  5;
+    const TP_OPENATTR                       =  6;
+    const TP_CLOSEATTR                      =  7;
+    const TP_EQUALS                         =  8;
+    const TP_PUNCMARK                       =  9;
     const TP_EDGEOP                         = 10;
     const TP_SUBGRAPH                       = 11;
-    const YY_NO_ACTION = 58;
-    const YY_ACCEPT_ACTION = 57;
-    const YY_ERROR_ACTION = 56;
+    const YY_NO_ACTION = 64;
+    const YY_ACCEPT_ACTION = 63;
+    const YY_ERROR_ACTION = 62;
 
 /* Next are that tables used to determine what action to take based on the
 ** current state and lookahead token.  These tables are used to implement
@@ -188,60 +188,64 @@ class DotParser#line 102 "/Users/stefan/Sites/3dArch/protected/components/dotToX
 **                          shifting non-terminals after a reduce.
 **  self::$yy_default       Default action for each state.
 */
-    const YY_SZ_ACTTAB = 48;
+    const YY_SZ_ACTTAB = 64;
 static public $yy_action = array(
- /*     0 */     4,    7,   24,    5,    5,   34,   17,    4,   18,   11,
- /*    10 */     9,    6,   12,   15,   33,    3,   11,   31,   30,    1,
- /*    20 */    21,    3,   16,    3,   26,    8,   27,   19,   10,   25,
- /*    30 */     2,   22,   32,   20,   13,   14,   15,   57,   28,   42,
- /*    40 */    35,    7,   42,   42,   36,   42,   29,   23,
+ /*     0 */    31,   27,   17,    7,   19,    2,   27,   17,    5,   34,
+ /*    10 */    27,   17,    7,   26,    2,   27,   17,    5,    7,   15,
+ /*    20 */     2,   39,   12,   22,    4,   10,   18,   38,    9,    1,
+ /*    30 */    13,    3,   23,   25,   22,   40,   29,    8,   21,   11,
+ /*    40 */    30,   33,   28,   35,    6,   37,   36,    4,   10,   24,
+ /*    50 */    45,   45,   45,   14,   45,   63,   45,   32,   45,   16,
+ /*    60 */    45,   45,   45,   20,
     );
     static public $yy_lookahead = array(
- /*     0 */     2,    5,    4,    2,    2,    2,   10,    2,   19,   11,
- /*    10 */     8,    7,    9,    2,   14,   15,   11,    6,    6,    3,
- /*    20 */    14,   15,   14,   15,    4,    8,    4,    2,    2,   20,
- /*    30 */     3,    1,    9,   18,    2,   17,    2,   13,   19,   21,
- /*    40 */    19,    5,   21,   21,   16,   21,   17,   16,
+ /*     0 */     3,    4,    5,   14,   15,   16,    4,    5,   11,    7,
+ /*    10 */     4,    5,   14,   15,   16,    4,    5,   11,   14,   15,
+ /*    20 */    16,    4,    5,   14,    6,    4,   14,   18,   10,    2,
+ /*    30 */     9,    2,    4,   21,   14,    3,    3,    1,   18,    8,
+ /*    40 */    17,    7,    5,    5,    9,   20,   20,    6,    4,   19,
+ /*    50 */    22,   22,   22,   14,   22,   13,   22,   17,   22,   14,
+ /*    60 */    22,   22,   22,   20,
 );
-    const YY_SHIFT_USE_DFLT = -5;
-    const YY_SHIFT_MAX = 22;
+    const YY_SHIFT_USE_DFLT = -4;
+    const YY_SHIFT_MAX = 24;
     static public $yy_shift_ofst = array(
- /*     0 */    30,   -2,    5,    5,   -4,    2,    3,   11,   34,    1,
- /*    10 */    36,   32,    1,   16,   12,    4,   20,   26,   23,   27,
- /*    20 */    17,   22,   25,
+ /*     0 */    36,   -3,    6,    6,    2,   11,   11,   18,   11,   11,
+ /*    10 */    21,   17,   44,   44,   41,   33,   29,   28,   27,   32,
+ /*    20 */    38,   34,   31,   37,   35,
 );
     const YY_REDUCE_USE_DFLT = -12;
-    const YY_REDUCE_MAX = 12;
+    const YY_REDUCE_MAX = 14;
     static public $yy_reduce_ofst = array(
- /*     0 */    24,    6,    8,    0,   28,   19,   15,   18,   29,   21,
- /*    10 */    31,    9,  -11,
+ /*     0 */    42,    4,   -2,  -11,   20,   12,    9,   40,   45,   39,
+ /*    10 */    25,   30,   43,   26,   23,
 );
     static public $yyExpectedTokens = array(
         /* 0 */ array(1, ),
-        /* 1 */ array(2, 4, 11, ),
-        /* 2 */ array(2, 11, ),
-        /* 3 */ array(2, 11, ),
-        /* 4 */ array(5, 10, ),
-        /* 5 */ array(2, 8, ),
-        /* 6 */ array(2, 9, ),
-        /* 7 */ array(2, 6, ),
-        /* 8 */ array(2, ),
-        /* 9 */ array(2, ),
-        /* 10 */ array(5, ),
-        /* 11 */ array(2, ),
-        /* 12 */ array(2, ),
-        /* 13 */ array(3, ),
+        /* 1 */ array(3, 4, 5, 11, ),
+        /* 2 */ array(4, 5, 11, ),
+        /* 3 */ array(4, 5, 11, ),
+        /* 4 */ array(4, 5, 7, ),
+        /* 5 */ array(4, 5, ),
+        /* 6 */ array(4, 5, ),
+        /* 7 */ array(6, 10, ),
+        /* 8 */ array(4, 5, ),
+        /* 9 */ array(4, 5, ),
+        /* 10 */ array(4, 9, ),
+        /* 11 */ array(4, 5, ),
+        /* 12 */ array(4, ),
+        /* 13 */ array(4, ),
         /* 14 */ array(6, ),
-        /* 15 */ array(7, ),
-        /* 16 */ array(4, ),
-        /* 17 */ array(2, ),
-        /* 18 */ array(9, ),
+        /* 15 */ array(3, ),
+        /* 16 */ array(2, ),
+        /* 17 */ array(4, ),
+        /* 18 */ array(2, ),
         /* 19 */ array(3, ),
-        /* 20 */ array(8, ),
-        /* 21 */ array(4, ),
-        /* 22 */ array(2, ),
-        /* 23 */ array(),
-        /* 24 */ array(),
+        /* 20 */ array(5, ),
+        /* 21 */ array(7, ),
+        /* 22 */ array(8, ),
+        /* 23 */ array(5, ),
+        /* 24 */ array(9, ),
         /* 25 */ array(),
         /* 26 */ array(),
         /* 27 */ array(),
@@ -254,12 +258,17 @@ static public $yy_action = array(
         /* 34 */ array(),
         /* 35 */ array(),
         /* 36 */ array(),
+        /* 37 */ array(),
+        /* 38 */ array(),
+        /* 39 */ array(),
+        /* 40 */ array(),
 );
     static public $yy_default = array(
- /*     0 */    56,   56,   56,   39,   49,   45,   56,   56,   56,   56,
- /*    10 */    51,   56,   56,   56,   56,   56,   56,   56,   56,   56,
- /*    20 */    42,   56,   56,   52,   55,   53,   37,   54,   47,   43,
- /*    30 */    40,   41,   44,   38,   48,   46,   50,
+ /*     0 */    62,   62,   45,   62,   62,   62,   62,   55,   62,   62,
+ /*    10 */    51,   62,   62,   62,   57,   62,   62,   62,   62,   62,
+ /*    20 */    62,   62,   62,   62,   48,   59,   44,   42,   43,   60,
+ /*    30 */    58,   61,   56,   46,   47,   50,   52,   53,   49,   54,
+ /*    40 */    41,
 );
 /* The next thing included is series of defines which control
 ** various aspects of the generated parser.
@@ -276,10 +285,10 @@ static public $yy_action = array(
 **    self::YYERRORSYMBOL is the code number of the error symbol.  If not
 **                        defined, then do no error processing.
 */
-    const YYNOCODE = 22;
+    const YYNOCODE = 23;
     const YYSTACKDEPTH = 2000;
-    const YYNSTATE = 37;
-    const YYNRULE = 19;
+    const YYNSTATE = 41;
+    const YYNRULE = 21;
     const YYERRORSYMBOL = 12;
     const YYERRSYMDT = 'yy0';
     const YYFALLBACK = 0;
@@ -362,12 +371,12 @@ static public $yy_action = array(
      * @var array
      */
     static public $yyTokenName = array( 
-  '$',             'DIGRAPH',       'ID',            'OPENBRACE',   
-  'CLOSEBRACE',    'OPENATTR',      'CLOSEATTR',     'EQUALS',      
-  'PUNCMARK',      'QUOTMARK',      'EDGEOP',        'SUBGRAPH',    
-  'error',         'start',         'stmtList',      'stmt',        
-  'attrList',      'aList',         'aValue',        'aQuotValue',  
-  'subgraph',    
+  '$',             'DIGRAPH',       'OPENBRACE',     'CLOSEBRACE',  
+  'ID',            'QUOTMARK',      'OPENATTR',      'CLOSEATTR',   
+  'EQUALS',        'PUNCMARK',      'EDGEOP',        'SUBGRAPH',    
+  'error',         'start',         'id',            'stmtList',    
+  'stmt',          'attrList',      'aList',         'aValue',      
+  'aQuotValue',    'subgraph',    
     );
 
     /**
@@ -375,25 +384,27 @@ static public $yy_action = array(
      * @var array
      */
     static public $yyRuleName = array(
- /*   0 */ "start ::= DIGRAPH ID OPENBRACE stmtList CLOSEBRACE",
- /*   1 */ "stmtList ::= stmt stmtList",
- /*   2 */ "stmtList ::= stmt",
- /*   3 */ "attrList ::= OPENATTR aList CLOSEATTR",
- /*   4 */ "attrList ::= OPENATTR CLOSEATTR",
- /*   5 */ "aList ::= ID EQUALS aValue",
- /*   6 */ "aList ::= ID EQUALS aValue PUNCMARK aList",
- /*   7 */ "aValue ::= QUOTMARK aQuotValue QUOTMARK",
- /*   8 */ "aQuotValue ::= ID",
- /*   9 */ "aQuotValue ::= ID PUNCMARK aQuotValue",
- /*  10 */ "aQuotValue ::= ID aQuotValue",
- /*  11 */ "aValue ::= ID",
- /*  12 */ "stmt ::= ID",
- /*  13 */ "stmt ::= ID attrList",
- /*  14 */ "stmt ::= ID EDGEOP ID",
- /*  15 */ "stmt ::= ID EDGEOP ID attrList",
- /*  16 */ "stmt ::= SUBGRAPH subgraph",
- /*  17 */ "subgraph ::= ID OPENBRACE stmtList CLOSEBRACE",
- /*  18 */ "subgraph ::= ID OPENBRACE CLOSEBRACE",
+ /*   0 */ "start ::= DIGRAPH id OPENBRACE stmtList CLOSEBRACE",
+ /*   1 */ "id ::= ID",
+ /*   2 */ "id ::= QUOTMARK ID QUOTMARK",
+ /*   3 */ "stmtList ::= stmt stmtList",
+ /*   4 */ "stmtList ::= stmt",
+ /*   5 */ "attrList ::= OPENATTR aList CLOSEATTR",
+ /*   6 */ "attrList ::= OPENATTR CLOSEATTR",
+ /*   7 */ "aList ::= id EQUALS aValue",
+ /*   8 */ "aList ::= id EQUALS aValue PUNCMARK aList",
+ /*   9 */ "aValue ::= QUOTMARK aQuotValue QUOTMARK",
+ /*  10 */ "aQuotValue ::= ID",
+ /*  11 */ "aQuotValue ::= ID PUNCMARK aQuotValue",
+ /*  12 */ "aQuotValue ::= ID aQuotValue",
+ /*  13 */ "aValue ::= ID",
+ /*  14 */ "stmt ::= id",
+ /*  15 */ "stmt ::= id attrList",
+ /*  16 */ "stmt ::= id EDGEOP id",
+ /*  17 */ "stmt ::= id EDGEOP id attrList",
+ /*  18 */ "stmt ::= SUBGRAPH subgraph",
+ /*  19 */ "subgraph ::= id OPENBRACE stmtList CLOSEBRACE",
+ /*  20 */ "subgraph ::= id OPENBRACE CLOSEBRACE",
     );
 
     /**
@@ -728,7 +739,7 @@ static public $yy_action = array(
 #line 18 "/Users/stefan/Sites/3dArch/protected/components/dotToX/fileParser/DotParser.y"
 
     print_r("Giving up.  Parser stack overflow");
-#line 737 "/Users/stefan/Sites/3dArch/protected/components/dotToX/fileParser/DotParser.php"
+#line 748 "/Users/stefan/Sites/3dArch/protected/components/dotToX/fileParser/DotParser.php"
             return;
         }
         $yytos = new TP_yyStackEntry;
@@ -763,24 +774,26 @@ static public $yy_action = array(
      */
     static public $yyRuleInfo = array(
   array( 'lhs' => 13, 'rhs' => 5 ),
-  array( 'lhs' => 14, 'rhs' => 2 ),
   array( 'lhs' => 14, 'rhs' => 1 ),
-  array( 'lhs' => 16, 'rhs' => 3 ),
-  array( 'lhs' => 16, 'rhs' => 2 ),
-  array( 'lhs' => 17, 'rhs' => 3 ),
-  array( 'lhs' => 17, 'rhs' => 5 ),
-  array( 'lhs' => 18, 'rhs' => 3 ),
-  array( 'lhs' => 19, 'rhs' => 1 ),
-  array( 'lhs' => 19, 'rhs' => 3 ),
-  array( 'lhs' => 19, 'rhs' => 2 ),
-  array( 'lhs' => 18, 'rhs' => 1 ),
+  array( 'lhs' => 14, 'rhs' => 3 ),
+  array( 'lhs' => 15, 'rhs' => 2 ),
   array( 'lhs' => 15, 'rhs' => 1 ),
-  array( 'lhs' => 15, 'rhs' => 2 ),
-  array( 'lhs' => 15, 'rhs' => 3 ),
-  array( 'lhs' => 15, 'rhs' => 4 ),
-  array( 'lhs' => 15, 'rhs' => 2 ),
-  array( 'lhs' => 20, 'rhs' => 4 ),
+  array( 'lhs' => 17, 'rhs' => 3 ),
+  array( 'lhs' => 17, 'rhs' => 2 ),
+  array( 'lhs' => 18, 'rhs' => 3 ),
+  array( 'lhs' => 18, 'rhs' => 5 ),
+  array( 'lhs' => 19, 'rhs' => 3 ),
+  array( 'lhs' => 20, 'rhs' => 1 ),
   array( 'lhs' => 20, 'rhs' => 3 ),
+  array( 'lhs' => 20, 'rhs' => 2 ),
+  array( 'lhs' => 19, 'rhs' => 1 ),
+  array( 'lhs' => 16, 'rhs' => 1 ),
+  array( 'lhs' => 16, 'rhs' => 2 ),
+  array( 'lhs' => 16, 'rhs' => 3 ),
+  array( 'lhs' => 16, 'rhs' => 4 ),
+  array( 'lhs' => 16, 'rhs' => 2 ),
+  array( 'lhs' => 21, 'rhs' => 4 ),
+  array( 'lhs' => 21, 'rhs' => 3 ),
     );
 
     /**
@@ -792,23 +805,25 @@ static public $yy_action = array(
     static public $yyReduceMap = array(
         0 => 0,
         1 => 1,
+        13 => 1,
         2 => 2,
+        5 => 2,
+        9 => 2,
         3 => 3,
-        7 => 3,
         4 => 4,
-        5 => 5,
         6 => 6,
+        7 => 7,
         8 => 8,
-        16 => 8,
-        9 => 9,
         10 => 10,
+        18 => 10,
         11 => 11,
         12 => 12,
-        13 => 13,
         14 => 14,
         15 => 15,
+        16 => 16,
         17 => 17,
-        18 => 18,
+        19 => 19,
+        20 => 20,
     );
     /* Beginning here are the reduction cases.  A typical example
     ** follows:
@@ -820,87 +835,87 @@ static public $yy_action = array(
     function yy_r0(){
 	$this->_retvalue = array(type => "main", label => $this->yystack[$this->yyidx + -3]->minor, content => $this->yystack[$this->yyidx + -1]->minor);
     }
-#line 829 "/Users/stefan/Sites/3dArch/protected/components/dotToX/fileParser/DotParser.php"
+#line 844 "/Users/stefan/Sites/3dArch/protected/components/dotToX/fileParser/DotParser.php"
 #line 50 "/Users/stefan/Sites/3dArch/protected/components/dotToX/fileParser/DotParser.y"
     function yy_r1(){
-	$this->_retvalue = array_merge($this->yystack[$this->yyidx + 0]->minor, $this->yystack[$this->yyidx + -1]->minor);
-    }
-#line 834 "/Users/stefan/Sites/3dArch/protected/components/dotToX/fileParser/DotParser.php"
-#line 54 "/Users/stefan/Sites/3dArch/protected/components/dotToX/fileParser/DotParser.y"
-    function yy_r2(){ 
 	$this->_retvalue = $this->yystack[$this->yyidx + 0]->minor;
-    }
-#line 839 "/Users/stefan/Sites/3dArch/protected/components/dotToX/fileParser/DotParser.php"
-#line 59 "/Users/stefan/Sites/3dArch/protected/components/dotToX/fileParser/DotParser.y"
-    function yy_r3(){
-	$this->_retvalue = $this->yystack[$this->yyidx + -1]->minor;
-    }
-#line 844 "/Users/stefan/Sites/3dArch/protected/components/dotToX/fileParser/DotParser.php"
-#line 63 "/Users/stefan/Sites/3dArch/protected/components/dotToX/fileParser/DotParser.y"
-    function yy_r4(){
-	$this->_retvalue = 0;
     }
 #line 849 "/Users/stefan/Sites/3dArch/protected/components/dotToX/fileParser/DotParser.php"
-#line 67 "/Users/stefan/Sites/3dArch/protected/components/dotToX/fileParser/DotParser.y"
-    function yy_r5(){
-	$this->_retvalue = array($this->yystack[$this->yyidx + -2]->minor => $this->yystack[$this->yyidx + 0]->minor);
+#line 54 "/Users/stefan/Sites/3dArch/protected/components/dotToX/fileParser/DotParser.y"
+    function yy_r2(){
+	$this->_retvalue = $this->yystack[$this->yyidx + -1]->minor;
     }
 #line 854 "/Users/stefan/Sites/3dArch/protected/components/dotToX/fileParser/DotParser.php"
-#line 71 "/Users/stefan/Sites/3dArch/protected/components/dotToX/fileParser/DotParser.y"
-    function yy_r6(){
-	$this->_retvalue = array_merge(array($this->yystack[$this->yyidx + -4]->minor => $this->yystack[$this->yyidx + -2]->minor), $this->yystack[$this->yyidx + 0]->minor);
+#line 58 "/Users/stefan/Sites/3dArch/protected/components/dotToX/fileParser/DotParser.y"
+    function yy_r3(){
+	$this->_retvalue = array_merge($this->yystack[$this->yyidx + 0]->minor, $this->yystack[$this->yyidx + -1]->minor);
     }
 #line 859 "/Users/stefan/Sites/3dArch/protected/components/dotToX/fileParser/DotParser.php"
-#line 79 "/Users/stefan/Sites/3dArch/protected/components/dotToX/fileParser/DotParser.y"
-    function yy_r8(){
-	$this->_retvalue = array($this->yystack[$this->yyidx + 0]->minor);
-    }
-#line 864 "/Users/stefan/Sites/3dArch/protected/components/dotToX/fileParser/DotParser.php"
-#line 83 "/Users/stefan/Sites/3dArch/protected/components/dotToX/fileParser/DotParser.y"
-    function yy_r9(){
-	$this->_retvalue = array_merge(array($this->yystack[$this->yyidx + -2]->minor), $this->yystack[$this->yyidx + 0]->minor);
-    }
-#line 869 "/Users/stefan/Sites/3dArch/protected/components/dotToX/fileParser/DotParser.php"
-#line 87 "/Users/stefan/Sites/3dArch/protected/components/dotToX/fileParser/DotParser.y"
-    function yy_r10(){
-	$this->_retvalue = array_merge(array($this->yystack[$this->yyidx + -1]->minor), $this->yystack[$this->yyidx + 0]->minor);
-    }
-#line 874 "/Users/stefan/Sites/3dArch/protected/components/dotToX/fileParser/DotParser.php"
-#line 91 "/Users/stefan/Sites/3dArch/protected/components/dotToX/fileParser/DotParser.y"
-    function yy_r11(){
+#line 62 "/Users/stefan/Sites/3dArch/protected/components/dotToX/fileParser/DotParser.y"
+    function yy_r4(){ 
 	$this->_retvalue = $this->yystack[$this->yyidx + 0]->minor;
     }
+#line 864 "/Users/stefan/Sites/3dArch/protected/components/dotToX/fileParser/DotParser.php"
+#line 71 "/Users/stefan/Sites/3dArch/protected/components/dotToX/fileParser/DotParser.y"
+    function yy_r6(){
+	$this->_retvalue = 0;
+    }
+#line 869 "/Users/stefan/Sites/3dArch/protected/components/dotToX/fileParser/DotParser.php"
+#line 75 "/Users/stefan/Sites/3dArch/protected/components/dotToX/fileParser/DotParser.y"
+    function yy_r7(){
+	$this->_retvalue = array($this->yystack[$this->yyidx + -2]->minor => $this->yystack[$this->yyidx + 0]->minor);
+    }
+#line 874 "/Users/stefan/Sites/3dArch/protected/components/dotToX/fileParser/DotParser.php"
+#line 79 "/Users/stefan/Sites/3dArch/protected/components/dotToX/fileParser/DotParser.y"
+    function yy_r8(){
+	$this->_retvalue = array_merge(array($this->yystack[$this->yyidx + -4]->minor => $this->yystack[$this->yyidx + -2]->minor), $this->yystack[$this->yyidx + 0]->minor);
+    }
 #line 879 "/Users/stefan/Sites/3dArch/protected/components/dotToX/fileParser/DotParser.php"
-#line 96 "/Users/stefan/Sites/3dArch/protected/components/dotToX/fileParser/DotParser.y"
-    function yy_r12(){ 
-	$this->_retvalue = array(array(type => "node", label => $this->yystack[$this->yyidx + 0]->minor));
+#line 87 "/Users/stefan/Sites/3dArch/protected/components/dotToX/fileParser/DotParser.y"
+    function yy_r10(){
+	$this->_retvalue = array($this->yystack[$this->yyidx + 0]->minor);
     }
 #line 884 "/Users/stefan/Sites/3dArch/protected/components/dotToX/fileParser/DotParser.php"
-#line 100 "/Users/stefan/Sites/3dArch/protected/components/dotToX/fileParser/DotParser.y"
-    function yy_r13(){ 
-	$this->_retvalue = array(array(type => "node", label => $this->yystack[$this->yyidx + -1]->minor, attr => $this->yystack[$this->yyidx + 0]->minor));
+#line 91 "/Users/stefan/Sites/3dArch/protected/components/dotToX/fileParser/DotParser.y"
+    function yy_r11(){
+	$this->_retvalue = array_merge(array($this->yystack[$this->yyidx + -2]->minor), $this->yystack[$this->yyidx + 0]->minor);
     }
 #line 889 "/Users/stefan/Sites/3dArch/protected/components/dotToX/fileParser/DotParser.php"
-#line 105 "/Users/stefan/Sites/3dArch/protected/components/dotToX/fileParser/DotParser.y"
-    function yy_r14(){ 
-	$this->_retvalue = array(array(label => $this->yystack[$this->yyidx + -2]->minor . " -> " . $this->yystack[$this->yyidx + 0]->minor, type => "edge", node1 => $this->yystack[$this->yyidx + -2]->minor, node2 => $this->yystack[$this->yyidx + 0]->minor));
+#line 95 "/Users/stefan/Sites/3dArch/protected/components/dotToX/fileParser/DotParser.y"
+    function yy_r12(){
+	$this->_retvalue = array_merge(array($this->yystack[$this->yyidx + -1]->minor), $this->yystack[$this->yyidx + 0]->minor);
     }
 #line 894 "/Users/stefan/Sites/3dArch/protected/components/dotToX/fileParser/DotParser.php"
-#line 109 "/Users/stefan/Sites/3dArch/protected/components/dotToX/fileParser/DotParser.y"
-    function yy_r15(){
-	$this->_retvalue = array(array(label => $this->yystack[$this->yyidx + -3]->minor . " -> " . $this->yystack[$this->yyidx + -1]->minor, type => "edge", node1 => $this->yystack[$this->yyidx + -3]->minor, node2 => $this->yystack[$this->yyidx + -1]->minor, attr => $this->yystack[$this->yyidx + 0]->minor));
+#line 104 "/Users/stefan/Sites/3dArch/protected/components/dotToX/fileParser/DotParser.y"
+    function yy_r14(){ 
+	$this->_retvalue = array(array(type => "node", label => $this->yystack[$this->yyidx + 0]->minor));
     }
 #line 899 "/Users/stefan/Sites/3dArch/protected/components/dotToX/fileParser/DotParser.php"
-#line 118 "/Users/stefan/Sites/3dArch/protected/components/dotToX/fileParser/DotParser.y"
-    function yy_r17(){
-	$this->_retvalue = array(type => "sub", label => $this->yystack[$this->yyidx + -3]->minor, content => $this->yystack[$this->yyidx + -1]->minor);
+#line 108 "/Users/stefan/Sites/3dArch/protected/components/dotToX/fileParser/DotParser.y"
+    function yy_r15(){ 
+	$this->_retvalue = array(array(type => "node", label => $this->yystack[$this->yyidx + -1]->minor, attr => $this->yystack[$this->yyidx + 0]->minor));
     }
 #line 904 "/Users/stefan/Sites/3dArch/protected/components/dotToX/fileParser/DotParser.php"
-#line 122 "/Users/stefan/Sites/3dArch/protected/components/dotToX/fileParser/DotParser.y"
-    function yy_r18(){
-	$this->_retvalue = array(type => "sub", label => $this->yystack[$this->yyidx + -2]->minor, content => array());
+#line 113 "/Users/stefan/Sites/3dArch/protected/components/dotToX/fileParser/DotParser.y"
+    function yy_r16(){ 
+	$this->_retvalue = array(array(label => $this->yystack[$this->yyidx + -2]->minor . " -> " . $this->yystack[$this->yyidx + 0]->minor, type => "edge", node1 => $this->yystack[$this->yyidx + -2]->minor, node2 => $this->yystack[$this->yyidx + 0]->minor));
     }
 #line 909 "/Users/stefan/Sites/3dArch/protected/components/dotToX/fileParser/DotParser.php"
+#line 117 "/Users/stefan/Sites/3dArch/protected/components/dotToX/fileParser/DotParser.y"
+    function yy_r17(){
+	$this->_retvalue = array(array(label => $this->yystack[$this->yyidx + -3]->minor . " -> " . $this->yystack[$this->yyidx + -1]->minor, type => "edge", node1 => $this->yystack[$this->yyidx + -3]->minor, node2 => $this->yystack[$this->yyidx + -1]->minor, attr => $this->yystack[$this->yyidx + 0]->minor));
+    }
+#line 914 "/Users/stefan/Sites/3dArch/protected/components/dotToX/fileParser/DotParser.php"
+#line 126 "/Users/stefan/Sites/3dArch/protected/components/dotToX/fileParser/DotParser.y"
+    function yy_r19(){
+	$this->_retvalue = array(type => "sub", label => $this->yystack[$this->yyidx + -3]->minor, content => $this->yystack[$this->yyidx + -1]->minor);
+    }
+#line 919 "/Users/stefan/Sites/3dArch/protected/components/dotToX/fileParser/DotParser.php"
+#line 130 "/Users/stefan/Sites/3dArch/protected/components/dotToX/fileParser/DotParser.y"
+    function yy_r20(){
+	$this->_retvalue = array(type => "sub", label => $this->yystack[$this->yyidx + -2]->minor, content => array());
+    }
+#line 924 "/Users/stefan/Sites/3dArch/protected/components/dotToX/fileParser/DotParser.php"
 
     /**
      * placeholder for the left hand side in a reduce operation.
@@ -1025,7 +1040,7 @@ static public $yy_action = array(
     }
 	echo "\n";	
     throw new Exception('Unexpected ' . $this->tokenName($yymajor) . '(' . $TOKEN. '), expected one of: ' . implode(',', $expect));
-#line 1035 "/Users/stefan/Sites/3dArch/protected/components/dotToX/fileParser/DotParser.php"
+#line 1050 "/Users/stefan/Sites/3dArch/protected/components/dotToX/fileParser/DotParser.php"
     }
 
     /**
@@ -1048,7 +1063,7 @@ static public $yy_action = array(
     $this->successful = !$this->internalError;
     $this->internalError = false;
     $this->retvalue = $this->_retvalue;
-#line 1059 "/Users/stefan/Sites/3dArch/protected/components/dotToX/fileParser/DotParser.php"
+#line 1074 "/Users/stefan/Sites/3dArch/protected/components/dotToX/fileParser/DotParser.php"
     }
 
     /**

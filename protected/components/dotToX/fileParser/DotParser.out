@@ -1,138 +1,162 @@
 State 0:
-          start ::= * DIGRAPH ID OPENBRACE stmtList CLOSEBRACE
+          start ::= * DIGRAPH id OPENBRACE stmtList CLOSEBRACE
 
-                       DIGRAPH shift  22
+                       DIGRAPH shift  8
                          start accept
 
 State 1:
+          id ::= * ID
+          id ::= * QUOTMARK ID QUOTMARK
           stmtList ::= * stmt stmtList
           stmtList ::= * stmt
-          stmt ::= * ID
-          stmt ::= * ID attrList
-          stmt ::= * ID EDGEOP ID
-          stmt ::= * ID EDGEOP ID attrList
+          stmt ::= * id
+          stmt ::= * id attrList
+          stmt ::= * id EDGEOP id
+          stmt ::= * id EDGEOP id attrList
           stmt ::= * SUBGRAPH subgraph
-          subgraph ::= ID OPENBRACE * stmtList CLOSEBRACE
-          subgraph ::= ID OPENBRACE * CLOSEBRACE
+          subgraph ::= id OPENBRACE * stmtList CLOSEBRACE
+          subgraph ::= id OPENBRACE * CLOSEBRACE
 
-                            ID shift  4
-                    CLOSEBRACE shift  24
-                      SUBGRAPH shift  11
-                      stmtList shift  21
-                          stmt shift  3
+                    CLOSEBRACE shift  31
+                            ID shift  27
+                      QUOTMARK shift  17
+                      SUBGRAPH shift  5
+                            id shift  7
+                      stmtList shift  15
+                          stmt shift  2
 
 State 2:
-          start ::= DIGRAPH ID OPENBRACE * stmtList CLOSEBRACE
-          stmtList ::= * stmt stmtList
-          stmtList ::= * stmt
-          stmt ::= * ID
-          stmt ::= * ID attrList
-          stmt ::= * ID EDGEOP ID
-          stmt ::= * ID EDGEOP ID attrList
-          stmt ::= * SUBGRAPH subgraph
-
-                            ID shift  4
-                      SUBGRAPH shift  11
-                      stmtList shift  16
-                          stmt shift  3
-
-State 3:
+          id ::= * ID
+          id ::= * QUOTMARK ID QUOTMARK
           stmtList ::= * stmt stmtList
           stmtList ::= stmt * stmtList
           stmtList ::= * stmt
-      (2) stmtList ::= stmt *
-          stmt ::= * ID
-          stmt ::= * ID attrList
-          stmt ::= * ID EDGEOP ID
-          stmt ::= * ID EDGEOP ID attrList
+      (4) stmtList ::= stmt *
+          stmt ::= * id
+          stmt ::= * id attrList
+          stmt ::= * id EDGEOP id
+          stmt ::= * id EDGEOP id attrList
           stmt ::= * SUBGRAPH subgraph
 
-                            ID shift  4
-                      SUBGRAPH shift  11
-                      stmtList shift  33
-                          stmt shift  3
-                     {default} reduce 2
+                            ID shift  27
+                      QUOTMARK shift  17
+                      SUBGRAPH shift  5
+                            id shift  7
+                      stmtList shift  26
+                          stmt shift  2
+                     {default} reduce 4
+
+State 3:
+          start ::= DIGRAPH id OPENBRACE * stmtList CLOSEBRACE
+          id ::= * ID
+          id ::= * QUOTMARK ID QUOTMARK
+          stmtList ::= * stmt stmtList
+          stmtList ::= * stmt
+          stmt ::= * id
+          stmt ::= * id attrList
+          stmt ::= * id EDGEOP id
+          stmt ::= * id EDGEOP id attrList
+          stmt ::= * SUBGRAPH subgraph
+
+                            ID shift  27
+                      QUOTMARK shift  17
+                      SUBGRAPH shift  5
+                            id shift  7
+                      stmtList shift  19
+                          stmt shift  2
 
 State 4:
-          attrList ::= * OPENATTR aList CLOSEATTR
-          attrList ::= * OPENATTR CLOSEATTR
-     (12) stmt ::= ID *
-          stmt ::= ID * attrList
-          stmt ::= ID * EDGEOP ID
-          stmt ::= ID * EDGEOP ID attrList
+          id ::= * ID
+          id ::= * QUOTMARK ID QUOTMARK
+          attrList ::= OPENATTR * aList CLOSEATTR
+          attrList ::= OPENATTR * CLOSEATTR
+          aList ::= * id EQUALS aValue
+          aList ::= * id EQUALS aValue PUNCMARK aList
 
-                      OPENATTR shift  7
-                        EDGEOP shift  17
-                      attrList shift  36
-                     {default} reduce 12
+                            ID shift  27
+                      QUOTMARK shift  17
+                     CLOSEATTR shift  34
+                            id shift  22
+                         aList shift  21
 
 State 5:
+          id ::= * ID
+          id ::= * QUOTMARK ID QUOTMARK
+          stmt ::= SUBGRAPH * subgraph
+          subgraph ::= * id OPENBRACE stmtList CLOSEBRACE
+          subgraph ::= * id OPENBRACE CLOSEBRACE
+
+                            ID shift  27
+                      QUOTMARK shift  17
+                            id shift  18
+                      subgraph shift  25
+
+State 6:
+          id ::= * ID
+          id ::= * QUOTMARK ID QUOTMARK
+          aList ::= * id EQUALS aValue
+          aList ::= * id EQUALS aValue PUNCMARK aList
+          aList ::= id EQUALS aValue PUNCMARK * aList
+
+                            ID shift  27
+                      QUOTMARK shift  17
+                            id shift  22
+                         aList shift  38
+
+State 7:
+          attrList ::= * OPENATTR aList CLOSEATTR
+          attrList ::= * OPENATTR CLOSEATTR
+     (14) stmt ::= id *
+          stmt ::= id * attrList
+          stmt ::= id * EDGEOP id
+          stmt ::= id * EDGEOP id attrList
+
+                      OPENATTR shift  4
+                        EDGEOP shift  9
+                      attrList shift  32
+                     {default} reduce 14
+
+State 8:
+          start ::= DIGRAPH * id OPENBRACE stmtList CLOSEBRACE
+          id ::= * ID
+          id ::= * QUOTMARK ID QUOTMARK
+
+                            ID shift  27
+                      QUOTMARK shift  17
+                            id shift  16
+
+State 9:
+          id ::= * ID
+          id ::= * QUOTMARK ID QUOTMARK
+          stmt ::= id EDGEOP * id
+          stmt ::= id EDGEOP * id attrList
+
+                            ID shift  27
+                      QUOTMARK shift  17
+                            id shift  14
+
+State 10:
           aQuotValue ::= * ID
-      (8) aQuotValue ::= ID *
+     (10) aQuotValue ::= ID *
           aQuotValue ::= * ID PUNCMARK aQuotValue
           aQuotValue ::= ID * PUNCMARK aQuotValue
           aQuotValue ::= * ID aQuotValue
           aQuotValue ::= ID * aQuotValue
 
-                            ID shift  5
-                      PUNCMARK shift  9
-                    aQuotValue shift  28
-                     {default} reduce 8
+                            ID shift  10
+                      PUNCMARK shift  13
+                    aQuotValue shift  37
+                     {default} reduce 10
 
-State 6:
-          aList ::= ID EQUALS * aValue
-          aList ::= ID EQUALS * aValue PUNCMARK aList
+State 11:
+          aList ::= id EQUALS * aValue
+          aList ::= id EQUALS * aValue PUNCMARK aList
           aValue ::= * QUOTMARK aQuotValue QUOTMARK
           aValue ::= * ID
 
-                            ID shift  34
+                            ID shift  39
                       QUOTMARK shift  12
-                        aValue shift  20
-
-State 7:
-          attrList ::= OPENATTR * aList CLOSEATTR
-          attrList ::= OPENATTR * CLOSEATTR
-          aList ::= * ID EQUALS aValue
-          aList ::= * ID EQUALS aValue PUNCMARK aList
-
-                            ID shift  15
-                     CLOSEATTR shift  31
-                         aList shift  14
-
-State 8:
-          aList ::= * ID EQUALS aValue
-          aList ::= * ID EQUALS aValue PUNCMARK aList
-          aList ::= ID EQUALS aValue PUNCMARK * aList
-
-                            ID shift  15
-                         aList shift  29
-
-State 9:
-          aQuotValue ::= * ID
-          aQuotValue ::= * ID PUNCMARK aQuotValue
-          aQuotValue ::= ID PUNCMARK * aQuotValue
-          aQuotValue ::= * ID aQuotValue
-
-                            ID shift  5
-                    aQuotValue shift  35
-
-State 10:
-          attrList ::= * OPENATTR aList CLOSEATTR
-          attrList ::= * OPENATTR CLOSEATTR
-     (14) stmt ::= ID EDGEOP ID *
-          stmt ::= ID EDGEOP ID * attrList
-
-                      OPENATTR shift  7
-                      attrList shift  23
-                     {default} reduce 14
-
-State 11:
-          stmt ::= SUBGRAPH * subgraph
-          subgraph ::= * ID OPENBRACE stmtList CLOSEBRACE
-          subgraph ::= * ID OPENBRACE CLOSEBRACE
-
-                            ID shift  13
-                      subgraph shift  25
+                        aValue shift  24
 
 State 12:
           aValue ::= QUOTMARK * aQuotValue QUOTMARK
@@ -140,131 +164,159 @@ State 12:
           aQuotValue ::= * ID PUNCMARK aQuotValue
           aQuotValue ::= * ID aQuotValue
 
-                            ID shift  5
-                    aQuotValue shift  18
+                            ID shift  10
+                    aQuotValue shift  20
 
 State 13:
-          subgraph ::= ID * OPENBRACE stmtList CLOSEBRACE
-          subgraph ::= ID * OPENBRACE CLOSEBRACE
+          aQuotValue ::= * ID
+          aQuotValue ::= * ID PUNCMARK aQuotValue
+          aQuotValue ::= ID PUNCMARK * aQuotValue
+          aQuotValue ::= * ID aQuotValue
+
+                            ID shift  10
+                    aQuotValue shift  36
+
+State 14:
+          attrList ::= * OPENATTR aList CLOSEATTR
+          attrList ::= * OPENATTR CLOSEATTR
+     (16) stmt ::= id EDGEOP id *
+          stmt ::= id EDGEOP id * attrList
+
+                      OPENATTR shift  4
+                      attrList shift  30
+                     {default} reduce 16
+
+State 15:
+          subgraph ::= id OPENBRACE stmtList * CLOSEBRACE
+
+                    CLOSEBRACE shift  29
+
+State 16:
+          start ::= DIGRAPH id * OPENBRACE stmtList CLOSEBRACE
+
+                     OPENBRACE shift  3
+
+State 17:
+          id ::= QUOTMARK * ID QUOTMARK
+
+                            ID shift  23
+
+State 18:
+          subgraph ::= id * OPENBRACE stmtList CLOSEBRACE
+          subgraph ::= id * OPENBRACE CLOSEBRACE
 
                      OPENBRACE shift  1
 
-State 14:
-          attrList ::= OPENATTR aList * CLOSEATTR
-
-                     CLOSEATTR shift  30
-
-State 15:
-          aList ::= ID * EQUALS aValue
-          aList ::= ID * EQUALS aValue PUNCMARK aList
-
-                        EQUALS shift  6
-
-State 16:
-          start ::= DIGRAPH ID OPENBRACE stmtList * CLOSEBRACE
-
-                    CLOSEBRACE shift  26
-
-State 17:
-          stmt ::= ID EDGEOP * ID
-          stmt ::= ID EDGEOP * ID attrList
-
-                            ID shift  10
-
-State 18:
-          aValue ::= QUOTMARK aQuotValue * QUOTMARK
-
-                      QUOTMARK shift  32
-
 State 19:
-          start ::= DIGRAPH ID * OPENBRACE stmtList CLOSEBRACE
+          start ::= DIGRAPH id OPENBRACE stmtList * CLOSEBRACE
 
-                     OPENBRACE shift  2
+                    CLOSEBRACE shift  40
 
 State 20:
-      (5) aList ::= ID EQUALS aValue *
-          aList ::= ID EQUALS aValue * PUNCMARK aList
+          aValue ::= QUOTMARK aQuotValue * QUOTMARK
 
-                      PUNCMARK shift  8
-                     {default} reduce 5
+                      QUOTMARK shift  35
 
 State 21:
-          subgraph ::= ID OPENBRACE stmtList * CLOSEBRACE
+          attrList ::= OPENATTR aList * CLOSEATTR
 
-                    CLOSEBRACE shift  27
+                     CLOSEATTR shift  33
 
 State 22:
-          start ::= DIGRAPH * ID OPENBRACE stmtList CLOSEBRACE
+          aList ::= id * EQUALS aValue
+          aList ::= id * EQUALS aValue PUNCMARK aList
 
-                            ID shift  19
+                        EQUALS shift  11
 
 State 23:
-     (15) stmt ::= ID EDGEOP ID attrList *
+          id ::= QUOTMARK ID * QUOTMARK
 
-                     {default} reduce 15
+                      QUOTMARK shift  28
 
 State 24:
-     (18) subgraph ::= ID OPENBRACE CLOSEBRACE *
+      (7) aList ::= id EQUALS aValue *
+          aList ::= id EQUALS aValue * PUNCMARK aList
+
+                      PUNCMARK shift  6
+                     {default} reduce 7
+
+State 25:
+     (18) stmt ::= SUBGRAPH subgraph *
 
                      {default} reduce 18
 
-State 25:
-     (16) stmt ::= SUBGRAPH subgraph *
-
-                     {default} reduce 16
-
 State 26:
-      (0) start ::= DIGRAPH ID OPENBRACE stmtList CLOSEBRACE *
-
-                     {default} reduce 0
-
-State 27:
-     (17) subgraph ::= ID OPENBRACE stmtList CLOSEBRACE *
-
-                     {default} reduce 17
-
-State 28:
-     (10) aQuotValue ::= ID aQuotValue *
-
-                     {default} reduce 10
-
-State 29:
-      (6) aList ::= ID EQUALS aValue PUNCMARK aList *
-
-                     {default} reduce 6
-
-State 30:
-      (3) attrList ::= OPENATTR aList CLOSEATTR *
+      (3) stmtList ::= stmt stmtList *
 
                      {default} reduce 3
 
-State 31:
-      (4) attrList ::= OPENATTR CLOSEATTR *
-
-                     {default} reduce 4
-
-State 32:
-      (7) aValue ::= QUOTMARK aQuotValue QUOTMARK *
-
-                     {default} reduce 7
-
-State 33:
-      (1) stmtList ::= stmt stmtList *
+State 27:
+      (1) id ::= ID *
 
                      {default} reduce 1
 
-State 34:
-     (11) aValue ::= ID *
+State 28:
+      (2) id ::= QUOTMARK ID QUOTMARK *
 
-                     {default} reduce 11
+                     {default} reduce 2
+
+State 29:
+     (19) subgraph ::= id OPENBRACE stmtList CLOSEBRACE *
+
+                     {default} reduce 19
+
+State 30:
+     (17) stmt ::= id EDGEOP id attrList *
+
+                     {default} reduce 17
+
+State 31:
+     (20) subgraph ::= id OPENBRACE CLOSEBRACE *
+
+                     {default} reduce 20
+
+State 32:
+     (15) stmt ::= id attrList *
+
+                     {default} reduce 15
+
+State 33:
+      (5) attrList ::= OPENATTR aList CLOSEATTR *
+
+                     {default} reduce 5
+
+State 34:
+      (6) attrList ::= OPENATTR CLOSEATTR *
+
+                     {default} reduce 6
 
 State 35:
-      (9) aQuotValue ::= ID PUNCMARK aQuotValue *
+      (9) aValue ::= QUOTMARK aQuotValue QUOTMARK *
 
                      {default} reduce 9
 
 State 36:
-     (13) stmt ::= ID attrList *
+     (11) aQuotValue ::= ID PUNCMARK aQuotValue *
+
+                     {default} reduce 11
+
+State 37:
+     (12) aQuotValue ::= ID aQuotValue *
+
+                     {default} reduce 12
+
+State 38:
+      (8) aList ::= id EQUALS aValue PUNCMARK aList *
+
+                     {default} reduce 8
+
+State 39:
+     (13) aValue ::= ID *
 
                      {default} reduce 13
+
+State 40:
+      (0) start ::= DIGRAPH id OPENBRACE stmtList CLOSEBRACE *
+
+                     {default} reduce 0
 

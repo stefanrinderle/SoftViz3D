@@ -3,12 +3,25 @@
 class DotFileParser extends CApplicationComponent
 {
 
-	private $generateParser = false;
+	public $generateParser;
+	
+	public function init() {
+		// Create Parser
+		if ($this->generateParser) {
+			exec('/Applications/XAMPP/xamppfiles/bin/php /Applications/XAMPP/xamppfiles/lib/php/pear/PHP/ParserGenerator/cli.php ' . dirname(__FILE__) . '/DotParser.y', $output, $return);
+		}
+		
+		// Create Lexer
+		require_once 'PHP/LexerGenerator.php';
+		
+		$lex = new PHP_LexerGenerator(dirname(__FILE__) . '/DotLexer.plex');
+		
+		include_once("DotParser.php");
+		include_once("DotLexer.php");
+	}
 	
 	public function parseFile($dotFilePath)
 	{
-		$this->initialize();
-		
 		$lex = new DotLexer(file_get_contents($dotFilePath));
 		
 		return $this->parse($lex);
@@ -16,8 +29,6 @@ class DotFileParser extends CApplicationComponent
 	
 	public function parseString($string)
 	{
-		$this->initialize();
-		
 		$lex = new DotLexer($string);
 	
 		return $this->parse($lex);
@@ -30,22 +41,6 @@ class DotFileParser extends CApplicationComponent
 		}
 
 		return $this->parseString($result);
-	}
-	
-	private function initialize() {
-		// Create Parser
-		//TODO: working but makes output, exec is not working...
-		if ($this->generateParser) {
-			passthru('/Applications/XAMPP/xamppfiles/bin/php /Applications/XAMPP/xamppfiles/lib/php/pear/PHP/ParserGenerator/cli.php ' . dirname(__FILE__) . '/DotParser.y');
-		}
-		
-		// Create Lexer
-		require_once 'PHP/LexerGenerator.php';
-		
-		$lex = new PHP_LexerGenerator(dirname(__FILE__) . '/DotLexer.plex');
-		
-		include_once("DotParser.php");
-		include_once("DotLexer.php");
 	}
 	
 	private function parse($lex) {

@@ -14,7 +14,10 @@ $this->breadcrumbs=array(
 
 <?php else: ?>
 		
-	<p><?php echo $filename; ?> - <?php echo CHtml::link('Edit file', array('file/edit')); ?></p>
+	<p><?php echo $filename; ?> - 
+		<?php echo CHtml::link('Edit file', array('file/edit')); ?> -
+		<?php echo CHtml::link('Check file', array('file/check')); ?>
+	</p>
 	
 	<p style="font-family: monospace;">
 	<?php 

@@ -19,27 +19,21 @@ class TreeController extends Controller
 		TreeElement::model()->deleteAll();
 		EdgeElement::model()->deleteAll();
 		
-		// STEP 1: Create an input dot file (string)
+		// STEP 1: Load input dot file
 		
-		/* directory */
-		$path = "/Users/stefan/Sites/3darch/protected";
+		$filename = Yii::app()->basePath . Yii::app()->params['currentResourceFile'];
 		
-		/* Parse to a file to view the result */
-		$outputFile = '/Users/stefan/Sites/3dArch/x3d/parser.dot';
-		Yii::app()->directoryToDotParser->parseToFile($path, $outputFile);
-		$result = Yii::app()->dotFileParser->parseFile($outputFile);
-		
-		/* parse to string in memory */
-// 		$dotString = Yii::app()->directoryToDotParser->parseToDotString($path);
-// 		$result = Yii::app()->dotFileParser->parseString($dotString);
+		try {
+			$result = Yii::app()->dotFileParser->parseFile($filename);
+		} catch (Exception $e) {
+			$exception = $e;
+			Yii::app()->user->setFlash('error', 'Input file parsing failed: ' . $e->getMessage());
+		}
 		
 		// STEP 2: Write parsed data into database
 		
-		$start = $this->getTime();
 		Yii::app()->dotInfoToDb->writeToDb($result);
-		
-// 		print_r("write to db: " . number_format(($this->getTime() - $start),2) . "<br />");
-		
+
 		// STEP 3: Normalize edges
 		
 		$edges = EdgeElement::model()->findAll();

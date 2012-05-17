@@ -42,6 +42,21 @@ class FileController extends Controller
 		));
 	}
 	
+	public function actionCheck() {
+		$filename = Yii::app()->basePath . Yii::app()->params['currentResourceFile'];
+		
+		try {
+			$result =Yii::app()->dotFileParser->parseFile($filename);
+			
+			Yii::app()->user->setFlash('success', 'File valid');
+		} catch (Exception $e) {
+			$exception = $e;
+			Yii::app()->user->setFlash('error', 'Check failed: ' . $e->getMessage());
+		}
+		
+		$this->render('check', array(result => $result, exception => $exception));
+	}
+	
 	public function actionEdit() {
 		$filename = Yii::app()->basePath . Yii::app()->params['currentResourceFile'];
 		

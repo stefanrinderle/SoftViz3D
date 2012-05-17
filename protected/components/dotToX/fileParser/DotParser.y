@@ -43,8 +43,16 @@
     throw new Exception('Unexpected ' . $this->tokenName($yymajor) . '(' . $TOKEN. '), expected one of: ' . implode(',', $expect));
 }
 
-start(res) ::= DIGRAPH ID(name) OPENBRACE stmtList(stmts) CLOSEBRACE. {
+start(res) ::= DIGRAPH id(name) OPENBRACE stmtList(stmts) CLOSEBRACE. {
 	res = array(type => "main", label => name, content => stmts);
+}
+
+id(res) ::= ID(name). {
+	res = name;
+}
+
+id(res) ::= QUOTMARK ID(name) QUOTMARK. {
+	res = name;
 }
 
 stmtList(res)  ::= stmt(s1) stmtList(stmts). {
@@ -64,11 +72,11 @@ attrList(res) ::= OPENATTR CLOSEATTR. {
 	res = 0;
 }
 
-aList(res) ::= ID(name) EQUALS aValue(value). {
+aList(res) ::= id(name) EQUALS aValue(value). {
 	res = array(name => value);
 }
 
-aList(res) ::= ID(name) EQUALS aValue(value) PUNCMARK aList(content). {
+aList(res) ::= id(name) EQUALS aValue(value) PUNCMARK aList(content). {
 	res = array_merge(array(name => value), content);
 }
 
@@ -93,20 +101,20 @@ aValue(res) ::= ID(name). {
 }
 
 // Node stmt
-stmt(res)  ::= ID(name). { 
+stmt(res)  ::= id(name). { 
 	res = array(array(type => "node", label => name));
 }
 
-stmt(res)  ::= ID(name) attrList(content). { 
+stmt(res)  ::= id(name) attrList(content). { 
 	res = array(array(type => "node", label => name, attr => content));
 }
 
 // Edge stmt
-stmt(res)  ::= ID(name1) EDGEOP ID(name2). { 
+stmt(res)  ::= id(name1) EDGEOP id(name2). { 
 	res = array(array(label => name1 . " -> " . name2, type => "edge", node1 => name1, node2 => name2));
 }
 
-stmt(res)  ::= ID(name1) EDGEOP ID(name2) attrList(content). {
+stmt(res)  ::= id(name1) EDGEOP id(name2) attrList(content). {
 	res = array(array(label => name1 . " -> " . name2, type => "edge", node1 => name1, node2 => name2, attr => content));
 }
 
@@ -115,10 +123,10 @@ stmt(res)  ::= SUBGRAPH subgraph(content). {
 	res = array(content);
 }
 
-subgraph(res) ::= ID(name) OPENBRACE stmtList(stmts) CLOSEBRACE. {
+subgraph(res) ::= id(name) OPENBRACE stmtList(stmts) CLOSEBRACE. {
 	res = array(type => "sub", label => name, content => stmts);
 }
 
-subgraph(res) ::= ID(name) OPENBRACE CLOSEBRACE. {
+subgraph(res) ::= id(name) OPENBRACE CLOSEBRACE. {
 	res = array(type => "sub", label => name, content => array());
 }

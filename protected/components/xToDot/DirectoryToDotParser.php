@@ -15,7 +15,7 @@ class DirectoryToDotParser extends CApplicationComponent
 		
 		$this->graphViz = new Image_GraphViz_Copy();
 // 		$this->graphViz->binPath = '/usr/local/bin/';
-		$this->graphViz->graph['name'] = $it->getPath();
+		$this->graphViz->graph['name'] = str_replace("/", "_", $it->getPath());
 		
 		$this->_scanDirectory($it);
 		

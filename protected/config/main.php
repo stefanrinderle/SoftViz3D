@@ -45,6 +45,7 @@ return array(
 		),
 		'dotFileParser'=>array(
 				'class'=>'DotFileParser',
+				'generateParser' => true
 		),
 		'dotLayout'=>array(
 			'class'=>'DotLayout',

@@ -21,7 +21,7 @@ class DotWriter extends CApplicationComponent
 		foreach ($elements as $key => $value) {
 			if ($value instanceOf TreeElement) {
 				$elementString = str_replace(".", "_", $value->label);
-				$elementString .= ' [shape="rectangle" width="' . $value->size[width] . '", height="' . $value->size[height] . '", fixedsize=true';
+				$elementString .= ' [shape="rectangle", width="' . $value->size[width] . '", height="' . $value->size[height] . '", fixedsize=true';
 				
 				if ($value->isLeaf) {
 					$elementString .= ', type="leaf"';
