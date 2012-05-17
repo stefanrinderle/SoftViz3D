@@ -2,7 +2,6 @@
 
 class DotLayout extends CApplicationComponent
 {
-
 	public function layout($sourceFilePath) {
 		// Create adot file
 		$command  = '/usr/local/bin/dot';
