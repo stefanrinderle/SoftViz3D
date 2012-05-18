@@ -1,8 +1,8 @@
 <?php
 
-class DotLayout extends CApplicationComponent
+class DotCommand extends CApplicationComponent
 {
-	public function layout($sourceFilePath) {
+	public function execute($sourceFilePath) {
 		// Create adot file
 		$command  = '/usr/local/bin/dot';
 		$command .=  ' -Kneato';

@@ -51,8 +51,8 @@ return array(
 				'class'=>'DotFileParser',
 				'generateParser' => true
 		),
-		'dotLayout'=>array(
-			'class'=>'DotLayout',
+		'dotCommand'=>array(
+			'class'=>'DotCommand',
 		),
 		'vectorCalculator'=>array(
 			'class'=>'VectorCalculator',

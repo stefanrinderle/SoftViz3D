@@ -4,6 +4,10 @@ class DotInfoToDb extends CApplicationComponent {
 	
 	public function writeToDb($dotArray)
 	{
+		/* reset database */
+		TreeElement::model()->deleteAll();
+		EdgeElement::model()->deleteAll();
+		
 		$this->parseGraph($dotArray);
 	}
 	

@@ -8,11 +8,6 @@ class TreeController extends Controller
 	
 	public function actionIndex()
 	{
-		/* reset database */
-		$connection=Yii::app()->db;
-		TreeElement::model()->deleteAll();
-		EdgeElement::model()->deleteAll();
-		
 		// STEP 1: Load input dot file
 		$filename = Yii::app()->basePath . Yii::app()->params['currentResourceFile'];
 		
