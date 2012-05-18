@@ -13,12 +13,13 @@ class EX3domWidget extends CWidget {
 	}
 	
 	private function generateX3DOM($node, $transX, $transZ) {
-		$nodeWidth = $node->x3dInfos->bb[size][width];
-		$nodeLength = $node->x3dInfos->bb[size][length];
+		$x3dInfos = $node->getX3dInfos();
+		$nodeWidth = $x3dInfos->bb[size][width];
+		$nodeLength = $x3dInfos->bb[size][length];
 	
 		// get translation of parent
 		$translation[x] = $transX;
-		$translation[y] = $node->x3dInfos->bb[position][y];
+		$translation[y] = $x3dInfos->bb[position][y];
 		$translation[z] = $transZ;
 	
 		if (!$node->level == 0) {
@@ -26,17 +27,18 @@ class EX3domWidget extends CWidget {
 			$translation[z] = $translation[z] - $nodeLength / 2;
 		}
 	
-		$this->render('x3dGroup', array(graph=>$node->x3dInfos, translation=>$translation));
+		$this->render('x3dGroup', array(graph=>$x3dInfos, translation=>$translation));
 	
 		// calculate values for the children nodes
-		$content = $node->content;
-	
+// 		$content = $node->content;
+		$content = TreeElement::model()->findAllByAttributes(array('parent_id'=>$node->id));
+		
 		foreach ($content as $key => $value) {
 			$label = trim($value->label);
 	
 			// layout node position
-			$nodePositionX = $node->x3dInfos->nodes[$label][position][x];
-			$nodePositionZ = $node->x3dInfos->nodes[$label][position][z];
+			$nodePositionX = $x3dInfos->nodes[$label][position][x];
+			$nodePositionZ = $x3dInfos->nodes[$label][position][z];
 	
 			if (!$node->level == 0) {
 				$nodePositionX = $nodePositionX + ($transX - ($nodeWidth / 2));

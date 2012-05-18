@@ -10,8 +10,9 @@ class LayoutVisitor {
 		$layerLayout = $this->calcLayerLayout($layoutElements);
 
 		// generate x3d code for this layer
-		$comp->x3dInfos = Yii::app()->x3dCalculator->calculate($layerLayout, $comp->level, $this->max_level);
-
+		$x3dInfos = Yii::app()->x3dCalculator->calculate($layerLayout, $comp->level, $this->max_level);
+		$comp->setX3dInfos($x3dInfos);
+		
 		// size of the node is the size of its bounding box
 		$comp->size = array(width=>$layerLayout['bb'][2] / self::$SCALE, height=>$layerLayout['bb'][3] / self::$SCALE);
 

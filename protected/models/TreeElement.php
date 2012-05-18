@@ -8,17 +8,26 @@ class TreeElement extends CActiveRecord
 	public $level;
 	
 	public $isLeaf;
-	
-	// not in database yet
+
 	public $x3dInfos;
+	
+	// not in database yet because not nesessary
 	public $size;
-	public $content;
 	
 	public static function model($className=__CLASS__)
 	{
 		return parent::model($className);
 	}
 
+	public function setX3dInfos($x3dInfos) {
+		$this->x3dInfos = serialize($x3dInfos);
+		$this->save();
+	}
+	
+	public function getX3dInfos() {
+		return unserialize($this->x3dInfos);
+	}
+	
 	public function tableName()
 	{
 		return 'tbl_TreeElement';
@@ -35,9 +44,9 @@ class TreeElement extends CActiveRecord
 		$layoutElements = array();
 		
 		if (!$this->isLeaf) {
-			$this->content = TreeElement::model()->findAllByAttributes(array('parent_id'=>$this->id));
+			$content = TreeElement::model()->findAllByAttributes(array('parent_id'=>$this->id));
 			
-			foreach ($this->content as $child) {
+			foreach ($content as $child) {
 				$element = $child->accept($visitor);
 				array_push($layoutElements, $element);
 			}
