@@ -29,7 +29,7 @@ function generateX3DOM($node, $self, $transX, $transZ) {
 			$translation[z] = $translation[z] - $nodeLength / 2;
 		} 
 		
-		$self->renderPartial('x3dGroup', array(graph=>$node->x3dInfos, translation=>$translation));
+		$self->renderPartial('//x3dom/x3dGroup', array(graph=>$node->x3dInfos, translation=>$translation));
 		
 		// calculate values for the children nodes
 		$content = $node->content;
