@@ -1,6 +1,6 @@
 <?php
 
-$this->renderPartial('//x3dom/baseObjects/box', 
+$this->render('/baseObjects/box', 
 	array(
 		'size'=>$size,
 		'position'=>array('x' => $position[x] + $size[width] / 2, 

@@ -2,14 +2,14 @@
 <Group>
 <?php
 
-$this->renderPartial('//x3dom/baseObjects/basePlattform', $graph->bb);
+$this->render('baseObjects/basePlattform', $graph->bb);
 
 foreach ($graph->nodes as $key => $value) {
-	$this->renderPartial('//x3dom/baseObjects/box', $value);
+	$this->render('baseObjects/box', $value);
 }
 
 foreach ($graph->edges as $key => $value) {
-	$this->renderPartial('//x3dom/baseObjects/edge', $value);
+	$this->render('baseObjects/edge', $value);
 }
 
 ?>
