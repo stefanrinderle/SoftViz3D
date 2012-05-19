@@ -30,8 +30,7 @@ class EX3domWidget extends CWidget {
 		$this->render('x3dGroup', array(graph=>$x3dInfos, translation=>$translation));
 	
 		// calculate values for the children nodes
-// 		$content = $node->content;
-		$content = TreeElement::model()->findAllByAttributes(array('parent_id'=>$node->id));
+		$content = TreeElement::model()->findAllByAttributes(array('parent_id'=>$node->id, 'isLeaf'=>0));
 		
 		foreach ($content as $key => $value) {
 			$label = trim($value->label);
@@ -44,10 +43,8 @@ class EX3domWidget extends CWidget {
 				$nodePositionX = $nodePositionX + ($transX - ($nodeWidth / 2));
 				$nodePositionZ = $nodePositionZ + ($transZ - ($nodeLength / 2));
 			}
-			//TODO: Why is this required?
-			if ($value->x3dInfos) {
-				$this->generateX3DOM($value, $nodePositionX, $nodePositionZ);
-			}
+			
+			$this->generateX3DOM($value, $nodePositionX, $nodePositionZ);
 		}
 	}
 }

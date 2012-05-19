@@ -24,6 +24,16 @@ if (is_writeable($filePath)) {
 }
 ?>
 
+<!-- LAYOUT TEMP DOT FILE -->
+<?php 
+$filePath = '/Users/stefan/Sites/3dArch/protected/runtime/temp.dot';
+if (is_writeable($filePath)) {
+	$this->renderPartial('//common/_showSuccess', array(message=>"Layout dot file: " . $filePath . " is writable"));
+} else {
+	$this->renderPartial('//common/_showError', array(message=>"Layout dot file: " . $filePath . " is NOT writable"));
+}
+?>
+
 <!-- DOT COMMAND / GRAPHVIZ -->
 <?php 
 $filePath = '/usr/local/bin/dot';

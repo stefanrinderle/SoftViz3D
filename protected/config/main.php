@@ -114,6 +114,7 @@ return array(
 	'params'=>array(
 		// this is used in contact page
 		'adminEmail'=>'webmaster@example.com',
-		'currentResourceFile' => DIRECTORY_SEPARATOR . 'runtime' . DIRECTORY_SEPARATOR . 'actualResource.dot'
+		'currentResourceFile' => DIRECTORY_SEPARATOR . 'runtime' . DIRECTORY_SEPARATOR . 'actualResource.dot',
+		'tempDotFile' => DIRECTORY_SEPARATOR . 'runtime' . DIRECTORY_SEPARATOR . 'temp.dot'
 	),
 );

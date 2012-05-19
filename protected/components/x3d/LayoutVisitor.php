@@ -1,7 +1,7 @@
 <?php
 class LayoutVisitor {
 	private static $SCALE = 72;
-	private $outputFile = '/Users/stefan/Sites/3dArch/x3d/temp.dot';
+	private $outputFile = '/Users/stefan/Sites/3dArch/protected/runtime/temp.dot';
 
 	private $max_level = 0;
 

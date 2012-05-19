@@ -28,11 +28,8 @@ digraph _Users_stefan_Sites_3dArch_x3d {
     "world.adot";
     "world.dot";
     "world.pdf";
-    subgraph cluster_sdfsdf_0 {
-        graph [ label=sdfsdf_0 ];
-    }
-    subgraph cluster_vrml_1 {
-        graph [ label=vrml_1 ];
+    subgraph cluster_vrml_0 {
+        graph [ label=vrml_0 ];
         "3d.html";
         "3d.vrml";
         "node1.png";
