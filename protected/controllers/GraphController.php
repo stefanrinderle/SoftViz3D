@@ -28,7 +28,7 @@ class GraphController extends Controller
 		Yii::app()->edgeExpander->execute();
 		
 		// STEP 4: calculate the view layout
-		$layout = new LayoutVisitor();
+		$layout = new LayoutVisitor("dot");
 		$root = TreeElement::model()->findByPk(1);
 		$root->accept($layout);
 		

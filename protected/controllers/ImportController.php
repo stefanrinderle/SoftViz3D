@@ -19,6 +19,26 @@ class ImportController extends Controller
 		));
 	}
 	
+	public function actionSimpleTree() {
+		$this->_copyExampleFile(Yii::app()->basePath . '/data/exampleFiles/simpleTree.dot');
+	}
+	
+	public function actionSimpleGraph() {
+		$this->_copyExampleFile(Yii::app()->basePath . '/data/exampleFiles/simpleGraph.dot');
+	}
+	
+	private function _copyExampleFile($sourceFileName) {
+		$result = copy($sourceFileName, Yii::app()->basePath . Yii::app()->params['currentResourceFile']);
+		
+		if ($result) {
+			Yii::app()->user->setFlash('success', 'File successful imported.');
+		} else {
+			Yii::app()->user->setFlash('error', 'File could not be loaded.');
+		}
+		
+		$this->render('index', array());
+	}
+	
 	private function _handleUploadForm() {
 		$uploadform = new CForm('application.views.import._uploadForm', new FileUpload());
 		

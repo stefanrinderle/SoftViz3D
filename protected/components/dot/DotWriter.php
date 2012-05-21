@@ -41,7 +41,7 @@ class DotWriter extends CApplicationComponent
 				$this->graphViz->addNode($value->label, $attr);
 				
 			} else if ($value instanceOf EdgeElement) {
-				$elementString = str_replace(".", "_", $value->inElement->label) . " -> " . str_replace(".", "_", $value->outElement->label);
+				$this->graphViz->addEdge(array($value->outElement->label => $value->inElement->label));
 			}
 		}
 	}

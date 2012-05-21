@@ -106,10 +106,10 @@ class X3dCalculator extends CApplicationComponent
 
 			$result = array(
 				'startPos'=>array('x' => $edge['attr']['pos'][1], 
-								  'y' => $depth * $depthMultiplicator, 
+								  'y' => $depth * $depthMultiplicator + 10, 
 								  'z' => $edge['attr']['pos'][2]),
 				'endPos'=>array('x' => $edge['attr']['pos'][3], 
-								'y' => $depth * $depthMultiplicator, 
+								'y' => $depth * $depthMultiplicator + 10, 
 								'z' => $edge['attr']['pos'][4]),
 				'sections'=>$sections,
 				'colour'=>array('r'=>0, 'g'=>1, 'b'=>0)

@@ -8,7 +8,7 @@
         
         <Box size='<?php echo $size[width] . " " . $size[height] . " " . $size[length]; ?>'/>
 	</Shape>
-	<!-- Transform translation="0 <?php echo $size[height] * 2; ?> 0">
+	<Transform translation="0 <?php echo $size[height] * 2; ?> 0">
 	    <Shape>
 	    	<Appearance>
 				<Material diffuseColor='1 0 0'/>
@@ -17,5 +17,5 @@
 	        	<FontStyle family='SERIF' justify='MIDDLE' size="500" />
 	        </Text>
 	    </Shape>
-    </Transform -->
+    </Transform>
 </Transform>

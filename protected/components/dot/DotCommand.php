@@ -2,10 +2,10 @@
 
 class DotCommand extends CApplicationComponent
 {
-	public function execute($sourceFilePath) {
+	public function execute($sourceFilePath, $layout) {
 		// Create adot file
 		$command  = '/usr/local/bin/dot';
-		$command .=  ' -Kneato';
+ 		$command .=  ' -K' . $layout;
 		//$command .=  ' -s1';
 		//$command .= ' -o ' . escapeshellarg($destinationFilePath);
 		$command .= ' '  . escapeshellarg($sourceFilePath);

@@ -32,8 +32,8 @@ class DotInfoToDb extends CApplicationComponent {
 	
 	protected function retrieveEdge($edge) {
 		$label = $edge[label];
-		$out = $edge[node1];
-		$in = $edge[node2];
+		$in = $edge[node1];
+		$out = $edge[node2];
 			
 		$out_id = TreeElement::model()->find('label=:label', array(':label'=>$out))->id;
 		$in_id = TreeElement::model()->find('label=:label', array(':label'=>$in))->id;

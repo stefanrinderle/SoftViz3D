@@ -21,33 +21,16 @@ class EdgeExpander extends CApplicationComponent
 		}
 	}
 	
-	private function getDependencyNode($parentId, $level) {
-		$depPrefix = "dep_";
-		$depNodeLabel = $depPrefix . $parentId;
-	
-		//TODO dont retrieve the whole object, just the id
-		$depNode = TreeElement::model()->findByAttributes(array('parent_id'=>$parentId, 'label'=>$depNodeLabel));
-		if (!$depNode) {
-			$depNodeId = TreeElement::createAndSaveLeafTreeElement($depNodeLabel, $parentId, $level);
-		} else {
-			$depNodeId = $depNode->id;
-		}
-	
-		return $depNodeId;
-	}
-	
 	private function expandEdge($source, $dest) {
 		$depEdgeLabel = "depEdge";
 	
 		while ($source->parent_id != $dest->parent_id) {
 			if ($source->level > $dest->level) {
-	
 				$depNodeId = $this->getDependencyNode($source->parent_id, $source->level);
 				EdgeElement::createAndSaveEdgeElement($depEdgeLabel, $source->id, $depNodeId, $source->parent_id);
 	
 				$source = $source->parent;
 			} else {
-	
 				$depNodeId = $this->getDependencyNode($dest->parent_id, $dest->level);
 				EdgeElement::createAndSaveEdgeElement($depEdgeLabel, $depNodeId, $dest->id, $dest->parent_id);
 	
@@ -73,6 +56,20 @@ class EdgeExpander extends CApplicationComponent
 		}
 	
 		EdgeElement::createAndSaveEdgeElement($depEdgeLabel, $source->id, $dest->id, $dest->parent_id);
+	}
 	
+	private function getDependencyNode($parentId, $level) {
+		$depPrefix = "dep_";
+		$depNodeLabel = $depPrefix . $parentId;
+	
+		//TODO dont retrieve the whole object, just the id
+		$depNode = TreeElement::model()->findByAttributes(array('parent_id'=>$parentId, 'label'=>$depNodeLabel));
+		if (!$depNode) {
+			$depNodeId = TreeElement::createAndSaveLeafTreeElement($depNodeLabel, $parentId, $level);
+		} else {
+			$depNodeId = $depNode->id;
+		}
+	
+		return $depNodeId;
 	}
 }

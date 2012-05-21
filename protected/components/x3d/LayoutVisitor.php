@@ -5,6 +5,12 @@ class LayoutVisitor {
 
 	private $max_level = 0;
 
+	private $layout;
+	
+	function __construct($layout = "neato") {
+		$this->layout = $layout;
+	}
+	
 	function visitTreeElement(TreeElement $comp, $layoutElements) {
 		// create layout array
 		$layerLayout = $this->calcLayerLayout($layoutElements);
@@ -32,7 +38,7 @@ class LayoutVisitor {
 	private function calcLayerLayout($elements) {
 		Yii::app()->dotWriter->writeToFile($elements, $this->outputFile);
 		
-		$layoutDot = Yii::app()->dotCommand->execute($this->outputFile);
+		$layoutDot = Yii::app()->dotCommand->execute($this->outputFile, $this->layout);
 
 		$newLayout = Yii::app()->dotFileParser->parseStringArray($layoutDot);
 		

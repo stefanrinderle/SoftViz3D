@@ -40,5 +40,11 @@ $this->breadcrumbs=array(
 	<div class="form">
 		<?php echo $directoryPathForm; ?>
 	</div>
+	
+	<h3>Load example files:</h3>
+	
+	<p><?php echo CHtml::link('Simple tree example', array('import/simpleTree')); ?></p>
+	
+	<p><?php echo CHtml::link('Simple graph example', array('import/simpleGraph')); ?></p>
 
 <?php endif; ?>

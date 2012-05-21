@@ -1,0 +1,44 @@
+digraph _Users_stefan_Sites_3dArch_x3d {
+      "basisTests.x3d";
+      "basisTestsEdge.x3d";
+      "basisTestsNurbs.x3d";
+      "basisTestsText.x3d";
+      "dependency.dot";
+      "image_graphviz.dot";
+      "layeredLayout.dot";
+      "nurbsTestWindows.x3d";
+      "parser.adot";
+      "parser.dot";
+      "parser.pdf";
+      "parsera.dot";
+      "simpleGraph.adot";
+      "simpleGraph.dot";
+      "simpleGraph2D.adot";
+      "simpleGraph2D.dot";
+      "subgraph.adot";
+      "subgraph.dot";
+      "subgraph.pdf";
+      "subgraphTest.adot";
+      "subgraphTest.dot";
+      "subgraphTest.pdf";
+      "temp.adot";
+      "temp.dot";
+      "testTransparency.x3d";
+      "tvoicerWeb.x3d";
+      "world.adot";
+      "world.dot";
+      "world.pdf";
+      subgraph cluster_vrml_0 {
+           graph [ label=vrml_0 ];
+           "3d.html";
+           "3d.vrml";
+           "node1.png";
+           "node10.png";
+           "node12.png";
+           "node16.png";
+           "node3.png";
+           "node4.png";
+           "node6.png";
+           "node8.png";
+      }
+     } 
