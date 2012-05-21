@@ -40,6 +40,7 @@
 				array('label'=>'Import', 'url'=>array('/import/index')),
 				array('label'=>'File', 'url'=>array('/file/index')),
 				array('label'=>'Tree', 'url'=>array('/tree/index')),
+				array('label'=>'Graph', 'url'=>array('/graph/index')),
 				array('label'=>'-----', 'url'=>array('')),
 				array('label'=>'About', 'url'=>array('/site/page', 'view'=>'about')),
 				array('label'=>'Contact', 'url'=>array('/site/contact')),

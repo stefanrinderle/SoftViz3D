@@ -2,29 +2,25 @@
 
 require_once 'PHP/LexerGenerator.php';
 
-class DotFileParser extends CApplicationComponent
-{
-
-	public $generateParser;
+class DotFileParser extends CApplicationComponent {
+	public $generate;
 	
 	public function init() {
 		// Create Parser
-		if ($this->generateParser) {
+		if ($this->generate) {
 			exec('/Applications/XAMPP/xamppfiles/bin/php /Applications/XAMPP/xamppfiles/lib/php/pear/PHP/ParserGenerator/cli.php ' . dirname(__FILE__) . '/DotParser.y', $output, $return);
+			
+			$lex = new PHP_LexerGenerator(dirname(__FILE__) . '/DotLexer.plex');
 		}
-		
-		$lex = new PHP_LexerGenerator(dirname(__FILE__) . '/DotLexer.plex');
 	}
 	
-	public function parseFile($dotFilePath)
-	{
+	public function parseFile($dotFilePath) {
 		$lex = new DotLexer(file_get_contents($dotFilePath));
 		
 		return $this->parse($lex);
 	}
 	
-	public function parseString($string)
-	{
+	public function parseString($string) {
 		$lex = new DotLexer($string);
 	
 		return $this->parse($lex);

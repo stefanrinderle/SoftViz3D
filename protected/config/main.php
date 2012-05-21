@@ -49,7 +49,7 @@ return array(
 		),
 		'dotFileParser'=>array(
 				'class'=>'DotFileParser',
-				'generateParser' => true
+				'generate' => true
 		),
 		'dotCommand'=>array(
 			'class'=>'DotCommand',

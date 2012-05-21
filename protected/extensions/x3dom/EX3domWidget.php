@@ -2,6 +2,8 @@
 class EX3domWidget extends CWidget {
 	
 	public $tree;
+	// can be "tree" or "graph"
+	public $type;
 	
 	public function run()
 	{
@@ -27,7 +29,11 @@ class EX3domWidget extends CWidget {
 			$translation[z] = $translation[z] - $nodeLength / 2;
 		}
 	
-		$this->render('x3dGroup', array(graph=>$x3dInfos, translation=>$translation));
+		if ($this->type == "tree") {
+			$this->render('x3dTreeLayer', array(graph=>$x3dInfos, translation=>$translation));
+		} else {
+			$this->render('x3dGraphLayer', array(graph=>$x3dInfos, translation=>$translation));
+		}
 	
 		// calculate values for the children nodes
 		$content = TreeElement::model()->findAllByAttributes(array('parent_id'=>$node->id, 'isLeaf'=>0));

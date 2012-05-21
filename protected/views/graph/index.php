@@ -1,5 +1,5 @@
 <?php
-$this->pageTitle=Yii::app()->name . ' - Tree';
+$this->pageTitle=Yii::app()->name . ' - Graph';
 
 $this->breadcrumbs=array(
 	'Tree', 'Index'
@@ -17,6 +17,6 @@ Yii::app()->clientScript->registerCssFile(
 
 <?php
 	$this->widget('ext.x3dom.EX3domWidget',array(
-	    'tree'=> $tree, 'type' => 'tree'
+	    'tree'=> $tree, 'type' => 'graph'
 	));
 ?>

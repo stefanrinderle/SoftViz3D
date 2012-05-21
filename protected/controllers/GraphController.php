@@ -1,6 +1,6 @@
 <?php
 
-class TreeController extends Controller
+class GraphController extends Controller
 {
 	private $sourceFile = '/Users/stefan/Sites/3dArch/x3d/dependency.dot';
 	
@@ -24,6 +24,9 @@ class TreeController extends Controller
 		// STEP 2: Write parsed data into database
 		Yii::app()->dotInfoToDb->writeToDb($result);
 
+		// STEP 3: Normalize edges
+		Yii::app()->edgeExpander->execute();
+		
 		// STEP 4: calculate the view layout
 		$layout = new LayoutVisitor();
 		$root = TreeElement::model()->findByPk(1);
