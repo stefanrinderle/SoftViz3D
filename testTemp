@@ -1,4 +1,0 @@
-strict digraph G {
-    "wake up" -> "visit bathroom";
-    "visit bathroom" -> "make coffee";
-}
