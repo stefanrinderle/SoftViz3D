@@ -1,22 +1,30 @@
 <?php
 class LayoutVisitor {
+	public static $TYPE_TREE = "tree";
+	public static $TYPE_GRAPH = "graph";
+	
 	private static $SCALE = 72;
 	private $outputFile = '/Users/stefan/Sites/3dArch/protected/runtime/temp.dot';
 
 	private $max_level = 0;
 
-	private $layout;
+	private $type;
 	
-	function __construct($layout = "neato") {
-		$this->layout = $layout;
+	function __construct($type) {
+		$this->type = $type;
 	}
 	
 	function visitTreeElement(TreeElement $comp, $layoutElements) {
 		// create layout array
 		$layerLayout = $this->calcLayerLayout($layoutElements);
 
-		// generate x3d code for this layer
-		$x3dInfos = Yii::app()->x3dCalculator->calculate($layerLayout, $comp->level, $this->max_level);
+		if ($this->type == LayoutVisitor::$TYPE_TREE) {
+			$x3dInfos = Yii::app()->treeX3dCalculator->calculate($layerLayout, $comp->level, $this->max_level);
+		} else {
+			$x3dInfos = Yii::app()->graphX3dCalculator->calculate($layerLayout, $comp->level, $this->max_level);
+		}
+		
+// 		$x3dInfos = Yii::app()->x3dCalculator->calculate($layerLayout, $comp->level, $this->max_level);
 		$comp->setX3dInfos($x3dInfos);
 		
 		// size of the node is the size of its bounding box
@@ -38,7 +46,13 @@ class LayoutVisitor {
 	private function calcLayerLayout($elements) {
 		Yii::app()->dotWriter->writeToFile($elements, $this->outputFile);
 		
-		$layoutDot = Yii::app()->dotCommand->execute($this->outputFile, $this->layout);
+		if ($this->type == LayoutVisitor::$TYPE_TREE) {
+			$layout = "neato";	
+		} else {
+			$layout = "dot";
+		}
+
+		$layoutDot = Yii::app()->dotCommand->execute($this->outputFile, $layout);
 
 		$newLayout = Yii::app()->dotFileParser->parseStringArray($layoutDot);
 		

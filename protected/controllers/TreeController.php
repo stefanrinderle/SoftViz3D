@@ -25,7 +25,7 @@ class TreeController extends Controller
 		Yii::app()->dotInfoToDb->writeToDb($result);
 
 		// STEP 4: calculate the view layout
-		$layout = new LayoutVisitor();
+		$layout = new LayoutVisitor(LayoutVisitor::$TYPE_TREE);
 		$root = TreeElement::model()->findByPk(1);
 		$root->accept($layout);
 		

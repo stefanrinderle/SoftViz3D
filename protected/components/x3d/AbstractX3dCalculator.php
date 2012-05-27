@@ -6,7 +6,7 @@ class LayerLayout {
 	public $edges = array();
 }
 
-class X3dCalculator extends CApplicationComponent
+abstract class AbstractX3dCalculator extends CApplicationComponent
 {
 	private $layout;
 	
