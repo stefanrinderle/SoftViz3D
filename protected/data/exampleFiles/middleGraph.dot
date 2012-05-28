@@ -1,0 +1,25 @@
+digraph G {
+	subgraph cluster_0 {
+		subgraph cluster_00 {
+			vier;
+			fuenf;
+			sechs;			
+	        sieben;
+	        vier -> fuenf;
+	        sechs -> sieben;
+	        vier -> sieben;
+	    }
+		subgraph cluster_01 {
+			acht;
+			neun;
+			acht -> neun;
+		}
+	}
+	subgraph cluster_1 {
+		zehn;
+		elf;
+		zehn -> elf;
+	}
+	zwei;
+    drei;
+}

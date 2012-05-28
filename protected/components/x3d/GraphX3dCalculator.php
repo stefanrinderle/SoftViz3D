@@ -6,7 +6,7 @@ class GraphX3dCalculator extends AbstractX3dCalculator
 	{
 		parent::init();
 
-		$this->layerDepth = -50;
+		$this->layerDepth = -100;
 		
 		$this->adjustLayoutToX3d($layerLayout, $depth, $maxDepth);
 	
@@ -16,6 +16,8 @@ class GraphX3dCalculator extends AbstractX3dCalculator
 	protected function adjustLayoutToX3d($layerLayout, $depth, $maxDepth) {
 		// Bounding Box
 		$this->layout->bb = $this->adjustBb($layerLayout['normalizedLayout'], $depth, $maxDepth);
+		
+		$this->layout->reserved = $layerLayout;
 		
 		// Nodes
 		$nodes = array();
@@ -42,16 +44,15 @@ class GraphX3dCalculator extends AbstractX3dCalculator
 	}
 	
 	protected function adjustBb($layerLayout, $depth, $maxDepth) {
-		$randColor = rand(0, 100) / 100;
-		print_r($randColor . " -rand<br />");
+		//$randColor = rand(0, 100) / 100;
 	
 		$bb = $layerLayout['bb'];
 	
 		$width = $bb[2] - $bb[0];
 		$length = $bb[3] - $bb[1];
 	
-		$colour = array('r'=>0, 'g'=>$randColor, 'b'=>0);
-		$transpareny = 0;//0.9 - ($maxDepth - $depth) * 0.1;
+		$colour = array('r'=>0, 'g'=> $depth * 0.2, 'b'=>0);
+		$transpareny = 0.9 - ($maxDepth - $depth) * 0.1;
 	
 		$result = array(
 				'size'=>array('width'=>$width, 'length'=>$length),

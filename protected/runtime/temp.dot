@@ -1,4 +1,16 @@
 digraph G {
-    cluster_1 [ shape=rectangle,width=1,height=1,fixedsize=true,type="node" ];
-    cluster_0 [ shape=rectangle,width=1,height=1,fixedsize=true,type="node" ];
+    cluster_views_20 [ shape=rectangle,width=1,height=1,fixedsize=true,type="node" ];
+    cluster_vendors_19 [ shape=rectangle,width=1,height=1,fixedsize=true,type="node" ];
+    cluster_tests_17 [ shape=rectangle,width=1,height=1,fixedsize=true,type="node" ];
+    cluster_runtime_15 [ shape=rectangle,width=1,height=1,fixedsize=true,type="node" ];
+    cluster_models_13 [ shape=rectangle,width=1,height=1,fixedsize=true,type="node" ];
+    cluster_extensions_9 [ shape=rectangle,width=1,height=1,fixedsize=true,type="node" ];
+    cluster_data_7 [ shape=rectangle,width=1,height=1,fixedsize=true,type="node" ];
+    cluster_controllers_6 [ shape=rectangle,width=1,height=1,fixedsize=true,type="node" ];
+    cluster_config_5 [ shape=rectangle,width=1,height=1,fixedsize=true,type="node" ];
+    cluster_components_0 [ shape=rectangle,width=1,height=1,fixedsize=true,type="node" ];
+    "yiic.php" [ shape=rectangle,width=1,height=1,fixedsize=true,type=leaf ];
+    "yiic.bat" [ shape=rectangle,width=1,height=1,fixedsize=true,type=leaf ];
+    yiic [ shape=rectangle,width=1,height=1,fixedsize=true,type=leaf ];
+    "ControllerCode.php" [ shape=rectangle,width=1,height=1,fixedsize=true,type=leaf ];
 }

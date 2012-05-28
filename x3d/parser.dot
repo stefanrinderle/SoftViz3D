@@ -1,114 +1,22 @@
 digraph G {
-Xhtaccess;
-subgraph components {
-ControllerXphp;
-DotLayoutXphp;
-subgraph dotToX {
-DotInfoToDbXphp;
-subgraph fileParser {
-DotFileParserXphp;
-DotLexerXphp;
-DotLexerXplex;
-DotParserXout;
-DotParserXphp;
-DotParserXy;
-}
-}
-LayoutVisitorXphp;
-UserIdentityXphp;
-VectorCalculatorXphp;
-X3dCalculatorXphp;
-subgraph xToDot {
-DirectoryToDotParserXphp;
-DotWriterXphp;
-}
-}
-subgraph config {
-consoleXphp;
-mainXphp;
-testXphp;
-}
-subgraph controllers {
-FileControllerXphp;
-ImportControllerXphp;
-SiteControllerXphp;
-TreeControllerXphp;
-}
-subgraph data {
-goannaXdb;
-graphXdb;
-graphXschemaXsqliteXsql;
-}
-subgraph models {
-EdgeElementXphp;
-subgraph forms {
-ContactFormXphp;
-DirectoryPathFormXphp;
-EditFileFormXphp;
-FileUploadXphp;
-LoginFormXphp;
-}
-TreeElementXphp;
-}
-subgraph runtime {
-actualResourceXdot;
-applicationXlog;
-subgraph giiX1X1X10 {
-ControllerCodeXphp;
-}
-}
-subgraph tests {
-bootstrapXphp;
-subgraph functional {
-SiteTestXphp;
-}
-phpunitXxml;
-WebTestCaseXphp;
-}
-subgraph views {
-dumpArrayXphp;
-subgraph file {
-_editFormXphp;
-editXphp;
-indexXphp;
-}
-subgraph import {
-_directoryPathFormXphp;
-_quoteXphp;
-_uploadFormXphp;
-indexXphp;
-}
-subgraph layouts {
-column1Xphp;
-column2Xphp;
-mainXphp;
-}
-subgraph main {
-_showErrorXphp;
-_showSuccessXphp;
-}
-subgraph site {
-contactXphp;
-errorXphp;
-indexXphp;
-loginXphp;
-subgraph pages {
-aboutXphp;
-}
-}
-subgraph tree {
-indexXphp;
-subgraph shapes {
-basePlattformXphp;
-boxXphp;
-edgeXphp;
-edgeEndXphp;
-edgeSectionXphp;
-}
-x3dGroupXphp;
-}
-}
-yiic;
-yiicXbat;
-yiicXphp;
+	subgraph cluster_0 {
+		subgraph cluster_00 {
+             subgraph cluster_000 {
+				vier;
+				fuenf;
+				sechs;			
+	         }
+	         sieben;
+	    }
+		subgraph cluster_02 {
+			acht;
+			neun;
+		}
+	}
+	subgraph cluster_1 {
+		zehn;
+		elf;
+	}
+	zwei;
+    drei;
 }

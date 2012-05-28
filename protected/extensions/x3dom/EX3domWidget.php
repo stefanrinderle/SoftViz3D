@@ -16,10 +16,18 @@ class EX3domWidget extends CWidget {
 	
 	private function generateX3DOM($node, $transX, $transZ) {
 		$x3dInfos = $node->getX3dInfos();
-		$nodeWidth = $x3dInfos->bb[size][width];
-		$nodeLength = $x3dInfos->bb[size][length];
-	
+		
+		if ($x3dInfos->reserved) {
+			$bb = $x3dInfos->reserved['bb'];
+			$nodeWidth = $bb[2] - $bb[0];
+			$nodeLength = $bb[3] - $bb[1];
+		} else {
+			$nodeWidth = $x3dInfos->bb[size][width];
+			$nodeLength = $x3dInfos->bb[size][length];
+		}
+
 		// get translation of parent
+		$translation = array();
 		$translation[x] = $transX;
 		$translation[y] = $x3dInfos->bb[position][y];
 		$translation[z] = $transZ;
@@ -27,8 +35,11 @@ class EX3domWidget extends CWidget {
 		if ($node->level != 0) {
 			$translation[x] = $translation[x] - $nodeWidth / 2;
 			$translation[z] = $translation[z] - $nodeLength / 2;
+		} else {
+			$translation[x] = $nodeWidth / 2 - $x3dInfos->bb[size][width] / 2;
+			$translation[z] = $nodeLength / 2 - $x3dInfos->bb[size][length] / 2;
 		}
-	
+		
 		if ($this->type == "tree") {
 			$this->render('x3dTreeLayer', array(graph=>$x3dInfos, translation=>$translation));
 		} else {
@@ -41,14 +52,23 @@ class EX3domWidget extends CWidget {
 		foreach ($content as $key => $value) {
 			$label = trim($value->label);
 	
-			// layout node position
-			$nodePositionX = $x3dInfos->nodes[$label][position][x];
-			$nodePositionZ = $x3dInfos->nodes[$label][position][z];
-	
+			if ($x3dInfos->reserved) {
+				foreach ($x3dInfos->reserved['content'] as $reservedLayout) {
+					if ($reservedLayout['label'] == $label) {
+						$nodePositionX = $reservedLayout['attr']['pos'][0];
+						$nodePositionZ = $reservedLayout['attr']['pos'][1];
+					}
+				}
+			} else {
+				// layout node position
+				$nodePositionX = $x3dInfos->nodes[$label][position][x];
+				$nodePositionZ = $x3dInfos->nodes[$label][position][z];
+			}
+			
 			if ($node->level != 0) {
 				$nodePositionX = $nodePositionX + ($transX - ($nodeWidth / 2));
 				$nodePositionZ = $nodePositionZ + ($transZ - ($nodeLength / 2));
-			}
+			} 
 			
 			$this->generateX3DOM($value, $nodePositionX, $nodePositionZ);
 		}

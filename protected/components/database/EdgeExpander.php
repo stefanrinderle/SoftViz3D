@@ -25,9 +25,9 @@ class EdgeExpander extends CApplicationComponent
 		$depEdgeLabel = "depEdge";
 	
 		while ($source->parent_id != $dest->parent_id) {
-			print_r("while1" . "<br />");
-			print_r($source->parent_id . " " . $dest->parent_id . "<br />");
-			print_r($source->level . " " . $dest->level . "<br />");
+// 			print_r("while1" . "<br />");
+// 			print_r($source->parent_id . " " . $dest->parent_id . "<br />");
+// 			print_r($source->level . " " . $dest->level . "<br />");
 			
 			if ($source->level > $dest->level) {
 				$depNodeId = $this->getDependencyNode($source->parent_id, $source->level);
