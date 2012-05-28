@@ -1,7 +1,6 @@
 <?php
 
 class LayerLayout {
-	public $reserved;
 	public $bb;
 	public $nodes = array();
 	public $edges = array();

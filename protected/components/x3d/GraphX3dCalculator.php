@@ -15,13 +15,12 @@ class GraphX3dCalculator extends AbstractX3dCalculator
 	
 	protected function adjustLayoutToX3d($layerLayout, $depth, $maxDepth) {
 		// Bounding Box
-		$this->layout->bb = $this->adjustBb($layerLayout['normalizedLayout'], $depth, $maxDepth);
+		$this->layout->bb = $this->adjustBb($layerLayout, $depth, $maxDepth);
 		
-		$this->layout->reserved = $layerLayout;
 		
 		// Nodes
 		$nodes = array();
-		foreach ($layerLayout['normalizedLayout']['content'] as $key => $value) {
+		foreach ($layerLayout['content'] as $key => $value) {
 			if ($value['type'] == "node") {
 				
 				if ($value['attr'][type] == "leaf") {
@@ -35,7 +34,7 @@ class GraphX3dCalculator extends AbstractX3dCalculator
 		
 		// Edges
 		$edges = array();
-		foreach ($layerLayout['normalizedLayout']['content'] as $key => $value) {
+		foreach ($layerLayout['content'] as $key => $value) {
 			if ($value['type'] == "edge") {
 				$edges[$value['label']] = $this->adustEdge($value, $depth);
 			}
@@ -52,7 +51,7 @@ class GraphX3dCalculator extends AbstractX3dCalculator
 		$length = $bb[3] - $bb[1];
 	
 		$colour = array('r'=>0, 'g'=> $depth * 0.2, 'b'=>0);
-		$transpareny = 0.9 - ($maxDepth - $depth) * 0.1;
+		$transpareny = 1 - ($maxDepth - $depth) * 0.1;
 	
 		$result = array(
 				'size'=>array('width'=>$width, 'length'=>$length),

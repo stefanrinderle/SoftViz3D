@@ -1,14 +1,14 @@
 digraph G {
-    cluster_views_20 [ shape=rectangle,width=1,height=1,fixedsize=true,type="node" ];
-    cluster_vendors_19 [ shape=rectangle,width=1,height=1,fixedsize=true,type="node" ];
-    cluster_tests_17 [ shape=rectangle,width=1,height=1,fixedsize=true,type="node" ];
-    cluster_runtime_15 [ shape=rectangle,width=1,height=1,fixedsize=true,type="node" ];
-    cluster_models_13 [ shape=rectangle,width=1,height=1,fixedsize=true,type="node" ];
-    cluster_extensions_9 [ shape=rectangle,width=1,height=1,fixedsize=true,type="node" ];
-    cluster_data_7 [ shape=rectangle,width=1,height=1,fixedsize=true,type="node" ];
-    cluster_controllers_6 [ shape=rectangle,width=1,height=1,fixedsize=true,type="node" ];
-    cluster_config_5 [ shape=rectangle,width=1,height=1,fixedsize=true,type="node" ];
-    cluster_components_0 [ shape=rectangle,width=1,height=1,fixedsize=true,type="node" ];
+    cluster_views_20 [ shape=rectangle,width=9.19444444444,height=9.75,fixedsize=true,type="node" ];
+    cluster_vendors_19 [ shape=rectangle,width=2.25,height=1,fixedsize=true,type="node" ];
+    cluster_tests_17 [ shape=rectangle,width=3.63888888889,height=3.77777777778,fixedsize=true,type="node" ];
+    cluster_runtime_15 [ shape=rectangle,width=2.25,height=3.5,fixedsize=true,type="node" ];
+    cluster_models_13 [ shape=rectangle,width=4.33333333333,height=3.91666666667,fixedsize=true,type="node" ];
+    cluster_extensions_9 [ shape=rectangle,width=7.61111111111,height=7.13888888889,fixedsize=true,type="node" ];
+    cluster_data_7 [ shape=rectangle,width=3.66666666667,height=4,fixedsize=true,type="node" ];
+    cluster_controllers_6 [ shape=rectangle,width=3.5,height=3.5,fixedsize=true,type="node" ];
+    cluster_config_5 [ shape=rectangle,width=2.25,height=2.25,fixedsize=true,type="node" ];
+    cluster_components_0 [ shape=rectangle,width=8.41666666667,height=6.83333333333,fixedsize=true,type="node" ];
     "yiic.php" [ shape=rectangle,width=1,height=1,fixedsize=true,type=leaf ];
     "yiic.bat" [ shape=rectangle,width=1,height=1,fixedsize=true,type=leaf ];
     yiic [ shape=rectangle,width=1,height=1,fixedsize=true,type=leaf ];
