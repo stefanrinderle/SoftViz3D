@@ -3,7 +3,7 @@ class LayoutVisitor {
 	public static $TYPE_TREE = "tree";
 	public static $TYPE_GRAPH = "graph";
 	
-	private static $SCALE = 72;
+	public static $SCALE = 72;
 	private $outputFile = '/Users/stefan/Sites/3dArch/protected/runtime/temp.dot';
 
 	private $max_level = 0;

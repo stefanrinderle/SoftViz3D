@@ -24,7 +24,7 @@ class EX3domWidget extends CWidget {
 		$translation[y] = $x3dInfos->bb[position][y];
 		$translation[z] = $transZ;
 	
-		if (!$node->level == 0) {
+		if ($node->level != 0) {
 			$translation[x] = $translation[x] - $nodeWidth / 2;
 			$translation[z] = $translation[z] - $nodeLength / 2;
 		}
@@ -45,7 +45,7 @@ class EX3domWidget extends CWidget {
 			$nodePositionX = $x3dInfos->nodes[$label][position][x];
 			$nodePositionZ = $x3dInfos->nodes[$label][position][z];
 	
-			if (!$node->level == 0) {
+			if ($node->level != 0) {
 				$nodePositionX = $nodePositionX + ($transX - ($nodeWidth / 2));
 				$nodePositionZ = $nodePositionZ + ($transZ - ($nodeLength / 2));
 			}
