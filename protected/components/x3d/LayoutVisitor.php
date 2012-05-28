@@ -21,6 +21,7 @@ class LayoutVisitor {
 		if ($this->type == LayoutVisitor::$TYPE_TREE) {
 			$x3dInfos = Yii::app()->treeX3dCalculator->calculate($layerLayout, $comp->level, $this->max_level);
 		} else {
+			$layerLayout['normalizedLayout'] = $this->calcLayerLayout($layoutElements, true);
 			$x3dInfos = Yii::app()->graphX3dCalculator->calculate($layerLayout, $comp->level, $this->max_level);
 		}
 		
@@ -43,8 +44,8 @@ class LayoutVisitor {
 	/**
 	 * Writes the current elements in an dot file and generated the layout dot file
 	 */
-	private function calcLayerLayout($elements) {
-		Yii::app()->dotWriter->writeToFile($elements, $this->outputFile);
+	private function calcLayerLayout($elements, $normalize = false) {
+		Yii::app()->dotWriter->writeToFile($elements, $this->outputFile, $normalize);
 		
 		if ($this->type == LayoutVisitor::$TYPE_TREE) {
 			$layout = "neato";	

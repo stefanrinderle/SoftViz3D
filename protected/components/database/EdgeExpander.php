@@ -25,6 +25,10 @@ class EdgeExpander extends CApplicationComponent
 		$depEdgeLabel = "depEdge";
 	
 		while ($source->parent_id != $dest->parent_id) {
+			print_r("while1" . "<br />");
+			print_r($source->parent_id . " " . $dest->parent_id . "<br />");
+			print_r($source->level . " " . $dest->level . "<br />");
+			
 			if ($source->level > $dest->level) {
 				$depNodeId = $this->getDependencyNode($source->parent_id, $source->level);
 				EdgeElement::createAndSaveEdgeElement($depEdgeLabel, $source->id, $depNodeId, $source->parent_id);
@@ -40,6 +44,8 @@ class EdgeExpander extends CApplicationComponent
 	
 		//compute till both have the same parent
 		while ($source->parent_id != $dest->parent_id) {
+// 			print_r("while2" . "<br />");
+			
 			if ($source->level > $dest->level) {
 	
 				$depNodeId = $this->getDependencyNode($source->parent_id, $source->level);
@@ -55,7 +61,6 @@ class EdgeExpander extends CApplicationComponent
 			}
 		}
 	
-		EdgeElement::createAndSaveEdgeElement($depEdgeLabel, $source->id, $dest->id, $dest->parent_id);
 	}
 	
 	private function getDependencyNode($parentId, $level) {

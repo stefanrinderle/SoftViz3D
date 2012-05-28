@@ -6,7 +6,7 @@ class GraphX3dCalculator extends AbstractX3dCalculator
 	{
 		parent::init();
 
-		$this->layerDepth = - 10;
+		$this->layerDepth = -50;
 		
 		$this->adjustLayoutToX3d($layerLayout, $depth, $maxDepth);
 	
@@ -14,11 +14,26 @@ class GraphX3dCalculator extends AbstractX3dCalculator
 	}
 	
 	protected function adjustLayoutToX3d($layerLayout, $depth, $maxDepth) {
-		parent::adjustLayoutToX3d($layerLayout, $depth, $maxDepth);
+		// Bounding Box
+		$this->layout->bb = $this->adjustBb($layerLayout['normalizedLayout'], $depth, $maxDepth);
+		
+		// Nodes
+		$nodes = array();
+		foreach ($layerLayout['normalizedLayout']['content'] as $key => $value) {
+			if ($value['type'] == "node") {
+				
+				if ($value['attr'][type] == "leaf") {
+					$nodes[$value['label']] = $this->adjustLeaf($value, $depth);
+				} else {
+					$nodes[$value['label']] = $this->adjustNode($value, $depth);
+				}
+			}
+		}
+		$this->layout->nodes = $nodes;
 		
 		// Edges
 		$edges = array();
-		foreach ($layerLayout['content'] as $key => $value) {
+		foreach ($layerLayout['normalizedLayout']['content'] as $key => $value) {
 			if ($value['type'] == "edge") {
 				$edges[$value['label']] = $this->adustEdge($value, $depth);
 			}
@@ -26,13 +41,36 @@ class GraphX3dCalculator extends AbstractX3dCalculator
 		$this->layout->edges = $edges;
 	}
 	
+	protected function adjustBb($layerLayout, $depth, $maxDepth) {
+		$randColor = rand(0, 100) / 100;
+		print_r($randColor . " -rand<br />");
+	
+		$bb = $layerLayout['bb'];
+	
+		$width = $bb[2] - $bb[0];
+		$length = $bb[3] - $bb[1];
+	
+		$colour = array('r'=>0, 'g'=>$randColor, 'b'=>0);
+		$transpareny = 0;//0.9 - ($maxDepth - $depth) * 0.1;
+	
+		$result = array(
+				'size'=>array('width'=>$width, 'length'=>$length),
+				'colour'=>$colour,
+				'position'=>array('x' => $bb[0],
+						'y' => $depth * $this->layerDepth,
+						'z' => $bb[1]),
+				'transparency'=>$transpareny
+		);
+	
+		return $result;
+	}
+	
 	protected function adjustNode($node, $depth) {
 			$result = array(
 					'name'=>$node[label],
-					'size'=>array('width'=> 0, 'height'=> 0, 'length' => 0),
-// 					'size'=>array('width'=> LayoutVisitor::$SCALE / 2, 
-// 								  'height'=> $this->nodeHeight, 
-// 								  'length' => LayoutVisitor::$SCALE / 2),
+					'size'=>array('width'=> LayoutVisitor::$SCALE / 2, 
+								  'height'=> $this->nodeHeight, 
+								  'length' => LayoutVisitor::$SCALE / 2),
 					'position'=>array('x' => $node['attr']['pos'][0],
 							'y' => $depth * $this->layerDepth,
 							'z' => $node['attr']['pos'][1]),

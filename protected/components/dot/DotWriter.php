@@ -7,10 +7,10 @@ class DotWriter extends CApplicationComponent
 {
 	private $graphViz;
 	
-	public function writeToFile($elements, $outputFile) {
+	public function writeToFile($elements, $outputFile, $normalize = false) {
 		$this->graphViz = new Image_GraphViz_Copy();
 	
-		$this->writeElements($elements);
+		$this->writeElements($elements, $normalize);
 	
 		$this->graphViz->saveParsedGraph($outputFile);
 	}
@@ -23,13 +23,19 @@ class DotWriter extends CApplicationComponent
 		return $this->graphViz->parse();
 	}
 	
-	private function writeElements($elements) {
+	private function writeElements($elements, $normalize = false) {
 		foreach ($elements as $key => $value) {
 			if ($value instanceOf TreeElement) {
 				$attr = array();
 				$attr['shape'] = "rectangle";
-				$attr['width'] = $value->size[width];
-				$attr['height'] = $value->size[height];
+				if ($normalize) {
+					$attr['width'] = 1;
+					$attr['height'] = 1;
+				} else {
+					$attr['width'] = $value->size[width];
+					$attr['height'] = $value->size[height];
+				}
+				
 				$attr['fixedsize'] = "true";
 				
 				if ($value->isLeaf) {
