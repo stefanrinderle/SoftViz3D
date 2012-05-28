@@ -61,6 +61,7 @@ class EdgeExpander extends CApplicationComponent
 			}
 		}
 	
+		EdgeElement::createAndSaveEdgeElement($depEdgeLabel, $source->id, $dest->id, $dest->parent_id);
 	}
 	
 	private function getDependencyNode($parentId, $level) {
