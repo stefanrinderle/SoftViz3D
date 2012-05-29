@@ -3,6 +3,8 @@
 class EdgeExpander extends CApplicationComponent
 {
 	
+	private $dependenyNodes = array();
+	
 	public function execute() {
 		$edges = EdgeElement::model()->findAll();
 		
@@ -19,16 +21,16 @@ class EdgeExpander extends CApplicationComponent
 				$edge->delete();
 			}
 		}
+		
+		foreach ($this->dependenyNodes as $node) {
+			$node->save();
+		}
 	}
 	
 	private function expandEdge($source, $dest) {
 		$depEdgeLabel = "depEdge";
 	
 		while ($source->parent_id != $dest->parent_id) {
-// 			print_r("while1" . "<br />");
-// 			print_r($source->parent_id . " " . $dest->parent_id . "<br />");
-// 			print_r($source->level . " " . $dest->level . "<br />");
-			
 			if ($source->level > $dest->level) {
 				$depNodeId = $this->getDependencyNode($source->parent_id, $source->level);
 				EdgeElement::createAndSaveEdgeElement($depEdgeLabel, $source->id, $depNodeId, $source->parent_id);
@@ -44,8 +46,6 @@ class EdgeExpander extends CApplicationComponent
 	
 		//compute till both have the same parent
 		while ($source->parent_id != $dest->parent_id) {
-// 			print_r("while2" . "<br />");
-			
 			if ($source->level > $dest->level) {
 	
 				$depNodeId = $this->getDependencyNode($source->parent_id, $source->level);
@@ -68,14 +68,18 @@ class EdgeExpander extends CApplicationComponent
 		$depPrefix = "dep_";
 		$depNodeLabel = $depPrefix . $parentId;
 	
-		//TODO dont retrieve the whole object, just the id
-		$depNode = TreeElement::model()->findByAttributes(array('parent_id'=>$parentId, 'label'=>$depNodeLabel));
-		if (!$depNode) {
-			$depNodeId = TreeElement::createAndSaveLeafTreeElement($depNodeLabel, $parentId, $level);
+		$savedNode = $this->dependenyNodes[$depNodeLabel];
+		if ($savedNode) {
+			$savedNode->counter++;
+			$depNodeId = $savedNode->id;
 		} else {
-			$depNodeId = $depNode->id;
+			$node = TreeElement::createLeafTreeElement($depNodeLabel, $parentId, $level);
+			$node->save();
+			$this->dependenyNodes[$depNodeLabel] = $node;
+			
+			$depNodeId = $node->id;
 		}
-	
+		
 		return $depNodeId;
 	}
 }

@@ -19,9 +19,9 @@ class LayoutVisitor {
 		$layerLayout = $this->calcLayerLayout($layoutElements);
 
 		if ($this->type == LayoutVisitor::$TYPE_TREE) {
-			$x3dInfos = Yii::app()->treeX3dCalculator->calculate($layerLayout, $comp->level, $this->max_level);
+			$x3dInfos = Yii::app()->treeX3dCalculator->calculate($layerLayout, $comp);
 		} else {
-			$x3dInfos = Yii::app()->graphX3dCalculator->calculate($layerLayout, $comp->level, $this->max_level);
+			$x3dInfos = Yii::app()->graphX3dCalculator->calculate($layerLayout, $comp);
 		}
 		
 		$comp->setX3dInfos($x3dInfos);
@@ -35,7 +35,13 @@ class LayoutVisitor {
 	function visitLeafTreeElement(TreeElement $comp) {
 		if ($this->max_level < $comp->level) $this->max_level = $comp->level;
 
-		$comp->size = array(width=>1, height=>1);
+ 		if (substr($comp->label, 0, 4) == "dep_") {
+			$side = sqrt($comp->counter) / 4;
+ 		} else {
+ 			$side = 1;
+ 		}
+		
+		$comp->size = array(width=>$side, height=>$side);
 		return $comp;
 	}
 

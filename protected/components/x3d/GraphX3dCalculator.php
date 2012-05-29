@@ -2,13 +2,13 @@
 
 class GraphX3dCalculator extends AbstractX3dCalculator
 {
-	public function calculate($layerLayout, $depth, $maxDepth)
+	public function calculate($layerLayout, $comp)
 	{
 		parent::init();
 
 		$this->layerDepth = -100;
 		
-		$this->adjustLayoutToX3d($layerLayout, $depth, $maxDepth);
+		$this->adjustLayoutToX3d($layerLayout, $comp->level, $comp->max_level);
 	
 		return $this->layout;
 	}
@@ -16,7 +16,6 @@ class GraphX3dCalculator extends AbstractX3dCalculator
 	protected function adjustLayoutToX3d($layerLayout, $depth, $maxDepth) {
 		// Bounding Box
 		$this->layout->bb = $this->adjustBb($layerLayout, $depth, $maxDepth);
-		
 		
 		// Nodes
 		$nodes = array();
@@ -48,12 +47,14 @@ class GraphX3dCalculator extends AbstractX3dCalculator
 	
 	private function adjustDepLeaf($node, $depth) {
 		$height = abs($this->layerDepth * 2) + $this->nodeHeight / 2;
+		$side = $node['attr']['width'][0] * LayoutVisitor::$SCALE  / 2;
+		
 		// its a node with subnodes, so only specify the position and name.
 		$result = array(
 				'name'=>$node[label],
-				'size'=>array('width'=>LayoutVisitor::$SCALE / 2,
+				'size'=>array('width'=> $side,
 						'height'=> $height,
-						'length'=>LayoutVisitor::$SCALE / 2),
+						'length'=> $side),
 				'position'=>array('x' => $node['attr']['pos'][0],
 						'y' => ($depth * $this->layerDepth) + $height / 2,
 						'z' => $node['attr']['pos'][1]),
@@ -89,7 +90,7 @@ class GraphX3dCalculator extends AbstractX3dCalculator
 		$length = $bb[3] - $bb[1];
 	
 		$colour = array('r'=>0, 'g'=> $depth * 0.2, 'b'=>0);
-		$transpareny = 1 - ($maxDepth - $depth) * 0.1;
+		$transpareny = 0.7 - ($maxDepth - $depth) * 0.1;
 	
 		$result = array(
 				'size'=>array('width'=>$width, 'length'=>$length),

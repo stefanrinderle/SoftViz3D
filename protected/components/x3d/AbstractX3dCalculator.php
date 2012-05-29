@@ -17,9 +17,9 @@ abstract class AbstractX3dCalculator extends CApplicationComponent
 		$this->layout = new LayerLayout();
 	}
 	
-	public function calculate($layerLayout, $depth, $maxDepth)
+	public function calculate($layerLayout, $comp)
 	{
-		$this->adjustLayoutToX3d($layerLayout, $depth, $maxDepth);
+		$this->adjustLayoutToX3d($layerLayout, $comp->level, $comp->max_level);
 		
 		return $this->layout;
 	}

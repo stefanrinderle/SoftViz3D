@@ -13,7 +13,9 @@ class TreeElement extends CActiveRecord
 	
 	// not in database yet because not nesessary
 	public $size;
-	
+	public $counter = 1;
+	public $max_level;
+		
 	public static function model($className=__CLASS__)
 	{
 		return parent::model($className);
@@ -65,20 +67,33 @@ class TreeElement extends CActiveRecord
 	// factory method
 	public static function createAndSaveTreeElement($label, $parent_id, $level, $isLeaf = false)
 	{
-		$element = new self('insert');
-		$element->label=$label;
-		$element->parent_id=$parent_id;
-		$element->level=$level;
-		$element->isLeaf = $isLeaf;
+		$element = TreeElement::createTreeElement($label, $parent_id, $level, $isLeaf);
 		
 		$element->save();
 		return $element->id;
 	}
 	
 	// factory method
+	public static function createTreeElement($label, $parent_id, $level, $isLeaf = false)
+	{
+		$element = new self('insert');
+		$element->label=$label;
+		$element->parent_id=$parent_id;
+		$element->level=$level;
+		$element->isLeaf = $isLeaf;
+	
+		return $element;
+	}
+	
+	// factory method
 	public static function createAndSaveLeafTreeElement($label, $parent_id, $level)
 	{
 		return TreeElement::createAndSaveTreeElement($label, $parent_id, $level, true);
+	}
+	
+	public static function createLeafTreeElement($label, $parent_id, $level)
+	{
+		return TreeElement::createTreeElement($label, $parent_id, $level, true);
 	}
 }
 
