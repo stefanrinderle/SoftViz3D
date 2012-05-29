@@ -1,0 +1,70 @@
+digraph G {
+	subgraph model {
+		m1;
+		m2;
+		m3;
+	}	
+	subgraph view {
+		subgraph viewsC1 {
+			v1c1;
+			v2c1;
+			v3c1;
+		}
+		subgraph viewsC2 {
+			v1c2;
+			v2c2;
+			v3c2;
+		}
+		subgraph viewsC3 {
+			v1c3;
+			v2c3;
+			v3c3;
+		}
+		subgraph viewsC4 {
+			v1c4;
+			v2c4;
+			v3c4;
+		}
+		subgraph viewsC5 {
+			v1c5;
+			v2c5;
+			v3c5;
+		}
+	}
+	subgraph controller {
+		c1;
+		c2;
+		c3;
+		c4;
+		c5;
+	}
+
+	v1c1 -> m1;
+	v2c1 -> m2;
+	v3c2 -> m1;
+	v1c3 -> m2;
+	v1c1 -> m1;
+		
+	c1 -> m1;
+	c1 -> m2;
+	c2 -> m1;
+	c3 -> m1;
+	c4 -> m2;
+	c5 -> m1;
+	
+	c1 -> v1c1;
+	c1 -> v2c1;
+	c1 -> v3c1;
+	c2 -> v1c2;
+	c2 -> v2c2;
+	c2 -> v3c2;
+	c3 -> v1c3;
+	c3 -> v2c3;
+	c3 -> v3c3;
+	c4 -> v1c4;
+	c4 -> v2c4;
+	c4 -> v3c4;
+	c5 -> v1c5;
+	c5 -> v2c5;
+	c5 -> v3c5;
+}

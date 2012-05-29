@@ -27,6 +27,10 @@ class ImportController extends Controller
 		$this->_copyExampleFile(Yii::app()->basePath . '/data/exampleFiles/simpleGraph.dot');
 	}
 	
+	public function actionMvc() {
+		$this->_copyExampleFile(Yii::app()->basePath . '/data/exampleFiles/mvc.dot');
+	}
+	
 	private function _copyExampleFile($sourceFileName) {
 		$result = copy($sourceFileName, Yii::app()->basePath . Yii::app()->params['currentResourceFile']);
 		

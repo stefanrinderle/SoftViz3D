@@ -46,5 +46,7 @@ $this->breadcrumbs=array(
 	<p><?php echo CHtml::link('Simple tree example', array('import/simpleTree')); ?></p>
 	
 	<p><?php echo CHtml::link('Simple graph example', array('import/simpleGraph')); ?></p>
+	
+	<p><?php echo CHtml::link('MVC example', array('import/mvc')); ?></p>
 
 <?php endif; ?>
