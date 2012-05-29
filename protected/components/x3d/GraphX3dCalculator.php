@@ -120,16 +120,19 @@ class GraphX3dCalculator extends AbstractX3dCalculator
 	}
 	
 	private function adustEdge($edge, $depth) {
-		// 			// convert edge section points
+		// convert edge section points
 		$sections = array();
-		// 			for ($i = 2; $i < count($edge['pos']); $i++) {
-		// 				$section = array('x' => $edge['pos'][$i][0],
-		// 								 'y' => $depth * $depthMultiplicator,
-		// 								 'z' => $edge['pos'][$i][1]);
+		
+		for ($i = 5; $i < 10; $i = $i + 2) {
+			$section = array('x' => $edge['attr']['pos'][$i],
+							 'y' => $depth * $this->layerDepth,
+							 'z' => $edge['attr']['pos'][$i + 1]);
+			
+			array_push($sections, $section);
+		}
 	
-		// 				array_push($sections, $section);
-		// 			}
-	
+		$sections = array_reverse($sections);
+		
 		$result = array(
 				'startPos'=>array('x' => $edge['attr']['pos'][1],
 						'y' => $depth * $this->layerDepth,

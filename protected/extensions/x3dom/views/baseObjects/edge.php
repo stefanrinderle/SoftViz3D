@@ -3,7 +3,7 @@
 //TODO: duplicated in edgeEnd.php
 $coneHeight = 3;
 	
-if (count($sections) > 3) {
+if (count($sections)) {
 	// start point to first section
 	$this->render('baseObjects/edgeSection', array('startPos'=>$startPos, 
 												 'endPos'=>$sections[0]));

@@ -1,7 +1,8 @@
 <?php 
 
 //TODO duplicated in edgeEnd.php
-$cylinderRadius = 1;
+$coneHeight = 9;
+$cylinderRadius = 3;
 
 $edgeVektor = Yii::app()->vectorCalculator->vector($startPos, $endPos);
 

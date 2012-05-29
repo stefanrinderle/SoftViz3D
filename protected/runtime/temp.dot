@@ -1,5 +1,31 @@
 digraph G {
-    cluster_1 [ shape=rectangle,width=2.25,height=2.5,fixedsize=true,type="node" ];
-    cluster_0 [ shape=rectangle,width=2.25,height=2.5,fixedsize=true,type="node" ];
-    cluster_1 -> cluster_0;
+    controller [ shape=rectangle,width=6,height=2.5,fixedsize=true,type="node" ];
+    view [ shape=rectangle,width=8.5,height=8.5,fixedsize=true,type="node" ];
+    model [ shape=rectangle,width=3.56666666667,height=2.5,fixedsize=true,type="node" ];
+    view -> controller;
+    view -> controller;
+    view -> controller;
+    view -> controller;
+    view -> controller;
+    view -> controller;
+    view -> controller;
+    view -> controller;
+    view -> controller;
+    view -> controller;
+    view -> controller;
+    view -> controller;
+    view -> controller;
+    view -> controller;
+    view -> controller;
+    model -> controller;
+    model -> controller;
+    model -> controller;
+    model -> controller;
+    model -> controller;
+    model -> controller;
+    model -> view;
+    model -> view;
+    model -> view;
+    model -> view;
+    model -> view;
 }
