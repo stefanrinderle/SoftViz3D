@@ -34,10 +34,10 @@ class EdgeExpander extends CApplicationComponent
 	private function expandEdge($source, $dest) {
 		while ($source->parent_id != $dest->parent_id) {
 			if ($source->level > $dest->level) {
-				$this->handleNewDepEdge($source, "out");
+				$this->handleNewDepEdge($source, "in");
 				$source = $source->parent;
 			} else {
-				$this->handleNewDepEdge($dest, "in");
+				$this->handleNewDepEdge($dest, "out");
 				$dest = $dest->parent;
 			}
 		}
@@ -45,10 +45,10 @@ class EdgeExpander extends CApplicationComponent
 		//compute till both have the same parent
 		while ($source->parent_id != $dest->parent_id) {
 			if ($source->level > $dest->level) {
-				$this->handleNewDepEdge($source, "out");
+				$this->handleNewDepEdge($source, "in");
 				$source = $source->parent;
 			} else {
-				$this->handleNewDepEdge($dest, "in");
+				$this->handleNewDepEdge($dest, "out");
 				$dest = $dest->parent;
 			}
 		}
