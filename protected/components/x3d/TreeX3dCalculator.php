@@ -3,15 +3,12 @@
 class TreeX3dCalculator extends AbstractX3dCalculator {
 	
 	protected function adjustBb($layerLayout, $depth, $maxDepth) {
-		$randColor = rand(0, 1);
-		print_r($randColor . " -rand<br />");
-	
 		$bb = $layerLayout['bb'];
 	
 		$width = $bb[2] - $bb[0];
 		$length = $bb[3] - $bb[1];
 	
-		$colour = array('r'=>0, 'g'=>$randColor, 'b'=>0);
+		$colour = array('r'=>0, 'g'=> $depth * 0.2, 'b'=>0);
 		$transpareny = 0;//0.9 - ($maxDepth - $depth) * 0.1;
 	
 		$result = array(

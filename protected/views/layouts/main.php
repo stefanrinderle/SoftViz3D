@@ -13,6 +13,7 @@
 
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/main.css" />
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/form.css" />
+	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/x3d.css" />
 
 	<!-- include x3dom scripts -->
 	<link rel="stylesheet" type="text/css" href="http://x3dom.org/download/x3dom.css" />
@@ -41,6 +42,7 @@
 				array('label'=>'File', 'url'=>array('/file/index')),
 				array('label'=>'Tree', 'url'=>array('/tree/index')),
 				array('label'=>'Graph', 'url'=>array('/graph/index')),
+				array('label'=>'Test', 'url'=>array('/test/index')),
 				array('label'=>'-----', 'url'=>array('')),
 				array('label'=>'About', 'url'=>array('/site/page', 'view'=>'about')),
 				array('label'=>'Contact', 'url'=>array('/site/contact')),
