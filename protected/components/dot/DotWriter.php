@@ -9,7 +9,7 @@ class DotWriter extends CApplicationComponent
 	
 	public function writeToFile($elements, $outputFile) {
 		$this->graphViz = new Image_GraphViz_Copy();
-	
+		
 		$this->writeElements($elements, $normalize);
 	
 		$this->graphViz->saveParsedGraph($outputFile);
@@ -42,7 +42,12 @@ class DotWriter extends CApplicationComponent
 				$this->graphViz->addNode($value->label, $attr);
 				
 			} else if ($value instanceOf EdgeElement) {
-				$this->graphViz->addEdge(array($value->outElement->label => $value->inElement->label));
+				$width = $value->counter;
+				
+				//TODO: /100 is bad if there are more than 100 dep on one node
+				$this->graphViz->addEdge(array($value->outElement->label => $value->inElement->label),
+							array('style' => 'setlinewidth(' . $width . ')',
+								  'weight' => 'setlinewidth(' . $width / 100 . ')'));
 			}
 		}
 	}

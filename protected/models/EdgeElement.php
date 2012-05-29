@@ -8,6 +8,7 @@ class EdgeElement extends CActiveRecord
 	public $out_id;
 	public $in_id;
 	public $parent_id;
+	public $counter = 1;
 	
 	public static function model($className=__CLASS__)
 	{
@@ -28,7 +29,7 @@ class EdgeElement extends CActiveRecord
 	}
 	
 	// factory method
-	public static function createAndSaveEdgeElement($label, $out_id, $in_id, $parent_id = null)
+	public static function createEdgeElement($label, $out_id, $in_id, $parent_id = null)
 	{
 		$element = new self('insert');
 		$element->label = $label;
@@ -36,6 +37,13 @@ class EdgeElement extends CActiveRecord
 		$element->in_id = $in_id;
 		$element->parent_id = $parent_id;
 		
+		return $element;
+	}
+	
+	public static function createAndSaveEdgeElement($label, $out_id, $in_id, $parent_id = null)
+	{
+		$element = EdgeElement::createEdgeElement($label, $out_id, $in_id, $parent_id);
+	
 		$element->save();
 		return $element->id;
 	}

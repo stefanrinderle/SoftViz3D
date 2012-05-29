@@ -1,31 +1,7 @@
 digraph G {
-    controller [ shape=rectangle,width=6,height=2.63888888889,fixedsize=true,type="node" ];
-    view [ shape=rectangle,width=8.5,height=7.66666666667,fixedsize=true,type="node" ];
-    model [ shape=rectangle,width=3.56430555556,height=2.33333333333,fixedsize=true,type="node" ];
-    view -> controller;
-    view -> controller;
-    view -> controller;
-    view -> controller;
-    view -> controller;
-    view -> controller;
-    view -> controller;
-    view -> controller;
-    view -> controller;
-    view -> controller;
-    view -> controller;
-    view -> controller;
-    view -> controller;
-    view -> controller;
-    view -> controller;
-    model -> controller;
-    model -> controller;
-    model -> controller;
-    model -> controller;
-    model -> controller;
-    model -> controller;
-    model -> view;
-    model -> view;
-    model -> view;
-    model -> view;
-    model -> view;
+    controller [ shape=rectangle,width=6,height=2.05555555556,fixedsize=true,type="node" ];
+    view [ shape=rectangle,width=17.25,height=4.72222222222,fixedsize=true,type="node" ];
+    model [ shape=rectangle,width=2.55555555556,height=2.5,fixedsize=true,type="node" ];
+    view -> controller [ style="setlinewidth(15)",weight="setlinewidth(0.15)" ];
+    model -> controller [ style="setlinewidth(11)",weight="setlinewidth(0.11)" ];
 }

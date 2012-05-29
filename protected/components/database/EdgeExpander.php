@@ -4,6 +4,7 @@ class EdgeExpander extends CApplicationComponent
 {
 	
 	private $dependenyNodes = array();
+	private $dependencyEdges = array();
 	
 	public function execute() {
 		$edges = EdgeElement::model()->findAll();
@@ -25,21 +26,18 @@ class EdgeExpander extends CApplicationComponent
 		foreach ($this->dependenyNodes as $node) {
 			$node->save();
 		}
+		foreach ($this->dependencyEdges as $edge) {
+			$edge->save();
+		}
 	}
 	
 	private function expandEdge($source, $dest) {
-		$depEdgeLabel = "depEdge";
-	
 		while ($source->parent_id != $dest->parent_id) {
 			if ($source->level > $dest->level) {
-				$depNodeId = $this->getDependencyNode($source->parent_id, $source->level);
-				EdgeElement::createAndSaveEdgeElement($depEdgeLabel, $source->id, $depNodeId, $source->parent_id);
-	
+				$this->handleNewDepEdge($source, "out");
 				$source = $source->parent;
 			} else {
-				$depNodeId = $this->getDependencyNode($dest->parent_id, $dest->level);
-				EdgeElement::createAndSaveEdgeElement($depEdgeLabel, $depNodeId, $dest->id, $dest->parent_id);
-	
+				$this->handleNewDepEdge($dest, "in");
 				$dest = $dest->parent;
 			}
 		}
@@ -47,21 +45,47 @@ class EdgeExpander extends CApplicationComponent
 		//compute till both have the same parent
 		while ($source->parent_id != $dest->parent_id) {
 			if ($source->level > $dest->level) {
-	
-				$depNodeId = $this->getDependencyNode($source->parent_id, $source->level);
-				EdgeElement::createAndSaveEdgeElement($depEdgeLabel, $source->id, $depNodeId, $source->parent_id);
-	
+				$this->handleNewDepEdge($source, "out");
 				$source = $source->parent;
 			} else {
-	
-				$depNodeId = $this->getDependencyNode($dest->parent_id, $dest->level);
-				EdgeElement::createAndSaveEdgeElement($depEdgeLabel, $depNodeId, $dest->id, $dest->parent_id);
-	
+				$this->handleNewDepEdge($dest, "in");
 				$dest = $dest->parent;
 			}
 		}
 	
-		EdgeElement::createAndSaveEdgeElement($depEdgeLabel, $source->id, $dest->id, $dest->parent_id);
+		$this->handleNewFlatDepEdge($source, $dest);
+	}
+	
+	private function handleNewFlatDepEdge($source, $dest) {
+		$type = "out";
+		$depEdgeLabel = "depEdge_" . $type . "_" . $source->id;
+		
+		$edge = $this->dependencyEdges[$depEdgeLabel];
+		if ($edge) {
+			$edge->counter++;
+		} else {
+			$element = EdgeElement::createEdgeElement($depEdgeLabel, $source->id, $dest->id, $source->parent_id);
+			$this->dependencyEdges[$depEdgeLabel] = $element;
+		}
+	}
+	
+	private function handleNewDepEdge($node, $type) {
+		$depEdgeLabel = "depEdge_" . $type . "_" . $node->id;
+	
+		$edge = $this->dependencyEdges[$depEdgeLabel];
+		if ($edge) {
+			$edge->counter++;
+		} else {
+			$depNodeId = $this->getDependencyNode($node->parent_id, $node->level);
+	
+			if ($type == "out") {
+				$element = EdgeElement::createEdgeElement($depEdgeLabel, $depNodeId, $node->id, $node->parent_id);
+			} else {
+				$element = EdgeElement::createEdgeElement($depEdgeLabel, $node->id, $depNodeId, $node->parent_id);
+			}
+	
+			$this->dependencyEdges[$depEdgeLabel] = $element;
+		}
 	}
 	
 	private function getDependencyNode($parentId, $level) {

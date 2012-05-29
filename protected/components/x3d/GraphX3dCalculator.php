@@ -121,6 +121,9 @@ class GraphX3dCalculator extends AbstractX3dCalculator
 	}
 	
 	private function adustEdge($edge, $depth) {
+		$lineWidth = $edge['attr']['style'][0];
+		$lineWidth = substr($lineWidth, strpos($lineWidth, "(") + 1, strlen($lineWidth) - strpos($lineWidth, "(") - 2);
+		
 		// convert edge section points
 		$sections = array();
 		
@@ -142,7 +145,8 @@ class GraphX3dCalculator extends AbstractX3dCalculator
 						'y' => $depth * $this->layerDepth,
 						'z' => $edge['attr']['pos'][4]),
 				'sections'=>$sections,
-				'colour'=>array('r'=>0, 'g'=>1, 'b'=>0)
+				'colour'=>array('r'=>0, 'g'=>1, 'b'=>0),
+				'lineWidth'=>$lineWidth
 		);
 	
 		return $result;
