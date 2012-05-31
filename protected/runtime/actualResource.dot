@@ -1,70 +1,1734 @@
 digraph G {
-	subgraph model {
-		m1;
-		m2;
-		m3;
-	}	
-	subgraph view {
-		subgraph viewsC1 {
-			v1c1;
-			v2c1;
-			v3c1;
-		}
-		subgraph viewsC2 {
-			v1c2;
-			v2c2;
-			v3c2;
-		}
-		subgraph viewsC3 {
-			v1c3;
-			v2c3;
-			v3c3;
-		}
-		subgraph viewsC4 {
-			v1c4;
-			v2c4;
-			v3c4;
-		}
-		subgraph viewsC5 {
-			v1c5;
-			v2c5;
-			v3c5;
-		}
-	}
-	subgraph controller {
-		c1;
-		c2;
-		c3;
-		c4;
-		c5;
-	}
-
-	v1c1 -> m1;
-	v2c1 -> m2;
-	v3c2 -> m1;
-	v1c3 -> m2;
-	v1c1 -> m1;
-		
-	c1 -> m1;
-	c1 -> m2;
-	c2 -> m1;
-	c3 -> m1;
-	c4 -> m2;
-	c5 -> m1;
-	
-	c1 -> v1c1;
-	c1 -> v2c1;
-	c1 -> v3c1;
-	c2 -> v1c2;
-	c2 -> v2c2;
-	c2 -> v3c2;
-	c3 -> v1c3;
-	c3 -> v2c3;
-	c3 -> v3c3;
-	c4 -> v1c4;
-	c4 -> v2c4;
-	c4 -> v3c4;
-	c5 -> v1c5;
-	c5 -> v2c5;
-	c5 -> v3c5;
+    subgraph cluster_Default {
+        graph [ label=Default ];
+        "AllPartsTest.java";
+        "ApplicationTest.java";
+        "Bootstrap.java";
+        "DocViewerPlugin.java";
+        "JDOMAbout.java";
+    }
+    subgraph cluster_calc {
+        graph [ label=calc ];
+        "AllParts.java";
+        "CalcGateway.java";
+        "CalculateBodyTest.java";
+        "CalculateLib.java";
+        "CalculateOthersTest.java";
+        "CalculatePantsTest.java";
+        "CalculateShoesTest.java";
+        "Calculation.java";
+        "Main.java";
+        "PartsGateway.java";
+        "WeatherTypes.java";
+        subgraph "cluster_calc.clothes" {
+            graph [ label="calc.clothes" ];
+            "AbstractClothes.java";
+            "IClothes.java";
+            subgraph "cluster_calc.clothes.body" {
+                graph [ label="calc.clothes.body" ];
+                "AbstractBody.java";
+                "Jacket.java";
+                "JacketRain.java";
+                "JacketWinter.java";
+                "MuscleShirt.java";
+                "Pullover.java";
+                "SummerJacket.java";
+                "TShirt.java";
+                "Top.java";
+            }
+            subgraph "cluster_calc.clothes.others" {
+                graph [ label="calc.clothes.others" ];
+                "Handbag.java";
+                "Sunglasses.java";
+                "Umbrella.java";
+            }
+            subgraph "cluster_calc.clothes.pants" {
+                graph [ label="calc.clothes.pants" ];
+                "AbstractPants.java";
+                "HotPants.java";
+                "LongPants.java";
+                "LongPantsMan.java";
+                "LongPantsWoman.java";
+                "Rock.java";
+                "ShortPants.java";
+            }
+            subgraph "cluster_calc.clothes.shoes" {
+                graph [ label="calc.clothes.shoes" ];
+                "AbstractShoes.java";
+                "Boots.java";
+                "FlipFlops.java";
+                "Gummistiefel.java";
+                "Normal.java";
+                "Open.java";
+                "RainBoots.java";
+                "Sneakers.java";
+                "Winter.java";
+                "WinterBoots.java";
+            }
+        }
+        subgraph "cluster_calc.jaxb" {
+            graph [ label="calc.jaxb" ];
+            "CalcFunction.java";
+            "CalcTypes.java";
+            "CalculationParam.java";
+            "CalculationParams.java";
+            "Collection.java";
+            "EnumClothesType.java";
+            "ObjectFactory.java";
+            "ParamStrings.java";
+            "PartType.java";
+            "QuantifierParam.java";
+            "QuantifierParams.java";
+            "WearTypes.java";
+        }
+        subgraph "cluster_calc.metrics" {
+            graph [ label="calc.metrics" ];
+            "DayTimeType.java";
+            "MetricType.java";
+            "Rain.java";
+            "RainType.java";
+            "Sky.java";
+            "SkyType.java";
+            "Temperature.java";
+            "TimeOfDay.java";
+            "UserType.java";
+            "Wind.java";
+        }
+        subgraph "cluster_calc.parts" {
+            graph [ label="calc.parts" ];
+            "AbstractPart.java";
+            "IPart.java";
+            "Body.java";
+            "Others.java";
+            "Pants.java";
+            "Shoes.java";
+        }
+    }
+    subgraph cluster_controllers {
+        graph [ label=controllers ];
+        "Application.java";
+        "Charts.java";
+        "Klamotten.java";
+        "Kontakt.java";
+        "MainController.java";
+        "PlayDocumentation.java";
+        "Request.java";
+        "Static.java";
+        "Team.java";
+        "TestData.java";
+        "TestRunner.java";
+        "iGoogle.java";
+    }
+    subgraph cluster_forecast {
+        graph [ label=forecast ];
+        "Checksum.java";
+        "ForecastArray.java";
+        "ForecastResultList.java";
+        "RwdsRequestException.java";
+        "SearchValues.java";
+        "UserCitySearch.java";
+        "WeatherGateway.java";
+        "WeatherParser.java";
+        "WeatherParserTest.java";
+        subgraph "cluster_forecast.search" {
+            graph [ label="forecast.search" ];
+            "RWDSSearchType.java";
+            "RWDSUrlCreator.java";
+            "UserSearch.java";
+            "UserSearchParser.java";
+            "UserSearchParserTest.java";
+            "UserSearchType.java";
+        }
+    }
+    subgraph cluster_helpers {
+        graph [ label=helpers ];
+        "CheatSheetHelper.java";
+    }
+    subgraph cluster_java {
+        graph [ label=java ];
+        subgraph "cluster_java.applet" {
+            graph [ label="java.applet" ];
+        }
+        subgraph "cluster_java.awt" {
+            graph [ label="java.awt" ];
+            subgraph "cluster_java.awt.event" {
+                graph [ label="java.awt.event" ];
+            }
+            subgraph "cluster_java.awt.image" {
+                graph [ label="java.awt.image" ];
+            }
+        }
+        subgraph "cluster_java.io" {
+            graph [ label="java.io" ];
+        }
+        subgraph "cluster_java.lang" {
+            graph [ label="java.lang" ];
+            subgraph "cluster_java.lang.reflect" {
+                graph [ label="java.lang.reflect" ];
+            }
+        }
+        subgraph "cluster_java.math" {
+            graph [ label="java.math" ];
+        }
+        subgraph "cluster_java.net" {
+            graph [ label="java.net" ];
+        }
+        subgraph "cluster_java.nio" {
+            graph [ label="java.nio" ];
+            subgraph "cluster_java.nio.channels" {
+                graph [ label="java.nio.channels" ];
+            }
+            subgraph "cluster_java.nio.charset" {
+                graph [ label="java.nio.charset" ];
+            }
+        }
+        subgraph "cluster_java.rmi" {
+            graph [ label="java.rmi" ];
+        }
+        subgraph "cluster_java.security" {
+            graph [ label="java.security" ];
+        }
+        subgraph "cluster_java.sql" {
+            graph [ label="java.sql" ];
+        }
+        subgraph "cluster_java.text" {
+            graph [ label="java.text" ];
+        }
+        subgraph "cluster_java.util" {
+            graph [ label="java.util" ];
+            subgraph "cluster_java.util.concurrent" {
+                graph [ label="java.util.concurrent" ];
+                subgraph "cluster_java.util.concurrent.atomic" {
+                    graph [ label="java.util.concurrent.atomic" ];
+                }
+                subgraph "cluster_java.util.concurrent.locks" {
+                    graph [ label="java.util.concurrent.locks" ];
+                }
+            }
+            subgraph "cluster_java.util.jar" {
+                graph [ label="java.util.jar" ];
+            }
+            subgraph "cluster_java.util.logging" {
+                graph [ label="java.util.logging" ];
+            }
+            subgraph "cluster_java.util.regex" {
+                graph [ label="java.util.regex" ];
+            }
+            subgraph "cluster_java.util.zip" {
+                graph [ label="java.util.zip" ];
+            }
+        }
+    }
+    subgraph cluster_javassist {
+        graph [ label=javassist ];
+        subgraph "cluster_javassist.runtime" {
+            graph [ label="javassist.runtime" ];
+        }
+    }
+    subgraph cluster_javax {
+        graph [ label=javax ];
+        subgraph "cluster_javax.crypto" {
+            graph [ label="javax.crypto" ];
+            subgraph "cluster_javax.crypto.spec" {
+                graph [ label="javax.crypto.spec" ];
+            }
+        }
+        subgraph "cluster_javax.naming" {
+            graph [ label="javax.naming" ];
+            subgraph "cluster_javax.naming.directory" {
+                graph [ label="javax.naming.directory" ];
+            }
+            subgraph "cluster_javax.naming.ldap" {
+                graph [ label="javax.naming.ldap" ];
+            }
+            subgraph "cluster_javax.naming.spi" {
+                graph [ label="javax.naming.spi" ];
+            }
+        }
+        subgraph "cluster_javax.net" {
+            graph [ label="javax.net" ];
+            subgraph "cluster_javax.net.ssl" {
+                graph [ label="javax.net.ssl" ];
+            }
+        }
+        subgraph "cluster_javax.security" {
+            graph [ label="javax.security" ];
+            subgraph "cluster_javax.security.auth" {
+                graph [ label="javax.security.auth" ];
+                subgraph "cluster_javax.security.auth.callback" {
+                    graph [ label="javax.security.auth.callback" ];
+                }
+                subgraph "cluster_javax.security.auth.login" {
+                    graph [ label="javax.security.auth.login" ];
+                }
+            }
+            subgraph "cluster_javax.security.cert" {
+                graph [ label="javax.security.cert" ];
+            }
+        }
+        subgraph "cluster_javax.servlet" {
+            graph [ label="javax.servlet" ];
+            subgraph "cluster_javax.servlet.http" {
+                graph [ label="javax.servlet.http" ];
+            }
+        }
+        subgraph "cluster_javax.sql" {
+            graph [ label="javax.sql" ];
+        }
+        subgraph "cluster_javax.swing" {
+            graph [ label="javax.swing" ];
+            subgraph "cluster_javax.swing.border" {
+                graph [ label="javax.swing.border" ];
+            }
+            subgraph "cluster_javax.swing.event" {
+                graph [ label="javax.swing.event" ];
+            }
+            subgraph "cluster_javax.swing.table" {
+                graph [ label="javax.swing.table" ];
+            }
+            subgraph "cluster_javax.swing.tree" {
+                graph [ label="javax.swing.tree" ];
+            }
+        }
+        subgraph "cluster_javax.transaction" {
+            graph [ label="javax.transaction" ];
+            subgraph "cluster_javax.transaction.xa" {
+                graph [ label="javax.transaction.xa" ];
+            }
+        }
+        subgraph "cluster_javax.xml" {
+            graph [ label="javax.xml" ];
+            subgraph "cluster_javax.xml.bind" {
+                graph [ label="javax.xml.bind" ];
+                subgraph "cluster_javax.xml.bind.util" {
+                    graph [ label="javax.xml.bind.util" ];
+                }
+            }
+            subgraph "cluster_javax.xml.parsers" {
+                graph [ label="javax.xml.parsers" ];
+            }
+            subgraph "cluster_javax.xml.stream" {
+                graph [ label="javax.xml.stream" ];
+            }
+            subgraph "cluster_javax.xml.transform" {
+                graph [ label="javax.xml.transform" ];
+                subgraph "cluster_javax.xml.transform.dom" {
+                    graph [ label="javax.xml.transform.dom" ];
+                }
+                subgraph "cluster_javax.xml.transform.sax" {
+                    graph [ label="javax.xml.transform.sax" ];
+                }
+                subgraph "cluster_javax.xml.transform.stax" {
+                    graph [ label="javax.xml.transform.stax" ];
+                }
+                subgraph "cluster_javax.xml.transform.stream" {
+                    graph [ label="javax.xml.transform.stream" ];
+                }
+            }
+        }
+    }
+    subgraph cluster_jj {
+        graph [ label=jj ];
+        subgraph "cluster_jj.play" {
+            graph [ label="jj.play" ];
+            subgraph "cluster_jj.play.org" {
+                graph [ label="jj.play.org" ];
+                subgraph "cluster_jj.play.org.eclipse" {
+                    graph [ label="jj.play.org.eclipse" ];
+                    subgraph "cluster_jj.play.org.eclipse.mylyn" {
+                        graph [ label="jj.play.org.eclipse.mylyn" ];
+                        subgraph "cluster_jj.play.org.eclipse.mylyn.wikitext" {
+                            graph [ label="jj.play.org.eclipse.mylyn.wikitext" ];
+                            subgraph "cluster_jj.play.org.eclipse.mylyn.wikitext.core" {
+                                graph [ label="jj.play.org.eclipse.mylyn.wikitext.core" ];
+                                subgraph "cluster_jj.play.org.eclipse.mylyn.wikitext.core.parser" {
+                                    graph [ label="jj.play.org.eclipse.mylyn.wikitext.core.parser" ];
+                                }
+                            }
+                            subgraph "cluster_jj.play.org.eclipse.mylyn.wikitext.textile" {
+                                graph [ label="jj.play.org.eclipse.mylyn.wikitext.textile" ];
+                                subgraph "cluster_jj.play.org.eclipse.mylyn.wikitext.textile.core" {
+                                    graph [ label="jj.play.org.eclipse.mylyn.wikitext.textile.core" ];
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    subgraph cluster_jobs {
+        graph [ label=jobs ];
+        "StatisticJob.java";
+    }
+    subgraph cluster_models {
+        graph [ label=models ];
+        "CityCode.java";
+        "CityCodeTest.java";
+        "Forecast.java";
+        "ForecastDay.java";
+        "ForecastResponse.java";
+        "RequestLogger.java";
+        "StatisticLogger.java";
+        "WeatherGatewayTest.java";
+    }
+    subgraph cluster_notifiers {
+        graph [ label=notifiers ];
+        "Mails.java";
+    }
+    subgraph cluster_org {
+        graph [ label=org ];
+        subgraph "cluster_org.apache" {
+            graph [ label="org.apache" ];
+            subgraph "cluster_org.apache.commons" {
+                graph [ label="org.apache.commons" ];
+                subgraph "cluster_org.apache.commons.mail" {
+                    graph [ label="org.apache.commons.mail" ];
+                }
+            }
+        }
+        subgraph "cluster_org.hsqldb" {
+            graph [ label="org.hsqldb" ];
+            Unknown;
+            subgraph "cluster_org.hsqldb.auth" {
+                graph [ label="org.hsqldb.auth" ];
+                Unknown;
+            }
+            subgraph "cluster_org.hsqldb.dbinfo" {
+                graph [ label="org.hsqldb.dbinfo" ];
+                Unknown;
+            }
+            subgraph "cluster_org.hsqldb.error" {
+                graph [ label="org.hsqldb.error" ];
+                Unknown;
+            }
+            subgraph "cluster_org.hsqldb.index" {
+                graph [ label="org.hsqldb.index" ];
+                Unknown;
+            }
+            subgraph "cluster_org.hsqldb.jdbc" {
+                graph [ label="org.hsqldb.jdbc" ];
+                Unknown;
+                subgraph "cluster_org.hsqldb.jdbc.pool" {
+                    graph [ label="org.hsqldb.jdbc.pool" ];
+                    Unknown;
+                }
+            }
+            subgraph "cluster_org.hsqldb.lib" {
+                graph [ label="org.hsqldb.lib" ];
+                Unknown;
+                subgraph "cluster_org.hsqldb.lib.java" {
+                    graph [ label="org.hsqldb.lib.java" ];
+                    Unknown;
+                }
+                subgraph "cluster_org.hsqldb.lib.tar" {
+                    graph [ label="org.hsqldb.lib.tar" ];
+                    Unknown;
+                }
+            }
+            subgraph "cluster_org.hsqldb.navigator" {
+                graph [ label="org.hsqldb.navigator" ];
+                Unknown;
+            }
+            subgraph "cluster_org.hsqldb.persist" {
+                graph [ label="org.hsqldb.persist" ];
+                Unknown;
+            }
+            subgraph "cluster_org.hsqldb.resources" {
+                graph [ label="org.hsqldb.resources" ];
+                Unknown;
+            }
+            subgraph "cluster_org.hsqldb.result" {
+                graph [ label="org.hsqldb.result" ];
+                Unknown;
+            }
+            subgraph "cluster_org.hsqldb.rights" {
+                graph [ label="org.hsqldb.rights" ];
+                Unknown;
+            }
+            subgraph "cluster_org.hsqldb.rowio" {
+                graph [ label="org.hsqldb.rowio" ];
+                Unknown;
+            }
+            subgraph "cluster_org.hsqldb.scriptio" {
+                graph [ label="org.hsqldb.scriptio" ];
+                Unknown;
+            }
+            subgraph "cluster_org.hsqldb.server" {
+                graph [ label="org.hsqldb.server" ];
+                Unknown;
+            }
+            subgraph "cluster_org.hsqldb.store" {
+                graph [ label="org.hsqldb.store" ];
+                Unknown;
+            }
+            subgraph "cluster_org.hsqldb.types" {
+                graph [ label="org.hsqldb.types" ];
+                Unknown;
+            }
+            subgraph "cluster_org.hsqldb.util" {
+                graph [ label="org.hsqldb.util" ];
+                Unknown;
+            }
+        }
+        subgraph "cluster_org.jaxen" {
+            graph [ label="org.jaxen" ];
+            subgraph "cluster_org.jaxen.jdom" {
+                graph [ label="org.jaxen.jdom" ];
+            }
+        }
+        subgraph "cluster_org.jdom" {
+            graph [ label="org.jdom" ];
+            "Content.java";
+            "JDOMFactory.java";
+            "Parent.java";
+            "Attribute.java";
+            "AttributeList.java";
+            "CDATA.java";
+            "Comment.java";
+            "ContentList.java";
+            "DataConversionException.java";
+            "DefaultJDOMFactory.java";
+            "DescendantIterator.java";
+            "DocType.java";
+            "Document.java";
+            "Element.java";
+            "EntityRef.java";
+            "FilterIterator.java";
+            "IllegalAddException.java";
+            "IllegalDataException.java";
+            "IllegalNameException.java";
+            "IllegalTargetException.java";
+            "JDOMException.java";
+            "Namespace.java";
+            "ProcessingInstruction.java";
+            "Text.java";
+            "UncheckedJDOMFactory.java";
+            "Verifier.java";
+            subgraph "cluster_org.jdom.adapters" {
+                graph [ label="org.jdom.adapters" ];
+                "AbstractDOMAdapter.java";
+                "DOMAdapter.java";
+                "CrimsonDOMAdapter.java";
+                "JAXPDOMAdapter.java";
+                "OracleV1DOMAdapter.java";
+                "OracleV2DOMAdapter.java";
+                "XML4JDOMAdapter.java";
+                "XercesDOMAdapter.java";
+            }
+            subgraph "cluster_org.jdom.filter" {
+                graph [ label="org.jdom.filter" ];
+                "AbstractFilter.java";
+                "Filter.java";
+                "AndFilter.java";
+                "ContentFilter.java";
+                "ElementFilter.java";
+                "NegateFilter.java";
+                "OrFilter.java";
+            }
+            subgraph "cluster_org.jdom.input" {
+                graph [ label="org.jdom.input" ];
+                "BuilderErrorHandler.java";
+                "DOMBuilder.java";
+                "JAXPParserFactory.java";
+                "JDOMParseException.java";
+                "SAXBuilder.java";
+                "SAXHandler.java";
+                "TextBuffer.java";
+            }
+            subgraph "cluster_org.jdom.output" {
+                graph [ label="org.jdom.output" ];
+                "EscapeStrategy.java";
+                "DOMOutputter.java";
+                "Format.java";
+                "JDOMLocator.java";
+                "NamespaceStack.java";
+                "SAXOutputter.java";
+                "XMLOutputter.java";
+            }
+            subgraph "cluster_org.jdom.transform" {
+                graph [ label="org.jdom.transform" ];
+                "JDOMResult.java";
+                "JDOMSource.java";
+                "XSLTransformException.java";
+                "XSLTransformer.java";
+            }
+            subgraph "cluster_org.jdom.xpath" {
+                graph [ label="org.jdom.xpath" ];
+                "XPath.java";
+                "JaxenXPath.java";
+            }
+        }
+        subgraph "cluster_org.w3c" {
+            graph [ label="org.w3c" ];
+            subgraph "cluster_org.w3c.dom" {
+                graph [ label="org.w3c.dom" ];
+                subgraph "cluster_org.w3c.dom.bootstrap" {
+                    graph [ label="org.w3c.dom.bootstrap" ];
+                }
+            }
+        }
+        subgraph "cluster_org.xml" {
+            graph [ label="org.xml" ];
+            subgraph "cluster_org.xml.sax" {
+                graph [ label="org.xml.sax" ];
+                subgraph "cluster_org.xml.sax.ext" {
+                    graph [ label="org.xml.sax.ext" ];
+                }
+                subgraph "cluster_org.xml.sax.helpers" {
+                    graph [ label="org.xml.sax.helpers" ];
+                }
+            }
+        }
+    }
+    subgraph cluster_play {
+        graph [ label=play ];
+        subgraph "cluster_play.cache" {
+            graph [ label="play.cache" ];
+        }
+        subgraph "cluster_play.classloading" {
+            graph [ label="play.classloading" ];
+            subgraph "cluster_play.classloading.enhancers" {
+                graph [ label="play.classloading.enhancers" ];
+            }
+        }
+        subgraph "cluster_play.db" {
+            graph [ label="play.db" ];
+            subgraph "cluster_play.db.jpa" {
+                graph [ label="play.db.jpa" ];
+            }
+        }
+        subgraph "cluster_play.i18n" {
+            graph [ label="play.i18n" ];
+        }
+        subgraph "cluster_play.jobs" {
+            graph [ label="play.jobs" ];
+        }
+        subgraph "cluster_play.libs" {
+            graph [ label="play.libs" ];
+        }
+        subgraph "cluster_play.mvc" {
+            graph [ label="play.mvc" ];
+            subgraph "cluster_play.mvc.results" {
+                graph [ label="play.mvc.results" ];
+            }
+        }
+        subgraph "cluster_play.templates" {
+            graph [ label="play.templates" ];
+        }
+        subgraph "cluster_play.test" {
+            graph [ label="play.test" ];
+        }
+        subgraph "cluster_play.utils" {
+            graph [ label="play.utils" ];
+        }
+        subgraph "cluster_play.vfs" {
+            graph [ label="play.vfs" ];
+        }
+    }
+    subgraph cluster_Default {
+        graph [ label=Default ];
+        "AllPartsTest.java";
+        "ApplicationTest.java";
+        "Bootstrap.java";
+        "DocViewerPlugin.java";
+        "JDOMAbout.java";
+    }
+    subgraph cluster_calc {
+        graph [ label=calc ];
+        "AllParts.java";
+        "CalcGateway.java";
+        "CalculateBodyTest.java";
+        "CalculateLib.java";
+        "CalculateOthersTest.java";
+        "CalculatePantsTest.java";
+        "CalculateShoesTest.java";
+        "Calculation.java";
+        "Main.java";
+        "PartsGateway.java";
+        "WeatherTypes.java";
+        subgraph "cluster_calc.clothes" {
+            graph [ label="calc.clothes" ];
+            "AbstractClothes.java";
+            "IClothes.java";
+            subgraph "cluster_calc.clothes.body" {
+                graph [ label="calc.clothes.body" ];
+                "AbstractBody.java";
+                "Jacket.java";
+                "JacketRain.java";
+                "JacketWinter.java";
+                "MuscleShirt.java";
+                "Pullover.java";
+                "SummerJacket.java";
+                "TShirt.java";
+                "Top.java";
+            }
+            subgraph "cluster_calc.clothes.others" {
+                graph [ label="calc.clothes.others" ];
+                "Handbag.java";
+                "Sunglasses.java";
+                "Umbrella.java";
+            }
+            subgraph "cluster_calc.clothes.pants" {
+                graph [ label="calc.clothes.pants" ];
+                "AbstractPants.java";
+                "HotPants.java";
+                "LongPants.java";
+                "LongPantsMan.java";
+                "LongPantsWoman.java";
+                "Rock.java";
+                "ShortPants.java";
+            }
+            subgraph "cluster_calc.clothes.shoes" {
+                graph [ label="calc.clothes.shoes" ];
+                "AbstractShoes.java";
+                "Boots.java";
+                "FlipFlops.java";
+                "Gummistiefel.java";
+                "Normal.java";
+                "Open.java";
+                "RainBoots.java";
+                "Sneakers.java";
+                "Winter.java";
+                "WinterBoots.java";
+            }
+        }
+        subgraph "cluster_calc.jaxb" {
+            graph [ label="calc.jaxb" ];
+            "CalcFunction.java";
+            "CalcTypes.java";
+            "CalculationParam.java";
+            "CalculationParams.java";
+            "Collection.java";
+            "EnumClothesType.java";
+            "ObjectFactory.java";
+            "ParamStrings.java";
+            "PartType.java";
+            "QuantifierParam.java";
+            "QuantifierParams.java";
+            "WearTypes.java";
+        }
+        subgraph "cluster_calc.metrics" {
+            graph [ label="calc.metrics" ];
+            "DayTimeType.java";
+            "MetricType.java";
+            "Rain.java";
+            "RainType.java";
+            "Sky.java";
+            "SkyType.java";
+            "Temperature.java";
+            "TimeOfDay.java";
+            "UserType.java";
+            "Wind.java";
+        }
+        subgraph "cluster_calc.parts" {
+            graph [ label="calc.parts" ];
+            "AbstractPart.java";
+            "IPart.java";
+            "Body.java";
+            "Others.java";
+            "Pants.java";
+            "Shoes.java";
+        }
+    }
+    subgraph cluster_controllers {
+        graph [ label=controllers ];
+        "Application.java";
+        "Charts.java";
+        "Klamotten.java";
+        "Kontakt.java";
+        "MainController.java";
+        "PlayDocumentation.java";
+        "Request.java";
+        "Static.java";
+        "Team.java";
+        "TestData.java";
+        "TestRunner.java";
+        "iGoogle.java";
+    }
+    subgraph cluster_forecast {
+        graph [ label=forecast ];
+        "Checksum.java";
+        "ForecastArray.java";
+        "ForecastResultList.java";
+        "RwdsRequestException.java";
+        "SearchValues.java";
+        "UserCitySearch.java";
+        "WeatherGateway.java";
+        "WeatherParser.java";
+        "WeatherParserTest.java";
+        subgraph "cluster_forecast.search" {
+            graph [ label="forecast.search" ];
+            "RWDSSearchType.java";
+            "RWDSUrlCreator.java";
+            "UserSearch.java";
+            "UserSearchParser.java";
+            "UserSearchParserTest.java";
+            "UserSearchType.java";
+        }
+    }
+    subgraph cluster_helpers {
+        graph [ label=helpers ];
+        "CheatSheetHelper.java";
+    }
+    subgraph cluster_java {
+        graph [ label=java ];
+        subgraph "cluster_java.applet" {
+            graph [ label="java.applet" ];
+        }
+        subgraph "cluster_java.awt" {
+            graph [ label="java.awt" ];
+            subgraph "cluster_java.awt.event" {
+                graph [ label="java.awt.event" ];
+            }
+            subgraph "cluster_java.awt.image" {
+                graph [ label="java.awt.image" ];
+            }
+        }
+        subgraph "cluster_java.io" {
+            graph [ label="java.io" ];
+        }
+        subgraph "cluster_java.lang" {
+            graph [ label="java.lang" ];
+            subgraph "cluster_java.lang.reflect" {
+                graph [ label="java.lang.reflect" ];
+            }
+        }
+        subgraph "cluster_java.math" {
+            graph [ label="java.math" ];
+        }
+        subgraph "cluster_java.net" {
+            graph [ label="java.net" ];
+        }
+        subgraph "cluster_java.nio" {
+            graph [ label="java.nio" ];
+            subgraph "cluster_java.nio.channels" {
+                graph [ label="java.nio.channels" ];
+            }
+            subgraph "cluster_java.nio.charset" {
+                graph [ label="java.nio.charset" ];
+            }
+        }
+        subgraph "cluster_java.rmi" {
+            graph [ label="java.rmi" ];
+        }
+        subgraph "cluster_java.security" {
+            graph [ label="java.security" ];
+        }
+        subgraph "cluster_java.sql" {
+            graph [ label="java.sql" ];
+        }
+        subgraph "cluster_java.text" {
+            graph [ label="java.text" ];
+        }
+        subgraph "cluster_java.util" {
+            graph [ label="java.util" ];
+            subgraph "cluster_java.util.concurrent" {
+                graph [ label="java.util.concurrent" ];
+                subgraph "cluster_java.util.concurrent.atomic" {
+                    graph [ label="java.util.concurrent.atomic" ];
+                }
+                subgraph "cluster_java.util.concurrent.locks" {
+                    graph [ label="java.util.concurrent.locks" ];
+                }
+            }
+            subgraph "cluster_java.util.jar" {
+                graph [ label="java.util.jar" ];
+            }
+            subgraph "cluster_java.util.logging" {
+                graph [ label="java.util.logging" ];
+            }
+            subgraph "cluster_java.util.regex" {
+                graph [ label="java.util.regex" ];
+            }
+            subgraph "cluster_java.util.zip" {
+                graph [ label="java.util.zip" ];
+            }
+        }
+    }
+    subgraph cluster_javassist {
+        graph [ label=javassist ];
+        subgraph "cluster_javassist.runtime" {
+            graph [ label="javassist.runtime" ];
+        }
+    }
+    subgraph cluster_javax {
+        graph [ label=javax ];
+        subgraph "cluster_javax.crypto" {
+            graph [ label="javax.crypto" ];
+            subgraph "cluster_javax.crypto.spec" {
+                graph [ label="javax.crypto.spec" ];
+            }
+        }
+        subgraph "cluster_javax.naming" {
+            graph [ label="javax.naming" ];
+            subgraph "cluster_javax.naming.directory" {
+                graph [ label="javax.naming.directory" ];
+            }
+            subgraph "cluster_javax.naming.ldap" {
+                graph [ label="javax.naming.ldap" ];
+            }
+            subgraph "cluster_javax.naming.spi" {
+                graph [ label="javax.naming.spi" ];
+            }
+        }
+        subgraph "cluster_javax.net" {
+            graph [ label="javax.net" ];
+            subgraph "cluster_javax.net.ssl" {
+                graph [ label="javax.net.ssl" ];
+            }
+        }
+        subgraph "cluster_javax.security" {
+            graph [ label="javax.security" ];
+            subgraph "cluster_javax.security.auth" {
+                graph [ label="javax.security.auth" ];
+                subgraph "cluster_javax.security.auth.callback" {
+                    graph [ label="javax.security.auth.callback" ];
+                }
+                subgraph "cluster_javax.security.auth.login" {
+                    graph [ label="javax.security.auth.login" ];
+                }
+            }
+            subgraph "cluster_javax.security.cert" {
+                graph [ label="javax.security.cert" ];
+            }
+        }
+        subgraph "cluster_javax.servlet" {
+            graph [ label="javax.servlet" ];
+            subgraph "cluster_javax.servlet.http" {
+                graph [ label="javax.servlet.http" ];
+            }
+        }
+        subgraph "cluster_javax.sql" {
+            graph [ label="javax.sql" ];
+        }
+        subgraph "cluster_javax.swing" {
+            graph [ label="javax.swing" ];
+            subgraph "cluster_javax.swing.border" {
+                graph [ label="javax.swing.border" ];
+            }
+            subgraph "cluster_javax.swing.event" {
+                graph [ label="javax.swing.event" ];
+            }
+            subgraph "cluster_javax.swing.table" {
+                graph [ label="javax.swing.table" ];
+            }
+            subgraph "cluster_javax.swing.tree" {
+                graph [ label="javax.swing.tree" ];
+            }
+        }
+        subgraph "cluster_javax.transaction" {
+            graph [ label="javax.transaction" ];
+            subgraph "cluster_javax.transaction.xa" {
+                graph [ label="javax.transaction.xa" ];
+            }
+        }
+        subgraph "cluster_javax.xml" {
+            graph [ label="javax.xml" ];
+            subgraph "cluster_javax.xml.bind" {
+                graph [ label="javax.xml.bind" ];
+                subgraph "cluster_javax.xml.bind.util" {
+                    graph [ label="javax.xml.bind.util" ];
+                }
+            }
+            subgraph "cluster_javax.xml.parsers" {
+                graph [ label="javax.xml.parsers" ];
+            }
+            subgraph "cluster_javax.xml.stream" {
+                graph [ label="javax.xml.stream" ];
+            }
+            subgraph "cluster_javax.xml.transform" {
+                graph [ label="javax.xml.transform" ];
+                subgraph "cluster_javax.xml.transform.dom" {
+                    graph [ label="javax.xml.transform.dom" ];
+                }
+                subgraph "cluster_javax.xml.transform.sax" {
+                    graph [ label="javax.xml.transform.sax" ];
+                }
+                subgraph "cluster_javax.xml.transform.stax" {
+                    graph [ label="javax.xml.transform.stax" ];
+                }
+                subgraph "cluster_javax.xml.transform.stream" {
+                    graph [ label="javax.xml.transform.stream" ];
+                }
+            }
+        }
+    }
+    subgraph cluster_jj {
+        graph [ label=jj ];
+        subgraph "cluster_jj.play" {
+            graph [ label="jj.play" ];
+            subgraph "cluster_jj.play.org" {
+                graph [ label="jj.play.org" ];
+                subgraph "cluster_jj.play.org.eclipse" {
+                    graph [ label="jj.play.org.eclipse" ];
+                    subgraph "cluster_jj.play.org.eclipse.mylyn" {
+                        graph [ label="jj.play.org.eclipse.mylyn" ];
+                        subgraph "cluster_jj.play.org.eclipse.mylyn.wikitext" {
+                            graph [ label="jj.play.org.eclipse.mylyn.wikitext" ];
+                            subgraph "cluster_jj.play.org.eclipse.mylyn.wikitext.core" {
+                                graph [ label="jj.play.org.eclipse.mylyn.wikitext.core" ];
+                                subgraph "cluster_jj.play.org.eclipse.mylyn.wikitext.core.parser" {
+                                    graph [ label="jj.play.org.eclipse.mylyn.wikitext.core.parser" ];
+                                }
+                            }
+                            subgraph "cluster_jj.play.org.eclipse.mylyn.wikitext.textile" {
+                                graph [ label="jj.play.org.eclipse.mylyn.wikitext.textile" ];
+                                subgraph "cluster_jj.play.org.eclipse.mylyn.wikitext.textile.core" {
+                                    graph [ label="jj.play.org.eclipse.mylyn.wikitext.textile.core" ];
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    subgraph cluster_jobs {
+        graph [ label=jobs ];
+        "StatisticJob.java";
+    }
+    subgraph cluster_models {
+        graph [ label=models ];
+        "CityCode.java";
+        "CityCodeTest.java";
+        "Forecast.java";
+        "ForecastDay.java";
+        "ForecastResponse.java";
+        "RequestLogger.java";
+        "StatisticLogger.java";
+        "WeatherGatewayTest.java";
+    }
+    subgraph cluster_notifiers {
+        graph [ label=notifiers ];
+        "Mails.java";
+    }
+    subgraph cluster_org {
+        graph [ label=org ];
+        subgraph "cluster_org.apache" {
+            graph [ label="org.apache" ];
+            subgraph "cluster_org.apache.commons" {
+                graph [ label="org.apache.commons" ];
+                subgraph "cluster_org.apache.commons.mail" {
+                    graph [ label="org.apache.commons.mail" ];
+                }
+            }
+        }
+        subgraph "cluster_org.hsqldb" {
+            graph [ label="org.hsqldb" ];
+            Unknown;
+            subgraph "cluster_org.hsqldb.auth" {
+                graph [ label="org.hsqldb.auth" ];
+                Unknown;
+            }
+            subgraph "cluster_org.hsqldb.dbinfo" {
+                graph [ label="org.hsqldb.dbinfo" ];
+                Unknown;
+            }
+            subgraph "cluster_org.hsqldb.error" {
+                graph [ label="org.hsqldb.error" ];
+                Unknown;
+            }
+            subgraph "cluster_org.hsqldb.index" {
+                graph [ label="org.hsqldb.index" ];
+                Unknown;
+            }
+            subgraph "cluster_org.hsqldb.jdbc" {
+                graph [ label="org.hsqldb.jdbc" ];
+                Unknown;
+                subgraph "cluster_org.hsqldb.jdbc.pool" {
+                    graph [ label="org.hsqldb.jdbc.pool" ];
+                    Unknown;
+                }
+            }
+            subgraph "cluster_org.hsqldb.lib" {
+                graph [ label="org.hsqldb.lib" ];
+                Unknown;
+                subgraph "cluster_org.hsqldb.lib.java" {
+                    graph [ label="org.hsqldb.lib.java" ];
+                    Unknown;
+                }
+                subgraph "cluster_org.hsqldb.lib.tar" {
+                    graph [ label="org.hsqldb.lib.tar" ];
+                    Unknown;
+                }
+            }
+            subgraph "cluster_org.hsqldb.navigator" {
+                graph [ label="org.hsqldb.navigator" ];
+                Unknown;
+            }
+            subgraph "cluster_org.hsqldb.persist" {
+                graph [ label="org.hsqldb.persist" ];
+                Unknown;
+            }
+            subgraph "cluster_org.hsqldb.resources" {
+                graph [ label="org.hsqldb.resources" ];
+                Unknown;
+            }
+            subgraph "cluster_org.hsqldb.result" {
+                graph [ label="org.hsqldb.result" ];
+                Unknown;
+            }
+            subgraph "cluster_org.hsqldb.rights" {
+                graph [ label="org.hsqldb.rights" ];
+                Unknown;
+            }
+            subgraph "cluster_org.hsqldb.rowio" {
+                graph [ label="org.hsqldb.rowio" ];
+                Unknown;
+            }
+            subgraph "cluster_org.hsqldb.scriptio" {
+                graph [ label="org.hsqldb.scriptio" ];
+                Unknown;
+            }
+            subgraph "cluster_org.hsqldb.server" {
+                graph [ label="org.hsqldb.server" ];
+                Unknown;
+            }
+            subgraph "cluster_org.hsqldb.store" {
+                graph [ label="org.hsqldb.store" ];
+                Unknown;
+            }
+            subgraph "cluster_org.hsqldb.types" {
+                graph [ label="org.hsqldb.types" ];
+                Unknown;
+            }
+            subgraph "cluster_org.hsqldb.util" {
+                graph [ label="org.hsqldb.util" ];
+                Unknown;
+            }
+        }
+        subgraph "cluster_org.jaxen" {
+            graph [ label="org.jaxen" ];
+            subgraph "cluster_org.jaxen.jdom" {
+                graph [ label="org.jaxen.jdom" ];
+            }
+        }
+        subgraph "cluster_org.jdom" {
+            graph [ label="org.jdom" ];
+            "Content.java";
+            "JDOMFactory.java";
+            "Parent.java";
+            "Attribute.java";
+            "AttributeList.java";
+            "CDATA.java";
+            "Comment.java";
+            "ContentList.java";
+            "DataConversionException.java";
+            "DefaultJDOMFactory.java";
+            "DescendantIterator.java";
+            "DocType.java";
+            "Document.java";
+            "Element.java";
+            "EntityRef.java";
+            "FilterIterator.java";
+            "IllegalAddException.java";
+            "IllegalDataException.java";
+            "IllegalNameException.java";
+            "IllegalTargetException.java";
+            "JDOMException.java";
+            "Namespace.java";
+            "ProcessingInstruction.java";
+            "Text.java";
+            "UncheckedJDOMFactory.java";
+            "Verifier.java";
+            subgraph "cluster_org.jdom.adapters" {
+                graph [ label="org.jdom.adapters" ];
+                "AbstractDOMAdapter.java";
+                "DOMAdapter.java";
+                "CrimsonDOMAdapter.java";
+                "JAXPDOMAdapter.java";
+                "OracleV1DOMAdapter.java";
+                "OracleV2DOMAdapter.java";
+                "XML4JDOMAdapter.java";
+                "XercesDOMAdapter.java";
+            }
+            subgraph "cluster_org.jdom.filter" {
+                graph [ label="org.jdom.filter" ];
+                "AbstractFilter.java";
+                "Filter.java";
+                "AndFilter.java";
+                "ContentFilter.java";
+                "ElementFilter.java";
+                "NegateFilter.java";
+                "OrFilter.java";
+            }
+            subgraph "cluster_org.jdom.input" {
+                graph [ label="org.jdom.input" ];
+                "BuilderErrorHandler.java";
+                "DOMBuilder.java";
+                "JAXPParserFactory.java";
+                "JDOMParseException.java";
+                "SAXBuilder.java";
+                "SAXHandler.java";
+                "TextBuffer.java";
+            }
+            subgraph "cluster_org.jdom.output" {
+                graph [ label="org.jdom.output" ];
+                "EscapeStrategy.java";
+                "DOMOutputter.java";
+                "Format.java";
+                "JDOMLocator.java";
+                "NamespaceStack.java";
+                "SAXOutputter.java";
+                "XMLOutputter.java";
+            }
+            subgraph "cluster_org.jdom.transform" {
+                graph [ label="org.jdom.transform" ];
+                "JDOMResult.java";
+                "JDOMSource.java";
+                "XSLTransformException.java";
+                "XSLTransformer.java";
+            }
+            subgraph "cluster_org.jdom.xpath" {
+                graph [ label="org.jdom.xpath" ];
+                "XPath.java";
+                "JaxenXPath.java";
+            }
+        }
+        subgraph "cluster_org.w3c" {
+            graph [ label="org.w3c" ];
+            subgraph "cluster_org.w3c.dom" {
+                graph [ label="org.w3c.dom" ];
+                subgraph "cluster_org.w3c.dom.bootstrap" {
+                    graph [ label="org.w3c.dom.bootstrap" ];
+                }
+            }
+        }
+        subgraph "cluster_org.xml" {
+            graph [ label="org.xml" ];
+            subgraph "cluster_org.xml.sax" {
+                graph [ label="org.xml.sax" ];
+                subgraph "cluster_org.xml.sax.ext" {
+                    graph [ label="org.xml.sax.ext" ];
+                }
+                subgraph "cluster_org.xml.sax.helpers" {
+                    graph [ label="org.xml.sax.helpers" ];
+                }
+            }
+        }
+    }
+    subgraph cluster_play {
+        graph [ label=play ];
+        subgraph "cluster_play.cache" {
+            graph [ label="play.cache" ];
+        }
+        subgraph "cluster_play.classloading" {
+            graph [ label="play.classloading" ];
+            subgraph "cluster_play.classloading.enhancers" {
+                graph [ label="play.classloading.enhancers" ];
+            }
+        }
+        subgraph "cluster_play.db" {
+            graph [ label="play.db" ];
+            subgraph "cluster_play.db.jpa" {
+                graph [ label="play.db.jpa" ];
+            }
+        }
+        subgraph "cluster_play.i18n" {
+            graph [ label="play.i18n" ];
+        }
+        subgraph "cluster_play.jobs" {
+            graph [ label="play.jobs" ];
+        }
+        subgraph "cluster_play.libs" {
+            graph [ label="play.libs" ];
+        }
+        subgraph "cluster_play.mvc" {
+            graph [ label="play.mvc" ];
+            subgraph "cluster_play.mvc.results" {
+                graph [ label="play.mvc.results" ];
+            }
+        }
+        subgraph "cluster_play.templates" {
+            graph [ label="play.templates" ];
+        }
+        subgraph "cluster_play.test" {
+            graph [ label="play.test" ];
+        }
+        subgraph "cluster_play.utils" {
+            graph [ label="play.utils" ];
+        }
+        subgraph "cluster_play.vfs" {
+            graph [ label="play.vfs" ];
+        }
+    }
+    cluster_calc -> cluster_Default;
+    cluster_calc -> "cluster_calc.clothes.body";
+    cluster_calc -> "cluster_calc.clothes.others";
+    cluster_calc -> "cluster_calc.clothes.pants";
+    cluster_calc -> "cluster_calc.clothes.shoes";
+    cluster_calc -> cluster_controllers;
+    "cluster_java.io" -> cluster_Default;
+    "cluster_java.io" -> cluster_calc;
+    "cluster_java.io" -> "cluster_calc.clothes";
+    "cluster_java.io" -> cluster_controllers;
+    "cluster_java.io" -> cluster_forecast;
+    "cluster_java.io" -> "cluster_forecast.search";
+    "cluster_java.io" -> cluster_helpers;
+    "cluster_java.io" -> "cluster_org.hsqldb";
+    "cluster_java.io" -> "cluster_org.hsqldb.auth";
+    "cluster_java.io" -> "cluster_org.hsqldb.dbinfo";
+    "cluster_java.io" -> "cluster_org.hsqldb.error";
+    "cluster_java.io" -> "cluster_org.hsqldb.index";
+    "cluster_java.io" -> "cluster_org.hsqldb.jdbc";
+    "cluster_java.io" -> "cluster_org.hsqldb.jdbc.pool";
+    "cluster_java.io" -> "cluster_org.hsqldb.lib";
+    "cluster_java.io" -> "cluster_org.hsqldb.lib.java";
+    "cluster_java.io" -> "cluster_org.hsqldb.lib.tar";
+    "cluster_java.io" -> "cluster_org.hsqldb.navigator";
+    "cluster_java.io" -> "cluster_org.hsqldb.persist";
+    "cluster_java.io" -> "cluster_org.hsqldb.result";
+    "cluster_java.io" -> "cluster_org.hsqldb.rowio";
+    "cluster_java.io" -> "cluster_org.hsqldb.scriptio";
+    "cluster_java.io" -> "cluster_org.hsqldb.server";
+    "cluster_java.io" -> "cluster_org.hsqldb.types";
+    "cluster_java.io" -> "cluster_org.hsqldb.util";
+    "cluster_java.io" -> "cluster_org.jdom";
+    "cluster_java.io" -> "cluster_org.jdom.adapters";
+    "cluster_java.io" -> "cluster_org.jdom.filter";
+    "cluster_java.io" -> "cluster_org.jdom.input";
+    "cluster_java.io" -> "cluster_org.jdom.output";
+    "cluster_java.io" -> "cluster_org.jdom.transform";
+    "cluster_java.io" -> "cluster_org.jdom.xpath";
+    "cluster_java.lang" -> cluster_Default;
+    "cluster_java.lang" -> cluster_calc;
+    "cluster_java.lang" -> "cluster_calc.clothes";
+    "cluster_java.lang" -> "cluster_calc.clothes.body";
+    "cluster_java.lang" -> "cluster_calc.clothes.others";
+    "cluster_java.lang" -> "cluster_calc.clothes.pants";
+    "cluster_java.lang" -> "cluster_calc.clothes.shoes";
+    "cluster_java.lang" -> "cluster_calc.jaxb";
+    "cluster_java.lang" -> "cluster_calc.metrics";
+    "cluster_java.lang" -> "cluster_calc.parts";
+    "cluster_java.lang" -> cluster_controllers;
+    "cluster_java.lang" -> cluster_forecast;
+    "cluster_java.lang" -> "cluster_forecast.search";
+    "cluster_java.lang" -> cluster_helpers;
+    "cluster_java.lang" -> cluster_jobs;
+    "cluster_java.lang" -> cluster_models;
+    "cluster_java.lang" -> cluster_notifiers;
+    "cluster_java.lang" -> "cluster_org.hsqldb";
+    "cluster_java.lang" -> "cluster_org.hsqldb.auth";
+    "cluster_java.lang" -> "cluster_org.hsqldb.dbinfo";
+    "cluster_java.lang" -> "cluster_org.hsqldb.error";
+    "cluster_java.lang" -> "cluster_org.hsqldb.index";
+    "cluster_java.lang" -> "cluster_org.hsqldb.jdbc";
+    "cluster_java.lang" -> "cluster_org.hsqldb.jdbc.pool";
+    "cluster_java.lang" -> "cluster_org.hsqldb.lib";
+    "cluster_java.lang" -> "cluster_org.hsqldb.lib.java";
+    "cluster_java.lang" -> "cluster_org.hsqldb.lib.tar";
+    "cluster_java.lang" -> "cluster_org.hsqldb.navigator";
+    "cluster_java.lang" -> "cluster_org.hsqldb.persist";
+    "cluster_java.lang" -> "cluster_org.hsqldb.resources";
+    "cluster_java.lang" -> "cluster_org.hsqldb.result";
+    "cluster_java.lang" -> "cluster_org.hsqldb.rights";
+    "cluster_java.lang" -> "cluster_org.hsqldb.rowio";
+    "cluster_java.lang" -> "cluster_org.hsqldb.scriptio";
+    "cluster_java.lang" -> "cluster_org.hsqldb.server";
+    "cluster_java.lang" -> "cluster_org.hsqldb.store";
+    "cluster_java.lang" -> "cluster_org.hsqldb.types";
+    "cluster_java.lang" -> "cluster_org.hsqldb.util";
+    "cluster_java.lang" -> "cluster_org.jdom";
+    "cluster_java.lang" -> "cluster_org.jdom.adapters";
+    "cluster_java.lang" -> "cluster_org.jdom.filter";
+    "cluster_java.lang" -> "cluster_org.jdom.input";
+    "cluster_java.lang" -> "cluster_org.jdom.output";
+    "cluster_java.lang" -> "cluster_org.jdom.transform";
+    "cluster_java.lang" -> "cluster_org.jdom.xpath";
+    "cluster_java.util" -> cluster_Default;
+    "cluster_java.util" -> cluster_calc;
+    "cluster_java.util" -> "cluster_calc.clothes";
+    "cluster_java.util" -> "cluster_calc.jaxb";
+    "cluster_java.util" -> "cluster_calc.parts";
+    "cluster_java.util" -> cluster_controllers;
+    "cluster_java.util" -> cluster_forecast;
+    "cluster_java.util" -> cluster_helpers;
+    "cluster_java.util" -> cluster_jobs;
+    "cluster_java.util" -> cluster_models;
+    "cluster_java.util" -> cluster_notifiers;
+    "cluster_java.util" -> "cluster_org.hsqldb";
+    "cluster_java.util" -> "cluster_org.hsqldb.auth";
+    "cluster_java.util" -> "cluster_org.hsqldb.dbinfo";
+    "cluster_java.util" -> "cluster_org.hsqldb.jdbc";
+    "cluster_java.util" -> "cluster_org.hsqldb.jdbc.pool";
+    "cluster_java.util" -> "cluster_org.hsqldb.lib";
+    "cluster_java.util" -> "cluster_org.hsqldb.lib.java";
+    "cluster_java.util" -> "cluster_org.hsqldb.lib.tar";
+    "cluster_java.util" -> "cluster_org.hsqldb.navigator";
+    "cluster_java.util" -> "cluster_org.hsqldb.persist";
+    "cluster_java.util" -> "cluster_org.hsqldb.resources";
+    "cluster_java.util" -> "cluster_org.hsqldb.server";
+    "cluster_java.util" -> "cluster_org.hsqldb.store";
+    "cluster_java.util" -> "cluster_org.hsqldb.types";
+    "cluster_java.util" -> "cluster_org.hsqldb.util";
+    "cluster_java.util" -> "cluster_org.jdom";
+    "cluster_java.util" -> "cluster_org.jdom.input";
+    "cluster_java.util" -> "cluster_org.jdom.output";
+    "cluster_java.util" -> "cluster_org.jdom.transform";
+    "cluster_java.util" -> "cluster_org.jdom.xpath";
+    "cluster_java.util.jar" -> cluster_Default;
+    "cluster_org.jdom" -> cluster_Default;
+    "cluster_org.jdom" -> cluster_forecast;
+    "cluster_org.jdom" -> "cluster_org.jdom.adapters";
+    "cluster_org.jdom" -> "cluster_org.jdom.filter";
+    "cluster_org.jdom" -> "cluster_org.jdom.input";
+    "cluster_org.jdom" -> "cluster_org.jdom.output";
+    "cluster_org.jdom" -> "cluster_org.jdom.transform";
+    "cluster_org.jdom" -> "cluster_org.jdom.xpath";
+    "cluster_org.jdom.input" -> cluster_Default;
+    "cluster_org.jdom.input" -> cluster_forecast;
+    "cluster_org.jdom.input" -> "cluster_org.jdom.adapters";
+    "cluster_org.jdom.input" -> "cluster_org.jdom.transform";
+    cluster_play -> cluster_Default;
+    cluster_play -> "cluster_calc.clothes";
+    cluster_play -> cluster_controllers;
+    cluster_play -> cluster_forecast;
+    cluster_play -> "cluster_forecast.search";
+    cluster_play -> cluster_helpers;
+    cluster_play -> cluster_notifiers;
+    "cluster_play.classloading.enhancers" -> cluster_Default;
+    "cluster_play.classloading.enhancers" -> cluster_calc;
+    "cluster_play.classloading.enhancers" -> cluster_controllers;
+    "cluster_play.classloading.enhancers" -> cluster_forecast;
+    "cluster_play.classloading.enhancers" -> cluster_models;
+    "cluster_play.classloading.enhancers" -> cluster_notifiers;
+    "cluster_play.jobs" -> cluster_Default;
+    "cluster_play.jobs" -> cluster_jobs;
+    "cluster_play.libs" -> cluster_Default;
+    "cluster_play.libs" -> cluster_controllers;
+    "cluster_play.libs" -> cluster_jobs;
+    "cluster_play.mvc" -> cluster_Default;
+    "cluster_play.mvc" -> cluster_controllers;
+    "cluster_play.mvc" -> cluster_models;
+    "cluster_play.mvc" -> cluster_notifiers;
+    "cluster_play.test" -> cluster_Default;
+    "cluster_play.test" -> cluster_calc;
+    "cluster_play.test" -> cluster_controllers;
+    "cluster_play.test" -> cluster_forecast;
+    "cluster_play.test" -> "cluster_forecast.search";
+    "cluster_play.test" -> cluster_models;
+    "cluster_play.vfs" -> cluster_Default;
+    "cluster_play.vfs" -> cluster_controllers;
+    "cluster_calc.clothes" -> cluster_calc;
+    "cluster_calc.clothes" -> "cluster_calc.clothes.body";
+    "cluster_calc.clothes" -> "cluster_calc.clothes.others";
+    "cluster_calc.clothes" -> "cluster_calc.clothes.pants";
+    "cluster_calc.clothes" -> "cluster_calc.clothes.shoes";
+    "cluster_calc.clothes" -> "cluster_calc.parts";
+    "cluster_calc.clothes" -> cluster_controllers;
+    "cluster_calc.jaxb" -> cluster_calc;
+    "cluster_calc.metrics" -> cluster_calc;
+    "cluster_calc.metrics" -> "cluster_calc.clothes";
+    "cluster_calc.metrics" -> "cluster_calc.clothes.body";
+    "cluster_calc.metrics" -> "cluster_calc.clothes.others";
+    "cluster_calc.metrics" -> "cluster_calc.clothes.pants";
+    "cluster_calc.metrics" -> "cluster_calc.clothes.shoes";
+    "cluster_calc.metrics" -> "cluster_calc.parts";
+    "cluster_calc.metrics" -> cluster_controllers;
+    "cluster_calc.metrics" -> cluster_models;
+    "cluster_calc.parts" -> cluster_calc;
+    "cluster_calc.parts" -> cluster_controllers;
+    "cluster_java.math" -> cluster_calc;
+    "cluster_java.math" -> "cluster_calc.jaxb";
+    "cluster_java.math" -> "cluster_org.hsqldb";
+    "cluster_java.math" -> "cluster_org.hsqldb.jdbc";
+    "cluster_java.math" -> "cluster_org.hsqldb.lib.java";
+    "cluster_java.math" -> "cluster_org.hsqldb.rowio";
+    "cluster_java.math" -> "cluster_org.hsqldb.store";
+    "cluster_java.math" -> "cluster_org.hsqldb.types";
+    "cluster_javax.xml.bind" -> cluster_calc;
+    "cluster_play.i18n" -> "cluster_calc.clothes";
+    "cluster_play.utils" -> "cluster_calc.clothes";
+    "cluster_play.utils" -> cluster_controllers;
+    "cluster_calc.clothes.body" -> "cluster_calc.parts";
+    "cluster_calc.clothes.others" -> "cluster_calc.parts";
+    "cluster_calc.clothes.pants" -> "cluster_calc.parts";
+    "cluster_calc.clothes.shoes" -> "cluster_calc.parts";
+    cluster_forecast -> cluster_controllers;
+    cluster_forecast -> "cluster_forecast.search";
+    "cluster_forecast.search" -> cluster_controllers;
+    "cluster_forecast.search" -> cluster_forecast;
+    "cluster_forecast.search" -> cluster_models;
+    cluster_helpers -> cluster_controllers;
+    "cluster_java.text" -> cluster_controllers;
+    "cluster_java.text" -> cluster_jobs;
+    "cluster_java.text" -> cluster_models;
+    "cluster_java.text" -> "cluster_org.hsqldb";
+    "cluster_java.text" -> "cluster_org.hsqldb.lib";
+    "cluster_java.text" -> "cluster_org.hsqldb.lib.tar";
+    "cluster_java.text" -> "cluster_org.hsqldb.persist";
+    "cluster_java.text" -> "cluster_org.hsqldb.types";
+    "cluster_java.text" -> "cluster_org.hsqldb.util";
+    "cluster_javassist.runtime" -> cluster_controllers;
+    "cluster_jj.play.org.eclipse.mylyn.wikitext.core.parser" -> cluster_controllers;
+    "cluster_jj.play.org.eclipse.mylyn.wikitext.textile.core" -> cluster_controllers;
+    cluster_models -> cluster_controllers;
+    cluster_models -> cluster_forecast;
+    cluster_notifiers -> cluster_controllers;
+    "cluster_play.cache" -> cluster_controllers;
+    "cluster_play.mvc.results" -> cluster_controllers;
+    "cluster_play.templates" -> cluster_controllers;
+    "cluster_java.net" -> cluster_forecast;
+    "cluster_java.net" -> "cluster_forecast.search";
+    "cluster_java.net" -> "cluster_org.hsqldb";
+    "cluster_java.net" -> "cluster_org.hsqldb.jdbc";
+    "cluster_java.net" -> "cluster_org.hsqldb.jdbc.pool";
+    "cluster_java.net" -> "cluster_org.hsqldb.lib";
+    "cluster_java.net" -> "cluster_org.hsqldb.server";
+    "cluster_java.net" -> "cluster_org.jdom.input";
+    "cluster_java.security" -> cluster_forecast;
+    "cluster_java.security" -> "cluster_forecast.search";
+    "cluster_java.security" -> "cluster_org.hsqldb.auth";
+    "cluster_java.security" -> "cluster_org.hsqldb.dbinfo";
+    "cluster_java.security" -> "cluster_org.hsqldb.lib";
+    "cluster_java.security" -> "cluster_org.hsqldb.persist";
+    "cluster_java.security" -> "cluster_org.hsqldb.server";
+    "cluster_java.security" -> "cluster_org.hsqldb.util";
+    "cluster_play.db.jpa" -> cluster_forecast;
+    "cluster_play.db.jpa" -> cluster_models;
+    "cluster_java.sql" -> cluster_jobs;
+    "cluster_java.sql" -> "cluster_org.hsqldb";
+    "cluster_java.sql" -> "cluster_org.hsqldb.auth";
+    "cluster_java.sql" -> "cluster_org.hsqldb.jdbc";
+    "cluster_java.sql" -> "cluster_org.hsqldb.jdbc.pool";
+    "cluster_java.sql" -> "cluster_org.hsqldb.lib";
+    "cluster_java.sql" -> "cluster_org.hsqldb.lib.java";
+    "cluster_java.sql" -> "cluster_org.hsqldb.rowio";
+    "cluster_java.sql" -> "cluster_org.hsqldb.server";
+    "cluster_java.sql" -> "cluster_org.hsqldb.types";
+    "cluster_java.sql" -> "cluster_org.hsqldb.util";
+    "cluster_java.sql" -> "cluster_org.jdom";
+    "cluster_org.apache.commons.mail" -> cluster_jobs;
+    "cluster_play.db" -> cluster_jobs;
+    "cluster_java.lang.reflect" -> "cluster_org.hsqldb";
+    "cluster_java.lang.reflect" -> "cluster_org.hsqldb.dbinfo";
+    "cluster_java.lang.reflect" -> "cluster_org.hsqldb.jdbc";
+    "cluster_java.lang.reflect" -> "cluster_org.hsqldb.lib";
+    "cluster_java.lang.reflect" -> "cluster_org.hsqldb.persist";
+    "cluster_java.lang.reflect" -> "cluster_org.hsqldb.resources";
+    "cluster_java.lang.reflect" -> "cluster_org.hsqldb.server";
+    "cluster_java.lang.reflect" -> "cluster_org.hsqldb.util";
+    "cluster_java.lang.reflect" -> "cluster_org.jdom";
+    "cluster_java.lang.reflect" -> "cluster_org.jdom.adapters";
+    "cluster_java.lang.reflect" -> "cluster_org.jdom.input";
+    "cluster_java.lang.reflect" -> "cluster_org.jdom.output";
+    "cluster_java.lang.reflect" -> "cluster_org.jdom.xpath";
+    "cluster_java.util.concurrent.atomic" -> "cluster_org.hsqldb";
+    "cluster_java.util.concurrent.locks" -> "cluster_org.hsqldb";
+    "cluster_java.util.concurrent.locks" -> "cluster_org.hsqldb.index";
+    "cluster_java.util.concurrent.locks" -> "cluster_org.hsqldb.lib";
+    "cluster_java.util.concurrent.locks" -> "cluster_org.hsqldb.persist";
+    "cluster_java.util.regex" -> "cluster_org.hsqldb";
+    "cluster_java.util.regex" -> "cluster_org.hsqldb.auth";
+    "cluster_java.util.regex" -> "cluster_org.hsqldb.lib";
+    "cluster_java.util.regex" -> "cluster_org.hsqldb.lib.tar";
+    "cluster_org.hsqldb.dbinfo" -> "cluster_org.hsqldb";
+    "cluster_org.hsqldb.dbinfo" -> "cluster_org.hsqldb.persist";
+    "cluster_org.hsqldb.error" -> "cluster_org.hsqldb";
+    "cluster_org.hsqldb.error" -> "cluster_org.hsqldb.index";
+    "cluster_org.hsqldb.error" -> "cluster_org.hsqldb.jdbc";
+    "cluster_org.hsqldb.error" -> "cluster_org.hsqldb.jdbc.pool";
+    "cluster_org.hsqldb.error" -> "cluster_org.hsqldb.navigator";
+    "cluster_org.hsqldb.error" -> "cluster_org.hsqldb.persist";
+    "cluster_org.hsqldb.error" -> "cluster_org.hsqldb.result";
+    "cluster_org.hsqldb.error" -> "cluster_org.hsqldb.rights";
+    "cluster_org.hsqldb.error" -> "cluster_org.hsqldb.rowio";
+    "cluster_org.hsqldb.error" -> "cluster_org.hsqldb.scriptio";
+    "cluster_org.hsqldb.error" -> "cluster_org.hsqldb.server";
+    "cluster_org.hsqldb.error" -> "cluster_org.hsqldb.types";
+    "cluster_org.hsqldb.index" -> "cluster_org.hsqldb";
+    "cluster_org.hsqldb.index" -> "cluster_org.hsqldb.dbinfo";
+    "cluster_org.hsqldb.index" -> "cluster_org.hsqldb.navigator";
+    "cluster_org.hsqldb.index" -> "cluster_org.hsqldb.persist";
+    "cluster_org.hsqldb.jdbc" -> "cluster_org.hsqldb";
+    "cluster_org.hsqldb.jdbc" -> "cluster_org.hsqldb.auth";
+    "cluster_org.hsqldb.jdbc" -> "cluster_org.hsqldb.jdbc.pool";
+    "cluster_org.hsqldb.jdbc" -> "cluster_org.hsqldb.server";
+    "cluster_org.hsqldb.jdbc" -> "cluster_org.hsqldb.types";
+    "cluster_org.hsqldb.lib" -> "cluster_org.hsqldb";
+    "cluster_org.hsqldb.lib" -> "cluster_org.hsqldb.auth";
+    "cluster_org.hsqldb.lib" -> "cluster_org.hsqldb.dbinfo";
+    "cluster_org.hsqldb.lib" -> "cluster_org.hsqldb.error";
+    "cluster_org.hsqldb.lib" -> "cluster_org.hsqldb.index";
+    "cluster_org.hsqldb.lib" -> "cluster_org.hsqldb.jdbc";
+    "cluster_org.hsqldb.lib" -> "cluster_org.hsqldb.jdbc.pool";
+    "cluster_org.hsqldb.lib" -> "cluster_org.hsqldb.lib.tar";
+    "cluster_org.hsqldb.lib" -> "cluster_org.hsqldb.navigator";
+    "cluster_org.hsqldb.lib" -> "cluster_org.hsqldb.persist";
+    "cluster_org.hsqldb.lib" -> "cluster_org.hsqldb.resources";
+    "cluster_org.hsqldb.lib" -> "cluster_org.hsqldb.result";
+    "cluster_org.hsqldb.lib" -> "cluster_org.hsqldb.rights";
+    "cluster_org.hsqldb.lib" -> "cluster_org.hsqldb.rowio";
+    "cluster_org.hsqldb.lib" -> "cluster_org.hsqldb.scriptio";
+    "cluster_org.hsqldb.lib" -> "cluster_org.hsqldb.server";
+    "cluster_org.hsqldb.lib" -> "cluster_org.hsqldb.store";
+    "cluster_org.hsqldb.lib" -> "cluster_org.hsqldb.types";
+    "cluster_org.hsqldb.lib" -> "cluster_org.hsqldb.util";
+    "cluster_org.hsqldb.lib.java" -> "cluster_org.hsqldb";
+    "cluster_org.hsqldb.lib.java" -> "cluster_org.hsqldb.jdbc";
+    "cluster_org.hsqldb.lib.java" -> "cluster_org.hsqldb.lib";
+    "cluster_org.hsqldb.lib.java" -> "cluster_org.hsqldb.persist";
+    "cluster_org.hsqldb.lib.java" -> "cluster_org.hsqldb.rowio";
+    "cluster_org.hsqldb.lib.java" -> "cluster_org.hsqldb.server";
+    "cluster_org.hsqldb.lib.java" -> "cluster_org.hsqldb.types";
+    "cluster_org.hsqldb.lib.java" -> "cluster_org.hsqldb.util";
+    "cluster_org.hsqldb.navigator" -> "cluster_org.hsqldb";
+    "cluster_org.hsqldb.navigator" -> "cluster_org.hsqldb.index";
+    "cluster_org.hsqldb.navigator" -> "cluster_org.hsqldb.jdbc";
+    "cluster_org.hsqldb.navigator" -> "cluster_org.hsqldb.persist";
+    "cluster_org.hsqldb.navigator" -> "cluster_org.hsqldb.result";
+    "cluster_org.hsqldb.navigator" -> "cluster_org.hsqldb.scriptio";
+    "cluster_org.hsqldb.navigator" -> "cluster_org.hsqldb.server";
+    "cluster_org.hsqldb.persist" -> "cluster_org.hsqldb";
+    "cluster_org.hsqldb.persist" -> "cluster_org.hsqldb.dbinfo";
+    "cluster_org.hsqldb.persist" -> "cluster_org.hsqldb.index";
+    "cluster_org.hsqldb.persist" -> "cluster_org.hsqldb.jdbc";
+    "cluster_org.hsqldb.persist" -> "cluster_org.hsqldb.navigator";
+    "cluster_org.hsqldb.persist" -> "cluster_org.hsqldb.result";
+    "cluster_org.hsqldb.persist" -> "cluster_org.hsqldb.rowio";
+    "cluster_org.hsqldb.persist" -> "cluster_org.hsqldb.scriptio";
+    "cluster_org.hsqldb.persist" -> "cluster_org.hsqldb.server";
+    "cluster_org.hsqldb.persist" -> "cluster_org.hsqldb.types";
+    "cluster_org.hsqldb.result" -> "cluster_org.hsqldb";
+    "cluster_org.hsqldb.result" -> "cluster_org.hsqldb.error";
+    "cluster_org.hsqldb.result" -> "cluster_org.hsqldb.jdbc";
+    "cluster_org.hsqldb.result" -> "cluster_org.hsqldb.navigator";
+    "cluster_org.hsqldb.result" -> "cluster_org.hsqldb.persist";
+    "cluster_org.hsqldb.result" -> "cluster_org.hsqldb.rights";
+    "cluster_org.hsqldb.result" -> "cluster_org.hsqldb.scriptio";
+    "cluster_org.hsqldb.result" -> "cluster_org.hsqldb.server";
+    "cluster_org.hsqldb.result" -> "cluster_org.hsqldb.types";
+    "cluster_org.hsqldb.rights" -> "cluster_org.hsqldb";
+    "cluster_org.hsqldb.rights" -> "cluster_org.hsqldb.dbinfo";
+    "cluster_org.hsqldb.rights" -> "cluster_org.hsqldb.index";
+    "cluster_org.hsqldb.rights" -> "cluster_org.hsqldb.persist";
+    "cluster_org.hsqldb.rights" -> "cluster_org.hsqldb.types";
+    "cluster_org.hsqldb.rowio" -> "cluster_org.hsqldb";
+    "cluster_org.hsqldb.rowio" -> "cluster_org.hsqldb.index";
+    "cluster_org.hsqldb.rowio" -> "cluster_org.hsqldb.navigator";
+    "cluster_org.hsqldb.rowio" -> "cluster_org.hsqldb.persist";
+    "cluster_org.hsqldb.rowio" -> "cluster_org.hsqldb.result";
+    "cluster_org.hsqldb.rowio" -> "cluster_org.hsqldb.scriptio";
+    "cluster_org.hsqldb.rowio" -> "cluster_org.hsqldb.server";
+    "cluster_org.hsqldb.scriptio" -> "cluster_org.hsqldb";
+    "cluster_org.hsqldb.scriptio" -> "cluster_org.hsqldb.persist";
+    "cluster_org.hsqldb.server" -> "cluster_org.hsqldb";
+    "cluster_org.hsqldb.store" -> "cluster_org.hsqldb";
+    "cluster_org.hsqldb.store" -> "cluster_org.hsqldb.dbinfo";
+    "cluster_org.hsqldb.store" -> "cluster_org.hsqldb.lib";
+    "cluster_org.hsqldb.store" -> "cluster_org.hsqldb.persist";
+    "cluster_org.hsqldb.store" -> "cluster_org.hsqldb.result";
+    "cluster_org.hsqldb.store" -> "cluster_org.hsqldb.rowio";
+    "cluster_org.hsqldb.store" -> "cluster_org.hsqldb.scriptio";
+    "cluster_org.hsqldb.store" -> "cluster_org.hsqldb.server";
+    "cluster_org.hsqldb.store" -> "cluster_org.hsqldb.types";
+    "cluster_org.hsqldb.types" -> "cluster_org.hsqldb";
+    "cluster_org.hsqldb.types" -> "cluster_org.hsqldb.auth";
+    "cluster_org.hsqldb.types" -> "cluster_org.hsqldb.dbinfo";
+    "cluster_org.hsqldb.types" -> "cluster_org.hsqldb.index";
+    "cluster_org.hsqldb.types" -> "cluster_org.hsqldb.jdbc";
+    "cluster_org.hsqldb.types" -> "cluster_org.hsqldb.navigator";
+    "cluster_org.hsqldb.types" -> "cluster_org.hsqldb.persist";
+    "cluster_org.hsqldb.types" -> "cluster_org.hsqldb.result";
+    "cluster_org.hsqldb.types" -> "cluster_org.hsqldb.rights";
+    "cluster_org.hsqldb.types" -> "cluster_org.hsqldb.rowio";
+    "cluster_org.hsqldb.types" -> "cluster_org.hsqldb.scriptio";
+    "cluster_org.hsqldb.types" -> "cluster_org.hsqldb.server";
+    "cluster_org.hsqldb.types" -> "cluster_org.hsqldb.store";
+    "cluster_javax.naming" -> "cluster_org.hsqldb.auth";
+    "cluster_javax.naming" -> "cluster_org.hsqldb.jdbc";
+    "cluster_javax.naming" -> "cluster_org.hsqldb.jdbc.pool";
+    "cluster_javax.naming.directory" -> "cluster_org.hsqldb.auth";
+    "cluster_javax.naming.ldap" -> "cluster_org.hsqldb.auth";
+    "cluster_javax.security.auth" -> "cluster_org.hsqldb.auth";
+    "cluster_javax.security.auth.callback" -> "cluster_org.hsqldb.auth";
+    "cluster_javax.security.auth.login" -> "cluster_org.hsqldb.auth";
+    "cluster_org.hsqldb" -> "cluster_org.hsqldb.dbinfo";
+    "cluster_org.hsqldb" -> "cluster_org.hsqldb.error";
+    "cluster_org.hsqldb" -> "cluster_org.hsqldb.index";
+    "cluster_org.hsqldb" -> "cluster_org.hsqldb.jdbc";
+    "cluster_org.hsqldb" -> "cluster_org.hsqldb.jdbc.pool";
+    "cluster_org.hsqldb" -> "cluster_org.hsqldb.lib";
+    "cluster_org.hsqldb" -> "cluster_org.hsqldb.navigator";
+    "cluster_org.hsqldb" -> "cluster_org.hsqldb.persist";
+    "cluster_org.hsqldb" -> "cluster_org.hsqldb.result";
+    "cluster_org.hsqldb" -> "cluster_org.hsqldb.rights";
+    "cluster_org.hsqldb" -> "cluster_org.hsqldb.rowio";
+    "cluster_org.hsqldb" -> "cluster_org.hsqldb.scriptio";
+    "cluster_org.hsqldb" -> "cluster_org.hsqldb.server";
+    "cluster_org.hsqldb" -> "cluster_org.hsqldb.types";
+    "cluster_org.hsqldb.resources" -> "cluster_org.hsqldb.dbinfo";
+    "cluster_org.hsqldb.resources" -> "cluster_org.hsqldb.error";
+    "cluster_org.hsqldb.resources" -> "cluster_org.hsqldb.server";
+    "cluster_java.nio" -> "cluster_org.hsqldb.jdbc";
+    "cluster_java.nio" -> "cluster_org.hsqldb.persist";
+    "cluster_java.nio.charset" -> "cluster_org.hsqldb.jdbc";
+    "cluster_java.nio.charset" -> "cluster_org.hsqldb.lib";
+    "cluster_java.util.concurrent" -> "cluster_org.hsqldb.jdbc";
+    "cluster_java.util.concurrent" -> "cluster_org.hsqldb.lib";
+    "cluster_java.util.logging" -> "cluster_org.hsqldb.jdbc";
+    "cluster_java.util.logging" -> "cluster_org.hsqldb.lib";
+    "cluster_java.util.zip" -> "cluster_org.hsqldb.jdbc";
+    "cluster_java.util.zip" -> "cluster_org.hsqldb.lib";
+    "cluster_java.util.zip" -> "cluster_org.hsqldb.lib.tar";
+    "cluster_java.util.zip" -> "cluster_org.hsqldb.scriptio";
+    "cluster_javax.naming.spi" -> "cluster_org.hsqldb.jdbc";
+    "cluster_javax.sql" -> "cluster_org.hsqldb.jdbc";
+    "cluster_javax.sql" -> "cluster_org.hsqldb.jdbc.pool";
+    "cluster_javax.xml.bind.util" -> "cluster_org.hsqldb.jdbc";
+    "cluster_javax.xml.parsers" -> "cluster_org.hsqldb.jdbc";
+    "cluster_javax.xml.parsers" -> "cluster_org.jdom.input";
+    "cluster_javax.xml.stream" -> "cluster_org.hsqldb.jdbc";
+    "cluster_javax.xml.transform" -> "cluster_org.hsqldb.jdbc";
+    "cluster_javax.xml.transform" -> "cluster_org.jdom.output";
+    "cluster_javax.xml.transform" -> "cluster_org.jdom.transform";
+    "cluster_javax.xml.transform.dom" -> "cluster_org.hsqldb.jdbc";
+    "cluster_javax.xml.transform.sax" -> "cluster_org.hsqldb.jdbc";
+    "cluster_javax.xml.transform.sax" -> "cluster_org.jdom.transform";
+    "cluster_javax.xml.transform.stax" -> "cluster_org.hsqldb.jdbc";
+    "cluster_javax.xml.transform.stream" -> "cluster_org.hsqldb.jdbc";
+    "cluster_javax.xml.transform.stream" -> "cluster_org.jdom.transform";
+    "cluster_org.w3c.dom" -> "cluster_org.hsqldb.jdbc";
+    "cluster_org.w3c.dom" -> "cluster_org.jdom.adapters";
+    "cluster_org.w3c.dom" -> "cluster_org.jdom.input";
+    "cluster_org.w3c.dom" -> "cluster_org.jdom.output";
+    "cluster_org.w3c.dom.bootstrap" -> "cluster_org.hsqldb.jdbc";
+    "cluster_org.xml.sax" -> "cluster_org.hsqldb.jdbc";
+    "cluster_org.xml.sax" -> "cluster_org.jdom";
+    "cluster_org.xml.sax" -> "cluster_org.jdom.adapters";
+    "cluster_org.xml.sax" -> "cluster_org.jdom.input";
+    "cluster_org.xml.sax" -> "cluster_org.jdom.output";
+    "cluster_org.xml.sax" -> "cluster_org.jdom.transform";
+    "cluster_javax.transaction.xa" -> "cluster_org.hsqldb.jdbc.pool";
+    "cluster_java.nio.channels" -> "cluster_org.hsqldb.persist";
+    "cluster_javax.crypto" -> "cluster_org.hsqldb.persist";
+    "cluster_javax.crypto.spec" -> "cluster_org.hsqldb.persist";
+    "cluster_org.hsqldb.lib.tar" -> "cluster_org.hsqldb.persist";
+    "cluster_javax.net.ssl" -> "cluster_org.hsqldb.server";
+    "cluster_javax.security.cert" -> "cluster_org.hsqldb.server";
+    "cluster_javax.servlet" -> "cluster_org.hsqldb.server";
+    "cluster_javax.servlet.http" -> "cluster_org.hsqldb.server";
+    "cluster_java.applet" -> "cluster_org.hsqldb.util";
+    "cluster_java.awt" -> "cluster_org.hsqldb.util";
+    "cluster_java.awt.event" -> "cluster_org.hsqldb.util";
+    "cluster_java.awt.image" -> "cluster_org.hsqldb.util";
+    "cluster_javax.swing" -> "cluster_org.hsqldb.util";
+    "cluster_javax.swing.border" -> "cluster_org.hsqldb.util";
+    "cluster_javax.swing.event" -> "cluster_org.hsqldb.util";
+    "cluster_javax.swing.table" -> "cluster_org.hsqldb.util";
+    "cluster_javax.swing.tree" -> "cluster_org.hsqldb.util";
+    "cluster_java.rmi" -> "cluster_org.jdom";
+    "cluster_org.jdom.filter" -> "cluster_org.jdom";
+    "cluster_org.jdom.output" -> "cluster_org.jdom";
+    "cluster_org.jdom.output" -> "cluster_org.jdom.transform";
+    "cluster_org.xml.sax.ext" -> "cluster_org.jdom.input";
+    "cluster_org.xml.sax.ext" -> "cluster_org.jdom.output";
+    "cluster_org.xml.sax.ext" -> "cluster_org.jdom.transform";
+    "cluster_org.xml.sax.helpers" -> "cluster_org.jdom.input";
+    "cluster_org.xml.sax.helpers" -> "cluster_org.jdom.output";
+    "cluster_org.xml.sax.helpers" -> "cluster_org.jdom.transform";
+    "cluster_org.jdom.adapters" -> "cluster_org.jdom.output";
+    "cluster_org.jaxen" -> "cluster_org.jdom.xpath";
+    "cluster_org.jaxen.jdom" -> "cluster_org.jdom.xpath";
 }

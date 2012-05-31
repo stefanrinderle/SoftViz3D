@@ -7,7 +7,7 @@ return array(
     ),
  
     'elements' => array(
-        'dotFile' => array(
+        'inputFile' => array(
             'type' => 'file',
         	'size' => 65
         ),

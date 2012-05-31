@@ -186,6 +186,20 @@ class Image_GraphViz_Copy
         $this->_returnFalseOnError = !$returnError;
     }
 
+    // !!! OWN METHOD
+    function _subgraphExists($subgraphIdentifier) {
+    	if ($this->graph['subgraphs']) {
+    		foreach ($this->graph['subgraphs'] as $id) {
+    			if ($id == $subgraphIdentifier) {
+    				return true;
+    			}
+    		}
+    	} else {
+    		return false;
+    	}
+    
+    }
+    
     /**
      * Outputs image of the graph in a given format
      *
@@ -768,7 +782,7 @@ class Image_GraphViz_Copy
         }
         return $subgraphs;
     }
-
+    
     /**
      * Returns a list of cluster/subgraph IDs
      *

@@ -11,10 +11,13 @@ class ImportController extends Controller
 	public function actionIndex() {
 		$directoryPathform = $this->_handleDirectoryPathForm();
 		
-		$uploadform = $this->_handleUploadForm();
+		$uploadDotForm = $this->_handleUploadDotForm();
+		
+		$uploadJDependForm = $this->_handleUploadJDependForm();
 		
 		$this->render('index', array(
-                'uploadForm' => $uploadform,
+                'uploadDotForm' => $uploadDotForm,
+				'uploadJDependForm' => $uploadJDependForm,
 				'directoryPathForm' => $directoryPathform
 		));
 	}
@@ -43,21 +46,42 @@ class ImportController extends Controller
 		$this->render('index', array());
 	}
 	
-	private function _handleUploadForm() {
-		$uploadform = new CForm('application.views.import._uploadForm', new FileUpload());
+	private function _handleUploadDotForm() {
+		$uploadform = new CForm('application.views.import._uploadDotForm', new DotFileUpload());
 		
 		if ($uploadform->submitted('submit') && $uploadform->validate()) {
-			$uploadform->model->dotFile = CUploadedFile::getInstance($uploadform->model, 'dotFile');
+			$uploadform->model->inputFile = CUploadedFile::getInstance($uploadform->model, 'inputFile');
 			
 			$fileName = Yii::app()->basePath . Yii::app()->params['currentResourceFile'];
 			
-			if ($uploadform->model->dotFile->saveAs($fileName)) {
+			if ($uploadform->model->inputFile->saveAs($fileName)) {
 				Yii::app()->user->setFlash('success', 'File successful imported.');
 			} else {
 				Yii::app()->user->setFlash('error', 'Target file not writeable. ' . $fileName . ' must be writable by the server.');
 			}
 		}
 		
+		return $uploadform;
+	}
+	
+	private function _handleUploadJDependForm() {
+		$uploadform = new CForm('application.views.import._uploadJDependForm', new JDependFileUpload());
+	
+		if ($uploadform->submitted('submit') && $uploadform->validate()) {
+			$uploadform->model->inputFile = CUploadedFile::getInstance($uploadform->model, 'inputFile');
+	
+			$inputFile = $uploadform->model->inputFile;
+			$outputFile = Yii::app()->basePath . Yii::app()->params['currentResourceFile'];
+
+			$result = Yii::app()->jdependToDotParser->parseToFile($inputFile->tempName, $outputFile); 
+			
+			if ($result) {
+				Yii::app()->user->setFlash('success', 'File successful imported.');
+			} else {
+				Yii::app()->user->setFlash('error', 'File not valid.');
+			}
+		}
+	
 		return $uploadform;
 	}
 	
@@ -81,5 +105,6 @@ class ImportController extends Controller
 	
 		return $directoryPathform;
 	}
+	
 	
 }

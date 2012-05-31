@@ -32,7 +32,11 @@ $this->breadcrumbs=array(
 	<h3>Upload own dot file</h3>
 	
 	<div class="form">
-		<?php echo $uploadForm; ?>
+		<?php echo $uploadDotForm; ?>
+	</div>
+	
+	<div class="form">
+		<?php echo $uploadJDependForm; ?>
 	</div>
 	
 	<h3>Generate dot file from server directory structure</h3>

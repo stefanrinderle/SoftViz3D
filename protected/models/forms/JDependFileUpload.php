@@ -1,8 +1,8 @@
 <?php
  
-class FileUpload extends CFormModel {
+class JDependFileUpload extends CFormModel {
  
-    public $dotFile;
+    public $inputFile;
  
     /**
      * @return array validation rules for model attributes.
@@ -10,7 +10,7 @@ class FileUpload extends CFormModel {
     public function rules() {
         return array(
             //note you wont need a safe rule here
-            array('dotFile', 'file', 'allowEmpty' => false, 'types' => 'dot, adot'),
+            array('inputFile', 'file', 'allowEmpty' => false, 'types' => 'xml'),
         );
     }
  

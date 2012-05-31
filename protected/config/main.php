@@ -63,6 +63,9 @@ return array(
 		'directoryToDotParser'=>array(
 			'class'=>'DirectoryToDotParser',
 		),
+		'jdependToDotParser'=>array(
+				'class'=>'JDependToDotParser',
+		),
 		'user'=>array(
 			// enable cookie-based authentication
 			'allowAutoLogin'=>true,
