@@ -29,7 +29,7 @@ $this->breadcrumbs=array(
 
 	<p>Please choose one of the following methods:<p/>
 	
-	<h3>Upload own dot file</h3>
+	<h3>Upload own file</h3>
 	
 	<div class="form">
 		<?php echo $uploadDotForm; ?>

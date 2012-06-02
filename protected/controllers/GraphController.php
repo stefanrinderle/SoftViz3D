@@ -21,19 +21,26 @@ class GraphController extends Controller
 			//TODO render another layout file and exit
 		}
 		
+		echo "Calculation time load dot file: " . $this->getTimeDifference($startTime) . "<br />";
+		
 		// STEP 2: Write parsed data into database
 		Yii::app()->dotInfoToDb->writeToDb($result);
 
+		echo "Calculation time write to db: " . $this->getTimeDifference($startTime) . "<br />";
+		
 		// STEP 3: Normalize edges
 		Yii::app()->edgeExpander->execute();
+		
+		echo "Calculation time edge expander: " . $this->getTimeDifference($startTime) . "<br />";
 		
 		// STEP 4: calculate the view layout
 		$layout = new LayoutVisitor(LayoutVisitor::$TYPE_GRAPH);
 		$root = TreeElement::model()->findByPk(1);
 		$root->accept($layout);
 		
-		print_r("Calculation time: " + $this->getTimeDifference($startTime));
+		echo "Calculation time Layoutvisitor: " . $this->getTimeDifference($startTime) . "<br />";
 		
+		echo "RENDERING!";
 		// STEP 5: show the calculated layout
 		$this->render('index', array(tree=>$root));
 	}

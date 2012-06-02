@@ -45,7 +45,6 @@ class EX3domWidget extends CWidget {
 		
 		foreach ($content as $key => $value) {
 			$label = trim($value->label);
-	
 			
 			// layout node position
 			$nodePositionX = $x3dInfos->nodes[$label][position][x];
