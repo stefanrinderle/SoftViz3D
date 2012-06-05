@@ -8,6 +8,7 @@ $this->breadcrumbs=array(
 $this->widget('ext.x3dom.EX3domWidget',array(
 	'root' => $root, 'layers' => $layers, 'type' => 'tree'
 ));
+
 ?>
 
 <div class="span-5 last" style="float: right;">
@@ -31,5 +32,10 @@ $this->widget('ext.x3dom.EX3domWidget',array(
 			Viewpoint: <span id="reset">Reset</span>
 		</span>
 		<br />
+		
+		<span id="manipulation">
+			<span id="remove">Remove</span>
+			<span id="add">Add</span>
+		</span>
 	</div><!-- sidebar -->
 </div>

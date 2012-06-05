@@ -1,12 +1,5 @@
 <?php
 
-class LayerLayout {
-	public $id;
-	public $bb;
-	public $nodes = array();
-	public $edges = array();
-}
-
 abstract class AbstractX3dCalculator extends CApplicationComponent
 {
 	protected $layout;

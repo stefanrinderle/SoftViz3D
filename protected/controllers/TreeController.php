@@ -6,8 +6,7 @@ class TreeController extends Controller
 	
 	public $layout='//layouts/column1';
 	
-	public function actionIndex()
-	{
+	public function actionIndex() {
 		$startTime = $this->getTime();
 		
 		// STEP 1: Load input dot file
@@ -29,6 +28,7 @@ class TreeController extends Controller
 		$root = TreeElement::model()->findByPk(1);
 		$root->accept($layout);
 		
+		// STEP 5: calculate absolute translations
 		Yii::app()->layerX3dCalculator->calculate($root);
 		$layers = $content = TreeElement::model()->findAllByAttributes(array('isLeaf'=>0));
 		
@@ -36,5 +36,13 @@ class TreeController extends Controller
 
 		// STEP 5: show the calculated layout
 		$this->render('index', array(root => $root, layers=>$layers));
+	}
+	
+	public function actionGetLayer($id=null) {
+		$root = TreeElement::model()->findByPk($id);
+		
+		$this->widget('ext.x3dom.EX3domLayerWidget',array(
+				'layer' => $root, 'type' => 'tree'
+		));
 	}
 }

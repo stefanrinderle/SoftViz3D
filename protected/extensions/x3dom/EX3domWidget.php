@@ -27,8 +27,10 @@ class EX3domWidget extends CWidget {
 		
 		// include own javascript files
 		$naviFile = Yii::app()->baseUrl.'/js/navigation.js';
+		$maniFile = Yii::app()->baseUrl.'/js/manipulation.js';
 		$zoomFile = Yii::app()->baseUrl.'/js/zoom.js';
 		Yii::app()->clientScript->registerScriptFile($naviFile);
+		Yii::app()->clientScript->registerScriptFile($maniFile);
 		Yii::app()->clientScript->registerScriptFile($zoomFile);
 	}
 	
@@ -38,7 +40,7 @@ class EX3domWidget extends CWidget {
 		if ($this->type == "tree") {
 			$this->render('x3dTreeLayer', array(graph=>$x3dInfos));
 		} else {
-			$this->render('x3dGraphLayer', array(graph=>$x3dInfos, translation=>$x3dInfos->bb[translation]));
+			$this->render('x3dGraphLayer', array(graph=>$x3dInfos));
 		}
 	}
 }

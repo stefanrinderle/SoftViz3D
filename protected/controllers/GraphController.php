@@ -38,8 +38,9 @@ class GraphController extends Controller
 		$root = TreeElement::model()->findByPk(1);
 		$root->accept($layout);
 		
+		// STEP 5: calculate absolute translations
 		Yii::app()->layerX3dCalculator->calculate($root);
-		$layers = $content = TreeElement::model()->findAllByAttributes(array('isLeaf'=>0));
+		$layers = $content = TreeElement::model()->findAllByAttributes(array('isLeaf'=>0));	
 		
 // 		echo "Calculation time Layoutvisitor: " . $this->getTimeDifference($startTime) . "<br />";
 		

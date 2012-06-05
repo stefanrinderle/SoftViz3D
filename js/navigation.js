@@ -24,6 +24,7 @@ $(document).ready(function() {
 		$('#speedValue').text(configure.runtime.speed(configure.runtime.speed() + 1));
 		}
 	);
+	
 });
 
 function setRuntime(typename, id) {

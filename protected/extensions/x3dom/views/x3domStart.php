@@ -9,7 +9,8 @@
 	<param name="showStat" value="false" ></param>
 
 	<?php $x3dInfos = $root->getX3dInfos(); ?>
-	<Transform translation='<?php echo - $x3dInfos->bb[size][width] / 2 . " 0 " . - $x3dInfos->bb[size][length] / 2; ?>'>
+	<Transform id="x3dSceneWrapper"
+			   translation='<?php echo - $x3dInfos->bb[size][width] / 2 . " 0 " . - $x3dInfos->bb[size][length] / 2; ?>'>
 	
 	<Group>
 		<Shape DEF="basicLeaf">
