@@ -24,7 +24,9 @@ class EX3domWidget extends CWidget {
 		
 		// include own javascript files
 		$naviFile = Yii::app()->baseUrl.'/js/navigation.js';
+		$zoomFile = Yii::app()->baseUrl.'/js/zoom.js';
 		Yii::app()->clientScript->registerScriptFile($naviFile);
+		Yii::app()->clientScript->registerScriptFile($zoomFile);
 	}
 	
 	private function generateX3DOM($node, $transX, $transZ) {

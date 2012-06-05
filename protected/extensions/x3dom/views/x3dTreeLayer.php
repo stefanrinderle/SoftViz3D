@@ -1,4 +1,4 @@
-<Transform translation='<?php echo $translation[x]. " " . $translation[y] . " " . $translation[z]; ?>'>
+<Transform id="ernst" translation='<?php echo $translation[x]. " " . $translation[y] . " " . $translation[z]; ?>'>
 <Group>
 <?php
 

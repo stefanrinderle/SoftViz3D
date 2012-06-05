@@ -2,7 +2,7 @@
 $this->pageTitle=Yii::app()->name . ' - Graph';
 
 $this->breadcrumbs=array(
-		'Tree', 'Index'
+		'Graph', 'Index'
 );
 
 $this->widget('ext.x3dom.EX3domWidget',array(
