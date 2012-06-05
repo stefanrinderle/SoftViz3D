@@ -6,7 +6,7 @@ $this->breadcrumbs=array(
 );
 
 $this->widget('ext.x3dom.EX3domWidget',array(
-	'tree'=> $tree, 'type' => 'tree'
+	'root' => $root, 'layers' => $layers, 'type' => 'tree'
 ));
 ?>
 

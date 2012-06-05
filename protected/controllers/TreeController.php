@@ -29,9 +29,12 @@ class TreeController extends Controller
 		$root = TreeElement::model()->findByPk(1);
 		$root->accept($layout);
 		
-		print_r("Calculation time: " + $this->getTimeDifference($startTime));
+		Yii::app()->layerX3dCalculator->calculate($root);
+		$layers = $content = TreeElement::model()->findAllByAttributes(array('isLeaf'=>0));
 		
+		print_r("Calculation time: " + $this->getTimeDifference($startTime));
+
 		// STEP 5: show the calculated layout
-		$this->render('index', array(tree=>$root));
+		$this->render('index', array(root => $root, layers=>$layers));
 	}
 }

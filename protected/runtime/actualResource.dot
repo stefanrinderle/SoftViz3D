@@ -29,6 +29,7 @@ digraph G {
 			v1c5;
 			v2c5;
 			v3c5;
+    v4c5;
 		}
 	}
 	subgraph controller {

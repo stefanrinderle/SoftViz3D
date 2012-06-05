@@ -36,10 +36,13 @@ return array(
 	// application components
 	'components'=>array(
 		'treeX3dCalculator'=>array(
-			'class'=>'treeX3dCalculator',
+			'class'=>'TreeX3dCalculator',
 		),
 		'graphX3dCalculator'=>array(
-			'class'=>'graphX3dCalculator',
+			'class'=>'GraphX3dCalculator',
+		),
+		'layerX3dCalculator'=>array(
+			'class'=>'LayerX3dCalculator',
 		),
 		'edgeExpander'=>array(
 			'class'=>'EdgeExpander',

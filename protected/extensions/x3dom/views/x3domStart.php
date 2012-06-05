@@ -8,7 +8,7 @@
 	<param name="showLog" value="false" ></param>
 	<param name="showStat" value="false" ></param>
 
-	<?php $x3dInfos = $tree->getX3dInfos(); ?>
+	<?php $x3dInfos = $root->getX3dInfos(); ?>
 	<Transform translation='<?php echo - $x3dInfos->bb[size][width] / 2 . " 0 " . - $x3dInfos->bb[size][length] / 2; ?>'>
 	
 	<Group>
