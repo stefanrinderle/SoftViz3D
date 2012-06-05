@@ -53,7 +53,8 @@ abstract class AbstractX3dCalculator extends CApplicationComponent
 							'y' => $depth * $this->layerDepth,
 							'z' => $node['attr']['pos'][1]),
 					'colour'=>array('r'=>0, 'g'=>0, 'b'=>0.5),
-					'transparency'=>0
+					'transparency'=>0,
+					'isLeaf' => 1
 			);
 	
 		return $result;

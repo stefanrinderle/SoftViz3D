@@ -5,7 +5,11 @@
 $this->render('baseObjects/basePlattform', $graph->bb);
 
 foreach ($graph->nodes as $key => $value) {
-	$this->render('baseObjects/box', $value);
+	if ($value['isLeaf']) {
+		$this->render('baseObjects/leaf', $value);
+	} else {
+		$this->render('baseObjects/node', $value);
+	}
 }
 
 foreach ($graph->edges as $key => $value) {

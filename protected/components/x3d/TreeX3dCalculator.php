@@ -31,7 +31,8 @@ class TreeX3dCalculator extends AbstractX3dCalculator {
 							'y' => $depth * $this->layerDepth,
 							'z' => $node['attr']['pos'][1]),
 					'colour'=>array('r'=>0, 'g'=>0, 'b'=>0),
-					'transparency'=>0
+					'transparency'=>0,
+					'isLeaf' => 0
 			);
 	
 		return $result;

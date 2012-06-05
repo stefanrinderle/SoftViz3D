@@ -45,42 +45,6 @@ class GraphX3dCalculator extends AbstractX3dCalculator
 		$this->layout->edges = $edges;
 	}
 	
-	private function adjustDepLeaf($node, $depth) {
-		$height = abs($this->layerDepth * 2) + $this->nodeHeight / 2;
-		$side = $node['attr']['width'][0] * LayoutVisitor::$SCALE  / 2;
-		
-		// its a node with subnodes, so only specify the position and name.
-		$result = array(
-				'name'=>$node[label],
-				'size'=>array('width'=> $side,
-						'height'=> $height,
-						'length'=> $side),
-				'position'=>array('x' => $node['attr']['pos'][0],
-						'y' => ($depth * $this->layerDepth) + $height / 2,
-						'z' => $node['attr']['pos'][1]),
-				'colour'=>array('r'=>1, 'g'=>0, 'b'=>0),
-				'transparency'=>0
-		);
-		
-		return $result;
-	}
-	
-	protected function adjustLeaf($node, $depth) {
-			// its a node with subnodes, so only specify the position and name.
-			$result = array(
-					'name'=>$node[label],
-					'size'=>array('width'=>LayoutVisitor::$SCALE / 2, 'height'=>$this->nodeHeight,
-							'length'=>LayoutVisitor::$SCALE / 2),
-					'position'=>array('x' => $node['attr']['pos'][0],
-							'y' => $depth * $this->layerDepth,
-							'z' => $node['attr']['pos'][1]),
-					'colour'=>array('r'=>0, 'g'=>0, 'b'=>0.5),
-					'transparency'=>0
-			);
-	
-		return $result;
-	}
-	
 	protected function adjustBb($layerLayout, $depth, $maxDepth) {
 		//$randColor = rand(0, 100) / 100;
 	
@@ -104,6 +68,44 @@ class GraphX3dCalculator extends AbstractX3dCalculator
 		return $result;
 	}
 	
+	private function adjustDepLeaf($node, $depth) {
+		$height = abs($this->layerDepth * 2) + $this->nodeHeight / 2;
+		$side = $node['attr']['width'][0] * LayoutVisitor::$SCALE  / 2;
+	
+		// its a node with subnodes, so only specify the position and name.
+		$result = array(
+				'name'=>$node[label],
+				'size'=>array('width'=> $side,
+						'height'=> $height,
+						'length'=> $side),
+				'position'=>array('x' => $node['attr']['pos'][0],
+						'y' => ($depth * $this->layerDepth) + $height / 2,
+						'z' => $node['attr']['pos'][1]),
+				'colour'=>array('r'=>1, 'g'=>0, 'b'=>0),
+				'transparency'=>0,
+				'isLeaf' => 0
+		);
+	
+		return $result;
+	}
+	
+	protected function adjustLeaf($node, $depth) {
+		// its a node with subnodes, so only specify the position and name.
+		$result = array(
+				'name'=>$node[label],
+				'size'=>array('width'=>LayoutVisitor::$SCALE / 2, 'height'=>$this->nodeHeight,
+						'length'=>LayoutVisitor::$SCALE / 2),
+				'position'=>array('x' => $node['attr']['pos'][0],
+						'y' => $depth * $this->layerDepth,
+						'z' => $node['attr']['pos'][1]),
+				'colour'=>array('r'=>0, 'g'=>0, 'b'=>0.5),
+				'transparency'=>0,
+				'isLeaf' => 1
+		);
+	
+		return $result;
+	}
+	
 	protected function adjustNode($node, $depth) {
 			$result = array(
 					'name'=>$node[label],
@@ -114,7 +116,8 @@ class GraphX3dCalculator extends AbstractX3dCalculator
 							'y' => $depth * $this->layerDepth,
 							'z' => $node['attr']['pos'][1]),
 					'colour'=>array('r'=>0, 'g'=>0, 'b'=>1),
-					'transparency'=>0.7
+					'transparency'=>0.7,
+					'isLeaf' => 0
 			);
 	
 		return $result;
