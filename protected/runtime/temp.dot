@@ -1,7 +1,5 @@
 digraph G {
-    controller [ shape=rectangle,width=6,height=2.05555555556,fixedsize=true,type="node" ];
-    view [ shape=rectangle,width=9.44444444444,height=7.22222222222,fixedsize=true,type="node" ];
-    model [ shape=rectangle,width=3.5,height=1.86111111111,fixedsize=true,type="node" ];
-    view -> controller [ style="setlinewidth(15)",weight="setlinewidth(0.15)" ];
-    model -> controller [ style="setlinewidth(11)",weight="setlinewidth(0.11)" ];
+    controller [ shape=rectangle,width=2.25,height=3.5,fixedsize=true,type="node" ];
+    view [ shape=rectangle,width=4.88888888889,height=7.52777777778,fixedsize=true,type="node" ];
+    model [ shape=rectangle,width=2.25,height=2.25,fixedsize=true,type="node" ];
 }

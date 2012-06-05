@@ -7,11 +7,24 @@ class EX3domWidget extends CWidget {
 	
 	public function run()
 	{
+		// include jquery libraries
+		Yii::app()->clientScript->registerCoreScript('jquery');
+		Yii::app()->clientScript->registerCoreScript('jquery.ui');
+		
+		Yii::app()->clientScript->registerCssFile(
+				Yii::app()->clientScript->getCoreScriptUrl().
+				'/jui/css/base/jquery-ui.css'
+		);
+		
 		$this->render('x3domStart', array(tree => $this->tree));
 		
 		$this->generateX3DOM($this->tree, 0, 0);
 		
 		$this->render('x3domEnd', array(tree => $this->tree));
+		
+		// include own javascript files
+		$naviFile = Yii::app()->baseUrl.'/js/navigation.js';
+		Yii::app()->clientScript->registerScriptFile($naviFile);
 	}
 	
 	private function generateX3DOM($node, $transX, $transZ) {
