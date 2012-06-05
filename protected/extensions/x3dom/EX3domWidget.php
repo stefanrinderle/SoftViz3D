@@ -36,7 +36,7 @@ class EX3domWidget extends CWidget {
 		$x3dInfos = $node->getX3dInfos();
 		
 		if ($this->type == "tree") {
-			$this->render('x3dTreeLayer', array(graph=>$x3dInfos, translation=>$x3dInfos->bb[translation]));
+			$this->render('x3dTreeLayer', array(graph=>$x3dInfos));
 		} else {
 			$this->render('x3dGraphLayer', array(graph=>$x3dInfos, translation=>$x3dInfos->bb[translation]));
 		}

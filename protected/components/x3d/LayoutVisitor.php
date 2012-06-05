@@ -24,6 +24,7 @@ class LayoutVisitor {
 			$x3dInfos = Yii::app()->graphX3dCalculator->calculate($layerLayout, $comp);
 		}
 		
+		$x3dInfos->id = $comp[id];
 		$comp->setX3dInfos($x3dInfos);
 		
 		// size of the node is the size of its bounding box

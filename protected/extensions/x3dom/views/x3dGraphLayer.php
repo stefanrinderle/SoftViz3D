@@ -1,4 +1,5 @@
-<Transform translation='<?php echo $translation[x]. " " . $translation[y] . " " . $translation[z]; ?>'>
+<Transform id='<?php echo $graph->id; ?>' 
+		   translation='<?php echo $graph->bb[translation][x]. " " . $graph->bb[translation][y] . " " . $graph->bb[translation][z]; ?>'>
 <Group>
 <?php
 

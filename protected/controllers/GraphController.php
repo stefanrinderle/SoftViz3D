@@ -38,10 +38,13 @@ class GraphController extends Controller
 		$root = TreeElement::model()->findByPk(1);
 		$root->accept($layout);
 		
+		Yii::app()->layerX3dCalculator->calculate($root);
+		$layers = $content = TreeElement::model()->findAllByAttributes(array('isLeaf'=>0));
+		
 // 		echo "Calculation time Layoutvisitor: " . $this->getTimeDifference($startTime) . "<br />";
 		
 // 		echo "RENDERING!";
 		// STEP 5: show the calculated layout
-		$this->render('index', array(tree=>$root));
+		$this->render('index', array(root => $root, layers=>$layers));
 	}
 }
