@@ -1,4 +1,4 @@
-<x3d id="the_x3delement" xmlns="http://www.x3dom.org/x3dom" x="0px" y="0px" width="700px" height="400px">
+<x3d id="the_x3delement" xmlns="http://www.x3dom.org/x3dom" x="0px" y="0px">
 
 <!-- ul id="tools">
 	<li><button onclick="toggle_size(this);">Zoom</button></li>

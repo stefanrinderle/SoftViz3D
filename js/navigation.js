@@ -1,5 +1,5 @@
 $(document).ready(function() {
-	$("#views").buttonset().click(function(event) {
+	$("#sidebar #navigation").buttonset().click(function(event) {
 		var target = $(event.target).attr('id');
 
 		if (target) {
@@ -7,19 +7,19 @@ $(document).ready(function() {
 		}
 	});
 
-	$("#viewpoint #reset").button().click(function() {
+	$("#sidebar #navigation #reset").button().click(function() {
 		var configure = document.getElementById('the_x3delement');
 		configure.runtime.resetView();
 		}
 	);
 
-	$("#speed #decrease").button().click(function() {
+	$("#sidebar #navigation #decrease").button().click(function() {
 		var configure = document.getElementById('the_x3delement');
 		$('#speedValue').text(configure.runtime.speed(configure.runtime.speed() - 1));
 		}
 	);
 
-	$("#speed #increase").button().click(function() {
+	$("#sidebar #navigation #increase").button().click(function() {
 		var configure = document.getElementById('the_x3delement');
 		$('#speedValue').text(configure.runtime.speed(configure.runtime.speed() + 1));
 		}

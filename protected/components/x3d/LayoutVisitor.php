@@ -25,6 +25,7 @@ class LayoutVisitor {
 		}
 		
 		$x3dInfos->id = $comp[id];
+		$x3dInfos->depth = $comp[level];
 		$comp->setX3dInfos($x3dInfos);
 		
 		// size of the node is the size of its bounding box

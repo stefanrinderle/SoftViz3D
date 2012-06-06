@@ -1,4 +1,4 @@
-<Transform id='<?php echo $graph->id; ?>' 
+<Transform id='<?php echo $graph->id; ?>' depth='<?php echo $graph->depth; ?>'
 		   translation='<?php echo $graph->bb[translation][x]. " " . $graph->bb[translation][y] . " " . $graph->bb[translation][z]; ?>'>
 <Group>
 <?php
