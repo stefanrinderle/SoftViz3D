@@ -15,6 +15,17 @@
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/form.css" />
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/x3d.css" />
 
+	<?php 
+		// include jquery libraries
+		Yii::app()->clientScript->registerCoreScript('jquery');
+		Yii::app()->clientScript->registerCoreScript('jquery.ui');
+		
+		Yii::app()->clientScript->registerCssFile(
+				Yii::app()->clientScript->getCoreScriptUrl().
+				'/jui/css/base/jquery-ui.css'
+		);
+	?>	
+	
 	<!-- include x3dom scripts -->
 	<link rel="stylesheet" type="text/css" href="http://x3dom.org/download/x3dom.css" />
 	<script type="text/javascript" src="http://x3dom.org/download/x3dom.js"></script>
