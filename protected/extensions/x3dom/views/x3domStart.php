@@ -15,7 +15,7 @@
 	<Group>
 		<Shape DEF="basicLeaf">
 			<Appearance>
-				<Material emissiveColor='1 0 0' diffuseColor='1 0 0' transparency='0' />
+				<Material DEF="basicLeafAppearence" emissiveColor='1 0 0' diffuseColor='1 0 0' transparency='0' />
 			</Appearance>
 			<Box size='36 10 36'/>
 		</Shape>
