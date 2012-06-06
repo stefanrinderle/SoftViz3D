@@ -14,3 +14,7 @@ $(document).ready(function() {
 	}
 );
 });
+
+//function showInformation() {
+//	$("#sidebar #information").html("bla");
+//}
