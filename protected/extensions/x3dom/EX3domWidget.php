@@ -27,9 +27,11 @@ class EX3domWidget extends CWidget {
 		
 		// include own javascript files
 		$naviFile = Yii::app()->baseUrl.'/js/navigation.js';
+		$infoFile = Yii::app()->baseUrl.'/js/information.js';
 		$maniFile = Yii::app()->baseUrl.'/js/manipulation.js';
 		$zoomFile = Yii::app()->baseUrl.'/js/zoom.js';
 		Yii::app()->clientScript->registerScriptFile($naviFile);
+		Yii::app()->clientScript->registerScriptFile($infoFile);
 		Yii::app()->clientScript->registerScriptFile($maniFile);
 		Yii::app()->clientScript->registerScriptFile($zoomFile);
 	}

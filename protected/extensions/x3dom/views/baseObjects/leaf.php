@@ -1,4 +1,4 @@
-<Transform translation='<?php echo $position[x] . " " . $position[y] . " " . $position[z]; ?>'
+<Transform id='<?php echo $id; ?>' translation='<?php echo $position[x] . " " . $position[y] . " " . $position[z]; ?>'
 			onclick="showLeafInformation(event);">
 		<Shape>
 			<Appearance>

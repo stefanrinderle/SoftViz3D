@@ -1,9 +1,8 @@
-<Transform id='<?php echo $graph->id; ?>' depth='<?php echo $graph->depth; ?>'
-		   translation='<?php echo $graph->bb[translation][x]. " " . $graph->bb[translation][y] . " " . $graph->bb[translation][z]; ?>'>
+<Transform translation='<?php echo $graph->bb[translation][x]. " " . $graph->bb[translation][y] . " " . $graph->bb[translation][z]; ?>'>
 <Group>
 <?php
 
-$this->render('baseObjects/basePlattform', $graph->bb);
+$this->render('baseObjects/basePlattform', array(bb => $graph->bb, id => $graph->id));
 
 if ($graph->nodes) {
 	foreach ($graph->nodes as $key => $value) {

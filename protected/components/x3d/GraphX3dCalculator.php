@@ -83,7 +83,8 @@ class GraphX3dCalculator extends AbstractX3dCalculator
 						'z' => $node['attr']['pos'][1]),
 				'colour'=>array('r'=>1, 'g'=>0, 'b'=>0),
 				'transparency'=>0,
-				'isLeaf' => 0
+				'isLeaf' => 0,
+				'id' => $node['attr']['id']
 		);
 	
 		return $result;
@@ -100,7 +101,8 @@ class GraphX3dCalculator extends AbstractX3dCalculator
 						'z' => $node['attr']['pos'][1]),
 				'colour'=>array('r'=>0, 'g'=>0, 'b'=>0.5),
 				'transparency'=>0,
-				'isLeaf' => 1
+				'isLeaf' => 1,
+				'id' => $node['attr']['id']
 		);
 	
 		return $result;

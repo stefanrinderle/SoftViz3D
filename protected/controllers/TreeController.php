@@ -30,7 +30,7 @@ class TreeController extends Controller
 		
 		// STEP 5: calculate absolute translations
 		Yii::app()->layerX3dCalculator->calculate($root);
-		$layers = $content = TreeElement::model()->findAllByAttributes(array('isLeaf'=>0));
+		$layers = TreeElement::model()->findAllByAttributes(array('isLeaf'=>0));
 		
 		print_r("Calculation time: " + $this->getTimeDifference($startTime));
 
@@ -38,11 +38,32 @@ class TreeController extends Controller
 		$this->render('index', array(root => $root, layers=>$layers));
 	}
 	
-	public function actionGetLayer($id=null) {
+	public function actionGetLayer($id = null) {
 		$root = TreeElement::model()->findByPk($id);
 		
 		$this->widget('ext.x3dom.EX3domLayerWidget',array(
 				'layer' => $root, 'type' => 'tree'
 		));
+	}
+
+	public function actionGetLayerInfo($id = null) {
+		$layer = TreeElement::model()->findByPk($id);
+		$children = TreeElement::model()->findAllByAttributes(array('parent_id'=>$layer->id));
+	
+		print_r("Layer: " . $root->id . " " . $root->label . "<br />");
+		print_r("Childs: <br />");
+		
+		foreach ($children as $child) {
+			print_r("<a href='#' onclick='showLeafInformationById(" . $child->id . ")'>" . $child->label . "</a><br />");
+		}
+		
+	}
+	
+	public function actionGetLeafInfo($id = null) {
+		$leaf = TreeElement::model()->findByPk($id);
+		$parent = TreeElement::model()->findByPk($leaf->parent_id);
+		
+		print_r("Leaf: " . $leaf->id . " " . $leaf->label . "<br />");
+		print_r("<a href='#' onclick='showLayerInformationById(" . $parent->id . ")'>" . $parent->label . "</a><br />");
 	}
 }

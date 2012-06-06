@@ -32,6 +32,7 @@ class DotWriter extends CApplicationComponent
 				$attr['width'] = $value->size[width];
 				$attr['height'] = $value->size[height];
 				$attr['fixedsize'] = "true";
+				$attr['id'] = $value->id;
 				
 				if ($value->isLeaf) {
 					$attr['type'] = "leaf";

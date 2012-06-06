@@ -26,7 +26,6 @@ abstract class AbstractX3dCalculator extends CApplicationComponent
 		$nodes = array();
 		foreach ($layerLayout['content'] as $key => $value) {
 			if ($value['type'] == "node") {
-				
 				if ($value['attr'][type] == "leaf") {
 					$nodes[$value['label']] = $this->adjustLeaf($value, $depth);
 				} else {
@@ -48,7 +47,8 @@ abstract class AbstractX3dCalculator extends CApplicationComponent
 							'z' => $node['attr']['pos'][1]),
 					'colour'=>array('r'=>0, 'g'=>0, 'b'=>0.5),
 					'transparency'=>0,
-					'isLeaf' => 1
+					'isLeaf' => 1,
+					'id' => $node['attr']['id']
 			);
 	
 		return $result;

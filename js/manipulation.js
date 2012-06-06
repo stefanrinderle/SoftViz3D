@@ -14,15 +14,3 @@ $(document).ready(function() {
 	}
 );
 });
-
-function showLayerInformation(event) {
-	console.log("layer");
-	test = event.target;
-	$("#sidebar #information").text($(test).attr('id'));
-}
-
-function showLeafInformation(event) {
-	console.log("leaf");
-	test = event.target;
-	$("#sidebar #information").text($(test).attr('id'));
-}
