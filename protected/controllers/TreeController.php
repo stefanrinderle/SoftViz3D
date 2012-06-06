@@ -41,7 +41,7 @@ class TreeController extends Controller
 	public function actionGetLayer($id = null) {
 		$root = TreeElement::model()->findByPk($id);
 		
-		$this->widget('ext.x3dom.EX3domLayerWidget',array(
+		$this->widget('application.widgets.x3dom.X3domLayerWidget',array(
 				'layer' => $root, 'type' => 'tree'
 		));
 	}
