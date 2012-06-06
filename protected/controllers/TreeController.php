@@ -47,23 +47,10 @@ class TreeController extends Controller
 	}
 
 	public function actionGetLayerInfo($id = null) {
-		$layer = TreeElement::model()->findByPk($id);
-		$children = TreeElement::model()->findAllByAttributes(array('parent_id'=>$layer->id));
-	
-		print_r("Layer: " . $root->id . " " . $root->label . "<br />");
-		print_r("Childs: <br />");
-		
-		foreach ($children as $child) {
-			print_r("<a href='#' onclick='showLeafInformationById(" . $child->id . ")'>" . $child->label . "</a><br />");
-		}
-		
+		$this->widget('application.widgets.sidebar.LayerInfo', array('layerId' => $id));
 	}
 	
 	public function actionGetLeafInfo($id = null) {
-		$leaf = TreeElement::model()->findByPk($id);
-		$parent = TreeElement::model()->findByPk($leaf->parent_id);
-		
-		print_r("Leaf: " . $leaf->id . " " . $leaf->label . "<br />");
-		print_r("<a href='#' onclick='showLayerInformationById(" . $parent->id . ")'>" . $parent->label . "</a><br />");
+		$this->widget('application.widgets.sidebar.LeafInfo', array('leafId' => $id));
 	}
 }
