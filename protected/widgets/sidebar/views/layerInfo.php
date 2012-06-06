@@ -8,7 +8,11 @@
 		if (count($children)) {
 			echo "<br />Children:<br />";
 			foreach ($children as $child) {
-				echo CHtml::link($child->label, "#", array("onclick" => "showLeafInformationById(" . $child->id . ")"));
+				if ($child->isLeaf) {
+					echo CHtml::link($child->label, "#", array("onclick" => "showLeafInformationById(" . $child->id . ")"));
+				} else {
+					echo CHtml::link($child->label, "#", array("onclick" => "showLayerInformationById(" . $child->id . ")"));
+				}
 				echo "<br />";
 			}
 		}

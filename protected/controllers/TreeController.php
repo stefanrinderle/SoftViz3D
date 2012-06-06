@@ -1,6 +1,6 @@
 <?php
 
-class TreeController extends Controller
+class TreeController extends X3dController
 {
 	private $sourceFile = '/Users/stefan/Sites/3dArch/x3d/dependency.dot';
 	
@@ -38,19 +38,4 @@ class TreeController extends Controller
 		$this->render('index', array(root => $root, layers=>$layers));
 	}
 	
-	public function actionGetLayer($id = null) {
-		$root = TreeElement::model()->findByPk($id);
-		
-		$this->widget('application.widgets.x3dom.X3domLayerWidget',array(
-				'layer' => $root, 'type' => 'tree'
-		));
-	}
-
-	public function actionGetLayerInfo($id = null) {
-		$this->widget('application.widgets.sidebar.LayerInfo', array('layerId' => $id));
-	}
-	
-	public function actionGetLeafInfo($id = null) {
-		$this->widget('application.widgets.sidebar.LeafInfo', array('leafId' => $id));
-	}
 }

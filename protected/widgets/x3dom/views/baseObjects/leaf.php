@@ -2,7 +2,7 @@
 			onclick="showLeafInformation(event);">
 		<Shape>
 			<Appearance>
-				<Material DEF="basicLeafAppearence" emissiveColor='1 0 0' diffuseColor='1 0 0' transparency='0' />
+				<Material diffuseColor='1 0 0' transparency='0' />
 			</Appearance>
 			<Box size='<?php echo $size[width] . " " . $size[height] . " " . $size[length]; ?>'/>
 		</Shape>

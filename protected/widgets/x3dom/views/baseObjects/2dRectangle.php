@@ -2,8 +2,7 @@
 			onclick="showLayerInformation(event);">
 		<Shape>
 	    	<Appearance>
-	          	<Material emissiveColor='<?php echo $colour[r] . " " . $colour[g] . " " . $colour[b]; ?>'
-	          			  diffuseColor='<?php echo $colour[r] . " " . $colour[g] . " " . $colour[b]; ?>'
+	          	<Material diffuseColor='<?php echo $colour[r] . " " . $colour[g] . " " . $colour[b]; ?>'
 	          			  transparency='<?php echo $transparency; ?>' shininess='<?php echo $shininess; ?>' />
 	        </Appearance>
 	        
