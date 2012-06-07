@@ -17,10 +17,10 @@
 //	}
 //}
 
-function testFocus(id) {
-	var configure = document.getElementById('the_x3delement');
-	configure.runtime.showObject(document.getElementById(id));
-}
+//function testFocus(id) {
+//	var configure = document.getElementById('the_x3delement');
+//	configure.runtime.showObject(document.getElementById(id));
+//}
 
 function showLayerInformation(event) {
 	id = $(event.target).attr('id');

@@ -3,6 +3,7 @@ digraph G {
 		m1;
 		m2;
 		m3;
+    m4;
 	}	
 	subgraph view {
 		subgraph viewsC1 {
@@ -45,6 +46,7 @@ digraph G {
 	v1c3 -> m2;
 	v1c1 -> m1;
 		
+       c5 -> m4;
 	c1 -> m1;
 	c1 -> m2;
 	c2 -> m1;
