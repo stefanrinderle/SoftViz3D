@@ -1,6 +1,6 @@
 <?php
 
-class TreeController extends X3dController
+class TreeController extends AbstractX3dController
 {
 	private $sourceFile = '/Users/stefan/Sites/3dArch/x3d/dependency.dot';
 	

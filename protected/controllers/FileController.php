@@ -1,6 +1,6 @@
 <?php
 
-class FileController extends Controller
+class FileController extends BaseController
 {
 	function getTime()
 	{

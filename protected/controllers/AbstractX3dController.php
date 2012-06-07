@@ -1,6 +1,6 @@
 <?php
 
-class X3dController extends Controller {
+class AbstractX3dController extends BaseController {
 	
 	public function actionGetLayer($id = null) {
 		$root = TreeElement::model()->findByPk($id);

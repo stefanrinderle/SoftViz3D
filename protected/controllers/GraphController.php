@@ -1,6 +1,6 @@
 <?php
 
-class GraphController extends X3dController
+class GraphController extends AbstractX3dController
 {
 	private $sourceFile = '/Users/stefan/Sites/3dArch/x3d/dependency.dot';
 	

@@ -16,6 +16,7 @@ return array(
 	'import'=>array(
 		'application.models.*',
 		'application.models.forms.*',
+		'application.controllers.*',
 		'application.components.*',
 		'application.components.database.*',
 		'application.components.dot.*',
@@ -35,6 +36,33 @@ return array(
 
 	// application components
 	'components'=>array(
+		// db folder
+		'edgeExpander'=>array(
+			'class'=>'EdgeExpander',
+		),
+			
+		// dot folder
+		'dotFileParser'=>array(
+			'class'=>'DotFileParser',
+			'generate' => true
+		),
+		'directoryToDotParser'=>array(
+			'class'=>'DirectoryToDotParser',
+		),
+		'dotCommand'=>array(
+			'class'=>'DotCommand',
+		),
+		'dotInfoToDb'=>array(
+			'class'=>'DotInfoToDb',
+		),
+		'dotWriter'=>array(
+			'class'=>'DotWriter',
+		),
+		'jdependToDotParser'=>array(
+			'class'=>'JDependToDotParser',
+		),
+			
+		// x3d folder	
 		'treeX3dCalculator'=>array(
 			'class'=>'TreeX3dCalculator',
 		),
@@ -44,31 +72,15 @@ return array(
 		'layerX3dCalculator'=>array(
 			'class'=>'LayerX3dCalculator',
 		),
-		'edgeExpander'=>array(
-			'class'=>'EdgeExpander',
-		),
-		'dotWriter'=>array(
-			'class'=>'DotWriter',
-		),
-		'dotInfoToDb'=>array(
-				'class'=>'DotInfoToDb',
-		),
-		'dotFileParser'=>array(
-				'class'=>'DotFileParser',
-				'generate' => true
-		),
-		'dotCommand'=>array(
-			'class'=>'DotCommand',
-		),
 		'vectorCalculator'=>array(
 			'class'=>'VectorCalculator',
 		),
-		'directoryToDotParser'=>array(
-			'class'=>'DirectoryToDotParser',
+
+		'goannaInterface'=>array(
+			'class'=>'GoannaInterface',
 		),
-		'jdependToDotParser'=>array(
-				'class'=>'JDependToDotParser',
-		),
+			
+		// yii default
 		'user'=>array(
 			// enable cookie-based authentication
 			'allowAutoLogin'=>true,

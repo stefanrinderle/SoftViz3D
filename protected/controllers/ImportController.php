@@ -1,6 +1,6 @@
 <?php
 
-class ImportController extends Controller
+class ImportController extends BaseController
 {
 	function getTime()
 	{
