@@ -3,9 +3,9 @@
 class GoannaInterface extends CApplicationComponent
 {
 	
-	private $reporterPath = "tvoicer-beta.appspot.com";
-	private $reporterUrl = "/api/3/tvoices?max_results=5&order_by=date";
-	private $reporterPort = 80;
+	private $reporterPath = "10.211.55.11";// "tvoicer-beta.appspot.com";
+	private $reporterUrl = "/api/project/";
+	private $reporterPort = 1198;
 	
 	public function getData() {
 		$response = $this->doRequest();
