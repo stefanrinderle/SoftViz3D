@@ -14,3 +14,20 @@ $(document).ready(function() {
 	}
 );
 });
+
+function removeLayerById(id) {
+	jQuery.ajax({'success':function(data) {
+			$("#" + id).remove();
+			
+			var json = eval('('+data+')');
+		 	$.each(json, function(key, value) {
+		 		$("#" + value).remove();
+		 	});
+	   },'url':'./index.php?r=tree/getLayerChildren&id=' + id,'cache':false});
+}
+
+function showLayerById(id) {
+	jQuery.ajax({'success':function(data) {
+	      $("#x3dSceneWrapper").append(data);
+	   },'url':'./index.php?r=tree/getLayer&id=' + id,'cache':false});
+}

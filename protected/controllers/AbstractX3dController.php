@@ -18,4 +18,15 @@ class AbstractX3dController extends BaseController {
 		$this->widget('application.widgets.sidebar.LeafInfo', array('leafId' => $id));
 	}
 	
+	public function actionGetLayerChildren($id = null) {
+		$children = TreeElement::model()->findAllByAttributes(array('parent_id'=>$id, 'isLeaf'=>1), array("select" => "id"));
+		
+		$result = array();
+		foreach ($children as $child) {
+			array_push($result, $child->id);
+		}
+
+		echo json_encode($result);
+	}
+	
 }
