@@ -1,72 +1,145 @@
 digraph G {
-	subgraph model {
-		m1;
-		m2;
-		m3;
-    m4;
-	}	
-	subgraph view {
-		subgraph viewsC1 {
-			v1c1;
-			v2c1;
-			v3c1;
-		}
-		subgraph viewsC2 {
-			v1c2;
-			v2c2;
-			v3c2;
-		}
-		subgraph viewsC3 {
-			v1c3;
-			v2c3;
-			v3c3;
-		}
-		subgraph viewsC4 {
-			v1c4;
-			v2c4;
-			v3c4;
-		}
-		subgraph viewsC5 {
-			v1c5;
-			v2c5;
-			v3c5;
-		}
-	}
-	subgraph controller {
-		c1;
-		c2;
-		c3;
-		c4;
-		c5;
-	}
-
-	v1c1 -> m1;
-	v2c1 -> m2;
-	v3c2 -> m1;
-	v1c3 -> m2;
-	v1c1 -> m1;
-		
-       c5 -> m4;
-	c1 -> m1;
-	c1 -> m2;
-	c2 -> m1;
-	c3 -> m1;
-	c4 -> m2;
-	c5 -> m1;
-	
-	c1 -> v1c1;
-	c1 -> v2c1;
-	c1 -> v3c1;
-	c2 -> v1c2;
-	c2 -> v2c2;
-	c2 -> v3c2;
-	c3 -> v1c3;
-	c3 -> v2c3;
-	c3 -> v3c3;
-	c4 -> v1c4;
-	c4 -> v2c4;
-	c4 -> v3c4;
-	c5 -> v1c5;
-	c5 -> v2c5;
-	c5 -> v3c5;
+    subgraph cluster_src {
+        graph [ label=src ];
+        subgraph cluster_db {
+            graph [ label=db ];
+            "jsobj.cpp";
+            "json.cpp";
+            "lasterror.cpp";
+            "nonce.cpp";
+            "queryutil.cpp";
+            "commands.cpp";
+            "dbwebserver.cpp";
+            "matcher.cpp";
+            "indexkey.cpp";
+            "dbcommands_generic.cpp";
+            "query.cpp";
+            "update.cpp";
+            "introspect.cpp";
+            "btree.cpp";
+            "clientcursor.cpp";
+            "tests.cpp";
+            "repl.cpp";
+            "oplog.cpp";
+            "repl_block.cpp";
+            "btreecursor.cpp";
+            "cloner.cpp";
+            "namespace.cpp";
+            "cap.cpp";
+            "matcher_covered.cpp";
+            "dbeval.cpp";
+            "restapi.cpp";
+            "dbhelpers.cpp";
+            "instance.cpp";
+            "client.cpp";
+            "database.cpp";
+            "pdfile.cpp";
+            "cursor.cpp";
+            "security_commands.cpp";
+            "security.cpp";
+            "queryoptimizer.cpp";
+            "extsort.cpp";
+            "mr.cpp";
+            "cmdline.cpp";
+            "index.cpp";
+            "dbcommands.cpp";
+            "dbcommands_admin.cpp";
+            "driverHelpers.cpp";
+            "module.cpp";
+            "db.cpp";
+            subgraph cluster_stats {
+                graph [ label=stats ];
+                "counters.cpp";
+                "service_stats.cpp";
+                "snapshots.cpp";
+                "top.cpp";
+            }
+            subgraph cluster_repl {
+                graph [ label=repl ];
+                "rs.cpp";
+                "consensus.cpp";
+                "rs_initiate.cpp";
+                "replset_commands.cpp";
+                "manager.cpp";
+                "health.cpp";
+                "heartbeat.cpp";
+                "rs_config.cpp";
+                "rs_rollback.cpp";
+                "rs_sync.cpp";
+                "rs_initialsync.cpp";
+            }
+            subgraph cluster_geo {
+                graph [ label=geo ];
+                "2d.cpp";
+                "haystack.cpp";
+            }
+            subgraph cluster_modules {
+                graph [ label=modules ];
+                "mms.cpp";
+            }
+        }
+        subgraph cluster_util {
+            graph [ label=util ];
+            "background.cpp";
+            "mmap.cpp";
+            "ramstore.cpp";
+            "sock.cpp";
+            "util.cpp";
+            "message.cpp";
+            "assert_util.cpp";
+            "log.cpp";
+            "httpclient.cpp";
+            "md5main.cpp";
+            "base64.cpp";
+            "password.cpp";
+            "version.cpp";
+            "histogram.cpp";
+            "text.cpp";
+            "md5.c";
+            "mmap_posix.cpp";
+            "processinfo_linux2.cpp";
+            "message_server_port.cpp";
+            "miniwebserver.cpp";
+            "stringutils.cpp";
+            subgraph cluster_concurrency {
+                graph [ label=concurrency ];
+                "vars.cpp";
+                "task.cpp";
+                "thread_pool.cpp";
+                "spin_lock.cpp";
+            }
+        }
+        subgraph cluster_client {
+            graph [ label=client ];
+            "connpool.cpp";
+            "dbclient.cpp";
+            "dbclientcursor.cpp";
+            "model.cpp";
+            "syncclusterconnection.cpp";
+            "distlock.cpp";
+            "parallel.cpp";
+            "distlock_test.cpp";
+        }
+        subgraph cluster_s {
+            graph [ label=s ];
+            "shardconnection.cpp";
+            "d_util.cpp";
+            "config.cpp";
+            "grid.cpp";
+            "chunk.cpp";
+            "shard.cpp";
+            "shardkey.cpp";
+            "d_logic.cpp";
+            "d_writeback.cpp";
+            "d_migrate.cpp";
+            "d_state.cpp";
+            "d_split.cpp";
+        }
+        subgraph cluster_scripting {
+            graph [ label=scripting ];
+            "engine.cpp";
+            "utils.cpp";
+            "engine_spidermonkey.cpp";
+        }
+    }
 }

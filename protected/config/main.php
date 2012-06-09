@@ -21,6 +21,7 @@ return array(
 		'application.components.database.*',
 		'application.components.dot.*',
 		'application.components.dot.fileParser.*',
+		'application.components.goanna.*',
 		'application.components.x3d.*'
 	),
 
@@ -76,8 +77,12 @@ return array(
 			'class'=>'VectorCalculator',
 		),
 
+		// goanna folder
 		'goannaInterface'=>array(
 			'class'=>'GoannaInterface',
+		),
+		'goannaSnapshotToDotParser'=>array(
+			'class'=>'GoannaSnapshotToDotParser',
 		),
 			
 		// yii default
