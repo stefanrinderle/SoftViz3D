@@ -7,7 +7,7 @@
 // CWebApplication properties can be configured here.
 return array(
 	'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
-	'name'=>'3d virtualization',
+	'name'=>'3d visualization',
 
 	// preloading 'log' component
 	'preload'=>array('log'),

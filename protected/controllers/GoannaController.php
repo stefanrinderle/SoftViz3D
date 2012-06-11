@@ -30,7 +30,7 @@ class GoannaController extends BaseController
 	}
 	
 	public function actionDumpSnapshot() {
-		$snapshot = Yii::app()->goannaInterface->getSnapshot(1, 1);
+		$snapshot = Yii::app()->goannaInterface->getChildsWithMetrics(1, 1, 1);
 		
 		$this->render('//dumpArray', array("dumpArray" => $snapshot));
 	}
