@@ -17,10 +17,10 @@ class X3domWidget extends CWidget {
 		$this->render('x3domEnd', array(root => $this->root));
 		
 		// include own javascript files
+		Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . '/js/x3dom/sidebar.js');
 		Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . '/js/x3dom/navigation.js');
 		Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . '/js/x3dom/information.js');
 		Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . '/js/x3dom/manipulation.js');
-		Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . '/js/x3dom/zoom.js');
 	}
 	
 	private function generateX3DOM($node) {

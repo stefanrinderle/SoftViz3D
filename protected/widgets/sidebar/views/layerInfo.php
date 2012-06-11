@@ -18,14 +18,4 @@
 		}
 	?>
 	
-	<br />
-	<?php 
-	echo CHtml::link("Remove layer", "#", 
-				array("onclick" => "removeLayerById(" . $layer->id . ")")); 
-	?> <?php 
-	echo CHtml::link("Show layer", "#",
-			array("onclick" => "showLayerById(" . $layer->id . ")"));
-	?>
-	
-	
 </div>

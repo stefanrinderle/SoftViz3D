@@ -1,5 +1,5 @@
 <Transform id='<?php echo $id; ?>' translation='<?php echo $position[x] . " " . $position[y] . " " . $position[z]; ?>'
-			onclick="showLeafInformation(event);">
+			onclick="leafClickedEvent(event);">
 		<Shape>
 			<Appearance>
 				<Material diffuseColor='1 0 0' transparency='0' />

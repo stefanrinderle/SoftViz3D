@@ -1,8 +1,15 @@
 <div id="sidebar" style="float: right; width: 250px;">
+
 	<h3><a href="#">Information</a></h3>
 	<div id="information">
 		Click on an object inside the visualization to show informations about it.
 	</div>
+	
+	<h3><a href="#">Manipulation</a></h3>
+	<div id="manipulation">
+		Click on an object inside the visualization to show manipulation options.
+	</div>
+	
 	<h3><a href="#">Navigation</a></h3>
 	<div id="navigation">
 		<p>
@@ -20,18 +27,4 @@
 		</p>
 		<p><span id="reset">Reset view</span></p>
 	</div>
-	<h3><a href="#">Manipulation</a></h3>
-	<div id="manipulation">
-		<span id="remove">Remove</span>
-		<span id="add">Add</span>
-		<span id="test">Test</span>
-	</div>
 </div>
-
-<script>
-	$(function() {
-		$( "#sidebar" ).accordion({
-			collapsible: true
-		});
-	});
-</script>

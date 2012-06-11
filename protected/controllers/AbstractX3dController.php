@@ -20,13 +20,21 @@ class AbstractX3dController extends BaseController {
 	
 	public function actionGetLayerChildren($id = null) {
 		$children = TreeElement::model()->findAllByAttributes(array('parent_id'=>$id, 'isLeaf'=>1), array("select" => "id"));
-		
+	
 		$result = array();
 		foreach ($children as $child) {
 			array_push($result, $child->id);
 		}
-
+	
 		echo json_encode($result);
+	}
+	
+	public function actionGetLayerManipulation($id = null) {
+		$this->widget('application.widgets.sidebar.LayerManipulation', array('layerId' => $id));
+	}
+	
+	public function actionGetLeafManipulation($id = null) {
+		$this->widget('application.widgets.sidebar.LeafManipulation', array('leafId' => $id));
 	}
 	
 }
