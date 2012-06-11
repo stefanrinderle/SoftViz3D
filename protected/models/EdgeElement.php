@@ -9,6 +9,7 @@ class EdgeElement extends CActiveRecord
 	public $in_id;
 	public $parent_id;
 	public $counter = 1;
+	public $isVisible = 1;
 	
 	public static function model($className=__CLASS__)
 	{

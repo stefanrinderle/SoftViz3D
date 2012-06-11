@@ -6,16 +6,19 @@ class TreeElement extends CActiveRecord
 	public $label;
 	public $parent_id;
 	public $level;
-	
 	public $isLeaf;
-
-	public $x3dInfos;
+	public $isVisible = 1;
+	public $counter = 1;
 	
+	public $x3dInfos;
+
+	// used for getting MAX() select db query
 	public $maxdepth;
 	
 	// not in database yet because not nesessary
 	public $size;
-	public $counter = 1;
+	
+	// TODO: used for x3d calc - could maybe be refactored
 	public $max_level;
 		
 	public static function model($className=__CLASS__)

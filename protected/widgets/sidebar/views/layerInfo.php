@@ -20,9 +20,11 @@
 	
 	<br />
 	<?php 
-	echo CHtml::button("Remove layer", array("onclick" => "removeLayerById(" . $layer->id . ")")); 
-	?> <?php 
-	echo CHtml::button("Show layer", array("onclick" => "showLayerById(" . $layer->id . ")"));
+	if ($layer->isVisible) {
+		echo CHtml::button("Remove layer", array("onclick" => "removeLayerById(" . $layer->id . ", 'layer')"));
+	} else {
+		echo CHtml::button("Show layer", array("onclick" => "showLayerById(" . $layer->id . ", 'layer')"));
+	}
 	?>
 	
 	<br />

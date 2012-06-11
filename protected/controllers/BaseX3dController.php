@@ -14,14 +14,6 @@ class BaseX3dController extends BaseController {
 		$this->maxDepth = $maxRecord->maxdepth;
 	}
 	
-	public function actionGetLayer($id = null) {
-		$root = TreeElement::model()->findByPk($id);
-	
-		$this->widget('application.widgets.x3dom.X3domLayerWidget',array(
-				'layer' => $root, 'type' => 'tree'
-		));
-	}
-	
 	public function actionGetLayerInfo($id = null) {
 		$this->widget('application.widgets.sidebar.LayerInfo', array('layerId' => $id));
 	}
@@ -30,9 +22,23 @@ class BaseX3dController extends BaseController {
 		$this->widget('application.widgets.sidebar.LeafInfo', array('leafId' => $id));
 	}
 	
-	public function actionGetLayerChildren($id = null) {
-		$children = TreeElement::model()->findAllByAttributes(array('parent_id'=>$id, 'isLeaf'=>1), array("select" => "id"));
+	public function actionShowLayer($id = null) {
+		$root = TreeElement::model()->findByPk($id);
+		$root->isVisible = 1;
+		$root->save();
 	
+		$this->widget('application.widgets.x3dom.X3domLayerWidget',array(
+				'layer' => $root, 'type' => 'tree'
+		));
+	}
+	
+	public function actionRemoveLayer($id = null) {
+		$root = TreeElement::model()->findByPk($id);
+		$root->isVisible = 0;
+		$root->save();
+		
+		$children = TreeElement::model()->findAllByAttributes(array('parent_id'=>$id, 'isLeaf'=>1), array("select" => "id"));
+		
 		$result = array();
 		foreach ($children as $child) {
 			array_push($result, $child->id);

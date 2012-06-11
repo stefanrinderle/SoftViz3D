@@ -5,8 +5,10 @@
 					array("onclick" => "showLayerInformationById(" . $parentLayer->id . ")")); ?>
 					
 	<?php 
-	echo CHtml::button("Remove parent layer", array("onclick" => "removeLayerById(" . $parentLayer->id . ")")); 
-
-	echo CHtml::button("Show parent layer", array("onclick" => "showLayerById(" . $parentLayer->id . ")"));
+	if ($parentLayer->isVisible) {
+		echo CHtml::button("Remove parent layer", array("onclick" => "removeLayerById(" . $parentLayer->id . ", 'leaf')"));
+	} else {
+		echo CHtml::button("Show parent layer", array("onclick" => "showLayerById(" . $parentLayer->id . ", 'leaf')"));
+	}
 	?>
 </div>
