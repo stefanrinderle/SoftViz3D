@@ -41,14 +41,6 @@ class BaseX3dController extends BaseController {
 		echo json_encode($result);
 	}
 	
-	public function actionGetLayerManipulation($id = null) {
-		$this->widget('application.widgets.sidebar.LayerManipulation', array('layerId' => $id, 'currentDepth' => $this->currentDepth, 'maxDepth' => $this->maxDepth));
-	}
-	
-	public function actionGetLeafManipulation($id = null) {
-		$this->widget('application.widgets.sidebar.LeafManipulation', array('leafId' => $id, 'currentDepth' => $this->currentDepth, 'maxDepth' => $this->maxDepth));
-	}
-	
 // 	public function actionGetAllElementsInLayer($depth) {
 // 		$elements = TreeElement::model()->findAllByAttributes(array('level'=>$depth));
 		

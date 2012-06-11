@@ -7,32 +7,20 @@ $(document).ready(function() {
 });
 
 function layerClickedEvent(event) {
-	active = getActiveAccordianTab();
-	
-	if (active == 0) {
-		showLayerInformation(event);
-	} else if (active == 1) {
-		showLayerManipulation(event);
-	}
+	showLayerInformation(event);
 }
 
 function leafClickedEvent(event) {
-	active = getActiveAccordianTab();
-	
-	if (active == 0) {
-		showLeafInformation(event);
-	} else if (active == 1) {
-		showLeafManipulation(event);
-	}
+	showLeafInformation(event);
 }
 
-function getActiveAccordianTab() {
-	/*  0 => information
-	 *  1 => manipulation
-	 *  2 => navigation
-	 */
-	return $("#sidebar").accordion( "option", "active" );
-}
+//function getActiveAccordianTab() {
+//	/*  0 => information
+//	 *  1 => manipulation
+//	 *  2 => navigation
+//	 */
+//	return $("#sidebar").accordion( "option", "active" );
+//}
 
 $(window).resize(function() {
 	resize();

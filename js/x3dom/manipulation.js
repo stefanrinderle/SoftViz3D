@@ -1,15 +1,3 @@
-function showLayerManipulation(event) {
-	jQuery.ajax({'success':function(data) {
-		$("#sidebar #manipulation").html(data);
-	},'url':'./index.php?r=baseX3d/getLayerManipulation&id=' + id,'cache':false});return false;
-}
-
-function showLeafManipulation(event) {
-	jQuery.ajax({'success':function(data) {
-		$("#sidebar #manipulation").html(data);
-	},'url':'./index.php?r=baseX3d/getLeafManipulation&id=' + id,'cache':false});return false;
-}
-
 function removeLayerById(id) {
 	jQuery.ajax({'success':function(data) {
 			$("#" + id).remove();
