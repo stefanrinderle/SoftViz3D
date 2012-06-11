@@ -11,6 +11,8 @@ class TreeElement extends CActiveRecord
 
 	public $x3dInfos;
 	
+	public $maxdepth;
+	
 	// not in database yet because not nesessary
 	public $size;
 	public $counter = 1;

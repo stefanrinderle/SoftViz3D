@@ -11,7 +11,7 @@ function showLayerInformationById(id) {
 	
 	jQuery.ajax({'success':function(data) {
 			$("#sidebar #information").html(data);
-	   },'url':'./index.php?r=tree/getLayerInfo&id=' + id,'cache':false});return false;
+	   },'url':'./index.php?r=baseX3d/getLayerInfo&id=' + id,'cache':false});return false;
 }
 
 function showLeafInformation(event) {
@@ -26,5 +26,5 @@ function showLeafInformationById(id) {
 	
 	jQuery.ajax({'success':function(data) {
 			$("#sidebar #information").html(data);
-	   },'url':'./index.php?r=tree/getLeafInfo&id=' + id,'cache':false});return false;
+	   },'url':'./index.php?r=baseX3d/getLeafInfo&id=' + id,'cache':false});return false;
 }
