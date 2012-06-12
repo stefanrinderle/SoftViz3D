@@ -2,15 +2,6 @@
 
 class BaseX3dController extends BaseController {
 	
-	public function init() {
-// 		$criteria = new CDbCriteria;
-// 		$criteria->select='MAX(level) as maxdepth';
-// 		$maxRecord = TreeElement::model()->find($criteria);
-		
-// 		$this->currentDepth = $maxRecord->maxdepth;
-// 		$this->maxDepth = $maxRecord->maxdepth;
-	}
-	
 	public function actionGetLayerDetails($id = null) {
 		$this->widget('application.widgets.sidebar.LayerDetails', array('layerId' => $id));
 	}
@@ -71,7 +62,7 @@ class BaseX3dController extends BaseController {
 	private function removeChildren($layerId) {
 		$result = array();
 	
-		$layers = TreeElement::model()->findAllByAttributes(array('parent_id'=>$layerId));
+		$layers = LayerElement::model()->findAllByAttributes(array('parent_id'=>$layerId));
 		foreach ($layers as $layer) {
 			array_push($result, $layer->id);
 			$result = array_merge($result, $this->removeChildren($layer->id));
@@ -101,16 +92,5 @@ class BaseX3dController extends BaseController {
 	
 		echo json_encode($result);
 	}
-	
-// 	public function actionGetAllElementsInLayer($depth) {
-// 		$elements = TreeElement::model()->findAllByAttributes(array('level'=>$depth));
-		
-// 		$result = array();
-// 		foreach ($elements as $element) {
-// 			array_push($result, $element->id);
-// 		}
-		
-// 		echo json_encode($result);
-// 	}
 	
 }
