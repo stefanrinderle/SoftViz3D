@@ -1,5 +1,5 @@
 <?php
-class LeafInfo extends CWidget {
+class LeafDetails extends CWidget {
  
     public $leafId;
  
@@ -7,7 +7,7 @@ class LeafInfo extends CWidget {
     	$leaf = TreeElement::model()->findByPk($this->leafId);
     	$parent = TreeElement::model()->findByPk($leaf->parent_id);
     	
-        $this->render('leafInfo', array(leaf => $leaf, parentLayer => $parent));
+        $this->render('leafDetails', array(leaf => $leaf, parentLayer => $parent));
     }
  
 }

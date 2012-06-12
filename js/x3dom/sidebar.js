@@ -7,15 +7,15 @@ $(document).ready(function() {
 });
 
 function layerClickedEvent(event) {
-	showLayerInformation(event);
+	showLayerDetails(event);
 }
 
 function leafClickedEvent(event) {
-	showLeafInformation(event);
+	showLeafDetails(event);
 }
 
 //function getActiveAccordianTab() {
-//	/*  0 => information
+//	/*  0 => details
 //	 *  1 => manipulation
 //	 *  2 => navigation
 //	 */
@@ -36,7 +36,7 @@ function resize() {
 	right_margin = $(".container").css("margin-left").substring(0, $(".container").css("margin-left").length - 2);
 	content_padding = $("#content").css("padding").substring(0, $("#content").css("padding").length - 2);
 	
-	sidebar_width = $("#sidebar").css("width").substring(0, $("#sidebar").css("width").length - 2)
+	sidebar_width = $("#sidebar").css("width").substring(0, $("#sidebar").css("width").length - 2);
 	
 	calculatedSize = window.innerWidth - left_margin - right_margin - (content_padding * 2) - (content_padding * 2) - sidebar_width;
 	

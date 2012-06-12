@@ -1,7 +1,7 @@
 <div id="sidebar" style="float: right; width: 250px;">
 
-	<h3><a href="#">Information</a></h3>
-	<div id="information">
+	<h3><a href="#">Details</a></h3>
+	<div id="details">
 		Click on an object inside the visualization to show informations about it.
 	</div>
 	

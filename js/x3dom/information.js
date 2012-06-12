@@ -1,30 +1,30 @@
-function showLayerInformation(event) {
+function showLayerDetails(event) {
 	id = $(event.target).attr('id');
 	
-	showLayerInformationById(id);
+	showLayerDetailsById(id);
 }
 
-function showLayerInformationById(id) {
+function showLayerDetailsById(id) {
 //	select(id);
 	
 //	testFocus(id);
 	
 	jQuery.ajax({'success':function(data) {
-			$("#sidebar #information").html(data);
-	   },'url':'./index.php?r=baseX3d/getLayerInfo&id=' + id,'cache':false});return false;
+			$("#sidebar #details").html(data);
+	   },'url':'./index.php?r=baseX3d/getLayerDetails&id=' + id,'cache':false});return false;
 }
 
-function showLeafInformation(event) {
+function showLeafDetails(event) {
 	id = $(event.target).attr('id');
-	showLeafInformationById(id);
+	showLeafDetailsById(id);
 }
 
-function showLeafInformationById(id) {
+function showLeafDetailsById(id) {
 //	select(id);
 	
 //	testFocus(id);
 	
 	jQuery.ajax({'success':function(data) {
-			$("#sidebar #information").html(data);
-	   },'url':'./index.php?r=baseX3d/getLeafInfo&id=' + id,'cache':false});return false;
+			$("#sidebar #details").html(data);
+	   },'url':'./index.php?r=baseX3d/getLeafDetails&id=' + id,'cache':false});return false;
 }

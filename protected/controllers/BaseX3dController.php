@@ -14,12 +14,12 @@ class BaseX3dController extends BaseController {
 		$this->maxDepth = $maxRecord->maxdepth;
 	}
 	
-	public function actionGetLayerInfo($id = null) {
-		$this->widget('application.widgets.sidebar.LayerInfo', array('layerId' => $id));
+	public function actionGetLayerDetails($id = null) {
+		$this->widget('application.widgets.sidebar.LayerDetails', array('layerId' => $id));
 	}
 	
-	public function actionGetLeafInfo($id = null) {
-		$this->widget('application.widgets.sidebar.LeafInfo', array('leafId' => $id));
+	public function actionGetLeafDetails($id = null) {
+		$this->widget('application.widgets.sidebar.LeafDetails', array('leafId' => $id));
 	}
 	
 	public function actionShowLayer($id = null) {

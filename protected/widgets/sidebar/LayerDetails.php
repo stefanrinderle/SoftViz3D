@@ -1,5 +1,5 @@
 <?php
-class LayerInfo extends CWidget {
+class LayerDetails extends CWidget {
  
     public $layerId;
  
@@ -8,7 +8,7 @@ class LayerInfo extends CWidget {
     	$parent = TreeElement::model()->findByPk($layer->parent_id);
     	$children = TreeElement::model()->findAllByAttributes(array('parent_id'=>$layer->id));
     	
-        $this->render('layerInfo', array(layer => $layer, parentLayer => $parent, children => $children));
+        $this->render('layerDetails', array(layer => $layer, parentLayer => $parent, children => $children));
     }
  
 }
