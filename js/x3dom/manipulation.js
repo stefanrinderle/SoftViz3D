@@ -39,6 +39,14 @@ function layerShowLayerById(layerId) {
 	});
 }
 
+function layerExpandAllById(layerId) {
+	jQuery.ajax({'success':function(data) {
+	      $("#x3dSceneWrapper").append(data);
+	      
+	      reloadDetails(layerId, "layer");
+	},'url':'./index.php?r=baseX3d/expandAll&id=' + layerId,'cache':false});
+}
+
 function showLayerById(id, callback) {
 	jQuery.ajax({'success':function(data) {
 	      $("#x3dSceneWrapper").append(data);

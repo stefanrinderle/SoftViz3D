@@ -12,6 +12,8 @@
 	} else {
 		echo CHtml::button("Show layer", array("onclick" => "layerShowLayerById(" . $layer->id . ")"));
 	}
+	
+	echo CHtml::button("Expand all", array("onclick" => "layerExpandAllById(" . $layer->id . ")"));
 	?>
 	
 	<br /><br />
