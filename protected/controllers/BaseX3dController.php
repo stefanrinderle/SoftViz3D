@@ -2,16 +2,13 @@
 
 class BaseX3dController extends BaseController {
 	
-	private $currentDepth;
-	private $maxDepth;
-	
 	public function init() {
-		$criteria = new CDbCriteria;
-		$criteria->select='MAX(level) as maxdepth';
-		$maxRecord = TreeElement::model()->find($criteria);
+// 		$criteria = new CDbCriteria;
+// 		$criteria->select='MAX(level) as maxdepth';
+// 		$maxRecord = TreeElement::model()->find($criteria);
 		
-		$this->currentDepth = $maxRecord->maxdepth;
-		$this->maxDepth = $maxRecord->maxdepth;
+// 		$this->currentDepth = $maxRecord->maxdepth;
+// 		$this->maxDepth = $maxRecord->maxdepth;
 	}
 	
 	public function actionGetLayerDetails($id = null) {

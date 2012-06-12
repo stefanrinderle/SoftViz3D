@@ -1,13 +1,13 @@
 // REMOVE LAYER
-function leafRemoveLayerById(layerId, leafId) {
+function leafRemoveLayerById(layerId) {
 	removeLayerById(layerId, function() {
-		reloadDetails(leafId, "leaf");
+		showLayerDetailsById(layerId);
 	});
 }
 
-function layerRemoveLayerById(layerId) {
-	removeLayerById(layerId, function() {
-		reloadDetails(layerId, "layer");
+function layerRemoveLayerById(layerId, parentId) {
+	removeLayerById(layerId, function () {
+		showLayerDetailsById(parentId);
 	});
 }
 
@@ -27,42 +27,28 @@ function removeLayerById(id, callback) {
 }
 
 //SHOW LAYER
-function leafShowLayerById(layerId, leafId) {
-	showLayerById(layerId, function() {
-		reloadDetails(leafId, "leaf");
-	});
+function leafShowLayerById(layerId) {
+	showLayerById(layerId);
 }
 
 function layerShowLayerById(layerId) {
-	showLayerById(layerId, function() {
-		reloadDetails(layerId, "layer");
-	});
+	showLayerById(layerId);
 }
 
 function layerExpandAllById(layerId) {
 	jQuery.ajax({'success':function(data) {
 	      $("#x3dSceneWrapper").append(data);
 	      
-	      reloadDetails(layerId, "layer");
+	      showLayerDetailsById(layerId);
 	},'url':'./index.php?r=baseX3d/expandAll&id=' + layerId,'cache':false});
 }
 
-function showLayerById(id, callback) {
+function showLayerById(id) {
 	jQuery.ajax({'success':function(data) {
 	      $("#x3dSceneWrapper").append(data);
 	      
-	      callback();
+	      showLayerDetailsById(id);
 	   },'url':'./index.php?r=baseX3d/showLayer&id=' + id,'cache':false});
-}
-
-function reloadDetails(id, type) {
-	if (type == "layer") {
- 		showLayerDetailsById(id);
- 	} else if (type == "leaf") {
- 		showLeafDetailsById(id);
- 	} else {
- 		alert(type);
- 	}
 }
 
 //function removeLayerByDepth(depth) {

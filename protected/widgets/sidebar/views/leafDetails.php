@@ -8,9 +8,9 @@
 					
 	<?php 
 	if ($parentLayer->isVisible) {
-		echo CHtml::button("Remove parent layer", array("onclick" => "leafRemoveLayerById(" . $parentLayer->id . ", " . $leaf->id . ")"));
+		echo CHtml::button("Hide parent layer", array("onclick" => "leafRemoveLayerById(" . $parentLayer->id . ")"));
 	} else {
-		echo CHtml::button("Show parent layer", array("onclick" => "leafShowLayerById(" . $parentLayer->id . ", " . $leaf->id . ")"));
+		echo CHtml::button("Show parent layer", array("onclick" => "leafShowLayerById(" . $parentLayer->id . ")"));
 	}
 	?>
 </div>
