@@ -27,16 +27,12 @@ class LayerX3dCalculator extends CApplicationComponent
 			$translation[z] = $nodeLength / 2 - $x3dInfos->bb[size][length] / 2;
 		}
 		
-		
-		
 		// !!! SAVE X3DINFOS !!!
 		$x3dInfos->bb[translation] = $translation;
 		$node->setX3dInfos($x3dInfos);
 		
-		
-		
 		// calculate values for the children nodes
-		$content = TreeElement::model()->findAllByAttributes(array('parent_id'=>$node->id, 'isLeaf'=>0));
+		$content = LayerElement::model()->findAllByAttributes(array('parent_id'=>$node->id));
 		
 		foreach ($content as $key => $value) {
 			$label = trim($value->label);

@@ -14,7 +14,7 @@ class LayoutVisitor {
 		$this->type = $type;
 	}
 	
-	function visitTreeElement(TreeElement $comp, $layoutElements) {
+	function visitLayerElement(LayerElement $comp, $layoutElements) {
 		// create layout array
 		$layerLayout = $this->calcLayerLayout($layoutElements);
 
@@ -34,7 +34,7 @@ class LayoutVisitor {
 		return $comp;
 	}
 
-	function visitLeafTreeElement(TreeElement $comp) {
+	function visitLeafElement(LeafElement $comp) {
 		if ($this->max_level < $comp->level) $this->max_level = $comp->level;
 
  		if (substr($comp->label, 0, 4) == "dep_") {

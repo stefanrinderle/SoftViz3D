@@ -34,10 +34,10 @@ class DotWriter extends CApplicationComponent
 				$attr['fixedsize'] = "true";
 				$attr['id'] = $value->id;
 				
-				if ($value->isLeaf) {
-					$attr['type'] = "leaf";
-				} else {
+				if ($value instanceOf LayerElement) {
 					$attr['type'] = "node";
+				} else if ($value instanceOf LeafElement) {
+					$attr['type'] = "leaf";
 				}
 				
 				$this->graphViz->addNode($value->label, $attr);

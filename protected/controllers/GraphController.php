@@ -35,12 +35,12 @@ class GraphController extends BaseX3dController
 		
 		// STEP 4: calculate the view layout
 		$layout = new LayoutVisitor(LayoutVisitor::$TYPE_GRAPH);
-		$root = TreeElement::model()->findByPk(1);
+		$root = LayoutElement::model()->findByPk(1);
 		$root->accept($layout);
 		
 		// STEP 5: calculate absolute translations
 		Yii::app()->layerX3dCalculator->calculate($root);
-		$layers = $content = TreeElement::model()->findAllByAttributes(array('isLeaf'=>0));	
+		$layers = LayoutElement::model()->findAll();	
 		
 // 		echo "Calculation time Layoutvisitor: " . $this->getTimeDifference($startTime) . "<br />";
 		

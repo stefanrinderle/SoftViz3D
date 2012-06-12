@@ -12,7 +12,7 @@ class DotInfoToDb extends CApplicationComponent {
 	}
 	
 	protected function parseGraph($graph, $parent = 0, $level = 0) {
-		$currentId = TreeElement::createAndSaveTreeElement($graph[label], $parent, $level);
+		$currentId = LayerElement::createAndSave($graph[label], $parent, $level);
 		
 		$edges = array();
 		foreach ($graph[content] as $value) {
@@ -41,6 +41,6 @@ class DotInfoToDb extends CApplicationComponent {
 	}
 	
 	protected function retrieveNode($value, $parent, $level) {
-		TreeElement::createAndSaveLeafTreeElement($value[label], $parent, $level + 1);
+		LeafElement::createAndSave($value[label], $parent, $level + 1);
 	}
 }

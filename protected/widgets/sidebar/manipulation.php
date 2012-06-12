@@ -6,7 +6,7 @@ class LayerManipulation extends CWidget {
     public $maxDepth;
  
     public function run() {
-    	$layer = TreeElement::model()->findByPk($this->layerId);
+    	$layer = LayerElement::model()->findByPk($this->layerId);
     	
         $this->render('layerManipulation', array(layer => $layer, 
         		'currentDepth' => $this->currentDepth, 'maxDepth' => $this->maxDepth));

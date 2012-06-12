@@ -20,7 +20,7 @@ class BaseX3dController extends BaseController {
 	}
 	
 	public function actionShowLayer($id = null) {
-		$root = TreeElement::model()->findByPk($id);
+		$root = LayerElement::model()->findByPk($id);
 		$root->isVisible = 1;
 		$root->save();
 	
@@ -30,7 +30,7 @@ class BaseX3dController extends BaseController {
 	}
 	
 	public function actionExpandAll($id = null) {
-		$root = TreeElement::model()->findByPk($id);
+		$root = LayerElement::model()->findByPk($id);
 		
 		if (!$root->isVisible) {
 			$root->isVisible = 1;
@@ -58,7 +58,7 @@ class BaseX3dController extends BaseController {
 	private function showChildren($layerId) {
 		$result = array();
 		
-		$children = TreeElement::model()->findAllByAttributes(array('parent_id'=>$layerId, 'isLeaf'=>0));
+		$children = LayerElement::model()->findAllByAttributes(array('parent_id'=>$layerId));
 		
 		foreach ($children as $child) {
 			array_push($result, $child);
@@ -71,18 +71,18 @@ class BaseX3dController extends BaseController {
 	private function removeChildren($layerId) {
 		$result = array();
 	
-		$children = TreeElement::model()->findAllByAttributes(array('parent_id'=>$layerId));
-		
-		foreach ($children as $child) {
-			if ($child->isLeaf) {
-				array_push($result, $child->id);
-			} else {
-				array_push($result, $child->id);
-				$result = array_merge($result, $this->removeChildren($child->id));
+		$layers = TreeElement::model()->findAllByAttributes(array('parent_id'=>$layerId));
+		foreach ($layers as $layer) {
+			array_push($result, $layer->id);
+			$result = array_merge($result, $this->removeChildren($layer->id));
 				
-				$child->isVisible = 0;
-				$child->save();
-			}
+			$layer->isVisible = 0;
+			$layer->save();
+		}
+		
+		$leafs = TreeElement::model()->findAllByAttributes(array('parent_id'=>$layerId));
+		foreach ($leafs as $leaf) {
+			array_push($result, $leaf->id);
 		}
 	
 		return $result;
@@ -93,7 +93,7 @@ class BaseX3dController extends BaseController {
 	 * all child leafs and layers.
 	 */
 	public function actionRemoveLayer($id = null) {
-		$root = TreeElement::model()->findByPk($id);
+		$root = LayerElement::model()->findByPk($id);
 		$root->isVisible = 0;
 		$root->save();
 		
