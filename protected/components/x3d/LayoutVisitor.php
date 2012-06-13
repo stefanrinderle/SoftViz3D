@@ -40,10 +40,12 @@ class LayoutVisitor {
  		if (substr($comp->label, 0, 4) == "dep_") {
 			$side = sqrt($comp->counter) / 4;
  		} else {
- 			$side = 1;
+ 			$side = round($comp->width / self::$SCALE, 2);
  		}
 		
-		$comp->size = array(width=>$side, height=>$side);
+ 		$height = round($comp->height / self::$SCALE, 2);
+ 		
+		$comp->size = array(width=>$side, height=>$height);
 		return $comp;
 	}
 

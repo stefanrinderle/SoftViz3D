@@ -42,7 +42,17 @@ class DotInfoToDb extends CApplicationComponent {
 	
 	protected function retrieveNode($value, $parent, $level) {
 		if ($value[label] != "graph" && $value[label] != "node") {
-			LeafElement::createAndSave($value[label], $parent, $level + 1);
+			$width = 1;
+			$height = 1;
+
+			if ($value[attr][width]) {
+				$width = $value[attr][width]; 
+			}
+			if ($value[attr][height]) {
+				$height = $value[attr][height];
+			}
+			
+			LeafElement::createAndSave($value[label], $parent, $level + 1, $width, $height);
 		}
 	}
 }

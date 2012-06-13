@@ -1,10 +1,15 @@
 <div>
 	<h3><?php echo $leaf->label; ?></h3>
-	Parent layer: 
-	<?php echo CHtml::link($parentLayer->label, "#", 
-					array("onclick" => "showLayerDetailsById(" . $parentLayer->id . ")")); ?>
-	
-	<br /><br />
+	<p>
+	Infos: <br />
+	Sidelength: <?php echo $leaf->width; ?><br />
+	Height: <?php echo $leaf->height; ?>
+	</p>
+	<p>
+		Parent layer: 
+		<?php echo CHtml::link($parentLayer->label, "#", 
+						array("onclick" => "showLayerDetailsById(" . $parentLayer->id . ")")); ?>
+	</p>
 					
 	<?php 
 	if ($parentLayer->isVisible) {

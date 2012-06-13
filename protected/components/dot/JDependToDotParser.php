@@ -3,8 +3,7 @@
 Yii::import('application.vendors.*');
 require_once('Image_GraphViz_Copy.php');
 
-class JDependToDotParser extends CApplicationComponent
-{
+class JDependToDotParser extends CApplicationComponent {
 	
 	private $graphViz;
 	private $currentPackageName;
@@ -62,7 +61,7 @@ class JDependToDotParser extends CApplicationComponent
 			$this->currentPackageName = $package[name];
 	
 			$childs = $package->children();
-	
+			
 			if ($childs->AbstractClasses) {
 				foreach ($childs->AbstractClasses->children() as $class) {
 					$this->parseClass($class);
@@ -97,7 +96,11 @@ class JDependToDotParser extends CApplicationComponent
 		$label = str_replace(array("-", "\\"), "_", $label);
 		$parentId = str_replace(array("-", "\\"), "_", $parentId);
 	
-		$this->graphViz->addNode($label, array(), $parentId);
+		//TODO: thats just for testing displaying metrics
+		$width = rand(0, 100);
+		$height = rand(0, 100);
+		
+		$this->graphViz->addNode($label, array('width' => $width, 'height' => $height), $parentId);
 	}
 	
 	private function _addSubgraph($label, $parentId = 'default') {

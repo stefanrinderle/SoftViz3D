@@ -1,3 +1,32 @@
 digraph G {
-    cluster_src [ shape=rectangle,width=18.8333333333,height=17.2222222222,fixedsize=true,id=2,type="node" ];
+    cluster_vrml_0 [ shape=rectangle,width=3.26388888889,height=3.51388888889,fixedsize=true,id=2,type="node" ];
+    "world.pdf" [ shape=rectangle,width=0.18,height=0.94,fixedsize=true,id=13,type=leaf ];
+    "world.dot" [ shape=rectangle,width=0.43,height=0.79,fixedsize=true,id=14,type=leaf ];
+    "world.adot" [ shape=rectangle,width=0.58,height=0.49,fixedsize=true,id=15,type=leaf ];
+    "tvoicerWeb.x3d" [ shape=rectangle,width=0.49,height=0.33,fixedsize=true,id=16,type=leaf ];
+    "testTransparency.x3d" [ shape=rectangle,width=0.89,height=0.29,fixedsize=true,id=17,type=leaf ];
+    "temp.dot" [ shape=rectangle,width=0.81,height=0.49,fixedsize=true,id=18,type=leaf ];
+    "temp.adot" [ shape=rectangle,width=0.01,height=0.64,fixedsize=true,id=19,type=leaf ];
+    "subgraphTest.pdf" [ shape=rectangle,width=0.01,height=0.64,fixedsize=true,id=20,type=leaf ];
+    "subgraphTest.dot" [ shape=rectangle,width=0.01,height=0.58,fixedsize=true,id=21,type=leaf ];
+    "subgraphTest.adot" [ shape=rectangle,width=0.19,height=0.58,fixedsize=true,id=22,type=leaf ];
+    "subgraph.pdf" [ shape=rectangle,width=0.33,height=0.33,fixedsize=true,id=23,type=leaf ];
+    "subgraph.dot" [ shape=rectangle,width=0.49,height=0.18,fixedsize=true,id=24,type=leaf ];
+    "subgraph.adot" [ shape=rectangle,width=0.5,height=0.18,fixedsize=true,id=25,type=leaf ];
+    "simpleGraph2D.dot" [ shape=rectangle,width=0.64,height=0.01,fixedsize=true,id=26,type=leaf ];
+    "simpleGraph2D.adot" [ shape=rectangle,width=0.65,height=0.01,fixedsize=true,id=27,type=leaf ];
+    "simpleGraph.dot" [ shape=rectangle,width=0.81,height=0.32,fixedsize=true,id=28,type=leaf ];
+    "simpleGraph.adot" [ shape=rectangle,width=0.81,height=0.32,fixedsize=true,id=29,type=leaf ];
+    "parsera.dot" [ shape=rectangle,width=0.18,height=0.47,fixedsize=true,id=30,type=leaf ];
+    "parser.pdf" [ shape=rectangle,width=0.33,height=0.47,fixedsize=true,id=31,type=leaf ];
+    "parser.dot" [ shape=rectangle,width=0.49,height=0.01,fixedsize=true,id=32,type=leaf ];
+    "parser.adot" [ shape=rectangle,width=0.64,height=0.01,fixedsize=true,id=33,type=leaf ];
+    "nurbsTestWindows.x3d" [ shape=rectangle,width=0.03,height=0.63,fixedsize=true,id=34,type=leaf ];
+    "layeredLayout.dot" [ shape=rectangle,width=0.03,height=0.9,fixedsize=true,id=35,type=leaf ];
+    "image_graphviz.dot" [ shape=rectangle,width=1.06,height=0.58,fixedsize=true,id=36,type=leaf ];
+    "dependency.dot" [ shape=rectangle,width=0.63,height=0.58,fixedsize=true,id=37,type=leaf ];
+    "basisTestsText.x3d" [ shape=rectangle,width=1.04,height=0.32,fixedsize=true,id=38,type=leaf ];
+    "basisTestsNurbs.x3d" [ shape=rectangle,width=0.06,height=0.01,fixedsize=true,id=39,type=leaf ];
+    "basisTestsEdge.x3d" [ shape=rectangle,width=0.19,height=0.01,fixedsize=true,id=40,type=leaf ];
+    "basisTests.x3d" [ shape=rectangle,width=0.17,height=0.17,fixedsize=true,id=41,type=leaf ];
 }

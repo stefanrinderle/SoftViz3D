@@ -37,13 +37,15 @@ abstract class AbstractX3dCalculator extends CApplicationComponent
 	} 
 	
 	protected function adjustLeaf($node, $depth) {
+			$width = $node[attr][width][0] * LayoutVisitor::$SCALE / 2;
+			$height = $node[attr][height][0] * LayoutVisitor::$SCALE / 2;
+		
 			// its a node with subnodes, so only specify the position and name.
 			$result = array(
 					'name'=>$node[label],
-					'size'=>array('width'=>LayoutVisitor::$SCALE / 2, 'height'=>$this->nodeHeight,
-							'length'=>LayoutVisitor::$SCALE / 2),
+					'size'=>array('width'=>$width, 'height'=>$height, 'length'=>$width),
 					'position'=>array('x' => $node['attr']['pos'][0],
-							'y' => $depth * $this->layerDepth,
+							'y' => $depth * $this->layerDepth + ($height / 2),
 							'z' => $node['attr']['pos'][1]),
 					'colour'=>array('r'=>0, 'g'=>0, 'b'=>0.5),
 					'transparency'=>0,
