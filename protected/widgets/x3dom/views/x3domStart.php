@@ -13,12 +13,12 @@
 			   translation='<?php echo - $x3dInfos->bb[size][width] / 2 . " 0 " . - $x3dInfos->bb[size][length] / 2; ?>'>
 	
 	<Group>
-		<Shape DEF="basicLeaf">
+		<!-- Shape DEF="basicLeaf">
 			<Appearance>
 				<Material DEF="basicLeafAppearence" emissiveColor='1 0 0' diffuseColor='1 0 0' transparency='0' />
 			</Appearance>
 			<Box size='36 10 36'/>
-		</Shape>
+		</Shape  -->
                 
 		<!-- LOD forceTransitions="true" range="800, 1000" DEF="basicLeaf">
 			<Group DEF="LOD_0">
