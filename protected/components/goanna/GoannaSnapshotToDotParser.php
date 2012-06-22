@@ -16,6 +16,8 @@ class GoannaSnapshotToDotParser extends CApplicationComponent
 		
 		$this->_scanDirectory($snapshotFilesArray);
 		
+// 		print_r($snapshotFilesArray);
+		
 		$this->graphViz->saveParsedGraph(Yii::app()->basePath . Yii::app()->params['currentResourceFile']);
 
 		return true;
@@ -25,15 +27,17 @@ class GoannaSnapshotToDotParser extends CApplicationComponent
 		foreach ($filesArray[children] as $key => $value) {
 			
 			if ($value[type] == "ROOT") {
-				$this->_scanDirectory($value, $value[name]);
+				$this->_scanDirectory($value, $value[id] + "");
 			} else if ($value[type] == "DIRECTORY") {
 				
-				$this->_addSubgraph($value[name], $parentLabel);
+				$name = $value[id]  + "";// . "_" . $this->subgraphIdentifier++;
 				
-				$this->_scanDirectory($value, $value[name]);
+				$this->_addSubgraph($name, $parentLabel);
+				
+				$this->_scanDirectory($value, $name);
 			} else if ($value[type] == "FILE") {
 				
-				$this->_addNode($value[name], $parentLabel);
+				$this->_addNode($value[id], $parentLabel);
 			}
 		}
 	}

@@ -75,9 +75,8 @@ class GraphX3dCalculator extends AbstractX3dCalculator
 		// its a node with subnodes, so only specify the position and name.
 		$result = array(
 				'name'=>$node[label],
-				'size'=>array('width'=> $side,
-						'height'=> $height,
-						'length'=> $side),
+				'size'=>array('width'=> LayoutVisitor::$SCALE / 2, 'height'=>$height,
+						'length'=>LayoutVisitor::$SCALE / 2),
 				'position'=>array('x' => $node['attr']['pos'][0],
 						'y' => ($depth * $this->layerDepth) + $height / 2,
 						'z' => $node['attr']['pos'][1]),
@@ -129,7 +128,7 @@ class GraphX3dCalculator extends AbstractX3dCalculator
 		$lineWidth = $edge['attr']['style'][0];
 		$lineWidth = substr($lineWidth, strpos($lineWidth, "(") + 1, strlen($lineWidth) - strpos($lineWidth, "(") - 2);
 		
-		$lineWidth = 1;
+// 		$lineWidth = 
 		
 		// convert edge section points
 		$sections = array();

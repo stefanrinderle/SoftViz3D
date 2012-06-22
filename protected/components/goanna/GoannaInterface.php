@@ -2,14 +2,14 @@
 
 class GoannaInterface extends CApplicationComponent {
 	
-	private $reporterPath = "127.0.0.1";
-	private $reporterPort = 1197;
+	private $reporterPath = "goanna.ken.nicta.com.au";
+	private $reporterPort = 80;
 	
-	private $mock = true;
+	private $mock = false;
 	
 	public function getProjects() {
 		if (!$this->mock) {
-			$response = $this->doRequest("/api/projects");
+			$response = $this->doRequest("/reporter/api/project");
 		} else {
 			$response = GoannaMock::getMockProjects();
 		}
@@ -19,7 +19,7 @@ class GoannaInterface extends CApplicationComponent {
 	
 	public function getSnapshots($id) {
 		if (!$this->mock) {
-			$response = $this->doRequest("/api/project/" . $id);
+			$response = $this->doRequest("/reporter/api/project/" . $id);
 		} else {
 			$response = GoannaMock::getMockSnapshots();
 		}
@@ -29,7 +29,7 @@ class GoannaInterface extends CApplicationComponent {
 	
 	public function getSnapshot($projectId, $snapshotId) {
 		if (!$this->mock) {
-			$response = $this->doRequest("/api/project/" . $projectId .  "/snapshot/" . $snapshotId);
+			$response = $this->doRequest("/reporter/api/project/" . $projectId .  "/snapshot/" . $snapshotId);
 		} else {
 			$response = GoannaMock::getMockSnapshot();
 		}
@@ -37,15 +37,31 @@ class GoannaInterface extends CApplicationComponent {
 		return $this->getResult($response);
 	}
 	
-	public function getChildsWithMetrics($projectId, $snapshotId, $root) {
+	public function getSnapshotWarnings($projectId, $snapshotId) {
 		if (!$this->mock) {
-			$response = $this->doRequest("/api/project/" . $projectId .  "/snapshot/" . $snapshotId . "/metric/" . $root . "/children/");
-		} else {
-			$response = GoannaMock::getMockChildsWithMetrics();
-		}
-		
+			$response = $this->doRequest("/reporter/api/project/" . $projectId .  "/snapshot/" . $snapshotId . "/warnings");
+		} 
+	
 		return $this->getResult($response);
 	}
+	
+	public function getLatestDependencies($projectId) {
+		if (!$this->mock) {
+			$response = $this->doRequest("/reporter/api/project/" . $projectId .  "/dependencies");
+		}
+	
+		return $this->getResult($response);
+	}
+	
+// 	public function getChildsWithMetrics($projectId, $snapshotId, $root) {
+// 		if (!$this->mock) {
+// 			$response = $this->doRequest("/reporter/api/project/" . $projectId .  "/snapshot/" . $snapshotId . "/metric/" . $root . "/children/");
+// 		} else {
+// 			$response = GoannaMock::getMockChildsWithMetrics();
+// 		}
+		
+// 		return $this->getResult($response);
+// 	}
 	
 	private function getResult($jsonResponse) {
 		$phpArray = json_decode($jsonResponse, true);
@@ -60,16 +76,15 @@ class GoannaInterface extends CApplicationComponent {
 		$timeout = 10;
 		
 		$fp = fsockopen($host, $port, $errno, $errstr, $timeout);
-		if($fp)
-		{
+		
+		if($fp) {
 			$request = "GET ".$url." HTTP/1.1\r\n";
 			$request.= "Host: ".$host."\r\n";
 			$request.= "User-Agent: Mozilla/5.0 (Windows; U; Windows NT 5.1; de-DE; rv:1.7.12) Gecko/20050919 Firefox/1.0.7\r\n";
 			$request.= "Connection: Close\r\n\r\n";
 		
 			fwrite($fp, $request);
-			while (!feof($fp))
-			{
+			while (!feof($fp)) {
 				$response .= fgets($fp, 128);
 			}
 			fclose($fp);
@@ -77,10 +92,8 @@ class GoannaInterface extends CApplicationComponent {
 			list($header, $data) = explode("\r\n\r\n", $response);
 			
 			return $data;
-		}
-		else
-		{
-			return "ERROR: ".$errstr;
+		} else {
+			throw new Exception('No server response');
 		}
 	}
 }

@@ -42,8 +42,8 @@ class DotInfoToDb extends CApplicationComponent {
 	
 	protected function retrieveNode($value, $parent, $level) {
 		if ($value[label] != "graph" && $value[label] != "node") {
-			$width = 1;
-			$height = 1;
+			$width = 100;
+			$height = 100;
 
 			if ($value[attr][width]) {
 				$width = $value[attr][width]; 

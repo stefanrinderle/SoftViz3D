@@ -45,14 +45,14 @@ class DirectoryToDotParser extends CApplicationComponent
 				$this->_addSubgraph($name, $parentLabel);
 				$this->_scanDirectory($subit, $name);
 			} else {
-				$this->_addNode($name, $parentLabel);
+				$this->_addNode($name, $parentLabel, ($child->getSize() / 1024) + 100);
 			}
 		}
 	}
 	
-	private function _addNode($label, $parentId = 'default') {
+	private function _addNode($label, $parentId = 'default', $size = 100) {
 		$label = str_replace("-", "_", $label);
-		$this->graphViz->addNode($label, array(), $parentId);
+		$this->graphViz->addNode($label, array('height' => $size), $parentId);
 	}
 	
 	private function _addSubgraph($label, $parentId = 'default') {
