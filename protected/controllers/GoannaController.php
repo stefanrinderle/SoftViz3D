@@ -20,26 +20,14 @@ class GoannaController extends BaseController
 		$this->render('snapshots', array('project' => $project));
 	}
 	
-	public function actionImportSnapshotWarnings($projectId, $snapshotId) {
+	public function actionImportSnapshot($projectId, $snapshotId, $importDependencies) {
 		$warnings = Yii::app()->goannaInterface->getSnapshotWarnings($projectId, $snapshotId);
 		
-		$result = Yii::app()->goannaSnapshotToDotParser->parseToFile($warnings[locations_tree]);
-		
-		if ($result) {
-			Yii::app()->user->setFlash('success', 'Snapshot successful imported.');
-		} else {
-			Yii::app()->user->setFlash('error', 'Snapshot not valid.');
+		if ($importDependencies) {
+			$dependencies = Yii::app()->goannaInterface->getLatestDependencies($projectId);
+			print_r("Number of dependencies: " . count($dependencies));
 		}
-		
-		$this->render('//import/index', array());
-	}
 	
-	public function actionImportSnapshotDependencies($projectId, $snapshotId) {
-		$warnings = Yii::app()->goannaInterface->getSnapshotWarnings($projectId, $snapshotId);
-		$dependencies = Yii::app()->goannaInterface->getLatestDependencies($projectId);
-	
-		print_r("Number of dependencies: " . count($dependencies));
-		
 		$result = Yii::app()->goannaSnapshotToDotParser->parseToFile($warnings[locations_tree], $dependencies);
 	
 		if ($result) {

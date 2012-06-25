@@ -8,7 +8,7 @@ $this->breadcrumbs=array(
 <h2>Snapshots - Project "<?php echo $project[name]; ?>"</h2>
 
 <table>
-<tr><th>Name</th><th>Date</th><th>Number of files</th><th>Warnings total</th><th>Warnings supressed</th><th>Import Warnings</th><th>Import Dependencies</th></tr>
+<tr><th>Name</th><th>Date</th><th>Number of files</th><th>Warnings total</th><th>Warnings supressed</th><th>Import Warnings</th></tr>
 
 <?php 
 
@@ -25,11 +25,11 @@ foreach($project[snapshots] as $snapshot) {
 	echo "</td><td>";
 	echo $snapshot[supressed];
 	echo "</td><td>";
-	echo CHtml::link("Import", array('goanna/importSnapshotWarnings', 'projectId'=>$project[id], 'snapshotId'=>$snapshot[id]));
 	if ($first) {
-		echo "</td><td>";
-		echo CHtml::link("Import", array('goanna/importSnapshotDependencies', 'projectId'=>$project[id], 'snapshotId'=>$snapshot[id]));
+		echo CHtml::link("Import incl. dep.", array('goanna/importSnapshot', 'projectId'=>$project[id], 'snapshotId'=>$snapshot[id], 'importDependencies' => true));
 		$first = false;
+	} else {
+		echo CHtml::link("Import", array('goanna/importSnapshot', 'projectId'=>$project[id], 'snapshotId'=>$snapshot[id], 'importDependencies' => false));
 	}
 	echo "</td></tr>";
 }
