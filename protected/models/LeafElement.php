@@ -2,10 +2,6 @@
 
 class LeafElement extends TreeElement
 {
-	// needed if calculated with metrics...?
-	public $width;
-	public $height;
-	
 	public $metric1;
 	public $metric2;
 	
@@ -37,8 +33,6 @@ class LeafElement extends TreeElement
 		$element->parent_id=$parent_id;
 		$element->level=$level;
 		$element->isLeaf = 1;
-		$element->width = 0;
-		$element->height = 0;
 		$element->metric1 = $metric1;
 		$element->metric2 = $metric2;
 		

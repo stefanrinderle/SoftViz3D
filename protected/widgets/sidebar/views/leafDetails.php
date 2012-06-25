@@ -2,8 +2,8 @@
 	<h3><?php echo $leaf->label; ?></h3>
 	<p>
 	Infos: <br />
-	Sidelength: <?php echo $leaf->width; ?><br />
-	Height: <?php echo $leaf->height; ?>
+	M1: <?php echo $leaf->metric1; ?><br />
+	M2: <?php echo $leaf->metric2; ?>
 	</p>
 	<p>
 		Parent layer: 

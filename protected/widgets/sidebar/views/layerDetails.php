@@ -23,7 +23,7 @@
 			foreach ($children as $child) {
 				if ($child->isLeaf) {
 					echo CHtml::link($child->label, "#", array("onclick" => "showLeafDetailsById(" . $child->id . ")"));
-					echo " (SL: " . $child->width . " - H: " . $child->height . ")";
+					echo " (M1: " . $child->metric1 . " - M2: " . $child->metric2 . ")";
 				} else {
 					echo CHtml::link($child->label, "#", array("onclick" => "showLayerDetailsById(" . $child->id . ")"));
 					echo " - ";
