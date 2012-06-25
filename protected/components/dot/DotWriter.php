@@ -29,14 +29,18 @@ class DotWriter extends CApplicationComponent
 				$attr = array();
 				$attr['shape'] = "rectangle";
 				
-				$attr['width'] = $value->size[width];
-				$attr['height'] = $value->size[height];
+				$attr['width'] = $value->twoDimSize[width];
+				$attr['height'] = $value->twoDimSize[height];
+
 				$attr['fixedsize'] = "true";
 				$attr['id'] = $value->id;
 				
 				if ($value instanceOf LayerElement) {
 					$attr['type'] = "node";
 				} else if ($value instanceOf LeafElement) {
+					$attr['metric1'] = $value->metric1;
+					$attr['metric2'] = $value->metric2;
+					
 					$attr['type'] = "leaf";
 				}
 				

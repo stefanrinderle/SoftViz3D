@@ -9,7 +9,7 @@ class TreeElement extends CActiveRecord
 	public $isLeaf;
 
 	// not in database yet because not nesessary
-	public $size;
+	public $twoDimSize;
 	
 	// TODO: used for x3d calc - could maybe be refactored
 	public $max_level;

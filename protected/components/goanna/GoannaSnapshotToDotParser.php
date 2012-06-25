@@ -24,6 +24,7 @@ class GoannaSnapshotToDotParser extends CApplicationComponent
 	}
 	
 	private function _scanDirectory($filesArray, $parentLabel = "default") {
+		$sum = 0;
 		foreach ($filesArray[children] as $key => $value) {
 			
 			if ($value[type] == "ROOT") {
@@ -36,15 +37,19 @@ class GoannaSnapshotToDotParser extends CApplicationComponent
 				
 				$this->_scanDirectory($value, $name);
 			} else if ($value[type] == "FILE") {
+				$sum = 0;
+				foreach($value[metrics] as $metric) {
+					$sum += $metric[value];
+				}
 				
-				$this->_addNode($value[id], $parentLabel);
+				$this->_addNode($value[id], $sum, $parentLabel);
 			}
 		}
 	}
 	
-	private function _addNode($label, $parentId = 'default') {
+	private function _addNode($label, $warningCount, $parentId = 'default') {
 		$label = str_replace("-", "_", $label);
-		$this->graphViz->addNode($label, array(), $parentId);
+		$this->graphViz->addNode($label, array(metric1 => $warningCount), $parentId);
 	}
 	
 	private function _addSubgraph($label, $parentId = 'default') {

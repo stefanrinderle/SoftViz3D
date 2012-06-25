@@ -1,9 +1,3 @@
 digraph G {
-    cluster_src [ shape=rectangle,width=30.5,height=30.7222222222,fixedsize=true,id=2,type="node" ];
-    "svndump.c" [ shape=rectangle,width=1.39,height=1.39,fixedsize=true,id=275,type=leaf ];
-    "svndiff.c" [ shape=rectangle,width=1.39,height=1.39,fixedsize=true,id=276,type=leaf ];
-    "fast_export.c" [ shape=rectangle,width=1.39,height=1.39,fixedsize=true,id=277,type=leaf ];
-    "repo_tree.c" [ shape=rectangle,width=1.39,height=1.39,fixedsize=true,id=278,type=leaf ];
-    "sliding_window.c" [ shape=rectangle,width=1.39,height=1.39,fixedsize=true,id=279,type=leaf ];
-    "line_buffer.c" [ shape=rectangle,width=1.39,height=1.39,fixedsize=true,id=280,type=leaf ];
+    cluster_1 [ shape=rectangle,width=91.625,height=80.6944444444,fixedsize=true,id=2,type="node" ];
 }

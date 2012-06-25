@@ -2,8 +2,7 @@
 
 class DotInfoToDb extends CApplicationComponent {
 	
-	public function writeToDb($dotArray)
-	{
+	public function writeToDb($dotArray) {
 		/* reset database */
 		TreeElement::model()->deleteAll();
 		EdgeElement::model()->deleteAll();
@@ -42,17 +41,14 @@ class DotInfoToDb extends CApplicationComponent {
 	
 	protected function retrieveNode($value, $parent, $level) {
 		if ($value[label] != "graph" && $value[label] != "node") {
-			$width = 100;
-			$height = 100;
-
-			if ($value[attr][width]) {
-				$width = $value[attr][width]; 
-			}
-			if ($value[attr][height]) {
-				$height = $value[attr][height];
-			}
 			
-			LeafElement::createAndSave($value[label], $parent, $level + 1, $width, $height);
+			// override width and height!!!
+			$metric1 = $value[attr][metric1];
+			$metric2 = $value[attr][metric2];
+
+			// TODO add additional attributes for the input
+			
+			LeafElement::createAndSave($value[label], $parent, $level + 1, $metric1, $metric2);
 		}
 	}
 }

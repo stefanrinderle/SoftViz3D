@@ -27,6 +27,9 @@ class GoannaInterface extends CApplicationComponent {
 		return $this->getResult($response);
 	}
 	
+	/**
+	 * @deprecated
+	 */
 	public function getSnapshot($projectId, $snapshotId) {
 		if (!$this->mock) {
 			$response = $this->doRequest("/reporter/api/project/" . $projectId .  "/snapshot/" . $snapshotId);
@@ -39,8 +42,10 @@ class GoannaInterface extends CApplicationComponent {
 	
 	public function getSnapshotWarnings($projectId, $snapshotId) {
 		if (!$this->mock) {
-			$response = $this->doRequest("/reporter/api/project/" . $projectId .  "/snapshot/" . $snapshotId . "/warnings");
-		} 
+			$response = $this->doRequest("/reporter/api/project/" . $projectId .  "/snapshot/" . $snapshotId . "/metric");
+		} else {
+			$response = GoannaMock::getWarnings();
+		}
 	
 		return $this->getResult($response);
 	}

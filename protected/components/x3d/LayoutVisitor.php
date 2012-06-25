@@ -3,6 +3,8 @@ class LayoutVisitor {
 	public static $TYPE_TREE = "tree";
 	public static $TYPE_GRAPH = "graph";
 	
+	private static $DEFAULT_SIDE_LENGTH = 100;
+	
 	public static $SCALE = 72;
 	private $outputFile = '/Users/stefan/Sites/3dArch/protected/runtime/temp.dot';
 
@@ -29,7 +31,7 @@ class LayoutVisitor {
 		$comp->setX3dInfos($x3dInfos);
 		
 		// size of the node is the size of its bounding box
-		$comp->size = array(width=>$layerLayout['bb'][2] / self::$SCALE, height=>$layerLayout['bb'][3] / self::$SCALE);
+		$comp->twoDimSize = array(width=>$layerLayout['bb'][2] / self::$SCALE, height=>$layerLayout['bb'][3] / self::$SCALE);
 
 		return $comp;
 	}
@@ -40,12 +42,30 @@ class LayoutVisitor {
  		if (substr($comp->label, 0, 4) == "dep_") {
 			$side = sqrt($comp->counter) / 4;
  		} else {
- 			$side = round($comp->width / self::$SCALE, 2);
+ 			// !!! METRIC CALCULATION FOR 2D LAYOUT
+ 			$metric1 = $comp->metric1;
+ 			$metric2 = $comp->metric2;
+ 			
+ 			/**
+ 			 * If only one metric is given, it will be represented by the 
+ 			 * building volume. Therefore the side length is set here and the 
+ 			 * same value will be set for the 3D heigth later in the
+ 			 * X3dCalculators. Given 2 Metrics, first is the side length
+ 			 * second is the 3D height. Given none, default values.
+ 			 */
+ 			if ($metric1 && $metric2) {
+ 				$side = round($metric1 / self::$SCALE, 2);
+ 			} else  if ($metric1) {
+ 				$side = round($metric1 / self::$SCALE, 2);
+ 			} else if ($metric2) {
+ 				$side = round($metric2 / self::$SCALE, 2);
+ 			} else {
+ 				// TODO: DEFAULT SIZE 
+ 				$side = round(self::$DEFAULT_SIDE_LENGTH / self::$SCALE, 2);
+ 			}
  		}
-		
- 		$height = round($comp->height / self::$SCALE, 2);
  		
-		$comp->size = array(width=>$side, height=>$height);
+		$comp->twoDimSize = array(width=>$side, height=>$side);
 		return $comp;
 	}
 
@@ -67,7 +87,7 @@ class LayoutVisitor {
 
 		$newLayout = Yii::app()->dotFileParser->parseStringArray($layoutDot);
 		
-		$contentResult = array(); 
+		$contentResult = array();
 		foreach ($newLayout[content] as $key => $value) {
 			if ($value[label] == "graph") {
 				$newLayout[bb] = $value[attr][bb];

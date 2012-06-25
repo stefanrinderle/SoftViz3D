@@ -7,12 +7,13 @@ abstract class AbstractX3dCalculator extends CApplicationComponent
 	protected $layerDepth = 10;
 	protected $nodeHeight = 10;
 	
+	private static $DEFAULT_HEIGHT = 10;
+	
 	public function init() {
 		$this->layout = new LayerLayout();
 	}
 	
-	public function calculate($layerLayout, $comp)
-	{
+	public function calculate($layerLayout, $comp) {
 		$this->adjustLayoutToX3d($layerLayout, $comp->level, $comp->max_level);
 		
 		return $this->layout;
@@ -37,8 +38,23 @@ abstract class AbstractX3dCalculator extends CApplicationComponent
 	} 
 	
 	protected function adjustLeaf($node, $depth) {
+			// !!! METRIC CALCULATION FOR 3D LAYOUT
+ 			/**
+ 			 * If only one metric is given, it will be represented by the 
+ 			 * building volume. Therefore the side length is set in 2D here and the 
+ 			 * same value will be set for the 3D height here. Given 2 Metrics, first is the side length
+ 			 * second is the 3D height. Given none, default values.
+ 			 */
+			$metric1 = $node[attr][metric1];
+			$metric2 = $node[attr][metric2];
+		
+ 			if ($metric1 != "" && $metric2 != "") {
+ 				$height = round($metric2 * LayoutVisitor::$SCALE / 2);
+ 			} else {
+ 				$height = round(self::$DEFAULT_HEIGHT * LayoutVisitor::$SCALE / 2);
+ 			}
+		
 			$width = $node[attr][width][0] * LayoutVisitor::$SCALE / 2;
-			$height = $node[attr][height][0] * LayoutVisitor::$SCALE / 2;
 		
 			// its a node with subnodes, so only specify the position and name.
 			$result = array(
