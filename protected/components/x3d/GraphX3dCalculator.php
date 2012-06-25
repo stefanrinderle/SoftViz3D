@@ -69,7 +69,7 @@ class GraphX3dCalculator extends AbstractX3dCalculator
 	}
 	
 	private function adjustDepLeaf($node, $depth) {
-		$height = abs($this->layerDepth * 2) + $this->nodeHeight / 2;
+		$height = abs($this->layerDepth * 2) + parent::$DEFAULT_HEIGHT / 2;
 		$side = $node['attr']['width'][0] * LayoutVisitor::$SCALE  / 2;
 	
 		// its a node with subnodes, so only specify the position and name.
@@ -90,11 +90,17 @@ class GraphX3dCalculator extends AbstractX3dCalculator
 	}
 	
 	protected function adjustLeaf($node, $depth) {
+		//METRIC
+		/**
+		 * Only one metric! and the metric is set in 2d layout (side length...)
+		 */
+		
+		$width = $node[attr][width][0] * LayoutVisitor::$SCALE / 2;
+		
 		// its a node with subnodes, so only specify the position and name.
 		$result = array(
 				'name'=>$node[label],
-				'size'=>array('width'=>LayoutVisitor::$SCALE / 2, 'height'=>$this->nodeHeight,
-						'length'=>LayoutVisitor::$SCALE / 2),
+				'size'=>array('width'=>$width, 'height'=>parent::$DEFAULT_HEIGHT, 'length'=>$width),
 				'position'=>array('x' => $node['attr']['pos'][0],
 						'y' => $depth * $this->layerDepth,
 						'z' => $node['attr']['pos'][1]),
@@ -111,7 +117,7 @@ class GraphX3dCalculator extends AbstractX3dCalculator
 			$result = array(
 					'name'=>$node[label],
 					'size'=>array('width'=> $node[attr][width][0] * LayoutVisitor::$SCALE, 
-								  'height'=> $this->nodeHeight / 2, 
+								  'height'=> self::$DEFAULT_HEIGHT / 2, 
 								  'length' => $node[attr][height][0] * LayoutVisitor::$SCALE),
 					'position'=>array('x' => $node['attr']['pos'][0],
 							'y' => $depth * $this->layerDepth,
