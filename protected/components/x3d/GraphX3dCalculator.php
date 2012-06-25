@@ -1,12 +1,12 @@
 <?php
 
-class GraphX3dCalculator extends AbstractX3dCalculator
-{
-	public function calculate($layerLayout, $comp)
-	{
+class GraphX3dCalculator extends AbstractX3dCalculator {
+	
+	public function calculate($layerLayout, $comp) {
 		parent::init();
 
-		$this->layerDepth = -100;
+		//TODO: calc on demand
+		$this->layerDepth = -200;
 		
 		$this->adjustLayoutToX3d($layerLayout, $comp->level, $comp->max_level);
 	
@@ -70,13 +70,12 @@ class GraphX3dCalculator extends AbstractX3dCalculator
 	
 	private function adjustDepLeaf($node, $depth) {
 		$height = abs($this->layerDepth * 2) + parent::$DEFAULT_HEIGHT / 2;
-		$side = $node['attr']['width'][0] * LayoutVisitor::$SCALE  / 2;
+		$side = $node['attr']['width'][0] * LayoutVisitor::$SCALE;
 	
 		// its a node with subnodes, so only specify the position and name.
 		$result = array(
 				'name'=>$node[label],
-				'size'=>array('width'=> LayoutVisitor::$SCALE / 2, 'height'=>$height,
-						'length'=>LayoutVisitor::$SCALE / 2),
+				'size'=>array('width'=> $side, 'height'=>$height, 'length'=>$side),
 				'position'=>array('x' => $node['attr']['pos'][0],
 						'y' => ($depth * $this->layerDepth) + $height / 2,
 						'z' => $node['attr']['pos'][1]),
@@ -94,18 +93,19 @@ class GraphX3dCalculator extends AbstractX3dCalculator
 		/**
 		 * Only one metric! and the metric is set in 2d layout (side length...)
 		 */
+		$width = $node[attr][width][0] * LayoutVisitor::$SCALE;
 		
-		$width = $node[attr][width][0] * LayoutVisitor::$SCALE / 2;
+		$height = parent::$DEFAULT_HEIGHT;
 		
 		// its a node with subnodes, so only specify the position and name.
 		$result = array(
 				'name'=>$node[label],
-				'size'=>array('width'=>$width, 'height'=>parent::$DEFAULT_HEIGHT, 'length'=>$width),
+				'size'=>array('width'=>$width, 'height'=>$height, 'length'=>$width),
 				'position'=>array('x' => $node['attr']['pos'][0],
-						'y' => $depth * $this->layerDepth,
+						'y' => $depth * $this->layerDepth + ($height / 2),
 						'z' => $node['attr']['pos'][1]),
-				'colour'=>array('r'=>0, 'g'=>0, 'b'=>0.5),
-				'transparency'=>0,
+				'colour'=>array('r'=>0, 'g'=>0, 'b'=>0.7),
+				'transparency'=>0.2,
 				'isLeaf' => 1,
 				'id' => $node['attr']['id']
 		);
@@ -133,9 +133,8 @@ class GraphX3dCalculator extends AbstractX3dCalculator
 	private function adustEdge($edge, $depth) {
 		$lineWidth = $edge['attr']['style'][0];
 		$lineWidth = substr($lineWidth, strpos($lineWidth, "(") + 1, strlen($lineWidth) - strpos($lineWidth, "(") - 2);
-		
-// 		$lineWidth = 
-		
+		// i just tried what the best factor should be
+		$lineWidth = $lineWidth;
 		// convert edge section points
 		$sections = array();
 		
@@ -147,13 +146,11 @@ class GraphX3dCalculator extends AbstractX3dCalculator
 			array_push($sections, $section);
 		}
 	
-		$sections = array_reverse($sections);
-		
 		$result = array(
-				'startPos'=>array('x' => $edge['attr']['pos'][1],
+				'endPos'=>array('x' => $edge['attr']['pos'][1],
 						'y' => $depth * $this->layerDepth,
 						'z' => $edge['attr']['pos'][2]),
-				'endPos'=>array('x' => $edge['attr']['pos'][3],
+				'startPos'=>array('x' => $edge['attr']['pos'][3],
 						'y' => $depth * $this->layerDepth,
 						'z' => $edge['attr']['pos'][4]),
 				'sections'=>$sections,

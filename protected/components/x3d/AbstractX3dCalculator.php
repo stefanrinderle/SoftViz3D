@@ -6,7 +6,7 @@ abstract class AbstractX3dCalculator extends CApplicationComponent
 	
 	protected $layerDepth = 10;
 	
-	protected static $DEFAULT_HEIGHT = 10;
+	protected static $DEFAULT_HEIGHT = 5;
 	
 	public function init() {
 		$this->layout = new LayerLayout();

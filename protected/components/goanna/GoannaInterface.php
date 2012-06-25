@@ -54,19 +54,9 @@ class GoannaInterface extends CApplicationComponent {
 		if (!$this->mock) {
 			$response = $this->doRequest("/reporter/api/project/" . $projectId .  "/dependencies");
 		}
-	
-		return $this->getResult($response);
-	}
-	
-// 	public function getChildsWithMetrics($projectId, $snapshotId, $root) {
-// 		if (!$this->mock) {
-// 			$response = $this->doRequest("/reporter/api/project/" . $projectId .  "/snapshot/" . $snapshotId . "/metric/" . $root . "/children/");
-// 		} else {
-// 			$response = GoannaMock::getMockChildsWithMetrics();
-// 		}
 		
-// 		return $this->getResult($response);
-// 	}
+		return json_decode($response, true);
+	}
 	
 	private function getResult($jsonResponse) {
 		$phpArray = json_decode($jsonResponse, true);

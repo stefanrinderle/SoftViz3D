@@ -11,7 +11,21 @@ class DotInfoToDb extends CApplicationComponent {
 	}
 	
 	protected function parseGraph($graph, $parent = 0, $level = 0) {
-		$currentId = LayerElement::createAndSave($graph[label], $parent, $level);
+		// check for nodes in graph layer
+		$import = true;
+// 		foreach ($graph[content] as $value) {
+// 			if ($value[type] == "node" && $value[label] != "graph" && $value[label] != "node"){
+// 				$import = true;
+// 				break;
+// 			}
+// 		}
+		
+		if ($import) {
+			$currentId = LayerElement::createAndSave($graph[label], $parent, $level);
+		} else {
+			$currentId = $parent;
+			$level = $level - 1;
+		}
 		
 		$edges = array();
 		foreach ($graph[content] as $value) {
@@ -31,8 +45,8 @@ class DotInfoToDb extends CApplicationComponent {
 	
 	protected function retrieveEdge($edge) {
 		$label = $edge[label];
-		$in = $edge[node1];
-		$out = $edge[node2];
+		$out = $edge[node1];
+		$in = $edge[node2];
 			
 		$out_id = TreeElement::model()->find('label=:label', array(':label'=>$out))->id;
 		$in_id = TreeElement::model()->find('label=:label', array(':label'=>$in))->id;

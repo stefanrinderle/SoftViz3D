@@ -14,6 +14,9 @@ class TreeElement extends CActiveRecord
 	// TODO: used for x3d calc - could maybe be refactored
 	public $max_level;
 	
+	public $maxMetric1;
+	public $maxMetric2;
+	public $maxCounter;
 	
 	public static function model($className=__CLASS__) {
 		return parent::model($className);

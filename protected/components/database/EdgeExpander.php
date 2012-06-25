@@ -3,6 +3,7 @@
 class EdgeExpander extends CApplicationComponent
 {
 	
+	private $flatEdges = array();
 	private $dependenyNodes = array();
 	private $dependencyEdges = array();
 	
@@ -15,7 +16,7 @@ class EdgeExpander extends CApplicationComponent
 			$in = $edge->inElement;
 			if ($out->parent_id == $in->parent_id) {
 				$edge->parent_id = $out->parent_id;
-				$edge->save();
+				array_push($this->flatEdges, $edge);
 			} else {
 				// search for the common ancestor
 				$this->expandEdge($out, $in);
@@ -23,6 +24,9 @@ class EdgeExpander extends CApplicationComponent
 			}
 		}
 		
+		foreach ($this->flatEdges as $edge) {
+			$edge->save();
+		}
 		foreach ($this->dependenyNodes as $node) {
 			$node->save();
 		}
@@ -97,7 +101,7 @@ class EdgeExpander extends CApplicationComponent
 			$savedNode->counter++;
 			$depNodeId = $savedNode->id;
 		} else {
-			$node = LeafElement::create($depNodeLabel, $parentId, $level, 100, 100);
+			$node = LeafElement::create($depNodeLabel, $parentId, $level);
 			$node->save();
 			$this->dependenyNodes[$depNodeLabel] = $node;
 			

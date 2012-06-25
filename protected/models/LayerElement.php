@@ -4,7 +4,6 @@ class LayerElement extends TreeElement {
 	
 	public $x3dInfos;
 	public $isVisible = 1;
-	public $counter = 1;
 
 	public static function model($className=__CLASS__)
 	{

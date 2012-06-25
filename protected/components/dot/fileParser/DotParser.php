@@ -286,7 +286,7 @@ static public $yy_action = array(
 **                        defined, then do no error processing.
 */
     const YYNOCODE = 23;
-    const YYSTACKDEPTH = 2000;
+    const YYSTACKDEPTH = 30000;
     const YYNSTATE = 41;
     const YYNRULE = 21;
     const YYERRORSYMBOL = 12;
@@ -738,7 +738,7 @@ static public $yy_action = array(
             ** stack ever overflows */
 #line 18 "/Users/stefan/Sites/3dArch/protected/components/dot/fileParser/DotParser.y"
 
-    print_r("Giving up.  Parser stack overflow");
+    print_r("Giving up. XParser stack overflow");
 #line 748 "/Users/stefan/Sites/3dArch/protected/components/dot/fileParser/DotParser.php"
             return;
         }

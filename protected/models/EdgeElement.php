@@ -11,6 +11,8 @@ class EdgeElement extends CActiveRecord
 	public $counter = 1;
 	public $isVisible = 1;
 	
+	public $maxCounter;
+	
 	public static function model($className=__CLASS__)
 	{
 		return parent::model($className);

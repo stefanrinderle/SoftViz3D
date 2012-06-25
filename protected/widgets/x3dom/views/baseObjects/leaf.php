@@ -2,7 +2,7 @@
 			onclick="leafClickedEvent(event);">
 		<Shape>
 			<Appearance>
-				<Material diffuseColor='1 0 0' transparency='0' />
+				<Material diffuseColor='<?php echo $colour[r] . " " . $colour[g] . " " . $colour[b] ?>' transparency='<?php echo $transparency ?>' />
 			</Appearance>
 			<Box size='<?php echo $size[width] . " " . $size[height] . " " . $size[length]; ?>'/>
 		</Shape>

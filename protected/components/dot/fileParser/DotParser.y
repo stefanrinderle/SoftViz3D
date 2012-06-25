@@ -16,10 +16,10 @@
 %token_prefix TP_
 
 %stack_overflow {
-    print_r("Giving up.  Parser stack overflow");
+    print_r("Giving up. XParser stack overflow");
 }
    
-%stack_size 2000
+%stack_size 30000
 
 %parse_accept
 {

@@ -9,18 +9,23 @@ class GoannaSnapshotToDotParser extends CApplicationComponent
 	
 	private $subgraphIdentifier = 0;
 	
-	public function parseToFile($snapshotFilesArray) {
-		
+	public function parseToFile($snapshotFilesArray, $dependencies = array()) {
 		$this->graphViz = new Image_GraphViz_Copy();
-// 		$this->graphViz->graph['name'] = str_replace("/", "_", $filesArray);
 		
 		$this->_scanDirectory($snapshotFilesArray);
-		
-// 		print_r($snapshotFilesArray);
+		if (count($dependencies) > 0) {
+			$this->_scanDependencies($dependencies);
+		}
 		
 		$this->graphViz->saveParsedGraph(Yii::app()->basePath . Yii::app()->params['currentResourceFile']);
 
 		return true;
+	}
+	
+	private function _scanDependencies($dep) {
+		foreach ($dep as $value) {
+			$this->graphViz->addEdge(array($value[file_id] => $value[depends_id]));
+		}
 	}
 	
 	private function _scanDirectory($filesArray, $parentLabel = "default") {
