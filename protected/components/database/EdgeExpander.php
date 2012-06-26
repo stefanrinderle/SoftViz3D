@@ -7,11 +7,15 @@ class EdgeExpander extends CApplicationComponent
 	private $dependenyNodes = array();
 	private $dependencyEdges = array();
 	
+	private $nodesCounter = array(); 
+	
 	public function execute($edges) {
 		foreach ($edges as $edge) {
 			if ($edge->out_parent_id == $edge->in_parent_id) {
-				$edge->parent_id = $edge->out_parent_id;
-				array_push($this->flatEdges, $edge);
+// 				$edge->parent_id = $edge->out_parent_id;
+// 				array_push($this->flatEdges, $edge);
+				$this->incrementNodesCounter($edge->out_id);
+				$this->incrementNodesCounter($edge->in_id);
 			} else {
 				$out = $edge->outElement;
 				$in = $edge->inElement;
@@ -20,14 +24,30 @@ class EdgeExpander extends CApplicationComponent
 			}
 		}
 		
-		foreach ($this->flatEdges as $edge) {
-			$edge->save();
+		//OPTIMIZE WITH UPDATE
+		foreach($this->nodesCounter as $key => $value) {
+			$leaf = LeafElement::model()->findByPk($key);
+			$leaf->counter = $value;
+			$leaf->save();
 		}
+		
+		// dont show flat edges
+// 		foreach ($this->flatEdges as $edge) {
+// 			$edge->save();
+// 		}
 		foreach ($this->dependenyNodes as $node) {
 			$node->save();
 		}
 		foreach ($this->dependencyEdges as $edge) {
 			$edge->save();
+		}
+	}
+	
+	private function incrementNodesCounter($nodeId) {
+		if ($this->nodesCounter[$nodeId]) {
+			$this->nodesCounter[$nodeId] = $this->nodesCounter[$nodeId] + 1;
+		} else {
+			$this->nodesCounter[$nodeId] = 1;
 		}
 	}
 	

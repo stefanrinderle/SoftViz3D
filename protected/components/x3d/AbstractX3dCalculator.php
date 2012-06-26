@@ -6,7 +6,7 @@ abstract class AbstractX3dCalculator extends CApplicationComponent
 	
 	protected $layerDepth = 10;
 	
-	protected static $DEFAULT_HEIGHT = 5;
+	protected static $DEFAULT_HEIGHT = 0.1;
 	
 	public function init() {
 		$this->layout = new LayerLayout();
@@ -37,6 +37,8 @@ abstract class AbstractX3dCalculator extends CApplicationComponent
 	} 
 	
 	protected function adjustLeaf($node, $depth) {
+			$width = $node[attr][width][0] * LayoutVisitor::$SCALE / 2;
+		
 			// !!! METRIC CALCULATION FOR 3D LAYOUT
  			/**
  			 * If only one metric is given, it will be represented by the 
@@ -50,10 +52,8 @@ abstract class AbstractX3dCalculator extends CApplicationComponent
  			if ($metric1 != "" && $metric2 != "") {
  				$height = round($metric2 * LayoutVisitor::$SCALE / 2);
  			} else {
- 				$height = round(self::$DEFAULT_HEIGHT * LayoutVisitor::$SCALE / 2);
+ 				$height = $width;
  			}
-		
-			$width = $node[attr][width][0] * LayoutVisitor::$SCALE / 2;
 		
 			// its a node with subnodes, so only specify the position and name.
 			$result = array(

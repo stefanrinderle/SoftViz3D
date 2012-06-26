@@ -12,17 +12,22 @@ $this->breadcrumbs=array(
 
 <?php 
 
-foreach($projects as $project) {
-	echo "<tr><td>";
-	echo CHtml::link($project[name], array('goanna/snapshots', 'id'=>$project[id]));
-	echo "</td><td>";
-	echo count($project[snapshots]);
-	echo "</td><td>";
-	$latest = array_pop($project[snapshots]);
-	echo $latest[num_files];
-	echo "</td><td>";
-	echo $latest[total];
-	echo "</td></tr>";
+if (count($projects) == 0) {
+	echo "Could not load any projects...";
+} else {
+
+	foreach($projects as $project) {
+		echo "<tr><td>";
+		echo CHtml::link($project[name], array('goanna/snapshots', 'id'=>$project[id]));
+		echo "</td><td>";
+		echo count($project[snapshots]);
+		echo "</td><td>";
+		$latest = array_pop($project[snapshots]);
+		echo $latest[num_files];
+		echo "</td><td>";
+		echo $latest[total];
+		echo "</td></tr>";
+	}
 }
 
 ?>

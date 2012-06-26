@@ -4,6 +4,7 @@ class LeafElement extends TreeElement
 {
 	public $metric1;
 	public $metric2;
+	public $counter = 0;
 	
     public static function model($className=__CLASS__) {
  		return parent::model($className);

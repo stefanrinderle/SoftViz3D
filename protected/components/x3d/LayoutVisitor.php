@@ -17,8 +17,6 @@ class LayoutVisitor {
 	private $type;
 	
 	function __construct($type) {
-		print_r("construkot layoutvisitor");
-		
 		$this->type = $type;
 		
 		$criteria = new CDbCriteria;
@@ -64,7 +62,12 @@ class LayoutVisitor {
 			$side = round($value, 2);
  		} else {
  			if ($this->type == LayoutVisitor::$TYPE_GRAPH) {
- 				$side = self::$DEFAULT_SIDE_LENGTH;
+				if ($this->maxCounter != 0) {
+					$value = ($comp->counter / $this->maxCounter) + 0.1;
+					$side = round($value, 2);
+				} else {
+					$side = self::$DEFAULT_SIDE_LENGTH;
+				}
  			} else {
  				// !!! METRIC CALCULATION FOR 2D LAYOUT
  				$metric1 = $comp->metric1;
