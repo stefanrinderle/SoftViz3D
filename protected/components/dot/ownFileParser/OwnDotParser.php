@@ -50,6 +50,7 @@ class OwnDotParser extends AdotParser {
 	}
 	
 	protected function parseGraph($label = "G", $parent = 0, $level = 0) {
+		$label = str_replace('"', '', $label);
 		$currentLayer = LayerElement::create($label, $parent, $level);
 		
 		$line = $this->getNewLine();
@@ -94,6 +95,7 @@ class OwnDotParser extends AdotParser {
 			$metric1 = $this->retrieveParam($line, 'metric1');
 			$metric2 = $this->retrieveParam($line, 'metric2');
 
+			$label = str_replace('"', '', $label);
 			LeafElement::createAndSave($label, $parent, $level, $metric1, $metric2);
 			
 			return true;

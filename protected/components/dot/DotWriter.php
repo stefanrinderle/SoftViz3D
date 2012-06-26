@@ -47,7 +47,6 @@ class DotWriter extends CApplicationComponent
 					
 					$attr['type'] = "leaf";
 				}
-				
 				$this->graphViz->addNode($value->label, $attr);
 				
 			} else if ($value instanceOf EdgeElement) {

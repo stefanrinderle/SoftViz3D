@@ -1,3 +1,10 @@
 digraph G {
-    cluster_1 [ shape=rectangle,width=6.31944444444,height=6.44444444444,fixedsize=true,id=2,type="node" ];
+    cluster_au [ shape=rectangle,width=3.86111111111,height=3.58333333333,fixedsize=true,id=175,type="node" ];
+    cluster_com [ shape=rectangle,width=0.25,height=0.0277777777778,fixedsize=true,id=281,type="node" ];
+    cluster_java [ shape=rectangle,width=0.625,height=0.708333333333,fixedsize=true,id=287,type="node" ];
+    cluster_javax [ shape=rectangle,width=0.888888888889,height=0.888888888889,fixedsize=true,id=296,type="node" ];
+    cluster_jxl [ shape=rectangle,width=0.0138888888889,height=0.0138888888889,fixedsize=true,id=312,type="node" ];
+    cluster_org [ shape=rectangle,width=1.34722222222,height=1.48611111111,fixedsize=true,id=315,type="node" ];
+    dep_1 [ shape=rectangle,width=1,height=1,fixedsize=true,id=348,metric1=0,metric2=0,type=leaf ];
+    cluster_jxl -> dep_1 [ style="setlinewidth(1.2)" ];
 }

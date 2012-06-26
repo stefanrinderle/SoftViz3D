@@ -25,11 +25,13 @@ class EdgeExpander extends CApplicationComponent
 		}
 		
 		//OPTIMIZE WITH UPDATE
-		foreach($this->nodesCounter as $key => $value) {
-			$leaf = LeafElement::model()->findByPk($key);
-			$leaf->counter = $value;
-			$leaf->save();
-		}
+// 		foreach($this->nodesCounter as $key => $value) {
+// 			print_r("hier" . $key);
+// 			print_r($key . "<br />");
+// 			$leaf = TreeElement::model()->findByPk($key);
+// 			$leaf->counter = $value;
+// 			$leaf->save();
+// 		}
 		
 		// dont show flat edges
 // 		foreach ($this->flatEdges as $edge) {

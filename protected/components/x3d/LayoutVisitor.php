@@ -58,8 +58,13 @@ class LayoutVisitor {
  		if (substr($comp->label, 0, 4) == "dep_") {
  			// value between 0 and 1
  			// this was to fat: $comp->counter / $this->maxCounter
- 			$value = ($comp->counter / $this->maxCounter / 2) + 0.1;
-			$side = round($value, 2);
+ 			//TODO: this should not be possible
+ 			if ($this->maxCounter != 0) {
+ 				$value = ($comp->counter / $this->maxCounter / 2) + 0.1;
+ 				$side = round($value, 2);
+ 			} else {
+ 				$side = 1;
+ 			}
  		} else {
  			if ($this->type == LayoutVisitor::$TYPE_GRAPH) {
 				if ($this->maxCounter != 0) {
