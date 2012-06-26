@@ -94,6 +94,10 @@ class LayoutVisitor {
  				} else {
  					$side = self::$DEFAULT_SIDE_LENGTH;
  				}
+ 				
+ 				if($side < 0.05) {
+ 					$side = 0.05;
+ 				}
  			}
  		}
  		
@@ -116,7 +120,7 @@ class LayoutVisitor {
 		}
 		
 		$layoutDot = Yii::app()->dotCommand->execute($this->outputFile, $layout);
-
+		
 		$newLayout = Yii::app()->dotFileParser->parseStringArray($layoutDot);
 		
 		$contentResult = array();

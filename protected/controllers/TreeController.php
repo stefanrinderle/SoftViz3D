@@ -13,7 +13,14 @@ class TreeController extends BaseX3dController
 		$filename = Yii::app()->basePath . Yii::app()->params['currentResourceFile'];
 		
 		try {
-			$result = Yii::app()->dotFileParser->parseFile($filename);
+			/* reset database */
+			TreeElement::model()->deleteAll();
+			EdgeElement::model()->deleteAll();
+			
+// 			$result = Yii::app()->dotFileParser->parseFile($filename);
+			$result = Yii::app()->ownDotParser->parse($filename);
+// 			$edges = $result[edges];
+			$rootId = $result[rootId];
 		} catch (Exception $e) {
 			$exception = $e;
 			Yii::app()->user->setFlash('error', 'Input file parsing failed: ' . $e->getMessage());
@@ -21,11 +28,11 @@ class TreeController extends BaseX3dController
 		}
 		
 		// STEP 2: Write parsed data into database
-		Yii::app()->dotInfoToDb->writeToDb($result);
+// 		Yii::app()->dotInfoToDb->writeToDb($result);
 
 		// STEP 4: calculate the view layout
 		$layout = new LayoutVisitor(LayoutVisitor::$TYPE_TREE);
-		$root = LayerElement::model()->findByPk(1);
+		$root = LayerElement::model()->findByPk($rootId);
 		$root->accept($layout);
 		
 		// STEP 5: calculate absolute translations

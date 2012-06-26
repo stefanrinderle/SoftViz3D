@@ -105,8 +105,13 @@ return array(
 			),
 		),
 		*/
+// 		'db'=>array(
+// 			'connectionString' => 'sqlite:'.dirname(__FILE__).'/../data/graph.db',
 		'db'=>array(
-			'connectionString' => 'sqlite:'.dirname(__FILE__).'/../data/graph.db',
+				'class'=>'CDbConnection',
+				'connectionString'=>'mysql:host=localhost;dbname=graph',
+				'username'=>'root',
+				'password'=>'20S10a..'
 		),
 		// uncomment the following to use a MySQL database
 		/*

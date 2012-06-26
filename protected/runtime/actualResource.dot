@@ -1,932 +1,223 @@
-digraph G {
-    subgraph cluster_au {
-        graph [ label=au ];
-        subgraph "cluster_au.com" {
-            graph [ label="au.com" ];
-            subgraph "cluster_au.com.nicta" {
-                graph [ label="au.com.nicta" ];
-                subgraph "cluster_au.com.nicta.ifl" {
-                    graph [ label="au.com.nicta.ifl" ];
-                    subgraph "cluster_au.com.nicta.ifl.core" {
-                        graph [ label="au.com.nicta.ifl.core" ];
-                        subgraph "cluster_au.com.nicta.ifl.core.dao" {
-                            graph [ label="au.com.nicta.ifl.core.dao" ];
-                            subgraph "cluster_au.com.nicta.ifl.core.dao.implementation" {
-                                graph [ label="au.com.nicta.ifl.core.dao.implementation" ];
-                            }
-                            subgraph "cluster_au.com.nicta.ifl.core.dao.interfaces" {
-                                graph [ label="au.com.nicta.ifl.core.dao.interfaces" ];
-                            }
-                        }
-                        subgraph "cluster_au.com.nicta.ifl.core.security" {
-                            graph [ label="au.com.nicta.ifl.core.security" ];
-                            subgraph "cluster_au.com.nicta.ifl.core.security.dao" {
-                                graph [ label="au.com.nicta.ifl.core.security.dao" ];
-                                subgraph "cluster_au.com.nicta.ifl.core.security.dao.model" {
-                                    graph [ label="au.com.nicta.ifl.core.security.dao.model" ];
-                                }
-                            }
-                            subgraph "cluster_au.com.nicta.ifl.core.security.service" {
-                                graph [ label="au.com.nicta.ifl.core.security.service" ];
-                            }
-                        }
-                        subgraph "cluster_au.com.nicta.ifl.core.solve" {
-                            graph [ label="au.com.nicta.ifl.core.solve" ];
-                            subgraph "cluster_au.com.nicta.ifl.core.solve.dao" {
-                                graph [ label="au.com.nicta.ifl.core.solve.dao" ];
-                                subgraph "cluster_au.com.nicta.ifl.core.solve.dao.model" {
-                                    graph [ label="au.com.nicta.ifl.core.solve.dao.model" ];
-                                }
-                            }
-                            subgraph "cluster_au.com.nicta.ifl.core.solve.dto" {
-                                graph [ label="au.com.nicta.ifl.core.solve.dto" ];
-                            }
-                        }
-                        subgraph "cluster_au.com.nicta.ifl.core.translator" {
-                            graph [ label="au.com.nicta.ifl.core.translator" ];
-                            "SystemConstants.java" [ width=91,height=35 ];
-                            subgraph "cluster_au.com.nicta.ifl.core.translator.converter" {
-                                graph [ label="au.com.nicta.ifl.core.translator.converter" ];
-                                "ScenarioConverter.java" [ width=37,height=54 ];
-                                "ScenariosConverter.java" [ width=32,height=70 ];
-                            }
-                            subgraph "cluster_au.com.nicta.ifl.core.translator.dao" {
-                                graph [ label="au.com.nicta.ifl.core.translator.dao" ];
-                                "AccountDao.java" [ width=6,height=31 ];
-                                "FilterDao.java" [ width=58,height=78 ];
-                                "SubmittedTransformDao.java" [ width=35,height=90 ];
-                                "TranslatorDao.java" [ width=5,height=46 ];
-                                subgraph "cluster_au.com.nicta.ifl.core.translator.dao.implementation" {
-                                    graph [ label="au.com.nicta.ifl.core.translator.dao.implementation" ];
-                                    "AbstractDaoImpl.java" [ width=6,height=64 ];
-                                    "AccountDaoImpl.java" [ width=54,height=75 ];
-                                    "FilterDaoImpl.java" [ width=3,height=84 ];
-                                    "SubmittedTransformDaoImpl.java" [ width=71,height=45 ];
-                                    "TranslatorDaoImpl.java" [ width=85,height=19 ];
-                                }
-                                subgraph "cluster_au.com.nicta.ifl.core.translator.dao.model" {
-                                    graph [ label="au.com.nicta.ifl.core.translator.dao.model" ];
-                                    "AbstractFilter.java" [ width=48,height=44 ];
-                                    "AbstractJavaScriptTransform.java" [ width=65,height=41 ];
-                                    "AbstractTransform.java" [ width=67,height=51 ];
-                                    "AbstractXSLTTransform.java" [ width=6,height=57 ];
-                                    "Filter.java" [ width=87,height=44 ];
-                                    "Transform.java" [ width=10,height=18 ];
-                                    "Account.java" [ width=14,height=17 ];
-                                    "ContentFilter.java" [ width=49,height=72 ];
-                                    "ElementFilter.java" [ width=96,height=85 ];
-                                    "InputTransformFactory.java" [ width=30,height=68 ];
-                                    "JavaScriptInputTransform.java" [ width=65,height=84 ];
-                                    "JavaScriptOutputTransform.java" [ width=43,height=69 ];
-                                    "OutputTransformFactory.java" [ width=14,height=53 ];
-                                    "ScriptEngineFactory.java" [ width=97,height=98 ];
-                                    "ScriptEngineTypes.java" [ width=3,height=63 ];
-                                    "SubmittedTransform.java" [ width=49,height=9 ];
-                                    "Translator.java" [ width=20,height=35 ];
-                                    "XSLTInputTransform.java" [ width=54,height=31 ];
-                                    "XSLTOutputTransform.java" [ width=54,height=68 ];
-                                }
-                            }
-                            subgraph "cluster_au.com.nicta.ifl.core.translator.exception" {
-                                graph [ label="au.com.nicta.ifl.core.translator.exception" ];
-                                "FilterConfigurationException.java" [ width=49,height=3 ];
-                                "NullTranslatorException.java" [ width=40,height=44 ];
-                                "ParserDataFormatException.java" [ width=88,height=1 ];
-                                "SolverJobFailedException.java" [ width=45,height=18 ];
-                                "SolverJobNotCompletedException.java" [ width=70,height=9 ];
-                                "SolverJobStatusUnknownException.java" [ width=2,height=12 ];
-                                "SolverJobSubmissionException.java" [ width=78,height=71 ];
-                                "XMLValidationException.java" [ width=26,height=92 ];
-                            }
-                            subgraph "cluster_au.com.nicta.ifl.core.translator.exslt" {
-                                graph [ label="au.com.nicta.ifl.core.translator.exslt" ];
-                                "AbstractAttributeToCompatibility.java" [ width=54,height=19 ];
-                                "AttributeToAssignment.java" [ width=57,height=57 ];
-                                "AttributeToIncompatible.java" [ width=83,height=6 ];
-                                "RunNumberToVehicle.java" [ width=67,height=3 ];
-                                "StringTagUtils.java" [ width=42,height=20 ];
-                            }
-                            subgraph "cluster_au.com.nicta.ifl.core.translator.parser" {
-                                graph [ label="au.com.nicta.ifl.core.translator.parser" ];
-                                "ExcelParser.java" [ width=34,height=97 ];
-                                "TMSExcelParser_2_0.java" [ width=29,height=73 ];
-                            }
-                            subgraph "cluster_au.com.nicta.ifl.core.translator.scheduler" {
-                                graph [ label="au.com.nicta.ifl.core.translator.scheduler" ];
-                                "CleanupTempDirJob.java" [ width=6,height=99 ];
-                            }
-                            subgraph "cluster_au.com.nicta.ifl.core.translator.service" {
-                                graph [ label="au.com.nicta.ifl.core.translator.service" ];
-                                "AccountManager.java" [ width=83,height=8 ];
-                                "ConfigManager.java" [ width=11,height=61 ];
-                                "SolveManager.java" [ width=80,height=38 ];
-                                "SubmittedTransformManager.java" [ width=52,height=2 ];
-                                "TranslatorService.java" [ width=98,height=6 ];
-                                subgraph "cluster_au.com.nicta.ifl.core.translator.service.implementation" {
-                                    graph [ label="au.com.nicta.ifl.core.translator.service.implementation" ];
-                                    "AccountManagerImpl.java" [ width=22,height=55 ];
-                                    "ConfigManagerImpl.java" [ width=63,height=5 ];
-                                    "CustomResolver.java" [ width=62,height=29 ];
-                                    "Input.java" [ width=8,height=3 ];
-                                    "SolveManagerImpl.java" [ width=49,height=43 ];
-                                    "SubmittedTransformManagerImpl.java" [ width=0,height=37 ];
-                                    "TranslatorAuthenticator.java" [ width=27,height=0 ];
-                                    "TranslatorServiceImpl.java" [ width=64,height=55 ];
-                                    "XMLErrorHandler.java" [ width=89,height=93 ];
-                                }
-                            }
-                            subgraph "cluster_au.com.nicta.ifl.core.translator.web" {
-                                graph [ label="au.com.nicta.ifl.core.translator.web" ];
-                                subgraph "cluster_au.com.nicta.ifl.core.translator.web.servlet" {
-                                    graph [ label="au.com.nicta.ifl.core.translator.web.servlet" ];
-                                    "FSEExcelImportFileUploadServlet_1_0.java" [ width=94,height=92 ];
-                                    "FetchFile.java" [ width=12,height=55 ];
-                                    "ResetCache.java" [ width=21,height=21 ];
-                                    "TMSExcelImportFileUploadServlet_2_0.java" [ width=59,height=71 ];
-                                }
-                            }
-                            subgraph "cluster_au.com.nicta.ifl.core.translator.ws" {
-                                graph [ label="au.com.nicta.ifl.core.translator.ws" ];
-                                subgraph "cluster_au.com.nicta.ifl.core.translator.ws.restful" {
-                                    graph [ label="au.com.nicta.ifl.core.translator.ws.restful" ];
-                                    "AccountResource.java" [ width=65,height=59 ];
-                                    "AccountsResource.java" [ width=7,height=92 ];
-                                    "ScenarioResource.java" [ width=59,height=72 ];
-                                    "ScenariosResource.java" [ width=46,height=48 ];
-                                }
-                            }
-                        }
-                        subgraph "cluster_au.com.nicta.ifl.core.utilities" {
-                            graph [ label="au.com.nicta.ifl.core.utilities" ];
-                            subgraph "cluster_au.com.nicta.ifl.core.utilities.io" {
-                                graph [ label="au.com.nicta.ifl.core.utilities.io" ];
-                            }
-                            subgraph "cluster_au.com.nicta.ifl.core.utilities.lang" {
-                                graph [ label="au.com.nicta.ifl.core.utilities.lang" ];
-                            }
-                            subgraph "cluster_au.com.nicta.ifl.core.utilities.xml" {
-                                graph [ label="au.com.nicta.ifl.core.utilities.xml" ];
-                            }
-                        }
-                        subgraph "cluster_au.com.nicta.ifl.core.web" {
-                            graph [ label="au.com.nicta.ifl.core.web" ];
-                            subgraph "cluster_au.com.nicta.ifl.core.web.utils" {
-                                graph [ label="au.com.nicta.ifl.core.web.utils" ];
-                            }
-                        }
-                    }
+digraph _Users_stefan_Sites_3darch_protected {
+    "ControllerCode.php" [ metric1=10 ];
+    yiic [ metric1=7 ];
+    "yiic.bat" [ metric1=37 ];
+    "yiic.php" [ metric1=17 ];
+    subgraph cluster_components_0 {
+        graph [ label=components_0 ];
+        "UserIdentity.php" [ metric1=91 ];
+        subgraph cluster_database_1 {
+            graph [ label=database_1 ];
+            "EdgeExpander.php" [ metric1=340 ];
+        }
+        subgraph cluster_dot_2 {
+            graph [ label=dot_2 ];
+            "DirectoryToDotParser.php" [ metric1=170 ];
+            "DotCommand.php" [ metric1=53 ];
+            "DotInfoToDb.php" [ metric1=176 ];
+            "DotWriter.php" [ metric1=162 ];
+            "JDependToDotParser.php" [ metric1=298 ];
+            subgraph cluster_fileParser_3 {
+                graph [ label=fileParser_3 ];
+                "DotFileParser.php" [ metric1=104 ];
+                "DotLexer.php" [ metric1=858 ];
+                "DotLexer.plex" [ metric1=168 ];
+                "DotParser.out" [ metric1=844 ];
+                "DotParser.php" [ metric1=4700 ];
+                "DotParser.y" [ metric1=304 ];
+            }
+            subgraph cluster_ownFileParser_4 {
+                graph [ label=ownFileParser_4 ];
+                "AdotArrayParser.php" [ metric1=73 ];
+                "AdotFileParser.php" [ metric1=68 ];
+                "AdotParser.php" [ metric1=347 ];
+                "OwnDotParser.php" [ metric1=313 ];
+            }
+        }
+        subgraph cluster_goanna_5 {
+            graph [ label=goanna_5 ];
+            "GoannaInterface.php" [ metric1=223 ];
+            "GoannaMock.php" [ metric1=1410 ];
+            "GoannaSnapshotToDotParser.php" [ metric1=187 ];
+        }
+        subgraph cluster_x3d_6 {
+            graph [ label=x3d_6 ];
+            "AbstractX3dCalculator.php" [ metric1=219 ];
+            "GraphX3dCalculator.php" [ metric1=457 ];
+            "LayerLayout.php" [ metric1=11 ];
+            "LayerX3dCalculator.php" [ metric1=150 ];
+            "LayoutVisitor.php" [ metric1=398 ];
+            "TreeX3dCalculator.php" [ metric1=110 ];
+            "VectorCalculator.php" [ metric1=130 ];
+        }
+    }
+    subgraph cluster_config_7 {
+        graph [ label=config_7 ];
+        "console.php" [ metric1=63 ];
+        "main.php" [ metric1=380 ];
+        "test.php" [ metric1=32 ];
+    }
+    subgraph cluster_controllers_8 {
+        graph [ label=controllers_8 ];
+        "BaseController.php" [ metric1=98 ];
+        "BaseX3dController.php" [ metric1=230 ];
+        "FileController.php" [ metric1=241 ];
+        "GoannaController.php" [ metric1=145 ];
+        "GraphController.php" [ metric1=170 ];
+        "ImportController.php" [ metric1=358 ];
+        "SiteController.php" [ metric1=243 ];
+        "TestController.php" [ metric1=46 ];
+        "TreeController.php" [ metric1=141 ];
+    }
+    subgraph cluster_data_9 {
+        graph [ label=data_9 ];
+        "goanna.db" [ metric1=5200 ];
+        "graph.db" [ metric1=393600 ];
+        "graph.schema.sqlite.sql" [ metric1=21 ];
+        subgraph cluster_exampleFiles_10 {
+            graph [ label=exampleFiles_10 ];
+            "klamottenwetter.xml" [ metric1=16790 ];
+            "mvc.dot" [ metric1=70 ];
+            "simpleGraph.dot" [ metric1=12 ];
+            "simpleMetricTree.dot" [ metric1=186 ];
+            "simpleTree.dot" [ metric1=104 ];
+        }
+    }
+    subgraph cluster_models_11 {
+        graph [ label=models_11 ];
+        "EdgeElement.php" [ metric1=143 ];
+        "LayerElement.php" [ metric1=167 ];
+        "LeafElement.php" [ metric1=95 ];
+        "TreeElement.php" [ metric1=62 ];
+        subgraph cluster_forms_12 {
+            graph [ label=forms_12 ];
+            "ContactForm.php" [ metric1=95 ];
+            "DirectoryPathForm.php" [ metric1=32 ];
+            "DotFileUpload.php" [ metric1=35 ];
+            "EditFileForm.php" [ metric1=15 ];
+            "JDependFileUpload.php" [ metric1=35 ];
+            "LoginForm.php" [ metric1=174 ];
+        }
+    }
+    subgraph cluster_runtime_13 {
+        graph [ label=runtime_13 ];
+        "actualResource.dot" [ metric1=13333 ];
+        "application.log" [ metric1=59135 ];
+        "temp.dot" [ metric1=7506 ];
+        subgraph "cluster_gii_1.1.10_14" {
+            graph [ label="gii_1.1.10_14" ];
+        }
+    }
+    subgraph cluster_tests_15 {
+        graph [ label=tests_15 ];
+        "bootstrap.php" [ metric1=29 ];
+        "phpunit.xml" [ metric1=32 ];
+        "WebTestCase.php" [ metric1=66 ];
+        subgraph cluster_functional_16 {
+            graph [ label=functional_16 ];
+            "SiteTest.php" [ metric1=137 ];
+        }
+    }
+    subgraph cluster_vendors_17 {
+        graph [ label=vendors_17 ];
+        "Image_GraphViz_Copy.php" [ metric1=2933 ];
+    }
+    subgraph cluster_views_18 {
+        graph [ label=views_18 ];
+        "dumpArray.php" [ metric1=201 ];
+        subgraph cluster_common_19 {
+            graph [ label=common_19 ];
+            "_showError.php" [ metric1=6 ];
+            "_showSuccess.php" [ metric1=6 ];
+        }
+        subgraph cluster_file_20 {
+            graph [ label=file_20 ];
+            "_editForm.php" [ metric1=44 ];
+            "check.php" [ metric1=53 ];
+            "edit.php" [ metric1=36 ];
+            "index.php" [ metric1=58 ];
+        }
+        subgraph cluster_goanna_21 {
+            graph [ label=goanna_21 ];
+            "index.php" [ metric1=69 ];
+            "snapshots.php" [ metric1=100 ];
+        }
+        subgraph cluster_graph_22 {
+            graph [ label=graph_22 ];
+            "index.php" [ metric1=28 ];
+        }
+        subgraph cluster_import_23 {
+            graph [ label=import_23 ];
+            "_directoryPathForm.php" [ metric1=49 ];
+            "_quote.php" [ metric1=16 ];
+            "_uploadDotForm.php" [ metric1=50 ];
+            "_uploadJDependForm.php" [ metric1=50 ];
+            "index.php" [ metric1=130 ];
+        }
+        subgraph cluster_layouts_24 {
+            graph [ label=layouts_24 ];
+            "column1.php" [ metric1=14 ];
+            "column2.php" [ metric1=48 ];
+            "main.php" [ metric1=334 ];
+        }
+        subgraph cluster_site_25 {
+            graph [ label=site_25 ];
+            "contact.php" [ metric1=201 ];
+            "error.php" [ metric1=19 ];
+            "index.php" [ metric1=192 ];
+            "login.php" [ metric1=122 ];
+            subgraph cluster_pages_26 {
+                graph [ label=pages_26 ];
+                "about.php" [ metric1=23 ];
+            }
+        }
+        subgraph cluster_test_27 {
+            graph [ label=test_27 ];
+            "index.php" [ metric1=12 ];
+        }
+        subgraph cluster_tree_28 {
+            graph [ label=tree_28 ];
+            "index.php" [ metric1=27 ];
+        }
+    }
+    subgraph cluster_widgets_29 {
+        graph [ label=widgets_29 ];
+        subgraph cluster_sidebar_30 {
+            graph [ label=sidebar_30 ];
+            "LayerDetails.php" [ metric1=44 ];
+            "LeafDetails.php" [ metric1=31 ];
+            "manipulation.php" [ metric1=37 ];
+            "Sidebar.php" [ metric1=11 ];
+            subgraph cluster_views_31 {
+                graph [ label=views_31 ];
+                "layerDetails.php" [ metric1=133 ];
+                "leafDetails.php" [ metric1=58 ];
+                "manipulation.php" [ metric1=8 ];
+                "sidebar.php" [ metric1=110 ];
+            }
+        }
+        subgraph cluster_x3dom_32 {
+            graph [ label=x3dom_32 ];
+            "X3domLayerWidget.php" [ metric1=35 ];
+            "X3domWidget.php" [ metric1=100 ];
+            subgraph cluster_views_33 {
+                graph [ label=views_33 ];
+                "x3dGraphLayer.php" [ metric1=52 ];
+                "x3domEnd.php" [ metric1=10 ];
+                "x3domStart.php" [ metric1=185 ];
+                "x3dTreeLayer.php" [ metric1=40 ];
+                subgraph cluster_baseObjects_34 {
+                    graph [ label=baseObjects_34 ];
+                    "2dRectangle.php" [ metric1=55 ];
+                    "_boxLOD.php" [ metric1=196 ];
+                    "basePlattform.php" [ metric1=32 ];
+                    "edge.php" [ metric1=79 ];
+                    "edgeEnd.php" [ metric1=146 ];
+                    "edgeSection.php" [ metric1=102 ];
+                    "leaf.php" [ metric1=44 ];
+                    "node.php" [ metric1=108 ];
                 }
             }
         }
     }
-    subgraph cluster_com {
-        graph [ label=com ];
-        subgraph "cluster_com.sun" {
-            graph [ label="com.sun" ];
-            subgraph "cluster_com.sun.jersey" {
-                graph [ label="com.sun.jersey" ];
-                subgraph "cluster_com.sun.jersey.api" {
-                    graph [ label="com.sun.jersey.api" ];
-                    subgraph "cluster_com.sun.jersey.api.client" {
-                        graph [ label="com.sun.jersey.api.client" ];
-                    }
-                    subgraph "cluster_com.sun.jersey.api.core" {
-                        graph [ label="com.sun.jersey.api.core" ];
-                    }
-                }
-            }
-        }
-    }
-    subgraph cluster_java {
-        graph [ label=java ];
-        subgraph "cluster_java.io" {
-            graph [ label="java.io" ];
-        }
-        subgraph "cluster_java.lang" {
-            graph [ label="java.lang" ];
-        }
-        subgraph "cluster_java.net" {
-            graph [ label="java.net" ];
-        }
-        subgraph "cluster_java.security" {
-            graph [ label="java.security" ];
-        }
-        subgraph "cluster_java.text" {
-            graph [ label="java.text" ];
-        }
-        subgraph "cluster_java.util" {
-            graph [ label="java.util" ];
-            subgraph "cluster_java.util.logging" {
-                graph [ label="java.util.logging" ];
-            }
-            subgraph "cluster_java.util.regex" {
-                graph [ label="java.util.regex" ];
-            }
-        }
-    }
-    subgraph cluster_javax {
-        graph [ label=javax ];
-        subgraph "cluster_javax.persistence" {
-            graph [ label="javax.persistence" ];
-        }
-        subgraph "cluster_javax.script" {
-            graph [ label="javax.script" ];
-        }
-        subgraph "cluster_javax.servlet" {
-            graph [ label="javax.servlet" ];
-            subgraph "cluster_javax.servlet.http" {
-                graph [ label="javax.servlet.http" ];
-            }
-        }
-        subgraph "cluster_javax.ws" {
-            graph [ label="javax.ws" ];
-            subgraph "cluster_javax.ws.rs" {
-                graph [ label="javax.ws.rs" ];
-                subgraph "cluster_javax.ws.rs.core" {
-                    graph [ label="javax.ws.rs.core" ];
-                }
-            }
-        }
-        subgraph "cluster_javax.xml" {
-            graph [ label="javax.xml" ];
-            subgraph "cluster_javax.xml.datatype" {
-                graph [ label="javax.xml.datatype" ];
-            }
-            subgraph "cluster_javax.xml.parsers" {
-                graph [ label="javax.xml.parsers" ];
-            }
-            subgraph "cluster_javax.xml.transform" {
-                graph [ label="javax.xml.transform" ];
-                subgraph "cluster_javax.xml.transform.dom" {
-                    graph [ label="javax.xml.transform.dom" ];
-                }
-                subgraph "cluster_javax.xml.transform.stream" {
-                    graph [ label="javax.xml.transform.stream" ];
-                }
-            }
-            subgraph "cluster_javax.xml.validation" {
-                graph [ label="javax.xml.validation" ];
-            }
-            subgraph "cluster_javax.xml.xpath" {
-                graph [ label="javax.xml.xpath" ];
-            }
-        }
-    }
-    subgraph cluster_jxl {
-        graph [ label=jxl ];
-        subgraph "cluster_jxl.read" {
-            graph [ label="jxl.read" ];
-            subgraph "cluster_jxl.read.biff" {
-                graph [ label="jxl.read.biff" ];
-            }
-        }
-    }
-    subgraph cluster_org {
-        graph [ label=org ];
-        subgraph "cluster_org.apache" {
-            graph [ label="org.apache" ];
-            subgraph "cluster_org.apache.commons" {
-                graph [ label="org.apache.commons" ];
-                subgraph "cluster_org.apache.commons.fileupload" {
-                    graph [ label="org.apache.commons.fileupload" ];
-                    subgraph "cluster_org.apache.commons.fileupload.disk" {
-                        graph [ label="org.apache.commons.fileupload.disk" ];
-                    }
-                    subgraph "cluster_org.apache.commons.fileupload.servlet" {
-                        graph [ label="org.apache.commons.fileupload.servlet" ];
-                    }
-                }
-                subgraph "cluster_org.apache.commons.io" {
-                    graph [ label="org.apache.commons.io" ];
-                    subgraph "cluster_org.apache.commons.io.filefilter" {
-                        graph [ label="org.apache.commons.io.filefilter" ];
-                    }
-                }
-                subgraph "cluster_org.apache.commons.lang" {
-                    graph [ label="org.apache.commons.lang" ];
-                    subgraph "cluster_org.apache.commons.lang.builder" {
-                        graph [ label="org.apache.commons.lang.builder" ];
-                    }
-                }
-                subgraph "cluster_org.apache.commons.pool" {
-                    graph [ label="org.apache.commons.pool" ];
-                    subgraph "cluster_org.apache.commons.pool.impl" {
-                        graph [ label="org.apache.commons.pool.impl" ];
-                    }
-                }
-            }
-        }
-        subgraph "cluster_org.aspectj" {
-            graph [ label="org.aspectj" ];
-            subgraph "cluster_org.aspectj.util" {
-                graph [ label="org.aspectj.util" ];
-            }
-        }
-        subgraph "cluster_org.hibernate" {
-            graph [ label="org.hibernate" ];
-            subgraph "cluster_org.hibernate.criterion" {
-                graph [ label="org.hibernate.criterion" ];
-            }
-        }
-        subgraph "cluster_org.quartz" {
-            graph [ label="org.quartz" ];
-        }
-        subgraph "cluster_org.slf4j" {
-            graph [ label="org.slf4j" ];
-        }
-        subgraph "cluster_org.springframework" {
-            graph [ label="org.springframework" ];
-            subgraph "cluster_org.springframework.beans" {
-                graph [ label="org.springframework.beans" ];
-            }
-            subgraph "cluster_org.springframework.context" {
-                graph [ label="org.springframework.context" ];
-            }
-            subgraph "cluster_org.springframework.core" {
-                graph [ label="org.springframework.core" ];
-                subgraph "cluster_org.springframework.core.io" {
-                    graph [ label="org.springframework.core.io" ];
-                }
-            }
-            subgraph "cluster_org.springframework.scheduling" {
-                graph [ label="org.springframework.scheduling" ];
-                subgraph "cluster_org.springframework.scheduling.quartz" {
-                    graph [ label="org.springframework.scheduling.quartz" ];
-                }
-            }
-            subgraph "cluster_org.springframework.web" {
-                graph [ label="org.springframework.web" ];
-                subgraph "cluster_org.springframework.web.context" {
-                    graph [ label="org.springframework.web.context" ];
-                    subgraph "cluster_org.springframework.web.context.support" {
-                        graph [ label="org.springframework.web.context.support" ];
-                    }
-                }
-            }
-        }
-        subgraph "cluster_org.w3c" {
-            graph [ label="org.w3c" ];
-            subgraph "cluster_org.w3c.dom" {
-                graph [ label="org.w3c.dom" ];
-                subgraph "cluster_org.w3c.dom.ls" {
-                    graph [ label="org.w3c.dom.ls" ];
-                }
-            }
-        }
-        subgraph "cluster_org.xml" {
-            graph [ label="org.xml" ];
-            subgraph "cluster_org.xml.sax" {
-                graph [ label="org.xml.sax" ];
-            }
-        }
-    }
-    subgraph cluster_au {
-        graph [ label=au ];
-        subgraph "cluster_au.com" {
-            graph [ label="au.com" ];
-            subgraph "cluster_au.com.nicta" {
-                graph [ label="au.com.nicta" ];
-                subgraph "cluster_au.com.nicta.ifl" {
-                    graph [ label="au.com.nicta.ifl" ];
-                    subgraph "cluster_au.com.nicta.ifl.core" {
-                        graph [ label="au.com.nicta.ifl.core" ];
-                        subgraph "cluster_au.com.nicta.ifl.core.dao" {
-                            graph [ label="au.com.nicta.ifl.core.dao" ];
-                            subgraph "cluster_au.com.nicta.ifl.core.dao.implementation" {
-                                graph [ label="au.com.nicta.ifl.core.dao.implementation" ];
-                            }
-                            subgraph "cluster_au.com.nicta.ifl.core.dao.interfaces" {
-                                graph [ label="au.com.nicta.ifl.core.dao.interfaces" ];
-                            }
-                        }
-                        subgraph "cluster_au.com.nicta.ifl.core.security" {
-                            graph [ label="au.com.nicta.ifl.core.security" ];
-                            subgraph "cluster_au.com.nicta.ifl.core.security.dao" {
-                                graph [ label="au.com.nicta.ifl.core.security.dao" ];
-                                subgraph "cluster_au.com.nicta.ifl.core.security.dao.model" {
-                                    graph [ label="au.com.nicta.ifl.core.security.dao.model" ];
-                                }
-                            }
-                            subgraph "cluster_au.com.nicta.ifl.core.security.service" {
-                                graph [ label="au.com.nicta.ifl.core.security.service" ];
-                            }
-                        }
-                        subgraph "cluster_au.com.nicta.ifl.core.solve" {
-                            graph [ label="au.com.nicta.ifl.core.solve" ];
-                            subgraph "cluster_au.com.nicta.ifl.core.solve.dao" {
-                                graph [ label="au.com.nicta.ifl.core.solve.dao" ];
-                                subgraph "cluster_au.com.nicta.ifl.core.solve.dao.model" {
-                                    graph [ label="au.com.nicta.ifl.core.solve.dao.model" ];
-                                }
-                            }
-                            subgraph "cluster_au.com.nicta.ifl.core.solve.dto" {
-                                graph [ label="au.com.nicta.ifl.core.solve.dto" ];
-                            }
-                        }
-                        subgraph "cluster_au.com.nicta.ifl.core.translator" {
-                            graph [ label="au.com.nicta.ifl.core.translator" ];
-                            "SystemConstants.java" [ width=91,height=35 ];
-                            subgraph "cluster_au.com.nicta.ifl.core.translator.converter" {
-                                graph [ label="au.com.nicta.ifl.core.translator.converter" ];
-                                "ScenarioConverter.java" [ width=37,height=54 ];
-                                "ScenariosConverter.java" [ width=32,height=70 ];
-                            }
-                            subgraph "cluster_au.com.nicta.ifl.core.translator.dao" {
-                                graph [ label="au.com.nicta.ifl.core.translator.dao" ];
-                                "AccountDao.java" [ width=6,height=31 ];
-                                "FilterDao.java" [ width=58,height=78 ];
-                                "SubmittedTransformDao.java" [ width=35,height=90 ];
-                                "TranslatorDao.java" [ width=5,height=46 ];
-                                subgraph "cluster_au.com.nicta.ifl.core.translator.dao.implementation" {
-                                    graph [ label="au.com.nicta.ifl.core.translator.dao.implementation" ];
-                                    "AbstractDaoImpl.java" [ width=6,height=64 ];
-                                    "AccountDaoImpl.java" [ width=54,height=75 ];
-                                    "FilterDaoImpl.java" [ width=3,height=84 ];
-                                    "SubmittedTransformDaoImpl.java" [ width=71,height=45 ];
-                                    "TranslatorDaoImpl.java" [ width=85,height=19 ];
-                                }
-                                subgraph "cluster_au.com.nicta.ifl.core.translator.dao.model" {
-                                    graph [ label="au.com.nicta.ifl.core.translator.dao.model" ];
-                                    "AbstractFilter.java" [ width=48,height=44 ];
-                                    "AbstractJavaScriptTransform.java" [ width=65,height=41 ];
-                                    "AbstractTransform.java" [ width=67,height=51 ];
-                                    "AbstractXSLTTransform.java" [ width=6,height=57 ];
-                                    "Filter.java" [ width=87,height=44 ];
-                                    "Transform.java" [ width=10,height=18 ];
-                                    "Account.java" [ width=14,height=17 ];
-                                    "ContentFilter.java" [ width=49,height=72 ];
-                                    "ElementFilter.java" [ width=96,height=85 ];
-                                    "InputTransformFactory.java" [ width=30,height=68 ];
-                                    "JavaScriptInputTransform.java" [ width=65,height=84 ];
-                                    "JavaScriptOutputTransform.java" [ width=43,height=69 ];
-                                    "OutputTransformFactory.java" [ width=14,height=53 ];
-                                    "ScriptEngineFactory.java" [ width=97,height=98 ];
-                                    "ScriptEngineTypes.java" [ width=3,height=63 ];
-                                    "SubmittedTransform.java" [ width=49,height=9 ];
-                                    "Translator.java" [ width=20,height=35 ];
-                                    "XSLTInputTransform.java" [ width=54,height=31 ];
-                                    "XSLTOutputTransform.java" [ width=54,height=68 ];
-                                }
-                            }
-                            subgraph "cluster_au.com.nicta.ifl.core.translator.exception" {
-                                graph [ label="au.com.nicta.ifl.core.translator.exception" ];
-                                "FilterConfigurationException.java" [ width=49,height=3 ];
-                                "NullTranslatorException.java" [ width=40,height=44 ];
-                                "ParserDataFormatException.java" [ width=88,height=1 ];
-                                "SolverJobFailedException.java" [ width=45,height=18 ];
-                                "SolverJobNotCompletedException.java" [ width=70,height=9 ];
-                                "SolverJobStatusUnknownException.java" [ width=2,height=12 ];
-                                "SolverJobSubmissionException.java" [ width=78,height=71 ];
-                                "XMLValidationException.java" [ width=26,height=92 ];
-                            }
-                            subgraph "cluster_au.com.nicta.ifl.core.translator.exslt" {
-                                graph [ label="au.com.nicta.ifl.core.translator.exslt" ];
-                                "AbstractAttributeToCompatibility.java" [ width=54,height=19 ];
-                                "AttributeToAssignment.java" [ width=57,height=57 ];
-                                "AttributeToIncompatible.java" [ width=83,height=6 ];
-                                "RunNumberToVehicle.java" [ width=67,height=3 ];
-                                "StringTagUtils.java" [ width=42,height=20 ];
-                            }
-                            subgraph "cluster_au.com.nicta.ifl.core.translator.parser" {
-                                graph [ label="au.com.nicta.ifl.core.translator.parser" ];
-                                "ExcelParser.java" [ width=34,height=97 ];
-                                "TMSExcelParser_2_0.java" [ width=29,height=73 ];
-                            }
-                            subgraph "cluster_au.com.nicta.ifl.core.translator.scheduler" {
-                                graph [ label="au.com.nicta.ifl.core.translator.scheduler" ];
-                                "CleanupTempDirJob.java" [ width=6,height=99 ];
-                            }
-                            subgraph "cluster_au.com.nicta.ifl.core.translator.service" {
-                                graph [ label="au.com.nicta.ifl.core.translator.service" ];
-                                "AccountManager.java" [ width=83,height=8 ];
-                                "ConfigManager.java" [ width=11,height=61 ];
-                                "SolveManager.java" [ width=80,height=38 ];
-                                "SubmittedTransformManager.java" [ width=52,height=2 ];
-                                "TranslatorService.java" [ width=98,height=6 ];
-                                subgraph "cluster_au.com.nicta.ifl.core.translator.service.implementation" {
-                                    graph [ label="au.com.nicta.ifl.core.translator.service.implementation" ];
-                                    "AccountManagerImpl.java" [ width=22,height=55 ];
-                                    "ConfigManagerImpl.java" [ width=63,height=5 ];
-                                    "CustomResolver.java" [ width=62,height=29 ];
-                                    "Input.java" [ width=8,height=3 ];
-                                    "SolveManagerImpl.java" [ width=49,height=43 ];
-                                    "SubmittedTransformManagerImpl.java" [ width=0,height=37 ];
-                                    "TranslatorAuthenticator.java" [ width=27,height=0 ];
-                                    "TranslatorServiceImpl.java" [ width=64,height=55 ];
-                                    "XMLErrorHandler.java" [ width=89,height=93 ];
-                                }
-                            }
-                            subgraph "cluster_au.com.nicta.ifl.core.translator.web" {
-                                graph [ label="au.com.nicta.ifl.core.translator.web" ];
-                                subgraph "cluster_au.com.nicta.ifl.core.translator.web.servlet" {
-                                    graph [ label="au.com.nicta.ifl.core.translator.web.servlet" ];
-                                    "FSEExcelImportFileUploadServlet_1_0.java" [ width=94,height=92 ];
-                                    "FetchFile.java" [ width=12,height=55 ];
-                                    "ResetCache.java" [ width=21,height=21 ];
-                                    "TMSExcelImportFileUploadServlet_2_0.java" [ width=59,height=71 ];
-                                }
-                            }
-                            subgraph "cluster_au.com.nicta.ifl.core.translator.ws" {
-                                graph [ label="au.com.nicta.ifl.core.translator.ws" ];
-                                subgraph "cluster_au.com.nicta.ifl.core.translator.ws.restful" {
-                                    graph [ label="au.com.nicta.ifl.core.translator.ws.restful" ];
-                                    "AccountResource.java" [ width=65,height=59 ];
-                                    "AccountsResource.java" [ width=7,height=92 ];
-                                    "ScenarioResource.java" [ width=59,height=72 ];
-                                    "ScenariosResource.java" [ width=46,height=48 ];
-                                }
-                            }
-                        }
-                        subgraph "cluster_au.com.nicta.ifl.core.utilities" {
-                            graph [ label="au.com.nicta.ifl.core.utilities" ];
-                            subgraph "cluster_au.com.nicta.ifl.core.utilities.io" {
-                                graph [ label="au.com.nicta.ifl.core.utilities.io" ];
-                            }
-                            subgraph "cluster_au.com.nicta.ifl.core.utilities.lang" {
-                                graph [ label="au.com.nicta.ifl.core.utilities.lang" ];
-                            }
-                            subgraph "cluster_au.com.nicta.ifl.core.utilities.xml" {
-                                graph [ label="au.com.nicta.ifl.core.utilities.xml" ];
-                            }
-                        }
-                        subgraph "cluster_au.com.nicta.ifl.core.web" {
-                            graph [ label="au.com.nicta.ifl.core.web" ];
-                            subgraph "cluster_au.com.nicta.ifl.core.web.utils" {
-                                graph [ label="au.com.nicta.ifl.core.web.utils" ];
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    }
-    subgraph cluster_com {
-        graph [ label=com ];
-        subgraph "cluster_com.sun" {
-            graph [ label="com.sun" ];
-            subgraph "cluster_com.sun.jersey" {
-                graph [ label="com.sun.jersey" ];
-                subgraph "cluster_com.sun.jersey.api" {
-                    graph [ label="com.sun.jersey.api" ];
-                    subgraph "cluster_com.sun.jersey.api.client" {
-                        graph [ label="com.sun.jersey.api.client" ];
-                    }
-                    subgraph "cluster_com.sun.jersey.api.core" {
-                        graph [ label="com.sun.jersey.api.core" ];
-                    }
-                }
-            }
-        }
-    }
-    subgraph cluster_java {
-        graph [ label=java ];
-        subgraph "cluster_java.io" {
-            graph [ label="java.io" ];
-        }
-        subgraph "cluster_java.lang" {
-            graph [ label="java.lang" ];
-        }
-        subgraph "cluster_java.net" {
-            graph [ label="java.net" ];
-        }
-        subgraph "cluster_java.security" {
-            graph [ label="java.security" ];
-        }
-        subgraph "cluster_java.text" {
-            graph [ label="java.text" ];
-        }
-        subgraph "cluster_java.util" {
-            graph [ label="java.util" ];
-            subgraph "cluster_java.util.logging" {
-                graph [ label="java.util.logging" ];
-            }
-            subgraph "cluster_java.util.regex" {
-                graph [ label="java.util.regex" ];
-            }
-        }
-    }
-    subgraph cluster_javax {
-        graph [ label=javax ];
-        subgraph "cluster_javax.persistence" {
-            graph [ label="javax.persistence" ];
-        }
-        subgraph "cluster_javax.script" {
-            graph [ label="javax.script" ];
-        }
-        subgraph "cluster_javax.servlet" {
-            graph [ label="javax.servlet" ];
-            subgraph "cluster_javax.servlet.http" {
-                graph [ label="javax.servlet.http" ];
-            }
-        }
-        subgraph "cluster_javax.ws" {
-            graph [ label="javax.ws" ];
-            subgraph "cluster_javax.ws.rs" {
-                graph [ label="javax.ws.rs" ];
-                subgraph "cluster_javax.ws.rs.core" {
-                    graph [ label="javax.ws.rs.core" ];
-                }
-            }
-        }
-        subgraph "cluster_javax.xml" {
-            graph [ label="javax.xml" ];
-            subgraph "cluster_javax.xml.datatype" {
-                graph [ label="javax.xml.datatype" ];
-            }
-            subgraph "cluster_javax.xml.parsers" {
-                graph [ label="javax.xml.parsers" ];
-            }
-            subgraph "cluster_javax.xml.transform" {
-                graph [ label="javax.xml.transform" ];
-                subgraph "cluster_javax.xml.transform.dom" {
-                    graph [ label="javax.xml.transform.dom" ];
-                }
-                subgraph "cluster_javax.xml.transform.stream" {
-                    graph [ label="javax.xml.transform.stream" ];
-                }
-            }
-            subgraph "cluster_javax.xml.validation" {
-                graph [ label="javax.xml.validation" ];
-            }
-            subgraph "cluster_javax.xml.xpath" {
-                graph [ label="javax.xml.xpath" ];
-            }
-        }
-    }
-    subgraph cluster_jxl {
-        graph [ label=jxl ];
-        subgraph "cluster_jxl.read" {
-            graph [ label="jxl.read" ];
-            subgraph "cluster_jxl.read.biff" {
-                graph [ label="jxl.read.biff" ];
-            }
-        }
-    }
-    subgraph cluster_org {
-        graph [ label=org ];
-        subgraph "cluster_org.apache" {
-            graph [ label="org.apache" ];
-            subgraph "cluster_org.apache.commons" {
-                graph [ label="org.apache.commons" ];
-                subgraph "cluster_org.apache.commons.fileupload" {
-                    graph [ label="org.apache.commons.fileupload" ];
-                    subgraph "cluster_org.apache.commons.fileupload.disk" {
-                        graph [ label="org.apache.commons.fileupload.disk" ];
-                    }
-                    subgraph "cluster_org.apache.commons.fileupload.servlet" {
-                        graph [ label="org.apache.commons.fileupload.servlet" ];
-                    }
-                }
-                subgraph "cluster_org.apache.commons.io" {
-                    graph [ label="org.apache.commons.io" ];
-                    subgraph "cluster_org.apache.commons.io.filefilter" {
-                        graph [ label="org.apache.commons.io.filefilter" ];
-                    }
-                }
-                subgraph "cluster_org.apache.commons.lang" {
-                    graph [ label="org.apache.commons.lang" ];
-                    subgraph "cluster_org.apache.commons.lang.builder" {
-                        graph [ label="org.apache.commons.lang.builder" ];
-                    }
-                }
-                subgraph "cluster_org.apache.commons.pool" {
-                    graph [ label="org.apache.commons.pool" ];
-                    subgraph "cluster_org.apache.commons.pool.impl" {
-                        graph [ label="org.apache.commons.pool.impl" ];
-                    }
-                }
-            }
-        }
-        subgraph "cluster_org.aspectj" {
-            graph [ label="org.aspectj" ];
-            subgraph "cluster_org.aspectj.util" {
-                graph [ label="org.aspectj.util" ];
-            }
-        }
-        subgraph "cluster_org.hibernate" {
-            graph [ label="org.hibernate" ];
-            subgraph "cluster_org.hibernate.criterion" {
-                graph [ label="org.hibernate.criterion" ];
-            }
-        }
-        subgraph "cluster_org.quartz" {
-            graph [ label="org.quartz" ];
-        }
-        subgraph "cluster_org.slf4j" {
-            graph [ label="org.slf4j" ];
-        }
-        subgraph "cluster_org.springframework" {
-            graph [ label="org.springframework" ];
-            subgraph "cluster_org.springframework.beans" {
-                graph [ label="org.springframework.beans" ];
-            }
-            subgraph "cluster_org.springframework.context" {
-                graph [ label="org.springframework.context" ];
-            }
-            subgraph "cluster_org.springframework.core" {
-                graph [ label="org.springframework.core" ];
-                subgraph "cluster_org.springframework.core.io" {
-                    graph [ label="org.springframework.core.io" ];
-                }
-            }
-            subgraph "cluster_org.springframework.scheduling" {
-                graph [ label="org.springframework.scheduling" ];
-                subgraph "cluster_org.springframework.scheduling.quartz" {
-                    graph [ label="org.springframework.scheduling.quartz" ];
-                }
-            }
-            subgraph "cluster_org.springframework.web" {
-                graph [ label="org.springframework.web" ];
-                subgraph "cluster_org.springframework.web.context" {
-                    graph [ label="org.springframework.web.context" ];
-                    subgraph "cluster_org.springframework.web.context.support" {
-                        graph [ label="org.springframework.web.context.support" ];
-                    }
-                }
-            }
-        }
-        subgraph "cluster_org.w3c" {
-            graph [ label="org.w3c" ];
-            subgraph "cluster_org.w3c.dom" {
-                graph [ label="org.w3c.dom" ];
-                subgraph "cluster_org.w3c.dom.ls" {
-                    graph [ label="org.w3c.dom.ls" ];
-                }
-            }
-        }
-        subgraph "cluster_org.xml" {
-            graph [ label="org.xml" ];
-            subgraph "cluster_org.xml.sax" {
-                graph [ label="org.xml.sax" ];
-            }
-        }
-    }
-    "cluster_java.lang" -> "cluster_au.com.nicta.ifl.core.translator";
-    "cluster_java.lang" -> "cluster_au.com.nicta.ifl.core.translator.dao";
-    "cluster_java.lang" -> "cluster_au.com.nicta.ifl.core.translator.dao.implementation";
-    "cluster_java.lang" -> "cluster_au.com.nicta.ifl.core.translator.dao.model";
-    "cluster_java.lang" -> "cluster_au.com.nicta.ifl.core.translator.exception";
-    "cluster_java.lang" -> "cluster_au.com.nicta.ifl.core.translator.exslt";
-    "cluster_java.lang" -> "cluster_au.com.nicta.ifl.core.translator.parser";
-    "cluster_java.lang" -> "cluster_au.com.nicta.ifl.core.translator.scheduler";
-    "cluster_java.lang" -> "cluster_au.com.nicta.ifl.core.translator.service";
-    "cluster_java.lang" -> "cluster_au.com.nicta.ifl.core.translator.service.implementation";
-    "cluster_java.lang" -> "cluster_au.com.nicta.ifl.core.translator.web.servlet";
-    "cluster_java.lang" -> "cluster_au.com.nicta.ifl.core.translator.ws.restful";
-    "cluster_au.com.nicta.ifl.core.solve.dto" -> "cluster_au.com.nicta.ifl.core.translator.converter";
-    "cluster_org.slf4j" -> "cluster_au.com.nicta.ifl.core.translator.converter";
-    "cluster_org.slf4j" -> "cluster_au.com.nicta.ifl.core.translator.dao.model";
-    "cluster_org.slf4j" -> "cluster_au.com.nicta.ifl.core.translator.exslt";
-    "cluster_org.slf4j" -> "cluster_au.com.nicta.ifl.core.translator.parser";
-    "cluster_org.slf4j" -> "cluster_au.com.nicta.ifl.core.translator.scheduler";
-    "cluster_org.slf4j" -> "cluster_au.com.nicta.ifl.core.translator.service.implementation";
-    "cluster_org.slf4j" -> "cluster_au.com.nicta.ifl.core.translator.web.servlet";
-    "cluster_org.slf4j" -> "cluster_au.com.nicta.ifl.core.translator.ws.restful";
-    "cluster_au.com.nicta.ifl.core.dao.interfaces" -> "cluster_au.com.nicta.ifl.core.translator.dao";
-    "cluster_au.com.nicta.ifl.core.dao.implementation" -> "cluster_au.com.nicta.ifl.core.translator.dao.implementation";
-    "cluster_au.com.nicta.ifl.core.translator.dao" -> "cluster_au.com.nicta.ifl.core.translator.dao.implementation";
-    "cluster_au.com.nicta.ifl.core.translator.dao" -> "cluster_au.com.nicta.ifl.core.translator.service.implementation";
-    "cluster_au.com.nicta.ifl.core.translator.dao.model" -> "cluster_au.com.nicta.ifl.core.translator.dao.implementation";
-    "cluster_au.com.nicta.ifl.core.translator.dao.model" -> "cluster_au.com.nicta.ifl.core.translator.parser";
-    "cluster_au.com.nicta.ifl.core.translator.dao.model" -> "cluster_au.com.nicta.ifl.core.translator.service";
-    "cluster_au.com.nicta.ifl.core.translator.dao.model" -> "cluster_au.com.nicta.ifl.core.translator.service.implementation";
-    "cluster_au.com.nicta.ifl.core.translator.dao.model" -> "cluster_au.com.nicta.ifl.core.translator.web.servlet";
-    "cluster_au.com.nicta.ifl.core.translator.dao.model" -> "cluster_au.com.nicta.ifl.core.translator.ws.restful";
-    "cluster_java.io" -> "cluster_au.com.nicta.ifl.core.translator.dao.implementation";
-    "cluster_java.io" -> "cluster_au.com.nicta.ifl.core.translator.dao.model";
-    "cluster_java.io" -> "cluster_au.com.nicta.ifl.core.translator.parser";
-    "cluster_java.io" -> "cluster_au.com.nicta.ifl.core.translator.scheduler";
-    "cluster_java.io" -> "cluster_au.com.nicta.ifl.core.translator.service";
-    "cluster_java.io" -> "cluster_au.com.nicta.ifl.core.translator.service.implementation";
-    "cluster_java.io" -> "cluster_au.com.nicta.ifl.core.translator.web.servlet";
-    "cluster_java.io" -> "cluster_au.com.nicta.ifl.core.translator.ws.restful";
-    "cluster_javax.persistence" -> "cluster_au.com.nicta.ifl.core.translator.dao.implementation";
-    "cluster_javax.persistence" -> "cluster_au.com.nicta.ifl.core.translator.ws.restful";
-    "cluster_org.hibernate" -> "cluster_au.com.nicta.ifl.core.translator.dao.implementation";
-    "cluster_org.hibernate.criterion" -> "cluster_au.com.nicta.ifl.core.translator.dao.implementation";
-    "cluster_org.hibernate.criterion" -> "cluster_au.com.nicta.ifl.core.translator.service.implementation";
-    "cluster_au.com.nicta.ifl.core.security.dao.model" -> "cluster_au.com.nicta.ifl.core.translator.dao.model";
-    "cluster_au.com.nicta.ifl.core.security.dao.model" -> "cluster_au.com.nicta.ifl.core.translator.parser";
-    "cluster_au.com.nicta.ifl.core.security.dao.model" -> "cluster_au.com.nicta.ifl.core.translator.service.implementation";
-    "cluster_au.com.nicta.ifl.core.security.dao.model" -> "cluster_au.com.nicta.ifl.core.translator.web.servlet";
-    "cluster_au.com.nicta.ifl.core.security.dao.model" -> "cluster_au.com.nicta.ifl.core.translator.ws.restful";
-    "cluster_au.com.nicta.ifl.core.translator.exception" -> "cluster_au.com.nicta.ifl.core.translator.dao.model";
-    "cluster_au.com.nicta.ifl.core.translator.exception" -> "cluster_au.com.nicta.ifl.core.translator.parser";
-    "cluster_au.com.nicta.ifl.core.translator.exception" -> "cluster_au.com.nicta.ifl.core.translator.service";
-    "cluster_au.com.nicta.ifl.core.translator.exception" -> "cluster_au.com.nicta.ifl.core.translator.service.implementation";
-    "cluster_au.com.nicta.ifl.core.translator.exception" -> "cluster_au.com.nicta.ifl.core.translator.ws.restful";
-    "cluster_au.com.nicta.ifl.core.utilities.xml" -> "cluster_au.com.nicta.ifl.core.translator.dao.model";
-    "cluster_au.com.nicta.ifl.core.utilities.xml" -> "cluster_au.com.nicta.ifl.core.translator.parser";
-    "cluster_au.com.nicta.ifl.core.utilities.xml" -> "cluster_au.com.nicta.ifl.core.translator.service.implementation";
-    "cluster_au.com.nicta.ifl.core.utilities.xml" -> "cluster_au.com.nicta.ifl.core.translator.web.servlet";
-    "cluster_au.com.nicta.ifl.core.utilities.xml" -> "cluster_au.com.nicta.ifl.core.translator.ws.restful";
-    "cluster_java.net" -> "cluster_au.com.nicta.ifl.core.translator.dao.model";
-    "cluster_java.net" -> "cluster_au.com.nicta.ifl.core.translator.parser";
-    "cluster_java.net" -> "cluster_au.com.nicta.ifl.core.translator.service";
-    "cluster_java.net" -> "cluster_au.com.nicta.ifl.core.translator.service.implementation";
-    "cluster_java.net" -> "cluster_au.com.nicta.ifl.core.translator.web.servlet";
-    "cluster_java.text" -> "cluster_au.com.nicta.ifl.core.translator.dao.model";
-    "cluster_java.text" -> "cluster_au.com.nicta.ifl.core.translator.exslt";
-    "cluster_java.text" -> "cluster_au.com.nicta.ifl.core.translator.parser";
-    "cluster_java.text" -> "cluster_au.com.nicta.ifl.core.translator.service.implementation";
-    "cluster_java.text" -> "cluster_au.com.nicta.ifl.core.translator.web.servlet";
-    "cluster_java.util" -> "cluster_au.com.nicta.ifl.core.translator.dao.model";
-    "cluster_java.util" -> "cluster_au.com.nicta.ifl.core.translator.exslt";
-    "cluster_java.util" -> "cluster_au.com.nicta.ifl.core.translator.parser";
-    "cluster_java.util" -> "cluster_au.com.nicta.ifl.core.translator.scheduler";
-    "cluster_java.util" -> "cluster_au.com.nicta.ifl.core.translator.service";
-    "cluster_java.util" -> "cluster_au.com.nicta.ifl.core.translator.service.implementation";
-    "cluster_java.util" -> "cluster_au.com.nicta.ifl.core.translator.web.servlet";
-    "cluster_java.util" -> "cluster_au.com.nicta.ifl.core.translator.ws.restful";
-    "cluster_javax.script" -> "cluster_au.com.nicta.ifl.core.translator.dao.model";
-    "cluster_javax.xml.parsers" -> "cluster_au.com.nicta.ifl.core.translator.dao.model";
-    "cluster_javax.xml.parsers" -> "cluster_au.com.nicta.ifl.core.translator.service";
-    "cluster_javax.xml.parsers" -> "cluster_au.com.nicta.ifl.core.translator.service.implementation";
-    "cluster_javax.xml.parsers" -> "cluster_au.com.nicta.ifl.core.translator.web.servlet";
-    "cluster_javax.xml.transform" -> "cluster_au.com.nicta.ifl.core.translator.dao.model";
-    "cluster_javax.xml.transform" -> "cluster_au.com.nicta.ifl.core.translator.service";
-    "cluster_javax.xml.transform" -> "cluster_au.com.nicta.ifl.core.translator.service.implementation";
-    "cluster_javax.xml.transform" -> "cluster_au.com.nicta.ifl.core.translator.web.servlet";
-    "cluster_javax.xml.transform.dom" -> "cluster_au.com.nicta.ifl.core.translator.dao.model";
-    "cluster_javax.xml.transform.dom" -> "cluster_au.com.nicta.ifl.core.translator.service.implementation";
-    "cluster_javax.xml.transform.dom" -> "cluster_au.com.nicta.ifl.core.translator.web.servlet";
-    "cluster_javax.xml.transform.stream" -> "cluster_au.com.nicta.ifl.core.translator.dao.model";
-    "cluster_javax.xml.transform.stream" -> "cluster_au.com.nicta.ifl.core.translator.service.implementation";
-    "cluster_javax.xml.transform.stream" -> "cluster_au.com.nicta.ifl.core.translator.web.servlet";
-    "cluster_javax.xml.validation" -> "cluster_au.com.nicta.ifl.core.translator.dao.model";
-    "cluster_javax.xml.validation" -> "cluster_au.com.nicta.ifl.core.translator.service.implementation";
-    "cluster_org.apache.commons.lang" -> "cluster_au.com.nicta.ifl.core.translator.dao.model";
-    "cluster_org.apache.commons.lang" -> "cluster_au.com.nicta.ifl.core.translator.exslt";
-    "cluster_org.apache.commons.lang" -> "cluster_au.com.nicta.ifl.core.translator.parser";
-    "cluster_org.apache.commons.lang" -> "cluster_au.com.nicta.ifl.core.translator.service.implementation";
-    "cluster_org.apache.commons.lang" -> "cluster_au.com.nicta.ifl.core.translator.web.servlet";
-    "cluster_org.apache.commons.lang" -> "cluster_au.com.nicta.ifl.core.translator.ws.restful";
-    "cluster_org.apache.commons.lang.builder" -> "cluster_au.com.nicta.ifl.core.translator.dao.model";
-    "cluster_org.w3c.dom" -> "cluster_au.com.nicta.ifl.core.translator.dao.model";
-    "cluster_org.w3c.dom" -> "cluster_au.com.nicta.ifl.core.translator.exslt";
-    "cluster_org.w3c.dom" -> "cluster_au.com.nicta.ifl.core.translator.parser";
-    "cluster_org.w3c.dom" -> "cluster_au.com.nicta.ifl.core.translator.service";
-    "cluster_org.w3c.dom" -> "cluster_au.com.nicta.ifl.core.translator.service.implementation";
-    "cluster_org.w3c.dom" -> "cluster_au.com.nicta.ifl.core.translator.web.servlet";
-    "cluster_org.w3c.dom" -> "cluster_au.com.nicta.ifl.core.translator.ws.restful";
-    "cluster_org.xml.sax" -> "cluster_au.com.nicta.ifl.core.translator.dao.model";
-    "cluster_org.xml.sax" -> "cluster_au.com.nicta.ifl.core.translator.service";
-    "cluster_org.xml.sax" -> "cluster_au.com.nicta.ifl.core.translator.service.implementation";
-    "cluster_org.xml.sax" -> "cluster_au.com.nicta.ifl.core.translator.web.servlet";
-    "cluster_au.com.nicta.ifl.core.utilities.lang" -> "cluster_au.com.nicta.ifl.core.translator.exslt";
-    "cluster_au.com.nicta.ifl.core.utilities.lang" -> "cluster_au.com.nicta.ifl.core.translator.service.implementation";
-    "cluster_java.util.regex" -> "cluster_au.com.nicta.ifl.core.translator.exslt";
-    "cluster_java.util.regex" -> "cluster_au.com.nicta.ifl.core.translator.service.implementation";
-    "cluster_au.com.nicta.ifl.core.security.service" -> "cluster_au.com.nicta.ifl.core.translator.parser";
-    "cluster_au.com.nicta.ifl.core.security.service" -> "cluster_au.com.nicta.ifl.core.translator.service";
-    "cluster_au.com.nicta.ifl.core.security.service" -> "cluster_au.com.nicta.ifl.core.translator.service.implementation";
-    "cluster_au.com.nicta.ifl.core.security.service" -> "cluster_au.com.nicta.ifl.core.translator.web.servlet";
-    "cluster_au.com.nicta.ifl.core.security.service" -> "cluster_au.com.nicta.ifl.core.translator.ws.restful";
-    "cluster_au.com.nicta.ifl.core.translator.service" -> "cluster_au.com.nicta.ifl.core.translator.parser";
-    "cluster_au.com.nicta.ifl.core.translator.service" -> "cluster_au.com.nicta.ifl.core.translator.service.implementation";
-    "cluster_au.com.nicta.ifl.core.translator.service" -> "cluster_au.com.nicta.ifl.core.translator.web.servlet";
-    "cluster_au.com.nicta.ifl.core.translator.service" -> "cluster_au.com.nicta.ifl.core.translator.ws.restful";
-    "cluster_au.com.nicta.ifl.core.translator.web.servlet" -> "cluster_au.com.nicta.ifl.core.translator.parser";
-    "cluster_java.util.logging" -> "cluster_au.com.nicta.ifl.core.translator.parser";
-    "cluster_java.util.logging" -> "cluster_au.com.nicta.ifl.core.translator.web.servlet";
-    "cluster_javax.xml.datatype" -> "cluster_au.com.nicta.ifl.core.translator.parser";
-    "cluster_javax.xml.datatype" -> "cluster_au.com.nicta.ifl.core.translator.web.servlet";
-    "cluster_javax.xml.xpath" -> "cluster_au.com.nicta.ifl.core.translator.parser";
-    "cluster_javax.xml.xpath" -> "cluster_au.com.nicta.ifl.core.translator.service.implementation";
-    cluster_jxl -> "cluster_au.com.nicta.ifl.core.translator.parser";
-    cluster_jxl -> "cluster_au.com.nicta.ifl.core.translator.web.servlet";
-    "cluster_jxl.read.biff" -> "cluster_au.com.nicta.ifl.core.translator.parser";
-    "cluster_org.apache.commons.io" -> "cluster_au.com.nicta.ifl.core.translator.scheduler";
-    "cluster_org.apache.commons.io" -> "cluster_au.com.nicta.ifl.core.translator.service.implementation";
-    "cluster_org.apache.commons.io" -> "cluster_au.com.nicta.ifl.core.translator.web.servlet";
-    "cluster_org.apache.commons.io.filefilter" -> "cluster_au.com.nicta.ifl.core.translator.scheduler";
-    "cluster_org.quartz" -> "cluster_au.com.nicta.ifl.core.translator.scheduler";
-    "cluster_org.springframework.scheduling.quartz" -> "cluster_au.com.nicta.ifl.core.translator.scheduler";
-    "cluster_au.com.nicta.ifl.core.solve.dao.model" -> "cluster_au.com.nicta.ifl.core.translator.service.implementation";
-    "cluster_au.com.nicta.ifl.core.translator.converter" -> "cluster_au.com.nicta.ifl.core.translator.service.implementation";
-    "cluster_au.com.nicta.ifl.core.utilities.io" -> "cluster_au.com.nicta.ifl.core.translator.service.implementation";
-    "cluster_au.com.nicta.ifl.core.utilities.io" -> "cluster_au.com.nicta.ifl.core.translator.web.servlet";
-    "cluster_au.com.nicta.ifl.core.utilities.io" -> "cluster_au.com.nicta.ifl.core.translator.ws.restful";
-    "cluster_com.sun.jersey.api.client" -> "cluster_au.com.nicta.ifl.core.translator.service.implementation";
-    "cluster_org.apache.commons.pool.impl" -> "cluster_au.com.nicta.ifl.core.translator.service.implementation";
-    "cluster_org.springframework.beans" -> "cluster_au.com.nicta.ifl.core.translator.service.implementation";
-    "cluster_org.springframework.context" -> "cluster_au.com.nicta.ifl.core.translator.service.implementation";
-    "cluster_org.springframework.context" -> "cluster_au.com.nicta.ifl.core.translator.web.servlet";
-    "cluster_org.springframework.core.io" -> "cluster_au.com.nicta.ifl.core.translator.service.implementation";
-    "cluster_org.springframework.core.io" -> "cluster_au.com.nicta.ifl.core.translator.web.servlet";
-    "cluster_org.w3c.dom.ls" -> "cluster_au.com.nicta.ifl.core.translator.service.implementation";
-    "cluster_au.com.nicta.ifl.core.translator.parser" -> "cluster_au.com.nicta.ifl.core.translator.web.servlet";
-    "cluster_au.com.nicta.ifl.core.web.utils" -> "cluster_au.com.nicta.ifl.core.translator.web.servlet";
-    "cluster_java.security" -> "cluster_au.com.nicta.ifl.core.translator.web.servlet";
-    "cluster_javax.servlet" -> "cluster_au.com.nicta.ifl.core.translator.web.servlet";
-    "cluster_javax.servlet.http" -> "cluster_au.com.nicta.ifl.core.translator.web.servlet";
-    "cluster_javax.ws.rs.core" -> "cluster_au.com.nicta.ifl.core.translator.web.servlet";
-    "cluster_javax.ws.rs.core" -> "cluster_au.com.nicta.ifl.core.translator.ws.restful";
-    "cluster_org.apache.commons.fileupload" -> "cluster_au.com.nicta.ifl.core.translator.web.servlet";
-    "cluster_org.apache.commons.fileupload.disk" -> "cluster_au.com.nicta.ifl.core.translator.web.servlet";
-    "cluster_org.apache.commons.fileupload.servlet" -> "cluster_au.com.nicta.ifl.core.translator.web.servlet";
-    "cluster_org.aspectj.util" -> "cluster_au.com.nicta.ifl.core.translator.web.servlet";
-    "cluster_org.springframework.web.context.support" -> "cluster_au.com.nicta.ifl.core.translator.web.servlet";
-    "cluster_com.sun.jersey.api.core" -> "cluster_au.com.nicta.ifl.core.translator.ws.restful";
-    "cluster_javax.ws.rs" -> "cluster_au.com.nicta.ifl.core.translator.ws.restful";
 }

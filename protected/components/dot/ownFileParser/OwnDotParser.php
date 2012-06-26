@@ -26,29 +26,6 @@ class OwnDotParser extends AdotParser {
 		return array(edges => $this->createEdges(), rootId => $this->rootId);
 	}
 	
-	private function createEdges() {
-		$attr = array(
-				'select'=>'id, label, parent_id',
-		);
-		$treeElements = TreeElement::model()->findAll($attr);
-		
-		$treeArray = array();
-		foreach ($treeElements as $element) {
-			$treeArray[$element->label] = array(id => $element->id, parent_id => $element->parent_id); 
-		}
-		
-		$edgesToSave = array();
-		
-		foreach ($this->edgeStore as $edge) {
-			$out = $treeArray[$edge[out]];
-			$in = $treeArray[$edge[in]];
-			
-			array_push($edgesToSave, EdgeElement::createDotEdgeElement($edge[label], $out[id], $in[id], $out[parent_id], $in[parent_id]));
-		}
-		
-		return $edgesToSave;
-	}
-	
 	protected function parseGraph($label = "G", $parent = 0, $level = 0) {
 		$label = str_replace('"', '', $label);
 		$currentLayer = LayerElement::create($label, $parent, $level);
@@ -115,6 +92,29 @@ class OwnDotParser extends AdotParser {
 		$edge = array(label => $label, out => $out, in => $in);
 		
 		array_push($this->edgeStore, $edge);
+	}
+	
+	private function createEdges() {
+		$attr = array(
+				'select'=>'id, label, parent_id',
+		);
+		$treeElements = TreeElement::model()->findAll($attr);
+	
+		$treeArray = array();
+		foreach ($treeElements as $element) {
+			$treeArray[$element->label] = array(id => $element->id, parent_id => $element->parent_id);
+		}
+	
+		$edgesToSave = array();
+	
+		foreach ($this->edgeStore as $edge) {
+			$out = $treeArray[$edge[out]];
+			$in = $treeArray[$edge[in]];
+	
+			array_push($edgesToSave, EdgeElement::createDotEdgeElement($edge[label], $out[id], $in[id], $out[parent_id], $in[parent_id]));
+		}
+	
+		return $edgesToSave;
 	}
 	
 	protected function getNewLine() {
