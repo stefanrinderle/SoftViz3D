@@ -54,7 +54,7 @@ class GraphX3dCalculator extends AbstractX3dCalculator {
 		$length = $bb[3] - $bb[1];
 	
 		$colour = array('r'=>0, 'g'=> $depth * 0.2, 'b'=>0);
-		$transpareny = 0.7 - ($maxDepth - $depth) * 0.1;
+		$transpareny = 0.7;
 	
 		$result = array(
 				'size'=>array('width'=>$width, 'length'=>$length),

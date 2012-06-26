@@ -56,7 +56,6 @@ class DotInfoToDb extends CApplicationComponent {
 	protected function retrieveNode($value, $parent, $level) {
 		if ($value[label] != "graph" && $value[label] != "node") {
 			
-			// override width and height!!!
 			$metric1 = $value[attr][metric1];
 			$metric2 = $value[attr][metric2];
 

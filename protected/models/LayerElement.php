@@ -60,6 +60,16 @@ class LayerElement extends TreeElement {
 		return $element->id;
 	}
 	
+	public static function create($label, $parent_id, $level) {
+		$element = new self('insert');
+		$element->label=$label;
+		$element->parent_id=$parent_id;
+		$element->level=$level;
+		$element->isLeaf = 0;
+	
+		$element->save();
+		return $element;
+	}
 }
 
 ?>

@@ -21,6 +21,7 @@ return array(
 		'application.components.database.*',
 		'application.components.dot.*',
 		'application.components.dot.fileParser.*',
+		'application.components.dot.ownFileParser.*',
 		'application.components.goanna.*',
 		'application.components.x3d.*'
 	),
@@ -43,6 +44,9 @@ return array(
 		),
 			
 		// dot folder
+		'ownDotParser'=>array(
+				'class'=>'OwnDotParser',
+		),
 		'dotFileParser'=>array(
 			'class'=>'DotFileParser',
 			'generate' => true

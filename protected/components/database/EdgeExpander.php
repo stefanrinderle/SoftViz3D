@@ -7,20 +7,16 @@ class EdgeExpander extends CApplicationComponent
 	private $dependenyNodes = array();
 	private $dependencyEdges = array();
 	
-	public function execute() {
-		$edges = EdgeElement::model()->findAll();
-		
+	public function execute($edges) {
 		foreach ($edges as $edge) {
-			// are the nodes of the edge in the same layer?
-			$out = $edge->outElement;
-			$in = $edge->inElement;
-			if ($out->parent_id == $in->parent_id) {
-				$edge->parent_id = $out->parent_id;
+			if ($edge->out_parent_id == $edge->in_parent_id) {
+				$edge->parent_id = $edge->out_parent_id;
 				array_push($this->flatEdges, $edge);
 			} else {
+				$out = $edge->outElement;
+				$in = $edge->inElement;
 				// search for the common ancestor
 				$this->expandEdge($out, $in);
-				$edge->delete();
 			}
 		}
 		

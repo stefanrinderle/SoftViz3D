@@ -13,18 +13,19 @@ class EdgeElement extends CActiveRecord
 	
 	public $maxCounter;
 	
-	public static function model($className=__CLASS__)
-	{
+	//NOT IN DB
+	public $out_parent_id;
+	public $in_parent_id;
+	
+	public static function model($className=__CLASS__) {
 		return parent::model($className);
 	}
 
-	public function tableName()
-	{
+	public function tableName() {
 		return 'tbl_EdgeElement';
 	}
 
-	public function relations()
-	{
+	public function relations() {
 		return array(
 				'outElement'=>array(self::BELONGS_TO, 'TreeElement', 'out_id'),
 				'inElement'=>array(self::BELONGS_TO, 'TreeElement', 'in_id'),
@@ -32,8 +33,18 @@ class EdgeElement extends CActiveRecord
 	}
 	
 	// factory method
-	public static function createEdgeElement($label, $out_id, $in_id, $parent_id = null)
-	{
+	public static function createDotEdgeElement($label, $out_id, $in_id, $out_parent_id, $in_parent_id) {
+		$element = new self('insert');
+		$element->label = $label;
+		$element->out_id = $out_id;
+		$element->in_id = $in_id;
+		$element->out_parent_id = $out_parent_id;
+		$element->in_parent_id = $in_parent_id;
+	
+		return $element;
+	}
+	
+	public static function createEdgeElement($label, $out_id, $in_id, $parent_id = null) {
 		$element = new self('insert');
 		$element->label = $label;
 		$element->out_id = $out_id;

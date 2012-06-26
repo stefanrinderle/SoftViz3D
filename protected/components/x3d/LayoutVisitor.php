@@ -17,6 +17,8 @@ class LayoutVisitor {
 	private $type;
 	
 	function __construct($type) {
+		print_r("construkot layoutvisitor");
+		
 		$this->type = $type;
 		
 		$criteria = new CDbCriteria;
