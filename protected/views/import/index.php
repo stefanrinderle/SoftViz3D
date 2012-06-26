@@ -47,6 +47,8 @@ $this->breadcrumbs=array(
 	
 	<h3>Load example files:</h3>
 	
+	<p><?php echo CHtml::link('NuSmv example', array('import/nuSmv')); ?></p>
+	
 	<p><?php echo CHtml::link('Simple tree example', array('import/simpleTree')); ?></p>
 	
 	<p><?php echo CHtml::link('Simple metric tree example', array('import/simpleMetricTree')); ?></p>

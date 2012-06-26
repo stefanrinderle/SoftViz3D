@@ -28,8 +28,7 @@ function showLeafDetailsById(id) {
 var selectedId;
 var selectedDefaultColour;
 
-function setFocus(id)
-{
+function setFocus(id) {
 	if (selectedId) {
 		setColour(selectedId, selectedDefaultColour);
 	}
@@ -41,12 +40,15 @@ function setFocus(id)
 	selectedId = id;
 	selectedDefaultColour = aMat.getAttribute("diffuseColor");
 	
-	aMat.setAttribute("diffuseColor", "0 0 1");
+	aMat.setAttribute("diffuseColor", "0 0 0.5");
 }
 
 function setColour(elementId, color) {
 	element = document.getElementById(elementId);
-	var mat = element.getElementsByTagName("Material");
-	var aMat = mat[0];
-	aMat.setAttribute("diffuseColor", selectedDefaultColour);
+	try {
+		var mat = element.getElementsByTagName("Material");
+		var aMat = mat[0];
+		aMat.setAttribute("diffuseColor", selectedDefaultColour);
+	} catch (e) {
+	}
 }

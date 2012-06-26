@@ -38,6 +38,10 @@ class ImportController extends BaseController
 		$this->_copyExampleFile(Yii::app()->basePath . '/data/exampleFiles/mvc.dot');
 	}
 	
+	public function actionNuSmv() {
+		$this->_copyExampleFile(Yii::app()->basePath . '/data/exampleFiles/nusmv.dot');
+	}
+	
 	private function _copyExampleFile($sourceFileName) {
 		$result = copy($sourceFileName, Yii::app()->basePath . Yii::app()->params['currentResourceFile']);
 		

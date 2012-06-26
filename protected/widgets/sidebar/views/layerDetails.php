@@ -18,21 +18,33 @@
 	<br /><br />
 	
 	<?php 
+		$leafArray = array();
+		$layerArray = array();
+		
 		if (count($children)) {
-			echo "Children:<br />";
 			foreach ($children as $child) {
 				if ($child->isLeaf) {
-					echo CHtml::link($child->label, "#", array("onclick" => "showLeafDetailsById(" . $child->id . ")"));
-					echo " (M1: " . $child->metric1 . " - M2: " . $child->metric2 . ")";
+					array_push($leafArray, $child);	
 				} else {
-					echo CHtml::link($child->label, "#", array("onclick" => "showLayerDetailsById(" . $child->id . ")"));
-					echo " - ";
-					if ($child->isVisible) {
-						echo CHtml::button("hide", array("onclick" => "layerRemoveLayerById(" . $child->id . ", " . $child->parent_id . ")"));
-					} else {
-						echo CHtml::button("show", array("onclick" => "layerShowLayerById(" . $child->id . ")"));
-					}
+					array_push($layerArray, $child);
 				}
+			}
+		}
+	
+		if (count($children)) {
+			echo "Children:<br />";
+			foreach ($layerArray as $child) {
+				echo CHtml::link($child->label, "#", array("onclick" => "showLayerDetailsById(" . $child->id . ")"));
+				echo " - ";
+				if ($child->isVisible) {
+					echo CHtml::button("hide", array("onclick" => "layerRemoveLayerById(" . $child->id . ", " . $child->parent_id . ")"));
+				} else {
+					echo CHtml::button("show", array("onclick" => "layerShowLayerById(" . $child->id . ")"));
+				}
+			}
+			foreach ($leafArray as $child) {
+				echo CHtml::link($child->label, "#", array("onclick" => "showLeafDetailsById(" . $child->id . ")"));
+				echo " (M1: " . $child->metric1 . " - M2: " . $child->metric2 . ")";
 				echo "<br />";
 			}
 		}

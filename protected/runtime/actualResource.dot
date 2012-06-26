@@ -1,223 +1,44 @@
-digraph _Users_stefan_Sites_3darch_protected {
-    "ControllerCode.php" [ metric1=10 ];
-    yiic [ metric1=7 ];
-    "yiic.bat" [ metric1=37 ];
-    "yiic.php" [ metric1=17 ];
-    subgraph cluster_components_0 {
-        graph [ label=components_0 ];
-        "UserIdentity.php" [ metric1=91 ];
-        subgraph cluster_database_1 {
-            graph [ label=database_1 ];
-            "EdgeExpander.php" [ metric1=340 ];
-        }
-        subgraph cluster_dot_2 {
-            graph [ label=dot_2 ];
-            "DirectoryToDotParser.php" [ metric1=170 ];
-            "DotCommand.php" [ metric1=53 ];
-            "DotInfoToDb.php" [ metric1=176 ];
-            "DotWriter.php" [ metric1=162 ];
-            "JDependToDotParser.php" [ metric1=298 ];
-            subgraph cluster_fileParser_3 {
-                graph [ label=fileParser_3 ];
-                "DotFileParser.php" [ metric1=104 ];
-                "DotLexer.php" [ metric1=858 ];
-                "DotLexer.plex" [ metric1=168 ];
-                "DotParser.out" [ metric1=844 ];
-                "DotParser.php" [ metric1=4700 ];
-                "DotParser.y" [ metric1=304 ];
-            }
-            subgraph cluster_ownFileParser_4 {
-                graph [ label=ownFileParser_4 ];
-                "AdotArrayParser.php" [ metric1=73 ];
-                "AdotFileParser.php" [ metric1=68 ];
-                "AdotParser.php" [ metric1=347 ];
-                "OwnDotParser.php" [ metric1=313 ];
-            }
-        }
-        subgraph cluster_goanna_5 {
-            graph [ label=goanna_5 ];
-            "GoannaInterface.php" [ metric1=223 ];
-            "GoannaMock.php" [ metric1=1410 ];
-            "GoannaSnapshotToDotParser.php" [ metric1=187 ];
-        }
-        subgraph cluster_x3d_6 {
-            graph [ label=x3d_6 ];
-            "AbstractX3dCalculator.php" [ metric1=219 ];
-            "GraphX3dCalculator.php" [ metric1=457 ];
-            "LayerLayout.php" [ metric1=11 ];
-            "LayerX3dCalculator.php" [ metric1=150 ];
-            "LayoutVisitor.php" [ metric1=398 ];
-            "TreeX3dCalculator.php" [ metric1=110 ];
-            "VectorCalculator.php" [ metric1=130 ];
-        }
-    }
-    subgraph cluster_config_7 {
-        graph [ label=config_7 ];
-        "console.php" [ metric1=63 ];
-        "main.php" [ metric1=380 ];
-        "test.php" [ metric1=32 ];
-    }
-    subgraph cluster_controllers_8 {
-        graph [ label=controllers_8 ];
-        "BaseController.php" [ metric1=98 ];
-        "BaseX3dController.php" [ metric1=230 ];
-        "FileController.php" [ metric1=241 ];
-        "GoannaController.php" [ metric1=145 ];
-        "GraphController.php" [ metric1=170 ];
-        "ImportController.php" [ metric1=358 ];
-        "SiteController.php" [ metric1=243 ];
-        "TestController.php" [ metric1=46 ];
-        "TreeController.php" [ metric1=141 ];
-    }
-    subgraph cluster_data_9 {
-        graph [ label=data_9 ];
-        "goanna.db" [ metric1=5200 ];
-        "graph.db" [ metric1=393600 ];
-        "graph.schema.sqlite.sql" [ metric1=21 ];
-        subgraph cluster_exampleFiles_10 {
-            graph [ label=exampleFiles_10 ];
-            "klamottenwetter.xml" [ metric1=16790 ];
-            "mvc.dot" [ metric1=70 ];
-            "simpleGraph.dot" [ metric1=12 ];
-            "simpleMetricTree.dot" [ metric1=186 ];
-            "simpleTree.dot" [ metric1=104 ];
-        }
-    }
-    subgraph cluster_models_11 {
-        graph [ label=models_11 ];
-        "EdgeElement.php" [ metric1=143 ];
-        "LayerElement.php" [ metric1=167 ];
-        "LeafElement.php" [ metric1=95 ];
-        "TreeElement.php" [ metric1=62 ];
-        subgraph cluster_forms_12 {
-            graph [ label=forms_12 ];
-            "ContactForm.php" [ metric1=95 ];
-            "DirectoryPathForm.php" [ metric1=32 ];
-            "DotFileUpload.php" [ metric1=35 ];
-            "EditFileForm.php" [ metric1=15 ];
-            "JDependFileUpload.php" [ metric1=35 ];
-            "LoginForm.php" [ metric1=174 ];
-        }
-    }
-    subgraph cluster_runtime_13 {
-        graph [ label=runtime_13 ];
-        "actualResource.dot" [ metric1=13333 ];
-        "application.log" [ metric1=59135 ];
-        "temp.dot" [ metric1=7506 ];
-        subgraph "cluster_gii_1.1.10_14" {
-            graph [ label="gii_1.1.10_14" ];
-        }
-    }
-    subgraph cluster_tests_15 {
-        graph [ label=tests_15 ];
-        "bootstrap.php" [ metric1=29 ];
-        "phpunit.xml" [ metric1=32 ];
-        "WebTestCase.php" [ metric1=66 ];
-        subgraph cluster_functional_16 {
-            graph [ label=functional_16 ];
-            "SiteTest.php" [ metric1=137 ];
-        }
-    }
-    subgraph cluster_vendors_17 {
-        graph [ label=vendors_17 ];
-        "Image_GraphViz_Copy.php" [ metric1=2933 ];
-    }
-    subgraph cluster_views_18 {
-        graph [ label=views_18 ];
-        "dumpArray.php" [ metric1=201 ];
-        subgraph cluster_common_19 {
-            graph [ label=common_19 ];
-            "_showError.php" [ metric1=6 ];
-            "_showSuccess.php" [ metric1=6 ];
-        }
-        subgraph cluster_file_20 {
-            graph [ label=file_20 ];
-            "_editForm.php" [ metric1=44 ];
-            "check.php" [ metric1=53 ];
-            "edit.php" [ metric1=36 ];
-            "index.php" [ metric1=58 ];
-        }
-        subgraph cluster_goanna_21 {
-            graph [ label=goanna_21 ];
-            "index.php" [ metric1=69 ];
-            "snapshots.php" [ metric1=100 ];
-        }
-        subgraph cluster_graph_22 {
-            graph [ label=graph_22 ];
-            "index.php" [ metric1=28 ];
-        }
-        subgraph cluster_import_23 {
-            graph [ label=import_23 ];
-            "_directoryPathForm.php" [ metric1=49 ];
-            "_quote.php" [ metric1=16 ];
-            "_uploadDotForm.php" [ metric1=50 ];
-            "_uploadJDependForm.php" [ metric1=50 ];
-            "index.php" [ metric1=130 ];
-        }
-        subgraph cluster_layouts_24 {
-            graph [ label=layouts_24 ];
-            "column1.php" [ metric1=14 ];
-            "column2.php" [ metric1=48 ];
-            "main.php" [ metric1=334 ];
-        }
-        subgraph cluster_site_25 {
-            graph [ label=site_25 ];
-            "contact.php" [ metric1=201 ];
-            "error.php" [ metric1=19 ];
-            "index.php" [ metric1=192 ];
-            "login.php" [ metric1=122 ];
-            subgraph cluster_pages_26 {
-                graph [ label=pages_26 ];
-                "about.php" [ metric1=23 ];
-            }
-        }
-        subgraph cluster_test_27 {
-            graph [ label=test_27 ];
-            "index.php" [ metric1=12 ];
-        }
-        subgraph cluster_tree_28 {
-            graph [ label=tree_28 ];
-            "index.php" [ metric1=27 ];
-        }
-    }
-    subgraph cluster_widgets_29 {
-        graph [ label=widgets_29 ];
-        subgraph cluster_sidebar_30 {
-            graph [ label=sidebar_30 ];
-            "LayerDetails.php" [ metric1=44 ];
-            "LeafDetails.php" [ metric1=31 ];
-            "manipulation.php" [ metric1=37 ];
-            "Sidebar.php" [ metric1=11 ];
-            subgraph cluster_views_31 {
-                graph [ label=views_31 ];
-                "layerDetails.php" [ metric1=133 ];
-                "leafDetails.php" [ metric1=58 ];
-                "manipulation.php" [ metric1=8 ];
-                "sidebar.php" [ metric1=110 ];
-            }
-        }
-        subgraph cluster_x3dom_32 {
-            graph [ label=x3dom_32 ];
-            "X3domLayerWidget.php" [ metric1=35 ];
-            "X3domWidget.php" [ metric1=100 ];
-            subgraph cluster_views_33 {
-                graph [ label=views_33 ];
-                "x3dGraphLayer.php" [ metric1=52 ];
-                "x3domEnd.php" [ metric1=10 ];
-                "x3domStart.php" [ metric1=185 ];
-                "x3dTreeLayer.php" [ metric1=40 ];
-                subgraph cluster_baseObjects_34 {
-                    graph [ label=baseObjects_34 ];
-                    "2dRectangle.php" [ metric1=55 ];
-                    "_boxLOD.php" [ metric1=196 ];
-                    "basePlattform.php" [ metric1=32 ];
-                    "edge.php" [ metric1=79 ];
-                    "edgeEnd.php" [ metric1=146 ];
-                    "edgeSection.php" [ metric1=102 ];
-                    "leaf.php" [ metric1=44 ];
-                    "node.php" [ metric1=108 ];
-                }
-            }
-        }
-    }
-}
+digraph _Users_stefan_Sites_3dArch_x3d {
+      "basisTests.x3d";
+      "basisTestsEdge.x3d";
+      "basisTestsNurbs.x3d";
+      "basisTestsText.x3d";
+      "dependency.dot";
+      "image_graphviz.dot";
+      "layeredLayout.dot";
+      "nurbsTestWindows.x3d";
+      "parser.adot";
+      "parser.dot";
+      "parser.pdf";
+      "parsera.dot";
+      "simpleGraph.adot";
+      "simpleGraph.dot";
+      "simpleGraph2D.adot";
+      "simpleGraph2D.dot";
+      "subgraph.adot";
+      "subgraph.dot";
+      "subgraph.pdf";
+      "subgraphTest.adot";
+      "subgraphTest.dot";
+      "subgraphTest.pdf";
+      "temp.adot";
+      "temp.dot";
+      "testTransparency.x3d";
+      "tvoicerWeb.x3d";
+      "world.adot";
+      "world.dot";
+      "world.pdf";
+      subgraph cluster_vrml_0 {
+           graph [ label=vrml_0 ];
+           "3d.html";
+           "3d.vrml";
+           "node1.png";
+           "node10.png";
+           "node12.png";
+           "node16.png";
+           "node3.png";
+           "node4.png";
+           "node6.png";
+           "node8.png";
+      }
+     } 

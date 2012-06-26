@@ -5,7 +5,7 @@ class GoannaInterface extends CApplicationComponent {
 	private $reporterPath = "goanna.ken.nicta.com.au";
 	private $reporterPort = 80;
 	
-	private $mock = false;
+	private $mock = true;
 	
 	public function getProjects() {
 		if (!$this->mock) {
@@ -53,6 +53,8 @@ class GoannaInterface extends CApplicationComponent {
 	public function getLatestDependencies($projectId) {
 		if (!$this->mock) {
 			$response = $this->doRequest("/reporter/api/project/" . $projectId .  "/dependencies");
+		} else {
+			$response = GoannaMock::getDependencies();
 		}
 		
 		return json_decode($response, true);
