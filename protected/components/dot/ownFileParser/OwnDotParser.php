@@ -34,10 +34,14 @@ class OwnDotParser extends AdotParser {
 		
 		$counter = 0;
 		while (!$this->isEnd($line)) {
-			$subgraphLine = !(strpos($line, "subgraph") === false) || !(strpos($line, "{") === false);
-			$edgeLine = $this->isEdge($line);
 			
-			if ($subgraphLine) {
+			$subgraphLine = (strpos($line, "subgraph") > 0 && strpos($line, "{") > 0);
+			$edgeLine = $this->isEdge($line);
+			$isEmptyLine = ($line == "");
+			
+			if ($isEmptyLine) {
+				// do nothing and get next line
+			} else if ($subgraphLine) {
 				$counter++;
 				
 				//subgraph node_3 {
@@ -47,7 +51,7 @@ class OwnDotParser extends AdotParser {
 			} else if($edgeLine) {
 				$this->retrieveEdge();
 			} else {
-				if ($this->retrieveNode($parent, $level)) {
+				if ($this->retrieveNode($currentLayer->id, $level + 1)) {
 					$counter++;
 				}
 			}
