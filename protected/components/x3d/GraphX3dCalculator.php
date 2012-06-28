@@ -134,7 +134,7 @@ class GraphX3dCalculator extends AbstractX3dCalculator {
 		$lineWidth = $edge['attr']['style'][0];
 		$lineWidth = substr($lineWidth, strpos($lineWidth, "(") + 1, strlen($lineWidth) - strpos($lineWidth, "(") - 2);
 		// i just tried what the best factor should be
-		$lineWidth = $lineWidth * (2 * 3.14);
+		$lineWidth = $lineWidth;
 		// convert edge section points
 		$sections = array();
 		

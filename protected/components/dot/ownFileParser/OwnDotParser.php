@@ -55,12 +55,12 @@ class OwnDotParser extends AdotParser {
 			$line = $this->getNewLine();
 		}
 		
-		//prevent import of empty layers
-// 		if ($counter < 2) {
-// 			$currentLayer->delete();
-// 		} else {
+// 		prevent import of empty layers
+		if ($counter < 2) {
+			$currentLayer->delete();
+		} else {
 			$this->rootId = $currentLayer->id;
-// 		}
+		}
 	}
 	
 	protected function retrieveNode($parent, $level) {
