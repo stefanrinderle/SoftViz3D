@@ -37,7 +37,7 @@ class OwnDotParser extends AdotParser {
 			
 			$subgraphLine = (strpos($line, "subgraph") > 0 && strpos($line, "{") > 0);
 			$edgeLine = $this->isEdge($line);
-			$isEmptyLine = ($line == "");
+			$isEmptyLine = (trim($line) == "");
 			
 			if ($isEmptyLine) {
 				// do nothing and get next line
