@@ -13,22 +13,31 @@ class GraphController extends BaseX3dController
 		// STEP 1: Load input dot file
 		$filename = Yii::app()->basePath . Yii::app()->params['currentResourceFile'];
 		
-		try {
-			/* reset database */
-			TreeElement::model()->deleteAll();
-			EdgeElement::model()->deleteAll();
+ 		try {
+ 			/* reset database */
+ 			TreeElement::model()->deleteAll();
+ 			EdgeElement::model()->deleteAll();
 			
-			// STEP 2: Load input dot file into db
-			$result = Yii::app()->ownDotParser->parse($filename);
-			$edges = $result[edges];
-			$rootId = $result[rootId];
-		} catch (Exception $e) {
-			$exception = $e;
-			Yii::app()->user->setFlash('error', 'Input file parsing failed: ' . $e->getMessage());
-			//TODO render another layout file and exit
-		}
+ 			// STEP 2: Load input dot file into db
+ 			$result = Yii::app()->ownDotParser->parse($filename);
+ 			$edges = $result[edges];
+ 			$rootId = $result[rootId];
+ 		} catch (Exception $e) {
+ 			$exception = $e;
+ 			Yii::app()->user->setFlash('error', 'Input file parsing failed: ' . $e->getMessage());
+ 			//TODO render another layout file and exit
+ 		}
 		
-		echo "Calculation time write to db: " . $this->getTimeDifference($startTime) . "<br />";
+ 		echo "Calculation time write to db: " . $this->getTimeDifference($startTime) . "<br />";
+		
+ 		$childLayer = LayerElement::model()->findAllByAttributes(
+ 				array('parent_id'=>$rootId));
+ 		
+		while (count($childLayer) < 2) {
+			$rootId = $childLayer[0]->id;
+			$childLayer = LayerElement::model()->findAllByAttributes(
+					array('parent_id'=>$rootId));
+		}
 		
 		// STEP 3: Normalize edges
 		Yii::app()->edgeExpander->execute($edges);

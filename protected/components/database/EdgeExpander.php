@@ -12,8 +12,9 @@ class EdgeExpander extends CApplicationComponent
 	public function execute($edges) {
 		foreach ($edges as $edge) {
 			if ($edge->out_parent_id == $edge->in_parent_id) {
-// 				$edge->parent_id = $edge->out_parent_id;
-// 				array_push($this->flatEdges, $edge);
+				$edge->parent_id = $edge->out_parent_id;
+				array_push($this->flatEdges, $edge);
+				
 				$this->incrementNodesCounter($edge->out_id);
 				$this->incrementNodesCounter($edge->in_id);
 			} else {
@@ -31,6 +32,7 @@ class EdgeExpander extends CApplicationComponent
 			$leaf->save();
 		}
 		
+		//print_r("count: " . count($this->flatEdges) . " <br />");
 		// dont show flat edges
 // 		foreach ($this->flatEdges as $edge) {
 // 			$edge->save();

@@ -26,6 +26,8 @@ class OwnDotParser extends AdotParser {
 		return array(edges => $this->createEdges(), rootId => $this->rootId);
 	}
 	
+	private $import = false;
+	
 	protected function parseGraph($label = "G", $parent = 0, $level = 0) {
 		$label = str_replace('"', '', $label);
 		$currentLayer = LayerElement::create($label, $parent, $level);
@@ -59,12 +61,16 @@ class OwnDotParser extends AdotParser {
 			$line = $this->getNewLine();
 		}
 		
-// 		prevent import of empty layers
-		if ($counter < 2) {
-			$currentLayer->delete();
-		} else {
+		//print_r($currentLayer->label . " " . $counter .  "<br /><br />");
+ 		//prevent import of empty layers
+ 		if ($counter < 2 && !$this->import) {
+ 			//$this->rootId = $currentLayer->id;
+ 			print_r($currentLayer->id . "<br /><br />");
+ 			$currentLayer->delete();
+ 		} else {
+ 			$this->import = true;
 			$this->rootId = $currentLayer->id;
-		}
+ 		}
 	}
 	
 	protected function retrieveNode($parent, $level) {

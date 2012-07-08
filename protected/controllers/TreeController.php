@@ -24,7 +24,16 @@ class TreeController extends BaseX3dController
 		} catch (Exception $e) {
 			$exception = $e;
 			Yii::app()->user->setFlash('error', 'Input file parsing failed: ' . $e->getMessage());
-			//TODO render another layout file and exit
+			// TODO: render another layout file and exit
+		}
+		
+		$childLayer = LayerElement::model()->findAllByAttributes(
+				array('parent_id'=>$rootId));
+			
+		while (count($childLayer) < 2) {
+			$rootId = $childLayer[0]->id;
+			$childLayer = LayerElement::model()->findAllByAttributes(
+					array('parent_id'=>$rootId));
 		}
 		
 		// STEP 2: Write parsed data into database
