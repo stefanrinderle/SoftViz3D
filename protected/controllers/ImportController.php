@@ -26,6 +26,10 @@ class ImportController extends BaseController
 		$this->_copyExampleFile(Yii::app()->basePath . '/data/exampleFiles/simpleTree.dot');
 	}
 	
+	public function actionChromium() {
+		$this->_copyExampleFile(Yii::app()->basePath . '/data/exampleFiles/chromium.dot');
+	}
+	
 	public function actionSimpleMetricTree() {
 		$this->_copyExampleFile(Yii::app()->basePath . '/data/exampleFiles/simpleMetricTree.dot');
 	}

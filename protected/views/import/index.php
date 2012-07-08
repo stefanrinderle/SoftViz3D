@@ -49,6 +49,8 @@ $this->breadcrumbs=array(
 	
 	<p><?php echo CHtml::link('NuSmv example', array('import/nuSmv')); ?></p>
 	
+	<p><?php echo CHtml::link('Cromium example', array('import/chromium')); ?></p>
+	
 	<p><?php echo CHtml::link('Simple tree example', array('import/simpleTree')); ?></p>
 	
 	<p><?php echo CHtml::link('Simple metric tree example', array('import/simpleMetricTree')); ?></p>
