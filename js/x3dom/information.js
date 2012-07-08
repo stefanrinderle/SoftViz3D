@@ -9,7 +9,7 @@ function showLayerDetailsById(id) {
 			$("#sidebar #details").html(data);
 			
 			setFocus(id);
-	   },'url':'./index.php?r=baseX3d/getLayerDetails&id=' + id,'cache':false});return false;
+	   },'url':'./index.php?r=x3dInteraction/getLayerDetails&id=' + id,'cache':false});return false;
 }
 
 function showLeafDetails(event) {
@@ -22,7 +22,7 @@ function showLeafDetailsById(id) {
 			$("#sidebar #details").html(data);
 			
 			setFocus(id);
-	   },'url':'./index.php?r=baseX3d/getLeafDetails&id=' + id,'cache':false});return false;
+	   },'url':'./index.php?r=x3dInteraction/getLeafDetails&id=' + id,'cache':false});return false;
 }
 
 var selectedId;

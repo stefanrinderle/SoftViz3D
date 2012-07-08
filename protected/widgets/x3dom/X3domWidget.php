@@ -6,8 +6,7 @@ class X3domWidget extends CWidget {
 	// can be "tree" or "graph"
 	public $type;
 	
-	public function run()
-	{
+	public function run() {
 		$this->render('x3domStart', array(root => $this->root));
 		
 		foreach ($this->layers as $layer) {
@@ -21,6 +20,12 @@ class X3domWidget extends CWidget {
 		Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . '/js/x3dom/navigation.js');
 		Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . '/js/x3dom/information.js');
 		Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . '/js/x3dom/manipulation.js');
+		
+		if ($this->type == "tree") {
+			Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . '/js/x3dom/manipulationTree.js');
+		} else {
+			Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . '/js/x3dom/manipulationGraph.js');
+		}
 	}
 	
 	private function generateX3DOM($node) {

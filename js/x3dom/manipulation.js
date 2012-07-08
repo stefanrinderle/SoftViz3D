@@ -23,7 +23,7 @@ function removeLayerById(id, callback) {
 		 	});
 		 	
 		 	callback();
-	   },'url':'./index.php?r=baseX3d/removeLayer&id=' + id,'cache':false});
+	   },'url':'./index.php?r=x3dInteraction/removeLayer&id=' + id,'cache':false});
 }
 
 //SHOW LAYER
@@ -40,7 +40,7 @@ function layerExpandAllById(layerId) {
 	      $("#x3dSceneWrapper").append(data);
 	      
 	      showLayerDetailsById(layerId);
-	},'url':'./index.php?r=baseX3d/expandAll&id=' + layerId,'cache':false});
+	},'url':'./index.php?r=x3dInteraction/expandAll&id=' + layerId,'cache':false});
 }
 
 function showLayerById(id) {
@@ -48,14 +48,5 @@ function showLayerById(id) {
 	      $("#x3dSceneWrapper").append(data);
 	      
 	      showLayerDetailsById(id);
-	   },'url':'./index.php?r=baseX3d/showLayer&id=' + id,'cache':false});
+	   },'url':'./index.php?r=x3dInteraction/showLayer&id=' + id,'cache':false});
 }
-
-//function removeLayerByDepth(depth) {
-//	jQuery.ajax({'success':function(data) {
-//		var json = eval('('+data+')');
-//	 	$.each(json, function(key, value) {
-//	 		$("#" + value).remove();
-//	 	});
-//   },'url':'./index.php?r=baseX3d/getAllElementsInLayer&depth=' + depth,'cache':false});
-//}

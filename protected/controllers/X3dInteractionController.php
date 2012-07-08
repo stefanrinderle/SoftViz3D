@@ -1,0 +1,100 @@
+<?php
+
+class X3dInteractionController extends BaseController {
+	
+	/** Interaction **/
+	public function actionGetLayerDetails($id = null) {
+		$this->widget('application.widgets.sidebar.LayerDetails', array('layerId' => $id));
+	}
+	
+	public function actionGetLeafDetails($id = null) {
+		$this->widget('application.widgets.sidebar.LeafDetails', array('leafId' => $id));
+	}
+	
+	public function actionShowLayer($id = null) {
+		$root = LayerElement::model()->findByPk($id);
+		$root->isVisible = 1;
+		$root->save();
+	
+		$this->widget('application.widgets.x3dom.X3domLayerWidget',array(
+				'layer' => $root, 'type' => 'tree'
+		));
+	}
+	
+	public function actionExpandAll($id = null) {
+		$root = LayerElement::model()->findByPk($id);
+		
+		if (!$root->isVisible) {
+			$root->isVisible = 1;
+			$root->save();
+			
+			$this->widget('application.widgets.x3dom.X3domLayerWidget',array(
+					'layer' => $root, 'type' => 'tree'
+			));
+		}
+		
+		$children = $this->retrieveAllChildrenLayers($id);
+		
+		foreach($children as $child) {
+			if (!$child->isVisible) {
+				$this->widget('application.widgets.x3dom.X3domLayerWidget',array(
+						'layer' => $child, 'type' => 'tree'
+				));
+				
+				$child->isVisible = 1;
+				$child->save();
+			}
+		}
+	}
+	
+	/**
+	 * Returns all children layer objects (recursive) starting with the given layerId.
+	 */
+	private function retrieveAllChildrenLayers($layerId) {
+		$result = array();
+	
+		$children = LayerElement::model()->findAllByAttributes(array('parent_id'=>$layerId));
+	
+		foreach ($children as $child) {
+			array_push($result, $child);
+			$result = array_merge($result, $this->retrieveAllChildrenLayers($child->id));
+		}
+	
+		return $result;
+	}
+	
+	/**
+	 * This will deliver all nodes of the current layer and
+	 * all child leafs and layers.
+	 */
+	public function actionRemoveLayer($id = null) {
+		$root = LayerElement::model()->findByPk($id);
+		$root->isVisible = 0;
+		$root->save();
+	
+		$result = $this->hideAllChildrenLayers($id);
+	
+		echo json_encode($result);
+	}
+	
+	private function hideAllChildrenLayers($layerId) {
+		$result = array();
+	
+		$layers = LayerElement::model()->findAllByAttributes(array('parent_id'=>$layerId));
+		foreach ($layers as $layer) {
+			array_push($result, $layer->id);
+			$result = array_merge($result, $this->hideAllChildrenLayers($layer->id));
+				
+			$layer->isVisible = 0;
+			$layer->save();
+		}
+		
+		$leafs = TreeElement::model()->findAllByAttributes(array('parent_id'=>$layerId));
+		foreach ($leafs as $leaf) {
+			array_push($result, $leaf->id);
+		}
+	
+		return $result;
+	}
+	
+}

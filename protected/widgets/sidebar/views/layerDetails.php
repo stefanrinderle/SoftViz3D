@@ -41,6 +41,7 @@
 				} else {
 					echo CHtml::button("show", array("onclick" => "layerShowLayerById(" . $child->id . ")"));
 				}
+				echo "<br />";
 			}
 			foreach ($leafArray as $child) {
 				echo CHtml::link($child->label, "#", array("onclick" => "showLeafDetailsById(" . $child->id . ")"));
