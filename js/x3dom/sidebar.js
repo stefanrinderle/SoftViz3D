@@ -6,14 +6,6 @@ $(document).ready(function() {
 		});
 });
 
-function layerClickedEvent(event) {
-	showLayerDetails(event);
-}
-
-function leafClickedEvent(event) {
-	showLeafDetails(event);
-}
-
 //function getActiveAccordianTab() {
 //	/*  0 => details
 //	 *  1 => manipulation

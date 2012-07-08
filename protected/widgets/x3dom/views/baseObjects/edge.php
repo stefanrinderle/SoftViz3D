@@ -1,3 +1,4 @@
+<Transform onclick="edgeClickedEvent(event);">
 <?php 
 
 if (count($sections)) {
@@ -25,3 +26,4 @@ if (count($sections)) {
 }
 
 ?>
+</Transform>
