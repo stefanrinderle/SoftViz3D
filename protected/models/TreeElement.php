@@ -3,8 +3,8 @@
 class TreeElement extends CActiveRecord
 {
 	public $id;
-	//public $label;
-	public $name = "";
+	public $name;
+	public $label;
 	public $parent_id;
 	public $level;
 	public $isLeaf;

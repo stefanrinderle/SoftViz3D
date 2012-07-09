@@ -29,10 +29,18 @@ class OwnDotParser extends AdotParser {
 	private $import = false;
 	
 	protected function parseGraph($name = "G", $parent = 0, $level = 0) {
-		$name = str_replace('"', '', $name);
-		$currentLayer = LayerElement::create($name, $parent, $level);
-		
 		$line = $this->getNewLine();
+		
+		$nodeName = $this->retrieveName($line);
+		
+		$name = str_replace('"', '', $name);
+		if ($nodeName == "graph") {
+			$label = $this->retrieveParam($line, 'label');
+			$line = $this->getNewLine();
+		} else {
+			$label = $name;
+		}
+		$currentLayer = LayerElement::create($name, $label, $parent, $level);
 		
 		$counter = 0;
 		while (!$this->isEnd($line)) {
@@ -65,7 +73,6 @@ class OwnDotParser extends AdotParser {
  		//prevent import of empty layers
  		if ($counter < 2 && !$this->import) {
  			//$this->rootId = $currentLayer->id;
- 			print_r($currentLayer->id . "<br /><br />");
  			$currentLayer->delete();
  		} else {
  			$this->import = true;
@@ -81,9 +88,11 @@ class OwnDotParser extends AdotParser {
 		if ($name != "graph" && $name != "node") {
 			$metric1 = $this->retrieveParam($line, 'metric1');
 			$metric2 = $this->retrieveParam($line, 'metric2');
+			
+			$label = $this->retrieveParam($line, 'label');
 
 			$name = str_replace('"', '', $name);
-			LeafElement::createAndSave($name, $parent, $level, $metric1, $metric2);
+			LeafElement::createAndSave($name, $label, $parent, $level, $metric1, $metric2);
 			
 			return true;
 		} else {

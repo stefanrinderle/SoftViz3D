@@ -21,15 +21,16 @@ class LeafElement extends TreeElement
 	}
 	
 	// factory method
-	public static function createAndSave($name, $parent_id, $level, $metric1 = 0, $metric2 = 0) {
-		$element = LeafElement::create($name, $parent_id, $level, $metric1, $metric2);
+	public static function createAndSave($name, $label, $parent_id, $level, $metric1 = 0, $metric2 = 0) {
+		$element = LeafElement::create($name, $label, $parent_id, $level, $metric1, $metric2);
 		
 		$element->save();
 		return $element->id;
 	}
 	
-	public static function create($name, $parent_id, $level, $metric1 = 0, $metric2 = 0) {
+	public static function create($name, $label, $parent_id, $level, $metric1 = 0, $metric2 = 0) {
 		$element = new self('insert');
+		$element->label=$label;
 		$element->name=$name;
 		$element->parent_id=$parent_id;
 		$element->level=$level;

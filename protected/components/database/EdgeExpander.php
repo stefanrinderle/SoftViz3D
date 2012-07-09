@@ -119,7 +119,7 @@ class EdgeExpander extends CApplicationComponent
 			$savedNode->counter++;
 			$depNodeId = $savedNode->id;
 		} else {
-			$node = LeafElement::create($depNodeLabel, $parentId, $level);
+			$node = LeafElement::create($depNodeLabel, $depNodeLabel, $parentId, $level);
 			$node->save();
 			$this->dependenyNodes[$depNodeLabel] = $node;
 			

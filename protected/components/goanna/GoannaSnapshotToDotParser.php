@@ -39,7 +39,6 @@ class GoannaSnapshotToDotParser extends CApplicationComponent
 				$name = $value[id]  + "";// . "_" . $this->subgraphIdentifier++;
 				
 				$label = $value[name] . "";
-				print_r($label);
 				
 				$this->_addSubgraph($name, $label, $parentLabel);
 				
