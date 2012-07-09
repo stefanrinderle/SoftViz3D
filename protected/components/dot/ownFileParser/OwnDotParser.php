@@ -77,7 +77,7 @@ class OwnDotParser extends AdotParser {
 		$line = $this->actualLine;
 
 		$name = $this->retrieveName($line);
-			
+		
 		if ($name != "graph" && $name != "node") {
 			$metric1 = $this->retrieveParam($line, 'metric1');
 			$metric2 = $this->retrieveParam($line, 'metric2');

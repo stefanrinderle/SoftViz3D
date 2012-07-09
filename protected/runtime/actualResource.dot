@@ -1,23 +1,5 @@
 digraph G {
     subgraph 1 {
         graph [ label=src ];
-        2 [ label="arraylist.c",metric1=0 ];
-        3 [ label="json_object.c",metric1=0 ];
-        4 [ label="json_tokener.c",metric1=0 ];
-        5 [ label="linkhash.c",metric1=0 ];
-        6 [ label="printbuf.c",metric1=0 ];
-        10948 [ label="debug.c",metric1=0 ];
-        10949 [ label="json_util.c",metric1=0 ];
     }
-    10949 -> 4 [ label="src/json_util.cXXXsrc/json_tokener.c" ];
-    10949 -> 3 [ label="src/json_util.cXXXsrc/json_object.c" ];
-    10949 -> 10948 [ label="src/json_util.cXXXsrc/debug.c" ];
-    5 -> 5 [ label="src/linkhash.cXXXsrc/linkhash.c" ];
-    4 -> 10948 [ label="src/json_tokener.cXXXsrc/debug.c" ];
-    4 -> 3 [ label="src/json_tokener.cXXXsrc/json_object.c" ];
-    4 -> 4 [ label="src/json_tokener.cXXXsrc/json_tokener.c" ];
-    6 -> 6 [ label="src/printbuf.cXXXsrc/printbuf.c" ];
-    2 -> 2 [ label="src/arraylist.cXXXsrc/arraylist.c" ];
-    3 -> 3 [ label="src/json_object.cXXXsrc/json_object.c" ];
-    3 -> 2 [ label="src/json_object.cXXXsrc/arraylist.c" ];
 }

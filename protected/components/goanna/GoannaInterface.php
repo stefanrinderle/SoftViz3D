@@ -5,7 +5,7 @@ class GoannaInterface extends CApplicationComponent {
 	private $reporterPath = "goanna.ken.nicta.com.au";
 	private $reporterPort = 80;
 	
-	private $mock = false;
+	private $mock = true;
 	
 	public function getProjects() {
 		if (!$this->mock) {

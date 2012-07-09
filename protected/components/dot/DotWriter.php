@@ -50,11 +50,13 @@ class DotWriter extends CApplicationComponent
 				
 				$this->graphViz->addNode($value->name, $attr);
 			} else if ($value instanceOf EdgeElement) {
-				print_r($value->outElement->name . "=>" . $value->inElement->name . "<br />");
 // 				if ($value->counter != 1) {
 					$width = 1 + (($value->counter - 1) * 0.2);
 					
-					$this->graphViz->addEdge(array($value->outElement->name => $value->inElement->name),
+					$name1 = $value->outElement->name;
+					$name2 = $value->inElement->name;
+					
+					$this->graphViz->addEdge(array($name1 => $name2),
 							array('id' => $value->id,
 									'style' => 'setlinewidth(' . $width . ')'));
 					
