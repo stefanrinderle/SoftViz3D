@@ -26,7 +26,7 @@ class BaseX3dController extends BaseController {
 		$childLayer = LayerElement::model()->findAllByAttributes(
 				array('parent_id'=>$rootId));
 			
-		while (count($childLayer) < 2) {
+		while (count($childLayer) == 1) {
 			$rootId = $childLayer[0]->id;
 			$childLayer = LayerElement::model()->findAllByAttributes(
 					array('parent_id'=>$rootId));

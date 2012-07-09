@@ -22,7 +22,7 @@ class OwnDotParser extends AdotParser {
 		$this->parseGraph();
 
 		fclose($this->parseFileHandle);
-		
+
 		return array(edges => $this->createEdges(), rootId => $this->rootId);
 	}
 	

@@ -13,7 +13,7 @@ class TreeController extends BaseX3dController
 		$result = $this->loadFiletoDb();
 		$edges = $result[edges];
 		$rootId = $result[rootId];
-		
+
 		// STEP 2: calculate the view layout
 		$layout = new LayoutVisitor(LayoutVisitor::$TYPE_TREE);
 		$root = LayerElement::model()->findByPk($rootId);

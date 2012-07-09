@@ -24,44 +24,42 @@ class GoannaSnapshotToDotParser extends CApplicationComponent
 	
 	private function _scanDependencies($dep) {
 		foreach ($dep as $value) {
-			$this->graphViz->addEdge(array($value[file_id] => $value[depends_id]));
+			$this->graphViz->addEdge(array($value[file_id] => $value[depends_id]),
+						array(label => $value[file] . "XXX" . $value[depends]));
 		}
 	}
 	
-	private function _scanDirectory($filesArray, $parentLabel = "default") {
+	private function _scanDirectory($filesArray, $parentId = "default") {
 		$sum = 0;
 		foreach ($filesArray[children] as $key => $value) {
-			
 			if ($value[type] == "ROOT") {
-				$this->_scanDirectory($value, $value[id] + "");
+				$this->_scanDirectory($value, $value[id] . "");
 			} else if ($value[type] == "DIRECTORY") {
 				
-				$name = $value[id]  + "";// . "_" . $this->subgraphIdentifier++;
+				$id = $value[id]  . "";
 				
-				$this->_addSubgraph($name, $parentLabel);
+				$this->_addSubgraph($id, $value[name], $parentId);
 				
-				$this->_scanDirectory($value, $name);
+				$this->_scanDirectory($value, $id);
 			} else if ($value[type] == "FILE") {
 				$sum = 0;
 				foreach($value[metrics] as $metric) {
 					$sum += $metric[value];
 				}
 				
-				$this->_addNode($value[id], $sum, $parentLabel);
+				$this->_addNode($value[id], $value[name], $sum, $parentId);
 			}
 		}
 	}
 	
-	private function _addNode($label, $warningCount, $parentId = 'default') {
+	private function _addNode($id, $label, $warningCount, $parentId) {
 		$label = str_replace("-", "_", $label);
-		$this->graphViz->addNode($label, array(metric1 => $warningCount), $parentId);
+		$this->graphViz->addNode($id, array(label=> $label, metric1 => $warningCount), $parentId);
 	}
 	
-	private function _addSubgraph($label, $parentId = 'default') {
+	private function _addSubgraph($id, $label, $parentId) {
 		$label = str_replace("-", "_", $label);
-		//TODO: cluster or subgraph
-		//void addSubgraph( string $id, array $title, [array $attributes = array()], [string $group = 'default'])
-		$this->graphViz->addCluster($label, $label, array(), $parentId);
+		$this->graphViz->addSubgraph($id, $label, array(), $parentId);
 	}
 	
 }
