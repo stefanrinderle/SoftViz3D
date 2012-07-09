@@ -19,52 +19,55 @@ class GoannaSnapshotToDotParser extends CApplicationComponent
 		
 		$this->graphViz->saveParsedGraph(Yii::app()->basePath . Yii::app()->params['currentResourceFile']);
 
-		print_r($this->graphViz);
-		
 		return true;
 	}
 	
 	private function _scanDependencies($dep) {
 		foreach ($dep as $value) {
-			$this->graphViz->addEdge(array($value[file_id] => $value[depends_id]),
-						array(label => $value[file] . "XXX" . $value[depends]));
+			$this->graphViz->addEdge(array($value[file_id] => $value[depends_id]));
 		}
 	}
 	
-	private function _scanDirectory($filesArray, $parentId = "default") {
-		$parentId = $parentId . "";
-		
+	private function _scanDirectory($filesArray, $parentLabel = "default") {
 		$sum = 0;
 		foreach ($filesArray[children] as $key => $value) {
+			
 			if ($value[type] == "ROOT") {
-				$this->_scanDirectory($value, "ROOT");
+				$this->_scanDirectory($value, $value[id] + "");
 			} else if ($value[type] == "DIRECTORY") {
 				
-				$id = $value[id]  . "";
-				$name = $value[name] . "";
+				$name = $value[id]  + "";// . "_" . $this->subgraphIdentifier++;
 				
-				$this->_addSubgraph($id, $name, $parentId);
+				$label = $value[name] . "";
+				print_r($label);
 				
-				$this->_scanDirectory($value, $id);
+				$this->_addSubgraph($name, $label, $parentLabel);
+				
+				$this->_scanDirectory($value, $name);
 			} else if ($value[type] == "FILE") {
 				$sum = 0;
 				foreach($value[metrics] as $metric) {
 					$sum += $metric[value];
 				}
 				
-				$this->_addNode($value[id], $value[name], $sum, $parentId);
+				$id = $value[id];
+				$name = $value[name];
+				
+				$this->_addNode($id, $name, $sum, $parentLabel);
 			}
 		}
 	}
 	
-	private function _addNode($id, $label, $warningCount, $parentId = "default") {
+	private function _addNode($id, $name, $warningCount, $parentId = 'default') {
 		$label = str_replace("-", "_", $label);
-		$this->graphViz->addNode($id, array(label=> $label, metric1 => $warningCount), $parentId);
+		$this->graphViz->addNode($id, array(label => $name, metric1 => $warningCount), $parentId);
 	}
 	
-	private function _addSubgraph($id, $label, $parentId) {
+	private function _addSubgraph($name, $label, $parentId = 'default') {
 		$label = str_replace("-", "_", $label);
-		$this->graphViz->addSubgraph($id, $label, array(), $parentId);
+		//TODO: cluster or subgraph
+		//void addSubgraph( string $id, array $title, [array $attributes = array()], [string $group = 'default'])
+		$this->graphViz->addSubgraph($name, $label, $parentId);
 	}
 	
 }

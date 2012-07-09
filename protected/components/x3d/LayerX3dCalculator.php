@@ -35,7 +35,7 @@ class LayerX3dCalculator extends CApplicationComponent
 		$content = LayerElement::model()->findAllByAttributes(array('parent_id'=>$node->id));
 		
 		foreach ($content as $key => $value) {
-			$label = trim($value->label);
+			$label = trim($value->name);
 		
 			// layout node position
 			$nodePositionX = $x3dInfos->nodes[$label][position][x];
