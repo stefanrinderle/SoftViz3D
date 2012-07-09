@@ -37,7 +37,6 @@ class GoannaSnapshotToDotParser extends CApplicationComponent
 			} else if ($value[type] == "DIRECTORY") {
 				
 				$name = $value[id]  + "";// . "_" . $this->subgraphIdentifier++;
-				
 				$label = $value[name] . "";
 				
 				$this->_addSubgraph($name, $label, $parentLabel);
@@ -66,7 +65,7 @@ class GoannaSnapshotToDotParser extends CApplicationComponent
 		$label = str_replace("-", "_", $label);
 		//TODO: cluster or subgraph
 		//void addSubgraph( string $id, array $title, [array $attributes = array()], [string $group = 'default'])
-		$this->graphViz->addSubgraph($name, $label, $parentId);
+		$this->graphViz->addSubgraph($name, $label, array(), $parentId);
 	}
 	
 }

@@ -47,16 +47,29 @@ $this->breadcrumbs=array(
 	
 	<h3>Load example files:</h3>
 	
-	<p><?php echo CHtml::link('NuSmv example', array('import/nuSmv')); ?></p>
+	<table>
+	  <tr>
+	    <th>Showcase</th>
+	    <th>Goanna export</th>
+	  </tr>
+	  <tr>
+	    <td>
+	    	<p><?php echo CHtml::link('Simple tree example', array('import/simpleTree')); ?></p>
 	
-	<p><?php echo CHtml::link('Cromium example', array('import/chromium')); ?></p>
-	
-	<p><?php echo CHtml::link('Simple tree example', array('import/simpleTree')); ?></p>
-	
-	<p><?php echo CHtml::link('Simple metric tree example', array('import/simpleMetricTree')); ?></p>
-	
-	<p><?php echo CHtml::link('Simple graph example', array('import/simpleGraph')); ?></p>
-	
-	<p><?php echo CHtml::link('MVC example', array('import/mvc')); ?></p>
-
+			<p><?php echo CHtml::link('Simple metric tree example', array('import/simpleMetricTree')); ?></p>
+			
+			<p><?php echo CHtml::link('Simple graph example', array('import/simpleGraph')); ?></p>
+			
+			<p><?php echo CHtml::link('MVC example', array('import/mvc')); ?></p>
+	    </td>
+	    <td>
+	    	<p><?php echo CHtml::link('Mongrel2', array('import/goanna', project => "mongrel2")); ?></p>
+	    	<p><?php echo CHtml::link('Nusmv', array('import/goanna', project => "nusmv")); ?></p>
+	    	<p><?php echo CHtml::link('Firefox warnings', array('import/goanna', project => "firefox")); ?></p>
+	    	<p><?php echo CHtml::link('Wireshark', array('import/goanna', project => "wireshark")); ?></p>
+			<p><?php echo CHtml::link('Postgresql', array('import/goanna', project => "postgresql")); ?></p>
+			<p><?php echo CHtml::link('Chromium', array('import/goanna', project => "chromium")); ?></p>
+	    </td>
+	  </tr>
+	</table>
 <?php endif; ?>

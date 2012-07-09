@@ -26,10 +26,6 @@ class ImportController extends BaseController
 		$this->_copyExampleFile(Yii::app()->basePath . '/data/exampleFiles/simpleTree.dot');
 	}
 	
-	public function actionChromium() {
-		$this->_copyExampleFile(Yii::app()->basePath . '/data/exampleFiles/chromium.dot');
-	}
-	
 	public function actionSimpleMetricTree() {
 		$this->_copyExampleFile(Yii::app()->basePath . '/data/exampleFiles/simpleMetricTree.dot');
 	}
@@ -38,12 +34,12 @@ class ImportController extends BaseController
 		$this->_copyExampleFile(Yii::app()->basePath . '/data/exampleFiles/simpleGraph.dot');
 	}
 	
-	public function actionMvc() {
-		$this->_copyExampleFile(Yii::app()->basePath . '/data/exampleFiles/mvc.dot');
+	public function actionGoanna($project) {
+		$this->_copyExampleFile(Yii::app()->basePath . '/data/exampleFiles/goanna/' . $project . '.dot');
 	}
 	
-	public function actionNuSmv() {
-		$this->_copyExampleFile(Yii::app()->basePath . '/data/exampleFiles/nusmv.dot');
+	public function actionMvc() {
+		$this->_copyExampleFile(Yii::app()->basePath . '/data/exampleFiles/mvc.dot');
 	}
 	
 	private function _copyExampleFile($sourceFileName) {

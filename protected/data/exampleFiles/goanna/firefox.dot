@@ -1,0 +1,2611 @@
+digraph G {
+    subgraph 1 {
+        graph [ label=src ];
+        subgraph 2765 {
+            graph [ label=db ];
+            subgraph 3974 {
+                graph [ label=morkreader ];
+                3975 [ label="nsMorkReader.cpp",metric1=9 ];
+            }
+        }
+        subgraph 3118 {
+            graph [ label=config ];
+            3119 [ label="nsinstall.c",metric1=13 ];
+            3120 [ label="pathsub.c",metric1=10 ];
+        }
+        subgraph 3121 {
+            graph [ label=memory ];
+            subgraph 3122 {
+                graph [ label=jemalloc ];
+                3123 [ label="jemalloc.c",metric1=18 ];
+            }
+        }
+        subgraph 3124 {
+            graph [ label=nsprpub ];
+            subgraph 3125 {
+                graph [ label=config ];
+                3126 [ label="nsinstall.c",metric1=14 ];
+            }
+            subgraph 3127 {
+                graph [ label=pr ];
+                subgraph 3128 {
+                    graph [ label=src ];
+                    3179 [ label="prvrsion.c",metric1=1 ];
+                    subgraph 3129 {
+                        graph [ label=io ];
+                        3130 [ label="prfdcach.c",metric1=2 ];
+                        3131 [ label="prmwait.c",metric1=15 ];
+                        3132 [ label="priometh.c",metric1=33 ];
+                        3133 [ label="pripv6.c",metric1=20 ];
+                        3134 [ label="prmapopt.c",metric1=2 ];
+                        3135 [ label="prlayer.c",metric1=43 ];
+                        3136 [ label="prlog.c",metric1=2 ];
+                        3137 [ label="prpolevt.c",metric1=5 ];
+                        3138 [ label="prprf.c",metric1=30 ];
+                        3139 [ label="prscanf.c",metric1=17 ];
+                        3140 [ label="prstdio.c",metric1=1 ];
+                    }
+                    subgraph 3141 {
+                        graph [ label=linking ];
+                        3142 [ label="prlink.c",metric1=10 ];
+                    }
+                    subgraph 3143 {
+                        graph [ label=malloc ];
+                        3144 [ label="prmem.c",metric1=2 ];
+                    }
+                    subgraph 3145 {
+                        graph [ label=md ];
+                        subgraph 3146 {
+                            graph [ label=unix ];
+                            3147 [ label="unix.c",metric1=17 ];
+                            3148 [ label="uxproces.c",metric1=10 ];
+                            3149 [ label="uxrng.c",metric1=1 ];
+                            3150 [ label="uxshm.c",metric1=10 ];
+                            3151 [ label="linux.c",metric1=3 ];
+                        }
+                    }
+                    subgraph 3152 {
+                        graph [ label=memory ];
+                        3153 [ label="prshma.c",metric1=4 ];
+                    }
+                    subgraph 3154 {
+                        graph [ label=misc ];
+                        3155 [ label="pralarm.c",metric1=10 ];
+                        3156 [ label="pratom.c",metric1=5 ];
+                        3157 [ label="prcountr.c",metric1=14 ];
+                        3158 [ label="prdtoa.c",metric1=80 ];
+                        3159 [ label="prerrortable.c",metric1=5 ];
+                        3160 [ label="prinit.c",metric1=19 ];
+                        3161 [ label="pripc.c",metric1=3 ];
+                        3162 [ label="prnetdb.c",metric1=28 ];
+                        3163 [ label="praton.c",metric1=3 ];
+                        3164 [ label="prolock.c",metric1=5 ];
+                        3165 [ label="prsystem.c",metric1=2 ];
+                        3166 [ label="prtime.c",metric1=17 ];
+                        3167 [ label="prthinfo.c",metric1=3 ];
+                        3168 [ label="prtpool.c",metric1=25 ];
+                        3169 [ label="prtrace.c",metric1=14 ];
+                    }
+                    subgraph 3170 {
+                        graph [ label=threads ];
+                        3171 [ label="prcmon.c",metric1=1 ];
+                        3172 [ label="prrwlock.c",metric1=5 ];
+                        3173 [ label="prtpd.c",metric1=2 ];
+                    }
+                    subgraph 3174 {
+                        graph [ label=pthreads ];
+                        3176 [ label="ptsynch.c",metric1=42 ];
+                        3177 [ label="ptthread.c",metric1=38 ];
+                        3178 [ label="ptmisc.c",metric1=2 ];
+                    }
+                }
+            }
+            subgraph 3180 {
+                graph [ label=lib ];
+                subgraph 3181 {
+                    graph [ label=ds ];
+                    3182 [ label="plarena.c",metric1=13 ];
+                    3183 [ label="plhash.c",metric1=22 ];
+                    3184 [ label="plvrsion.c",metric1=1 ];
+                }
+                subgraph 3185 {
+                    graph [ label=libc ];
+                    subgraph 3186 {
+                        graph [ label=src ];
+                        3187 [ label="plvrsion.c",metric1=1 ];
+                        3188 [ label="strlen.c",metric1=3 ];
+                        3189 [ label="strcpy.c",metric1=3 ];
+                        3190 [ label="strcase.c",metric1=1 ];
+                        3191 [ label="strcat.c",metric1=3 ];
+                        3192 [ label="strchr.c",metric1=2 ];
+                        3193 [ label="strpbrk.c",metric1=7 ];
+                        3194 [ label="strstr.c",metric1=1 ];
+                        3195 [ label="strtok.c",metric1=1 ];
+                        3196 [ label="base64.c",metric1=14 ];
+                        3197 [ label="plgetopt.c",metric1=3 ];
+                    }
+                }
+            }
+        }
+        subgraph 3198 {
+            graph [ label=js ];
+            subgraph 3199 {
+                graph [ label=src ];
+                3200 [ label="jscpucfg.cpp",metric1=6 ];
+                3201 [ label="jskwgen.cpp",metric1=23 ];
+                3202 [ label="jsapi.cpp",metric1=122 ];
+                3203 [ label="jsarena.cpp",metric1=14 ];
+                3204 [ label="jsarray.cpp",metric1=152 ];
+                3205 [ label="jsatom.cpp",metric1=44 ];
+                3206 [ label="jsbool.cpp",metric1=11 ];
+                3207 [ label="jscntxt.cpp",metric1=71 ];
+                3208 [ label="jsdate.cpp",metric1=76 ];
+                3209 [ label="jsdbgapi.cpp",metric1=121 ];
+                3210 [ label="jsdhash.cpp",metric1=28 ];
+                3211 [ label="jsdtoa.cpp",metric1=5 ];
+                3213 [ label="jsexn.cpp",metric1=53 ];
+                3214 [ label="jsfun.cpp",metric1=119 ];
+                3215 [ label="jsgc.cpp",metric1=81 ];
+                3216 [ label="jshash.cpp",metric1=19 ];
+                3217 [ label="jsiter.cpp",metric1=34 ];
+                3218 [ label="jslock.cpp",metric1=38 ];
+                3219 [ label="jsmath.cpp",metric1=50 ];
+                3220 [ label="jsnum.cpp",metric1=53 ];
+                3222 [ label="json.cpp",metric1=42 ];
+                3225 [ label="jsprf.cpp",metric1=30 ];
+                3226 [ label="jsregexp.cpp",metric1=11 ];
+                3227 [ label="jsscan.cpp",metric1=54 ];
+                3228 [ label="jsscope.cpp",metric1=50 ];
+                3229 [ label="jsscript.cpp",metric1=47 ];
+                3230 [ label="jsstr.cpp",metric1=204 ];
+                3231 [ label="jstask.cpp",metric1=2 ];
+                3232 [ label="jstypedarray.cpp",metric1=47 ];
+                3233 [ label="jsxdrapi.cpp",metric1=51 ];
+                3235 [ label="prmjtime.cpp",metric1=9 ];
+                3242 [ label="jsbuiltins.cpp",metric1=15 ];
+                subgraph 3236 {
+                    graph [ label=nanojit ];
+                    3237 [ label="Assembler.cpp",metric1=22 ];
+                    3238 [ label="CodeAlloc.cpp",metric1=3 ];
+                    3239 [ label="Containers.cpp",metric1=2 ];
+                    3240 [ label="LIR.cpp",metric1=34 ];
+                    3241 [ label="NativeX64.cpp",metric1=41 ];
+                    3243 [ label="VMPI.cpp",metric1=1 ];
+                }
+                subgraph 3244 {
+                    graph [ label=editline ];
+                    3245 [ label="editline.c",metric1=28 ];
+                    3246 [ label="sysunix.c",metric1=3 ];
+                }
+                subgraph 3247 {
+                    graph [ label=shell ];
+                    3248 [ label="js.cpp",metric1=140 ];
+                }
+                subgraph 3902 {
+                    graph [ label=xpconnect ];
+                    subgraph 3903 {
+                        graph [ label=loader ];
+                        3904 [ label="mozJSComponentLoader.cpp",metric1=44 ];
+                        3905 [ label="mozJSSubScriptLoader.cpp",metric1=1 ];
+                    }
+                    subgraph 3906 {
+                        graph [ label=src ];
+                        3907 [ label="nsScriptError.cpp",metric1=6 ];
+                        3908 [ label="nsXPConnect.cpp",metric1=72 ];
+                        3909 [ label="xpccallcontext.cpp",metric1=18 ];
+                        3910 [ label="xpccomponents.cpp",metric1=166 ];
+                        3911 [ label="xpccontext.cpp",metric1=2 ];
+                        3912 [ label="xpcconvert.cpp",metric1=59 ];
+                        3913 [ label="xpcdebug.cpp",metric1=10 ];
+                        3914 [ label="xpcexception.cpp",metric1=15 ];
+                        3915 [ label="xpcjsid.cpp",metric1=48 ];
+                        3916 [ label="xpcjsruntime.cpp",metric1=48 ];
+                        3917 [ label="xpcmaps.cpp",metric1=33 ];
+                        3918 [ label="xpcmodule.cpp",metric1=15 ];
+                        3919 [ label="xpcruntimesvc.cpp",metric1=15 ];
+                        3920 [ label="xpcstack.cpp",metric1=11 ];
+                        3921 [ label="xpcstring.cpp",metric1=2 ];
+                        3922 [ label="xpcthreadcontext.cpp",metric1=18 ];
+                        3923 [ label="xpcthrower.cpp",metric1=1 ];
+                        3924 [ label="xpcwrappedjs.cpp",metric1=13 ];
+                        3925 [ label="xpcvariant.cpp",metric1=14 ];
+                        3926 [ label="xpcwrappedjsclass.cpp",metric1=55 ];
+                        3927 [ label="xpcwrappednative.cpp",metric1=63 ];
+                        3928 [ label="xpcwrappednativeinfo.cpp",metric1=18 ];
+                        3929 [ label="xpcwrappednativejsops.cpp",metric1=77 ];
+                        3930 [ label="xpcwrappednativeproto.cpp",metric1=11 ];
+                        3931 [ label="xpcwrappednativescope.cpp",metric1=47 ];
+                        3932 [ label="XPCNativeWrapper.cpp",metric1=28 ];
+                        3933 [ label="xpcJSWeakReference.cpp",metric1=1 ];
+                        3934 [ label="XPCSafeJSObjectWrapper.cpp",metric1=22 ];
+                        3935 [ label="XPCCrossOriginWrapper.cpp",metric1=24 ];
+                        3936 [ label="XPCChromeObjectWrapper.cpp",metric1=16 ];
+                        3937 [ label="XPCSystemOnlyWrapper.cpp",metric1=11 ];
+                        3938 [ label="XPCWrapper.cpp",metric1=13 ];
+                        3939 [ label="xpcquickstubs.cpp",metric1=38 ];
+                    }
+                }
+            }
+            subgraph 3835 {
+                graph [ label=ctypes ];
+                3940 [ label="Function.cpp",metric1=11 ];
+                3941 [ label="Library.cpp",metric1=4 ];
+                3942 [ label="Module.cpp",metric1=11 ];
+                subgraph 3836 {
+                    graph [ label=libffi ];
+                    subgraph 3837 {
+                        graph [ label=src ];
+                        3838 [ label="debug.c",metric1=3 ];
+                        3839 [ label="prep_cif.c",metric1=2 ];
+                    }
+                }
+            }
+            subgraph 4036 {
+                graph [ label=jsd ];
+                4037 [ label="jsdebug.c",metric1=13 ];
+                4038 [ label="jsd_atom.c",metric1=12 ];
+                4039 [ label="jsd_high.c",metric1=11 ];
+                4040 [ label="jsd_hook.c",metric1=16 ];
+                4041 [ label="jsd_lock.c",metric1=2 ];
+                4042 [ label="jsd_obj.c",metric1=25 ];
+                4043 [ label="jsd_scpt.c",metric1=74 ];
+                4044 [ label="jsd_stak.c",metric1=51 ];
+                4045 [ label="jsd_step.c",metric1=2 ];
+                4046 [ label="jsd_text.c",metric1=42 ];
+                4047 [ label="jsd_val.c",metric1=72 ];
+                4048 [ label="jsd_xpc.cpp",metric1=133 ];
+            }
+        }
+        subgraph 3249 {
+            graph [ label=xpcom ];
+            subgraph 3250 {
+                graph [ label=typelib ];
+                subgraph 3251 {
+                    graph [ label=xpt ];
+                    subgraph 3252 {
+                        graph [ label=src ];
+                        3253 [ label="xpt_arena.c",metric1=7 ];
+                        3254 [ label="xpt_struct.c",metric1=48 ];
+                        3255 [ label="xpt_xdr.c",metric1=41 ];
+                    }
+                    subgraph 3256 {
+                        graph [ label=tools ];
+                        3257 [ label="xpt_dump.c",metric1=20 ];
+                        3258 [ label="xpt_link.c",metric1=16 ];
+                    }
+                }
+                subgraph 3259 {
+                    graph [ label=xpidl ];
+                    3260 [ label="xpidl.c",metric1=3 ];
+                    3261 [ label="xpidl_idl.c",metric1=28 ];
+                    3262 [ label="xpidl_util.c",metric1=18 ];
+                    3263 [ label="xpidl_header.c",metric1=43 ];
+                    3264 [ label="xpidl_typelib.c",metric1=39 ];
+                    3265 [ label="xpidl_doc.c",metric1=9 ];
+                    3266 [ label="xpidl_java.c",metric1=34 ];
+                }
+            }
+            subgraph 3267 {
+                graph [ label=string ];
+                subgraph 3268 {
+                    graph [ label=src ];
+                    3269 [ label="nsPrintfCString.cpp",metric1=1 ];
+                    3270 [ label="nsReadableUtils.cpp",metric1=2 ];
+                    3271 [ label="nsSubstring.cpp",metric1=1 ];
+                    3272 [ label="nsStringObsolete.cpp",metric1=7 ];
+                }
+            }
+            subgraph 3273 {
+                graph [ label=glue ];
+                3274 [ label="pldhash.c",metric1=30 ];
+                3275 [ label="nsCRTGlue.cpp",metric1=7 ];
+                3276 [ label="nsComponentManagerUtils.cpp",metric1=9 ];
+                3277 [ label="nsEnumeratorUtils.cpp",metric1=11 ];
+                3278 [ label="nsIInterfaceRequestorUtils.cpp",metric1=1 ];
+                3279 [ label="nsISupportsImpl.cpp",metric1=2 ];
+                3280 [ label="nsWeakReference.cpp",metric1=2 ];
+                3281 [ label="nsQuickSort.cpp",metric1=3 ];
+                3282 [ label="nsTArray.cpp",metric1=1 ];
+                3283 [ label="nsCycleCollectionParticipant.cpp",metric1=8 ];
+                3284 [ label="nsDeque.cpp",metric1=3 ];
+                3285 [ label="nsAutoLock.cpp",metric1=4 ];
+                3286 [ label="nsGenericFactory.cpp",metric1=21 ];
+                subgraph 3287 {
+                    graph [ label=standalone ];
+                    3288 [ label="nsXPCOMGlue.cpp",metric1=4 ];
+                    3289 [ label="nsGlueLinkingDlopen.cpp",metric1=3 ];
+                }
+            }
+            subgraph 3290 {
+                graph [ label=base ];
+                3291 [ label="nsVersionComparatorImpl.cpp",metric1=2 ];
+                3292 [ label="nsConsoleMessage.cpp",metric1=2 ];
+                3293 [ label="nsConsoleService.cpp",metric1=7 ];
+                3294 [ label="nsDebugImpl.cpp",metric1=9 ];
+                3295 [ label="nsErrorService.cpp",metric1=8 ];
+                3296 [ label="nsExceptionService.cpp",metric1=13 ];
+                3297 [ label="nsMemoryImpl.cpp",metric1=4 ];
+                3298 [ label="nsTraceRefcntImpl.cpp",metric1=33 ];
+                3299 [ label="nsInterfaceRequestorAgg.cpp",metric1=2 ];
+                3300 [ label="nsUUIDGenerator.cpp",metric1=16 ];
+                3301 [ label="nsSystemInfo.cpp",metric1=2 ];
+                3302 [ label="nsCycleCollector.cpp",metric1=40 ];
+                3303 [ label="nsMemoryReporterManager.cpp",metric1=1 ];
+            }
+            subgraph 3304 {
+                graph [ label=ds ];
+                3305 [ label="nsArray.cpp",metric1=4 ];
+                3306 [ label="nsAtomTable.cpp",metric1=31 ];
+                3307 [ label="nsAtomService.cpp",metric1=5 ];
+                3308 [ label="nsByteBuffer.cpp",metric1=7 ];
+                3309 [ label="nsCheapSets.cpp",metric1=8 ];
+                3310 [ label="nsCRT.cpp",metric1=7 ];
+                3311 [ label="nsFixedSizeAllocator.cpp",metric1=3 ];
+                3312 [ label="nsHashPropertyBag.cpp",metric1=9 ];
+                3313 [ label="nsHashSets.cpp",metric1=20 ];
+                3314 [ label="nsHashtable.cpp",metric1=30 ];
+                3315 [ label="nsINIParserImpl.cpp",metric1=7 ];
+                3316 [ label="nsObserverList.cpp",metric1=5 ];
+                3317 [ label="nsObserverService.cpp",metric1=2 ];
+                3318 [ label="nsProperties.cpp",metric1=4 ];
+                3319 [ label="nsPersistentProperties.cpp",metric1=28 ];
+                3320 [ label="nsRecyclingAllocator.cpp",metric1=10 ];
+                3321 [ label="nsStaticNameTable.cpp",metric1=2 ];
+                3322 [ label="nsStringEnumerator.cpp",metric1=15 ];
+                3323 [ label="nsSupportsArray.cpp",metric1=14 ];
+                3324 [ label="nsSupportsArrayEnumerator.cpp",metric1=2 ];
+                3325 [ label="nsSupportsPrimitives.cpp",metric1=71 ];
+                3326 [ label="nsUnicharBuffer.cpp",metric1=6 ];
+                3327 [ label="nsVariant.cpp",metric1=81 ];
+            }
+            subgraph 3328 {
+                graph [ label=io ];
+                3329 [ label="nsAppFileLocationProvider.cpp",metric1=13 ];
+                3330 [ label="nsBinaryStream.cpp",metric1=27 ];
+                3331 [ label="nsDirectoryService.cpp",metric1=14 ];
+                3332 [ label="nsEscape.cpp",metric1=6 ];
+                3333 [ label="nsInputStreamTee.cpp",metric1=8 ];
+                3334 [ label="nsLocalFileCommon.cpp",metric1=6 ];
+                3335 [ label="nsMultiplexInputStream.cpp",metric1=11 ];
+                3336 [ label="nsNativeCharsetUtils.cpp",metric1=19 ];
+                3337 [ label="nsPipe3.cpp",metric1=50 ];
+                3338 [ label="nsStreamUtils.cpp",metric1=44 ];
+                3339 [ label="nsScriptableInputStream.cpp",metric1=4 ];
+                3340 [ label="nsStorageStream.cpp",metric1=26 ];
+                3341 [ label="nsStringStream.cpp",metric1=14 ];
+                3342 [ label="nsUnicharInputStream.cpp",metric1=16 ];
+                3343 [ label="nsIOUtil.cpp",metric1=3 ];
+                3344 [ label="SpecialSystemDirectory.cpp",metric1=7 ];
+                3345 [ label="nsFastLoadFile.cpp",metric1=54 ];
+                3346 [ label="nsFastLoadService.cpp",metric1=17 ];
+                3347 [ label="nsLocalFileUnix.cpp",metric1=60 ];
+            }
+            subgraph 3348 {
+                graph [ label=components ];
+                3349 [ label="nsCategoryManager.cpp",metric1=25 ];
+                3350 [ label="nsComponentManager.cpp",metric1=98 ];
+                3351 [ label="nsNativeComponentLoader.cpp",metric1=5 ];
+                3352 [ label="nsStaticComponentLoader.cpp",metric1=6 ];
+                3353 [ label="nsServiceManagerObsolete.cpp",metric1=9 ];
+            }
+            subgraph 3354 {
+                graph [ label=threads ];
+                3355 [ label="nsEnvironment.cpp",metric1=4 ];
+                3356 [ label="nsThread.cpp",metric1=20 ];
+                3357 [ label="nsThreadManager.cpp",metric1=15 ];
+                3358 [ label="nsThreadPool.cpp",metric1=10 ];
+                3359 [ label="nsProcessCommon.cpp",metric1=9 ];
+                3360 [ label="nsTimerImpl.cpp",metric1=8 ];
+                3361 [ label="TimerThread.cpp",metric1=5 ];
+            }
+            subgraph 3362 {
+                graph [ label=reflect ];
+                subgraph 3363 {
+                    graph [ label=xptinfo ];
+                    subgraph 3364 {
+                        graph [ label=src ];
+                        3365 [ label="xptiFile.cpp",metric1=2 ];
+                        3366 [ label="xptiInterfaceInfo.cpp",metric1=34 ];
+                        3367 [ label="xptiInterfaceInfoManager.cpp",metric1=60 ];
+                        3368 [ label="xptiManifest.cpp",metric1=14 ];
+                        3369 [ label="xptiMisc.cpp",metric1=3 ];
+                        3370 [ label="xptiTypelibGuts.cpp",metric1=3 ];
+                        3371 [ label="xptiWorkingSet.cpp",metric1=19 ];
+                        3372 [ label="xptiZipItem.cpp",metric1=2 ];
+                        3373 [ label="xptiZipLoader.cpp",metric1=3 ];
+                    }
+                }
+                subgraph 3374 {
+                    graph [ label=xptcall ];
+                    subgraph 3375 {
+                        graph [ label=src ];
+                        3376 [ label="xptcall.cpp",metric1=4 ];
+                        subgraph 3377 {
+                            graph [ label=md ];
+                            subgraph 3378 {
+                                graph [ label=unix ];
+                                3379 [ label="xptcinvoke_x86_64_unix.cpp",metric1=15 ];
+                                3380 [ label="xptcstubs_x86_64_linux.cpp",metric1=5 ];
+                            }
+                        }
+                    }
+                }
+            }
+            subgraph 3381 {
+                graph [ label=proxy ];
+                subgraph 3382 {
+                    graph [ label=src ];
+                    3383 [ label="nsProxyEvent.cpp",metric1=9 ];
+                    3384 [ label="nsProxyEventClass.cpp",metric1=2 ];
+                    3385 [ label="nsProxyEventObject.cpp",metric1=11 ];
+                    3386 [ label="nsProxyObjectManager.cpp",metric1=8 ];
+                }
+            }
+            subgraph 3402 {
+                graph [ label=build ];
+                3403 [ label="nsXPComInit.cpp",metric1=76 ];
+                3404 [ label="nsXPCOMStrings.cpp",metric1=4 ];
+            }
+        }
+        subgraph 3387 {
+            graph [ label=obj ];
+            subgraph 3388 {
+                graph [ label=xpcom ];
+                subgraph 3389 {
+                    graph [ label=build ];
+                    3390 [ label="nsArrayEnumerator.cpp",metric1=7 ];
+                    3391 [ label="nsCategoryCache.cpp",metric1=1 ];
+                    3392 [ label="nsEnumeratorUtils.cpp",metric1=2 ];
+                    3393 [ label="nsINIParser.cpp",metric1=6 ];
+                    3394 [ label="nsGREGlue.cpp",metric1=7 ];
+                    3395 [ label="nsTHashtable.cpp",metric1=7 ];
+                    3396 [ label="nsVoidArray.cpp",metric1=29 ];
+                    3397 [ label="nsTArray.cpp",metric1=1 ];
+                    3398 [ label="nsThreadUtils.cpp",metric1=4 ];
+                    3399 [ label="nsGenericFactory.cpp",metric1=1 ];
+                    3400 [ label="nsProxyRelease.cpp",metric1=1 ];
+                    3401 [ label="nsTextFormatter.cpp",metric1=33 ];
+                }
+            }
+            subgraph 3530 {
+                graph [ label=modules ];
+                subgraph 3531 {
+                    graph [ label=libreg ];
+                    subgraph 3532 {
+                        graph [ label=standalone ];
+                        3533 [ label="reg.c",metric1=93 ];
+                        3534 [ label="VerReg.c",metric1=82 ];
+                        3535 [ label="vr_stubs.c",metric1=1 ];
+                    }
+                }
+            }
+            subgraph 3566 {
+                graph [ label=intl ];
+                subgraph 3567 {
+                    graph [ label=unicharutil ];
+                    subgraph 3568 {
+                        graph [ label=util ];
+                        subgraph 3569 {
+                            graph [ label=internal ];
+                            3570 [ label="nsCompressedCharMap.cpp",metric1=44 ];
+                            3571 [ label="nsBidiUtils.cpp",metric1=17 ];
+                        }
+                    }
+                }
+            }
+            subgraph 3840 {
+                graph [ label=ipc ];
+                subgraph 3841 {
+                    graph [ label=ipdl ];
+                    3842 [ label="PPluginModuleParent.cpp",metric1=4 ];
+                    3843 [ label="PPluginInstanceParent.cpp",metric1=18 ];
+                    3844 [ label="PPluginScriptableObjectParent.cpp",metric1=23 ];
+                    3845 [ label="PBrowserStreamParent.cpp",metric1=12 ];
+                    3846 [ label="PPluginStreamParent.cpp",metric1=12 ];
+                    3847 [ label="PStreamNotifyParent.cpp",metric1=10 ];
+                    3848 [ label="PTestArraysParent.cpp",metric1=18 ];
+                    3849 [ label="PTestArraysSubParent.cpp",metric1=8 ];
+                    3850 [ label="PTestBlockChildParent.cpp",metric1=6 ];
+                    3851 [ label="PTestCrashCleanupParent.cpp",metric1=8 ];
+                    3852 [ label="PTestDescParent.cpp",metric1=5 ];
+                    3853 [ label="PTestDescSubParent.cpp",metric1=5 ];
+                    3854 [ label="PTestDescSubsubParent.cpp",metric1=5 ];
+                    3855 [ label="PTestHangsParent.cpp",metric1=6 ];
+                    3856 [ label="PTestLatencyParent.cpp",metric1=4 ];
+                    3857 [ label="PTestManyChildAllocsParent.cpp",metric1=5 ];
+                    3858 [ label="PTestManyChildAllocsSubParent.cpp",metric1=5 ];
+                    3859 [ label="PTestMultiMgrsParent.cpp",metric1=4 ];
+                    3860 [ label="PTestMultiMgrsLeftParent.cpp",metric1=5 ];
+                    3861 [ label="PTestMultiMgrsRightParent.cpp",metric1=5 ];
+                    3862 [ label="PTestMultiMgrsBottomParent.cpp",metric1=5 ];
+                    3863 [ label="PTestRacyRPCRepliesParent.cpp",metric1=8 ];
+                    3864 [ label="PTestRPCErrorCleanupParent.cpp",metric1=9 ];
+                    3865 [ label="PTestRPCRacesParent.cpp",metric1=4 ];
+                    3866 [ label="PTestSanityParent.cpp",metric1=4 ];
+                    3867 [ label="PTestShmemParent.cpp",metric1=5 ];
+                    3868 [ label="PTestShutdownParent.cpp",metric1=6 ];
+                    3869 [ label="PTestShutdownSubParent.cpp",metric1=9 ];
+                    3870 [ label="PTestShutdownSubsubParent.cpp",metric1=10 ];
+                    3871 [ label="PTestSyncWakeupParent.cpp",metric1=5 ];
+                    3872 [ label="PPluginModuleChild.cpp",metric1=9 ];
+                    3873 [ label="PPluginInstanceChild.cpp",metric1=24 ];
+                    3874 [ label="PPluginScriptableObjectChild.cpp",metric1=23 ];
+                    3875 [ label="PBrowserStreamChild.cpp",metric1=12 ];
+                    3876 [ label="PPluginStreamChild.cpp",metric1=12 ];
+                    3877 [ label="PStreamNotifyChild.cpp",metric1=11 ];
+                    3878 [ label="PTestArraysChild.cpp",metric1=29 ];
+                    3879 [ label="PTestArraysSubChild.cpp",metric1=8 ];
+                    3880 [ label="PTestBlockChildChild.cpp",metric1=5 ];
+                    3881 [ label="PTestCrashCleanupChild.cpp",metric1=6 ];
+                    3882 [ label="PTestDescChild.cpp",metric1=5 ];
+                    3883 [ label="PTestDescSubChild.cpp",metric1=8 ];
+                    3884 [ label="PTestDescSubsubChild.cpp",metric1=7 ];
+                    3885 [ label="PTestHangsChild.cpp",metric1=6 ];
+                    3886 [ label="PTestLatencyChild.cpp",metric1=3 ];
+                    3887 [ label="PTestManyChildAllocsChild.cpp",metric1=3 ];
+                    3888 [ label="PTestManyChildAllocsSubChild.cpp",metric1=7 ];
+                    3889 [ label="PTestMultiMgrsChild.cpp",metric1=5 ];
+                    3890 [ label="PTestMultiMgrsLeftChild.cpp",metric1=8 ];
+                    3891 [ label="PTestMultiMgrsRightChild.cpp",metric1=8 ];
+                    3892 [ label="PTestMultiMgrsBottomChild.cpp",metric1=7 ];
+                    3893 [ label="PTestRacyRPCRepliesChild.cpp",metric1=6 ];
+                    3894 [ label="PTestRPCErrorCleanupChild.cpp",metric1=6 ];
+                    3895 [ label="PTestRPCRacesChild.cpp",metric1=5 ];
+                    3896 [ label="PTestSanityChild.cpp",metric1=3 ];
+                    3897 [ label="PTestShmemChild.cpp",metric1=4 ];
+                    3898 [ label="PTestShutdownChild.cpp",metric1=3 ];
+                    3899 [ label="PTestShutdownSubChild.cpp",metric1=7 ];
+                    3900 [ label="PTestShutdownSubsubChild.cpp",metric1=10 ];
+                    3901 [ label="PTestSyncWakeupChild.cpp",metric1=5 ];
+                }
+            }
+            subgraph 3976 {
+                graph [ label=db ];
+                subgraph 3977 {
+                    graph [ label=morkreader ];
+                    subgraph 3978 {
+                        graph [ label=external ];
+                        3979 [ label="nsMorkReader.cpp",metric1=4 ];
+                    }
+                }
+            }
+            subgraph 4025 {
+                graph [ label=rdf ];
+                subgraph 4026 {
+                    graph [ label=util ];
+                    subgraph 4027 {
+                        graph [ label=src ];
+                        subgraph 4028 {
+                            graph [ label=internal ];
+                            4029 [ label="nsRDFResource.cpp",metric1=9 ];
+                        }
+                    }
+                }
+            }
+            subgraph 4220 {
+                graph [ label=gfx ];
+                subgraph 4221 {
+                    graph [ label=cairo ];
+                    subgraph 4222 {
+                        graph [ label=libpixman ];
+                        subgraph 4223 {
+                            graph [ label=src ];
+                            4224 [ label="pixman-combine.c.template",metric1=86 ];
+                        }
+                    }
+                }
+            }
+        }
+        subgraph 3405 {
+            graph [ label=ipc ];
+            subgraph 3406 {
+                graph [ label=chromium ];
+                subgraph 3407 {
+                    graph [ label=src ];
+                    subgraph 3408 {
+                        graph [ label=third_party ];
+                        subgraph 3409 {
+                            graph [ label=libevent ];
+                            3410 [ label="buffer.c",metric1=17 ];
+                            3411 [ label="evbuffer.c",metric1=16 ];
+                            3412 [ label="evdns.c",metric1=71 ];
+                            3413 [ label="event.c",metric1=31 ];
+                            3414 [ label="event_tagging.c",metric1=12 ];
+                            3415 [ label="evrpc.c",metric1=31 ];
+                            3416 [ label="evutil.c",metric1=1 ];
+                            3417 [ label="http.c",metric1=107 ];
+                            3418 [ label="poll.c",metric1=3 ];
+                            3419 [ label="select.c",metric1=6 ];
+                            3420 [ label="signal.c",metric1=10 ];
+                            3421 [ label="strlcpy.c",metric1=1 ];
+                            3422 [ label="epoll.c",metric1=5 ];
+                        }
+                    }
+                    subgraph 3423 {
+                        graph [ label=base ];
+                        3430 [ label="at_exit.cc",metric1=5 ];
+                        3431 [ label="base_paths.cc",metric1=1 ];
+                        3432 [ label="command_line.cc",metric1=7 ];
+                        3433 [ label="debug_util.cc",metric1=1 ];
+                        3434 [ label="file_path.cc",metric1=3 ];
+                        3435 [ label="file_util.cc",metric1=15 ];
+                        3436 [ label="histogram.cc",metric1=44 ];
+                        3437 [ label="logging.cc",metric1=1 ];
+                        3438 [ label="memory_debug.cc",metric1=2 ];
+                        3439 [ label="message_loop.cc",metric1=13 ];
+                        3440 [ label="message_pump_default.cc",metric1=2 ];
+                        3441 [ label="path_service.cc",metric1=14 ];
+                        3442 [ label="pickle.cc",metric1=70 ];
+                        3443 [ label="rand_util.cc",metric1=2 ];
+                        3444 [ label="revocable_store.cc",metric1=4 ];
+                        3445 [ label="scoped_temp_dir.cc",metric1=1 ];
+                        3446 [ label="simple_thread.cc",metric1=8 ];
+                        3447 [ label="stats_table.cc",metric1=17 ];
+                        3448 [ label="string_escape.cc",metric1=2 ];
+                        3449 [ label="string_piece.cc",metric1=3 ];
+                        3450 [ label="string_util.cc",metric1=29 ];
+                        3451 [ label="system_monitor.cc",metric1=3 ];
+                        3452 [ label="thread.cc",metric1=4 ];
+                        3453 [ label="time.cc",metric1=3 ];
+                        3454 [ label="timer.cc",metric1=1 ];
+                        3455 [ label="tracked.cc",metric1=3 ];
+                        3456 [ label="tracked_objects.cc",metric1=18 ];
+                        3473 [ label="condition_variable_posix.cc",metric1=13 ];
+                        3474 [ label="debug_util_posix.cc",metric1=3 ];
+                        3475 [ label="event_recorder_stubs.cc",metric1=2 ];
+                        3476 [ label="file_descriptor_shuffle.cc",metric1=6 ];
+                        3477 [ label="file_util_posix.cc",metric1=21 ];
+                        3478 [ label="lock_impl_posix.cc",metric1=7 ];
+                        3479 [ label="message_pump_libevent.cc",metric1=25 ];
+                        3480 [ label="platform_file_posix.cc",metric1=2 ];
+                        3481 [ label="platform_thread_posix.cc",metric1=2 ];
+                        3482 [ label="process_posix.cc",metric1=1 ];
+                        3483 [ label="process_util_posix.cc",metric1=19 ];
+                        3484 [ label="shared_memory_posix.cc",metric1=11 ];
+                        3485 [ label="string16.cc",metric1=5 ];
+                        3486 [ label="sys_info_posix.cc",metric1=2 ];
+                        3487 [ label="thread_local_posix.cc",metric1=2 ];
+                        3488 [ label="thread_local_storage_posix.cc",metric1=4 ];
+                        3489 [ label="waitable_event_posix.cc",metric1=4 ];
+                        3490 [ label="waitable_event_watcher_posix.cc",metric1=4 ];
+                        3494 [ label="base_paths_linux.cc",metric1=1 ];
+                        3495 [ label="data_pack.cc",metric1=2 ];
+                        3496 [ label="file_util_linux.cc",metric1=6 ];
+                        3497 [ label="idle_timer_none.cc",metric1=4 ];
+                        3498 [ label="message_pump_glib.cc",metric1=9 ];
+                        3499 [ label="process_util_linux.cc",metric1=10 ];
+                        3500 [ label="time_posix.cc",metric1=3 ];
+                        subgraph 3424 {
+                            graph [ label=third_party ];
+                            subgraph 3425 {
+                                graph [ label=dmg_fp ];
+                                3426 [ label="dtoa.cc",metric1=83 ];
+                                3427 [ label="g_fmt.cc",metric1=3 ];
+                            }
+                            subgraph 3428 {
+                                graph [ label=nspr ];
+                                3429 [ label="prtime.cc",metric1=7 ];
+                            }
+                            subgraph 3471 {
+                                graph [ label=nss ];
+                                3472 [ label="sha512.cc",metric1=18 ];
+                            }
+                        }
+                    }
+                    subgraph 3457 {
+                        graph [ label=chrome ];
+                        subgraph 3458 {
+                            graph [ label=common ];
+                            3459 [ label="child_process.cc",metric1=5 ];
+                            3460 [ label="child_process_host.cc",metric1=5 ];
+                            3461 [ label="child_process_info.cc",metric1=2 ];
+                            3462 [ label="child_thread.cc",metric1=3 ];
+                            3463 [ label="chrome_paths.cc",metric1=3 ];
+                            3464 [ label="debug_flags.cc",metric1=2 ];
+                            3465 [ label="ipc_channel_proxy.cc",metric1=9 ];
+                            3466 [ label="ipc_message.cc",metric1=4 ];
+                            3467 [ label="ipc_sync_channel.cc",metric1=9 ];
+                            3468 [ label="ipc_sync_message.cc",metric1=9 ];
+                            3469 [ label="message_router.cc",metric1=2 ];
+                            3470 [ label="notification_service.cc",metric1=6 ];
+                            3491 [ label="file_descriptor_set_posix.cc",metric1=6 ];
+                            3492 [ label="ipc_channel_posix.cc",metric1=43 ];
+                            3493 [ label="process_watcher_posix_sigchld.cc",metric1=9 ];
+                        }
+                    }
+                }
+            }
+            subgraph 3501 {
+                graph [ label=glue ];
+                3502 [ label="AsyncChannel.cpp",metric1=8 ];
+                3503 [ label="BrowserProcessSubThread.cpp",metric1=2 ];
+                3504 [ label="GeckoChildProcessHost.cpp",metric1=9 ];
+                3505 [ label="MozillaChildThread.cpp",metric1=1 ];
+                3506 [ label="MessagePump.cpp",metric1=6 ];
+                3507 [ label="RPCChannel.cpp",metric1=6 ];
+                3508 [ label="Shmem.cpp",metric1=1 ];
+                3509 [ label="SyncChannel.cpp",metric1=6 ];
+            }
+        }
+        subgraph 3510 {
+            graph [ label=modules ];
+            subgraph 3511 {
+                graph [ label=zlib ];
+                subgraph 3512 {
+                    graph [ label=src ];
+                    3513 [ label="adler32.c",metric1=2 ];
+                    3514 [ label="compress.c",metric1=1 ];
+                    3515 [ label="crc32.c",metric1=7 ];
+                    3516 [ label="deflate.c",metric1=34 ];
+                    3517 [ label="gzio.c",metric1=19 ];
+                    3518 [ label="infback.c",metric1=2 ];
+                    3519 [ label="inffast.c",metric1=1 ];
+                    3520 [ label="inflate.c",metric1=10 ];
+                    3521 [ label="inftrees.c",metric1=13 ];
+                    3522 [ label="trees.c",metric1=30 ];
+                    3523 [ label="uncompr.c",metric1=1 ];
+                    3524 [ label="zutil.c",metric1=10 ];
+                }
+            }
+            subgraph 3525 {
+                graph [ label=libreg ];
+                subgraph 3526 {
+                    graph [ label=src ];
+                    3527 [ label="reg.c",metric1=91 ];
+                    3528 [ label="VerReg.c",metric1=61 ];
+                    3529 [ label="nr_bufio.c",metric1=5 ];
+                }
+            }
+            subgraph 3536 {
+                graph [ label=libpref ];
+                subgraph 3537 {
+                    graph [ label=src ];
+                    3538 [ label="nsPref.cpp",metric1=7 ];
+                    3539 [ label="nsPrefBranch.cpp",metric1=19 ];
+                    3540 [ label="nsPrefService.cpp",metric1=12 ];
+                    3541 [ label="nsPrefsFactory.cpp",metric1=9 ];
+                    3542 [ label="prefapi.cpp",metric1=20 ];
+                    3543 [ label="prefread.cpp",metric1=7 ];
+                }
+            }
+            subgraph 3815 {
+                graph [ label=libbz2 ];
+                subgraph 3816 {
+                    graph [ label=src ];
+                    3817 [ label="blocksort.c",metric1=29 ];
+                    3818 [ label="bzlib.c",metric1=78 ];
+                    3819 [ label="compress.c",metric1=66 ];
+                    3820 [ label="decompress.c",metric1=13 ];
+                    3821 [ label="huffman.c",metric1=9 ];
+                }
+            }
+            subgraph 3822 {
+                graph [ label=libmar ];
+                subgraph 3823 {
+                    graph [ label=src ];
+                    3824 [ label="mar_create.c",metric1=2 ];
+                    3825 [ label="mar_extract.c",metric1=2 ];
+                    3826 [ label="mar_read.c",metric1=11 ];
+                }
+                subgraph 3827 {
+                    graph [ label=tool ];
+                    3828 [ label="mar.c",metric1=5 ];
+                }
+            }
+            subgraph 3957 {
+                graph [ label=libjar ];
+                3958 [ label="nsZipArchive.cpp",metric1=17 ];
+                3959 [ label="nsJARInputStream.cpp",metric1=16 ];
+                3960 [ label="nsJAR.cpp",metric1=53 ];
+                3961 [ label="nsJARFactory.cpp",metric1=12 ];
+                3962 [ label="nsXPTZipLoader.cpp",metric1=2 ];
+                3963 [ label="nsJARProtocolHandler.cpp",metric1=11 ];
+                3964 [ label="nsJARChannel.cpp",metric1=29 ];
+                3965 [ label="nsJARURI.cpp",metric1=36 ];
+                subgraph 3966 {
+                    graph [ label=zipwriter ];
+                    subgraph 3967 {
+                        graph [ label=src ];
+                        3968 [ label="StreamFunctions.cpp",metric1=2 ];
+                        3969 [ label="nsDeflateConverter.cpp",metric1=9 ];
+                        3970 [ label="nsZipHeader.cpp",metric1=11 ];
+                        3971 [ label="nsZipDataStream.cpp",metric1=2 ];
+                        3972 [ label="nsZipWriter.cpp",metric1=22 ];
+                        3973 [ label="ZipWriterModule.cpp",metric1=6 ];
+                    }
+                }
+            }
+            subgraph 4147 {
+                graph [ label=libimg ];
+                subgraph 4148 {
+                    graph [ label=png ];
+                    4149 [ label="png.c",metric1=49 ];
+                    4150 [ label="pngerror.c",metric1=2 ];
+                    4151 [ label="pngget.c",metric1=8 ];
+                    4152 [ label="pngset.c",metric1=28 ];
+                    4153 [ label="pngtrans.c",metric1=1 ];
+                    4154 [ label="pngpread.c",metric1=25 ];
+                    4155 [ label="pngread.c",metric1=13 ];
+                    4156 [ label="pngrio.c",metric1=3 ];
+                    4157 [ label="pngrutil.c",metric1=104 ];
+                    4158 [ label="pngwio.c",metric1=4 ];
+                    4159 [ label="pngwrite.c",metric1=16 ];
+                    4160 [ label="pngrtran.c",metric1=21 ];
+                    4161 [ label="pngwutil.c",metric1=29 ];
+                }
+            }
+            subgraph 4352 {
+                graph [ label=libpr0n ];
+                subgraph 4353 {
+                    graph [ label=src ];
+                    4354 [ label="imgContainer.cpp",metric1=47 ];
+                    4355 [ label="imgFrame.cpp",metric1=10 ];
+                    4356 [ label="imgLoader.cpp",metric1=53 ];
+                    4357 [ label="imgRequest.cpp",metric1=32 ];
+                    4358 [ label="imgRequestProxy.cpp",metric1=20 ];
+                    4359 [ label="imgTools.cpp",metric1=3 ];
+                    4360 [ label="imgContainerRequest.cpp",metric1=18 ];
+                }
+                subgraph 4361 {
+                    graph [ label=decoders ];
+                    subgraph 4362 {
+                        graph [ label=png ];
+                        4363 [ label="nsPNGDecoder.cpp",metric1=28 ];
+                    }
+                    subgraph 4364 {
+                        graph [ label=gif ];
+                        4365 [ label="nsGIFDecoder2.cpp",metric1=8 ];
+                    }
+                    subgraph 4366 {
+                        graph [ label=jpeg ];
+                        4367 [ label="iccjpeg.c",metric1=4 ];
+                        4368 [ label="nsJPEGDecoder.cpp",metric1=15 ];
+                    }
+                    subgraph 4369 {
+                        graph [ label=bmp ];
+                        4370 [ label="nsBMPDecoder.cpp",metric1=16 ];
+                        4371 [ label="nsICODecoder.cpp",metric1=10 ];
+                    }
+                }
+                subgraph 4372 {
+                    graph [ label=encoders ];
+                    subgraph 4373 {
+                        graph [ label=png ];
+                        4374 [ label="nsPNGEncoder.cpp",metric1=15 ];
+                    }
+                    subgraph 4375 {
+                        graph [ label=jpeg ];
+                        4376 [ label="nsJPEGEncoder.cpp",metric1=30 ];
+                    }
+                }
+                subgraph 4377 {
+                    graph [ label=build ];
+                    4378 [ label="nsImageModule.cpp",metric1=35 ];
+                }
+            }
+            subgraph 4379 {
+                graph [ label=plugin ];
+                subgraph 4380 {
+                    graph [ label=base ];
+                    subgraph 4381 {
+                        graph [ label=src ];
+                        4382 [ label="nsNPAPIPlugin.cpp",metric1=1 ];
+                        4383 [ label="nsNPAPIPluginInstance.cpp",metric1=19 ];
+                        4384 [ label="nsPluginModule.cpp",metric1=3 ];
+                        4385 [ label="nsJSNPRuntime.cpp",metric1=4 ];
+                        4386 [ label="nsPluginTags.cpp",metric1=16 ];
+                        4387 [ label="nsPluginsDirUnix.cpp",metric1=5 ];
+                        4388 [ label="nsPluginNativeWindowGtk2.cpp",metric1=7 ];
+                    }
+                }
+            }
+        }
+        subgraph 3544 {
+            graph [ label=intl ];
+            subgraph 3545 {
+                graph [ label=locale ];
+                subgraph 3546 {
+                    graph [ label=src ];
+                    3547 [ label="nsCollation.cpp",metric1=3 ];
+                    3548 [ label="nsScriptableDateFormat.cpp",metric1=3 ];
+                    3549 [ label="nsLanguageAtomService.cpp",metric1=1 ];
+                    3550 [ label="nsLocale.cpp",metric1=7 ];
+                    3551 [ label="nsLocaleService.cpp",metric1=10 ];
+                    subgraph 3552 {
+                        graph [ label=unix ];
+                        3553 [ label="nsCollationUnix.cpp",metric1=13 ];
+                        3554 [ label="nsDateTimeFormatUnix.cpp",metric1=2 ];
+                        3555 [ label="nsPosixLocale.cpp",metric1=5 ];
+                    }
+                }
+            }
+            subgraph 3556 {
+                graph [ label=lwbrk ];
+                subgraph 3557 {
+                    graph [ label=src ];
+                    3558 [ label="nsJISx4501LineBreaker.cpp",metric1=8 ];
+                    3559 [ label="nsSampleWordBreaker.cpp",metric1=4 ];
+                    3560 [ label="nsSemanticUnitScanner.cpp",metric1=6 ];
+                    3561 [ label="nsPangoBreaker.cpp",metric1=2 ];
+                }
+            }
+            subgraph 3562 {
+                graph [ label=strres ];
+                subgraph 3563 {
+                    graph [ label=src ];
+                    3564 [ label="nsStringBundle.cpp",metric1=30 ];
+                    3565 [ label="nsStringBundleTextOverride.cpp",metric1=7 ];
+                }
+            }
+            subgraph 3572 {
+                graph [ label=unicharutil ];
+                subgraph 3573 {
+                    graph [ label=src ];
+                    3574 [ label="nsCaseConversionImp2.cpp",metric1=12 ];
+                    3575 [ label="nsCategoryImp.cpp",metric1=1 ];
+                    3576 [ label="nsHankakuToZenkaku.cpp",metric1=6 ];
+                    3577 [ label="nsEntityConverter.cpp",metric1=5 ];
+                    3578 [ label="nsSaveAsCharset.cpp",metric1=7 ];
+                    3579 [ label="nsUnicodeNormalizer.cpp",metric1=19 ];
+                }
+            }
+            subgraph 3580 {
+                graph [ label=uconv ];
+                subgraph 3581 {
+                    graph [ label=util ];
+                    3582 [ label="ugen.c",metric1=49 ];
+                    3583 [ label="uscan.c",metric1=74 ];
+                    3584 [ label="umap.c",metric1=21 ];
+                    3585 [ label="nsUCSupport.cpp",metric1=25 ];
+                    3586 [ label="nsUnicodeDecodeHelper.cpp",metric1=14 ];
+                    3587 [ label="nsUnicodeEncodeHelper.cpp",metric1=9 ];
+                }
+                subgraph 3588 {
+                    graph [ label=ucvja ];
+                    3589 [ label="nsJapaneseToUnicode.cpp",metric1=6 ];
+                    3590 [ label="nsUnicodeToISO2022JP.cpp",metric1=6 ];
+                }
+                subgraph 3591 {
+                    graph [ label=ucvcn ];
+                    3592 [ label="nsUnicodeToGB2312V2.cpp",metric1=5 ];
+                    3593 [ label="nsGBKToUnicode.cpp",metric1=13 ];
+                    3594 [ label="nsUnicodeToGBK.cpp",metric1=12 ];
+                    3595 [ label="nsISO2022CNToUnicode.cpp",metric1=2 ];
+                    3596 [ label="nsHZToUnicode.cpp",metric1=5 ];
+                    3597 [ label="nsUnicodeToHZ.cpp",metric1=8 ];
+                    3598 [ label="nsGBKConvUtil.cpp",metric1=4 ];
+                }
+                subgraph 3599 {
+                    graph [ label=ucvlatin ];
+                    3600 [ label="nsUTF7ToUnicode.cpp",metric1=7 ];
+                    3601 [ label="nsUCS2BEToUnicode.cpp",metric1=9 ];
+                    3602 [ label="nsUTF32ToUnicode.cpp",metric1=9 ];
+                    3603 [ label="nsUnicodeToUTF7.cpp",metric1=7 ];
+                    3604 [ label="nsUnicodeToUCS2BE.cpp",metric1=10 ];
+                    3605 [ label="nsUnicodeToUTF32.cpp",metric1=9 ];
+                    3606 [ label="nsUnicodeToTSCII.cpp",metric1=38 ];
+                }
+                subgraph 3607 {
+                    graph [ label=ucvko ];
+                    3608 [ label="nsISO2022KRToUnicode.cpp",metric1=2 ];
+                    3609 [ label="nsUnicodeToJamoTTF.cpp",metric1=31 ];
+                }
+                subgraph 3610 {
+                    graph [ label=src ];
+                    3611 [ label="nsUConvModule.cpp",metric1=105 ];
+                    3612 [ label="nsCharsetAliasImp.cpp",metric1=5 ];
+                    3613 [ label="nsConverterInputStream.cpp",metric1=5 ];
+                    3614 [ label="nsConverterOutputStream.cpp",metric1=3 ];
+                    3615 [ label="nsTextToSubURI.cpp",metric1=2 ];
+                    3616 [ label="nsCharsetConverterManager.cpp",metric1=9 ];
+                    3617 [ label="nsUTF8ConverterService.cpp",metric1=1 ];
+                    3618 [ label="nsUTF8ToUnicode.cpp",metric1=11 ];
+                    3619 [ label="nsUnicodeToUTF8.cpp",metric1=28 ];
+                    3620 [ label="nsScriptableUConv.cpp",metric1=11 ];
+                    3621 [ label="nsUNIXCharset.cpp",metric1=6 ];
+                }
+            }
+            subgraph 3622 {
+                graph [ label=build ];
+                3623 [ label="nsI18nModule.cpp",metric1=4 ];
+            }
+            subgraph 3943 {
+                graph [ label=chardet ];
+                subgraph 3944 {
+                    graph [ label=src ];
+                    3945 [ label="nsObserverBase.cpp",metric1=1 ];
+                    3946 [ label="nsXMLEncodingObserver.cpp",metric1=5 ];
+                    3947 [ label="nsMetaCharsetObserver.cpp",metric1=10 ];
+                    3948 [ label="nsDetectionAdaptor.cpp",metric1=8 ];
+                    3949 [ label="nsDebugDetector.cpp",metric1=2 ];
+                    3950 [ label="nsCyrillicDetector.cpp",metric1=4 ];
+                    3951 [ label="nsDocumentCharsetInfo.cpp",metric1=6 ];
+                    3952 [ label="nsChardetModule.cpp",metric1=26 ];
+                }
+            }
+        }
+        subgraph 3624 {
+            graph [ label=netwerk ];
+            subgraph 3625 {
+                graph [ label=base ];
+                subgraph 3626 {
+                    graph [ label=src ];
+                    3627 [ label="nsTransportUtils.cpp",metric1=2 ];
+                    3628 [ label="nsAsyncStreamCopier.cpp",metric1=9 ];
+                    3629 [ label="nsAuthInformationHolder.cpp",metric1=2 ];
+                    3630 [ label="nsBaseChannel.cpp",metric1=21 ];
+                    3631 [ label="nsBaseContentStream.cpp",metric1=10 ];
+                    3632 [ label="nsBufferedStreams.cpp",metric1=16 ];
+                    3633 [ label="nsDirectoryIndexStream.cpp",metric1=15 ];
+                    3634 [ label="nsDownloader.cpp",metric1=11 ];
+                    3635 [ label="nsFileStreams.cpp",metric1=27 ];
+                    3636 [ label="nsIncrementalDownload.cpp",metric1=25 ];
+                    3637 [ label="nsInputStreamChannel.cpp",metric1=5 ];
+                    3638 [ label="nsInputStreamPump.cpp",metric1=15 ];
+                    3639 [ label="nsStreamTransportService.cpp",metric1=34 ];
+                    3640 [ label="nsIOService.cpp",metric1=23 ];
+                    3641 [ label="nsLoadGroup.cpp",metric1=22 ];
+                    3642 [ label="nsMIMEInputStream.cpp",metric1=5 ];
+                    3643 [ label="nsProtocolProxyService.cpp",metric1=34 ];
+                    3644 [ label="nsProxyInfo.cpp",metric1=5 ];
+                    3645 [ label="nsPACMan.cpp",metric1=15 ];
+                    3646 [ label="nsRequestObserverProxy.cpp",metric1=6 ];
+                    3647 [ label="nsSimpleStreamListener.cpp",metric1=4 ];
+                    3648 [ label="nsSimpleURI.cpp",metric1=31 ];
+                    3649 [ label="nsSimpleNestedURI.cpp",metric1=5 ];
+                    3650 [ label="nsStandardURL.cpp",metric1=50 ];
+                    3651 [ label="nsSocketTransport2.cpp",metric1=51 ];
+                    3652 [ label="nsSocketTransportService2.cpp",metric1=19 ];
+                    3653 [ label="nsServerSocket.cpp",metric1=7 ];
+                    3654 [ label="nsStreamListenerTee.cpp",metric1=1 ];
+                    3655 [ label="nsStreamLoader.cpp",metric1=12 ];
+                    3656 [ label="nsSyncStreamListener.cpp",metric1=13 ];
+                    3657 [ label="nsUnicharStreamLoader.cpp",metric1=14 ];
+                    3658 [ label="nsURIChecker.cpp",metric1=17 ];
+                    3659 [ label="nsURLHelper.cpp",metric1=27 ];
+                    3660 [ label="nsURLParsers.cpp",metric1=19 ];
+                    3661 [ label="nsBase64Encoder.cpp",metric1=10 ];
+                    3662 [ label="nsDNSPrefetch.cpp",metric1=5 ];
+                    3663 [ label="nsURLHelperUnix.cpp",metric1=2 ];
+                }
+            }
+            subgraph 3664 {
+                graph [ label=cookie ];
+                subgraph 3665 {
+                    graph [ label=src ];
+                    3666 [ label="nsCookie.cpp",metric1=12 ];
+                    3667 [ label="nsCookieService.cpp",metric1=37 ];
+                }
+            }
+            subgraph 3668 {
+                graph [ label=dns ];
+                subgraph 3669 {
+                    graph [ label=src ];
+                    3670 [ label="race.c",metric1=9 ];
+                    3671 [ label="nameprep.c",metric1=13 ];
+                    3672 [ label="punycode.c",metric1=7 ];
+                    3673 [ label="nsIDNService.cpp",metric1=10 ];
+                    3674 [ label="nsDNSService2.cpp",metric1=14 ];
+                    3675 [ label="nsHostResolver.cpp",metric1=31 ];
+                    3676 [ label="nsEffectiveTLDService.cpp",metric1=2 ];
+                }
+            }
+            subgraph 3677 {
+                graph [ label=socket ];
+                subgraph 3678 {
+                    graph [ label=base ];
+                    3679 [ label="nsSocketProviderService.cpp",metric1=2 ];
+                    3680 [ label="nsSOCKSSocketProvider.cpp",metric1=4 ];
+                    3681 [ label="nsSOCKSIOLayer.cpp",metric1=31 ];
+                    3682 [ label="nsUDPSocketProvider.cpp",metric1=16 ];
+                }
+            }
+            subgraph 3683 {
+                graph [ label=mime ];
+                subgraph 3684 {
+                    graph [ label=src ];
+                    3685 [ label="nsMIMEHeaderParamImpl.cpp",metric1=15 ];
+                }
+            }
+            subgraph 3686 {
+                graph [ label=streamconv ];
+                subgraph 3687 {
+                    graph [ label=src ];
+                    3688 [ label="nsStreamConverterService.cpp",metric1=21 ];
+                }
+                subgraph 3689 {
+                    graph [ label=converters ];
+                    3690 [ label="mozTXTToHTMLConv.cpp",metric1=42 ];
+                    3691 [ label="nsUnknownDecoder.cpp",metric1=23 ];
+                    3692 [ label="nsHTTPCompressConv.cpp",metric1=12 ];
+                    3693 [ label="nsTXTToHTMLConv.cpp",metric1=20 ];
+                    3694 [ label="nsDirIndex.cpp",metric1=5 ];
+                    3695 [ label="nsDirIndexParser.cpp",metric1=20 ];
+                    3696 [ label="nsIndexedToHTML.cpp",metric1=14 ];
+                    3697 [ label="nsMultiMixedConv.cpp",metric1=39 ];
+                    3698 [ label="ParseFTPList.cpp",metric1=13 ];
+                    3699 [ label="nsFTPDirListingConv.cpp",metric1=15 ];
+                    3700 [ label="nsGopherDirListingConv.cpp",metric1=14 ];
+                    3701 [ label="nsBinHexDecoder.cpp",metric1=23 ];
+                }
+            }
+            subgraph 3702 {
+                graph [ label=cache ];
+                subgraph 3703 {
+                    graph [ label=src ];
+                    3704 [ label="nsCache.cpp",metric1=1 ];
+                    3705 [ label="nsCacheEntry.cpp",metric1=27 ];
+                    3706 [ label="nsCacheEntryDescriptor.cpp",metric1=32 ];
+                    3707 [ label="nsCacheMetaData.cpp",metric1=1 ];
+                    3708 [ label="nsCacheService.cpp",metric1=42 ];
+                    3709 [ label="nsCacheSession.cpp",metric1=2 ];
+                    3710 [ label="nsMemoryCacheDevice.cpp",metric1=23 ];
+                    3711 [ label="nsDiskCacheBinding.cpp",metric1=16 ];
+                    3712 [ label="nsDiskCacheBlockFile.cpp",metric1=6 ];
+                    3713 [ label="nsDiskCacheDevice.cpp",metric1=21 ];
+                    3714 [ label="nsDiskCacheEntry.cpp",metric1=8 ];
+                    3715 [ label="nsDiskCacheMap.cpp",metric1=29 ];
+                    3716 [ label="nsDiskCacheStreams.cpp",metric1=27 ];
+                    3717 [ label="nsDeleteDir.cpp",metric1=3 ];
+                    3718 [ label="nsDiskCacheDeviceSQL.cpp",metric1=68 ];
+                }
+            }
+            subgraph 3719 {
+                graph [ label=protocol ];
+                subgraph 3720 {
+                    graph [ label=about ];
+                    subgraph 3721 {
+                        graph [ label=src ];
+                        3722 [ label="nsAboutProtocolHandler.cpp",metric1=27 ];
+                        3723 [ label="nsAboutBlank.cpp",metric1=6 ];
+                        3724 [ label="nsAboutCache.cpp",metric1=13 ];
+                        3725 [ label="nsAboutCacheEntry.cpp",metric1=10 ];
+                    }
+                }
+                subgraph 3726 {
+                    graph [ label=data ];
+                    subgraph 3727 {
+                        graph [ label=src ];
+                        3728 [ label="nsDataHandler.cpp",metric1=15 ];
+                        3729 [ label="nsDataChannel.cpp",metric1=4 ];
+                    }
+                }
+                subgraph 3730 {
+                    graph [ label=file ];
+                    subgraph 3731 {
+                        graph [ label=src ];
+                        3732 [ label="nsFileProtocolHandler.cpp",metric1=9 ];
+                        3733 [ label="nsFileChannel.cpp",metric1=13 ];
+                    }
+                }
+                subgraph 3734 {
+                    graph [ label=ftp ];
+                    subgraph 3735 {
+                        graph [ label=src ];
+                        3736 [ label="nsFtpProtocolHandler.cpp",metric1=16 ];
+                        3737 [ label="nsFTPChannel.cpp",metric1=9 ];
+                        3738 [ label="nsFtpConnectionThread.cpp",metric1=19 ];
+                        3739 [ label="nsFtpControlConnection.cpp",metric1=3 ];
+                    }
+                }
+                subgraph 3740 {
+                    graph [ label=gopher ];
+                    subgraph 3741 {
+                        graph [ label=src ];
+                        3742 [ label="nsGopherHandler.cpp",metric1=9 ];
+                        3743 [ label="nsGopherChannel.cpp",metric1=9 ];
+                    }
+                }
+                subgraph 3744 {
+                    graph [ label=http ];
+                    subgraph 3745 {
+                        graph [ label=src ];
+                        3746 [ label="nsHttp.cpp",metric1=7 ];
+                        3747 [ label="nsHttpHeaderArray.cpp",metric1=3 ];
+                        3748 [ label="nsHttpConnection.cpp",metric1=20 ];
+                        3749 [ label="nsHttpConnectionMgr.cpp",metric1=33 ];
+                        3750 [ label="nsHttpResponseHead.cpp",metric1=11 ];
+                        3751 [ label="nsHttpChunkedDecoder.cpp",metric1=4 ];
+                        3752 [ label="nsHttpAuthCache.cpp",metric1=20 ];
+                        3753 [ label="nsHttpAuthManager.cpp",metric1=4 ];
+                        3754 [ label="nsHttpBasicAuth.cpp",metric1=15 ];
+                        3755 [ label="nsHttpDigestAuth.cpp",metric1=22 ];
+                        3756 [ label="nsHttpNTLMAuth.cpp",metric1=15 ];
+                        3757 [ label="nsHttpTransaction.cpp",metric1=26 ];
+                        3758 [ label="nsHttpHandler.cpp",metric1=40 ];
+                        3759 [ label="nsHttpChannel.cpp",metric1=54 ];
+                        3760 [ label="nsHttpPipeline.cpp",metric1=14 ];
+                        3761 [ label="nsHttpActivityDistributor.cpp",metric1=3 ];
+                    }
+                }
+                subgraph 3762 {
+                    graph [ label=res ];
+                    subgraph 3763 {
+                        graph [ label=src ];
+                        3764 [ label="nsResProtocolHandler.cpp",metric1=12 ];
+                    }
+                }
+                subgraph 3765 {
+                    graph [ label=viewsource ];
+                    subgraph 3766 {
+                        graph [ label=src ];
+                        3767 [ label="nsViewSourceHandler.cpp",metric1=11 ];
+                        3768 [ label="nsViewSourceChannel.cpp",metric1=8 ];
+                    }
+                }
+            }
+            subgraph 3769 {
+                graph [ label=build ];
+                3770 [ label="nsNetModule.cpp",metric1=115 ];
+            }
+        }
+        subgraph 3771 {
+            graph [ label=extensions ];
+            subgraph 3772 {
+                graph [ label=auth ];
+                3773 [ label="nsAuthFactory.cpp",metric1=10 ];
+                3774 [ label="nsHttpNegotiateAuth.cpp",metric1=18 ];
+                3775 [ label="nsAuthGSSAPI.cpp",metric1=12 ];
+                3776 [ label="nsAuthSASL.cpp",metric1=15 ];
+                3777 [ label="nsAuthSambaNTLM.cpp",metric1=26 ];
+            }
+            subgraph 3980 {
+                graph [ label=cookie ];
+                3981 [ label="nsCookieModule.cpp",metric1=10 ];
+                3982 [ label="nsPermission.cpp",metric1=4 ];
+                3983 [ label="nsPermissionManager.cpp",metric1=5 ];
+                3984 [ label="nsPopupWindowManager.cpp",metric1=4 ];
+                3985 [ label="nsCookiePromptService.cpp",metric1=3 ];
+                3986 [ label="nsCookiePermission.cpp",metric1=12 ];
+            }
+            subgraph 3987 {
+                graph [ label=permissions ];
+                3988 [ label="nsModuleFactory.cpp",metric1=13 ];
+                3989 [ label="nsContentBlocker.cpp",metric1=9 ];
+            }
+        }
+        subgraph 3778 {
+            graph [ label=jpeg ];
+            3779 [ label="jdapimin.c",metric1=7 ];
+            3780 [ label="jdapistd.c",metric1=6 ];
+            3781 [ label="jdatasrc.c",metric1=5 ];
+            3782 [ label="jdatadst.c",metric1=6 ];
+            3783 [ label="jdmaster.c",metric1=8 ];
+            3784 [ label="jdinput.c",metric1=8 ];
+            3785 [ label="jdmarker.c",metric1=31 ];
+            3786 [ label="jdhuff.c",metric1=16 ];
+            3787 [ label="jdphuff.c",metric1=16 ];
+            3788 [ label="jdmainct.c",metric1=9 ];
+            3789 [ label="jdcoefct.c",metric1=13 ];
+            3790 [ label="jdpostct.c",metric1=4 ];
+            3791 [ label="jddctmgr.c",metric1=2 ];
+            3792 [ label="jidctint.c",metric1=3 ];
+            3793 [ label="jdsample.c",metric1=34 ];
+            3794 [ label="jdcolor.c",metric1=21 ];
+            3795 [ label="jdmerge.c",metric1=19 ];
+            3796 [ label="jcomapi.c",metric1=4 ];
+            3797 [ label="jutils.c",metric1=3 ];
+            3798 [ label="jerror.c",metric1=6 ];
+            3799 [ label="jmemmgr.c",metric1=23 ];
+            3800 [ label="jmemnobs.c",metric1=14 ];
+            3801 [ label="jcapimin.c",metric1=8 ];
+            3802 [ label="jcparam.c",metric1=16 ];
+            3803 [ label="jcapistd.c",metric1=3 ];
+            3804 [ label="jcmarker.c",metric1=17 ];
+            3805 [ label="jcinit.c",metric1=1 ];
+            3806 [ label="jcmainct.c",metric1=4 ];
+            3807 [ label="jchuff.c",metric1=27 ];
+            3808 [ label="jcsample.c",metric1=21 ];
+            3809 [ label="jcmaster.c",metric1=10 ];
+            3810 [ label="jccoefct.c",metric1=9 ];
+            3811 [ label="jccolor.c",metric1=18 ];
+            3812 [ label="jcphuff.c",metric1=20 ];
+            3813 [ label="jcdctmgr.c",metric1=6 ];
+            3814 [ label="jcprepct.c",metric1=6 ];
+        }
+        subgraph 3829 {
+            graph [ label=gfx ];
+            subgraph 3830 {
+                graph [ label=qcms ];
+                3831 [ label="iccread.c",metric1=28 ];
+                3832 [ label="transform.c",metric1=61 ];
+                3833 [ label="transform-sse2.c",metric1=8 ];
+                3834 [ label="transform-sse1.c",metric1=8 ];
+            }
+            subgraph 4213 {
+                graph [ label=cairo ];
+                subgraph 4214 {
+                    graph [ label=libpixman ];
+                    subgraph 4215 {
+                        graph [ label=src ];
+                        4216 [ label="pixman-access.c",metric1=271 ];
+                        4217 [ label="pixman-bits-image.c",metric1=41 ];
+                        4218 [ label="pixman.c",metric1=26 ];
+                        4226 [ label="pixman-conical-gradient.c",metric1=5 ];
+                        4227 [ label="pixman-cpu.c",metric1=1 ];
+                        4228 [ label="pixman-edge.c",metric1=28 ];
+                        4229 [ label="pixman-fast-path.c",metric1=148 ];
+                        4230 [ label="pixman-general.c",metric1=29 ];
+                        4231 [ label="pixman-gradient-walker.c",metric1=4 ];
+                        4232 [ label="pixman-image.c",metric1=27 ];
+                        4233 [ label="pixman-implementation.c",metric1=14 ];
+                        4234 [ label="pixman-linear-gradient.c",metric1=13 ];
+                        4235 [ label="pixman-matrix.c",metric1=40 ];
+                        4236 [ label="pixman-radial-gradient.c",metric1=6 ];
+                        4237 [ label="pixman-solid-fill.c",metric1=12 ];
+                        4238 [ label="pixman-trap.c",metric1=14 ];
+                        4239 [ label="pixman-utils.c",metric1=25 ];
+                        4240 [ label="pixman-mmx.c",metric1=232 ];
+                    }
+                }
+                subgraph 4241 {
+                    graph [ label=cairo ];
+                    subgraph 4242 {
+                        graph [ label=src ];
+                        4243 [ label="cairo.c",metric1=103 ];
+                        4244 [ label="cairo-analysis-surface.c",metric1=27 ];
+                        4245 [ label="cairo-arc.c",metric1=1 ];
+                        4246 [ label="cairo-array.c",metric1=18 ];
+                        4247 [ label="cairo-atomic.c",metric1=4 ];
+                        4248 [ label="cairo-bentley-ottmann.c",metric1=54 ];
+                        4249 [ label="cairo-cache.c",metric1=13 ];
+                        4250 [ label="cairo-clip.c",metric1=28 ];
+                        4251 [ label="cairo-color.c",metric1=20 ];
+                        4252 [ label="cairo-deflate-stream.c",metric1=3 ];
+                        4253 [ label="cairo-font-face.c",metric1=7 ];
+                        4254 [ label="cairo-font-face-twin.c",metric1=28 ];
+                        4255 [ label="cairo-font-options.c",metric1=16 ];
+                        4256 [ label="cairo-freelist.c",metric1=5 ];
+                        4257 [ label="cairo-gstate.c",metric1=116 ];
+                        4258 [ label="cairo-hash.c",metric1=12 ];
+                        4259 [ label="cairo-hull.c",metric1=12 ];
+                        4260 [ label="cairo-image-info.c",metric1=7 ];
+                        4261 [ label="cairo-image-surface.c",metric1=57 ];
+                        4262 [ label="cairo-lzw.c",metric1=11 ];
+                        4263 [ label="cairo-matrix.c",metric1=66 ];
+                        4264 [ label="cairo-meta-surface.c",metric1=37 ];
+                        4265 [ label="cairo-misc.c",metric1=7 ];
+                        4266 [ label="cairo-output-stream.c",metric1=20 ];
+                        4267 [ label="cairo-paginated-surface.c",metric1=16 ];
+                        4268 [ label="cairo-path.c",metric1=15 ];
+                        4269 [ label="cairo-path-bounds.c",metric1=21 ];
+                        4270 [ label="cairo-path-fill.c",metric1=5 ];
+                        4271 [ label="cairo-path-fixed.c",metric1=93 ];
+                        4272 [ label="cairo-path-in-fill.c",metric1=14 ];
+                        4273 [ label="cairo-path-stroke.c",metric1=53 ];
+                        4274 [ label="cairo-pattern.c",metric1=109 ];
+                        4275 [ label="cairo-pen.c",metric1=20 ];
+                        4276 [ label="cairo-polygon.c",metric1=12 ];
+                        4277 [ label="cairo-rectangle.c",metric1=21 ];
+                        4278 [ label="cairo-region.c",metric1=39 ];
+                        4279 [ label="cairo-scaled-font.c",metric1=104 ];
+                        4280 [ label="cairo-scaled-font-subsets.c",metric1=33 ];
+                        4281 [ label="cairo-skiplist.c",metric1=17 ];
+                        4282 [ label="cairo-slope.c",metric1=5 ];
+                        4283 [ label="cairo-spans.c",metric1=45 ];
+                        4284 [ label="cairo-spline.c",metric1=19 ];
+                        4285 [ label="cairo-stroke-style.c",metric1=8 ];
+                        4286 [ label="cairo-surface.c",metric1=120 ];
+                        4287 [ label="cairo-surface-fallback.c",metric1=39 ];
+                        4288 [ label="cairo-tor-scan-converter.c",metric1=43 ];
+                        4289 [ label="cairo-toy-font-face.c",metric1=15 ];
+                        4290 [ label="cairo-traps.c",metric1=36 ];
+                        4291 [ label="cairo-unicode.c",metric1=19 ];
+                        4292 [ label="cairo-user-font.c",metric1=17 ];
+                        4293 [ label="cairo-wideint.c",metric1=10 ];
+                        4294 [ label="cairo-base85-stream.c",metric1=3 ];
+                        4295 [ label="cairo-type1-fallback.c",metric1=27 ];
+                        4296 [ label="cairo-type3-glyph-surface.c",metric1=36 ];
+                        4297 [ label="cairo-truetype-subset.c",metric1=53 ];
+                        4298 [ label="cairo-cff-subset.c",metric1=74 ];
+                        4299 [ label="cairo-pdf-surface.c",metric1=194 ];
+                        4300 [ label="cairo-pdf-operators.c",metric1=76 ];
+                        4301 [ label="cairo-ps-surface.c",metric1=114 ];
+                        4302 [ label="cairo-xlib-surface.c",metric1=133 ];
+                        4303 [ label="cairo-xlib-screen.c",metric1=22 ];
+                        4304 [ label="cairo-xlib-visual.c",metric1=3 ];
+                        4305 [ label="cairo-xlib-display.c",metric1=20 ];
+                        4306 [ label="cairo-ft-font.c",metric1=71 ];
+                        4307 [ label="cairo-type1-subset.c",metric1=32 ];
+                    }
+                }
+            }
+            subgraph 4308 {
+                graph [ label=thebes ];
+                subgraph 4309 {
+                    graph [ label=src ];
+                    4310 [ label="cairo-xlib-utils.c",metric1=19 ];
+                    4311 [ label="woff.c",metric1=27 ];
+                    4312 [ label="gfxASurface.cpp",metric1=2 ];
+                    4313 [ label="gfxAlphaRecovery.cpp",metric1=7 ];
+                    4314 [ label="gfxBlur.cpp",metric1=10 ];
+                    4315 [ label="gfxContext.cpp",metric1=15 ];
+                    4316 [ label="gfxImageSurface.cpp",metric1=5 ];
+                    4317 [ label="gfxFont.cpp",metric1=89 ];
+                    4318 [ label="gfxFontMissingGlyphs.cpp",metric1=2 ];
+                    4319 [ label="gfxFontUtils.cpp",metric1=14 ];
+                    4320 [ label="gfxPath.cpp",metric1=1 ];
+                    4321 [ label="gfxPattern.cpp",metric1=1 ];
+                    4322 [ label="gfxPlatform.cpp",metric1=21 ];
+                    4323 [ label="gfxPlatformFontList.cpp",metric1=13 ];
+                    4324 [ label="gfxTextRunWordCache.cpp",metric1=35 ];
+                    4325 [ label="gfxUserFontSet.cpp",metric1=8 ];
+                    4326 [ label="gfxPangoFonts.cpp",metric1=60 ];
+                    4327 [ label="gfxXlibSurface.cpp",metric1=5 ];
+                    4328 [ label="gfxPlatformGtk.cpp",metric1=9 ];
+                    4329 [ label="gfxGdkNativeRenderer.cpp",metric1=1 ];
+                    4330 [ label="gfxPDFSurface.cpp",metric1=4 ];
+                    4331 [ label="gfxPSSurface.cpp",metric1=4 ];
+                    4332 [ label="gfxFontconfigUtils.cpp",metric1=6 ];
+                    4333 [ label="gfxFT2FontBase.cpp",metric1=3 ];
+                    4334 [ label="gfxFT2Utils.cpp",metric1=3 ];
+                    4335 [ label="nsUnicodeRange.cpp",metric1=1 ];
+                }
+            }
+            subgraph 4336 {
+                graph [ label=src ];
+                4337 [ label="nsColor.cpp",metric1=1 ];
+                4338 [ label="nsFont.cpp",metric1=15 ];
+                4339 [ label="nsRegion.cpp",metric1=9 ];
+                4340 [ label="nsTransform2D.cpp",metric1=6 ];
+                4341 [ label="nsScriptableRegion.cpp",metric1=5 ];
+                subgraph 4342 {
+                    graph [ label=thebes ];
+                    4343 [ label="nsThebesDeviceContext.cpp",metric1=23 ];
+                    4344 [ label="nsThebesRegion.cpp",metric1=6 ];
+                    4345 [ label="nsThebesGfxFactory.cpp",metric1=14 ];
+                    4346 [ label="nsThebesRenderingContext.cpp",metric1=53 ];
+                    4347 [ label="nsThebesFontMetrics.cpp",metric1=45 ];
+                    4348 [ label="nsThebesFontEnumerator.cpp",metric1=10 ];
+                    4349 [ label="nsSystemFontsGTK2.cpp",metric1=4 ];
+                }
+                subgraph 4350 {
+                    graph [ label=psshared ];
+                    4351 [ label="nsPSPrinters.cpp",metric1=2 ];
+                }
+            }
+        }
+        subgraph 3953 {
+            graph [ label=widget ];
+            subgraph 3954 {
+                graph [ label=src ];
+                subgraph 3955 {
+                    graph [ label=gtkxtbin ];
+                    3956 [ label="gtk2xtbin.c",metric1=28 ];
+                }
+                subgraph 4454 {
+                    graph [ label=xpwidgets ];
+                    4455 [ label="nsBaseAppShell.cpp",metric1=10 ];
+                    4456 [ label="nsBaseWidget.cpp",metric1=38 ];
+                    4457 [ label="nsTransferable.cpp",metric1=17 ];
+                    4458 [ label="nsHTMLFormatConverter.cpp",metric1=3 ];
+                    4459 [ label="nsBaseDragService.cpp",metric1=31 ];
+                    4460 [ label="nsPrimitiveHelpers.cpp",metric1=5 ];
+                    4461 [ label="nsXPLookAndFeel.cpp",metric1=9 ];
+                    4462 [ label="nsClipboardHelper.cpp",metric1=1 ];
+                    4463 [ label="nsPrintOptionsImpl.cpp",metric1=17 ];
+                    4464 [ label="nsPrintSettingsImpl.cpp",metric1=106 ];
+                    4465 [ label="nsPrintSession.cpp",metric1=1 ];
+                    4466 [ label="nsIdleService.cpp",metric1=3 ];
+                    4467 [ label="nsClipboardPrivacyHandler.cpp",metric1=4 ];
+                    4468 [ label="nsAccelerometer.cpp",metric1=6 ];
+                    4469 [ label="nsBaseFilePicker.cpp",metric1=3 ];
+                    4470 [ label="nsNativeTheme.cpp",metric1=3 ];
+                }
+                subgraph 4471 {
+                    graph [ label=gtk2 ];
+                    4472 [ label="mozcontainer.c",metric1=24 ];
+                    4473 [ label="gtk2drawing.c",metric1=110 ];
+                    4475 [ label="nsAppShell.cpp",metric1=2 ];
+                    4476 [ label="nsWidgetFactory.cpp",metric1=45 ];
+                    4477 [ label="nsToolkit.cpp",metric1=3 ];
+                    4478 [ label="nsBidiKeyboard.cpp",metric1=3 ];
+                    4479 [ label="nsLookAndFeel.cpp",metric1=4 ];
+                    4480 [ label="nsGtkKeyUtils.cpp",metric1=3 ];
+                    4481 [ label="nsFilePicker.cpp",metric1=11 ];
+                    4482 [ label="nsSound.cpp",metric1=7 ];
+                    4483 [ label="nsNativeKeyBindings.cpp",metric1=14 ];
+                    4484 [ label="nsScreenGtk.cpp",metric1=11 ];
+                    4485 [ label="nsScreenManagerGtk.cpp",metric1=7 ];
+                    4486 [ label="nsImageToPixbuf.cpp",metric1=6 ];
+                    4487 [ label="nsAccelerometerUnix.cpp",metric1=7 ];
+                    4488 [ label="nsIdleServiceGTK.cpp",metric1=3 ];
+                    4489 [ label="nsDeviceContextSpecG.cpp",metric1=26 ];
+                    4490 [ label="nsPrintOptionsGTK.cpp",metric1=2 ];
+                    4491 [ label="nsPrintDialogGTK.cpp",metric1=9 ];
+                    4492 [ label="nsPrintSettingsGTK.cpp",metric1=23 ];
+                    4493 [ label="nsClipboard.cpp",metric1=25 ];
+                    4494 [ label="nsDragService.cpp",metric1=6 ];
+                    4495 [ label="nsNativeThemeGTK.cpp",metric1=24 ];
+                }
+            }
+        }
+        subgraph 3990 {
+            graph [ label=storage ];
+            subgraph 3991 {
+                graph [ label=src ];
+                3992 [ label="mozStorageService.cpp",metric1=6 ];
+                3993 [ label="mozStorageConnection.cpp",metric1=13 ];
+                3994 [ label="mozStorageStatement.cpp",metric1=46 ];
+                3995 [ label="mozStorageStatementWrapper.cpp",metric1=10 ];
+                3996 [ label="mozStorageStatementParams.cpp",metric1=13 ];
+                3997 [ label="mozStorageStatementRow.cpp",metric1=8 ];
+                3998 [ label="mozStorageArgValueArray.cpp",metric1=13 ];
+                3999 [ label="mozStorageSQLFunctions.cpp",metric1=6 ];
+                4000 [ label="mozStorageRow.cpp",metric1=5 ];
+                4001 [ label="mozStorageResultSet.cpp",metric1=2 ];
+                4002 [ label="mozStorageError.cpp",metric1=2 ];
+                4003 [ label="mozStorageAsyncStatementExecution.cpp",metric1=4 ];
+                4004 [ label="mozStorageStatementJSHelper.cpp",metric1=12 ];
+                4005 [ label="mozStoragePrivateHelpers.cpp",metric1=1 ];
+                4006 [ label="mozStorageBindingParamsArray.cpp",metric1=1 ];
+                4007 [ label="mozStorageBindingParams.cpp",metric1=1 ];
+            }
+            subgraph 4008 {
+                graph [ label=build ];
+                4009 [ label="mozStorageModule.cpp",metric1=5 ];
+            }
+        }
+        subgraph 4010 {
+            graph [ label=rdf ];
+            subgraph 4011 {
+                graph [ label=base ];
+                subgraph 4012 {
+                    graph [ label=src ];
+                    4013 [ label="rdfTriplesSerializer.cpp",metric1=5 ];
+                    4014 [ label="nsCompositeDataSource.cpp",metric1=28 ];
+                    4015 [ label="nsContainerEnumerator.cpp",metric1=4 ];
+                    4016 [ label="nsInMemoryDataSource.cpp",metric1=68 ];
+                    4017 [ label="nsNameSpaceMap.cpp",metric1=2 ];
+                    4018 [ label="nsRDFContentSink.cpp",metric1=40 ];
+                    4019 [ label="nsRDFContainer.cpp",metric1=9 ];
+                    4020 [ label="nsRDFContainerUtils.cpp",metric1=6 ];
+                    4021 [ label="nsRDFService.cpp",metric1=52 ];
+                    4022 [ label="nsRDFXMLDataSource.cpp",metric1=10 ];
+                    4023 [ label="nsRDFXMLParser.cpp",metric1=2 ];
+                    4024 [ label="nsRDFXMLSerializer.cpp",metric1=16 ];
+                }
+            }
+            subgraph 4030 {
+                graph [ label=datasource ];
+                subgraph 4031 {
+                    graph [ label=src ];
+                    4032 [ label="nsLocalStore.cpp",metric1=16 ];
+                    4033 [ label="nsFileSystemDataSource.cpp",metric1=52 ];
+                }
+            }
+            subgraph 4034 {
+                graph [ label=build ];
+                4035 [ label="nsRDFModule.cpp",metric1=4 ];
+            }
+        }
+        subgraph 4049 {
+            graph [ label=media ];
+            subgraph 4050 {
+                graph [ label=libfishsound ];
+                subgraph 4051 {
+                    graph [ label=src ];
+                    subgraph 4052 {
+                        graph [ label=libfishsound ];
+                        4053 [ label="fishsound_comments.c",metric1=23 ];
+                        4054 [ label="fishsound_decode.c",metric1=3 ];
+                        4055 [ label="fishsound.c",metric1=7 ];
+                        4056 [ label="fs_vector.c",metric1=7 ];
+                        4057 [ label="fishsound_speex.c",metric1=2 ];
+                        4058 [ label="fishsound_vorbis.c",metric1=13 ];
+                        4059 [ label="fishsound_flac.c",metric1=2 ];
+                    }
+                }
+            }
+            subgraph 4060 {
+                graph [ label=libogg ];
+                subgraph 4061 {
+                    graph [ label=src ];
+                    4062 [ label="ogg_bitwise.c",metric1=24 ];
+                    4063 [ label="ogg_framing.c",metric1=34 ];
+                }
+            }
+            subgraph 4064 {
+                graph [ label=liboggplay ];
+                subgraph 4065 {
+                    graph [ label=src ];
+                    subgraph 4066 {
+                        graph [ label=liboggplay ];
+                        4067 [ label="oggplay.c",metric1=25 ];
+                        4068 [ label="oggplay_callback.c",metric1=27 ];
+                        4069 [ label="oggplay_data.c",metric1=8 ];
+                        4070 [ label="oggplay_callback_info.c",metric1=7 ];
+                        4071 [ label="oggplay_buffer.c",metric1=6 ];
+                        4072 [ label="oggplay_seek.c",metric1=1 ];
+                        4073 [ label="oggplay_yuv2rgb.c",metric1=77 ];
+                    }
+                }
+            }
+            subgraph 4074 {
+                graph [ label=liboggz ];
+                subgraph 4075 {
+                    graph [ label=src ];
+                    subgraph 4076 {
+                        graph [ label=liboggz ];
+                        4077 [ label="dirac.c",metric1=4 ];
+                        4078 [ label="metric_internal.c",metric1=6 ];
+                        4079 [ label="oggz.c",metric1=12 ];
+                        4080 [ label="oggz_auto.c",metric1=62 ];
+                        4081 [ label="oggz_comments.c",metric1=22 ];
+                        4082 [ label="oggz_dlist.c",metric1=10 ];
+                        4083 [ label="oggz_io.c",metric1=8 ];
+                        4084 [ label="oggz_read.c",metric1=11 ];
+                        4085 [ label="oggz_seek.c",metric1=33 ];
+                        4086 [ label="oggz_table.c",metric1=2 ];
+                        4087 [ label="oggz_vector.c",metric1=16 ];
+                        4088 [ label="oggz_write.c",metric1=23 ];
+                    }
+                }
+            }
+            subgraph 4089 {
+                graph [ label=libtheora ];
+                subgraph 4090 {
+                    graph [ label=lib ];
+                    4091 [ label="apiwrapper.c",metric1=8 ];
+                    4092 [ label="bitpack.c",metric1=7 ];
+                    4093 [ label="decapiwrapper.c",metric1=12 ];
+                    4094 [ label="decinfo.c",metric1=14 ];
+                    4095 [ label="decode.c",metric1=79 ];
+                    4096 [ label="dequant.c",metric1=3 ];
+                    4097 [ label="encoder_disabled.c",metric1=27 ];
+                    4098 [ label="fragment.c",metric1=14 ];
+                    4099 [ label="huffdec.c",metric1=18 ];
+                    4100 [ label="idct.c",metric1=11 ];
+                    4101 [ label="info.c",metric1=6 ];
+                    4102 [ label="internal.c",metric1=10 ];
+                    4103 [ label="quant.c",metric1=10 ];
+                    4104 [ label="state.c",metric1=64 ];
+                    subgraph 4105 {
+                        graph [ label=x86 ];
+                        4106 [ label="mmxfrag.c",metric1=2 ];
+                        4107 [ label="mmxstate.c",metric1=12 ];
+                        4108 [ label="x86state.c",metric1=2 ];
+                    }
+                }
+            }
+            subgraph 4109 {
+                graph [ label=libvorbis ];
+                subgraph 4110 {
+                    graph [ label=lib ];
+                    4111 [ label="vorbis_mdct.c",metric1=18 ];
+                    4112 [ label="vorbis_smallft.c",metric1=54 ];
+                    4113 [ label="vorbis_block.c",metric1=32 ];
+                    4114 [ label="vorbis_info.c",metric1=35 ];
+                    4115 [ label="vorbis_envelope.c",metric1=11 ];
+                    4116 [ label="vorbis_window.c",metric1=5 ];
+                    4117 [ label="vorbis_lsp.c",metric1=15 ];
+                    4118 [ label="vorbis_analysis.c",metric1=1 ];
+                    4119 [ label="vorbis_synthesis.c",metric1=14 ];
+                    4121 [ label="vorbis_floor1.c",metric1=39 ];
+                    4122 [ label="vorbis_floor0.c",metric1=11 ];
+                    4123 [ label="vorbis_res0.c",metric1=43 ];
+                    4124 [ label="vorbis_mapping0.c",metric1=8 ];
+                    4125 [ label="vorbis_codebook.c",metric1=21 ];
+                    4126 [ label="vorbis_sharedbook.c",metric1=27 ];
+                    4127 [ label="vorbis_bitrate.c",metric1=6 ];
+                }
+            }
+            subgraph 4128 {
+                graph [ label=libsydneyaudio ];
+                subgraph 4129 {
+                    graph [ label=src ];
+                    4130 [ label="sydney_audio_alsa.c",metric1=145 ];
+                }
+            }
+        }
+        subgraph 4131 {
+            graph [ label=uriloader ];
+            subgraph 4132 {
+                graph [ label=base ];
+                4133 [ label="nsURILoader.cpp",metric1=13 ];
+                4134 [ label="nsDocLoader.cpp",metric1=16 ];
+            }
+            subgraph 4135 {
+                graph [ label=exthandler ];
+                4136 [ label="nsExternalHelperAppService.cpp",metric1=50 ];
+                4137 [ label="nsExternalProtocolHandler.cpp",metric1=30 ];
+                4138 [ label="nsMIMEInfoImpl.cpp",metric1=13 ];
+                4139 [ label="nsLocalHandlerApp.cpp",metric1=7 ];
+                4143 [ label="nsDBusHandlerApp.cpp",metric1=7 ];
+                subgraph 4140 {
+                    graph [ label=unix ];
+                    4141 [ label="nsOSHelperAppService.cpp",metric1=23 ];
+                    4142 [ label="nsMIMEInfoUnix.cpp",metric1=2 ];
+                }
+            }
+            subgraph 4144 {
+                graph [ label=prefetch ];
+                4145 [ label="nsPrefetchService.cpp",metric1=51 ];
+            }
+        }
+        subgraph 4162 {
+            graph [ label=caps ];
+            subgraph 4163 {
+                graph [ label=src ];
+                4164 [ label="nsPrincipal.cpp",metric1=41 ];
+                4165 [ label="nsSystemPrincipal.cpp",metric1=45 ];
+                4166 [ label="nsNullPrincipal.cpp",metric1=40 ];
+                4167 [ label="nsNullPrincipalURI.cpp",metric1=19 ];
+                4168 [ label="nsJSPrincipals.cpp",metric1=7 ];
+                4169 [ label="nsSecurityManagerFactory.cpp",metric1=28 ];
+            }
+        }
+        subgraph 4170 {
+            graph [ label=parser ];
+            subgraph 4171 {
+                graph [ label=expat ];
+                subgraph 4172 {
+                    graph [ label=lib ];
+                    4173 [ label="xmlparse.c",metric1=87 ];
+                    4174 [ label="xmlrole.c",metric1=176 ];
+                    4175 [ label="xmltok.c",metric1=72 ];
+                }
+            }
+            subgraph 4176 {
+                graph [ label=xml ];
+                subgraph 4177 {
+                    graph [ label=src ];
+                    4178 [ label="nsSAXAttributes.cpp",metric1=5 ];
+                    4179 [ label="nsSAXLocator.cpp",metric1=3 ];
+                    4180 [ label="nsSAXXMLReader.cpp",metric1=33 ];
+                }
+            }
+            subgraph 4181 {
+                graph [ label=htmlparser ];
+                subgraph 4182 {
+                    graph [ label=src ];
+                    4183 [ label="nsScannerString.cpp",metric1=9 ];
+                    4184 [ label="nsDTDUtils.cpp",metric1=15 ];
+                    4185 [ label="nsHTMLTokenizer.cpp",metric1=8 ];
+                    4186 [ label="nsElementTable.cpp",metric1=7 ];
+                    4187 [ label="nsExpatDriver.cpp",metric1=24 ];
+                    4188 [ label="CNavDTD.cpp",metric1=40 ];
+                    4189 [ label="nsHTMLTokens.cpp",metric1=26 ];
+                    4191 [ label="CParserContext.cpp",metric1=1 ];
+                    4192 [ label="nsParserService.cpp",metric1=11 ];
+                    4193 [ label="nsParserModule.cpp",metric1=16 ];
+                    4194 [ label="nsParserNode.cpp",metric1=7 ];
+                    4195 [ label="nsScanner.cpp",metric1=16 ];
+                    4196 [ label="nsToken.cpp",metric1=3 ];
+                    4197 [ label="nsViewSourceHTML.cpp",metric1=24 ];
+                }
+            }
+            subgraph 4198 {
+                graph [ label=html ];
+                4199 [ label="nsHtml5Atom.cpp",metric1=7 ];
+                4200 [ label="nsHtml5AtomTable.cpp",metric1=2 ];
+                4201 [ label="nsHtml5Parser.cpp",metric1=20 ];
+                4202 [ label="nsHtml5HtmlAttributes.cpp",metric1=2 ];
+                4203 [ label="nsHtml5StackNode.cpp",metric1=11 ];
+                4204 [ label="nsHtml5UTF16Buffer.cpp",metric1=1 ];
+                4205 [ label="nsHtml5Portability.cpp",metric1=11 ];
+                4206 [ label="nsHtml5Module.cpp",metric1=2 ];
+                4207 [ label="nsHtml5MetaScanner.cpp",metric1=1 ];
+                4208 [ label="nsHtml5TreeOperation.cpp",metric1=22 ];
+                4209 [ label="nsHtml5TreeOpExecutor.cpp",metric1=13 ];
+                4210 [ label="nsHtml5StreamParser.cpp",metric1=8 ];
+                4211 [ label="nsHtml5Speculation.cpp",metric1=1 ];
+                4212 [ label="nsHtml5SpeculativeLoader.cpp",metric1=4 ];
+            }
+        }
+        subgraph 4389 {
+            graph [ label=dom ];
+            subgraph 4390 {
+                graph [ label=base ];
+                4391 [ label="nsBarProps.cpp",metric1=3 ];
+                4392 [ label="nsDOMException.cpp",metric1=36 ];
+                4393 [ label="nsDOMWindowUtils.cpp",metric1=6 ];
+                4394 [ label="nsJSTimeoutHandler.cpp",metric1=9 ];
+                4395 [ label="nsFocusController.cpp",metric1=7 ];
+                4396 [ label="nsGlobalWindowCommands.cpp",metric1=80 ];
+                4397 [ label="nsLocation.cpp",metric1=16 ];
+                4398 [ label="nsDOMWindowList.cpp",metric1=4 ];
+                4399 [ label="nsJSUtils.cpp",metric1=4 ];
+                4400 [ label="nsScreen.cpp",metric1=10 ];
+                4401 [ label="nsHistory.cpp",metric1=3 ];
+                4402 [ label="nsMimeTypeArray.cpp",metric1=11 ];
+                4403 [ label="nsPluginArray.cpp",metric1=19 ];
+                4404 [ label="nsWindowRoot.cpp",metric1=12 ];
+                4405 [ label="nsScriptNameSpaceManager.cpp",metric1=33 ];
+                4406 [ label="nsDOMScriptObjectFactory.cpp",metric1=18 ];
+            }
+            subgraph 4407 {
+                graph [ label=src ];
+                subgraph 4408 {
+                    graph [ label=jsurl ];
+                    4409 [ label="nsJSProtocolHandler.cpp",metric1=28 ];
+                }
+                subgraph 4410 {
+                    graph [ label=events ];
+                    4411 [ label="nsJSEventListener.cpp",metric1=5 ];
+                }
+                subgraph 4412 {
+                    graph [ label=storage ];
+                    4414 [ label="nsDOMStorageDBWrapper.cpp",metric1=9 ];
+                    4415 [ label="nsDOMStoragePersistentDB.cpp",metric1=16 ];
+                    4416 [ label="nsDOMStorageMemoryDB.cpp",metric1=18 ];
+                }
+                subgraph 4417 {
+                    graph [ label=offline ];
+                    4418 [ label="nsDOMOfflineResourceList.cpp",metric1=15 ];
+                }
+                subgraph 4419 {
+                    graph [ label=json ];
+                    4420 [ label="nsJSON.cpp",metric1=26 ];
+                }
+                subgraph 4421 {
+                    graph [ label=geolocation ];
+                    4422 [ label="nsGeolocation.cpp",metric1=13 ];
+                }
+                subgraph 4423 {
+                    graph [ label=threads ];
+                    4424 [ label="nsDOMThreadService.cpp",metric1=12 ];
+                    4425 [ label="nsDOMWorker.cpp",metric1=3 ];
+                    4426 [ label="nsDOMWorkerEvents.cpp",metric1=50 ];
+                    4427 [ label="nsDOMWorkerLocation.cpp",metric1=11 ];
+                    4428 [ label="nsDOMWorkerMessageHandler.cpp",metric1=17 ];
+                    4429 [ label="nsDOMWorkerNavigator.cpp",metric1=10 ];
+                    4430 [ label="nsDOMWorkerPool.cpp",metric1=1 ];
+                    4431 [ label="nsDOMWorkerScriptLoader.cpp",metric1=6 ];
+                    4432 [ label="nsDOMWorkerSecurityManager.cpp",metric1=27 ];
+                    4433 [ label="nsDOMWorkerTimeout.cpp",metric1=12 ];
+                    4434 [ label="nsDOMWorkerXHR.cpp",metric1=15 ];
+                    4435 [ label="nsDOMWorkerXHRProxy.cpp",metric1=5 ];
+                }
+            }
+            subgraph 4436 {
+                graph [ label=plugins ];
+                4437 [ label="PluginMessageUtils.cpp",metric1=3 ];
+                4438 [ label="PluginInstanceChild.cpp",metric1=30 ];
+                4439 [ label="PluginInstanceParent.cpp",metric1=53 ];
+                4440 [ label="PluginModuleChild.cpp",metric1=57 ];
+                4441 [ label="PluginModuleParent.cpp",metric1=39 ];
+                4442 [ label="PluginProcessParent.cpp",metric1=4 ];
+                4443 [ label="PluginScriptableObjectChild.cpp",metric1=35 ];
+                4444 [ label="PluginScriptableObjectParent.cpp",metric1=39 ];
+                4445 [ label="BrowserStreamChild.cpp",metric1=12 ];
+                4446 [ label="BrowserStreamParent.cpp",metric1=1 ];
+                4447 [ label="PluginStreamChild.cpp",metric1=2 ];
+                4448 [ label="PluginStreamParent.cpp",metric1=2 ];
+                4449 [ label="PluginThreadChild.cpp",metric1=1 ];
+            }
+        }
+        subgraph 4450 {
+            graph [ label=view ];
+            subgraph 4451 {
+                graph [ label=src ];
+                4452 [ label="nsView.cpp",metric1=12 ];
+                4453 [ label="nsViewManager.cpp",metric1=32 ];
+            }
+        }
+        subgraph 4496 {
+            graph [ label=content ];
+            subgraph 4497 {
+                graph [ label=base ];
+                subgraph 4498 {
+                    graph [ label=src ];
+                    4499 [ label="mozSanitizingSerializer.cpp",metric1=24 ];
+                    4500 [ label="nsAttrAndChildArray.cpp",metric1=13 ];
+                    4501 [ label="nsAttrValue.cpp",metric1=11 ];
+                    4502 [ label="nsCCUncollectableMarker.cpp",metric1=5 ];
+                    4503 [ label="nsCommentNode.cpp",metric1=5 ];
+                    4504 [ label="nsContentAreaDragDrop.cpp",metric1=13 ];
+                    4505 [ label="nsContentIterator.cpp",metric1=8 ];
+                    4506 [ label="nsContentList.cpp",metric1=34 ];
+                    4507 [ label="nsContentPolicy.cpp",metric1=3 ];
+                    4508 [ label="nsContentSink.cpp",metric1=12 ];
+                    4509 [ label="nsCopySupport.cpp",metric1=11 ];
+                    4510 [ label="nsCrossSiteListenerProxy.cpp",metric1=10 ];
+                    4511 [ label="nsCSPService.cpp",metric1=6 ];
+                    4512 [ label="nsDataDocumentContentPolicy.cpp",metric1=6 ];
+                    4513 [ label="nsDOMAttribute.cpp",metric1=40 ];
+                    4514 [ label="nsDOMAttributeMap.cpp",metric1=18 ];
+                    4515 [ label="nsDOMDocumentType.cpp",metric1=9 ];
+                    4516 [ label="nsDOMFile.cpp",metric1=11 ];
+                    4517 [ label="nsDOMFileReader.cpp",metric1=20 ];
+                    4518 [ label="nsDOMLists.cpp",metric1=9 ];
+                    4519 [ label="nsDOMParser.cpp",metric1=17 ];
+                    4520 [ label="nsDOMSerializer.cpp",metric1=3 ];
+                    4521 [ label="nsDOMTokenList.cpp",metric1=7 ];
+                    4522 [ label="nsDocumentEncoder.cpp",metric1=1 ];
+                    4523 [ label="nsDocumentFragment.cpp",metric1=20 ];
+                    4524 [ label="nsFrameLoader.cpp",metric1=9 ];
+                    4525 [ label="nsGenConImageContent.cpp",metric1=2 ];
+                    4526 [ label="nsGenericDOMDataNode.cpp",metric1=50 ];
+                    4527 [ label="nsHTMLContentSerializer.cpp",metric1=7 ];
+                    4528 [ label="nsImageLoadingContent.cpp",metric1=13 ];
+                    4529 [ label="nsLineBreaker.cpp",metric1=8 ];
+                    4530 [ label="nsLoadListenerProxy.cpp",metric1=1 ];
+                    4531 [ label="nsMappedAttributeElement.cpp",metric1=4 ];
+                    4532 [ label="nsMappedAttributes.cpp",metric1=4 ];
+                    4533 [ label="nsNameSpaceManager.cpp",metric1=5 ];
+                    4534 [ label="nsNoDataProtocolContentPolicy.cpp",metric1=7 ];
+                    4535 [ label="nsNodeInfo.cpp",metric1=4 ];
+                    4536 [ label="nsNodeInfoManager.cpp",metric1=4 ];
+                    4537 [ label="nsNodeIterator.cpp",metric1=15 ];
+                    4538 [ label="nsNodeUtils.cpp",metric1=31 ];
+                    4540 [ label="nsParserUtils.cpp",metric1=3 ];
+                    4541 [ label="nsPlainTextSerializer.cpp",metric1=12 ];
+                    4542 [ label="nsPropertyTable.cpp",metric1=8 ];
+                    4544 [ label="nsReferencedElement.cpp",metric1=9 ];
+                    4545 [ label="nsScriptElement.cpp",metric1=20 ];
+                    4546 [ label="nsScriptEventManager.cpp",metric1=3 ];
+                    4547 [ label="nsScriptLoader.cpp",metric1=7 ];
+                    4548 [ label="nsStubDocumentObserver.cpp",metric1=58 ];
+                    4549 [ label="nsStubImageDecoderObserver.cpp",metric1=21 ];
+                    4550 [ label="nsStubMutationObserver.cpp",metric1=29 ];
+                    4551 [ label="nsStyledElement.cpp",metric1=3 ];
+                    4552 [ label="nsStyleLinkElement.cpp",metric1=6 ];
+                    4553 [ label="nsSyncLoadService.cpp",metric1=20 ];
+                    4554 [ label="nsTextFragment.cpp",metric1=5 ];
+                    4555 [ label="nsTextNode.cpp",metric1=13 ];
+                    4556 [ label="nsTraversal.cpp",metric1=2 ];
+                    4557 [ label="nsTreeWalker.cpp",metric1=20 ];
+                    4558 [ label="nsXHTMLContentSerializer.cpp",metric1=22 ];
+                    4559 [ label="nsXMLContentSerializer.cpp",metric1=18 ];
+                    4560 [ label="nsXMLNameSpaceMap.cpp",metric1=1 ];
+                }
+            }
+            subgraph 4561 {
+                graph [ label=canvas ];
+                subgraph 4562 {
+                    graph [ label=src ];
+                    4563 [ label="WebGLContext.cpp",metric1=26 ];
+                    4565 [ label="WebGLContextUtils.cpp",metric1=1 ];
+                    4566 [ label="NativeJSContext.cpp",metric1=2 ];
+                    4567 [ label="glwrap.cpp",metric1=2 ];
+                    4568 [ label="nsGLPbuffer.cpp",metric1=1 ];
+                    4569 [ label="nsGLPbufferOSMesa.cpp",metric1=1 ];
+                    4570 [ label="SimpleBuffer.cpp",metric1=35 ];
+                    4571 [ label="nsGLPbufferGLX.cpp",metric1=12 ];
+                }
+            }
+            subgraph 4572 {
+                graph [ label=events ];
+                subgraph 4573 {
+                    graph [ label=src ];
+                    4574 [ label="nsEventListenerManager.cpp",metric1=13 ];
+                    4575 [ label="nsDOMEvent.cpp",metric1=12 ];
+                    4576 [ label="nsDOMDataContainerEvent.cpp",metric1=3 ];
+                    4577 [ label="nsDOMUIEvent.cpp",metric1=14 ];
+                    4578 [ label="nsDOMKeyboardEvent.cpp",metric1=10 ];
+                    4579 [ label="nsDOMTextEvent.cpp",metric1=2 ];
+                    4580 [ label="nsDOMMouseEvent.cpp",metric1=15 ];
+                    4581 [ label="nsDOMMouseScrollEvent.cpp",metric1=4 ];
+                    4582 [ label="nsDOMDragEvent.cpp",metric1=5 ];
+                    4583 [ label="nsDOMMutationEvent.cpp",metric1=5 ];
+                    4584 [ label="nsDOMPopupBlockedEvent.cpp",metric1=3 ];
+                    4585 [ label="nsDOMOrientationEvent.cpp",metric1=4 ];
+                    4586 [ label="nsDOMBeforeUnloadEvent.cpp",metric1=1 ];
+                    4587 [ label="nsDOMPageTransitionEvent.cpp",metric1=2 ];
+                    4588 [ label="nsDOMXULCommandEvent.cpp",metric1=7 ];
+                    4589 [ label="nsDOMCommandEvent.cpp",metric1=3 ];
+                    4590 [ label="nsDOMMessageEvent.cpp",metric1=2 ];
+                    4591 [ label="nsPaintRequest.cpp",metric1=6 ];
+                    4592 [ label="nsPrivateTextRange.cpp",metric1=6 ];
+                    4593 [ label="nsDOMEventGroup.cpp",metric1=3 ];
+                    4594 [ label="nsXMLEventsManager.cpp",metric1=60 ];
+                    4595 [ label="nsXMLEventsElement.cpp",metric1=3 ];
+                    4596 [ label="nsEventDispatcher.cpp",metric1=17 ];
+                    4597 [ label="nsIMEStateManager.cpp",metric1=21 ];
+                    4598 [ label="nsContentEventHandler.cpp",metric1=11 ];
+                    4599 [ label="nsEventListenerService.cpp",metric1=13 ];
+                    4600 [ label="nsDOMProgressEvent.cpp",metric1=4 ];
+                    4601 [ label="nsDOMDataTransfer.cpp",metric1=16 ];
+                    4602 [ label="nsDOMNotifyPaintEvent.cpp",metric1=2 ];
+                    4603 [ label="nsDOMSimpleGestureEvent.cpp",metric1=5 ];
+                    4604 [ label="nsDOMEventTargetHelper.cpp",metric1=7 ];
+                    4605 [ label="nsDOMScrollAreaEvent.cpp",metric1=3 ];
+                    4606 [ label="nsDOMTransitionEvent.cpp",metric1=4 ];
+                    4607 [ label="nsDOMPopStateEvent.cpp",metric1=2 ];
+                }
+            }
+            subgraph 4608 {
+                graph [ label=html ];
+                subgraph 4609 {
+                    graph [ label=content ];
+                    subgraph 4610 {
+                        graph [ label=src ];
+                        4611 [ label="nsClientRect.cpp",metric1=12 ];
+                        4612 [ label="nsHTMLDNSPrefetch.cpp",metric1=28 ];
+                        4613 [ label="nsFormSubmission.cpp",metric1=31 ];
+                        4614 [ label="nsHTMLAnchorElement.cpp",metric1=3 ];
+                        4615 [ label="nsHTMLAreaElement.cpp",metric1=5 ];
+                        4616 [ label="nsHTMLBRElement.cpp",metric1=7 ];
+                        4617 [ label="nsHTMLBodyElement.cpp",metric1=12 ];
+                        4618 [ label="nsHTMLButtonElement.cpp",metric1=11 ];
+                        4619 [ label="nsHTMLCanvasElement.cpp",metric1=12 ];
+                        4620 [ label="nsHTMLDelElement.cpp",metric1=5 ];
+                        4621 [ label="nsHTMLDivElement.cpp",metric1=5 ];
+                        4622 [ label="nsHTMLFieldSetElement.cpp",metric1=7 ];
+                        4623 [ label="nsHTMLFontElement.cpp",metric1=8 ];
+                        4624 [ label="nsHTMLFormElement.cpp",metric1=4 ];
+                        4625 [ label="nsHTMLFrameElement.cpp",metric1=5 ];
+                        4626 [ label="nsHTMLFrameSetElement.cpp",metric1=10 ];
+                        4627 [ label="nsHTMLHRElement.cpp",metric1=8 ];
+                        4628 [ label="nsHTMLHeadElement.cpp",metric1=5 ];
+                        4629 [ label="nsHTMLHeadingElement.cpp",metric1=5 ];
+                        4630 [ label="nsHTMLHtmlElement.cpp",metric1=5 ];
+                        4631 [ label="nsHTMLIFrameElement.cpp",metric1=7 ];
+                        4632 [ label="nsHTMLImageElement.cpp",metric1=14 ];
+                        4634 [ label="nsHTMLLIElement.cpp",metric1=7 ];
+                        4635 [ label="nsHTMLLabelElement.cpp",metric1=10 ];
+                        4636 [ label="nsHTMLLegendElement.cpp",metric1=9 ];
+                        4637 [ label="nsHTMLLinkElement.cpp",metric1=8 ];
+                        4638 [ label="nsHTMLMapElement.cpp",metric1=5 ];
+                        4639 [ label="nsHTMLMetaElement.cpp",metric1=5 ];
+                        4640 [ label="nsHTMLObjectElement.cpp",metric1=5 ];
+                        4641 [ label="nsHTMLOListElement.cpp",metric1=7 ];
+                        4642 [ label="nsHTMLSharedObjectElement.cpp",metric1=7 ];
+                        4643 [ label="nsHTMLOptionElement.cpp",metric1=13 ];
+                        4644 [ label="nsHTMLOptGroupElement.cpp",metric1=5 ];
+                        4645 [ label="nsHTMLParagraphElement.cpp",metric1=5 ];
+                        4646 [ label="nsHTMLPreElement.cpp",metric1=8 ];
+                        4647 [ label="nsHTMLScriptElement.cpp",metric1=12 ];
+                        4648 [ label="nsHTMLSelectElement.cpp",metric1=9 ];
+                        4649 [ label="nsHTMLSharedElement.cpp",metric1=3 ];
+                        4650 [ label="nsHTMLSpanElement.cpp",metric1=9 ];
+                        4651 [ label="nsHTMLStyleElement.cpp",metric1=18 ];
+                        4652 [ label="nsHTMLTableElement.cpp",metric1=1 ];
+                        4653 [ label="nsHTMLTableCaptionElement.cpp",metric1=7 ];
+                        4654 [ label="nsHTMLTableCellElement.cpp",metric1=9 ];
+                        4655 [ label="nsHTMLTableColElement.cpp",metric1=7 ];
+                        4656 [ label="nsHTMLTableRowElement.cpp",metric1=16 ];
+                        4657 [ label="nsHTMLTableSectionElement.cpp",metric1=9 ];
+                        4658 [ label="nsHTMLTextAreaElement.cpp",metric1=3 ];
+                        4659 [ label="nsHTMLTitleElement.cpp",metric1=19 ];
+                        4660 [ label="nsHTMLAudioElement.cpp",metric1=7 ];
+                        4661 [ label="nsHTMLMediaElement.cpp",metric1=2 ];
+                        4662 [ label="nsHTMLMediaError.cpp",metric1=1 ];
+                        4663 [ label="nsHTMLSourceElement.cpp",metric1=5 ];
+                        4664 [ label="nsHTMLVideoElement.cpp",metric1=6 ];
+                    }
+                }
+                subgraph 4665 {
+                    graph [ label=document ];
+                    subgraph 4666 {
+                        graph [ label=src ];
+                        4667 [ label="nsHTMLContentSink.cpp",metric1=21 ];
+                        4668 [ label="nsHTMLFragmentContentSink.cpp",metric1=26 ];
+                        4669 [ label="nsImageDocument.cpp",metric1=26 ];
+                        4670 [ label="nsMediaDocument.cpp",metric1=2 ];
+                        4671 [ label="nsPluginDocument.cpp",metric1=6 ];
+                        4672 [ label="nsWyciwygChannel.cpp",metric1=23 ];
+                        4673 [ label="nsWyciwygProtocolHandler.cpp",metric1=11 ];
+                        4674 [ label="nsVideoDocument.cpp",metric1=2 ];
+                    }
+                }
+            }
+            subgraph 4675 {
+                graph [ label=smil ];
+                4676 [ label="nsSMILKeySpline.cpp",metric1=4 ];
+                4677 [ label="nsSMILAnimationController.cpp",metric1=16 ];
+                4678 [ label="nsSMILAnimationFunction.cpp",metric1=8 ];
+                4679 [ label="nsSMILCompositor.cpp",metric1=4 ];
+                4680 [ label="nsSMILCSSProperty.cpp",metric1=2 ];
+                4681 [ label="nsSMILCSSValueType.cpp",metric1=5 ];
+                4682 [ label="nsSMILNullType.cpp",metric1=10 ];
+                4683 [ label="nsSMILParserUtils.cpp",metric1=3 ];
+                4684 [ label="nsSMILSetAnimationFunction.cpp",metric1=1 ];
+                4685 [ label="nsSMILTimeContainer.cpp",metric1=1 ];
+                4686 [ label="nsSMILTimedElement.cpp",metric1=8 ];
+                4687 [ label="nsSMILTimeValueSpec.cpp",metric1=1 ];
+                4688 [ label="nsSMILValue.cpp",metric1=4 ];
+                4689 [ label="SMILBoolType.cpp",metric1=10 ];
+                4690 [ label="SMILEnumType.cpp",metric1=10 ];
+            }
+            subgraph 4691 {
+                graph [ label=xml ];
+                subgraph 4692 {
+                    graph [ label=content ];
+                    subgraph 4693 {
+                        graph [ label=src ];
+                        4694 [ label="nsXMLElement.cpp",metric1=4 ];
+                        4695 [ label="nsXMLCDATASection.cpp",metric1=5 ];
+                        4696 [ label="nsXMLProcessingInstruction.cpp",metric1=6 ];
+                        4697 [ label="nsXMLStylesheetPI.cpp",metric1=7 ];
+                    }
+                }
+                subgraph 4698 {
+                    graph [ label=document ];
+                    subgraph 4699 {
+                        graph [ label=src ];
+                        4700 [ label="nsXMLContentSink.cpp",metric1=20 ];
+                        4701 [ label="nsXMLFragmentContentSink.cpp",metric1=42 ];
+                        4702 [ label="nsXMLDocument.cpp",metric1=10 ];
+                        4703 [ label="nsXMLPrettyPrinter.cpp",metric1=22 ];
+                    }
+                }
+            }
+            subgraph 4704 {
+                graph [ label=xul ];
+                subgraph 4705 {
+                    graph [ label=document ];
+                    subgraph 4706 {
+                        graph [ label=src ];
+                        4707 [ label="nsXULControllers.cpp",metric1=18 ];
+                        4708 [ label="nsXULCommandDispatcher.cpp",metric1=11 ];
+                        4709 [ label="nsXULContentSink.cpp",metric1=28 ];
+                        4710 [ label="nsXULPrototypeCache.cpp",metric1=27 ];
+                        4711 [ label="nsXULPrototypeDocument.cpp",metric1=29 ];
+                    }
+                }
+                subgraph 4712 {
+                    graph [ label=content ];
+                    subgraph 4713 {
+                        graph [ label=src ];
+                        4714 [ label="nsXULPopupListener.cpp",metric1=7 ];
+                    }
+                }
+                subgraph 4715 {
+                    graph [ label=templates ];
+                    subgraph 4716 {
+                        graph [ label=src ];
+                        4717 [ label="nsContentSupportMap.cpp",metric1=1 ];
+                        4718 [ label="nsContentTestNode.cpp",metric1=1 ];
+                        4719 [ label="nsInstantiationNode.cpp",metric1=1 ];
+                        4720 [ label="nsTreeRows.cpp",metric1=9 ];
+                        4721 [ label="nsRDFConInstanceTestNode.cpp",metric1=5 ];
+                        4722 [ label="nsRDFPropertyTestNode.cpp",metric1=1 ];
+                        4723 [ label="nsRDFBinding.cpp",metric1=12 ];
+                        4724 [ label="nsRDFQuery.cpp",metric1=2 ];
+                        4725 [ label="nsResourceSet.cpp",metric1=2 ];
+                        4726 [ label="nsRuleNetwork.cpp",metric1=4 ];
+                        4727 [ label="nsTemplateMatch.cpp",metric1=14 ];
+                        4728 [ label="nsTemplateRule.cpp",metric1=5 ];
+                        4729 [ label="nsXULContentBuilder.cpp",metric1=14 ];
+                        4730 [ label="nsXULContentUtils.cpp",metric1=7 ];
+                        4731 [ label="nsXULTreeBuilder.cpp",metric1=14 ];
+                        4732 [ label="nsXULSortService.cpp",metric1=12 ];
+                        4733 [ label="nsXULTemplateQueryProcessorRDF.cpp",metric1=6 ];
+                        4734 [ label="nsXULTemplateResultRDF.cpp",metric1=8 ];
+                        4735 [ label="nsXULTemplateResultSetRDF.cpp",metric1=2 ];
+                        4736 [ label="nsXMLBinding.cpp",metric1=5 ];
+                        4737 [ label="nsXULTemplateQueryProcessorXML.cpp",metric1=27 ];
+                        4738 [ label="nsXULTemplateResultXML.cpp",metric1=10 ];
+                        4739 [ label="nsXULTemplateQueryProcessorStorage.cpp",metric1=32 ];
+                        4740 [ label="nsXULTemplateResultStorage.cpp",metric1=8 ];
+                    }
+                }
+            }
+            subgraph 4741 {
+                graph [ label=xbl ];
+                subgraph 4742 {
+                    graph [ label=src ];
+                    4743 [ label="nsXBLBinding.cpp",metric1=3 ];
+                    4744 [ label="nsXBLPrototypeBinding.cpp",metric1=10 ];
+                    4745 [ label="nsXBLPrototypeResources.cpp",metric1=2 ];
+                    4746 [ label="nsXBLResourceLoader.cpp",metric1=8 ];
+                    4747 [ label="nsXBLDocumentInfo.cpp",metric1=30 ];
+                    4748 [ label="nsXBLContentSink.cpp",metric1=16 ];
+                    4749 [ label="nsXBLProtoImplProperty.cpp",metric1=7 ];
+                    4750 [ label="nsXBLProtoImplMethod.cpp",metric1=7 ];
+                    4751 [ label="nsXBLProtoImplField.cpp",metric1=5 ];
+                    4752 [ label="nsXBLProtoImpl.cpp",metric1=10 ];
+                    4753 [ label="nsXBLEventHandler.cpp",metric1=7 ];
+                    4754 [ label="nsXBLWindowKeyHandler.cpp",metric1=11 ];
+                    4755 [ label="nsXBLPrototypeHandler.cpp",metric1=13 ];
+                    4756 [ label="nsXBLService.cpp",metric1=16 ];
+                    4757 [ label="nsBindingManager.cpp",metric1=12 ];
+                }
+            }
+            subgraph 4758 {
+                graph [ label=xslt ];
+                subgraph 4759 {
+                    graph [ label=src ];
+                    subgraph 4760 {
+                        graph [ label=base ];
+                        4761 [ label="txDouble.cpp",metric1=9 ];
+                        4762 [ label="txList.cpp",metric1=1 ];
+                        4763 [ label="txExpandedNameMap.cpp",metric1=1 ];
+                        4764 [ label="txNamespaceMap.cpp",metric1=2 ];
+                        4765 [ label="txURIUtils.cpp",metric1=1 ];
+                    }
+                    subgraph 4766 {
+                        graph [ label=xml ];
+                        4767 [ label="txXMLUtils.cpp",metric1=7 ];
+                        4768 [ label="txXMLParser.cpp",metric1=1 ];
+                    }
+                    subgraph 4769 {
+                        graph [ label=xpath ];
+                        4770 [ label="txBooleanExpr.cpp",metric1=2 ];
+                        4771 [ label="txCoreFunctionCall.cpp",metric1=5 ];
+                        4772 [ label="txExprLexer.cpp",metric1=8 ];
+                        4773 [ label="txExprParser.cpp",metric1=31 ];
+                        4774 [ label="txFilterExpr.cpp",metric1=2 ];
+                        4775 [ label="txFunctionCall.cpp",metric1=6 ];
+                        4776 [ label="txLocationStep.cpp",metric1=4 ];
+                        4777 [ label="txNumberExpr.cpp",metric1=2 ];
+                        4778 [ label="txPathExpr.cpp",metric1=7 ];
+                        4779 [ label="txPredicateList.cpp",metric1=3 ];
+                        4780 [ label="txRelationalExpr.cpp",metric1=7 ];
+                        4781 [ label="txRootExpr.cpp",metric1=4 ];
+                        4782 [ label="txErrorExpr.cpp",metric1=6 ];
+                        4783 [ label="txLiteralExpr.cpp",metric1=6 ];
+                        4784 [ label="txNameTest.cpp",metric1=1 ];
+                        4785 [ label="txNamedAttributeStep.cpp",metric1=5 ];
+                        4786 [ label="txNodeSet.cpp",metric1=5 ];
+                        4787 [ label="txNodeTypeTest.cpp",metric1=2 ];
+                        4788 [ label="txResultRecycler.cpp",metric1=16 ];
+                        4789 [ label="txUnionExpr.cpp",metric1=2 ];
+                        4790 [ label="txUnaryExpr.cpp",metric1=3 ];
+                        4791 [ label="txVariableRefExpr.cpp",metric1=5 ];
+                        4792 [ label="txXPathOptimizer.cpp",metric1=16 ];
+                        4793 [ label="nsXPathEvaluator.cpp",metric1=4 ];
+                        4794 [ label="nsXPathExpression.cpp",metric1=7 ];
+                        4795 [ label="nsXPathNSResolver.cpp",metric1=1 ];
+                        4796 [ label="nsXPathResult.cpp",metric1=30 ];
+                        4797 [ label="nsXPath1Scheme.cpp",metric1=3 ];
+                        4798 [ label="txMozillaXPathTreeWalker.cpp",metric1=7 ];
+                        4799 [ label="txNodeSetAdaptor.cpp",metric1=4 ];
+                        4800 [ label="txXPCOMExtensionFunction.cpp",metric1=19 ];
+                    }
+                    subgraph 4801 {
+                        graph [ label=xslt ];
+                        4802 [ label="txNodeSorter.cpp",metric1=11 ];
+                        4803 [ label="txXPathResultComparator.cpp",metric1=13 ];
+                        4804 [ label="txBufferingHandler.cpp",metric1=18 ];
+                        4805 [ label="txExecutionState.cpp",metric1=15 ];
+                        4806 [ label="txEXSLTFunctions.cpp",metric1=15 ];
+                        4807 [ label="txInstructions.cpp",metric1=7 ];
+                        4808 [ label="txOutputFormat.cpp",metric1=2 ];
+                        4809 [ label="txRtfHandler.cpp",metric1=3 ];
+                        4810 [ label="txStylesheet.cpp",metric1=16 ];
+                        4811 [ label="txStylesheetCompiler.cpp",metric1=13 ];
+                        4812 [ label="txTextHandler.cpp",metric1=21 ];
+                        4813 [ label="txToplevelItems.cpp",metric1=2 ];
+                        4814 [ label="txPatternOptimizer.cpp",metric1=4 ];
+                        4815 [ label="txXSLTPatterns.cpp",metric1=34 ];
+                        4816 [ label="txXSLTProcessor.cpp",metric1=1 ];
+                        4817 [ label="txPatternParser.cpp",metric1=6 ];
+                        4818 [ label="txUnknownHandler.cpp",metric1=1 ];
+                        4819 [ label="txCurrentFunctionCall.cpp",metric1=2 ];
+                        4820 [ label="txDocumentFunctionCall.cpp",metric1=4 ];
+                        4821 [ label="txFormatNumberFunctionCall.cpp",metric1=8 ];
+                        4822 [ label="txGenerateIdFunctionCall.cpp",metric1=3 ];
+                        4823 [ label="txKeyFunctionCall.cpp",metric1=15 ];
+                        4824 [ label="txXSLTEnvironmentFunctionCall.cpp",metric1=2 ];
+                        4825 [ label="txMozillaStylesheetCompiler.cpp",metric1=36 ];
+                        4826 [ label="txMozillaTextOutput.cpp",metric1=22 ];
+                        4827 [ label="txMozillaXMLOutput.cpp",metric1=16 ];
+                        4828 [ label="txMozillaXSLTProcessor.cpp",metric1=3 ];
+                    }
+                }
+            }
+            subgraph 4829 {
+                graph [ label=media ];
+                4835 [ label="nsMediaDecoder.cpp",metric1=3 ];
+                4836 [ label="nsMediaCache.cpp",metric1=29 ];
+                4837 [ label="nsMediaStream.cpp",metric1=17 ];
+                subgraph 4830 {
+                    graph [ label=ogg ];
+                    4831 [ label="nsChannelReader.cpp",metric1=1 ];
+                    4832 [ label="nsOggDecoder.cpp",metric1=3 ];
+                }
+                subgraph 4833 {
+                    graph [ label=wave ];
+                    4834 [ label="nsWaveDecoder.cpp",metric1=4 ];
+                }
+            }
+            subgraph 4838 {
+                graph [ label=svg ];
+                subgraph 4839 {
+                    graph [ label=document ];
+                    subgraph 4840 {
+                        graph [ label=src ];
+                        4841 [ label="nsSVGDocument.cpp",metric1=5 ];
+                    }
+                }
+                subgraph 4842 {
+                    graph [ label=content ];
+                    subgraph 4843 {
+                        graph [ label=src ];
+                        4844 [ label="nsDOMSVGZoomEvent.cpp",metric1=7 ];
+                        4845 [ label="nsDOMSVGEvent.cpp",metric1=2 ];
+                        4846 [ label="nsSVGAElement.cpp",metric1=6 ];
+                        4847 [ label="nsSVGAngle.cpp",metric1=21 ];
+                        4848 [ label="nsSVGAnimatedLengthList.cpp",metric1=6 ];
+                        4849 [ label="nsSVGAnimatedNumberList.cpp",metric1=7 ];
+                        4850 [ label="nsSVGAnimatedTransformList.cpp",metric1=6 ];
+                        4851 [ label="nsSVGBoolean.cpp",metric1=7 ];
+                        4852 [ label="nsSVGCircleElement.cpp",metric1=7 ];
+                        4853 [ label="nsSVGClipPathElement.cpp",metric1=6 ];
+                        4854 [ label="nsSVGDataParser.cpp",metric1=8 ];
+                        4855 [ label="nsSVGDefsElement.cpp",metric1=5 ];
+                        4856 [ label="nsSVGDescElement.cpp",metric1=5 ];
+                        4857 [ label="nsSVGElement.cpp",metric1=6 ];
+                        4858 [ label="nsSVGElementFactory.cpp",metric1=1 ];
+                        4859 [ label="nsSVGEllipseElement.cpp",metric1=7 ];
+                        4860 [ label="nsSVGEnum.cpp",metric1=8 ];
+                        4861 [ label="nsSVGFeatures.cpp",metric1=1 ];
+                        4862 [ label="nsSVGFilterElement.cpp",metric1=10 ];
+                        4863 [ label="nsSVGForeignObjectElement.cpp",metric1=6 ];
+                        4864 [ label="nsSVGGElement.cpp",metric1=5 ];
+                        4865 [ label="nsSVGGradientElement.cpp",metric1=15 ];
+                        4866 [ label="nsSVGGraphicElement.cpp",metric1=10 ];
+                        4867 [ label="nsSVGImageElement.cpp",metric1=9 ];
+                        4868 [ label="nsSVGInteger.cpp",metric1=6 ];
+                        4869 [ label="nsSVGLength.cpp",metric1=10 ];
+                        4870 [ label="nsSVGLength2.cpp",metric1=18 ];
+                        4871 [ label="nsSVGLengthList.cpp",metric1=17 ];
+                        4872 [ label="nsSVGLineElement.cpp",metric1=8 ];
+                        4873 [ label="nsSVGMarkerElement.cpp",metric1=13 ];
+                        4874 [ label="nsSVGMaskElement.cpp",metric1=7 ];
+                        4875 [ label="nsSVGMatrix.cpp",metric1=10 ];
+                        4876 [ label="nsSVGMetadataElement.cpp",metric1=5 ];
+                        4877 [ label="nsSVGNumber.cpp",metric1=3 ];
+                        4878 [ label="nsSVGNumber2.cpp",metric1=9 ];
+                        4879 [ label="nsSVGNumberList.cpp",metric1=13 ];
+                        4880 [ label="nsSVGPathDataParser.cpp",metric1=17 ];
+                        4881 [ label="nsSVGPathElement.cpp",metric1=10 ];
+                        4882 [ label="nsSVGPathGeometryElement.cpp",metric1=2 ];
+                        4883 [ label="nsSVGPathSeg.cpp",metric1=123 ];
+                        4884 [ label="nsSVGPathSegList.cpp",metric1=12 ];
+                        4885 [ label="nsSVGPatternElement.cpp",metric1=9 ];
+                        4886 [ label="nsSVGPoint.cpp",metric1=7 ];
+                        4887 [ label="nsSVGPointList.cpp",metric1=18 ];
+                        4888 [ label="nsSVGPolyElement.cpp",metric1=6 ];
+                        4889 [ label="nsSVGPolygonElement.cpp",metric1=7 ];
+                        4890 [ label="nsSVGPolylineElement.cpp",metric1=5 ];
+                        4891 [ label="nsSVGPreserveAspectRatio.cpp",metric1=15 ];
+                        4892 [ label="nsSVGScriptElement.cpp",metric1=6 ];
+                        4893 [ label="nsSVGString.cpp",metric1=5 ];
+                        4894 [ label="nsSVGStringProxyValue.cpp",metric1=6 ];
+                        4895 [ label="nsSVGStylableElement.cpp",metric1=6 ];
+                        4896 [ label="nsSVGRect.cpp",metric1=6 ];
+                        4897 [ label="nsSVGRectElement.cpp",metric1=7 ];
+                        4898 [ label="nsSVGSVGElement.cpp",metric1=50 ];
+                        4899 [ label="nsSVGStopElement.cpp",metric1=6 ];
+                        4900 [ label="nsSVGStyleElement.cpp",metric1=17 ];
+                        4901 [ label="nsSVGSwitchElement.cpp",metric1=4 ];
+                        4902 [ label="nsSVGSymbolElement.cpp",metric1=6 ];
+                        4903 [ label="nsSVGTSpanElement.cpp",metric1=10 ];
+                        4904 [ label="nsSVGTextContentElement.cpp",metric1=12 ];
+                        4905 [ label="nsSVGTextElement.cpp",metric1=10 ];
+                        4906 [ label="nsSVGTextPathElement.cpp",metric1=7 ];
+                        4907 [ label="nsSVGTitleElement.cpp",metric1=19 ];
+                        4908 [ label="nsSVGTransform.cpp",metric1=12 ];
+                        4909 [ label="nsSVGTransformList.cpp",metric1=13 ];
+                        4910 [ label="nsSVGTransformListParser.cpp",metric1=9 ];
+                        4911 [ label="nsSVGUseElement.cpp",metric1=23 ];
+                        4912 [ label="nsSVGViewBox.cpp",metric1=10 ];
+                        4913 [ label="nsSVGAnimateElement.cpp",metric1=5 ];
+                        4914 [ label="nsSVGAnimateTransformElement.cpp",metric1=5 ];
+                        4915 [ label="nsSVGAnimationElement.cpp",metric1=5 ];
+                        4916 [ label="nsSVGSetElement.cpp",metric1=5 ];
+                        4917 [ label="nsSVGTransformSMILType.cpp",metric1=1 ];
+                        4918 [ label="nsSVGTransformSMILAttr.cpp",metric1=9 ];
+                    }
+                }
+            }
+            subgraph 4919 {
+                graph [ label=xtf ];
+                subgraph 4920 {
+                    graph [ label=src ];
+                    4921 [ label="nsXMLContentBuilder.cpp",metric1=4 ];
+                    4922 [ label="nsXTFElementWrapper.cpp",metric1=25 ];
+                    4923 [ label="nsXTFInterfaceAggregator.cpp",metric1=6 ];
+                    4924 [ label="nsXTFService.cpp",metric1=2 ];
+                    4925 [ label="nsXTFWeakTearoff.cpp",metric1=6 ];
+                }
+            }
+            subgraph 4926 {
+                graph [ label=mathml ];
+                subgraph 4927 {
+                    graph [ label=content ];
+                    subgraph 4928 {
+                        graph [ label=src ];
+                        4929 [ label="nsMathMLElement.cpp",metric1=8 ];
+                        4930 [ label="nsMathMLElementFactory.cpp",metric1=3 ];
+                    }
+                }
+            }
+        }
+        subgraph 4931 {
+            graph [ label=editor ];
+            subgraph 4932 {
+                graph [ label=txtsvc ];
+                subgraph 4933 {
+                    graph [ label=src ];
+                    4934 [ label="nsFilteredContentIterator.cpp",metric1=3 ];
+                    4935 [ label="nsTSDNotifier.cpp",metric1=34 ];
+                }
+            }
+            subgraph 4936 {
+                graph [ label=libeditor ];
+                subgraph 4937 {
+                    graph [ label=base ];
+                    4938 [ label="nsEditorCommands.cpp",metric1=80 ];
+                    4939 [ label="nsEditorController.cpp",metric1=17 ];
+                    4940 [ label="nsEditorUtils.cpp",metric1=1 ];
+                    4941 [ label="nsSelectionState.cpp",metric1=3 ];
+                    4942 [ label="EditTxn.cpp",metric1=5 ];
+                    4943 [ label="PlaceholderTxn.cpp",metric1=2 ];
+                    4944 [ label="ChangeAttributeTxn.cpp",metric1=5 ];
+                    4945 [ label="ChangeCSSInlineStyleTxn.cpp",metric1=9 ];
+                    4946 [ label="CreateElementTxn.cpp",metric1=3 ];
+                    4947 [ label="DeleteElementTxn.cpp",metric1=2 ];
+                    4948 [ label="DeleteRangeTxn.cpp",metric1=3 ];
+                    4949 [ label="DeleteTextTxn.cpp",metric1=2 ];
+                    4950 [ label="EditAggregateTxn.cpp",metric1=1 ];
+                    4951 [ label="IMETextTxn.cpp",metric1=6 ];
+                    4952 [ label="InsertElementTxn.cpp",metric1=3 ];
+                    4953 [ label="InsertTextTxn.cpp",metric1=3 ];
+                    4954 [ label="JoinElementTxn.cpp",metric1=4 ];
+                    4955 [ label="SetDocTitleTxn.cpp",metric1=2 ];
+                    4956 [ label="SplitElementTxn.cpp",metric1=4 ];
+                    4957 [ label="nsStyleSheetTxns.cpp",metric1=4 ];
+                }
+                subgraph 4958 {
+                    graph [ label=text ];
+                    4959 [ label="nsPlaintextDataTransfer.cpp",metric1=7 ];
+                    4960 [ label="nsPlaintextEditor.cpp",metric1=5 ];
+                    4961 [ label="nsTextEditUtils.cpp",metric1=1 ];
+                    4962 [ label="nsTextEditRules.cpp",metric1=5 ];
+                    4963 [ label="nsEditorEventListeners.cpp",metric1=26 ];
+                    4964 [ label="nsInternetCiter.cpp",metric1=6 ];
+                    4965 [ label="nsTextEditRulesBidi.cpp",metric1=1 ];
+                }
+                subgraph 4966 {
+                    graph [ label=html ];
+                    4967 [ label="nsHTMLAbsPosition.cpp",metric1=13 ];
+                    4968 [ label="nsHTMLAnonymousUtils.cpp",metric1=35 ];
+                    4969 [ label="nsHTMLCSSUtils.cpp",metric1=3 ];
+                    4970 [ label="nsHTMLObjectResizer.cpp",metric1=11 ];
+                    4971 [ label="nsHTMLEditorMouseListener.cpp",metric1=5 ];
+                    4972 [ label="nsHTMLInlineTableEditor.cpp",metric1=1 ];
+                    4973 [ label="nsHTMLURIRefObject.cpp",metric1=6 ];
+                    4975 [ label="TypeInState.cpp",metric1=3 ];
+                }
+            }
+            subgraph 4976 {
+                graph [ label=txmgr ];
+                subgraph 4977 {
+                    graph [ label=src ];
+                    4978 [ label="nsTransactionItem.cpp",metric1=6 ];
+                    4979 [ label="nsTransactionList.cpp",metric1=1 ];
+                    4980 [ label="nsTransactionManager.cpp",metric1=12 ];
+                    4981 [ label="nsTransactionManagerFactory.cpp",metric1=4 ];
+                    4982 [ label="nsTransactionStack.cpp",metric1=2 ];
+                }
+            }
+            subgraph 4983 {
+                graph [ label=composer ];
+                subgraph 4984 {
+                    graph [ label=src ];
+                    4985 [ label="nsComposeTxtSrvFilter.cpp",metric1=2 ];
+                    4986 [ label="nsComposerController.cpp",metric1=49 ];
+                    4987 [ label="nsComposerCommands.cpp",metric1=98 ];
+                    4988 [ label="nsComposerDocumentCommands.cpp",metric1=26 ];
+                    4989 [ label="nsComposerRegistration.cpp",metric1=13 ];
+                    4990 [ label="nsEditingSession.cpp",metric1=26 ];
+                    4991 [ label="nsComposerCommandsUpdater.cpp",metric1=38 ];
+                    4992 [ label="nsEditorSpellCheck.cpp",metric1=7 ];
+                }
+            }
+        }
+        subgraph 4993 {
+            graph [ label=layout ];
+            subgraph 4994 {
+                graph [ label=style ];
+                4995 [ label="nsCSSAnonBoxes.cpp",metric1=1 ];
+                4996 [ label="nsCSSDataBlock.cpp",metric1=21 ];
+                4997 [ label="nsCSSDeclaration.cpp",metric1=1 ];
+                4998 [ label="nsCSSLoader.cpp",metric1=1 ];
+                4999 [ label="nsCSSProps.cpp",metric1=4 ];
+                5000 [ label="nsCSSPseudoElements.cpp",metric1=1 ];
+                5001 [ label="nsCSSRule.cpp",metric1=1 ];
+                5003 [ label="nsCSSRules.cpp",metric1=7 ];
+                5004 [ label="nsCSSScanner.cpp",metric1=14 ];
+                5005 [ label="nsCSSStruct.cpp",metric1=18 ];
+                5006 [ label="nsCSSStyleRule.cpp",metric1=12 ];
+                5007 [ label="nsCSSStyleSheet.cpp",metric1=2 ];
+                5008 [ label="nsCSSValue.cpp",metric1=4 ];
+                5009 [ label="nsDOMCSSAttrDeclaration.cpp",metric1=10 ];
+                5010 [ label="nsDOMCSSDeclaration.cpp",metric1=7 ];
+                5011 [ label="nsDOMCSSRGBColor.cpp",metric1=5 ];
+                5012 [ label="nsDOMCSSRect.cpp",metric1=5 ];
+                5013 [ label="nsDOMCSSValueList.cpp",metric1=5 ];
+                5014 [ label="nsFontFaceLoader.cpp",metric1=6 ];
+                5015 [ label="nsHTMLCSSStyleSheet.cpp",metric1=12 ];
+                5016 [ label="nsHTMLStyleSheet.cpp",metric1=26 ];
+                5017 [ label="nsLayoutStylesheetCache.cpp",metric1=4 ];
+                5018 [ label="nsMediaFeatures.cpp",metric1=13 ];
+                5019 [ label="nsROCSSPrimitiveValue.cpp",metric1=12 ];
+                5021 [ label="nsStyleContext.cpp",metric1=8 ];
+                5022 [ label="nsStyleCoord.cpp",metric1=3 ];
+                5023 [ label="nsStyleSet.cpp",metric1=9 ];
+                5024 [ label="nsStyleStruct.cpp",metric1=7 ];
+                5025 [ label="nsStyleTransformMatrix.cpp",metric1=29 ];
+                5026 [ label="nsStyleUtil.cpp",metric1=8 ];
+                5027 [ label="nsTransitionManager.cpp",metric1=27 ];
+            }
+            subgraph 5028 {
+                graph [ label=base ];
+                5029 [ label="nsCSSColorUtils.cpp",metric1=1 ];
+                5030 [ label="nsCSSRenderingBorders.cpp",metric1=20 ];
+                5031 [ label="nsCaret.cpp",metric1=11 ];
+                5032 [ label="nsChildIterator.cpp",metric1=2 ];
+                5033 [ label="nsCounterManager.cpp",metric1=14 ];
+                5034 [ label="nsDisplayList.cpp",metric1=9 ];
+                5035 [ label="nsFrameManager.cpp",metric1=16 ];
+                5036 [ label="nsFrameTraversal.cpp",metric1=10 ];
+                5037 [ label="nsGenConList.cpp",metric1=7 ];
+                5038 [ label="nsImageLoader.cpp",metric1=10 ];
+                5039 [ label="nsLayoutHistoryState.cpp",metric1=5 ];
+                5040 [ label="nsPresArena.cpp",metric1=4 ];
+                5041 [ label="nsPresContext.cpp",metric1=1 ];
+                5042 [ label="nsQuoteList.cpp",metric1=2 ];
+                5043 [ label="nsRefreshDriver.cpp",metric1=1 ];
+                5044 [ label="nsStyleChangeList.cpp",metric1=2 ];
+                5045 [ label="nsStyleSheetService.cpp",metric1=3 ];
+                5046 [ label="nsBidiPresUtils.cpp",metric1=15 ];
+                5047 [ label="nsBidi.cpp",metric1=14 ];
+            }
+            subgraph 5048 {
+                graph [ label=generic ];
+                5049 [ label="nsAbsoluteContainingBlock.cpp",metric1=15 ];
+                5050 [ label="nsBRFrame.cpp",metric1=15 ];
+                5051 [ label="nsBlockReflowContext.cpp",metric1=11 ];
+                5052 [ label="nsBlockReflowState.cpp",metric1=12 ];
+                5053 [ label="nsBulletFrame.cpp",metric1=21 ];
+                5054 [ label="nsColumnSetFrame.cpp",metric1=22 ];
+                5055 [ label="nsContainerFrame.cpp",metric1=27 ];
+                5056 [ label="nsFirstLetterFrame.cpp",metric1=3 ];
+                5057 [ label="nsFloatManager.cpp",metric1=16 ];
+                5058 [ label="nsFrameFrame.cpp",metric1=12 ];
+                5059 [ label="nsFrameList.cpp",metric1=8 ];
+                5060 [ label="nsFrameSetFrame.cpp",metric1=7 ];
+                5062 [ label="nsHTMLCanvasFrame.cpp",metric1=15 ];
+                5063 [ label="nsHTMLContainerFrame.cpp",metric1=35 ];
+                5064 [ label="nsCanvasFrame.cpp",metric1=13 ];
+                5065 [ label="nsHTMLReflowState.cpp",metric1=9 ];
+                5066 [ label="nsImageFrame.cpp",metric1=26 ];
+                5067 [ label="nsImageMap.cpp",metric1=33 ];
+                5068 [ label="nsInlineFrame.cpp",metric1=24 ];
+                5069 [ label="nsIntervalSet.cpp",metric1=1 ];
+                5070 [ label="nsLeafFrame.cpp",metric1=11 ];
+                5071 [ label="nsLineBox.cpp",metric1=19 ];
+                5072 [ label="nsLineLayout.cpp",metric1=6 ];
+                5073 [ label="nsPageContentFrame.cpp",metric1=10 ];
+                5074 [ label="nsPageFrame.cpp",metric1=16 ];
+                5075 [ label="nsPlaceholderFrame.cpp",metric1=11 ];
+                5076 [ label="nsSimplePageSequence.cpp",metric1=18 ];
+                5077 [ label="nsSpacerFrame.cpp",metric1=4 ];
+                5078 [ label="nsSplittableFrame.cpp",metric1=4 ];
+                5079 [ label="nsTextFrameUtils.cpp",metric1=12 ];
+                5080 [ label="nsTextRunTransformations.cpp",metric1=8 ];
+                5081 [ label="nsViewportFrame.cpp",metric1=10 ];
+                5082 [ label="nsVideoFrame.cpp",metric1=6 ];
+                5083 [ label="nsBidiFrames.cpp",metric1=1 ];
+            }
+            subgraph 5084 {
+                graph [ label=forms ];
+                5085 [ label="nsButtonFrameRenderer.cpp",metric1=17 ];
+                5086 [ label="nsComboboxControlFrame.cpp",metric1=8 ];
+                5087 [ label="nsFieldSetFrame.cpp",metric1=9 ];
+                5088 [ label="nsFileControlFrame.cpp",metric1=14 ];
+                5089 [ label="nsFormControlFrame.cpp",metric1=8 ];
+                5090 [ label="nsGfxButtonControlFrame.cpp",metric1=2 ];
+                5091 [ label="nsGfxCheckboxControlFrame.cpp",metric1=7 ];
+                5092 [ label="nsGfxRadioControlFrame.cpp",metric1=4 ];
+                5094 [ label="nsHTMLButtonControlFrame.cpp",metric1=12 ];
+                5095 [ label="nsImageControlFrame.cpp",metric1=12 ];
+                5096 [ label="nsLegendFrame.cpp",metric1=1 ];
+                5098 [ label="nsIsIndexFrame.cpp",metric1=14 ];
+                5099 [ label="nsSelectsAreaFrame.cpp",metric1=18 ];
+            }
+            subgraph 5100 {
+                graph [ label=tables ];
+                5101 [ label="BasicTableLayoutStrategy.cpp",metric1=3 ];
+                5102 [ label="FixedTableLayoutStrategy.cpp",metric1=3 ];
+                5103 [ label="SpanningCellSorter.cpp",metric1=10 ];
+            }
+        }
+    }
+}
