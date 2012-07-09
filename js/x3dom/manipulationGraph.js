@@ -40,7 +40,7 @@ function layerExpandAllById(layerId) {
 	      $("#x3dSceneWrapper").append(data);
 	      
 	      showLayerDetailsById(layerId);
-	},'url':'./index.php?r=x3dInteraction/expandAll&id=' + layerId,'cache':false});
+	},'url':'./index.php?r=x3dInteraction/expandAllGraph&id=' + layerId,'cache':false});
 }
 
 function showLayerById(id) {
@@ -48,5 +48,5 @@ function showLayerById(id) {
 	      $("#x3dSceneWrapper").append(data);
 	      
 	      showLayerDetailsById(id);
-	   },'url':'./index.php?r=x3dInteraction/showLayer&id=' + id,'cache':false});
+	   },'url':'./index.php?r=x3dInteraction/showLayerGraph&id=' + id,'cache':false});
 }

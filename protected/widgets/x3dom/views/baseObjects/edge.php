@@ -1,4 +1,4 @@
-<Transform onclick="edgeClickedEvent(event);">
+<Transform id='<?php echo $id; ?>' onclick="edgeClickedEvent(event);">
 <?php 
 
 if (count($sections)) {

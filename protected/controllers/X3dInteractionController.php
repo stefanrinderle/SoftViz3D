@@ -21,6 +21,16 @@ class X3dInteractionController extends BaseController {
 		));
 	}
 	
+	public function actionShowLayerGraph($id = null) {
+		$root = LayerElement::model()->findByPk($id);
+		$root->isVisible = 1;
+		$root->save();
+	
+		$this->widget('application.widgets.x3dom.X3domLayerWidget',array(
+				'layer' => $root, 'type' => 'graph'
+		));
+	}
+	
 	public function actionExpandAll($id = null) {
 		$root = LayerElement::model()->findByPk($id);
 		
@@ -41,6 +51,32 @@ class X3dInteractionController extends BaseController {
 						'layer' => $child, 'type' => 'tree'
 				));
 				
+				$child->isVisible = 1;
+				$child->save();
+			}
+		}
+	}
+	
+	public function actionExpandAllGraph($id = null) {
+		$root = LayerElement::model()->findByPk($id);
+	
+		if (!$root->isVisible) {
+			$root->isVisible = 1;
+			$root->save();
+				
+			$this->widget('application.widgets.x3dom.X3domLayerWidget',array(
+					'layer' => $root, 'type' => 'graph'
+			));
+		}
+	
+		$children = $this->retrieveAllChildrenLayers($id);
+	
+		foreach($children as $child) {
+			if (!$child->isVisible) {
+				$this->widget('application.widgets.x3dom.X3domLayerWidget',array(
+						'layer' => $child, 'type' => 'graph'
+				));
+	
 				$child->isVisible = 1;
 				$child->save();
 			}
@@ -92,6 +128,11 @@ class X3dInteractionController extends BaseController {
 		$leafs = TreeElement::model()->findAllByAttributes(array('parent_id'=>$layerId));
 		foreach ($leafs as $leaf) {
 			array_push($result, $leaf->id);
+		}
+		
+		$edges = EdgeElement::model()->findAllByAttributes(array('parent_id'=>$layerId));
+		foreach ($edges as $edge) {
+			array_push($result, $edge->id);
 		}
 	
 		return $result;

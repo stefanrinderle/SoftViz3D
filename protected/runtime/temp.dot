@@ -1,5 +1,4 @@
 digraph G {
-    cluster_0 [ shape=rectangle,width=2.43055555556,height=1.72222222222,fixedsize=true,id=98574,type="node" ];
-    cluster_1 [ shape=rectangle,width=1.93055555556,height=2.72222222222,fixedsize=true,id=98577,type="node" ];
-    cluster_0 -> cluster_1 [ style="setlinewidth(1)" ];
+    cluster_0 [ shape=rectangle,width=0.430555555556,height=0.0972222222222,fixedsize=true,id=108529,type="node" ];
+    cluster_1 [ shape=rectangle,width=0.430555555556,height=0.0972222222222,fixedsize=true,id=108532,type="node" ];
 }

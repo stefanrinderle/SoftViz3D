@@ -40,7 +40,7 @@ function setFocus(id) {
 	selectedId = id;
 	selectedDefaultColour = aMat.getAttribute("diffuseColor");
 	
-	aMat.setAttribute("diffuseColor", "0 0 0.5");
+	aMat.setAttribute("diffuseColor", "0 1 0");
 }
 
 function setColour(elementId, color) {

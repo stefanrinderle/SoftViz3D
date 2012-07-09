@@ -7,7 +7,10 @@ function leafClickedEvent(event) {
 }
 
 function nodeClickedEvent(event) {
-	console.log(event);
+	var orig_id = $(event.target).attr('id');
+	var id = orig_id.split("_");
+	
+	showLayerDetailsById(id[1]);
 }
 
 function edgeClickedEvent(event) {

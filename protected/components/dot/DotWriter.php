@@ -54,7 +54,8 @@ class DotWriter extends CApplicationComponent
 					$width = 1 + (($value->counter - 1) * 0.2);
 					
 					$this->graphViz->addEdge(array($value->outElement->label => $value->inElement->label),
-							array('style' => 'setlinewidth(' . $width . ')'));
+							array('id' => $value->id,
+									'style' => 'setlinewidth(' . $width . ')'));
 // 				}
 			}
 		}
