@@ -49,9 +49,9 @@ class LayerElement extends TreeElement {
 	}
 	
 	// factory method
-	public static function createAndSave($label, $parent_id, $level) {
+	public static function createAndSave($name, $parent_id, $level) {
 		$element = new self('insert');
-		$element->label=$label;
+		$element->name=$name;
 		$element->parent_id=$parent_id;
 		$element->level=$level;
 		$element->isLeaf = 0;
@@ -60,9 +60,9 @@ class LayerElement extends TreeElement {
 		return $element->id;
 	}
 	
-	public static function create($label, $parent_id, $level) {
+	public static function create($name, $parent_id, $level) {
 		$element = new self('insert');
-		$element->label=$label;
+		$element->name=$name;
 		$element->parent_id=$parent_id;
 		$element->level=$level;
 		$element->isLeaf = 0;

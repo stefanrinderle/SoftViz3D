@@ -55,7 +55,7 @@ class LayoutVisitor {
 	function visitLeafElement(LeafElement $comp) {
 		if ($this->max_level < $comp->level) $this->max_level = $comp->level;
 
- 		if (substr($comp->label, 0, 4) == "dep_") {
+ 		if (substr($comp->name, 0, 4) == "dep_") {
  			// value between 0 and 1
  			// this was to fat: $comp->counter / $this->maxCounter
  			//TODO: this should not be possible

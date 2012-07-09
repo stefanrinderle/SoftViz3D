@@ -28,9 +28,9 @@ class OwnDotParser extends AdotParser {
 	
 	private $import = false;
 	
-	protected function parseGraph($label = "G", $parent = 0, $level = 0) {
-		$label = str_replace('"', '', $label);
-		$currentLayer = LayerElement::create($label, $parent, $level);
+	protected function parseGraph($name = "G", $parent = 0, $level = 0) {
+		$name = str_replace('"', '', $name);
+		$currentLayer = LayerElement::create($name, $parent, $level);
 		
 		$line = $this->getNewLine();
 		
@@ -47,9 +47,9 @@ class OwnDotParser extends AdotParser {
 				$counter++;
 				
 				//subgraph node_3 {
-				$label = substr($line, strpos($line, "subgraph") + strlen("subgraph") + 1, strpos($line, "{") - strlen("subgraph") - strpos($line, "subgraph") - 2);
+				$name = substr($line, strpos($line, "subgraph") + strlen("subgraph") + 1, strpos($line, "{") - strlen("subgraph") - strpos($line, "subgraph") - 2);
 				
-				$this->parseGraph($label, $currentLayer->id, $level + 1);
+				$this->parseGraph($name, $currentLayer->id, $level + 1);
 			} else if($edgeLine) {
 				$this->retrieveEdge();
 			} else {
@@ -61,7 +61,7 @@ class OwnDotParser extends AdotParser {
 			$line = $this->getNewLine();
 		}
 		
-		//print_r($currentLayer->label . " " . $counter .  "<br /><br />");
+		//print_r($currentLayer->name . " " . $counter .  "<br /><br />");
  		//prevent import of empty layers
  		if ($counter < 2 && !$this->import) {
  			//$this->rootId = $currentLayer->id;
@@ -76,14 +76,14 @@ class OwnDotParser extends AdotParser {
 	protected function retrieveNode($parent, $level) {
 		$line = $this->actualLine;
 
-		$label = $this->retrieveName($line);
+		$name = $this->retrieveName($line);
 			
-		if ($label != "graph" && $label != "node") {
+		if ($name != "graph" && $name != "node") {
 			$metric1 = $this->retrieveParam($line, 'metric1');
 			$metric2 = $this->retrieveParam($line, 'metric2');
 
-			$label = str_replace('"', '', $label);
-			LeafElement::createAndSave($label, $parent, $level, $metric1, $metric2);
+			$name = str_replace('"', '', $name);
+			LeafElement::createAndSave($name, $parent, $level, $metric1, $metric2);
 			
 			return true;
 		} else {
@@ -94,25 +94,25 @@ class OwnDotParser extends AdotParser {
 	protected function retrieveEdge() {
 		$line = $this->actualLine;
 	
-		$label = $this->retrieveName($line);
+		$name = $this->retrieveName($line);
 		//" name1 -> name 2"
 		$out = trim(substr($line, 0, strpos($line, "->") - 1)); 
 		$in = trim(substr($line, strpos($line, "->") + 2, strpos($line, ";") - (strpos($line, "->") + 2)));
 		
-		$edge = array(label => $label, out => $out, in => $in);
+		$edge = array(name => $name, out => $out, in => $in);
 		
 		array_push($this->edgeStore, $edge);
 	}
 	
 	private function createEdges() {
 		$attr = array(
-				'select'=>'id, label, parent_id',
+				'select'=>'id, name, parent_id',
 		);
 		$treeElements = TreeElement::model()->findAll($attr);
 	
 		$treeArray = array();
 		foreach ($treeElements as $element) {
-			$treeArray[$element->label] = array(id => $element->id, parent_id => $element->parent_id);
+			$treeArray[$element->name] = array(id => $element->id, parent_id => $element->parent_id);
 		}
 	
 		$edgesToSave = array();
@@ -121,7 +121,7 @@ class OwnDotParser extends AdotParser {
 			$out = $treeArray[$edge[out]];
 			$in = $treeArray[$edge[in]];
 	
-			array_push($edgesToSave, EdgeElement::createDotEdgeElement($edge[label], $out[id], $in[id], $out[parent_id], $in[parent_id]));
+			array_push($edgesToSave, EdgeElement::createDotEdgeElement($edge[name], $out[id], $in[id], $out[parent_id], $in[parent_id]));
 		}
 	
 		return $edgesToSave;

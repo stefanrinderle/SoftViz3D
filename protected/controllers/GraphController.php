@@ -26,6 +26,7 @@ class GraphController extends BaseX3dController
 		$root = LayerElement::model()->findByPk($rootId);
 		$root->accept($layout);
 		
+		
 		echo "Calculation time Layoutvisitor: " . $this->getTimeDifference($startTime) . "<br />";
 		
 		// STEP 4: calculate absolute translations

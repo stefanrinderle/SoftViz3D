@@ -47,15 +47,17 @@ class DotWriter extends CApplicationComponent
 					
 					$attr['type'] = "leaf";
 				}
-				$this->graphViz->addNode($value->label, $attr);
 				
+				$this->graphViz->addNode($value->name, $attr);
 			} else if ($value instanceOf EdgeElement) {
+				print_r($value->outElement->name . "=>" . $value->inElement->name . "<br />");
 // 				if ($value->counter != 1) {
 					$width = 1 + (($value->counter - 1) * 0.2);
 					
-					$this->graphViz->addEdge(array($value->outElement->label => $value->inElement->label),
+					$this->graphViz->addEdge(array($value->outElement->name => $value->inElement->name),
 							array('id' => $value->id,
 									'style' => 'setlinewidth(' . $width . ')'));
+					
 // 				}
 			}
 		}
