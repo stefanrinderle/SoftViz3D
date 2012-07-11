@@ -34,13 +34,19 @@ function setFocus(id) {
 	}
 
 	element = document.getElementById(id);
+	
 	var mat = element.getElementsByTagName("Material");
 	var aMat = mat[0];
 	
 	selectedId = id;
 	selectedDefaultColour = aMat.getAttribute("diffuseColor");
 	
-	aMat.setAttribute("diffuseColor", "0 1 0");
+	var isLayer = element.getElementsByTagName("rectangle2d").length;
+	if (isLayer) {
+		aMat.setAttribute("diffuseColor", "0 0.7 0");
+	} else {
+		aMat.setAttribute("diffuseColor", "0 0.9 0");
+	}
 }
 
 function setColour(elementId, color) {

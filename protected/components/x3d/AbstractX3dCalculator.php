@@ -4,7 +4,7 @@ abstract class AbstractX3dCalculator extends CApplicationComponent
 {
 	protected $layout;
 	
-	protected $layerDepth = 10;
+	protected $layerDepth;
 	
 	protected static $DEFAULT_HEIGHT = 10;
 	
@@ -61,7 +61,7 @@ abstract class AbstractX3dCalculator extends CApplicationComponent
 					'position'=>array('x' => $node['attr']['pos'][0],
 							'y' => $depth * $this->layerDepth + ($height / 2),
 							'z' => $node['attr']['pos'][1]),
-					'colour'=>array('r'=>1, 'g'=>0, 'b'=>0),
+					'colour'=>array('r'=>1, 'g'=>0.55, 'b'=>0),
 					'transparency'=>0,
 					'isLeaf' => 1,
 					'id' => $node['attr']['id']

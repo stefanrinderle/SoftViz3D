@@ -2,19 +2,30 @@
 
 class TreeX3dCalculator extends AbstractX3dCalculator {
 	
+	public function calculate($layerLayout, $comp) {
+		parent::init();
+
+		$this->layerDepth = 5;
+		
+		$this->adjustLayoutToX3d($layerLayout, $comp->level, $comp->max_level);
+	
+		return $this->layout;
+	}
+	
 	protected function adjustBb($layerLayout, $depth, $maxDepth) {
 		$bb = $layerLayout['bb'];
 	
 		$width = round($bb[2] - $bb[0], 2);
 		$length = round($bb[3] - $bb[1], 2);
 			
-		$colourCalc = 0.2 + $depth * 0.1; 
+		$colourCalc = ($depth - 1) * 0.3; 
 		if ($colourCalc > 1.0) {
 			$colourCalc = 1.0;
 		}
-		$colour = array('r'=>$colourCalc, 'g'=> $colourCalc, 'b'=>0);
+		
+		$colour = array('r'=>0.87 - $colourCalc, 'g'=> 1 - $colourCalc, 'b'=> 1);
 		$transpareny = 0;//0.9 - ($maxDepth - $depth) * 0.1;
-	
+		
 		$result = array(
 				'size'=>array('width'=>$width, 'length'=>$length),
 				'colour'=>$colour,

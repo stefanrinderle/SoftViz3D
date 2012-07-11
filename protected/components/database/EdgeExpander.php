@@ -32,7 +32,8 @@ class EdgeExpander extends CApplicationComponent
 			$leaf->save();
 		}
 		
-		print_r("count: " . count($this->flatEdges) . " <br />");
+		print_r("count_flat: " . count($this->flatEdges) . " <br />");
+		print_r("count_dep: " . count($this->dependencyEdges) . " <br />");
 		// dont show flat edges
 // 		foreach ($this->flatEdges as $edge) {
 // 			$edge->save();

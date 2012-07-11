@@ -45,11 +45,16 @@
 	line-height: 0px;
 	padding: 0;
 	display: block;
-	background: #000 url(./texture/solarSystem/starsbg.png);
+	
 	width: 50%;
 	height: 50%;
 	border-color: #666;
 }*/
+
+#the_x3delement {
+	background: #DDDDDD;
+}
+
 
 #details {
 	height: 300px;

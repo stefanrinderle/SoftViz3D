@@ -53,8 +53,8 @@ class GraphX3dCalculator extends AbstractX3dCalculator {
 		$width = $bb[2] - $bb[0];
 		$length = $bb[3] - $bb[1];
 	
-		$colour = array('r'=>0, 'g'=> $depth * 0.2, 'b'=>0);
-		$transpareny = 0.7;
+		$colour = array('r'=>0.7, 'g'=> 1, 'b'=> 1);
+		$transpareny = 0.2;
 	
 		$result = array(
 				'size'=>array('width'=>$width, 'length'=>$length),
@@ -104,8 +104,8 @@ class GraphX3dCalculator extends AbstractX3dCalculator {
 				'position'=>array('x' => $node['attr']['pos'][0],
 						'y' => $depth * $this->layerDepth + ($height / 2),
 						'z' => $node['attr']['pos'][1]),
-				'colour'=>array('r'=>0, 'g'=>0, 'b'=>0.7),
-				'transparency'=>0.2,
+				'colour'=>array('r'=>1, 'g'=>0.55, 'b'=>0),
+				'transparency'=>0,
 				'isLeaf' => 1,
 				'id' => $node['attr']['id']
 		);
