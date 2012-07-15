@@ -105,14 +105,15 @@ return array(
 			),
 		),
 		*/
-// 		'db'=>array(
-// 			'connectionString' => 'sqlite:'.dirname(__FILE__).'/../data/graph.db',
 		'db'=>array(
-				'class'=>'CDbConnection',
-				'connectionString'=>'mysql:host=localhost;dbname=graph',
-				'username'=>'root',
-				'password'=>'20S10a..'
+			'connectionString' => 'sqlite:'.dirname(__FILE__).'/../data/graph.db',
 		),
+// 		'db'=>array(
+// 				'class'=>'CDbConnection',
+// 				'connectionString'=>'mysql:host=localhost;dbname=graph',
+// 				'username'=>'root',
+// 				'password'=>'20S10a..'
+// 		),
 		// uncomment the following to use a MySQL database
 		/*
 		'db'=>array(
@@ -148,7 +149,7 @@ return array(
 	// using Yii::app()->params['paramName']
 	'params'=>array(
 		// this is used in contact page
-		'adminEmail'=>'webmaster@example.com',
+		'adminEmail'=>'stefan@rinderle.info',
 		'currentResourceFile' => DIRECTORY_SEPARATOR . 'runtime' . DIRECTORY_SEPARATOR . 'actualResource.dot',
 		'tempDotFile' => DIRECTORY_SEPARATOR . 'runtime' . DIRECTORY_SEPARATOR . 'temp.dot'
 	),

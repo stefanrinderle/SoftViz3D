@@ -8,9 +8,9 @@
 <?php 
 $filePath = Yii::app()->basePath . '/data/graph.db';
 if (is_writeable($filePath)) {
-	$this->renderPartial('//common/_showSuccess', array(message=>"DB: file " . $filePath . " is writable"));
+	$this->renderPartial('//common/_showSuccess', array("message" =>"DB: file " . $filePath . " is writable"));
 } else {
-	$this->renderPartial('//common/_showError', array(message=>"DB: file " . $filePath . " is NOT writable"));
+	$this->renderPartial('//common/_showError', array("message" =>"DB: file " . $filePath . " is NOT writable"));
 }
 ?>
 
@@ -18,9 +18,9 @@ if (is_writeable($filePath)) {
 <?php 
 $filePath = Yii::app()->basePath . Yii::app()->params['currentResourceFile'];
 if (is_writeable($filePath)) {
-	$this->renderPartial('//common/_showSuccess', array(message=>"Temporary dot file: " . $filePath . " is writable"));
+	$this->renderPartial('//common/_showSuccess', array("message" =>"Temporary dot file: " . $filePath . " is writable"));
 } else {
-	$this->renderPartial('//common/_showError', array(message=>"Temporary dot file: " . $filePath . " is NOT writable"));
+	$this->renderPartial('//common/_showError', array("message" =>"Temporary dot file: " . $filePath . " is NOT writable"));
 }
 ?>
 
@@ -28,9 +28,9 @@ if (is_writeable($filePath)) {
 <?php 
 $filePath = '/Users/stefan/Sites/3dArch/protected/runtime/temp.dot';
 if (is_writeable($filePath)) {
-	$this->renderPartial('//common/_showSuccess', array(message=>"Layout dot file: " . $filePath . " is writable"));
+	$this->renderPartial('//common/_showSuccess', array("message" =>"Layout dot file: " . $filePath . " is writable"));
 } else {
-	$this->renderPartial('//common/_showError', array(message=>"Layout dot file: " . $filePath . " is NOT writable"));
+	$this->renderPartial('//common/_showError', array("message" =>"Layout dot file: " . $filePath . " is NOT writable"));
 }
 ?>
 
