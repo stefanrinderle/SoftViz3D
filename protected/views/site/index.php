@@ -26,7 +26,7 @@ if (is_writeable($filePath)) {
 
 <!-- LAYOUT TEMP DOT FILE -->
 <?php 
-$filePath = '/Users/stefan/Sites/3dArch/protected/runtime/temp.dot';
+$filePath = Yii::app()->basePath . Yii::app()->params['tempDotFile'];
 if (is_writeable($filePath)) {
 	$this->renderPartial('//common/_showSuccess', array("message" =>"Layout dot file: " . $filePath . " is writable"));
 } else {
@@ -38,17 +38,17 @@ if (is_writeable($filePath)) {
 <?php 
 $filePath = '/usr/local/bin/dot';
 if (is_executable($filePath)) {
-	$this->renderPartial('//common/_showSuccess', array(message=>"Graphviz layout command: " . $filePath . " is executable"));
+	$this->renderPartial('//common/_showSuccess', array("message" =>"Graphviz layout command: " . $filePath . " is executable"));
 } else {
-	$this->renderPartial('//common/_showError', array(message=>"Graphviz layout command: " . $filePath . " is NOT executable"));
+	$this->renderPartial('//common/_showError', array("message" =>"Graphviz layout command: " . $filePath . " is NOT executable"));
 }
 ?>
 
 <!-- PHP/LEXERGENERATOR -->
 <?php 
 if(@require_once('PHP/LexerGenerator.php') ) {
-	$this->renderPartial('//common/_showSuccess', array(message=>"PHP/LexerGenerator.php: installed"));
+	$this->renderPartial('//common/_showSuccess', array("message" =>"PHP/LexerGenerator.php: installed"));
 } else {
-	$this->renderPartial('//common/_showError', array(message=>"LexerGenerator: Please install --> pear install PHP_LexerGenerator"));
+	$this->renderPartial('//common/_showError', array("message" =>"LexerGenerator: Please install --> pear install PHP_LexerGenerator"));
 }
 ?>
