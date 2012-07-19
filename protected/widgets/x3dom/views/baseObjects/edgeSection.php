@@ -1,32 +1,18 @@
-<?php 
-
-//TODO duplicated in edgeEnd.php
-$cylinderRadius = $lineWidth;
-$coneHeight = $cylinderRadius * 3;
-
-$edgeVektor = VectorCalculator::vector($startPos, $endPos);
-
-$height = VectorCalculator::magnitude($edgeVektor);
-	
-$rotation = VectorCalculator::rotationXAxis($edgeVektor);
-
-?>
-
 <Group>
-	<Transform translation='<?php echo $startPos[x] . " " . $startPos[y] . " " . $startPos[z] ?>'>
+	<Transform translation='<?php echo $section['startPos']['x'] . " " . $section['startPos'][y] . " " . $section['startPos'][z] ?>'>
 	      <Group>
 	          <Transform translation='0 0 0' rotation="0 0 1 -1.57">
-	          <Transform translation='0 0 0' rotation="1 0 0 <?php echo $rotation; ?>">
-	            <Transform translation='0 <?php echo $height / 2; ?> 0'>
+	          <Transform translation='0 0 0' rotation="1 0 0 <?php echo $section['rotation']; ?>">
+	            <Transform translation='0 <?php echo $section['length'] / 2; ?> 0'>
 	            <Shape>
 	                <Appearance>
-	  	              <Material diffuseColor='1 0 0'/>
+	  	              <Material diffuseColor='<?php echo $colour[r] . " " . $colour[g] . " " . $colour[b] ?>'/>
 	                </Appearance>
-	                <Cylinder height='<?php echo $height; ?>' radius="<?php echo $cylinderRadius; ?>"></Cylinder>
+	                <Cylinder height='<?php echo $section['length']; ?>' radius="<?php echo $lineWidth; ?>"></Cylinder>
 	            </Shape>
 	            </Transform>
 	          </Transform>
 	          </Transform>
 	      </Group>
       </Transform>
-    </Group>
+</Group>

@@ -1,36 +1,22 @@
-<?php 
-
-$cylinderRadius = $lineWidth;
-$coneRadius = $cylinderRadius * 2;
-$coneHeight = $cylinderRadius * 3;
-
-$edgeVektor = VectorCalculator::vector($startPos, $endPos);
-
-$mainEdgeHeight = VectorCalculator::magnitude($edgeVektor);
-$cylinderHeight = $mainEdgeHeight - $coneHeight;
-
-$rotation = VectorCalculator::rotationXAxis($edgeVektor);
-?>
-
 <Group>
-	<Transform translation='<?php echo $startPos[x] . " " . $startPos[y] . " " . $startPos[z] ?>'>
+	<Transform translation='<?php echo $endSection['startPos'][x] . " " . $endSection['startPos'][y] . " " . $endSection['startPos'][z] ?>'>
 	      <Group>
 	          <Transform translation='0 0 0' rotation="0 0 1 -1.57">
-	          <Transform translation='0 0 0' rotation="1 0 0 <?php echo $rotation; ?>">
-	            <Transform translation='0 <?php echo $cylinderHeight / 2; ?> 0'>
+	          <Transform translation='0 0 0' rotation="1 0 0 <?php echo $endSection['rotation']; ?>">
+	            <Transform translation='0 <?php echo $endSection['cylinderLength'] / 2; ?> 0'>
 	            <Shape>
 	                <Appearance>
-	  	              <Material diffuseColor='1 0 0'/>
+	  	              <Material diffuseColor='<?php echo $colour[r] . " " . $colour[g] . " " . $colour[b] ?>'/>
 	                </Appearance>
-	                <Cylinder height='<?php echo $cylinderHeight; ?>' radius="<?php echo $cylinderRadius; ?>"></Cylinder>
+	                <Cylinder height='<?php echo $endSection['cylinderLength']; ?>' radius="<?php echo $lineWidth; ?>"></Cylinder>
 	            </Shape>
 	            </Transform>
-	            <Transform translation='0 <?php echo $cylinderHeight + $coneHeight / 2; ?> 0'>
+	            <Transform translation='0 <?php echo $endSection['cylinderLength'] + $endSection['coneLength'] / 2; ?> 0'>
 	            <Shape>
 	                <Appearance>
 	                	<Material diffuseColor='1 0 0'/>
 	                </Appearance>
-	                <Cone bottomRadius='<?php echo $coneRadius; ?>' height='<?php echo $coneHeight; ?>'/>
+	                <Cone bottomRadius='<?php echo $endSection['coneRadius']; ?>' height='<?php echo $endSection['coneLength']; ?>'/>
 	            </Shape>
 	            </Transform>
 	          </Transform>
