@@ -63,6 +63,7 @@ $this->breadcrumbs=array(
 			<p><?php echo CHtml::link('MVC example', array('import/mvc')); ?></p>
 	    </td>
 	    <td>
+	    	<p><?php echo CHtml::link('Irssi', array('import/goanna', project => "irssi")); ?></p>
 	    	<p><?php echo CHtml::link('Mongrel2', array('import/goanna', project => "mongrel2")); ?></p>
 	    	<p><?php echo CHtml::link('Nusmv', array('import/goanna', project => "nusmv")); ?></p>
 	    	<p><?php echo CHtml::link('Firefox warnings', array('import/goanna', project => "firefox")); ?></p>

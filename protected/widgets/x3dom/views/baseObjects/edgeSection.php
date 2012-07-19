@@ -4,11 +4,11 @@
 $cylinderRadius = $lineWidth;
 $coneHeight = $cylinderRadius * 3;
 
-$edgeVektor = Yii::app()->vectorCalculator->vector($startPos, $endPos);
+$edgeVektor = VectorCalculator::vector($startPos, $endPos);
 
-$height = Yii::app()->vectorCalculator->magnitude($edgeVektor);
+$height = VectorCalculator::magnitude($edgeVektor);
 	
-$rotation = Yii::app()->vectorCalculator->rotationXAxis($edgeVektor);
+$rotation = VectorCalculator::rotationXAxis($edgeVektor);
 
 ?>
 

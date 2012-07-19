@@ -16,13 +16,15 @@ if (count($sections)) {
 	}
 	
 	$this->render('baseObjects/edgeEnd', array('startPos'=>$sections[count($sections) - 1], 
-												 'endPos'=>$endPos,
-												 'lineWidth' => $lineWidth));
+												'endPos'=>$endPos,
+												//'rotation' => $rotation,
+												'lineWidth' => $lineWidth));
 	
 } else {
-	$this->render('baseObjects/edgeEnd', array('startPos'=>$startPos, 
-												 'endPos'=>$endPos,
-												 'lineWidth' => $lineWidth));
+	$this->render('baseObjects/edgeEnd', array('startPos' => $startPos, 
+												'endPos' => $endPos,
+												//'rotation' => $rotation,
+												'lineWidth' => $lineWidth));
 }
 
 ?>
