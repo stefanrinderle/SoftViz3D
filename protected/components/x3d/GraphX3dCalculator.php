@@ -37,8 +37,8 @@ class GraphX3dCalculator extends AbstractX3dCalculator {
 				'position'=>array('x' => $node['attr']['pos'][0],
 						'y' => $depth * $this->layerSpacing,
 						'z' => $node['attr']['pos'][1]),
-				'colour'=>array('r'=>0, 'g'=>0, 'b'=>1),
-				'transparency'=>0.7,
+				//'colour'=>array('r'=>0, 'g'=>0, 'b'=>0),
+				'transparency'=>0.3,
 				'isLeaf' => 0,
 				'id' => "node_" . $node['attr']['id']
 		);
@@ -83,8 +83,8 @@ class GraphX3dCalculator extends AbstractX3dCalculator {
 				'position'=>array('x' => $node['attr']['pos'][0],
 						'y' => ($depth * $this->layerSpacing) + $height / 2,
 						'z' => $node['attr']['pos'][1]),
-				'colour'=>array('r'=>1, 'g'=>0, 'b'=>0),
-				'transparency'=>0,
+				//'colour'=>array('r'=>0, 'g'=>0, 'b'=>0),
+				'transparency'=>0.3,
 				'isLeaf' => 0,
 				'id' => $node['attr']['id']
 		);
@@ -109,6 +109,8 @@ class GraphX3dCalculator extends AbstractX3dCalculator {
 		 	
 			$endSection = $this->createSection($sectionPoints[count($sectionPoints) - 1], $endPos);
 		} else {
+			$edgeSections = array();
+			
 			$endSection = $this->createSection($startPos, $endPos);
 		}
 		
