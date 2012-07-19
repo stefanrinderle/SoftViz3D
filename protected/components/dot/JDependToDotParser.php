@@ -100,7 +100,8 @@ class JDependToDotParser extends CApplicationComponent {
 		$width = rand(0, 100);
 		$height = rand(0, 100);
 		
-		$this->graphViz->addNode($label, array('width' => $width, 'height' => $height), $parentId);
+		//$this->graphViz->addNode($label, array('metric1' => $width, 'metric2' => $height), $parentId);
+		$this->graphViz->addNode($label, array('label' => $label), $parentId);
 	}
 	
 	private function _addSubgraph($label, $parentId = 'default') {

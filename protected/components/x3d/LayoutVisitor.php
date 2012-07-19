@@ -112,10 +112,14 @@ class LayoutVisitor {
 		Yii::app()->dotWriter->writeToFile($elements, $this->outputFile);
 		
 		$layout = "neato";
-		foreach ($elements as $var) {
-			if ($var instanceof EdgeElement) {
-				$layout = "dot";
-				break;
+		if (count($elements) == 1) {
+			$layout = "dot";
+		} else {
+			foreach ($elements as $var) {
+				if ($var instanceof EdgeElement) {
+					$layout = "dot";
+					break;
+				}
 			}
 		}
 		

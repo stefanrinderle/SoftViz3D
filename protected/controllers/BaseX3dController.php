@@ -9,7 +9,7 @@ class BaseX3dController extends BaseController {
 			/* reset database */
 			TreeElement::model()->deleteAll();
 			EdgeElement::model()->deleteAll();
-				
+			
 			// STEP 2: Load input dot file into db
 			$result = Yii::app()->ownDotParser->parse($filename);
 			
@@ -23,7 +23,7 @@ class BaseX3dController extends BaseController {
 	}
 	
 	private function removeStartingEmptyLayers($rootId) {
-		$childLayer = LayerElement::model()->findAllByAttributes(
+		$childLayer = TreeElement::model()->findAllByAttributes(
 				array('parent_id'=>$rootId));
 			
 		while (count($childLayer) == 1) {
