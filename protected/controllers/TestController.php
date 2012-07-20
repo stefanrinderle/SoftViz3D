@@ -12,9 +12,11 @@ class TestController extends BaseController
 		
 		$filename = Yii::app()->basePath . Yii::app()->params['currentResourceFile'];
 		
-		Yii::app()->ownDotParser->parse($filename);
+		$result = Yii::app()->bestDotParser->parse($filename);
 		
-		$this->render('//dumpArray', array(dumpArray => array()));
+		Yii::app()->dotArrayToDB->save($result);
+		
+		$this->render('//dumpArray', array(dumpArray => $result));
 	}
 	
 }

@@ -45,7 +45,13 @@ return array(
 			
 		// dot folder
 		'ownDotParser'=>array(
-				'class'=>'OwnDotParser',
+			'class'=>'OwnDotParser',
+		),
+		'bestDotParser'=>array(
+			'class'=>'BestDotParser',
+		),
+		'dotArrayToDB'=>array(
+				'class'=>'DotArrayToDB',
 		),
 		'dotFileParser'=>array(
 			'class'=>'DotFileParser',

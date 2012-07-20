@@ -71,13 +71,13 @@ class OwnDotParser extends AdotParser {
 		
 		//print_r($currentLayer->name . " " . $counter .  "<br /><br />");
  		//prevent import of empty layers
- 		if ($counter < 2 && !$this->import) {
- 			//$this->rootId = $currentLayer->id;
- 			$currentLayer->delete();
- 		} else {
- 			$this->import = true;
-			$this->rootId = $currentLayer->id;
- 		}
+//  		if ($counter < 2 && !$this->import) {
+//  			//$this->rootId = $currentLayer->id;
+//  			$currentLayer->delete();
+//  		} else {
+//  			$this->import = true;
+// 			$this->rootId = $currentLayer->id;
+//  		}
 	}
 	
 	protected function retrieveNode($parent, $level) {

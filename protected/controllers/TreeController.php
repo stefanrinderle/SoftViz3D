@@ -1,7 +1,6 @@
 <?php
 
-class TreeController extends BaseX3dController
-{
+class TreeController extends BaseX3dController {
 	private $sourceFile = '/Users/stefan/Sites/3dArch/x3d/dependency.dot';
 	
 	public $layout='//layouts/column1';
@@ -9,14 +8,9 @@ class TreeController extends BaseX3dController
 	public function actionIndex() {
 		$startTime = $this->getTime();
 		
-		// STEP 1: Load input dot file
 		$result = $this->loadFiletoDb();
-		$edges = $result[edges];
 		$rootId = $result[rootId];
 
-		//print_r("hier");
-		//print_r($rootId);
-		
 		// STEP 2: calculate the view layout
 		$layout = new LayoutVisitor(LayoutVisitor::$TYPE_TREE);
 		$root = LayerElement::model()->findByPk($rootId);

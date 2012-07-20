@@ -2,7 +2,7 @@
 
 class BaseX3dController extends BaseController {
 	
-	protected function loadFiletoDb() {
+	protected function loadFiletoDb($includeEdges = true) {
 		$filename = Yii::app()->basePath . Yii::app()->params['currentResourceFile'];
 		
 		try {
@@ -10,11 +10,10 @@ class BaseX3dController extends BaseController {
 			TreeElement::model()->deleteAll();
 			EdgeElement::model()->deleteAll();
 			
-			// STEP 2: Load input dot file into db
-			$result = Yii::app()->ownDotParser->parse($filename);
+			// STEP 1: Load input dot file
+			$parseResult = Yii::app()->bestDotParser->parse($filename, $includeEdges);
 			
-			$result[rootId] = $this->removeStartingEmptyLayers($result[rootId]);
-			return $result;
+			return Yii::app()->dotArrayToDB->save($parseResult);
 		} catch (Exception $e) {
 			$exception = $e;
 			Yii::app()->user->setFlash('error', 'Input file parsing failed: ' . $e->getMessage());
@@ -22,17 +21,4 @@ class BaseX3dController extends BaseController {
 		}
 	}
 	
-	private function removeStartingEmptyLayers($rootId) {
-		$childLayer = TreeElement::model()->findAllByAttributes(
-				array('parent_id'=>$rootId));
-			
-		while (count($childLayer) == 1) {
-			$rootId = $childLayer[0]->id;
-			$childLayer = LayerElement::model()->findAllByAttributes(
-					array('parent_id'=>$rootId));
-		}
-		
-		return $rootId;
-	}
-		
 }
