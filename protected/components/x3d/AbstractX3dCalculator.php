@@ -9,13 +9,13 @@ abstract class AbstractX3dCalculator extends CApplicationComponent
 	}
 	
 	public function calculate($layerLayout, $comp) {
-		$this->adjustLayoutToX3d($layerLayout, $comp->level, $comp->max_level);
+		$this->adjustLayoutToX3d($layerLayout, $comp->level);
 	
 		return $this->layout;
 	}
 	
-	protected function adjustLayoutToX3d($layerLayout, $depth, $maxDepth) {
-		$this->layout->bb = $this->adjustBb($layerLayout, $depth, $maxDepth);
+	protected function adjustLayoutToX3d($layerLayout, $depth) {
+		$this->layout->bb = $this->adjustBb($layerLayout, $depth);
 	
 		$nodes = array();
 		$edges = array();
@@ -36,7 +36,7 @@ abstract class AbstractX3dCalculator extends CApplicationComponent
 		$this->layout->edges = $edges;
 	}
 	
-	protected abstract function adjustBb($layerLayout, $depth, $maxDepth);
+	protected abstract function adjustBb($layerLayout, $depth);
 	
 	protected abstract function adjustNode($node, $depth);
 	

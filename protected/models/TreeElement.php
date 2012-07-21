@@ -12,9 +12,6 @@ class TreeElement extends CActiveRecord
 	// not in database yet because not nesessary
 	public $twoDimSize;
 	
-	// TODO: used for x3d calc - could maybe be refactored
-	public $max_level;
-	
 	public $maxMetric1;
 	public $maxMetric2;
 	public $maxCounter;

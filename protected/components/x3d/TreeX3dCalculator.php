@@ -4,9 +4,10 @@ class TreeX3dCalculator extends AbstractX3dCalculator {
 	
 	private $layerSpacing = 5;
 	
-	protected function adjustBb($layerLayout, $depth, $maxDepth) {
+	protected function adjustBb($layerLayout, $depth) {
 		$bb = $layerLayout['bb'];
-	
+		//$bb = explode(",", $layerLayout["attributes"]['bb']);
+		
 		$width = round($bb[2] - $bb[0], 2);
 		$length = round($bb[3] - $bb[1], 2);
 			

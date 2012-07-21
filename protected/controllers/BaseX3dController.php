@@ -10,8 +10,7 @@ class BaseX3dController extends BaseController {
 			TreeElement::model()->deleteAll();
 			EdgeElement::model()->deleteAll();
 			
-			// STEP 1: Load input dot file
-			$parseResult = Yii::app()->bestDotParser->parse($filename, $includeEdges);
+			$parseResult = Yii::app()->bestDotParser->parseFile($filename, $includeEdges);
 			
 			return Yii::app()->dotArrayToDB->save($parseResult);
 		} catch (Exception $e) {

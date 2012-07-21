@@ -5,7 +5,15 @@ class BestDotParser extends CApplicationComponent {
 	public static $TYPE_LEAF = "leaf";
 	public static $EDGE_STORE = "edges";
 	
+	private $parseTypeFile = "file";
+	private $parseTypeArray = "array";
+	private $parseType;
+	
 	private $currentLine;
+	
+	private $result;
+	private $inputArrayCounter;
+	private $inputArray;
 	
 	private $parseFileHandle;
 	
@@ -14,20 +22,36 @@ class BestDotParser extends CApplicationComponent {
 	private $attrPattern = '/.*\[(.*)\].*/';
 	private $idPattern = '/"?([a-zA-Z0-9_\-\.]+).*(\[).*/';
 	
-	public function parse($dotFile, $includeEdges) {
+	public function parseFile($dotFile, $includeEdges = true) {
+		$this->parseType = $this->parseTypeFile;
 		$this->parseFileHandle = fopen($dotFile, "r");
 		
-		$this->getNewLine();
-
-		$result = $this->parseGraph();
-		
-		if ($includeEdges) {
-			$result[BestDotParser::$EDGE_STORE] = $this->edgeStore;
-		}
+		$this->parse($includeEdges);
 		
 		fclose($this->parseFileHandle);
 		
-		return $result;
+		return $this->result;
+	}
+	
+	public function parseFileArray($array, $includeEdges = true) {
+		$this->parseType = $this->parseTypeArray;
+		
+		$this->inputArray = $array;
+		$this->inputArrayCounter = 0;
+		
+		$this->parse($includeEdges);
+		
+		return $this->result;
+	}
+	
+	private function parse($includeEdges) {
+		$this->getNewLine();
+		
+		$this->result = $this->parseGraph();
+		
+		if ($includeEdges) {
+			$this->result[BestDotParser::$EDGE_STORE] = $this->edgeStore;
+		}
 	}
 	
 	private function parseGraph() {
@@ -39,10 +63,13 @@ class BestDotParser extends CApplicationComponent {
 		
 		$this->getNewLine();
 		
-		while (!$this->isEnd($this->currentLine)) {
+		while (!$this->isEnd()) {
 			//check for key words graph and node
 			preg_match($this->idPattern, $this->currentLine, $idMatch);
-			$isGraphAttributeLine = ($idMatch[1] == "graph" || $idMatch[1] == "node");
+			if ($idMatch[1]) {
+				$isGraphAttributeLine = ($idMatch[1] == "graph" || $idMatch[1] == "node");
+				//print_r("HIER " . $idMatch[1] . "<br />");
+			}
 			
 			$isSubgraphLine = preg_match('/subgraph\ .*\{/', $this->currentLine);
 			$isEdgeLine = preg_match('/.*->.*/', $this->currentLine);
@@ -79,7 +106,10 @@ class BestDotParser extends CApplicationComponent {
 				throw new Exception("graph identifier empty" . $this->currentLine);
 			}
 		} else {
-			throw new Exception("no graph identifier: " . $this->currentLine);
+			//TODO
+			print_r("exception: " . $this->currentLine . "<br />");
+			$result = "bla";
+			//throw new Exception("no graph identifier: " . $this->currentLine);
 		}
 	
 		return $result;
@@ -116,16 +146,24 @@ class BestDotParser extends CApplicationComponent {
 	}
 	
 	private function getAttributes() {
+		//TODO: make testline working without empty sace in explode
+		
+		//$testline = 'label="blabla", mnetric=12, bb="12,13,14,15"';
+		//print_r("testline: " . $testline);
+		
 		$hasAttributes = preg_match($this->attrPattern, $this->currentLine, $attrMatch);
 		
-		$attrArray = explode(",", $attrMatch[1]);
+		$attrArray = explode(", ", $attrMatch[1]);
 			
 		$attributes = array();
 		foreach($attrArray as $attrString) {
 			$attr = explode("=", $attrString);
-			$attributes[$attr[0]] = $attr[1];
-		}
 			
+			//remove "
+			$value = str_replace('"', "", $attr[1]);
+			$attributes[$attr[0]] = $value;
+		}
+		
 		return $attributes;
 	}
 	
@@ -144,7 +182,13 @@ class BestDotParser extends CApplicationComponent {
 	}
 	
 	private function getNewLine() {
-		$this->currentLine = fgets($this->parseFileHandle);
+		if ($this->parseType == $this->parseTypeFile) {
+			$this->currentLine = fgets($this->parseFileHandle);
+		} else if ($this->parseType == $this->parseTypeArray) {
+			$this->inputArrayCounter++;
+			$this->currentLine = $this->inputArray[$this->inputArrayCounter];
+		}
+		
 		
 		//TODO: check this also for normal dot files...
 		//$this->checkLineFeed();
@@ -161,9 +205,9 @@ class BestDotParser extends CApplicationComponent {
 		}
 	}
 	
-	private function isEnd($line) {
+	private function isEnd() {
 		if ($this->currentLine) {
-			return (!(strpos($line, "}") === false));
+			return (!(strpos($this->currentLine, "}") === false));
 		} else {
 			return false;
 		}

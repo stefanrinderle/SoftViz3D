@@ -5,7 +5,7 @@ class GraphX3dCalculator extends AbstractX3dCalculator {
 	private $nodeHeight = 10;
 	private $layerSpacing = -200;
 	
-	protected function adjustBb($layerLayout, $depth, $maxDepth) {
+	protected function adjustBb($layerLayout, $depth) {
 		//$randColor = rand(0, 100) / 100;
 	
 		$bb = $layerLayout['bb'];
