@@ -1,6 +1,6 @@
 <?php
 
-class BestDotParser extends CApplicationComponent {
+class DotToArrayParser extends CApplicationComponent {
 	public static $TYPE_NODE = "node";
 	public static $TYPE_LEAF = "leaf";
 	public static $EDGE_STORE = "edges";
@@ -52,7 +52,7 @@ class BestDotParser extends CApplicationComponent {
 		$this->result = $this->parseGraph();
 		
 		if ($includeEdges) {
-			$this->result[BestDotParser::$EDGE_STORE] = $this->edgeStore;
+			$this->result[DotToArrayParser::$EDGE_STORE] = $this->edgeStore;
 		}
 	}
 	
@@ -60,7 +60,7 @@ class BestDotParser extends CApplicationComponent {
 		$result = array();
 		
 		$result["id"] = $this->getGraphId($this->currentLine);
-		$result["type"] = BestDotParser::$TYPE_NODE;
+		$result["type"] = DotToArrayParser::$TYPE_NODE;
 		$result["content"] = array();
 		
 		$this->getNewLine();
@@ -166,7 +166,7 @@ class BestDotParser extends CApplicationComponent {
 		}
 		preg_match($idPattern, $this->currentLine, $idMatch);
 		$result["id"] = $idMatch[1];
-		$result["type"] = BestDotParser::$TYPE_LEAF;
+		$result["type"] = DotToArrayParser::$TYPE_LEAF;
 		
 		// retrieve attributes
 		if ($hasAttributes) {

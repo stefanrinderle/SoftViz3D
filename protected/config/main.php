@@ -44,8 +44,8 @@ return array(
 		),
 			
 		// dot folder
-		'bestDotParser'=>array(
-			'class'=>'BestDotParser',
+		'dotToArrayParser'=>array(
+			'class'=>'DotToArrayParser',
 		),
 		'directoryToDotParser'=>array(
 			'class'=>'DirectoryToDotParser',

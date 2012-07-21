@@ -7,7 +7,7 @@ class DotArrayToDB extends CApplicationComponent {
 
 		$this->saveHierarchy($dotArray);
 		
-		$edges = $this->createEdges($dotArray[BestDotParser::$EDGE_STORE]);
+		$edges = $this->createEdges($dotArray[DotToArrayParser::$EDGE_STORE]);
 
 		return array(edges => $edges, rootId => $this->rootId);
 	}
@@ -16,7 +16,7 @@ class DotArrayToDB extends CApplicationComponent {
 		$identifier = $element["id"];
 		$label = $this->getLabel($element);
 		
-		if ($element["type"] == BestDotParser::$TYPE_NODE) {
+		if ($element["type"] == DotToArrayParser::$TYPE_NODE) {
 			$id = LayerElement::createAndSave($identifier, $label, $parentId, $level);
 			
 			foreach ($element["content"] as $value) {
@@ -26,7 +26,7 @@ class DotArrayToDB extends CApplicationComponent {
 			if (is_null($parentId)) {
 				$this->rootId = $id;
 			}
-		} else if ($element["type"] == BestDotParser::$TYPE_LEAF) {
+		} else if ($element["type"] == DotToArrayParser::$TYPE_LEAF) {
 			$metric1 = $element["attributes"]["metric1"];
 			$metric2 = $element["attributes"]["metric2"];
 			

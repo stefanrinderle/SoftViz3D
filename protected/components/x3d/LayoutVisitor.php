@@ -127,7 +127,7 @@ class LayoutVisitor {
 		
 		$layoutDot = Yii::app()->dotCommand->execute($this->outputFile, $layout);
 		
-		$newLayout = Yii::app()->bestDotParser->parseFileArray($layoutDot);
+		$newLayout = Yii::app()->dotToArrayParser->parseFileArray($layoutDot);
 		
 		return $newLayout;
 	}
