@@ -1,26 +1,17 @@
 <?php
 
 abstract class AbstractDotParser extends CApplicationComponent {
-	public static $TYPE_NODE = "node";
-	public static $TYPE_LEAF = "leaf";
-	public static $EDGE_STORE = "edges";
 	
 	protected $currentLine;
-	
 	protected $result;
 	
 	private $edgeStore = array();
-	
 	private $attrPattern = '/.*\[(.*)\].*/';
 	private $idPattern = '/"?([a-zA-Z0-9_\-\.]+).*(\[).*/';
 	
 	public abstract function parse($data, $includeEdges = true);
 	
 	protected abstract function getNewLine();
-	
-	protected function setCurrentLine($line) {
-		$this->currentLine = $line;
-	}
 	
 	protected function start($includeEdges) {
 		$this->edgeStore = array();
@@ -30,7 +21,7 @@ abstract class AbstractDotParser extends CApplicationComponent {
 		$this->result = $this->parseGraph();
 		
 		if ($includeEdges) {
-			$this->result[AbstractDotParser::$EDGE_STORE] = $this->edgeStore;
+			$this->result['edges'] = $this->edgeStore;
 		}
 	}
 	
@@ -38,7 +29,6 @@ abstract class AbstractDotParser extends CApplicationComponent {
 		$result = array();
 		
 		$result["id"] = $this->getGraphId();
-		$result["type"] = AbstractDotParser::$TYPE_NODE;
 		$result["content"] = array();
 		
 		$this->getNewLine();
@@ -141,7 +131,6 @@ abstract class AbstractDotParser extends CApplicationComponent {
 		}
 		preg_match($idPattern, $this->currentLine, $idMatch);
 		$result["id"] = $idMatch[1];
-		$result["type"] = AbstractDotParser::$TYPE_LEAF;
 		
 		// retrieve attributes
 		if ($hasAttributes) {
@@ -191,21 +180,21 @@ abstract class AbstractDotParser extends CApplicationComponent {
 		return $result;
 	}
 	
-	protected function checkLineFeed() {
-		$line = trim($this->currentLine);
-		$isNewLine = (substr($line, strlen($line) - 1, 1) == "\\");
-		
-		if ($isNewLine) {
-			$nextLine = $this->getNewLine();
-			$this->currentLine = substr($line, 0, strlen($line) - 1) . $this->currentLine;
-		}
-	}
-	
 	private function isEnd() {
 		if ($this->currentLine) {
 			return (!(strpos($this->currentLine, "}") === false));
 		} else {
 			return false;
+		}
+	}
+	
+	protected function checkLineFeed() {
+		$line = trim($this->currentLine);
+		$isNewLine = (substr($line, strlen($line) - 1, 1) == "\\");
+	
+		if ($isNewLine) {
+			$nextLine = $this->getNewLine();
+			$this->currentLine = substr($line, 0, strlen($line) - 1) . $this->currentLine;
 		}
 	}
 	

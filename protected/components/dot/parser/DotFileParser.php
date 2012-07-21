@@ -15,7 +15,7 @@ class DotFileParser extends AbstractDotParser {
 	}
 	
 	protected function getNewLine() {
-		$this->setCurrentLine(fgets($this->parseFileHandle));
+		$this->currentLine = fgets($this->parseFileHandle);
 		
 		$this->checkLineFeed();
 	}
