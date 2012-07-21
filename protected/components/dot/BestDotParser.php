@@ -70,6 +70,8 @@ class BestDotParser extends CApplicationComponent {
 			preg_match($this->idPattern, $this->currentLine, $idMatch);
 			if ($idMatch[1]) {
 				$isGraphAttributeLine = ($idMatch[1] == "graph" || $idMatch[1] == "node");
+			} else {
+				$isGraphAttributeLine = false;
 			}
 			
 			$isSubgraphLine = preg_match('/subgraph\ .*\{/', $this->currentLine);
@@ -79,12 +81,42 @@ class BestDotParser extends CApplicationComponent {
 			
 			if ($isGraphAttributeLine) {
 				$result["attributes"] = $this->getAttributes();
+				
+				if ($result["attributes"]["bb"]) {
+					$result["attributes"]["bb"] = explode(",", $result["attributes"]["bb"]);
+				}
+				
 			} else if ($isSubgraphLine) {
 				array_push($result["content"], $this->parseGraph());
 			} else if ($isEdgeLine) {
-				array_push($this->edgeStore, $this->parseEdgeLine());
+				$tmpEdge = $this->parseEdgeLine();
+				
+				if ($tmpEdge["attributes"]["pos"]) {
+					$test = explode(" ", $tmpEdge["attributes"]["pos"]);
+					
+					$newPosition = array();
+					foreach ($test as $key => $value) {
+						$temp = explode(",", $value);
+						if ($key == 0) {
+							// omit "e"
+							array_push($newPosition, array('x' => $temp[1], 'z' => $temp[2]));
+						} else {
+							array_push($newPosition, array('x' => $temp[0], 'z' => $temp[1]));
+						}
+					}
+					
+					$tmpEdge["attributes"]["pos"] = $newPosition;
+				}
+				
+				array_push($this->edgeStore, $tmpEdge);
 			} else if ($isNodeLine) {
-				array_push($result["content"], $this->parseNodeLine());
+				$tmpNode = $this->parseNodeLine();
+				
+				if ($tmpNode["attributes"]["pos"]) {
+					$tmpNode["attributes"]["pos"] = explode(",", $tmpNode["attributes"]["pos"]);
+				}
+				
+				array_push($result["content"], $tmpNode);
 			} else if ($isEmptyLine) {
 				// do nothing
 			}
@@ -108,7 +140,7 @@ class BestDotParser extends CApplicationComponent {
 			}
 		} else {
 			//TODO
-			print_r("exception: " . $this->currentLine . "<br />");
+			//print_r("exception: " . $this->currentLine . "<br />");
 			$result = "bla";
 			//throw new Exception("no graph identifier: " . $this->currentLine);
 		}
@@ -147,25 +179,25 @@ class BestDotParser extends CApplicationComponent {
 	}
 	
 	private function getAttributes() {
-		//TODO: make testline working without empty sace in explode
-		
-		//$testline = 'label="blabla", mnetric=12, bb="12,13,14,15"';
-		//print_r("testline: " . $testline);
-		
+		// get attribute string
 		$hasAttributes = preg_match($this->attrPattern, $this->currentLine, $attrMatch);
 		
-		$attrArray = explode(", ", $attrMatch[1]);
+		//http://stackoverflow.com/questions/168171/regular-expression-for-parsing-name-value-pairs
+		$splitPattern = '/((?:"[^"]*"|[^=,])*)=((?:"[^"]*"|[^=,])*)/';
+		preg_match_all($splitPattern, $attrMatch[1], $attrGroupMatch);
+		
+		$newAttrArray = array();
+		for ($i = 0; $i < count($attrGroupMatch[1]); $i++) {
+			//remove " and spaces
+			$value = str_replace('"', "", $attrGroupMatch[2][$i]);
+			$value = trim($value);
 			
-		$attributes = array();
-		foreach($attrArray as $attrString) {
-			$attr = explode("=", $attrString);
+			$key = trim($attrGroupMatch[1][$i]);
 			
-			//remove "
-			$value = str_replace('"', "", $attr[1]);
-			$attributes[$attr[0]] = $value;
+			$newAttrArray[$key] = $value;
 		}
 		
-		return $attributes;
+		return $newAttrArray;
 	}
 	
 	private function parseEdgeLine() {
@@ -191,20 +223,17 @@ class BestDotParser extends CApplicationComponent {
 			$this->inputArrayCounter++;
 			$this->currentLine = $this->inputArray[$this->inputArrayCounter];
 		}
-		
-		
 		//TODO: check this also for normal dot files...
-		//$this->checkLineFeed();
+		$this->checkLineFeed();
 	}
 	
 	private function checkLineFeed() {
-		// automatical line feed from dot program
-		if (!(strpos($this->currentLine, "[") === false) && (strpos($this->currentLine, "]") === false)) {
-			$line = substr($this->currentLine, 0, strlen($this->currentLine) - 2);
-	
-			// retrieve next line
-			$nextLine = fgets($this->parseFileHandle);
-			$this->currentLine = $line . $nextLine;
+		$line = trim($this->currentLine);
+		$isNewLine = (substr($line, strlen($line) - 1, 1) == "\\");
+		
+		if ($isNewLine) {
+			$nextLine = $this->getNewLine();
+			$this->currentLine = substr($line, 0, strlen($line) - 1) . $this->currentLine;
 		}
 	}
 	

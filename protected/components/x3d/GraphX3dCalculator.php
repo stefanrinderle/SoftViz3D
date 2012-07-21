@@ -6,7 +6,7 @@ class GraphX3dCalculator extends AbstractX3dCalculator {
 	private $layerSpacing = -200;
 	
 	protected function adjustBb($layerLayout, $depth) {
-		$bb = explode(",", $layerLayout['attributes']['bb']);
+		$bb = $layerLayout['attributes']['bb'];
 	
 		$width = $bb[2] - $bb[0];
 		$length = $bb[3] - $bb[1];
@@ -27,7 +27,7 @@ class GraphX3dCalculator extends AbstractX3dCalculator {
 	}
 	
 	protected function adjustNode($node, $depth) {
-		$position = explode(",", $node['attributes']['pos']);
+		$position = $node['attributes']['pos'];
 		
 		$result = array(
 				'name'=>$node['id'],
@@ -50,7 +50,7 @@ class GraphX3dCalculator extends AbstractX3dCalculator {
 		if (substr($node['id'], 0, 4) == "dep_") {
 			return $this->adjustDepLeaf($node, $depth);
 		} else {
-			$position = explode(",", $node['attributes']['pos']);
+			$position = $node['attributes']['pos'];
 			
 			/**
 			 * Only one metric! and the metric is set in 2d layout (side length...)
@@ -75,7 +75,7 @@ class GraphX3dCalculator extends AbstractX3dCalculator {
 	}
 	
 	private function adjustDepLeaf($node, $depth) {
-		$position = explode(",", $node['attributes']['pos']);
+		$position = $node['attributes']['pos'];
 		
 		$height = abs($this->layerSpacing * 2) + $this->nodeHeight / 2;
 		$side = $node['attributes']['width'] * LayoutVisitor::$SCALE;
@@ -101,35 +101,36 @@ class GraphX3dCalculator extends AbstractX3dCalculator {
 		//TODO: regex
 		$lineWidth = substr($lineWidth, strpos($lineWidth, "(") + 1, strlen($lineWidth) - strpos($lineWidth, "(") - 2);
 		
-		$position = explode(" ", $edge['attributes']['pos']);
-		$newPosition = array();
-		foreach ($position as $key => $value) {
-			$temp = explode(",", $value);
-			if ($key == 0) {
-				array_push($newPosition, $temp[0]);
-				array_push($newPosition, $temp[1]);
-				array_push($newPosition, $temp[2]);
-			} else {
-				array_push($newPosition, $temp[0]);
-				array_push($newPosition, $temp[1]);
-			}
-		}
+		$position = $edge['attributes']['pos'];
 		
-		$startPos = array('x' => $newPosition[3],
+		$startPos = array('x' => $position[1]['x'],
 						  'y' => $depth * $this->layerSpacing,
-						  'z' => $newPosition[4]);
-		$endPos = array('x' => $newPosition[1],
+						  'z' => $position[1]['z']);
+		$endPos = array('x' => $position[0]['x'],
 						'y' => $depth * $this->layerSpacing,
-						'z' => $newPosition[2]);
+						'z' => $position[0]['z']);
 		
-		$sectionPoints = $this->getSectionPoints($newPosition, $depth);
-		if (count($sectionPoints)) {
-			$edgeSections = $this->createSections($sectionPoints, $startPos);
-		 	
-			$endSection = $this->createSection($sectionPoints[count($sectionPoints) - 1], $endPos);
-		} else {
-			$edgeSections = array();
+		$edgeSections = array();
+		if (count($position) > 5) {
+			// 0 and 1 are overall start points 
+			$firstEndPoint = $position[2];
+			$firstEndPoint['y'] = $depth * $this->layerSpacing;
+
+			$firstSection = $this->createSection($startPos, $firstEndPoint);
+			array_push($edgeSections, $firstSection);
 			
+			for ($i = 3; $i < count($position); $i++) {
+				$position[$i]['y'] = $depth * $this->layerSpacing;
+				$position[$i-1]['y'] = $depth * $this->layerSpacing;
+				
+				$section = $this->createSection($position[$i - 1], $position[$i]);
+				array_push($edgeSections, $section);
+			}
+			
+			$lastSectionPoint = $position[count($position) - 1];
+			$lastSectionPoint['y'] = $depth * $this->layerSpacing;
+			$endSection = $this->createSection($lastSectionPoint, $endPos);
+		} else {
 			$endSection = $this->createSection($startPos, $endPos);
 		}
 		
@@ -154,38 +155,6 @@ class GraphX3dCalculator extends AbstractX3dCalculator {
 				'edgeSections' => $edgeSections,
 				'endSection' => $endSection
 		);
-	
-		return $result;
-	}
-	
-	private function getSectionPoints($points, $depth) {
-		$result = array();
-		// curved edges have more than 11 point attributes in the output attributed dot file
-		$straightEdgePointCount = 11;
-		if (count($points) > $straightEdgePointCount) {
-			for ($i = 5; $i < 10; $i = $i + 2) {
-				$sectionPoint = array('x' => $points[$i],
-						'y' => $depth * $this->layerSpacing,
-						'z' => $points[$i + 1]);
-					
-				array_push($result, $sectionPoint);
-			}
-		}
-		
-		return $result;
-	}
-	
-	private function createSections($sectionPoints, $startPos) {
-		$result = array();
-		$section = $this->createSection($startPos, $sectionPoints[0]);
-		array_push($result, $section);
-			
-		for ($i = 1; $i < count($sectionPoints); $i++) {
-			if ($sectionPoints[$i - 1] != $sectionPoints[$i]) {
-				$section = $this->createSection($sectionPoints[$i - 1], $sectionPoints[$i]);
-				array_push($result, $section);
-			}
-		}
 	
 		return $result;
 	}

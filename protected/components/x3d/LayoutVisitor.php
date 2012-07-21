@@ -46,7 +46,7 @@ class LayoutVisitor {
 		$x3dInfos->depth = $comp[level];
 		$comp->setX3dInfos($x3dInfos);
 		
-		$bb = explode(",", $layerLayout['attributes']['bb']);
+		$bb = $layerLayout['attributes']['bb'];
 		
 		// size of the node is the size of its bounding box
 		$comp->twoDimSize = array(width=>$bb[2] / self::$SCALE, height=>$bb[3] / self::$SCALE);

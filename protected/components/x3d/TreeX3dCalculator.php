@@ -6,7 +6,7 @@ class TreeX3dCalculator extends AbstractX3dCalculator {
 	
 	protected function adjustBb($layerLayout, $depth) {
 		//$bb = $layerLayout['bb'];
-		$bb = explode(",", $layerLayout['attributes']['bb']);
+		$bb = $layerLayout['attributes']['bb'];
 		
 		$width = round($bb[2] - $bb[0], 2);
 		$length = round($bb[3] - $bb[1], 2);
@@ -32,7 +32,7 @@ class TreeX3dCalculator extends AbstractX3dCalculator {
 	}
 	
 	protected function adjustNode($node, $depth) {
-		$position = explode(",", $node['attributes']['pos']);
+		$position = $node['attributes']['pos'];
 		
 		$result = array(
 				'name'=>$node['id'],
@@ -66,7 +66,7 @@ class TreeX3dCalculator extends AbstractX3dCalculator {
 			$height = $width;
 		}
 	
-		$position = explode(",", $node['attributes']['pos']);
+		$position = $node['attributes']['pos'];
 		
 		// its a node with subnodes, so only specify the position and name.
 		$result = array(
