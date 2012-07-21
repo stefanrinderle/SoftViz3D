@@ -1,50 +1,28 @@
 <?php
 
-class DotToArrayParser extends CApplicationComponent {
+abstract class AbstractDotParser extends CApplicationComponent {
 	public static $TYPE_NODE = "node";
 	public static $TYPE_LEAF = "leaf";
 	public static $EDGE_STORE = "edges";
 	
-	private $parseTypeFile = "file";
-	private $parseTypeArray = "array";
-	private $parseType;
+	protected $currentLine;
 	
-	private $currentLine;
-	
-	private $result;
-	private $inputArrayCounter;
-	private $inputArray;
-	
-	private $parseFileHandle;
+	protected $result;
 	
 	private $edgeStore = array();
 	
 	private $attrPattern = '/.*\[(.*)\].*/';
 	private $idPattern = '/"?([a-zA-Z0-9_\-\.]+).*(\[).*/';
 	
-	public function parseFile($dotFile, $includeEdges = true) {
-		$this->parseType = $this->parseTypeFile;
-		$this->parseFileHandle = fopen($dotFile, "r");
-		
-		$this->parse($includeEdges);
-		
-		fclose($this->parseFileHandle);
-		
-		return $this->result;
+	public abstract function parse($data, $includeEdges = true);
+	
+	protected abstract function getNewLine();
+	
+	protected function setCurrentLine($line) {
+		$this->currentLine = $line;
 	}
 	
-	public function parseFileArray($array, $includeEdges = true) {
-		$this->parseType = $this->parseTypeArray;
-		
-		$this->inputArray = $array;
-		$this->inputArrayCounter = 0;
-		
-		$this->parse($includeEdges);
-		
-		return $this->result;
-	}
-	
-	private function parse($includeEdges) {
+	protected function start($includeEdges) {
 		$this->edgeStore = array();
 		
 		$this->getNewLine();
@@ -52,15 +30,15 @@ class DotToArrayParser extends CApplicationComponent {
 		$this->result = $this->parseGraph();
 		
 		if ($includeEdges) {
-			$this->result[DotToArrayParser::$EDGE_STORE] = $this->edgeStore;
+			$this->result[AbstractDotParser::$EDGE_STORE] = $this->edgeStore;
 		}
 	}
 	
 	private function parseGraph() {
 		$result = array();
 		
-		$result["id"] = $this->getGraphId($this->currentLine);
-		$result["type"] = DotToArrayParser::$TYPE_NODE;
+		$result["id"] = $this->getGraphId();
+		$result["type"] = AbstractDotParser::$TYPE_NODE;
 		$result["content"] = array();
 		
 		$this->getNewLine();
@@ -139,10 +117,7 @@ class DotToArrayParser extends CApplicationComponent {
 				throw new Exception("graph identifier empty" . $this->currentLine);
 			}
 		} else {
-			//TODO
-			//print_r("exception: " . $this->currentLine . "<br />");
-			$result = "bla";
-			//throw new Exception("no graph identifier: " . $this->currentLine);
+			throw new Exception("no graph identifier: " . $this->currentLine);
 		}
 	
 		return $result;
@@ -166,7 +141,7 @@ class DotToArrayParser extends CApplicationComponent {
 		}
 		preg_match($idPattern, $this->currentLine, $idMatch);
 		$result["id"] = $idMatch[1];
-		$result["type"] = DotToArrayParser::$TYPE_LEAF;
+		$result["type"] = AbstractDotParser::$TYPE_LEAF;
 		
 		// retrieve attributes
 		if ($hasAttributes) {
@@ -216,18 +191,7 @@ class DotToArrayParser extends CApplicationComponent {
 		return $result;
 	}
 	
-	private function getNewLine() {
-		if ($this->parseType == $this->parseTypeFile) {
-			$this->currentLine = fgets($this->parseFileHandle);
-		} else if ($this->parseType == $this->parseTypeArray) {
-			$this->inputArrayCounter++;
-			$this->currentLine = $this->inputArray[$this->inputArrayCounter];
-		}
-		//TODO: check this also for normal dot files...
-		$this->checkLineFeed();
-	}
-	
-	private function checkLineFeed() {
+	protected function checkLineFeed() {
 		$line = trim($this->currentLine);
 		$isNewLine = (substr($line, strlen($line) - 1, 1) == "\\");
 		

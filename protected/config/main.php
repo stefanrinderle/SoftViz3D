@@ -20,8 +20,7 @@ return array(
 		'application.components.*',
 		'application.components.database.*',
 		'application.components.dot.*',
-		'application.components.dot.fileParser.*',
-		'application.components.dot.ownFileParser.*',
+		'application.components.dot.parser.*',
 		'application.components.goanna.*',
 		'application.components.x3d.*'
 	),
@@ -44,8 +43,11 @@ return array(
 		),
 			
 		// dot folder
-		'dotToArrayParser'=>array(
-			'class'=>'DotToArrayParser',
+		'dotFileParser'=>array(
+			'class'=>'DotFileParser',
+		),
+		'dotArrayParser'=>array(
+			'class'=>'DotArrayParser',
 		),
 		'directoryToDotParser'=>array(
 			'class'=>'DirectoryToDotParser',

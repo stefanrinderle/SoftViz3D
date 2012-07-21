@@ -54,7 +54,7 @@
 				array('label'=>'File viewer', 'url'=>array('/file/index')),
 				array('label'=>'Structure view', 'url'=>array('/tree/index')),
 				array('label'=>'Dependency view', 'url'=>array('/graph/index')),
-				//array('label'=>'Test', 'url'=>array('/test/index')),
+				array('label'=>'Test', 'url'=>array('/test/index')),
 				array('label'=>'-----', 'url'=>array('')),
 				array('label'=>'About', 'url'=>array('/site/page', 'view'=>'about')),
 				array('label'=>'Contact', 'url'=>array('/site/contact')),
