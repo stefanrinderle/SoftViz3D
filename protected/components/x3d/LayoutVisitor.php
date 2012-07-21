@@ -129,8 +129,6 @@ class LayoutVisitor {
 		
 		$newLayout = Yii::app()->bestDotParser->parseFileArray($layoutDot);
 		
-		//$newLayout = Yii::app()->dotFileParser->parseStringArray($layoutDot);
-		
 		return $newLayout;
 	}
 }

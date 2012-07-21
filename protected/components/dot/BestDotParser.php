@@ -45,6 +45,8 @@ class BestDotParser extends CApplicationComponent {
 	}
 	
 	private function parse($includeEdges) {
+		$this->edgeStore = array();
+		
 		$this->getNewLine();
 		
 		$this->result = $this->parseGraph();
@@ -68,7 +70,6 @@ class BestDotParser extends CApplicationComponent {
 			preg_match($this->idPattern, $this->currentLine, $idMatch);
 			if ($idMatch[1]) {
 				$isGraphAttributeLine = ($idMatch[1] == "graph" || $idMatch[1] == "node");
-				//print_r("HIER " . $idMatch[1] . "<br />");
 			}
 			
 			$isSubgraphLine = preg_match('/subgraph\ .*\{/', $this->currentLine);
@@ -168,6 +169,8 @@ class BestDotParser extends CApplicationComponent {
 	}
 	
 	private function parseEdgeLine() {
+		$line = $this->currentLine;
+		
 		$result = array();
 		
 		$edgePattern = '/\ *"?([a-zA-Z0-9_\-\.]+)"?\ *->\ *"?([a-zA-Z0-9_\-\.]+)"?.*;/';
@@ -176,7 +179,7 @@ class BestDotParser extends CApplicationComponent {
 		$result["id"] = $attrMatch[1] . " -> " . $attrMatch[2];
 		$result["source"] = $attrMatch[1];
 		$result["destination"] = $attrMatch[2];
-		$result["attributes"] = $this->getAttributes($this->currentLine);
+		$result["attributes"] = $this->getAttributes($line);
 		
 		return $result;
 	}

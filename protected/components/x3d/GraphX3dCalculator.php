@@ -6,9 +6,7 @@ class GraphX3dCalculator extends AbstractX3dCalculator {
 	private $layerSpacing = -200;
 	
 	protected function adjustBb($layerLayout, $depth) {
-		//$randColor = rand(0, 100) / 100;
-	
-		$bb = $layerLayout['bb'];
+		$bb = explode(",", $layerLayout['attributes']['bb']);
 	
 		$width = $bb[2] - $bb[0];
 		$length = $bb[3] - $bb[1];
@@ -29,43 +27,47 @@ class GraphX3dCalculator extends AbstractX3dCalculator {
 	}
 	
 	protected function adjustNode($node, $depth) {
+		$position = explode(",", $node['attributes']['pos']);
+		
 		$result = array(
-				'name'=>$node[label],
-				'size'=>array('width'=> $node[attr][width][0] * LayoutVisitor::$SCALE,
+				'name'=>$node['id'],
+				'size'=>array('width'=> $node['attributes']['width'] * LayoutVisitor::$SCALE,
 						'height'=> $this->nodeHeight / 2,
-						'length' => $node[attr][height][0] * LayoutVisitor::$SCALE),
-				'position'=>array('x' => $node['attr']['pos'][0],
+						'length' => $node['attributes']['height'] * LayoutVisitor::$SCALE),
+				'position'=>array('x' => $position[0],
 						'y' => $depth * $this->layerSpacing,
-						'z' => $node['attr']['pos'][1]),
+						'z' => $position[1]),
 				//'colour'=>array('r'=>0, 'g'=>0, 'b'=>0),
 				'transparency'=>0.3,
 				'isLeaf' => 0,
-				'id' => "node_" . $node['attr']['id']
+				'id' => "node_" . $node['id']
 		);
 	
 		return $result;
 	}
 	
 	protected function adjustLeaf($node, $depth) {
-		if (substr($node[label], 0, 4) == "dep_") {
+		if (substr($node['id'], 0, 4) == "dep_") {
 			return $this->adjustDepLeaf($node, $depth);
 		} else {
+			$position = explode(",", $node['attributes']['pos']);
+			
 			/**
 			 * Only one metric! and the metric is set in 2d layout (side length...)
 			 */
-			$width = $node[attr][width][0] * LayoutVisitor::$SCALE;
+			$width = $node['attributes']['width'] * LayoutVisitor::$SCALE;
 			
 			// its a node with subnodes, so only specify the position and name.
 			$result = array(
-					'name'=>$node[label],
+					'name'=>$node['id'],
 					'size'=>array('width'=>$width, 'height'=>$this->nodeHeight, 'length'=>$width),
-					'position'=>array('x' => $node['attr']['pos'][0],
+					'position'=>array('x' => $position[0],
 							'y' => $depth * $this->layerSpacing + ($this->nodeHeight / 2),
-							'z' => $node['attr']['pos'][1]),
+							'z' => $position[1]),
 					'colour'=>array('r'=>1, 'g'=>0.55, 'b'=>0),
 					'transparency'=>0,
 					'isLeaf' => 1,
-					'id' => $node['attr']['id']
+					'id' => $node['id']
 			);
 			
 			return $result;
@@ -73,37 +75,54 @@ class GraphX3dCalculator extends AbstractX3dCalculator {
 	}
 	
 	private function adjustDepLeaf($node, $depth) {
+		$position = explode(",", $node['attributes']['pos']);
+		
 		$height = abs($this->layerSpacing * 2) + $this->nodeHeight / 2;
-		$side = $node['attr']['width'][0] * LayoutVisitor::$SCALE;
+		$side = $node['attributes']['width'] * LayoutVisitor::$SCALE;
 	
 		// its a node with subnodes, so only specify the position and name.
 		$result = array(
-				'name'=>$node[label],
+				'name'=>$node['id'],
 				'size'=>array('width'=> $side, 'height'=>$height, 'length'=>$side),
-				'position'=>array('x' => $node['attr']['pos'][0],
+				'position'=>array('x' => $position[0],
 						'y' => ($depth * $this->layerSpacing) + $height / 2,
-						'z' => $node['attr']['pos'][1]),
+						'z' => $position[1]),
 				//'colour'=>array('r'=>0, 'g'=>0, 'b'=>0),
 				'transparency'=>0.3,
 				'isLeaf' => 0,
-				'id' => $node['attr']['id']
+				'id' => $node['id']
 		);
 	
 		return $result;
 	}
 	
 	protected function adjustEdge($edge, $depth) {
-		$lineWidth = $edge['attr']['style'][0];
+		$lineWidth = $edge['attributes']['style'];
+		//TODO: regex
 		$lineWidth = substr($lineWidth, strpos($lineWidth, "(") + 1, strlen($lineWidth) - strpos($lineWidth, "(") - 2);
 		
-		$startPos = array('x' => $edge['attr']['pos'][3],
-						  'y' => $depth * $this->layerSpacing,
-						  'z' => $edge['attr']['pos'][4]);
-		$endPos = array('x' => $edge['attr']['pos'][1],
-						'y' => $depth * $this->layerSpacing,
-						'z' => $edge['attr']['pos'][2]);
+		$position = explode(" ", $edge['attributes']['pos']);
+		$newPosition = array();
+		foreach ($position as $key => $value) {
+			$temp = explode(",", $value);
+			if ($key == 0) {
+				array_push($newPosition, $temp[0]);
+				array_push($newPosition, $temp[1]);
+				array_push($newPosition, $temp[2]);
+			} else {
+				array_push($newPosition, $temp[0]);
+				array_push($newPosition, $temp[1]);
+			}
+		}
 		
-		$sectionPoints = $this->getSectionPoints($edge['attr']['pos'], $depth);
+		$startPos = array('x' => $newPosition[3],
+						  'y' => $depth * $this->layerSpacing,
+						  'z' => $newPosition[4]);
+		$endPos = array('x' => $newPosition[1],
+						'y' => $depth * $this->layerSpacing,
+						'z' => $newPosition[2]);
+		
+		$sectionPoints = $this->getSectionPoints($newPosition, $depth);
 		if (count($sectionPoints)) {
 			$edgeSections = $this->createSections($sectionPoints, $startPos);
 		 	
@@ -129,7 +148,7 @@ class GraphX3dCalculator extends AbstractX3dCalculator {
 		$endSection = array_merge($endSection, $endSectionInfos);
 		
 		$result = array(
-				'id' => $edge['attr']['id'],
+				'id' => $edge['id'],
 				'colour'=>array('r'=>1, 'g'=>0, 'b'=>0),
 				'lineWidth'=>$lineWidth,
 				'edgeSections' => $edgeSections,
