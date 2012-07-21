@@ -44,27 +44,17 @@ return array(
 		),
 			
 		// dot folder
-		'ownDotParser'=>array(
-			'class'=>'OwnDotParser',
-		),
 		'bestDotParser'=>array(
 			'class'=>'BestDotParser',
-		),
-		'dotArrayToDB'=>array(
-				'class'=>'DotArrayToDB',
-		),
-		'dotFileParser'=>array(
-			'class'=>'DotFileParser',
-			'generate' => true
 		),
 		'directoryToDotParser'=>array(
 			'class'=>'DirectoryToDotParser',
 		),
+		'dotArrayToDB'=>array(
+				'class'=>'DotArrayToDB',
+		),
 		'dotCommand'=>array(
 			'class'=>'DotCommand',
-		),
-		'dotInfoToDb'=>array(
-			'class'=>'DotInfoToDb',
 		),
 		'dotWriter'=>array(
 			'class'=>'DotWriter',

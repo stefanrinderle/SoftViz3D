@@ -46,7 +46,7 @@ class FileController extends BaseController
 		$filename = Yii::app()->basePath . Yii::app()->params['currentResourceFile'];
 		
 		try {
-			$result =Yii::app()->dotFileParser->parseFile($filename);
+			$result =Yii::app()->bestDotParser->parseFile($filename);
 			
 			Yii::app()->user->setFlash('success', 'File valid');
 		} catch (Exception $e) {
