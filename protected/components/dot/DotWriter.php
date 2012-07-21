@@ -32,7 +32,7 @@ class DotWriter extends CApplicationComponent
 			if ($value instanceOf TreeElement) {
 				$attr = array();
 				$attr['shape'] = "rectangle";
-				
+								
 				$attr['width'] = $value->twoDimSize[width];
 				$attr['height'] = $value->twoDimSize[height];
 

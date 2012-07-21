@@ -21,15 +21,16 @@ abstract class AbstractX3dCalculator extends CApplicationComponent
 		$edges = array();
 		
 		foreach ($layerLayout['content'] as $key => $value) {
-			if ($value['type'] == "node") {
-				if ($value['attr'][type] == "leaf") {
-					$nodes[$value['label']] = $this->adjustLeaf($value, $depth);
+			//if ($value['attributes']['type'] == "node") {
+				if ($value['attributes']['type'] == "node") {
+					$nodes[$value['id']] = $this->adjustNode($value, $depth);
 				} else {
-					$nodes[$value['label']] = $this->adjustNode($value, $depth);
+					$nodes[$value['id']] = $this->adjustLeaf($value, $depth);
 				}
-			} else if ($value['type'] == "edge") {
-				$edges[$value['label']] = $this->adjustEdge($value, $depth);
-			}
+			//} 
+			//else if ($value['type'] == "edge") {
+			//	$edges[$value['label']] = $this->adjustEdge($value, $depth);
+			//}
 		}
 		
 		$this->layout->nodes = $nodes;

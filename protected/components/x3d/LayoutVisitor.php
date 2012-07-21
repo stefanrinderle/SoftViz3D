@@ -46,8 +46,10 @@ class LayoutVisitor {
 		$x3dInfos->depth = $comp[level];
 		$comp->setX3dInfos($x3dInfos);
 		
+		$bb = explode(",", $layerLayout['attributes']['bb']);
+		
 		// size of the node is the size of its bounding box
-		$comp->twoDimSize = array(width=>$layerLayout['bb'][2] / self::$SCALE, height=>$layerLayout['bb'][3] / self::$SCALE);
+		$comp->twoDimSize = array(width=>$bb[2] / self::$SCALE, height=>$bb[3] / self::$SCALE);
 
 		return $comp;
 	}
@@ -125,21 +127,9 @@ class LayoutVisitor {
 		
 		$layoutDot = Yii::app()->dotCommand->execute($this->outputFile, $layout);
 		
-		//$newLayout = Yii::app()->bestDotParser->parseFileArray($layoutDot);
+		$newLayout = Yii::app()->bestDotParser->parseFileArray($layoutDot);
 		
-		$newLayout = Yii::app()->dotFileParser->parseStringArray($layoutDot);
-		
-		$contentResult = array();
-		foreach ($newLayout[content] as $key => $value) {
-			if ($value[label] == "graph") {
-				$newLayout[bb] = $value[attr][bb];
-			} else if ($value[label] == "node") {
-				//TODO: extract overall node infos
-			} else {
-				array_push($contentResult, $value);
-			}
-		}
-		$newLayout[content] = $contentResult;
+		//$newLayout = Yii::app()->dotFileParser->parseStringArray($layoutDot);
 		
 		return $newLayout;
 	}
