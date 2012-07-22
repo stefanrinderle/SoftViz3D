@@ -8,7 +8,7 @@ class LayerManipulation extends CWidget {
     public function run() {
     	$layer = LayerElement::model()->findByPk($this->layerId);
     	
-        $this->render('layerManipulation', array(layer => $layer, 
+        $this->render('layerManipulation', array('layer' => $layer, 
         		'currentDepth' => $this->currentDepth, 'maxDepth' => $this->maxDepth));
     }
  

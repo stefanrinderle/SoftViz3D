@@ -1,11 +1,14 @@
 <div>
 	<h3><?php echo $layer->label; ?></h3>
-	Parent layer: 
-	<?php echo CHtml::link($parentLayer->label, "#", 
-					array("onclick" => "showLayerDetailsById(" . $parentLayer->id . ")")); ?>
-	<br /><br />
-	
+	Parent layer:
 	<?php 
+	if ($parentLayer) {
+		echo CHtml::link($parentLayer->label, "#",
+				array("onclick" => "showLayerDetailsById(" . $parentLayer->id . ")"));
+		
+		echo "<br /><br />";
+	}
+
 	if ($layer->isVisible) {
 		echo CHtml::button("Hide layer", array("onclick" => "layerRemoveLayerById(" . $layer->id . ", " . $layer->parent_id . ")"));
 	} else {

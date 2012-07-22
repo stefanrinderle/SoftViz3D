@@ -16,15 +16,15 @@ class X3domWidget extends CWidget {
 		$this->render('x3domEnd', array('root' => $this->root));
 		
 		// include own javascript files
-		Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . '/js/x3dom/sidebar.js');
-		Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . '/js/x3dom/navigation.js');
-		Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . '/js/x3dom/information.js');
-		Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . '/js/x3dom/manipulation.js');
+		Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . '/js/sidebar/sidebar.js');
+		Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . '/js/sidebar/navigation.js');
+		Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . '/js/sidebar/information.js');
+		Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . '/js/sidebar/manipulation.js');
 		
 		if ($this->type == "tree") {
-			Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . '/js/x3dom/manipulationTree.js');
+			Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . '/js/sidebar/manipulationTree.js');
 		} else {
-			Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . '/js/x3dom/manipulationGraph.js');
+			Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . '/js/sidebar/manipulationGraph.js');
 		}
 	}
 	

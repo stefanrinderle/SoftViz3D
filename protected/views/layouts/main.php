@@ -27,12 +27,12 @@
 	?>	
 	
 	<!-- include x3dom scripts -->
-	<link rel="stylesheet" type="text/css" href="http://x3dom.org/download/x3dom.css" />
-	<script type="text/javascript" src="http://x3dom.org/download/x3dom.js"></script>
+	<!-- link rel="stylesheet" type="text/css" href="http://x3dom.org/download/x3dom.css" />
+	<script type="text/javascript" src="http://x3dom.org/download/x3dom.js"></script> -->
 	
 	<!-- local x3dom files -->
-	<!-- <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/x3dom/x3dom.css" />
-	<script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/x3dom/x3dom.js"></script> -->
+	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/js/x3dom/x3dom.css" />
+	<script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/x3dom/x3dom.js"></script>
 	
 	<title><?php echo CHtml::encode($this->pageTitle); ?></title>
 </head>

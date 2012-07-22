@@ -8,7 +8,7 @@ class LayerDetails extends CWidget {
     	$parent = LayerElement::model()->findByPk($layer->parent_id);
     	$children = TreeElement::model()->findAllByAttributes(array('parent_id'=>$layer->id));
     	
-        $this->render('layerDetails', array(layer => $layer, parentLayer => $parent, children => $children));
+        $this->render('layerDetails', array('layer' => $layer, 'parentLayer' => $parent, 'children' => $children));
     }
  
 }
