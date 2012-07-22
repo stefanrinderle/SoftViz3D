@@ -1,6 +1,6 @@
 <?php 
 
-class LayerElement extends TreeElement {
+class InputNode extends InputTreeElement {
 	
 	public $x3dInfos;
 	public $isVisible = 1;
@@ -28,24 +28,24 @@ class LayerElement extends TreeElement {
 	public function accept($visitor) {
 		$layoutElements = array();
 		
-		$content = LayerElement::model()->findAllByAttributes(array('parent_id'=>$this->id));
+		$content = InputNode::model()->findAllByAttributes(array('parent_id'=>$this->id));
 		foreach ($content as $child) {
 			$element = $child->accept($visitor);
 			array_push($layoutElements, $element);
 		}
 		
-		$content = LeafElement::model()->findAllByAttributes(array('parent_id'=>$this->id));
+		$content = InputLeaf::model()->findAllByAttributes(array('parent_id'=>$this->id));
 		foreach ($content as $child) {
 			$element = $child->accept($visitor);
 			array_push($layoutElements, $element);
 		}
 			
-		$edges = EdgeElement::model()->findAllByAttributes(array('parent_id'=>$this->id));
+		$edges = InputDependency::model()->findAllByAttributes(array('parent_id'=>$this->id));
 		foreach ($edges as $edge) {
 			array_push($layoutElements, $edge);
 		}
 			
-		return $visitor->visitLayerElement($this, $layoutElements);
+		return $visitor->visitInputNode($this, $layoutElements);
 	}
 	
 	// factory method

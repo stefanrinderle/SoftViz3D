@@ -29,7 +29,7 @@ class DotWriter extends CApplicationComponent
 	
 	private function writeElements($elements) {
 		foreach ($elements as $key => $value) {
-			if ($value instanceOf TreeElement) {
+			if ($value instanceOf InputTreeElement) {
 				$attr = array();
 				$attr['shape'] = "rectangle";
 								
@@ -39,9 +39,9 @@ class DotWriter extends CApplicationComponent
 				$attr['fixedsize'] = "true";
 				$attr['id'] = $value->id;
 				
-				if ($value instanceOf LayerElement) {
+				if ($value instanceOf InputNode) {
 					$attr['type'] = "node";
-				} else if ($value instanceOf LeafElement) {
+				} else if ($value instanceOf InputLeaf) {
 					$attr['metric1'] = $value->metric1;
 					$attr['metric2'] = $value->metric2;
 					
@@ -49,7 +49,7 @@ class DotWriter extends CApplicationComponent
 				}
 				
 				$this->graphViz->addNode($value->name, $attr);
-			} else if ($value instanceOf EdgeElement) {
+			} else if ($value instanceOf InputDependency) {
 // 				if ($value->counter != 1) {
 					$width = 1 + (($value->counter - 1) * 0.2);
 					

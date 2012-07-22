@@ -1,9 +1,13 @@
 <?php 
 
-class LeafElement extends TreeElement
-{
+class InputLeaf extends InputTreeElement {
+	
+	// input dot metric attributes
 	public $metric1;
 	public $metric2;
+	
+	//TODO: should be moved to layout model
+	// counter needed for layout informations
 	public $counter = 0;
 	
     public static function model($className=__CLASS__) {
@@ -17,12 +21,12 @@ class LeafElement extends TreeElement
     }
     
 	public function accept($visitor) {
-		return $visitor->visitLeafElement($this);
+		return $visitor->visitInputLeaf($this);
 	}
 	
 	// factory method
 	public static function createAndSave($name, $label, $parent_id, $level, $metric1 = 0, $metric2 = 0) {
-		$element = LeafElement::create($name, $label, $parent_id, $level, $metric1, $metric2);
+		$element = InputLeaf::create($name, $label, $parent_id, $level, $metric1, $metric2);
 		
 		$element->save();
 		return $element->id;

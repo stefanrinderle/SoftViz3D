@@ -1,17 +1,28 @@
 <?php 
 
-class TreeElement extends CActiveRecord
-{
+class InputTreeElement extends CActiveRecord {
+	
+	// db pk
 	public $id;
+	
+	// input dot identifier
 	public $name;
+	
+	// input dot label attribute
 	public $label;
+	
+	// tree structure
 	public $parent_id;
 	public $level;
+	
+	// ER-mapping of inheritance
 	public $isLeaf;
 
 	// not in database yet because not nesessary
 	public $twoDimSize;
 	
+	// max metric attributes necessary because CActiveRecord
+	// needs it for the calculation 
 	public $maxMetric1;
 	public $maxMetric2;
 	public $maxCounter;
@@ -21,13 +32,12 @@ class TreeElement extends CActiveRecord
 	}
 	
 	public function tableName() {
-		return 'tbl_TreeElement';
+		return 'InputTreeElement';
 	}
 
-	public function relations()
-	{
+	public function relations() {
 		return array(
-				'parent'=>array(self::BELONGS_TO, 'TreeElement', 'parent_id'),
+				'parent'=>array(self::BELONGS_TO, 'InputTreeElement', 'parent_id'),
 		);
 	}
 	

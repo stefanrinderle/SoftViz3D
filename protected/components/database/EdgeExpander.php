@@ -27,7 +27,7 @@ class EdgeExpander extends CApplicationComponent
 		
 		//OPTIMIZE WITH UPDATE
 		foreach($this->nodesCounter as $key => $value) {
-			$leaf = TreeElement::model()->findByPk($key);
+			$leaf = InputTreeElement::model()->findByPk($key);
 			$leaf->counter = $value;
 			$leaf->save();
 		}
@@ -87,7 +87,7 @@ class EdgeExpander extends CApplicationComponent
 			$edge = $this->dependencyEdges[$depEdgeLabel];
 			$edge->counter++;
 		} else {
-			$element = EdgeElement::createEdgeElement($depEdgeLabel, $source->id, $dest->id, $source->parent_id);
+			$element = InputDependency::createInputDependency($depEdgeLabel, $source->id, $dest->id, $source->parent_id);
 			$this->dependencyEdges[$depEdgeLabel] = $element;
 		}
 	}
@@ -103,9 +103,9 @@ class EdgeExpander extends CApplicationComponent
 			$depNodeId = $this->getDependencyNode($node->parent_id, $node->level);
 	
 			if ($type == "out") {
-				$element = EdgeElement::createEdgeElement($depEdgeLabel, $depNodeId, $node->id, $node->parent_id);
+				$element = InputDependency::createInputDependency($depEdgeLabel, $depNodeId, $node->id, $node->parent_id);
 			} else {
-				$element = EdgeElement::createEdgeElement($depEdgeLabel, $node->id, $depNodeId, $node->parent_id);
+				$element = InputDependency::createInputDependency($depEdgeLabel, $node->id, $depNodeId, $node->parent_id);
 			}
 	
 			$this->dependencyEdges[$depEdgeLabel] = $element;
@@ -121,7 +121,7 @@ class EdgeExpander extends CApplicationComponent
 			$savedNode->counter++;
 			$depNodeId = $savedNode->id;
 		} else {
-			$node = LeafElement::create($depNodeLabel, $depNodeLabel, $parentId, $level);
+			$node = InputLeaf::create($depNodeLabel, $depNodeLabel, $parentId, $level);
 			$node->save();
 			$this->dependenyNodes[$depNodeLabel] = $node;
 			

@@ -21,18 +21,18 @@ class LayoutVisitor {
 		
 		$criteria = new CDbCriteria;
 		$criteria->select='MAX(metric1) as maxMetric1';
-		$this->maxMetric1 = LeafElement::model()->find($criteria)->maxMetric1;
+		$this->maxMetric1 = InputLeaf::model()->find($criteria)->maxMetric1;
 		
 		$criteria = new CDbCriteria;
 		$criteria->select='MAX(metric2) as maxMetric2';
-		$this->maxMetric2 = LeafElement::model()->find($criteria)->maxMetric2;
+		$this->maxMetric2 = InputLeaf::model()->find($criteria)->maxMetric2;
 		
 		$criteria = new CDbCriteria;
 		$criteria->select='MAX(counter) as maxCounter';
-		$this->maxCounter = LeafElement::model()->find($criteria)->maxCounter;
+		$this->maxCounter = InputLeaf::model()->find($criteria)->maxCounter;
 	}
 	
-	function visitLayerElement(LayerElement $comp, $layoutElements) {
+	function visitInputNode(InputNode $comp, $layoutElements) {
 		// create layout array
 		$layerLayout = $this->calcLayerLayout($layoutElements);
 
@@ -54,7 +54,7 @@ class LayoutVisitor {
 		return $comp;
 	}
 
-	function visitLeafElement(LeafElement $comp) {
+	function visitInputLeaf(InputLeaf $comp) {
 		if ($this->max_level < $comp->level) $this->max_level = $comp->level;
 
  		if (substr($comp->name, 0, 4) == "dep_") {
@@ -118,7 +118,7 @@ class LayoutVisitor {
 			$layout = "dot";
 		} else {
 			foreach ($elements as $var) {
-				if ($var instanceof EdgeElement) {
+				if ($var instanceof InputDependency) {
 					$layout = "dot";
 					break;
 				}

@@ -1,6 +1,6 @@
 <?php 
 
-class EdgeElement extends CActiveRecord
+class InputDependency extends CActiveRecord
 {
 	public $id;
 	
@@ -22,18 +22,18 @@ class EdgeElement extends CActiveRecord
 	}
 
 	public function tableName() {
-		return 'tbl_EdgeElement';
+		return 'InputDependency';
 	}
 
 	public function relations() {
 		return array(
-				'outElement'=>array(self::BELONGS_TO, 'TreeElement', 'out_id'),
-				'inElement'=>array(self::BELONGS_TO, 'TreeElement', 'in_id'),
+				'outElement'=>array(self::BELONGS_TO, 'InputTreeElement', 'out_id'),
+				'inElement'=>array(self::BELONGS_TO, 'InputTreeElement', 'in_id'),
 		);
 	}
 	
 	// factory method
-	public static function createDotEdgeElement($label, $out_id, $in_id, $out_parent_id, $in_parent_id) {
+	public static function createDotInputDependency($label, $out_id, $in_id, $out_parent_id, $in_parent_id) {
 		$element = new self('insert');
 		$element->label = $label;
 		$element->out_id = $out_id;
@@ -44,7 +44,7 @@ class EdgeElement extends CActiveRecord
 		return $element;
 	}
 	
-	public static function createEdgeElement($label, $out_id, $in_id, $parent_id = null) {
+	public static function createInputDependency($label, $out_id, $in_id, $parent_id = null) {
 		$element = new self('insert');
 		$element->label = $label;
 		$element->out_id = $out_id;
@@ -54,9 +54,8 @@ class EdgeElement extends CActiveRecord
 		return $element;
 	}
 	
-	public static function createAndSaveEdgeElement($label, $out_id, $in_id, $parent_id = null)
-	{
-		$element = EdgeElement::createEdgeElement($label, $out_id, $in_id, $parent_id);
+	public static function createAndSaveInputDependency($label, $out_id, $in_id, $parent_id = null) {
+		$element = InputDependency::createInputDependency($label, $out_id, $in_id, $parent_id);
 	
 		$element->save();
 		return $element->id;

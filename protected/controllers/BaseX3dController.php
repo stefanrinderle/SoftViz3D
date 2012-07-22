@@ -7,8 +7,8 @@ class BaseX3dController extends BaseController {
 		
 		try {
 			/* reset database */
-			TreeElement::model()->deleteAll();
-			EdgeElement::model()->deleteAll();
+			InputTreeElement::model()->deleteAll();
+			InputDependency::model()->deleteAll();
 			
 			$parseResult = Yii::app()->dotFileParser->parse($filename, $includeEdges);
 			

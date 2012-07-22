@@ -16,6 +16,7 @@ return array(
 	'import'=>array(
 		'application.models.*',
 		'application.models.forms.*',
+		'application.models.input.*',
 		'application.controllers.*',
 		'application.components.*',
 		'application.components.database.*',

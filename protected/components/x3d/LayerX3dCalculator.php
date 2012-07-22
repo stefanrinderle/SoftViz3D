@@ -32,7 +32,7 @@ class LayerX3dCalculator extends CApplicationComponent
 		$node->setX3dInfos($x3dInfos);
 		
 		// calculate values for the children nodes
-		$content = LayerElement::model()->findAllByAttributes(array('parent_id'=>$node->id));
+		$content = InputNode::model()->findAllByAttributes(array('parent_id'=>$node->id));
 		
 		foreach ($content as $key => $value) {
 			$label = trim($value->name);
