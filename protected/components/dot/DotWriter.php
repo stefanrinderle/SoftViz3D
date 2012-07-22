@@ -14,7 +14,7 @@ class DotWriter extends CApplicationComponent
 		
 		$this->graphViz = new Image_GraphViz_Copy(true, $attr);
 		
-		$this->writeElements($elements, $normalize);
+		$this->writeElements($elements);
 	
 		$this->graphViz->saveParsedGraph($outputFile);
 	}
@@ -33,8 +33,8 @@ class DotWriter extends CApplicationComponent
 				$attr = array();
 				$attr['shape'] = "rectangle";
 								
-				$attr['width'] = $value->twoDimSize[width];
-				$attr['height'] = $value->twoDimSize[height];
+				$attr['width'] = $value->twoDimSize['width'];
+				$attr['height'] = $value->twoDimSize['height'];
 
 				$attr['fixedsize'] = "true";
 				$attr['id'] = $value->id;

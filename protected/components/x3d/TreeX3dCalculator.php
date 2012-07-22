@@ -57,10 +57,8 @@ class TreeX3dCalculator extends AbstractX3dCalculator {
 		 * same value will be set for the 3D height here. Given 2 Metrics, first is the side length
 		 * second is the 3D height. Given none, default values.
 		 */
-		$metric1 = $node['attributes']['metric1'];
-		$metric2 = $node['attributes']['metric2'];
-	
-		if ($metric1 != 0 && $metric2 != 0) {
+		if (array_key_exists('metric1', $node['attributes']) &&
+				array_key_exists('metric2', $node['attributes'])) {
 			$height = round($metric2 * LayoutVisitor::$SCALE / 2);
 		} else {
 			$height = $width;

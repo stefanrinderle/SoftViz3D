@@ -9,14 +9,14 @@ class DotArrayToDB extends CApplicationComponent {
 		
 		$edges = $this->createEdges($dotArray['edges']);
 
-		return array(edges => $edges, rootId => $this->rootId);
+		return array('edges' => $edges, 'rootId' => $this->rootId);
 	}
 	
 	private function saveHierarchy($element, $parentId = null, $level = 0) {
 		$identifier = $element["id"];
 		$label = $this->getLabel($element);
 		
-		if ($element["content"]) {
+		if (array_key_exists('content', $element)) {
 			$id = LayerElement::createAndSave($identifier, $label, $parentId, $level);
 			
 			foreach ($element["content"] as $value) {
@@ -27,15 +27,24 @@ class DotArrayToDB extends CApplicationComponent {
 				$this->rootId = $id;
 			}
 		} else {
-			$metric1 = $element["attributes"]["metric1"];
-			$metric2 = $element["attributes"]["metric2"];
+			//TODO: das geht besser - sieht ja scheiße aus
+			if (array_key_exists('metric1', $element["attributes"])) {
+				$metric1 = $element["attributes"]["metric1"];
+			} else {
+				$metric1 = null;
+			}
+			if (array_key_exists('metric2', $element["attributes"])) {
+				$metric2 = $element["attributes"]["metric2"];
+			} else {
+				$metric2 = null;
+			}
 			
 			LeafElement::createAndSave($identifier, $label, $parentId, $level, $metric1, $metric2);
 		} 
 	}
 	
 	private function getLabel($element) {
-		if ($element["attributes"]["label"]) {
+		if (array_key_exists('label', $element["attributes"])) {
 			$label = $element["attributes"]["label"];
 		} else {
 			$label = $element["id"];
@@ -53,7 +62,7 @@ class DotArrayToDB extends CApplicationComponent {
 	
 		$treeArray = array();
 		foreach ($treeElements as $element) {
-			$treeArray[$element->name] = array(id => $element->id, parent_id => $element->parent_id);
+			$treeArray[$element->name] = array('id' => $element->id, 'parent_id' => $element->parent_id);
 		}
 	
 		// edges 

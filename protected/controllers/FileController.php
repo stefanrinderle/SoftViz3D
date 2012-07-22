@@ -37,8 +37,8 @@ class FileController extends BaseController
 		}
 		
 		$this->render('index', array(
-                filename => $filename,
-				fileContent => $content
+                'filename' => $filename,
+				'fileContent' => $content
 		));
 	}
 	
@@ -49,12 +49,14 @@ class FileController extends BaseController
 			$result =Yii::app()->dotFileParser->parse($filename);
 			
 			Yii::app()->user->setFlash('success', 'File valid');
+			
+			$this->render('check', array('result' => $result));
 		} catch (Exception $e) {
 			$exception = $e;
 			Yii::app()->user->setFlash('error', 'Check failed: ' . $e->getMessage());
+			
+			$this->render('check', array('exception' => $exception));
 		}
-		
-		$this->render('check', array(result => $result, exception => $exception));
 	}
 	
 	public function actionEdit() {
@@ -92,7 +94,7 @@ class FileController extends BaseController
 		$editform->model->content = $content;
 		
 		$this->render('edit', array(
-			form => $editform
+			'form' => $editform
 		));
 		}
 	

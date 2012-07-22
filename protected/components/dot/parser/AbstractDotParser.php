@@ -30,13 +30,14 @@ abstract class AbstractDotParser extends CApplicationComponent {
 		
 		$result["id"] = $this->getGraphId();
 		$result["content"] = array();
+		$result["attributes"] = array();
 		
 		$this->getNewLine();
 		
 		while (!$this->isEnd()) {
 			//check for key words graph and node
-			preg_match($this->idPattern, $this->currentLine, $idMatch);
-			if ($idMatch[1]) {
+			$hasMatch = preg_match($this->idPattern, $this->currentLine, $idMatch);
+			if ($hasMatch) {
 				$isGraphAttributeLine = ($idMatch[1] == "graph" || $idMatch[1] == "node");
 			} else {
 				$isGraphAttributeLine = false;
@@ -50,17 +51,17 @@ abstract class AbstractDotParser extends CApplicationComponent {
 			if ($isGraphAttributeLine) {
 				$result["attributes"] = $this->getAttributes();
 				
-				if ($result["attributes"]["bb"]) {
+				if (array_key_exists('bb', $result["attributes"])) {
 					$result["attributes"]["bb"] = explode(",", $result["attributes"]["bb"]);
 				}
 				
 			} else if ($isSubgraphLine) {
 				array_push($result["content"], $this->parseGraph());
 			} else if ($isEdgeLine) {
-				$tmpEdge = $this->parseEdgeLine();
+				$edge = $this->parseEdgeLine();
 				
-				if ($tmpEdge["attributes"]["pos"]) {
-					$test = explode(" ", $tmpEdge["attributes"]["pos"]);
+				if (array_key_exists('pos', $edge["attributes"])) {
+					$test = explode(" ", $edge["attributes"]["pos"]);
 					
 					$newPosition = array();
 					foreach ($test as $key => $value) {
@@ -73,14 +74,14 @@ abstract class AbstractDotParser extends CApplicationComponent {
 						}
 					}
 					
-					$tmpEdge["attributes"]["pos"] = $newPosition;
+					$edge["attributes"]["pos"] = $newPosition;
 				}
 				
-				array_push($this->edgeStore, $tmpEdge);
+				array_push($this->edgeStore, $edge);
 			} else if ($isNodeLine) {
 				$tmpNode = $this->parseNodeLine();
 				
-				if ($tmpNode["attributes"]["pos"]) {
+				if (array_key_exists('pos', $tmpNode["attributes"])) {
 					$tmpNode["attributes"]["pos"] = explode(",", $tmpNode["attributes"]["pos"]);
 				}
 				
@@ -133,32 +134,31 @@ abstract class AbstractDotParser extends CApplicationComponent {
 		$result["id"] = $idMatch[1];
 		
 		// retrieve attributes
-		if ($hasAttributes) {
-			$result["attributes"] = $this->getAttributes($this->currentLine);
-		} else {
-			$result["attributes"] = array();
-		}
+		$result["attributes"] = $this->getAttributes($this->currentLine);
 		
 		return $result;
 	}
 	
 	private function getAttributes() {
+		$newAttrArray = array();
+		
 		// get attribute string
 		$hasAttributes = preg_match($this->attrPattern, $this->currentLine, $attrMatch);
 		
-		//http://stackoverflow.com/questions/168171/regular-expression-for-parsing-name-value-pairs
-		$splitPattern = '/((?:"[^"]*"|[^=,])*)=((?:"[^"]*"|[^=,])*)/';
-		preg_match_all($splitPattern, $attrMatch[1], $attrGroupMatch);
-		
-		$newAttrArray = array();
-		for ($i = 0; $i < count($attrGroupMatch[1]); $i++) {
-			//remove " and spaces
-			$value = str_replace('"', "", $attrGroupMatch[2][$i]);
-			$value = trim($value);
+		if ($hasAttributes) {
+			//http://stackoverflow.com/questions/168171/regular-expression-for-parsing-name-value-pairs
+			$splitPattern = '/((?:"[^"]*"|[^=,])*)=((?:"[^"]*"|[^=,])*)/';
+			preg_match_all($splitPattern, $attrMatch[1], $attrGroupMatch);
 			
-			$key = trim($attrGroupMatch[1][$i]);
-			
-			$newAttrArray[$key] = $value;
+			for ($i = 0; $i < count($attrGroupMatch[1]); $i++) {
+				//remove " and spaces
+				$value = str_replace('"', "", $attrGroupMatch[2][$i]);
+				$value = trim($value);
+					
+				$key = trim($attrGroupMatch[1][$i]);
+					
+				$newAttrArray[$key] = $value;
+			}
 		}
 		
 		return $newAttrArray;

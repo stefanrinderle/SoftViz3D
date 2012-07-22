@@ -15,7 +15,7 @@ class GoannaController extends BaseController
 			Yii::app()->user->setFlash('error', $e->getMessage());
 		}
 		
-		$project[snapshots] = array_reverse($project[snapshots]);
+		$project['snapshots'] = array_reverse($project['snapshots']);
 		
 		$this->render('snapshots', array('project' => $project));
 	}

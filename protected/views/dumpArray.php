@@ -12,7 +12,7 @@ function DumpArrayToTable($dumpArray) {
     print ( 'font-family: Courier New; font-size: .9em;">' ); 
 
     // Wenn kein Array, dann Input in ein Array umwandeln. 
-    if ( ! is_array ( $dumpArray[0] ) ) 
+    if ( array_key_exists(0, $dumpArray) && ! is_array ( $dumpArray[0] ) ) 
     { 
       $dumpArray = array ( $dumpArray ); 
     } 

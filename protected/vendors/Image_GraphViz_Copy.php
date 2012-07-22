@@ -953,7 +953,13 @@ class Image_GraphViz_Copy
     function _subgraph($group, &$indent)
     {
         $parsedGraph = '';
-        $nodes = $this->graph['nodes'][$group];
+        
+        if (array_key_exists($group, $this->graph['nodes'])) {
+        	$nodes = $this->graph['nodes'][$group];
+        } else {
+        	$nodes = null;
+        }
+        
 
         if ($group !== 'default') {
             $type = null;

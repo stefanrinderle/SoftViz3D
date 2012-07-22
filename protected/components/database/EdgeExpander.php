@@ -47,7 +47,7 @@ class EdgeExpander extends CApplicationComponent
 	}
 	
 	private function incrementNodesCounter($nodeId) {
-		if ($this->nodesCounter[$nodeId]) {
+		if (array_key_exists($nodeId, $this->nodesCounter)) {
 			$this->nodesCounter[$nodeId] = $this->nodesCounter[$nodeId] + 1;
 		} else {
 			$this->nodesCounter[$nodeId] = 1;
@@ -83,8 +83,8 @@ class EdgeExpander extends CApplicationComponent
 		$type = "out";
 		$depEdgeLabel = "depEdge_" . $type . "_" . $source->id;
 		
-		$edge = $this->dependencyEdges[$depEdgeLabel];
-		if ($edge) {
+		if (array_key_exists($depEdgeLabel, $this->dependencyEdges)) {
+			$edge = $this->dependencyEdges[$depEdgeLabel];
 			$edge->counter++;
 		} else {
 			$element = EdgeElement::createEdgeElement($depEdgeLabel, $source->id, $dest->id, $source->parent_id);
@@ -95,8 +95,9 @@ class EdgeExpander extends CApplicationComponent
 	private function handleNewDepEdge($node, $type) {
 		$depEdgeLabel = "depEdge_" . $type . "_" . $node->id;
 	
-		$edge = $this->dependencyEdges[$depEdgeLabel];
-		if ($edge) {
+		
+		if (array_key_exists($depEdgeLabel, $this->dependencyEdges)) {
+			$edge = $this->dependencyEdges[$depEdgeLabel];
 			$edge->counter++;
 		} else {
 			$depNodeId = $this->getDependencyNode($node->parent_id, $node->level);
@@ -115,8 +116,8 @@ class EdgeExpander extends CApplicationComponent
 		$depPrefix = "dep_";
 		$depNodeLabel = $depPrefix . $parentId;
 	
-		$savedNode = $this->dependenyNodes[$depNodeLabel];
-		if ($savedNode) {
+		if (array_key_exists($depNodeLabel, $this->dependenyNodes)) {
+			$savedNode = $this->dependenyNodes[$depNodeLabel];
 			$savedNode->counter++;
 			$depNodeId = $savedNode->id;
 		} else {

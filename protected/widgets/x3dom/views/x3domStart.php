@@ -6,4 +6,4 @@
 
 	<?php $x3dInfos = $root->getX3dInfos(); ?>
 	<Transform id="x3dSceneWrapper"
-			   translation='<?php echo - $x3dInfos->bb[size][width] / 2 . " 0 " . - $x3dInfos->bb[size][length] / 2; ?>'>	
+			   translation='<?php echo - $x3dInfos->bb['size']['width'] / 2 . " 0 " . - $x3dInfos->bb['size']['length'] / 2; ?>'>	

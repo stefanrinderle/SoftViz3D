@@ -11,8 +11,8 @@ class GraphController extends BaseX3dController
 		
 		// STEP 1: Load input dot file
 		$result = $this->loadFiletoDb();
-		$edges = $result[edges];
-		$rootId = $result[rootId];
+		$edges = $result['edges'];
+		$rootId = $result['rootId'];
 		
 		//echo "Calculation time write to db: " . $this->getTimeDifference($startTime) . "<br />";
 		
@@ -36,6 +36,6 @@ class GraphController extends BaseX3dController
 		//echo "Calculation time absolute translations: " . $this->getTimeDifference($startTime) . "<br />";
 		
 		// STEP 5: show the calculated layout
-		$this->render('index', array(root => $root, layers=>$layers));
+		$this->render('index', array('root' => $root, 'layers' => $layers));
 	}
 }

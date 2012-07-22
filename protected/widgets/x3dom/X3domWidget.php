@@ -7,13 +7,13 @@ class X3domWidget extends CWidget {
 	public $type;
 	
 	public function run() {
-		$this->render('x3domStart', array(root => $this->root));
+		$this->render('x3domStart', array('root' => $this->root));
 		
 		foreach ($this->layers as $layer) {
 			$this->generateX3DOM($layer);
 		}
 		
-		$this->render('x3domEnd', array(root => $this->root));
+		$this->render('x3domEnd', array('root' => $this->root));
 		
 		// include own javascript files
 		Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . '/js/x3dom/sidebar.js');
@@ -32,9 +32,9 @@ class X3domWidget extends CWidget {
 		$x3dInfos = $node->getX3dInfos();
 		
 		if ($this->type == "tree") {
-			$this->render('x3dTreeLayer', array(graph=>$x3dInfos));
+			$this->render('x3dTreeLayer', array('graph'=>$x3dInfos));
 		} else {
-			$this->render('x3dGraphLayer', array(graph=>$x3dInfos));
+			$this->render('x3dGraphLayer', array('graph'=>$x3dInfos));
 		}
 	}
 }

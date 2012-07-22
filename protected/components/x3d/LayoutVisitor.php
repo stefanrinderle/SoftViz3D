@@ -42,14 +42,14 @@ class LayoutVisitor {
 			$x3dInfos = Yii::app()->graphX3dCalculator->calculate($layerLayout, $comp);
 		}
 		
-		$x3dInfos->id = $comp[id];
-		$x3dInfos->depth = $comp[level];
+		$x3dInfos->id = $comp['id'];
+		$x3dInfos->depth = $comp['level'];
 		$comp->setX3dInfos($x3dInfos);
 		
 		$bb = $layerLayout['attributes']['bb'];
 		
 		// size of the node is the size of its bounding box
-		$comp->twoDimSize = array(width=>$bb[2] / self::$SCALE, height=>$bb[3] / self::$SCALE);
+		$comp->twoDimSize = array('width' => $bb[2] / self::$SCALE, 'height' => $bb[3] / self::$SCALE);
 
 		return $comp;
 	}
@@ -103,7 +103,7 @@ class LayoutVisitor {
  			}
  		}
  		
-		$comp->twoDimSize = array(width=>$side, height=>$side);
+		$comp->twoDimSize = array('width' => $side, 'height' => $side);
 		return $comp;
 	}
 

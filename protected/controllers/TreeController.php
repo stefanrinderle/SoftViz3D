@@ -9,7 +9,7 @@ class TreeController extends BaseX3dController {
 		$startTime = $this->getTime();
 		
 		$result = $this->loadFiletoDb();
-		$rootId = $result[rootId];
+		$rootId = $result['rootId'];
 
 		// STEP 2: calculate the view layout
 		$layout = new LayoutVisitor(LayoutVisitor::$TYPE_TREE);
@@ -23,7 +23,7 @@ class TreeController extends BaseX3dController {
 		print_r("Calculation time: " + $this->getTimeDifference($startTime));
 
 		// STEP 5: show the calculated layout
-		$this->render('index', array(root => $root, layers=>$layers));
+		$this->render('index', array('root' => $root, 'layers'=>$layers));
 	}
 	
 }
