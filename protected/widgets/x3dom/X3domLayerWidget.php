@@ -13,6 +13,10 @@ class X3domLayerWidget extends CWidget {
 		} else {
 			$this->render('x3dGraphLayer', array(graph=>$x3dInfos));
 		}
+		
+		$elements = BoxElement::model()->findAll();
+		
+		
 	}
 	
 }

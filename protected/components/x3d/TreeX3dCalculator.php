@@ -17,7 +17,7 @@ class TreeX3dCalculator extends AbstractX3dCalculator {
 		}
 	
 		$colour = array('r'=>0.87 - $colourCalc, 'g'=> 1 - $colourCalc, 'b'=> 1);
-		$transpareny = 0;//0.9 - ($maxDepth - $depth) * 0.1;
+		$transparency = 0;//0.9 - ($maxDepth - $depth) * 0.1;
 	
 		$result = array(
 				'size'=>array('width'=>$width, 'length'=>$length),
@@ -25,8 +25,16 @@ class TreeX3dCalculator extends AbstractX3dCalculator {
 				'position'=>array('x' => $bb[0],
 						'y' => $depth * $this->layerSpacing,
 						'z' => $bb[1]),
-				'transparency'=>$transpareny
+				'transparency'=>$transparency
 		);
+		
+		$layoutId = 0;
+		$translation = array($bb[0], $depth * $this->layerSpacing, $bb[1]);
+		//$size = array($width, $length);
+		$size = array($width + 10, $length + 10);
+		//$color = $colour;
+		$color = array('r'=>1, 'g'=> 0, 'b'=> 0);
+		BoxElement::createAndSaveBoxElement($layoutId, $translation, $size, $color, $transparency);
 	
 		return $result;
 	}
