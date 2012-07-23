@@ -1,8 +1,8 @@
 <?php 
 
-class InputDependency extends CActiveRecord
-{
+class InputDependency extends CActiveRecord {
 	public $id;
+	public $projectId;
 	
 	public $label;
 	public $out_id;
@@ -28,7 +28,8 @@ class InputDependency extends CActiveRecord
 	public function relations() {
 		return array(
 				'outElement'=>array(self::BELONGS_TO, 'InputTreeElement', 'out_id'),
-				'inElement'=>array(self::BELONGS_TO, 'InputTreeElement', 'in_id'),
+				'inElement'=>array(self::BELONGS_TO, 'InputTreeElement', 'in_id')
+				//'project'=>array(self::BELONGS_TO, 'Project', 'projectId'),
 		);
 	}
 	
@@ -41,6 +42,8 @@ class InputDependency extends CActiveRecord
 		$element->out_parent_id = $out_parent_id;
 		$element->in_parent_id = $in_parent_id;
 	
+		$element->projectId = 0;
+		
 		return $element;
 	}
 	
@@ -50,6 +53,8 @@ class InputDependency extends CActiveRecord
 		$element->out_id = $out_id;
 		$element->in_id = $in_id;
 		$element->parent_id = $parent_id;
+		
+		$element->projectId = 0;
 		
 		return $element;
 	}

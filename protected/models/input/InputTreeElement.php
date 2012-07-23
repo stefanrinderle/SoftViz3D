@@ -5,6 +5,8 @@ class InputTreeElement extends CActiveRecord {
 	// db pk
 	public $id;
 	
+	public $projectId;
+	
 	// input dot identifier
 	public $name;
 	
@@ -37,7 +39,7 @@ class InputTreeElement extends CActiveRecord {
 
 	public function relations() {
 		return array(
-				'parent'=>array(self::BELONGS_TO, 'InputTreeElement', 'parent_id'),
+				'parent'=>array(self::BELONGS_TO, 'InputTreeElement', 'parent_id')
 		);
 	}
 	

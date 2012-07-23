@@ -5,12 +5,11 @@ class InputNode extends InputTreeElement {
 	public $x3dInfos;
 	public $isVisible = 1;
 
-	public static function model($className=__CLASS__)
-	{
+	public static function model($className=__CLASS__) {
 		return parent::model($className);
 	}
 
-	public function defaultScope(){
+	public function defaultScope() {
 		return array(
 				'condition'=>"isLeaf='0'"
 		);

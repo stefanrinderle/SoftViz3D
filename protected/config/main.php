@@ -17,6 +17,7 @@ return array(
 		'application.models.*',
 		'application.models.forms.*',
 		'application.models.input.*',
+		'application.models.layout.*',
 		'application.controllers.*',
 		'application.components.*',
 		'application.components.database.*',
