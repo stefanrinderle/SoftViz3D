@@ -4,7 +4,7 @@ class BoxElement extends CActiveRecord {
 	
 	public static $TYPE_PLATFORM = 0;
 	public static $TYPE_FOOTPRINT = 1;
-	public static $TYPE_NODE = 2;
+	public static $TYPE_BUILDING = 2;
 	
 	public $id;
 	public $layoutId;
@@ -51,6 +51,10 @@ class BoxElement extends CActiveRecord {
 	public function saveTranslation($translation) {
 		$this->translation = implode(' ', $translation);
 		$this->save();
+	}
+	
+	public function getTranslation() {
+		return explode(" ", $this->translation);
 	}
 
 	/**

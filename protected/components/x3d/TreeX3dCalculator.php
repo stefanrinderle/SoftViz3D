@@ -5,74 +5,47 @@ class TreeX3dCalculator extends AbstractX3dCalculator {
 	private $layerSpacing = 5;
 	
 	protected function adjustBb($layerLayout, $depth, $inputTreeElementId) {
-		//$bb = $layerLayout['bb'];
+		$layoutId = 1;
+
 		$bb = $layerLayout['attributes']['bb'];
-		
 		$width = round($bb[2] - $bb[0], 2);
 		$length = round($bb[3] - $bb[1], 2);
-			
-		$colourCalc = ($depth - 1) * 0.3;
-		if ($colourCalc > 1.0) {
-			$colourCalc = 1.0;
-		}
-	
-		$colour = array('r'=>0.87 - $colourCalc, 'g'=> 1 - $colourCalc, 'b'=> 1);
-		$transparency = 0;//0.9 - ($maxDepth - $depth) * 0.1;
-		
-		$result = array(
-				'size'=>array('width'=>$width, 'length'=>$length),
-				'colour'=>$colour,
-				'position'=>array('x' => $bb[0] + $width / 2,
-						'y' => $depth * $this->layerSpacing,
-						'z' => $bb[1] + $length / 2),
-				'transparency'=>$transparency
-		);
-		
-		$layoutId = 1;
+
 		$translation = array($bb[0], $depth * $this->layerSpacing, $bb[1]);
-		//$size = array($width, $length);
 		$size = array($width, $length);
-		$color = $colour;
-		//$color = array('r'=>1, 'g'=> 0, 'b'=> 0);
 		
-		$inputTreeElementId = $inputTreeElementId;
+		$colorCalc = ($depth - 1) * 0.3;
+		if ($colorCalc > 1.0) {
+			$colorCalc = 1.0;
+		}
+		$color = array('r'=>0.87 - $colorCalc, 'g'=> 1 - $colorCalc, 'b'=> 1);
+		$transparency = 0;
 		
 		BoxElement::createAndSaveBoxElement(
 				$layoutId, $inputTreeElementId, BoxElement::$TYPE_PLATFORM, 
 				$translation, $size, $color, $transparency);
-		
-		return $result;
 	}
 	
 	protected function adjustNode($node, $depth) {
-		$position = $node['attributes']['pos'];
-		
-		$result = array(
-				'name'=>$node['id'],
-				'size'=>array('width'=> 0, 'height'=> 0, 'length' => 0),
-				'position'=>array('x' => $position[0],
-						'y' => $depth * $this->layerSpacing,
-						'z' => $position[1]),
-				'colour'=>array('r'=>0, 'g'=>0, 'b'=>0),
-				'transparency'=>0,
-				'isLeaf' => 0
-		);
-	
 		$layoutId = 1;
 		$inputTreeElementId = $node['attributes']['id'];
+		
+		$position = $node['attributes']['pos'];
 		$translation = array($position[0], $depth * $this->layerSpacing, $position[1]);
 		$size = array('width'=> 0, 'height'=> 0, 'length' => 0);
+		
 		$color = array('r'=>0, 'g'=>0, 'b'=>0);
 		$transparency = 0;
 		
 		BoxElement::createAndSaveBoxElement(
 				$layoutId, $inputTreeElementId, BoxElement::$TYPE_FOOTPRINT,
 				$translation, $size, $color, $transparency);
-		
-		return $result;
 	}
 	
 	protected function adjustLeaf($node, $depth) {
+		$layoutId = 1;
+		$inputTreeElementId = $node['attributes']['id'];
+		
 		$width = $node['attributes']['width'] * LayoutVisitor::$SCALE;
 		// !!! METRIC CALCULATION FOR 3D LAYOUT
 		/**
@@ -83,27 +56,21 @@ class TreeX3dCalculator extends AbstractX3dCalculator {
 		 */
 		if (array_key_exists('metric1', $node['attributes']) &&
 				array_key_exists('metric2', $node['attributes'])) {
-			$height = round($metric2 * LayoutVisitor::$SCALE / 2);
+			$height = round($node['attributes']['metric2'] * LayoutVisitor::$SCALE / 2);
 		} else {
 			$height = $width;
 		}
 	
 		$position = $node['attributes']['pos'];
+		$translation = array($position[0], $depth * $this->layerSpacing  + ($height / 2), $position[1]);
+		$size = array('width'=>$width, 'height'=>$height, 'length'=>$width);
 		
-		// its a node with subnodes, so only specify the position and name.
-		$result = array(
-				'name'=>$node['id'],
-				'size'=>array('width'=>$width, 'height'=>$height, 'length'=>$width),
-				'position'=>array('x' => $position[0],
-						'y' => $depth * $this->layerSpacing + ($height / 2),
-						'z' => $position[1]),
-				'colour'=>array('r'=>1, 'g'=>0.55, 'b'=>0),
-				'transparency'=>0,
-				'isLeaf' => 1,
-				'id' => $node['id']
-		);
-	
-		return $result;
+		$color = array('r'=>1, 'g'=>0.55, 'b'=>0);
+		$transparency = 0;
+		
+		BoxElement::createAndSaveBoxElement(
+				$layoutId, $inputTreeElementId, BoxElement::$TYPE_BUILDING,
+				$translation, $size, $color, $transparency);
 	}
 	
 	protected function adjustEdge($node, $depth) {

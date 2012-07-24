@@ -15,11 +15,12 @@ class X3domWidget extends CWidget {
 			$this->generateX3DOM($layer);
 		}
 
-		
 		$elements = BoxElement::model()->findAllByAttributes(array('layoutId'=>$this->layoutId));
 		foreach ($elements as $element) {
 			if ($element->type == BoxElement::$TYPE_PLATFORM) {
 				$this->render('baseObjects/platform', array('element' => $element));
+			} else if ($element->type == BoxElement::$TYPE_BUILDING) {
+				$this->render('baseObjects/building', array('element' => $element));
 			}
 		}
 		
@@ -39,11 +40,11 @@ class X3domWidget extends CWidget {
 	}
 	
 	private function generateX3DOM($node) {
-		$x3dInfos = $node->getX3dInfos();
-		
 		if ($this->type == "tree") {
-			$this->render('x3dTreeLayer', array('graph'=>$x3dInfos));
+			// nothing more to do here
 		} else {
+			$x3dInfos = $node->getX3dInfos();
+			
 			$this->render('x3dGraphLayer', array('graph'=>$x3dInfos));
 		}
 	}

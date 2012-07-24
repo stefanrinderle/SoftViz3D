@@ -9,7 +9,7 @@ class X3domLayerWidget extends CWidget {
 		$x3dInfos = $this->layer->getX3dInfos();
 		
 		if ($this->type == "tree") {
-			$this->render('x3dTreeLayer', array(graph=>$x3dInfos));
+			// nothing more to do here
 		} else {
 			$this->render('x3dGraphLayer', array(graph=>$x3dInfos));
 		}

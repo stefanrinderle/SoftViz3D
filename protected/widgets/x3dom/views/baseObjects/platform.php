@@ -1,6 +1,5 @@
 <Transform id="<?php echo $element->id; ?>" onclick="layerClickedEvent(event);" 
-			translation='<?php echo $element->translation; ?>' rotation="1 0 0 -1.57">
-			
+			translation="<?php echo $element->translation; ?>" rotation="1 0 0 -1.57">
 		<Shape>
 	    	<Appearance>
 	          	<Material diffuseColor='<?php echo $element->color; ?>' 

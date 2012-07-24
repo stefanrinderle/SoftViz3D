@@ -7,8 +7,6 @@ class NewLayerX3dCalculator extends CApplicationComponent {
 	}
 	
 	private function addTranslationToLayer($rootId, $transX, $transZ, $isRoot = false) {
-		$level++;
-		
 		$layoutElement = BoxElement::model()->findByAttributes(array('inputTreeElementId'=>$rootId));
 
 		$sizeArray = explode(" ", $layoutElement->size);
@@ -20,9 +18,9 @@ class NewLayerX3dCalculator extends CApplicationComponent {
 		$translation = array();
 		
 		if ($isRoot) {
-			$translation['x'] = $sizeArray[0] / 2;
+			$translation['x'] = 0;
 			$translation['y'] = $translationArray[1];
-			$translation['z'] = $sizeArray[1] / 2;
+			$translation['z'] = 0;
 		} else {
 			$translation['x'] = $translationArray[0] + $transX;
 			$translation['y'] = $translationArray[1];
@@ -34,18 +32,35 @@ class NewLayerX3dCalculator extends CApplicationComponent {
 		// calculate values for the children nodes
 		
 		// first find the chlidren elements of the input tree 
-		$content = InputNode::model()->findAllByAttributes(array('parent_id'=>$layoutElement->inputTreeElementId));
+		$content = InputTreeElement::model()->findAllByAttributes(array('parent_id'=>$layoutElement->inputTreeElementId));
 		
 		foreach ($content as $key => $value) {
-			// find the according layout representations
-			$element = BoxElement::model()->findByAttributes(array(
-							'inputTreeElementId'=>$value->id,
-							'type'=>BoxElement::$TYPE_FOOTPRINT));
+			if (!$value->isLeaf) {
+				// find the according layout representations
+				$element = BoxElement::model()->findByAttributes(array(
+						'inputTreeElementId'=>$value->id,
+						'type'=>BoxElement::$TYPE_FOOTPRINT));
 			
-			// layout node position
-			$nodePosition = explode(" ", $element->translation);
-		
-			$this->addTranslationToLayer($value->id, $nodePosition[0], $nodePosition[2]);
+				$size = explode(" ", $layoutElement->size);
+				
+				// layout node position
+				$nodePosition = $element->getTranslation();
+				$nodePosition[0] = $nodePosition[0] + $transX - $size[0] / 2;
+				$nodePosition[2] = $nodePosition[2] + $transZ - $size[1] / 2;
+				
+				$this->addTranslationToLayer($value->id, $nodePosition[0], $nodePosition[2]);
+			} else {
+				$element = BoxElement::model()->findByAttributes(array(
+						'inputTreeElementId'=>$value->id,
+						'type'=>BoxElement::$TYPE_BUILDING));
+
+				$size = explode(" ", $layoutElement->size);
+				
+				$elemTrans = $element->getTranslation();
+				$elemTrans[0] = $elemTrans[0] + $transX - $size[0] / 2;
+				$elemTrans[2] = $elemTrans[2] + $transZ - $size[1] / 2;
+				$element->saveTranslation($elemTrans);
+			}
 		}
 	}
 }
