@@ -6,11 +6,21 @@ class X3domWidget extends CWidget {
 	// can be "tree" or "graph"
 	public $type;
 	
+	public $layoutId;
+	
 	public function run() {
 		$this->render('x3domStart', array('root' => $this->root));
 		
 		foreach ($this->layers as $layer) {
 			$this->generateX3DOM($layer);
+		}
+
+		
+		$elements = BoxElement::model()->findAllByAttributes(array('layoutId'=>$this->layoutId));
+		foreach ($elements as $element) {
+			if ($element->type == BoxElement::$TYPE_PLATFORM) {
+				$this->render('baseObjects/platform', array('element' => $element));
+			}
 		}
 		
 		$this->render('x3domEnd', array('root' => $this->root));

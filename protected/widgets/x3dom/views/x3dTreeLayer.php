@@ -2,7 +2,7 @@
 <Group>
 <?php
 
-$this->render('baseObjects/basePlattform', array('bb' => $graph->bb, 'id' => $graph->id));
+//$this->render('baseObjects/basePlattform', array('bb' => $graph->bb, 'id' => $graph->id));
 
 if ($graph->nodes) {
 	foreach ($graph->nodes as $key => $value) {

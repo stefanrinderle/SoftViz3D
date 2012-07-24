@@ -2,14 +2,24 @@
 
 class BoxElement extends CActiveRecord {
 	
-	public $id;
+	public static $TYPE_PLATFORM = 0;
+	public static $TYPE_FOOTPRINT = 1;
+	public static $TYPE_NODE = 2;
 	
+	public $id;
 	public $layoutId;
 	
-	// format: [x],[y],[z]
+	public $inputTreeElementId;
+	
+	// 0: platform
+	// 1: footprint
+	// 2: node
+	public $type;
+	
+	// format: [x] [y] [z]
 	public $translation;
 	
-	// format: [r],[g],[b]
+	// format: [r] [g] [b]
 	// float between 0 and 1
 	public $color;
 	
@@ -18,9 +28,9 @@ class BoxElement extends CActiveRecord {
 	
 	/**
 	 * 2D rectangle only width and length
-	 * format: [width],[length]
+	 * format: [width] [length]
 	 * others width, length, height
-	 * format: [width],[length],[height]
+	 * format: [width] [length] [height]
 	 */
 	public $size;
 	
@@ -34,9 +44,15 @@ class BoxElement extends CActiveRecord {
 
 	public function relations() {
 		return array(
+				'inputTreeElement'=>array(self::BELONGS_TO, 'InputTreeElement', 'inputTreeElementId')
 		);
 	}
 	
+	public function saveTranslation($translation) {
+		$this->translation = implode(' ', $translation);
+		$this->save();
+	}
+
 	/**
 	 * @param integer $layoutId
 	 * @param array $translation
@@ -44,13 +60,16 @@ class BoxElement extends CActiveRecord {
 	 * @param float $transprency
 	 * @return BoxElement
 	 */
-	public static function createAndSaveBoxElement($layoutId, $translation, $size, $color, $transparency) {
+	public static function createAndSaveBoxElement($layoutId, $inputTreeElementId, $type, $translation, $size, $color, $transparency) {
 		$element = new self('insert');
 		$element->layoutId = $layoutId;
+		$element->inputTreeElementId = $inputTreeElementId;
 	
-		$element->translation = implode(',', $translation);
-		$element->size = implode(',', $size);
-		$element->color = implode(',', $color);
+		$element->type = $type;
+		
+		$element->translation = implode(' ', $translation);
+		$element->size = implode(' ', $size);
+		$element->color = implode(' ', $color);
 		$element->transparency = $transparency;
 	
 		$element->save();

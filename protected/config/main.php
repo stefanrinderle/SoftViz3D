@@ -77,6 +77,9 @@ return array(
 		'layerX3dCalculator'=>array(
 			'class'=>'LayerX3dCalculator',
 		),
+		'newLayerX3dCalculator'=>array(
+			'class'=>'NewLayerX3dCalculator',
+		),
 		'vectorCalculator'=>array(
 			'class'=>'VectorCalculator',
 		),

@@ -6,6 +6,9 @@ class TreeController extends BaseX3dController {
 	public $layout='//layouts/column1';
 	
 	public function actionIndex() {
+		/* reset layout database */
+		BoxElement::model()->deleteAll();
+		
 		$startTime = $this->getTime();
 		
 		$result = $this->loadFiletoDb();
@@ -20,10 +23,15 @@ class TreeController extends BaseX3dController {
 		Yii::app()->layerX3dCalculator->calculate($root);
 		$layers = InputNode::model()->findAll();
 		
+		// STEP 3: calculate absolute translations
+		Yii::app()->newLayerX3dCalculator->calculate($rootId);
+		//$layers = InputNode::model()->findAll();
+		
 		print_r("Calculation time: " + $this->getTimeDifference($startTime));
 
 		// STEP 5: show the calculated layout
-		$this->render('index', array('root' => $root, 'layers'=>$layers));
+		$layoutId = 1;
+		$this->render('index', array('root' => $root, 'layers'=>$layers, 'layoutId' => $layoutId));
 	}
 	
 }

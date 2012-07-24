@@ -4,7 +4,7 @@ class TreeX3dCalculator extends AbstractX3dCalculator {
 	
 	private $layerSpacing = 5;
 	
-	protected function adjustBb($layerLayout, $depth) {
+	protected function adjustBb($layerLayout, $depth, $inputTreeElementId) {
 		//$bb = $layerLayout['bb'];
 		$bb = $layerLayout['attributes']['bb'];
 		
@@ -18,24 +18,29 @@ class TreeX3dCalculator extends AbstractX3dCalculator {
 	
 		$colour = array('r'=>0.87 - $colourCalc, 'g'=> 1 - $colourCalc, 'b'=> 1);
 		$transparency = 0;//0.9 - ($maxDepth - $depth) * 0.1;
-	
+		
 		$result = array(
 				'size'=>array('width'=>$width, 'length'=>$length),
 				'colour'=>$colour,
-				'position'=>array('x' => $bb[0],
+				'position'=>array('x' => $bb[0] + $width / 2,
 						'y' => $depth * $this->layerSpacing,
-						'z' => $bb[1]),
+						'z' => $bb[1] + $length / 2),
 				'transparency'=>$transparency
 		);
 		
-		$layoutId = 0;
+		$layoutId = 1;
 		$translation = array($bb[0], $depth * $this->layerSpacing, $bb[1]);
 		//$size = array($width, $length);
-		$size = array($width + 10, $length + 10);
-		//$color = $colour;
-		$color = array('r'=>1, 'g'=> 0, 'b'=> 0);
-		BoxElement::createAndSaveBoxElement($layoutId, $translation, $size, $color, $transparency);
-	
+		$size = array($width, $length);
+		$color = $colour;
+		//$color = array('r'=>1, 'g'=> 0, 'b'=> 0);
+		
+		$inputTreeElementId = $inputTreeElementId;
+		
+		BoxElement::createAndSaveBoxElement(
+				$layoutId, $inputTreeElementId, BoxElement::$TYPE_PLATFORM, 
+				$translation, $size, $color, $transparency);
+		
 		return $result;
 	}
 	
@@ -53,6 +58,17 @@ class TreeX3dCalculator extends AbstractX3dCalculator {
 				'isLeaf' => 0
 		);
 	
+		$layoutId = 1;
+		$inputTreeElementId = $node['attributes']['id'];
+		$translation = array($position[0], $depth * $this->layerSpacing, $position[1]);
+		$size = array('width'=> 0, 'height'=> 0, 'length' => 0);
+		$color = array('r'=>0, 'g'=>0, 'b'=>0);
+		$transparency = 0;
+		
+		BoxElement::createAndSaveBoxElement(
+				$layoutId, $inputTreeElementId, BoxElement::$TYPE_FOOTPRINT,
+				$translation, $size, $color, $transparency);
+		
 		return $result;
 	}
 	
