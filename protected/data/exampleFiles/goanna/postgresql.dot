@@ -5,30 +5,30 @@ digraph G {
             graph [ label=src ];
             subgraph 447 {
                 graph [ label=port ];
-                448 [ label="inet_net_ntop.c",metric1=0 ];
-                449 [ label="path.c",metric1=0 ];
-                450 [ label="pgstrcasecmp.c",metric1=0 ];
-                451 [ label="strlcpy.c",metric1=0 ];
-                452 [ label="exec.c",metric1=0 ];
-                453 [ label="qsort.c",metric1=0 ];
-                454 [ label="qsort_arg.c",metric1=0 ];
-                455 [ label="thread.c",metric1=0 ];
-                10902 [ label="dirmod.c",metric1=0 ];
-                10958 [ label="strlcat.c",metric1=0 ];
-                10978 [ label="noblock.c",metric1=0 ];
-                10979 [ label="pgcheckdir.c",metric1=0 ];
-                10980 [ label="pgmkdirp.c",metric1=0 ];
-                10981 [ label="sprompt.c",metric1=0 ];
-                10993 [ label="chklocale.c",metric1=0 ];
+                448 [ label="inet_net_ntop.c",metric1=49 ];
+                449 [ label="path.c",metric1=112 ];
+                450 [ label="pgstrcasecmp.c",metric1=84 ];
+                451 [ label="strlcpy.c",metric1=6 ];
+                452 [ label="exec.c",metric1=86 ];
+                453 [ label="qsort.c",metric1=97 ];
+                454 [ label="qsort_arg.c",metric1=85 ];
+                455 [ label="thread.c",metric1=11 ];
+                10902 [ label="dirmod.c",metric1=19 ];
+                10958 [ label="strlcat.c",metric1=10 ];
+                10978 [ label="noblock.c",metric1=1 ];
+                10979 [ label="pgcheckdir.c",metric1=5 ];
+                10980 [ label="pgmkdirp.c",metric1=20 ];
+                10981 [ label="sprompt.c",metric1=27 ];
+                10993 [ label="chklocale.c",metric1=14 ];
             }
             subgraph 456 {
                 graph [ label=timezone ];
-                457 [ label="localtime.c",metric1=0 ];
-                458 [ label="strftime.c",metric1=0 ];
-                459 [ label="pgtz.c",metric1=0 ];
-                460 [ label="zic.c",metric1=0 ];
-                461 [ label="ialloc.c",metric1=0 ];
-                1045 [ label="scheck.c",metric1=0 ];
+                457 [ label="localtime.c",metric1=304 ];
+                458 [ label="strftime.c",metric1=35 ];
+                459 [ label="pgtz.c",metric1=174 ];
+                460 [ label="zic.c",metric1=593 ];
+                461 [ label="ialloc.c",metric1=23 ];
+                1045 [ label="scheck.c",metric1=26 ];
             }
             subgraph 462 {
                 graph [ label=backend ];
@@ -36,608 +36,608 @@ digraph G {
                     graph [ label=access ];
                     subgraph 464 {
                         graph [ label=common ];
-                        465 [ label="heaptuple.c",metric1=0 ];
-                        466 [ label="indextuple.c",metric1=0 ];
-                        467 [ label="printtup.c",metric1=0 ];
-                        468 [ label="reloptions.c",metric1=0 ];
-                        469 [ label="scankey.c",metric1=0 ];
-                        470 [ label="tupconvert.c",metric1=0 ];
-                        471 [ label="tupdesc.c",metric1=0 ];
+                        465 [ label="heaptuple.c",metric1=533 ];
+                        466 [ label="indextuple.c",metric1=163 ];
+                        467 [ label="printtup.c",metric1=176 ];
+                        468 [ label="reloptions.c",metric1=226 ];
+                        469 [ label="scankey.c",metric1=28 ];
+                        470 [ label="tupconvert.c",metric1=113 ];
+                        471 [ label="tupdesc.c",metric1=159 ];
                     }
                     subgraph 472 {
                         graph [ label=gist ];
-                        473 [ label="gist.c",metric1=0 ];
-                        474 [ label="gistutil.c",metric1=0 ];
-                        475 [ label="gistxlog.c",metric1=0 ];
-                        476 [ label="gistvacuum.c",metric1=0 ];
-                        477 [ label="gistget.c",metric1=0 ];
-                        478 [ label="gistscan.c",metric1=0 ];
-                        479 [ label="gistproc.c",metric1=0 ];
-                        480 [ label="gistsplit.c",metric1=0 ];
+                        473 [ label="gist.c",metric1=314 ];
+                        474 [ label="gistutil.c",metric1=310 ];
+                        475 [ label="gistxlog.c",metric1=141 ];
+                        476 [ label="gistvacuum.c",metric1=90 ];
+                        477 [ label="gistget.c",metric1=203 ];
+                        478 [ label="gistscan.c",metric1=89 ];
+                        479 [ label="gistproc.c",metric1=464 ];
+                        480 [ label="gistsplit.c",metric1=224 ];
                     }
                     subgraph 481 {
                         graph [ label=hash ];
-                        482 [ label="hash.c",metric1=0 ];
-                        483 [ label="hashfunc.c",metric1=0 ];
-                        484 [ label="hashinsert.c",metric1=0 ];
-                        485 [ label="hashovfl.c",metric1=0 ];
-                        486 [ label="hashpage.c",metric1=0 ];
-                        487 [ label="hashscan.c",metric1=0 ];
-                        488 [ label="hashsearch.c",metric1=0 ];
-                        489 [ label="hashsort.c",metric1=0 ];
-                        490 [ label="hashutil.c",metric1=0 ];
+                        482 [ label="hash.c",metric1=207 ];
+                        483 [ label="hashfunc.c",metric1=123 ];
+                        484 [ label="hashinsert.c",metric1=49 ];
+                        485 [ label="hashovfl.c",metric1=200 ];
+                        486 [ label="hashpage.c",metric1=191 ];
+                        487 [ label="hashscan.c",metric1=22 ];
+                        488 [ label="hashsearch.c",metric1=110 ];
+                        489 [ label="hashsort.c",metric1=12 ];
+                        490 [ label="hashutil.c",metric1=67 ];
                     }
                     subgraph 491 {
                         graph [ label=heap ];
-                        492 [ label="heapam.c",metric1=0 ];
-                        493 [ label="hio.c",metric1=0 ];
-                        494 [ label="pruneheap.c",metric1=0 ];
-                        495 [ label="rewriteheap.c",metric1=0 ];
-                        496 [ label="syncscan.c",metric1=0 ];
-                        497 [ label="tuptoaster.c",metric1=0 ];
-                        498 [ label="visibilitymap.c",metric1=0 ];
+                        492 [ label="heapam.c",metric1=1198 ];
+                        493 [ label="hio.c",metric1=70 ];
+                        494 [ label="pruneheap.c",metric1=237 ];
+                        495 [ label="rewriteheap.c",metric1=76 ];
+                        496 [ label="syncscan.c",metric1=17 ];
+                        497 [ label="tuptoaster.c",metric1=512 ];
+                        498 [ label="visibilitymap.c",metric1=113 ];
                     }
                     subgraph 499 {
                         graph [ label=index ];
-                        500 [ label="genam.c",metric1=0 ];
-                        501 [ label="indexam.c",metric1=0 ];
+                        500 [ label="genam.c",metric1=68 ];
+                        501 [ label="indexam.c",metric1=187 ];
                     }
                     subgraph 502 {
                         graph [ label=nbtree ];
-                        503 [ label="nbtcompare.c",metric1=0 ];
-                        504 [ label="nbtinsert.c",metric1=0 ];
-                        505 [ label="nbtpage.c",metric1=0 ];
-                        506 [ label="nbtree.c",metric1=0 ];
-                        507 [ label="nbtsearch.c",metric1=0 ];
-                        508 [ label="nbtutils.c",metric1=0 ];
-                        509 [ label="nbtsort.c",metric1=0 ];
-                        510 [ label="nbtxlog.c",metric1=0 ];
+                        503 [ label="nbtcompare.c",metric1=219 ];
+                        504 [ label="nbtinsert.c",metric1=470 ];
+                        505 [ label="nbtpage.c",metric1=298 ];
+                        506 [ label="nbtree.c",metric1=239 ];
+                        507 [ label="nbtsearch.c",metric1=304 ];
+                        508 [ label="nbtutils.c",metric1=303 ];
+                        509 [ label="nbtsort.c",metric1=177 ];
+                        510 [ label="nbtxlog.c",metric1=289 ];
                     }
                     subgraph 511 {
                         graph [ label=transam ];
-                        512 [ label="clog.c",metric1=0 ];
-                        513 [ label="transam.c",metric1=0 ];
-                        514 [ label="xact.c",metric1=0 ];
-                        515 [ label="xlog.c",metric1=0 ];
-                        516 [ label="slru.c",metric1=0 ];
-                        517 [ label="subtrans.c",metric1=0 ];
-                        518 [ label="multixact.c",metric1=0 ];
-                        519 [ label="twophase.c",metric1=0 ];
-                        10959 [ label="varsup.c",metric1=0 ];
-                        10960 [ label="xlogutils.c",metric1=0 ];
+                        512 [ label="clog.c",metric1=156 ];
+                        513 [ label="transam.c",metric1=18 ];
+                        514 [ label="xact.c",metric1=526 ];
+                        515 [ label="xlog.c",metric1=1759 ];
+                        516 [ label="slru.c",metric1=294 ];
+                        517 [ label="subtrans.c",metric1=50 ];
+                        518 [ label="multixact.c",metric1=370 ];
+                        519 [ label="twophase.c",metric1=381 ];
+                        10959 [ label="varsup.c",metric1=57 ];
+                        10960 [ label="xlogutils.c",metric1=34 ];
                     }
                     subgraph 520 {
                         graph [ label=gin ];
-                        521 [ label="ginutil.c",metric1=0 ];
-                        522 [ label="gininsert.c",metric1=0 ];
-                        523 [ label="ginxlog.c",metric1=0 ];
-                        524 [ label="ginentrypage.c",metric1=0 ];
-                        525 [ label="gindatapage.c",metric1=0 ];
-                        526 [ label="ginbtree.c",metric1=0 ];
-                        527 [ label="ginscan.c",metric1=0 ];
-                        528 [ label="ginget.c",metric1=0 ];
-                        529 [ label="ginvacuum.c",metric1=0 ];
-                        530 [ label="ginarrayproc.c",metric1=0 ];
-                        531 [ label="ginbulk.c",metric1=0 ];
-                        532 [ label="ginfast.c",metric1=0 ];
+                        521 [ label="ginutil.c",metric1=147 ];
+                        522 [ label="gininsert.c",metric1=124 ];
+                        523 [ label="ginxlog.c",metric1=297 ];
+                        524 [ label="ginentrypage.c",metric1=343 ];
+                        525 [ label="gindatapage.c",metric1=426 ];
+                        526 [ label="ginbtree.c",metric1=119 ];
+                        527 [ label="ginscan.c",metric1=88 ];
+                        528 [ label="ginget.c",metric1=438 ];
+                        529 [ label="ginvacuum.c",metric1=267 ];
+                        530 [ label="ginarrayproc.c",metric1=36 ];
+                        531 [ label="ginbulk.c",metric1=46 ];
+                        532 [ label="ginfast.c",metric1=214 ];
                     }
                 }
                 subgraph 533 {
                     graph [ label=bootstrap ];
-                    534 [ label="bootparse.c",metric1=0 ];
-                    535 [ label="bootstrap.c",metric1=0 ];
-                    10961 [ label="bootparse.y",metric1=0 ];
+                    534 [ label="bootparse.c",metric1=78 ];
+                    535 [ label="bootstrap.c",metric1=229 ];
+                    10961 [ label="bootparse.y",metric1=5 ];
                 }
                 subgraph 536 {
                     graph [ label=catalog ];
-                    537 [ label="catalog.c",metric1=0 ];
-                    538 [ label="dependency.c",metric1=0 ];
-                    539 [ label="heap.c",metric1=0 ];
-                    540 [ label="index.c",metric1=0 ];
-                    541 [ label="indexing.c",metric1=0 ];
-                    542 [ label="namespace.c",metric1=0 ];
-                    543 [ label="aclchk.c",metric1=0 ];
-                    544 [ label="objectaddress.c",metric1=0 ];
-                    545 [ label="pg_aggregate.c",metric1=0 ];
-                    546 [ label="pg_constraint.c",metric1=0 ];
-                    547 [ label="pg_depend.c",metric1=0 ];
-                    548 [ label="pg_enum.c",metric1=0 ];
-                    549 [ label="pg_largeobject.c",metric1=0 ];
-                    550 [ label="pg_operator.c",metric1=0 ];
-                    551 [ label="pg_proc.c",metric1=0 ];
-                    552 [ label="pg_db_role_setting.c",metric1=0 ];
-                    553 [ label="pg_shdepend.c",metric1=0 ];
-                    554 [ label="pg_type.c",metric1=0 ];
-                    555 [ label="storage.c",metric1=0 ];
-                    556 [ label="toasting.c",metric1=0 ];
-                    10982 [ label="pg_conversion.c",metric1=0 ];
-                    10983 [ label="pg_inherits.c",metric1=0 ];
-                    10984 [ label="pg_namespace.c",metric1=0 ];
+                    537 [ label="catalog.c",metric1=83 ];
+                    538 [ label="dependency.c",metric1=447 ];
+                    539 [ label="heap.c",metric1=7 ];
+                    540 [ label="index.c",metric1=117 ];
+                    541 [ label="indexing.c",metric1=23 ];
+                    542 [ label="namespace.c",metric1=600 ];
+                    543 [ label="aclchk.c",metric1=1435 ];
+                    544 [ label="objectaddress.c",metric1=42 ];
+                    545 [ label="pg_aggregate.c",metric1=56 ];
+                    546 [ label="pg_constraint.c",metric1=201 ];
+                    547 [ label="pg_depend.c",metric1=96 ];
+                    548 [ label="pg_enum.c",metric1=87 ];
+                    549 [ label="pg_largeobject.c",metric1=46 ];
+                    550 [ label="pg_operator.c",metric1=132 ];
+                    551 [ label="pg_proc.c",metric1=212 ];
+                    552 [ label="pg_db_role_setting.c",metric1=91 ];
+                    553 [ label="pg_shdepend.c",metric1=201 ];
+                    554 [ label="pg_type.c",metric1=169 ];
+                    555 [ label="storage.c",metric1=67 ];
+                    556 [ label="toasting.c",metric1=51 ];
+                    10982 [ label="pg_conversion.c",metric1=37 ];
+                    10983 [ label="pg_inherits.c",metric1=42 ];
+                    10984 [ label="pg_namespace.c",metric1=9 ];
                 }
                 subgraph 557 {
                     graph [ label=parser ];
-                    558 [ label="analyze.c",metric1=0 ];
-                    559 [ label="kwlookup.c",metric1=0 ];
-                    560 [ label="parser.c",metric1=0 ];
-                    561 [ label="parse_agg.c",metric1=0 ];
-                    562 [ label="parse_clause.c",metric1=0 ];
-                    563 [ label="parse_coerce.c",metric1=0 ];
-                    564 [ label="parse_cte.c",metric1=0 ];
-                    565 [ label="parse_expr.c",metric1=0 ];
-                    566 [ label="parse_func.c",metric1=0 ];
-                    567 [ label="parse_node.c",metric1=0 ];
-                    568 [ label="parse_oper.c",metric1=0 ];
-                    569 [ label="parse_param.c",metric1=0 ];
-                    570 [ label="parse_relation.c",metric1=0 ];
-                    571 [ label="parse_target.c",metric1=0 ];
-                    572 [ label="parse_type.c",metric1=0 ];
-                    573 [ label="parse_utilcmd.c",metric1=0 ];
-                    574 [ label="scansup.c",metric1=0 ];
+                    558 [ label="analyze.c",metric1=371 ];
+                    559 [ label="kwlookup.c",metric1=10 ];
+                    560 [ label="parser.c",metric1=10 ];
+                    561 [ label="parse_agg.c",metric1=144 ];
+                    562 [ label="parse_clause.c",metric1=297 ];
+                    563 [ label="parse_coerce.c",metric1=327 ];
+                    564 [ label="parse_cte.c",metric1=154 ];
+                    565 [ label="parse_expr.c",metric1=422 ];
+                    566 [ label="parse_func.c",metric1=247 ];
+                    567 [ label="parse_node.c",metric1=69 ];
+                    568 [ label="parse_oper.c",metric1=184 ];
+                    569 [ label="parse_param.c",metric1=101 ];
+                    570 [ label="parse_relation.c",metric1=447 ];
+                    571 [ label="parse_target.c",metric1=265 ];
+                    572 [ label="parse_type.c",metric1=101 ];
+                    573 [ label="parse_utilcmd.c",metric1=475 ];
+                    574 [ label="scansup.c",metric1=38 ];
                 }
                 subgraph 575 {
                     graph [ label=commands ];
-                    576 [ label="aggregatecmds.c",metric1=0 ];
-                    577 [ label="alter.c",metric1=0 ];
-                    578 [ label="analyze.c",metric1=0 ];
-                    579 [ label="async.c",metric1=0 ];
-                    580 [ label="cluster.c",metric1=0 ];
-                    581 [ label="comment.c",metric1=0 ];
-                    582 [ label="constraint.c",metric1=0 ];
-                    583 [ label="conversioncmds.c",metric1=0 ];
-                    584 [ label="copy.c",metric1=0 ];
-                    585 [ label="dbcommands.c",metric1=0 ];
-                    586 [ label="define.c",metric1=0 ];
-                    587 [ label="discard.c",metric1=0 ];
-                    588 [ label="explain.c",metric1=0 ];
-                    589 [ label="foreigncmds.c",metric1=0 ];
-                    590 [ label="functioncmds.c",metric1=0 ];
-                    591 [ label="indexcmds.c",metric1=0 ];
-                    592 [ label="lockcmds.c",metric1=0 ];
-                    593 [ label="operatorcmds.c",metric1=0 ];
-                    594 [ label="opclasscmds.c",metric1=0 ];
-                    595 [ label="portalcmds.c",metric1=0 ];
-                    596 [ label="prepare.c",metric1=0 ];
-                    597 [ label="proclang.c",metric1=0 ];
-                    598 [ label="schemacmds.c",metric1=0 ];
-                    599 [ label="seclabel.c",metric1=0 ];
-                    600 [ label="sequence.c",metric1=0 ];
-                    601 [ label="tablecmds.c",metric1=0 ];
-                    602 [ label="tablespace.c",metric1=0 ];
-                    603 [ label="trigger.c",metric1=0 ];
-                    604 [ label="tsearchcmds.c",metric1=0 ];
-                    605 [ label="typecmds.c",metric1=0 ];
-                    606 [ label="user.c",metric1=0 ];
-                    607 [ label="vacuum.c",metric1=0 ];
-                    608 [ label="vacuumlazy.c",metric1=0 ];
-                    609 [ label="variable.c",metric1=0 ];
-                    610 [ label="view.c",metric1=0 ];
+                    576 [ label="aggregatecmds.c",metric1=61 ];
+                    577 [ label="alter.c",metric1=93 ];
+                    578 [ label="analyze.c",metric1=591 ];
+                    579 [ label="async.c",metric1=240 ];
+                    580 [ label="cluster.c",metric1=168 ];
+                    581 [ label="comment.c",metric1=110 ];
+                    582 [ label="constraint.c",metric1=23 ];
+                    583 [ label="conversioncmds.c",metric1=54 ];
+                    584 [ label="copy.c",metric1=827 ];
+                    585 [ label="dbcommands.c",metric1=497 ];
+                    586 [ label="define.c",metric1=30 ];
+                    587 [ label="discard.c",metric1=2 ];
+                    588 [ label="explain.c",metric1=354 ];
+                    589 [ label="foreigncmds.c",metric1=188 ];
+                    590 [ label="functioncmds.c",metric1=434 ];
+                    591 [ label="indexcmds.c",metric1=271 ];
+                    592 [ label="lockcmds.c",metric1=19 ];
+                    593 [ label="operatorcmds.c",metric1=87 ];
+                    594 [ label="opclasscmds.c",metric1=346 ];
+                    595 [ label="portalcmds.c",metric1=56 ];
+                    596 [ label="prepare.c",metric1=158 ];
+                    597 [ label="proclang.c",metric1=149 ];
+                    598 [ label="schemacmds.c",metric1=50 ];
+                    599 [ label="seclabel.c",metric1=78 ];
+                    600 [ label="sequence.c",metric1=313 ];
+                    601 [ label="tablecmds.c",metric1=1361 ];
+                    602 [ label="tablespace.c",metric1=204 ];
+                    603 [ label="trigger.c",metric1=858 ];
+                    604 [ label="tsearchcmds.c",metric1=459 ];
+                    605 [ label="typecmds.c",metric1=500 ];
+                    606 [ label="user.c",metric1=564 ];
+                    607 [ label="vacuum.c",metric1=156 ];
+                    608 [ label="vacuumlazy.c",metric1=295 ];
+                    609 [ label="variable.c",metric1=131 ];
+                    610 [ label="view.c",metric1=73 ];
                 }
                 subgraph 611 {
                     graph [ label=executor ];
-                    612 [ label="execAmi.c",metric1=0 ];
-                    613 [ label="execCurrent.c",metric1=0 ];
-                    614 [ label="execGrouping.c",metric1=0 ];
-                    615 [ label="execJunk.c",metric1=0 ];
-                    616 [ label="execMain.c",metric1=0 ];
-                    617 [ label="execProcnode.c",metric1=0 ];
-                    618 [ label="execQual.c",metric1=0 ];
-                    619 [ label="execScan.c",metric1=0 ];
-                    620 [ label="execTuples.c",metric1=0 ];
-                    621 [ label="execUtils.c",metric1=0 ];
-                    622 [ label="functions.c",metric1=0 ];
-                    623 [ label="instrument.c",metric1=0 ];
-                    624 [ label="nodeAppend.c",metric1=0 ];
-                    625 [ label="nodeAgg.c",metric1=0 ];
-                    626 [ label="nodeBitmapAnd.c",metric1=0 ];
-                    627 [ label="nodeBitmapOr.c",metric1=0 ];
-                    628 [ label="nodeBitmapHeapscan.c",metric1=0 ];
-                    629 [ label="nodeBitmapIndexscan.c",metric1=0 ];
-                    630 [ label="nodeHash.c",metric1=0 ];
-                    631 [ label="nodeHashjoin.c",metric1=0 ];
-                    632 [ label="nodeIndexscan.c",metric1=0 ];
-                    633 [ label="nodeLimit.c",metric1=0 ];
-                    634 [ label="nodeLockRows.c",metric1=0 ];
-                    635 [ label="nodeMaterial.c",metric1=0 ];
-                    636 [ label="nodeMergeAppend.c",metric1=0 ];
-                    637 [ label="nodeMergejoin.c",metric1=0 ];
-                    638 [ label="nodeModifyTable.c",metric1=0 ];
-                    639 [ label="nodeNestloop.c",metric1=0 ];
-                    640 [ label="nodeFunctionscan.c",metric1=0 ];
-                    641 [ label="nodeRecursiveunion.c",metric1=0 ];
-                    642 [ label="nodeResult.c",metric1=0 ];
-                    643 [ label="nodeSeqscan.c",metric1=0 ];
-                    644 [ label="nodeSetOp.c",metric1=0 ];
-                    645 [ label="nodeSort.c",metric1=0 ];
-                    646 [ label="nodeUnique.c",metric1=0 ];
-                    647 [ label="nodeValuesscan.c",metric1=0 ];
-                    648 [ label="nodeCtescan.c",metric1=0 ];
-                    649 [ label="nodeWorktablescan.c",metric1=0 ];
-                    650 [ label="nodeGroup.c",metric1=0 ];
-                    651 [ label="nodeSubplan.c",metric1=0 ];
-                    652 [ label="nodeSubqueryscan.c",metric1=0 ];
-                    653 [ label="nodeTidscan.c",metric1=0 ];
-                    654 [ label="nodeWindowAgg.c",metric1=0 ];
-                    655 [ label="tstoreReceiver.c",metric1=0 ];
-                    656 [ label="spi.c",metric1=0 ];
+                    612 [ label="execAmi.c",metric1=32 ];
+                    613 [ label="execCurrent.c",metric1=52 ];
+                    614 [ label="execGrouping.c",metric1=143 ];
+                    615 [ label="execJunk.c",metric1=57 ];
+                    616 [ label="execMain.c",metric1=386 ];
+                    617 [ label="execProcnode.c",metric1=20 ];
+                    618 [ label="execQual.c",metric1=1061 ];
+                    619 [ label="execScan.c",metric1=53 ];
+                    620 [ label="execTuples.c",metric1=204 ];
+                    621 [ label="execUtils.c",metric1=231 ];
+                    622 [ label="functions.c",metric1=186 ];
+                    623 [ label="instrument.c",metric1=21 ];
+                    624 [ label="nodeAppend.c",metric1=43 ];
+                    625 [ label="nodeAgg.c",metric1=377 ];
+                    626 [ label="nodeBitmapAnd.c",metric1=40 ];
+                    627 [ label="nodeBitmapOr.c",metric1=41 ];
+                    628 [ label="nodeBitmapHeapscan.c",metric1=97 ];
+                    629 [ label="nodeBitmapIndexscan.c",metric1=35 ];
+                    630 [ label="nodeHash.c",metric1=385 ];
+                    631 [ label="nodeHashjoin.c",metric1=89 ];
+                    632 [ label="nodeIndexscan.c",metric1=208 ];
+                    633 [ label="nodeLimit.c",metric1=55 ];
+                    634 [ label="nodeLockRows.c",metric1=50 ];
+                    635 [ label="nodeMaterial.c",metric1=36 ];
+                    636 [ label="nodeMergeAppend.c",metric1=93 ];
+                    637 [ label="nodeMergejoin.c",metric1=167 ];
+                    638 [ label="nodeModifyTable.c",metric1=170 ];
+                    639 [ label="nodeNestloop.c",metric1=41 ];
+                    640 [ label="nodeFunctionscan.c",metric1=32 ];
+                    641 [ label="nodeRecursiveunion.c",metric1=46 ];
+                    642 [ label="nodeResult.c",metric1=31 ];
+                    643 [ label="nodeSeqscan.c",metric1=36 ];
+                    644 [ label="nodeSetOp.c",metric1=93 ];
+                    645 [ label="nodeSort.c",metric1=34 ];
+                    646 [ label="nodeUnique.c",metric1=24 ];
+                    647 [ label="nodeValuesscan.c",metric1=50 ];
+                    648 [ label="nodeCtescan.c",metric1=30 ];
+                    649 [ label="nodeWorktablescan.c",metric1=29 ];
+                    650 [ label="nodeGroup.c",metric1=37 ];
+                    651 [ label="nodeSubplan.c",metric1=302 ];
+                    652 [ label="nodeSubqueryscan.c",metric1=23 ];
+                    653 [ label="nodeTidscan.c",metric1=128 ];
+                    654 [ label="nodeWindowAgg.c",metric1=429 ];
+                    655 [ label="tstoreReceiver.c",metric1=47 ];
+                    656 [ label="spi.c",metric1=418 ];
                 }
                 subgraph 657 {
                     graph [ label=foreign ];
-                    658 [ label="foreign.c",metric1=0 ];
+                    658 [ label="foreign.c",metric1=59 ];
                 }
                 subgraph 659 {
                     graph [ label=lib ];
-                    660 [ label="dllist.c",metric1=0 ];
-                    661 [ label="stringinfo.c",metric1=0 ];
+                    660 [ label="dllist.c",metric1=34 ];
+                    661 [ label="stringinfo.c",metric1=27 ];
                 }
                 subgraph 662 {
                     graph [ label=libpq ];
-                    663 [ label="be-fsstubs.c",metric1=0 ];
-                    664 [ label="be-secure.c",metric1=0 ];
-                    666 [ label="crypt.c",metric1=0 ];
-                    667 [ label="hba.c",metric1=0 ];
-                    668 [ label="ip.c",metric1=0 ];
-                    669 [ label="md5.c",metric1=0 ];
-                    671 [ label="pqformat.c",metric1=0 ];
-                    10962 [ label="pqsignal.c",metric1=0 ];
+                    663 [ label="be-fsstubs.c",metric1=215 ];
+                    664 [ label="be-secure.c",metric1=12 ];
+                    666 [ label="crypt.c",metric1=24 ];
+                    667 [ label="hba.c",metric1=457 ];
+                    668 [ label="ip.c",metric1=131 ];
+                    669 [ label="md5.c",metric1=63 ];
+                    671 [ label="pqformat.c",metric1=61 ];
+                    10962 [ label="pqsignal.c",metric1=28 ];
                 }
                 subgraph 672 {
                     graph [ label=main ];
-                    673 [ label="main.c",metric1=0 ];
+                    673 [ label="main.c",metric1=56 ];
                 }
                 subgraph 674 {
                     graph [ label=nodes ];
-                    675 [ label="nodeFuncs.c",metric1=0 ];
-                    676 [ label="list.c",metric1=0 ];
-                    677 [ label="bitmapset.c",metric1=0 ];
-                    678 [ label="tidbitmap.c",metric1=0 ];
-                    679 [ label="copyfuncs.c",metric1=0 ];
-                    680 [ label="equalfuncs.c",metric1=0 ];
-                    681 [ label="makefuncs.c",metric1=0 ];
-                    682 [ label="outfuncs.c",metric1=0 ];
-                    683 [ label="readfuncs.c",metric1=0 ];
-                    684 [ label="print.c",metric1=0 ];
-                    685 [ label="read.c",metric1=0 ];
-                    686 [ label="value.c",metric1=0 ];
-                    10985 [ label="params.c",metric1=0 ];
+                    675 [ label="nodeFuncs.c",metric1=366 ];
+                    676 [ label="list.c",metric1=108 ];
+                    677 [ label="bitmapset.c",metric1=139 ];
+                    678 [ label="tidbitmap.c",metric1=359 ];
+                    679 [ label="copyfuncs.c",metric1=2590 ];
+                    680 [ label="equalfuncs.c",metric1=3274 ];
+                    681 [ label="makefuncs.c",metric1=170 ];
+                    682 [ label="outfuncs.c",metric1=413 ];
+                    683 [ label="readfuncs.c",metric1=792 ];
+                    684 [ label="print.c",metric1=108 ];
+                    685 [ label="read.c",metric1=78 ];
+                    686 [ label="value.c",metric1=39 ];
+                    10985 [ label="params.c",metric1=11 ];
                 }
                 subgraph 687 {
                     graph [ label=optimizer ];
                     subgraph 688 {
                         graph [ label=geqo ];
-                        689 [ label="geqo_copy.c",metric1=0 ];
-                        690 [ label="geqo_eval.c",metric1=0 ];
-                        691 [ label="geqo_main.c",metric1=0 ];
-                        692 [ label="geqo_mutation.c",metric1=0 ];
-                        693 [ label="geqo_pool.c",metric1=0 ];
-                        694 [ label="geqo_random.c",metric1=0 ];
-                        695 [ label="geqo_recombination.c",metric1=0 ];
-                        696 [ label="geqo_selection.c",metric1=0 ];
-                        697 [ label="geqo_erx.c",metric1=0 ];
-                        698 [ label="geqo_pmx.c",metric1=0 ];
-                        699 [ label="geqo_cx.c",metric1=0 ];
-                        700 [ label="geqo_px.c",metric1=0 ];
-                        701 [ label="geqo_ox1.c",metric1=0 ];
-                        702 [ label="geqo_ox2.c",metric1=0 ];
+                        689 [ label="geqo_copy.c",metric1=8 ];
+                        690 [ label="geqo_eval.c",metric1=25 ];
+                        691 [ label="geqo_main.c",metric1=12 ];
+                        692 [ label="geqo_mutation.c",metric1=3 ];
+                        693 [ label="geqo_pool.c",metric1=75 ];
+                        694 [ label="geqo_random.c",metric1=10 ];
+                        695 [ label="geqo_recombination.c",metric1=23 ];
+                        696 [ label="geqo_selection.c",metric1=6 ];
+                        697 [ label="geqo_erx.c",metric1=90 ];
+                        698 [ label="geqo_pmx.c",metric1=53 ];
+                        699 [ label="geqo_cx.c",metric1=18 ];
+                        700 [ label="geqo_px.c",metric1=16 ];
+                        701 [ label="geqo_ox1.c",metric1=11 ];
+                        702 [ label="geqo_ox2.c",metric1=24 ];
                     }
                     subgraph 703 {
                         graph [ label=path ];
-                        704 [ label="allpaths.c",metric1=0 ];
-                        705 [ label="clausesel.c",metric1=0 ];
-                        706 [ label="costsize.c",metric1=0 ];
-                        707 [ label="equivclass.c",metric1=0 ];
-                        708 [ label="indxpath.c",metric1=0 ];
-                        709 [ label="joinpath.c",metric1=0 ];
-                        710 [ label="joinrels.c",metric1=0 ];
-                        711 [ label="orindxpath.c",metric1=0 ];
-                        712 [ label="pathkeys.c",metric1=0 ];
-                        713 [ label="tidpath.c",metric1=0 ];
+                        704 [ label="allpaths.c",metric1=218 ];
+                        705 [ label="clausesel.c",metric1=91 ];
+                        706 [ label="costsize.c",metric1=447 ];
+                        707 [ label="equivclass.c",metric1=368 ];
+                        708 [ label="indxpath.c",metric1=450 ];
+                        709 [ label="joinpath.c",metric1=118 ];
+                        710 [ label="joinrels.c",metric1=103 ];
+                        711 [ label="orindxpath.c",metric1=12 ];
+                        712 [ label="pathkeys.c",metric1=232 ];
+                        713 [ label="tidpath.c",metric1=61 ];
                     }
                     subgraph 714 {
                         graph [ label=plan ];
-                        715 [ label="analyzejoins.c",metric1=0 ];
-                        716 [ label="createplan.c",metric1=0 ];
-                        717 [ label="initsplan.c",metric1=0 ];
-                        718 [ label="planagg.c",metric1=0 ];
-                        719 [ label="planmain.c",metric1=0 ];
-                        720 [ label="planner.c",metric1=0 ];
-                        721 [ label="setrefs.c",metric1=0 ];
-                        722 [ label="subselect.c",metric1=0 ];
+                        715 [ label="analyzejoins.c",metric1=68 ];
+                        716 [ label="createplan.c",metric1=922 ];
+                        717 [ label="initsplan.c",metric1=172 ];
+                        718 [ label="planagg.c",metric1=112 ];
+                        719 [ label="planmain.c",metric1=42 ];
+                        720 [ label="planner.c",metric1=485 ];
+                        721 [ label="setrefs.c",metric1=350 ];
+                        722 [ label="subselect.c",metric1=352 ];
                     }
                     subgraph 723 {
                         graph [ label=prep ];
-                        724 [ label="prepjointree.c",metric1=0 ];
-                        725 [ label="prepqual.c",metric1=0 ];
-                        726 [ label="preptlist.c",metric1=0 ];
-                        727 [ label="prepunion.c",metric1=0 ];
+                        724 [ label="prepjointree.c",metric1=310 ];
+                        725 [ label="prepqual.c",metric1=84 ];
+                        726 [ label="preptlist.c",metric1=56 ];
+                        727 [ label="prepunion.c",metric1=296 ];
                     }
                     subgraph 728 {
                         graph [ label=util ];
-                        729 [ label="clauses.c",metric1=0 ];
-                        730 [ label="joininfo.c",metric1=0 ];
-                        731 [ label="pathnode.c",metric1=0 ];
-                        732 [ label="placeholder.c",metric1=0 ];
-                        733 [ label="plancat.c",metric1=0 ];
-                        734 [ label="predtest.c",metric1=0 ];
-                        735 [ label="relnode.c",metric1=0 ];
-                        736 [ label="restrictinfo.c",metric1=0 ];
-                        737 [ label="tlist.c",metric1=0 ];
-                        738 [ label="var.c",metric1=0 ];
+                        729 [ label="clauses.c",metric1=498 ];
+                        730 [ label="joininfo.c",metric1=19 ];
+                        731 [ label="pathnode.c",metric1=376 ];
+                        732 [ label="placeholder.c",metric1=74 ];
+                        733 [ label="plancat.c",metric1=175 ];
+                        734 [ label="predtest.c",metric1=322 ];
+                        735 [ label="relnode.c",metric1=102 ];
+                        736 [ label="restrictinfo.c",metric1=75 ];
+                        737 [ label="tlist.c",metric1=48 ];
+                        738 [ label="var.c",metric1=152 ];
                     }
                 }
                 subgraph 739 {
                     graph [ label=port ];
-                    740 [ label="pg_sema.c",metric1=0 ];
-                    741 [ label="pg_shmem.c",metric1=0 ];
-                    742 [ label="pg_latch.c",metric1=0 ];
+                    740 [ label="pg_sema.c",metric1=64 ];
+                    741 [ label="pg_shmem.c",metric1=51 ];
+                    742 [ label="pg_latch.c",metric1=55 ];
                 }
                 subgraph 743 {
                     graph [ label=postmaster ];
-                    744 [ label="autovacuum.c",metric1=0 ];
-                    745 [ label="bgwriter.c",metric1=0 ];
-                    746 [ label="pgarch.c",metric1=0 ];
-                    748 [ label="postmaster.c",metric1=0 ];
-                    749 [ label="syslogger.c",metric1=0 ];
-                    750 [ label="walwriter.c",metric1=0 ];
-                    10963 [ label="fork_process.c",metric1=0 ];
+                    744 [ label="autovacuum.c",metric1=376 ];
+                    745 [ label="bgwriter.c",metric1=208 ];
+                    746 [ label="pgarch.c",metric1=113 ];
+                    748 [ label="postmaster.c",metric1=531 ];
+                    749 [ label="syslogger.c",metric1=145 ];
+                    750 [ label="walwriter.c",metric1=40 ];
+                    10963 [ label="fork_process.c",metric1=2 ];
                 }
                 subgraph 751 {
                     graph [ label=regex ];
-                    752 [ label="regcomp.c",metric1=0 ];
-                    753 [ label="regerror.c",metric1=0 ];
-                    754 [ label="regexec.c",metric1=0 ];
-                    10986 [ label="regfree.c",metric1=0 ];
+                    752 [ label="regcomp.c",metric1=361 ];
+                    753 [ label="regerror.c",metric1=26 ];
+                    754 [ label="regexec.c",metric1=173 ];
+                    10986 [ label="regfree.c",metric1=1 ];
                 }
                 subgraph 755 {
                     graph [ label=replication ];
-                    756 [ label="walsender.c",metric1=0 ];
-                    757 [ label="walreceiverfuncs.c",metric1=0 ];
-                    758 [ label="walreceiver.c",metric1=0 ];
+                    756 [ label="walsender.c",metric1=192 ];
+                    757 [ label="walreceiverfuncs.c",metric1=63 ];
+                    758 [ label="walreceiver.c",metric1=119 ];
                 }
                 subgraph 759 {
                     graph [ label=rewrite ];
-                    760 [ label="rewriteDefine.c",metric1=0 ];
-                    761 [ label="rewriteHandler.c",metric1=0 ];
-                    762 [ label="rewriteManip.c",metric1=0 ];
-                    763 [ label="rewriteSupport.c",metric1=0 ];
-                    10987 [ label="rewriteRemove.c",metric1=0 ];
+                    760 [ label="rewriteDefine.c",metric1=148 ];
+                    761 [ label="rewriteHandler.c",metric1=291 ];
+                    762 [ label="rewriteManip.c",metric1=346 ];
+                    763 [ label="rewriteSupport.c",metric1=26 ];
+                    10987 [ label="rewriteRemove.c",metric1=10 ];
                 }
                 subgraph 764 {
                     graph [ label=storage ];
                     subgraph 765 {
                         graph [ label=buffer ];
-                        766 [ label="bufmgr.c",metric1=0 ];
-                        767 [ label="freelist.c",metric1=0 ];
-                        768 [ label="localbuf.c",metric1=0 ];
-                        10988 [ label="buf_table.c",metric1=0 ];
-                        10989 [ label="buf_init.c",metric1=0 ];
+                        766 [ label="bufmgr.c",metric1=434 ];
+                        767 [ label="freelist.c",metric1=55 ];
+                        768 [ label="localbuf.c",metric1=93 ];
+                        10988 [ label="buf_table.c",metric1=8 ];
+                        10989 [ label="buf_init.c",metric1=14 ];
                     }
                     subgraph 769 {
                         graph [ label=file ];
-                        770 [ label="fd.c",metric1=0 ];
-                        771 [ label="buffile.c",metric1=0 ];
-                        10990 [ label="copydir.c",metric1=0 ];
+                        770 [ label="fd.c",metric1=278 ];
+                        771 [ label="buffile.c",metric1=70 ];
+                        10990 [ label="copydir.c",metric1=47 ];
                     }
                     subgraph 772 {
                         graph [ label=freespace ];
-                        773 [ label="freespace.c",metric1=0 ];
-                        774 [ label="fsmpage.c",metric1=0 ];
-                        10991 [ label="indexfsm.c",metric1=0 ];
+                        773 [ label="freespace.c",metric1=199 ];
+                        774 [ label="fsmpage.c",metric1=105 ];
+                        10991 [ label="indexfsm.c",metric1=2 ];
                     }
                     subgraph 775 {
                         graph [ label=ipc ];
-                        776 [ label="pmsignal.c",metric1=0 ];
-                        777 [ label="procarray.c",metric1=0 ];
-                        778 [ label="procsignal.c",metric1=0 ];
-                        779 [ label="shmem.c",metric1=0 ];
-                        780 [ label="shmqueue.c",metric1=0 ];
-                        781 [ label="sinvaladt.c",metric1=0 ];
-                        782 [ label="standby.c",metric1=0 ];
-                        10964 [ label="ipc.c",metric1=0 ];
-                        10965 [ label="ipci.c",metric1=0 ];
-                        10966 [ label="sinval.c",metric1=0 ];
+                        776 [ label="pmsignal.c",metric1=46 ];
+                        777 [ label="procarray.c",metric1=443 ];
+                        778 [ label="procsignal.c",metric1=79 ];
+                        779 [ label="shmem.c",metric1=32 ];
+                        780 [ label="shmqueue.c",metric1=15 ];
+                        781 [ label="sinvaladt.c",metric1=70 ];
+                        782 [ label="standby.c",metric1=103 ];
+                        10964 [ label="ipc.c",metric1=25 ];
+                        10965 [ label="ipci.c",metric1=7 ];
+                        10966 [ label="sinval.c",metric1=25 ];
                     }
                     subgraph 783 {
                         graph [ label=large_object ];
-                        784 [ label="inv_api.c",metric1=0 ];
+                        784 [ label="inv_api.c",metric1=308 ];
                     }
                     subgraph 785 {
                         graph [ label=lmgr ];
-                        786 [ label="lmgr.c",metric1=0 ];
-                        787 [ label="lock.c",metric1=0 ];
-                        788 [ label="proc.c",metric1=0 ];
-                        789 [ label="deadlock.c",metric1=0 ];
-                        790 [ label="lwlock.c",metric1=0 ];
-                        10967 [ label="s_lock.c",metric1=0 ];
+                        786 [ label="lmgr.c",metric1=78 ];
+                        787 [ label="lock.c",metric1=511 ];
+                        788 [ label="proc.c",metric1=434 ];
+                        789 [ label="deadlock.c",metric1=230 ];
+                        790 [ label="lwlock.c",metric1=90 ];
+                        10967 [ label="s_lock.c",metric1=9 ];
                     }
                     subgraph 791 {
                         graph [ label=page ];
-                        792 [ label="bufpage.c",metric1=0 ];
-                        793 [ label="itemptr.c",metric1=0 ];
+                        792 [ label="bufpage.c",metric1=288 ];
+                        793 [ label="itemptr.c",metric1=31 ];
                     }
                     subgraph 794 {
                         graph [ label=smgr ];
-                        795 [ label="md.c",metric1=0 ];
-                        796 [ label="smgr.c",metric1=0 ];
-                        797 [ label="smgrtype.c",metric1=0 ];
+                        795 [ label="md.c",metric1=231 ];
+                        796 [ label="smgr.c",metric1=69 ];
+                        797 [ label="smgrtype.c",metric1=27 ];
                     }
                 }
                 subgraph 798 {
                     graph [ label=tcop ];
-                    799 [ label="dest.c",metric1=0 ];
-                    800 [ label="fastpath.c",metric1=0 ];
-                    801 [ label="postgres.c",metric1=0 ];
-                    802 [ label="pquery.c",metric1=0 ];
-                    803 [ label="utility.c",metric1=0 ];
+                    799 [ label="dest.c",metric1=32 ];
+                    800 [ label="fastpath.c",metric1=136 ];
+                    801 [ label="postgres.c",metric1=603 ];
+                    802 [ label="pquery.c",metric1=282 ];
+                    803 [ label="utility.c",metric1=153 ];
                 }
                 subgraph 804 {
                     graph [ label=tsearch ];
-                    805 [ label="ts_locale.c",metric1=0 ];
-                    806 [ label="ts_parse.c",metric1=0 ];
-                    807 [ label="wparser.c",metric1=0 ];
-                    808 [ label="wparser_def.c",metric1=0 ];
-                    809 [ label="dict.c",metric1=0 ];
-                    810 [ label="dict_simple.c",metric1=0 ];
-                    811 [ label="dict_synonym.c",metric1=0 ];
-                    812 [ label="dict_thesaurus.c",metric1=0 ];
-                    813 [ label="dict_ispell.c",metric1=0 ];
-                    814 [ label="regis.c",metric1=0 ];
-                    815 [ label="spell.c",metric1=0 ];
-                    816 [ label="to_tsany.c",metric1=0 ];
-                    817 [ label="ts_selfuncs.c",metric1=0 ];
-                    818 [ label="ts_typanalyze.c",metric1=0 ];
-                    819 [ label="ts_utils.c",metric1=0 ];
+                    805 [ label="ts_locale.c",metric1=53 ];
+                    806 [ label="ts_parse.c",metric1=127 ];
+                    807 [ label="wparser.c",metric1=136 ];
+                    808 [ label="wparser_def.c",metric1=464 ];
+                    809 [ label="dict.c",metric1=33 ];
+                    810 [ label="dict_simple.c",metric1=23 ];
+                    811 [ label="dict_synonym.c",metric1=53 ];
+                    812 [ label="dict_thesaurus.c",metric1=247 ];
+                    813 [ label="dict_ispell.c",metric1=32 ];
+                    814 [ label="regis.c",metric1=78 ];
+                    815 [ label="spell.c",metric1=637 ];
+                    816 [ label="to_tsany.c",metric1=155 ];
+                    817 [ label="ts_selfuncs.c",metric1=108 ];
+                    818 [ label="ts_typanalyze.c",metric1=112 ];
+                    819 [ label="ts_utils.c",metric1=26 ];
                 }
                 subgraph 820 {
                     graph [ label=utils ];
                     subgraph 821 {
                         graph [ label=adt ];
-                        822 [ label="acl.c",metric1=0 ];
-                        823 [ label="arrayfuncs.c",metric1=0 ];
-                        824 [ label="array_userfuncs.c",metric1=0 ];
-                        825 [ label="arrayutils.c",metric1=0 ];
-                        826 [ label="bool.c",metric1=0 ];
-                        827 [ label="cash.c",metric1=0 ];
-                        828 [ label="char.c",metric1=0 ];
-                        829 [ label="date.c",metric1=0 ];
-                        830 [ label="datetime.c",metric1=0 ];
-                        831 [ label="domains.c",metric1=0 ];
-                        832 [ label="enum.c",metric1=0 ];
-                        833 [ label="float.c",metric1=0 ];
-                        834 [ label="format_type.c",metric1=0 ];
-                        835 [ label="geo_ops.c",metric1=0 ];
-                        836 [ label="geo_selfuncs.c",metric1=0 ];
-                        837 [ label="int.c",metric1=0 ];
-                        838 [ label="int8.c",metric1=0 ];
-                        839 [ label="like.c",metric1=0 ];
-                        840 [ label="lockfuncs.c",metric1=0 ];
-                        841 [ label="misc.c",metric1=0 ];
-                        842 [ label="nabstime.c",metric1=0 ];
-                        843 [ label="name.c",metric1=0 ];
-                        844 [ label="numeric.c",metric1=0 ];
-                        845 [ label="numutils.c",metric1=0 ];
-                        846 [ label="oid.c",metric1=0 ];
-                        847 [ label="oracle_compat.c",metric1=0 ];
-                        848 [ label="pseudotypes.c",metric1=0 ];
-                        849 [ label="rowtypes.c",metric1=0 ];
-                        850 [ label="regexp.c",metric1=0 ];
-                        851 [ label="regproc.c",metric1=0 ];
-                        852 [ label="ruleutils.c",metric1=0 ];
-                        853 [ label="selfuncs.c",metric1=0 ];
-                        854 [ label="tid.c",metric1=0 ];
-                        855 [ label="timestamp.c",metric1=0 ];
-                        856 [ label="varbit.c",metric1=0 ];
-                        857 [ label="varchar.c",metric1=0 ];
-                        858 [ label="varlena.c",metric1=0 ];
-                        859 [ label="version.c",metric1=0 ];
-                        860 [ label="xid.c",metric1=0 ];
-                        861 [ label="network.c",metric1=0 ];
-                        862 [ label="mac.c",metric1=0 ];
-                        863 [ label="inet_cidr_ntop.c",metric1=0 ];
-                        864 [ label="inet_net_pton.c",metric1=0 ];
-                        865 [ label="ri_triggers.c",metric1=0 ];
-                        866 [ label="pg_lzcompress.c",metric1=0 ];
-                        867 [ label="pg_locale.c",metric1=0 ];
-                        868 [ label="formatting.c",metric1=0 ];
-                        869 [ label="ascii.c",metric1=0 ];
-                        870 [ label="quote.c",metric1=0 ];
-                        871 [ label="pgstatfuncs.c",metric1=0 ];
-                        872 [ label="encode.c",metric1=0 ];
-                        873 [ label="dbsize.c",metric1=0 ];
-                        874 [ label="genfile.c",metric1=0 ];
-                        875 [ label="trigfuncs.c",metric1=0 ];
-                        876 [ label="tsginidx.c",metric1=0 ];
-                        877 [ label="tsgistidx.c",metric1=0 ];
-                        878 [ label="tsquery.c",metric1=0 ];
-                        879 [ label="tsquery_cleanup.c",metric1=0 ];
-                        880 [ label="tsquery_gist.c",metric1=0 ];
-                        881 [ label="tsquery_op.c",metric1=0 ];
-                        882 [ label="tsquery_rewrite.c",metric1=0 ];
-                        883 [ label="tsquery_util.c",metric1=0 ];
-                        884 [ label="tsrank.c",metric1=0 ];
-                        885 [ label="tsvector.c",metric1=0 ];
-                        886 [ label="tsvector_op.c",metric1=0 ];
-                        887 [ label="tsvector_parser.c",metric1=0 ];
-                        888 [ label="txid.c",metric1=0 ];
-                        889 [ label="uuid.c",metric1=0 ];
-                        890 [ label="windowfuncs.c",metric1=0 ];
-                        891 [ label="xml.c",metric1=0 ];
-                        10992 [ label="datum.c",metric1=0 ];
+                        822 [ label="acl.c",metric1=1721 ];
+                        823 [ label="arrayfuncs.c",metric1=2397 ];
+                        824 [ label="array_userfuncs.c",metric1=266 ];
+                        825 [ label="arrayutils.c",metric1=68 ];
+                        826 [ label="bool.c",metric1=87 ];
+                        827 [ label="cash.c",metric1=450 ];
+                        828 [ label="char.c",metric1=139 ];
+                        829 [ label="date.c",metric1=1180 ];
+                        830 [ label="datetime.c",metric1=1167 ];
+                        831 [ label="domains.c",metric1=57 ];
+                        832 [ label="enum.c",metric1=186 ];
+                        833 [ label="float.c",metric1=1865 ];
+                        834 [ label="format_type.c",metric1=76 ];
+                        835 [ label="geo_ops.c",metric1=1925 ];
+                        836 [ label="geo_selfuncs.c",metric1=18 ];
+                        837 [ label="int.c",metric1=770 ];
+                        838 [ label="int8.c",metric1=615 ];
+                        839 [ label="like.c",metric1=303 ];
+                        840 [ label="lockfuncs.c",metric1=179 ];
+                        841 [ label="misc.c",metric1=103 ];
+                        842 [ label="nabstime.c",metric1=837 ];
+                        843 [ label="name.c",metric1=100 ];
+                        844 [ label="numeric.c",metric1=3180 ];
+                        845 [ label="numutils.c",metric1=43 ];
+                        846 [ label="oid.c",metric1=210 ];
+                        847 [ label="oracle_compat.c",metric1=626 ];
+                        848 [ label="pseudotypes.c",metric1=85 ];
+                        849 [ label="rowtypes.c",metric1=478 ];
+                        850 [ label="regexp.c",metric1=411 ];
+                        851 [ label="regproc.c",metric1=343 ];
+                        852 [ label="ruleutils.c",metric1=1387 ];
+                        853 [ label="selfuncs.c",metric1=1483 ];
+                        854 [ label="tid.c",metric1=152 ];
+                        855 [ label="timestamp.c",metric1=1289 ];
+                        856 [ label="varbit.c",metric1=874 ];
+                        857 [ label="varchar.c",metric1=414 ];
+                        858 [ label="varlena.c",metric1=2044 ];
+                        859 [ label="version.c",metric1=3 ];
+                        860 [ label="xid.c",metric1=90 ];
+                        861 [ label="network.c",metric1=728 ];
+                        862 [ label="mac.c",metric1=171 ];
+                        863 [ label="inet_cidr_ntop.c",metric1=40 ];
+                        864 [ label="inet_net_pton.c",metric1=240 ];
+                        865 [ label="ri_triggers.c",metric1=611 ];
+                        866 [ label="pg_lzcompress.c",metric1=137 ];
+                        867 [ label="pg_locale.c",metric1=72 ];
+                        868 [ label="formatting.c",metric1=1439 ];
+                        869 [ label="ascii.c",metric1=36 ];
+                        870 [ label="quote.c",metric1=23 ];
+                        871 [ label="pgstatfuncs.c",metric1=765 ];
+                        872 [ label="encode.c",metric1=240 ];
+                        873 [ label="dbsize.c",metric1=180 ];
+                        874 [ label="genfile.c",metric1=76 ];
+                        875 [ label="trigfuncs.c",metric1=26 ];
+                        876 [ label="tsginidx.c",metric1=159 ];
+                        877 [ label="tsgistidx.c",metric1=473 ];
+                        878 [ label="tsquery.c",metric1=313 ];
+                        879 [ label="tsquery_cleanup.c",metric1=48 ];
+                        880 [ label="tsquery_gist.c",metric1=130 ];
+                        881 [ label="tsquery_op.c",metric1=232 ];
+                        882 [ label="tsquery_rewrite.c",metric1=135 ];
+                        883 [ label="tsquery_util.c",metric1=108 ];
+                        884 [ label="tsrank.c",metric1=418 ];
+                        885 [ label="tsvector.c",metric1=223 ];
+                        886 [ label="tsvector_op.c",metric1=639 ];
+                        887 [ label="tsvector_parser.c",metric1=214 ];
+                        888 [ label="txid.c",metric1=152 ];
+                        889 [ label="uuid.c",metric1=99 ];
+                        890 [ label="windowfuncs.c",metric1=96 ];
+                        891 [ label="xml.c",metric1=450 ];
+                        10992 [ label="datum.c",metric1=23 ];
                     }
                     subgraph 892 {
                         graph [ label=cache ];
-                        893 [ label="attoptcache.c",metric1=0 ];
-                        894 [ label="catcache.c",metric1=0 ];
-                        895 [ label="inval.c",metric1=0 ];
-                        896 [ label="plancache.c",metric1=0 ];
-                        897 [ label="relcache.c",metric1=0 ];
-                        898 [ label="relmapper.c",metric1=0 ];
-                        899 [ label="spccache.c",metric1=0 ];
-                        900 [ label="syscache.c",metric1=0 ];
-                        901 [ label="lsyscache.c",metric1=0 ];
-                        902 [ label="typcache.c",metric1=0 ];
-                        903 [ label="ts_cache.c",metric1=0 ];
+                        893 [ label="attoptcache.c",metric1=54 ];
+                        894 [ label="catcache.c",metric1=338 ];
+                        895 [ label="inval.c",metric1=160 ];
+                        896 [ label="plancache.c",metric1=157 ];
+                        897 [ label="relcache.c",metric1=842 ];
+                        898 [ label="relmapper.c",metric1=103 ];
+                        899 [ label="spccache.c",metric1=58 ];
+                        900 [ label="syscache.c",metric1=60 ];
+                        901 [ label="lsyscache.c",metric1=519 ];
+                        902 [ label="typcache.c",metric1=195 ];
+                        903 [ label="ts_cache.c",metric1=262 ];
                     }
                     subgraph 904 {
                         graph [ label=error ];
-                        905 [ label="assert.c",metric1=0 ];
-                        906 [ label="elog.c",metric1=0 ];
+                        905 [ label="assert.c",metric1=7 ];
+                        906 [ label="elog.c",metric1=544 ];
                     }
                     subgraph 907 {
                         graph [ label=fmgr ];
-                        908 [ label="dfmgr.c",metric1=0 ];
-                        909 [ label="fmgr.c",metric1=0 ];
-                        910 [ label="funcapi.c",metric1=0 ];
+                        908 [ label="dfmgr.c",metric1=122 ];
+                        909 [ label="fmgr.c",metric1=387 ];
+                        910 [ label="funcapi.c",metric1=301 ];
                     }
                     subgraph 911 {
                         graph [ label=hash ];
-                        912 [ label="dynahash.c",metric1=0 ];
-                        913 [ label="hashfn.c",metric1=0 ];
+                        912 [ label="dynahash.c",metric1=314 ];
+                        913 [ label="hashfn.c",metric1=16 ];
                     }
                     subgraph 914 {
                         graph [ label=init ];
-                        915 [ label="miscinit.c",metric1=0 ];
-                        916 [ label="postinit.c",metric1=0 ];
+                        915 [ label="miscinit.c",metric1=128 ];
+                        916 [ label="postinit.c",metric1=100 ];
                     }
                     subgraph 917 {
                         graph [ label=mb ];
-                        918 [ label="encnames.c",metric1=0 ];
-                        919 [ label="conv.c",metric1=0 ];
-                        920 [ label="mbutils.c",metric1=0 ];
-                        921 [ label="wchar.c",metric1=0 ];
-                        922 [ label="wstrcmp.c",metric1=0 ];
-                        923 [ label="wstrncmp.c",metric1=0 ];
+                        918 [ label="encnames.c",metric1=55 ];
+                        919 [ label="conv.c",metric1=288 ];
+                        920 [ label="mbutils.c",metric1=216 ];
+                        921 [ label="wchar.c",metric1=458 ];
+                        922 [ label="wstrcmp.c",metric1=9 ];
+                        923 [ label="wstrncmp.c",metric1=31 ];
                     }
                     subgraph 924 {
                         graph [ label=misc ];
-                        925 [ label="guc.c",metric1=0 ];
-                        926 [ label="help_config.c",metric1=0 ];
-                        927 [ label="pg_rusage.c",metric1=0 ];
-                        928 [ label="ps_status.c",metric1=0 ];
-                        929 [ label="superuser.c",metric1=0 ];
-                        930 [ label="tzparser.c",metric1=0 ];
-                        931 [ label="rbtree.c",metric1=0 ];
+                        925 [ label="guc.c",metric1=844 ];
+                        926 [ label="help_config.c",metric1=14 ];
+                        927 [ label="pg_rusage.c",metric1=32 ];
+                        928 [ label="ps_status.c",metric1=75 ];
+                        929 [ label="superuser.c",metric1=15 ];
+                        930 [ label="tzparser.c",metric1=72 ];
+                        931 [ label="rbtree.c",metric1=118 ];
                     }
                     subgraph 932 {
                         graph [ label=mmgr ];
-                        933 [ label="aset.c",metric1=0 ];
-                        934 [ label="mcxt.c",metric1=0 ];
-                        935 [ label="portalmem.c",metric1=0 ];
+                        933 [ label="aset.c",metric1=180 ];
+                        934 [ label="mcxt.c",metric1=95 ];
+                        935 [ label="portalmem.c",metric1=142 ];
                     }
                     subgraph 936 {
                         graph [ label=resowner ];
-                        937 [ label="resowner.c",metric1=0 ];
+                        937 [ label="resowner.c",metric1=189 ];
                     }
                     subgraph 938 {
                         graph [ label=sort ];
-                        939 [ label="logtape.c",metric1=0 ];
-                        940 [ label="tuplesort.c",metric1=0 ];
-                        941 [ label="tuplestore.c",metric1=0 ];
+                        939 [ label="logtape.c",metric1=138 ];
+                        940 [ label="tuplesort.c",metric1=860 ];
+                        941 [ label="tuplestore.c",metric1=181 ];
                     }
                     subgraph 942 {
                         graph [ label=time ];
-                        943 [ label="combocid.c",metric1=0 ];
-                        944 [ label="tqual.c",metric1=0 ];
-                        945 [ label="snapmgr.c",metric1=0 ];
+                        943 [ label="combocid.c",metric1=34 ];
+                        944 [ label="tqual.c",metric1=266 ];
+                        945 [ label="snapmgr.c",metric1=48 ];
                     }
                 }
             }
@@ -645,58 +645,58 @@ digraph G {
                 graph [ label=interfaces ];
                 subgraph 947 {
                     graph [ label=libpq ];
-                    948 [ label="fe-auth.c",metric1=0 ];
-                    950 [ label="fe-exec.c",metric1=0 ];
-                    951 [ label="fe-misc.c",metric1=0 ];
-                    952 [ label="fe-print.c",metric1=0 ];
-                    953 [ label="fe-lobj.c",metric1=0 ];
-                    954 [ label="fe-protocol2.c",metric1=0 ];
-                    955 [ label="fe-protocol3.c",metric1=0 ];
-                    956 [ label="pqexpbuffer.c",metric1=0 ];
-                    957 [ label="fe-secure.c",metric1=0 ];
-                    958 [ label="inet_net_ntop.c",metric1=0 ];
-                    959 [ label="wchar.c",metric1=0 ];
-                    10968 [ label="libpq-events.c",metric1=0 ];
-                    10969 [ label="encnames.c",metric1=0 ];
+                    948 [ label="fe-auth.c",metric1=20 ];
+                    950 [ label="fe-exec.c",metric1=590 ];
+                    951 [ label="fe-misc.c",metric1=136 ];
+                    952 [ label="fe-print.c",metric1=265 ];
+                    953 [ label="fe-lobj.c",metric1=91 ];
+                    954 [ label="fe-protocol2.c",metric1=295 ];
+                    955 [ label="fe-protocol3.c",metric1=466 ];
+                    956 [ label="pqexpbuffer.c",metric1=35 ];
+                    957 [ label="fe-secure.c",metric1=29 ];
+                    958 [ label="inet_net_ntop.c",metric1=38 ];
+                    959 [ label="wchar.c",metric1=57 ];
+                    10968 [ label="libpq-events.c",metric1=38 ];
+                    10969 [ label="encnames.c",metric1=12 ];
                 }
                 subgraph 960 {
                     graph [ label=ecpg ];
                     subgraph 961 {
                         graph [ label=pgtypeslib ];
-                        962 [ label="numeric.c",metric1=0 ];
-                        963 [ label="datetime.c",metric1=0 ];
-                        964 [ label="common.c",metric1=0 ];
-                        965 [ label="dt_common.c",metric1=0 ];
-                        966 [ label="timestamp.c",metric1=0 ];
-                        967 [ label="interval.c",metric1=0 ];
+                        962 [ label="numeric.c",metric1=413 ];
+                        963 [ label="datetime.c",metric1=187 ];
+                        964 [ label="common.c",metric1=25 ];
+                        965 [ label="dt_common.c",metric1=859 ];
+                        966 [ label="timestamp.c",metric1=225 ];
+                        967 [ label="interval.c",metric1=242 ];
                     }
                     subgraph 968 {
                         graph [ label=ecpglib ];
-                        969 [ label="execute.c",metric1=0 ];
-                        970 [ label="typename.c",metric1=0 ];
-                        971 [ label="descriptor.c",metric1=0 ];
-                        972 [ label="sqlda.c",metric1=0 ];
-                        973 [ label="data.c",metric1=0 ];
-                        974 [ label="error.c",metric1=0 ];
-                        975 [ label="prepare.c",metric1=0 ];
-                        976 [ label="connect.c",metric1=0 ];
-                        977 [ label="misc.c",metric1=0 ];
-                        10970 [ label="memory.c",metric1=0 ];
+                        969 [ label="execute.c",metric1=666 ];
+                        970 [ label="typename.c",metric1=3 ];
+                        971 [ label="descriptor.c",metric1=197 ];
+                        972 [ label="sqlda.c",metric1=231 ];
+                        973 [ label="data.c",metric1=279 ];
+                        974 [ label="error.c",metric1=59 ];
+                        975 [ label="prepare.c",metric1=119 ];
+                        976 [ label="connect.c",metric1=119 ];
+                        977 [ label="misc.c",metric1=71 ];
+                        10970 [ label="memory.c",metric1=16 ];
                     }
                     subgraph 978 {
                         graph [ label=compatlib ];
-                        979 [ label="informix.c",metric1=0 ];
+                        979 [ label="informix.c",metric1=266 ];
                     }
                     subgraph 980 {
                         graph [ label=preproc ];
-                        981 [ label="type.c",metric1=0 ];
-                        982 [ label="ecpg.c",metric1=0 ];
-                        983 [ label="output.c",metric1=0 ];
-                        984 [ label="descriptor.c",metric1=0 ];
-                        985 [ label="variable.c",metric1=0 ];
-                        10971 [ label="parser.c",metric1=0 ];
-                        10972 [ label="c_keywords.c",metric1=0 ];
-                        10973 [ label="ecpg_keywords.c",metric1=0 ];
+                        981 [ label="type.c",metric1=146 ];
+                        982 [ label="ecpg.c",metric1=123 ];
+                        983 [ label="output.c",metric1=67 ];
+                        984 [ label="descriptor.c",metric1=48 ];
+                        985 [ label="variable.c",metric1=129 ];
+                        10971 [ label="parser.c",metric1=9 ];
+                        10972 [ label="c_keywords.c",metric1=4 ];
+                        10973 [ label="ecpg_keywords.c",metric1=3 ];
                     }
                 }
             }
@@ -704,79 +704,79 @@ digraph G {
                 graph [ label=bin ];
                 subgraph 987 {
                     graph [ label=initdb ];
-                    988 [ label="initdb.c",metric1=0 ];
+                    988 [ label="initdb.c",metric1=707 ];
                 }
                 subgraph 989 {
                     graph [ label=pg_ctl ];
-                    990 [ label="pg_ctl.c",metric1=0 ];
+                    990 [ label="pg_ctl.c",metric1=209 ];
                 }
                 subgraph 991 {
                     graph [ label=pg_dump ];
-                    992 [ label="pg_dump.c",metric1=0 ];
-                    993 [ label="common.c",metric1=0 ];
-                    994 [ label="pg_dump_sort.c",metric1=0 ];
-                    995 [ label="pg_backup_archiver.c",metric1=0 ];
-                    996 [ label="pg_backup_db.c",metric1=0 ];
-                    997 [ label="pg_backup_custom.c",metric1=0 ];
-                    998 [ label="pg_backup_files.c",metric1=0 ];
-                    999 [ label="pg_backup_null.c",metric1=0 ];
-                    1000 [ label="pg_backup_tar.c",metric1=0 ];
-                    1001 [ label="dumputils.c",metric1=0 ];
-                    1002 [ label="compress_io.c",metric1=0 ];
-                    1003 [ label="pg_dumpall.c",metric1=0 ];
-                    10974 [ label="pg_restore.c",metric1=0 ];
+                    992 [ label="pg_dump.c",metric1=1921 ];
+                    993 [ label="common.c",metric1=223 ];
+                    994 [ label="pg_dump_sort.c",metric1=220 ];
+                    995 [ label="pg_backup_archiver.c",metric1=833 ];
+                    996 [ label="pg_backup_db.c",metric1=188 ];
+                    997 [ label="pg_backup_custom.c",metric1=174 ];
+                    998 [ label="pg_backup_files.c",metric1=140 ];
+                    999 [ label="pg_backup_null.c",metric1=59 ];
+                    1000 [ label="pg_backup_tar.c",metric1=323 ];
+                    1001 [ label="dumputils.c",metric1=251 ];
+                    1002 [ label="compress_io.c",metric1=68 ];
+                    1003 [ label="pg_dumpall.c",metric1=474 ];
+                    10974 [ label="pg_restore.c",metric1=97 ];
                 }
                 subgraph 1004 {
                     graph [ label=psql ];
-                    1005 [ label="command.c",metric1=0 ];
-                    1006 [ label="common.c",metric1=0 ];
-                    1007 [ label="help.c",metric1=0 ];
-                    1008 [ label="input.c",metric1=0 ];
-                    1009 [ label="stringutils.c",metric1=0 ];
-                    1010 [ label="copy.c",metric1=0 ];
-                    1011 [ label="startup.c",metric1=0 ];
-                    1012 [ label="prompt.c",metric1=0 ];
-                    1013 [ label="variables.c",metric1=0 ];
-                    1014 [ label="large_obj.c",metric1=0 ];
-                    1015 [ label="print.c",metric1=0 ];
-                    1016 [ label="describe.c",metric1=0 ];
-                    1017 [ label="tab-complete.c",metric1=0 ];
-                    1018 [ label="mbprint.c",metric1=0 ];
-                    10975 [ label="mainloop.c",metric1=0 ];
+                    1005 [ label="command.c",metric1=548 ];
+                    1006 [ label="common.c",metric1=314 ];
+                    1007 [ label="help.c",metric1=173 ];
+                    1008 [ label="input.c",metric1=52 ];
+                    1009 [ label="stringutils.c",metric1=51 ];
+                    1010 [ label="copy.c",metric1=96 ];
+                    1011 [ label="startup.c",metric1=143 ];
+                    1012 [ label="prompt.c",metric1=79 ];
+                    1013 [ label="variables.c",metric1=54 ];
+                    1014 [ label="large_obj.c",metric1=45 ];
+                    1015 [ label="print.c",metric1=1148 ];
+                    1016 [ label="describe.c",metric1=408 ];
+                    1017 [ label="tab-complete.c",metric1=4 ];
+                    1018 [ label="mbprint.c",metric1=136 ];
+                    10975 [ label="mainloop.c",metric1=74 ];
                 }
                 subgraph 1019 {
                     graph [ label=scripts ];
-                    1020 [ label="createdb.c",metric1=0 ];
-                    1021 [ label="common.c",metric1=0 ];
-                    1022 [ label="createlang.c",metric1=0 ];
-                    1023 [ label="print.c",metric1=0 ];
-                    1024 [ label="createuser.c",metric1=0 ];
-                    1025 [ label="dropdb.c",metric1=0 ];
-                    1026 [ label="droplang.c",metric1=0 ];
-                    1027 [ label="dropuser.c",metric1=0 ];
-                    1028 [ label="clusterdb.c",metric1=0 ];
-                    1029 [ label="vacuumdb.c",metric1=0 ];
-                    1030 [ label="reindexdb.c",metric1=0 ];
+                    1020 [ label="createdb.c",metric1=92 ];
+                    1021 [ label="common.c",metric1=53 ];
+                    1022 [ label="createlang.c",metric1=98 ];
+                    1023 [ label="print.c",metric1=988 ];
+                    1024 [ label="createuser.c",metric1=118 ];
+                    1025 [ label="dropdb.c",metric1=43 ];
+                    1026 [ label="droplang.c",metric1=183 ];
+                    1027 [ label="dropuser.c",metric1=41 ];
+                    1028 [ label="clusterdb.c",metric1=67 ];
+                    1029 [ label="vacuumdb.c",metric1=85 ];
+                    1030 [ label="reindexdb.c",metric1=119 ];
                 }
                 subgraph 1031 {
                     graph [ label=pg_config ];
-                    1032 [ label="pg_config.c",metric1=0 ];
+                    1032 [ label="pg_config.c",metric1=114 ];
                 }
                 subgraph 1033 {
                     graph [ label=pg_resetxlog ];
-                    1034 [ label="pg_resetxlog.c",metric1=0 ];
+                    1034 [ label="pg_resetxlog.c",metric1=246 ];
                 }
                 subgraph 10976 {
                     graph [ label=pg_controldata ];
-                    10977 [ label="pg_controldata.c",metric1=0 ];
+                    10977 [ label="pg_controldata.c",metric1=73 ];
                 }
             }
             subgraph 1035 {
                 graph [ label=test ];
                 subgraph 1036 {
                     graph [ label=regress ];
-                    1037 [ label="pg_regress.c",metric1=0 ];
-                    1038 [ label="pg_regress_main.c",metric1=0 ];
+                    1037 [ label="pg_regress.c",metric1=491 ];
+                    1038 [ label="pg_regress_main.c",metric1=13 ];
                 }
             }
         }
@@ -784,12 +784,12 @@ digraph G {
             graph [ label=contrib ];
             subgraph 1040 {
                 graph [ label=spi ];
-                1041 [ label="refint.c",metric1=0 ];
-                1042 [ label="autoinc.c",metric1=0 ];
+                1041 [ label="refint.c",metric1=165 ];
+                1042 [ label="autoinc.c",metric1=48 ];
             }
             subgraph 1043 {
                 graph [ label=dummy_seclabel ];
-                1044 [ label="dummy_seclabel.c",metric1=0 ];
+                1044 [ label="dummy_seclabel.c",metric1=4 ];
             }
         }
     }
@@ -825,6 +825,19 @@ digraph G {
     566 -> 906;
     566 -> 566;
     566 -> 676;
+    540 -> 541;
+    540 -> 539;
+    540 -> 676;
+    540 -> 675;
+    540 -> 900;
+    540 -> 906;
+    540 -> 471;
+    540 -> 843;
+    540 -> 492;
+    540 -> 837;
+    540 -> 846;
+    540 -> 729;
+    540 -> 465;
     624 -> 612;
     624 -> 934;
     624 -> 621;
@@ -849,7 +862,6 @@ digraph G {
     625 -> 675;
     625 -> 677;
     625 -> 617;
-    625 -> 618;
     625 -> 676;
     625 -> 465;
     625 -> 620;
@@ -940,7 +952,6 @@ digraph G {
     916 -> 469;
     473 -> 475;
     473 -> 792;
-    473 -> 540;
     473 -> 515;
     473 -> 466;
     473 -> 480;
@@ -993,33 +1004,6 @@ digraph G {
     760 -> 843;
     760 -> 676;
     760 -> 675;
-    618 -> 605;
-    618 -> 825;
-    618 -> 910;
-    618 -> 843;
-    618 -> 901;
-    618 -> 543;
-    618 -> 470;
-    618 -> 621;
-    618 -> 801;
-    618 -> 941;
-    618 -> 563;
-    618 -> 902;
-    618 -> 620;
-    618 -> 465;
-    618 -> 823;
-    618 -> 618;
-    618 -> 720;
-    618 -> 858;
-    618 -> 675;
-    618 -> 909;
-    618 -> 906;
-    618 -> 891;
-    618 -> 661;
-    618 -> 651;
-    618 -> 471;
-    618 -> 676;
-    618 -> 934;
     10982 -> 10982;
     10982 -> 918;
     10982 -> 465;
@@ -1043,9 +1027,7 @@ digraph G {
     580 -> 547;
     580 -> 541;
     580 -> 471;
-    580 -> 539;
     580 -> 469;
-    580 -> 540;
     580 -> 895;
     580 -> 538;
     580 -> 898;
@@ -1192,15 +1174,12 @@ digraph G {
     601 -> 563;
     601 -> 801;
     601 -> 620;
-    601 -> 618;
     601 -> 538;
     601 -> 900;
     601 -> 465;
     601 -> 10983;
     601 -> 600;
     601 -> 562;
-    601 -> 539;
-    601 -> 540;
     601 -> 601;
     601 -> 543;
     601 -> 934;
@@ -1299,7 +1278,6 @@ digraph G {
     591 -> 492;
     591 -> 906;
     591 -> 900;
-    591 -> 540;
     591 -> 676;
     591 -> 777;
     591 -> 602;
@@ -1312,7 +1290,6 @@ digraph G {
     632 -> 901;
     632 -> 823;
     632 -> 909;
-    632 -> 618;
     632 -> 621;
     632 -> 620;
     632 -> 632;
@@ -1366,6 +1343,7 @@ digraph G {
     515 -> 449;
     515 -> 661;
     515 -> 776;
+    515 -> 10964;
     515 -> 458;
     515 -> 779;
     515 -> 742;
@@ -1375,8 +1353,6 @@ digraph G {
     515 -> 766;
     515 -> 770;
     515 -> 934;
-    515 -> 10964;
-    515 -> 10962;
     515 -> 10967;
     515 -> 858;
     515 -> 909;
@@ -1432,7 +1408,6 @@ digraph G {
     573 -> 573;
     573 -> 542;
     652 -> 612;
-    652 -> 618;
     652 -> 619;
     652 -> 934;
     652 -> 621;
@@ -1529,7 +1504,6 @@ digraph G {
     605 -> 563;
     605 -> 565;
     605 -> 567;
-    605 -> 539;
     605 -> 546;
     605 -> 547;
     605 -> 601;
@@ -1602,7 +1576,6 @@ digraph G {
     940 -> 469;
     940 -> 933;
     940 -> 508;
-    940 -> 540;
     940 -> 620;
     940 -> 621;
     940 -> 10992;
@@ -1644,7 +1617,6 @@ digraph G {
     595 -> 906;
     595 -> 802;
     595 -> 616;
-    620 -> 618;
     620 -> 675;
     620 -> 858;
     620 -> 676;
@@ -1823,6 +1795,31 @@ digraph G {
     501 -> 909;
     501 -> 906;
     501 -> 501;
+    618 -> 825;
+    618 -> 910;
+    618 -> 843;
+    618 -> 901;
+    618 -> 543;
+    618 -> 470;
+    618 -> 621;
+    618 -> 801;
+    618 -> 941;
+    618 -> 563;
+    618 -> 902;
+    618 -> 620;
+    618 -> 465;
+    618 -> 823;
+    618 -> 618;
+    618 -> 858;
+    618 -> 675;
+    618 -> 909;
+    618 -> 906;
+    618 -> 891;
+    618 -> 661;
+    618 -> 651;
+    618 -> 471;
+    618 -> 676;
+    618 -> 934;
     609 -> 822;
     609 -> 900;
     609 -> 920;
@@ -1859,6 +1856,7 @@ digraph G {
     654 -> 617;
     654 -> 10992;
     654 -> 934;
+    539 -> 906;
     901 -> 834;
     901 -> 823;
     901 -> 10992;
@@ -1884,7 +1882,6 @@ digraph G {
     562 -> 492;
     562 -> 450;
     562 -> 562;
-    562 -> 539;
     562 -> 471;
     855 -> 451;
     855 -> 825;
@@ -1949,7 +1946,6 @@ digraph G {
     853 -> 469;
     853 -> 620;
     853 -> 621;
-    853 -> 540;
     853 -> 733;
     853 -> 501;
     853 -> 521;
@@ -1989,7 +1985,6 @@ digraph G {
     748 -> 748;
     541 -> 501;
     541 -> 620;
-    541 -> 540;
     541 -> 934;
     541 -> 621;
     628 -> 628;
@@ -1999,7 +1994,6 @@ digraph G {
     628 -> 617;
     628 -> 621;
     628 -> 620;
-    628 -> 618;
     628 -> 934;
     628 -> 678;
     628 -> 492;
@@ -2049,38 +2043,6 @@ digraph G {
     606 -> 606;
     606 -> 492;
     606 -> 514;
-    729 -> 558;
-    729 -> 706;
-    729 -> 762;
-    729 -> 471;
-    729 -> 902;
-    729 -> 738;
-    729 -> 543;
-    729 -> 801;
-    729 -> 933;
-    729 -> 465;
-    729 -> 622;
-    729 -> 858;
-    729 -> 685;
-    729 -> 566;
-    729 -> 679;
-    729 -> 725;
-    729 -> 900;
-    729 -> 563;
-    729 -> 825;
-    729 -> 10992;
-    729 -> 681;
-    729 -> 909;
-    729 -> 618;
-    729 -> 621;
-    729 -> 934;
-    729 -> 675;
-    729 -> 901;
-    729 -> 676;
-    729 -> 721;
-    729 -> 906;
-    729 -> 729;
-    729 -> 677;
     546 -> 591;
     546 -> 934;
     546 -> 538;
@@ -2208,7 +2170,6 @@ digraph G {
     478 -> 933;
     478 -> 473;
     482 -> 500;
-    482 -> 540;
     482 -> 733;
     482 -> 489;
     482 -> 607;
@@ -2272,7 +2233,6 @@ digraph G {
     897 -> 790;
     897 -> 725;
     897 -> 501;
-    897 -> 540;
     897 -> 721;
     897 -> 729;
     897 -> 679;
@@ -2301,15 +2261,6 @@ digraph G {
     671 -> 661;
     671 -> 671;
     671 -> 906;
-    539 -> 501;
-    539 -> 514;
-    539 -> 537;
-    539 -> 465;
-    539 -> 538;
-    539 -> 539;
-    539 -> 492;
-    539 -> 500;
-    539 -> 469;
     505 -> 10991;
     505 -> 786;
     505 -> 513;
@@ -2383,7 +2334,6 @@ digraph G {
     506 -> 786;
     506 -> 933;
     506 -> 508;
-    506 -> 540;
     506 -> 934;
     506 -> 906;
     506 -> 766;
@@ -2447,7 +2397,6 @@ digraph G {
     639 -> 676;
     639 -> 465;
     639 -> 612;
-    639 -> 618;
     639 -> 934;
     639 -> 906;
     639 -> 621;
@@ -2543,6 +2492,21 @@ digraph G {
     849 -> 934;
     849 -> 909;
     849 -> 902;
+    729 -> 471;
+    729 -> 902;
+    729 -> 738;
+    729 -> 900;
+    729 -> 563;
+    729 -> 909;
+    729 -> 825;
+    729 -> 675;
+    729 -> 934;
+    729 -> 901;
+    729 -> 676;
+    729 -> 721;
+    729 -> 906;
+    729 -> 729;
+    729 -> 677;
     819 -> 920;
     819 -> 453;
     819 -> 819;
@@ -2579,10 +2543,8 @@ digraph G {
     621 -> 906;
     621 -> 469;
     621 -> 500;
-    621 -> 618;
     621 -> 492;
     621 -> 616;
-    621 -> 540;
     621 -> 897;
     621 -> 501;
     621 -> 933;
@@ -2636,7 +2598,6 @@ digraph G {
     630 -> 933;
     630 -> 676;
     630 -> 912;
-    630 -> 618;
     630 -> 612;
     630 -> 621;
     630 -> 617;
@@ -2722,7 +2683,6 @@ digraph G {
     584 -> 906;
     584 -> 620;
     584 -> 676;
-    584 -> 618;
     584 -> 603;
     584 -> 616;
     584 -> 492;
@@ -2743,7 +2703,6 @@ digraph G {
     619 -> 621;
     619 -> 616;
     619 -> 676;
-    619 -> 618;
     619 -> 619;
     619 -> 801;
     619 -> 934;
@@ -2779,21 +2738,6 @@ digraph G {
     944 -> 777;
     944 -> 943;
     944 -> 514;
-    1011 -> 988;
-    1011 -> 951;
-    1011 -> 10975;
-    1011 -> 1016;
-    1011 -> 1008;
-    1011 -> 1015;
-    1011 -> 10981;
-    1011 -> 993;
-    1011 -> 1006;
-    1011 -> 1005;
-    1011 -> 450;
-    1011 -> 1011;
-    1011 -> 449;
-    1011 -> 452;
-    1011 -> 1013;
     891 -> 823;
     891 -> 855;
     891 -> 830;
@@ -2974,7 +2918,6 @@ digraph G {
     578 -> 454;
     578 -> 453;
     578 -> 570;
-    578 -> 540;
     578 -> 501;
     578 -> 578;
     578 -> 497;
@@ -3261,8 +3204,8 @@ digraph G {
     535 -> 471;
     535 -> 465;
     535 -> 459;
-    535 -> 451;
     535 -> 515;
+    535 -> 451;
     535 -> 535;
     1037 -> 449;
     1037 -> 452;
@@ -3356,7 +3299,6 @@ digraph G {
     838 -> 906;
     631 -> 612;
     631 -> 771;
-    631 -> 618;
     631 -> 934;
     631 -> 676;
     631 -> 906;
@@ -3369,9 +3311,9 @@ digraph G {
     724 -> 570;
     724 -> 722;
     724 -> 675;
+    724 -> 729;
     724 -> 738;
     724 -> 737;
-    724 -> 729;
     724 -> 762;
     724 -> 679;
     724 -> 681;
@@ -3857,7 +3799,6 @@ digraph G {
     582 -> 906;
     582 -> 620;
     582 -> 621;
-    582 -> 540;
     735 -> 733;
     735 -> 706;
     735 -> 934;
@@ -4033,20 +3974,16 @@ digraph G {
     1041 -> 934;
     1041 -> 906;
     1041 -> 656;
-    540 -> 469;
-    540 -> 471;
-    540 -> 494;
-    540 -> 501;
-    540 -> 538;
-    540 -> 537;
-    540 -> 535;
-    540 -> 514;
-    540 -> 539;
-    540 -> 540;
-    540 -> 492;
-    540 -> 465;
     768 -> 768;
     768 -> 537;
+    633 -> 618;
+    633 -> 612;
+    633 -> 934;
+    633 -> 621;
+    633 -> 620;
+    633 -> 617;
+    633 -> 633;
+    633 -> 906;
     10975 -> 993;
     10975 -> 1006;
     10975 -> 450;
@@ -4069,7 +4006,6 @@ digraph G {
     878 -> 934;
     878 -> 906;
     647 -> 619;
-    647 -> 618;
     647 -> 676;
     647 -> 934;
     647 -> 621;
@@ -4078,7 +4014,6 @@ digraph G {
     872 -> 858;
     872 -> 872;
     650 -> 612;
-    650 -> 618;
     650 -> 934;
     650 -> 621;
     650 -> 614;
@@ -4138,7 +4073,6 @@ digraph G {
     616 -> 615;
     616 -> 471;
     616 -> 468;
-    616 -> 539;
     616 -> 543;
     616 -> 602;
     616 -> 542;
@@ -4291,7 +4225,6 @@ digraph G {
     622 -> 803;
     622 -> 616;
     622 -> 945;
-    622 -> 618;
     622 -> 563;
     622 -> 471;
     622 -> 676;
@@ -4300,7 +4233,6 @@ digraph G {
     622 -> 901;
     622 -> 906;
     622 -> 615;
-    643 -> 618;
     643 -> 934;
     643 -> 643;
     643 -> 620;
@@ -4424,7 +4356,6 @@ digraph G {
     637 -> 621;
     637 -> 620;
     637 -> 617;
-    637 -> 618;
     637 -> 934;
     637 -> 543;
     637 -> 906;
@@ -4552,6 +4483,21 @@ digraph G {
     675 -> 934;
     675 -> 679;
     669 -> 669;
+    1011 -> 450;
+    1011 -> 988;
+    1011 -> 993;
+    1011 -> 449;
+    1011 -> 951;
+    1011 -> 10975;
+    1011 -> 1016;
+    1011 -> 1013;
+    1011 -> 1006;
+    1011 -> 1008;
+    1011 -> 1015;
+    1011 -> 452;
+    1011 -> 10981;
+    1011 -> 1011;
+    1011 -> 1005;
     788 -> 779;
     788 -> 515;
     788 -> 777;
@@ -4670,7 +4616,6 @@ digraph G {
     815 -> 805;
     815 -> 815;
     453 -> 453;
-    649 -> 618;
     649 -> 934;
     649 -> 621;
     649 -> 941;
@@ -4698,7 +4643,6 @@ digraph G {
     831 -> 934;
     831 -> 618;
     648 -> 617;
-    648 -> 618;
     648 -> 619;
     648 -> 934;
     648 -> 941;
@@ -4762,7 +4706,6 @@ digraph G {
     517 -> 790;
     517 -> 516;
     1044 -> 906;
-    522 -> 540;
     522 -> 906;
     522 -> 526;
     522 -> 525;
@@ -4905,7 +4848,6 @@ digraph G {
     638 -> 766;
     638 -> 603;
     638 -> 492;
-    638 -> 618;
     638 -> 615;
     638 -> 934;
     638 -> 621;
@@ -4940,10 +4882,8 @@ digraph G {
     998 -> 451;
     998 -> 995;
     998 -> 998;
-    556 -> 539;
     556 -> 471;
     556 -> 514;
-    556 -> 540;
     556 -> 465;
     556 -> 492;
     556 -> 556;
@@ -4974,14 +4914,6 @@ digraph G {
     719 -> 712;
     719 -> 706;
     719 -> 853;
-    633 -> 612;
-    633 -> 618;
-    633 -> 934;
-    633 -> 621;
-    633 -> 620;
-    633 -> 617;
-    633 -> 633;
-    633 -> 906;
     701 -> 694;
     492 -> 465;
     492 -> 492;
@@ -5225,7 +5157,6 @@ digraph G {
     642 -> 621;
     642 -> 620;
     642 -> 617;
-    642 -> 618;
     642 -> 934;
     864 -> 864;
     795 -> 676;

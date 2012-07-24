@@ -1,0 +1,23 @@
+digraph G { 
+      subgraph 1 { 
+           graph [ label=src ]; 
+           2 [ label="arraylist.c",metric1=32 ]; 
+           3 [ label="json_object.c",metric1=120 ]; 
+           4 [ label="json_tokener.c",metric1=300 ]; 
+           5 [ label="linkhash.c",metric1=70 ]; 
+           6 [ label="printbuf.c",metric1=13 ]; 
+           10948 [ label="debug.c",metric1=14 ]; 
+           10949 [ label="json_util.c",metric1=41 ]; 
+      } 
+      10949 -> 4; 
+      10949 -> 3; 
+      10949 -> 10948; 
+      5 -> 5; 
+      4 -> 10948; 
+      4 -> 3; 
+      4 -> 4; 
+      6 -> 6; 
+      2 -> 2; 
+      3 -> 3; 
+      3 -> 2; 
+     } 

@@ -1,201 +1,201 @@
 digraph G {
     subgraph 1 {
-        graph [ 0=default,label=src ];
-    }
-    subgraph 7 {
-        graph [ 0=1,label=src ];
-    }
-    subgraph 68 {
-        graph [ 0=7,label=lib_config ];
-        69 [ label="get.c",metric1=0 ];
-        70 [ label="set.c",metric1=0 ];
-        71 [ label="parse.c",metric1=0 ];
-        72 [ label="write.c",metric1=0 ];
-    }
-    subgraph 73 {
-        graph [ 0=7,label=core ];
-        74 [ label="args.c",metric1=0 ];
-        75 [ label="channels.c",metric1=0 ];
-        76 [ label="channels-setup.c",metric1=0 ];
-        77 [ label="commands.c",metric1=0 ];
-        78 [ label="chat-commands.c",metric1=0 ];
-        79 [ label="chat-protocols.c",metric1=0 ];
-        80 [ label="chatnets.c",metric1=0 ];
-        81 [ label="core.c",metric1=0 ];
-        82 [ label="expandos.c",metric1=0 ];
-        83 [ label="ignore.c",metric1=0 ];
-        84 [ label="levels.c",metric1=0 ];
-        85 [ label="line-split.c",metric1=0 ];
-        86 [ label="log.c",metric1=0 ];
-        87 [ label="log-away.c",metric1=0 ];
-        88 [ label="masks.c",metric1=0 ];
-        89 [ label="misc.c",metric1=0 ];
-        90 [ label="modules.c",metric1=0 ];
-        91 [ label="modules-load.c",metric1=0 ];
-        92 [ label="net-disconnect.c",metric1=0 ];
-        93 [ label="net-nonblock.c",metric1=0 ];
-        94 [ label="net-sendbuffer.c",metric1=0 ];
-        95 [ label="network.c",metric1=0 ];
-        96 [ label="network-openssl.c",metric1=0 ];
-        97 [ label="nicklist.c",metric1=0 ];
-        98 [ label="nickmatch-cache.c",metric1=0 ];
-        99 [ label="pidwait.c",metric1=0 ];
-        100 [ label="queries.c",metric1=0 ];
-        101 [ label="rawlog.c",metric1=0 ];
-        102 [ label="recode.c",metric1=0 ];
-        103 [ label="servers.c",metric1=0 ];
-        104 [ label="servers-reconnect.c",metric1=0 ];
-        105 [ label="servers-setup.c",metric1=0 ];
-        106 [ label="session.c",metric1=0 ];
-        107 [ label="settings.c",metric1=0 ];
-        108 [ label="signals.c",metric1=0 ];
-        109 [ label="special-vars.c",metric1=0 ];
-        110 [ label="write-buffer.c",metric1=0 ];
-    }
-    subgraph 111 {
-        graph [ 0=7,label=irc ];
-    }
-    subgraph 112 {
-        graph [ 0=111,label=core ];
-        113 [ label="bans.c",metric1=0 ];
-        114 [ label="ctcp.c",metric1=0 ];
-        115 [ label="channels-query.c",metric1=0 ];
-        116 [ label="channel-events.c",metric1=0 ];
-        117 [ label="channel-rejoin.c",metric1=0 ];
-        118 [ label="irc.c",metric1=0 ];
-        119 [ label="irc-channels.c",metric1=0 ];
-        120 [ label="irc-chatnets.c",metric1=0 ];
-        121 [ label="irc-commands.c",metric1=0 ];
-        122 [ label="irc-expandos.c",metric1=0 ];
-        123 [ label="irc-masks.c",metric1=0 ];
-        124 [ label="irc-nicklist.c",metric1=0 ];
-        125 [ label="irc-queries.c",metric1=0 ];
-        126 [ label="irc-servers.c",metric1=0 ];
-        127 [ label="irc-servers-reconnect.c",metric1=0 ];
-        128 [ label="irc-servers-setup.c",metric1=0 ];
-        129 [ label="irc-session.c",metric1=0 ];
-        130 [ label="lag.c",metric1=0 ];
-        131 [ label="massjoin.c",metric1=0 ];
-        132 [ label="modes.c",metric1=0 ];
-        133 [ label="mode-lists.c",metric1=0 ];
-        134 [ label="netsplit.c",metric1=0 ];
-        135 [ label="servers-idle.c",metric1=0 ];
-        136 [ label="servers-redirect.c",metric1=0 ];
-        10954 [ label="irc-core.c",metric1=0 ];
-        10955 [ label="irc-channels-setup.c",metric1=0 ];
-    }
-    subgraph 137 {
-        graph [ 0=111,label=dcc ];
-        138 [ label="dcc.c",metric1=0 ];
-        139 [ label="dcc-chat.c",metric1=0 ];
-        140 [ label="dcc-get.c",metric1=0 ];
-        141 [ label="dcc-send.c",metric1=0 ];
-        142 [ label="dcc-resume.c",metric1=0 ];
-        143 [ label="dcc-autoget.c",metric1=0 ];
-        144 [ label="dcc-queue.c",metric1=0 ];
-        145 [ label="dcc-server.c",metric1=0 ];
-    }
-    subgraph 146 {
-        graph [ 0=111,label=flood ];
-        147 [ label="autoignore.c",metric1=0 ];
-        148 [ label="flood.c",metric1=0 ];
-    }
-    subgraph 149 {
-        graph [ 0=111,label=notifylist ];
-        150 [ label="notifylist.c",metric1=0 ];
-        151 [ label="notify-commands.c",metric1=0 ];
-        152 [ label="notify-ison.c",metric1=0 ];
-        153 [ label="notify-setup.c",metric1=0 ];
-        154 [ label="notify-whois.c",metric1=0 ];
-    }
-    subgraph 155 {
-        graph [ 0=7,label=fe_common ];
-    }
-    subgraph 156 {
-        graph [ 0=155,label=core ];
-        157 [ label="chat-completion.c",metric1=0 ];
-        158 [ label="command-history.c",metric1=0 ];
-        159 [ label="completion.c",metric1=0 ];
-        160 [ label="fe-channels.c",metric1=0 ];
-        161 [ label="fe-common-core.c",metric1=0 ];
-        162 [ label="fe-core-commands.c",metric1=0 ];
-        163 [ label="fe-exec.c",metric1=0 ];
-        164 [ label="fe-expandos.c",metric1=0 ];
-        165 [ label="fe-help.c",metric1=0 ];
-        166 [ label="fe-ignore.c",metric1=0 ];
-        167 [ label="fe-ignore-messages.c",metric1=0 ];
-        168 [ label="fe-log.c",metric1=0 ];
-        169 [ label="fe-messages.c",metric1=0 ];
-        170 [ label="fe-modules.c",metric1=0 ];
-        171 [ label="fe-queries.c",metric1=0 ];
-        172 [ label="fe-server.c",metric1=0 ];
-        173 [ label="fe-settings.c",metric1=0 ];
-        174 [ label="wcwidth.c",metric1=0 ];
-        175 [ label="formats.c",metric1=0 ];
-        176 [ label="hilight-text.c",metric1=0 ];
-        177 [ label="keyboard.c",metric1=0 ];
-        178 [ label="printtext.c",metric1=0 ];
-        179 [ label="fe-recode.c",metric1=0 ];
-        180 [ label="themes.c",metric1=0 ];
-        181 [ label="window-activity.c",metric1=0 ];
-        182 [ label="window-commands.c",metric1=0 ];
-        183 [ label="window-items.c",metric1=0 ];
-        184 [ label="windows-layout.c",metric1=0 ];
-        185 [ label="fe-windows.c",metric1=0 ];
-    }
-    subgraph 186 {
-        graph [ 0=155,label=irc ];
-        196 [ label="fe-irc-channels.c",metric1=0 ];
-        197 [ label="fe-irc-commands.c",metric1=0 ];
-        198 [ label="fe-irc-messages.c",metric1=0 ];
-        199 [ label="fe-irc-queries.c",metric1=0 ];
-        200 [ label="fe-irc-server.c",metric1=0 ];
-        201 [ label="fe-ircnet.c",metric1=0 ];
-        202 [ label="fe-ctcp.c",metric1=0 ];
-        203 [ label="fe-events.c",metric1=0 ];
-        204 [ label="fe-events-numeric.c",metric1=0 ];
-        205 [ label="fe-modes.c",metric1=0 ];
-        206 [ label="fe-netjoin.c",metric1=0 ];
-        207 [ label="fe-netsplit.c",metric1=0 ];
-        208 [ label="fe-whois.c",metric1=0 ];
-        209 [ label="irc-completion.c",metric1=0 ];
-        10957 [ label="fe-common-irc.c",metric1=0 ];
-    }
-    subgraph 187 {
-        graph [ 0=186,label=dcc ];
-        188 [ label="fe-dcc.c",metric1=0 ];
-        189 [ label="fe-dcc-chat.c",metric1=0 ];
-        190 [ label="fe-dcc-chat-messages.c",metric1=0 ];
-        191 [ label="fe-dcc-get.c",metric1=0 ];
-        192 [ label="fe-dcc-send.c",metric1=0 ];
-        193 [ label="fe-dcc-server.c",metric1=0 ];
-    }
-    subgraph 194 {
-        graph [ 0=186,label=notifylist ];
-        195 [ label="fe-notifylist.c",metric1=0 ];
-    }
-    subgraph 210 {
-        graph [ 0=7,label=fe_text ];
-        211 [ label="gui-entry.c",metric1=0 ];
-        212 [ label="gui-expandos.c",metric1=0 ];
-        213 [ label="gui-printtext.c",metric1=0 ];
-        214 [ label="gui-readline.c",metric1=0 ];
-        215 [ label="gui-windows.c",metric1=0 ];
-        216 [ label="lastlog.c",metric1=0 ];
-        217 [ label="mainwindows.c",metric1=0 ];
-        218 [ label="mainwindow-activity.c",metric1=0 ];
-        219 [ label="mainwindows-layout.c",metric1=0 ];
-        220 [ label="statusbar.c",metric1=0 ];
-        221 [ label="statusbar-config.c",metric1=0 ];
-        222 [ label="statusbar-items.c",metric1=0 ];
-        223 [ label="term.c",metric1=0 ];
-        224 [ label="term-dummy.c",metric1=0 ];
-        225 [ label="term-terminfo.c",metric1=0 ];
-        226 [ label="terminfo-core.c",metric1=0 ];
-        227 [ label="textbuffer.c",metric1=0 ];
-        228 [ label="textbuffer-commands.c",metric1=0 ];
-        229 [ label="textbuffer-view.c",metric1=0 ];
-        10956 [ label="irssi.c",metric1=0 ];
+        graph [ label=src ];
+        subgraph 7 {
+            graph [ label=src ];
+            subgraph 68 {
+                graph [ label=lib_config ];
+                69 [ label="get.c",metric1=106 ];
+                70 [ label="set.c",metric1=43 ];
+                71 [ label="parse.c",metric1=107 ];
+                72 [ label="write.c",metric1=115 ];
+            }
+            subgraph 73 {
+                graph [ label=core ];
+                74 [ label="args.c",metric1=8 ];
+                75 [ label="channels.c",metric1=107 ];
+                76 [ label="channels-setup.c",metric1=39 ];
+                77 [ label="commands.c",metric1=267 ];
+                78 [ label="chat-commands.c",metric1=131 ];
+                79 [ label="chat-protocols.c",metric1=46 ];
+                80 [ label="chatnets.c",metric1=55 ];
+                81 [ label="core.c",metric1=36 ];
+                82 [ label="expandos.c",metric1=472 ];
+                83 [ label="ignore.c",metric1=129 ];
+                84 [ label="levels.c",metric1=57 ];
+                85 [ label="line-split.c",metric1=30 ];
+                86 [ label="log.c",metric1=142 ];
+                87 [ label="log-away.c",metric1=26 ];
+                88 [ label="masks.c",metric1=47 ];
+                89 [ label="misc.c",metric1=479 ];
+                90 [ label="modules.c",metric1=61 ];
+                91 [ label="modules-load.c",metric1=101 ];
+                92 [ label="net-disconnect.c",metric1=38 ];
+                93 [ label="net-nonblock.c",metric1=80 ];
+                94 [ label="net-sendbuffer.c",metric1=44 ];
+                95 [ label="network.c",metric1=164 ];
+                96 [ label="network-openssl.c",metric1=18 ];
+                97 [ label="nicklist.c",metric1=289 ];
+                98 [ label="nickmatch-cache.c",metric1=34 ];
+                99 [ label="pidwait.c",metric1=15 ];
+                100 [ label="queries.c",metric1=70 ];
+                101 [ label="rawlog.c",metric1=76 ];
+                102 [ label="recode.c",metric1=57 ];
+                103 [ label="servers.c",metric1=185 ];
+                104 [ label="servers-reconnect.c",metric1=119 ];
+                105 [ label="servers-setup.c",metric1=196 ];
+                106 [ label="session.c",metric1=104 ];
+                107 [ label="settings.c",metric1=205 ];
+                108 [ label="signals.c",metric1=133 ];
+                109 [ label="special-vars.c",metric1=279 ];
+                110 [ label="write-buffer.c",metric1=32 ];
+            }
+            subgraph 111 {
+                graph [ label=irc ];
+                subgraph 112 {
+                    graph [ label=core ];
+                    113 [ label="bans.c",metric1=236 ];
+                    114 [ label="ctcp.c",metric1=125 ];
+                    115 [ label="channels-query.c",metric1=180 ];
+                    116 [ label="channel-events.c",metric1=189 ];
+                    117 [ label="channel-rejoin.c",metric1=210 ];
+                    118 [ label="irc.c",metric1=130 ];
+                    119 [ label="irc-channels.c",metric1=168 ];
+                    120 [ label="irc-chatnets.c",metric1=67 ];
+                    121 [ label="irc-commands.c",metric1=1063 ];
+                    122 [ label="irc-expandos.c",metric1=141 ];
+                    123 [ label="irc-masks.c",metric1=16 ];
+                    124 [ label="irc-nicklist.c",metric1=269 ];
+                    125 [ label="irc-queries.c",metric1=23 ];
+                    126 [ label="irc-servers.c",metric1=318 ];
+                    127 [ label="irc-servers-reconnect.c",metric1=82 ];
+                    128 [ label="irc-servers-setup.c",metric1=123 ];
+                    129 [ label="irc-session.c",metric1=108 ];
+                    130 [ label="lag.c",metric1=46 ];
+                    131 [ label="massjoin.c",metric1=177 ];
+                    132 [ label="modes.c",metric1=835 ];
+                    133 [ label="mode-lists.c",metric1=59 ];
+                    134 [ label="netsplit.c",metric1=238 ];
+                    135 [ label="servers-idle.c",metric1=65 ];
+                    136 [ label="servers-redirect.c",metric1=198 ];
+                    10954 [ label="irc-core.c",metric1=15 ];
+                    10955 [ label="irc-channels-setup.c",metric1=2 ];
+                }
+                subgraph 137 {
+                    graph [ label=dcc ];
+                    138 [ label="dcc.c",metric1=185 ];
+                    139 [ label="dcc-chat.c",metric1=367 ];
+                    140 [ label="dcc-get.c",metric1=150 ];
+                    141 [ label="dcc-send.c",metric1=132 ];
+                    142 [ label="dcc-resume.c",metric1=67 ];
+                    143 [ label="dcc-autoget.c",metric1=23 ];
+                    144 [ label="dcc-queue.c",metric1=103 ];
+                    145 [ label="dcc-server.c",metric1=170 ];
+                }
+                subgraph 146 {
+                    graph [ label=flood ];
+                    147 [ label="autoignore.c",metric1=23 ];
+                    148 [ label="flood.c",metric1=137 ];
+                }
+                subgraph 149 {
+                    graph [ label=notifylist ];
+                    150 [ label="notifylist.c",metric1=164 ];
+                    151 [ label="notify-commands.c",metric1=23 ];
+                    152 [ label="notify-ison.c",metric1=82 ];
+                    153 [ label="notify-setup.c",metric1=15 ];
+                    154 [ label="notify-whois.c",metric1=52 ];
+                }
+            }
+            subgraph 155 {
+                graph [ label=fe_common ];
+                subgraph 156 {
+                    graph [ label=core ];
+                    157 [ label="chat-completion.c",metric1=523 ];
+                    158 [ label="command-history.c",metric1=66 ];
+                    159 [ label="completion.c",metric1=325 ];
+                    160 [ label="fe-channels.c",metric1=258 ];
+                    161 [ label="fe-common-core.c",metric1=71 ];
+                    162 [ label="fe-core-commands.c",metric1=80 ];
+                    163 [ label="fe-exec.c",metric1=184 ];
+                    164 [ label="fe-expandos.c",metric1=19 ];
+                    165 [ label="fe-help.c",metric1=63 ];
+                    166 [ label="fe-ignore.c",metric1=70 ];
+                    167 [ label="fe-ignore-messages.c",metric1=36 ];
+                    168 [ label="fe-log.c",metric1=219 ];
+                    169 [ label="fe-messages.c",metric1=239 ];
+                    170 [ label="fe-modules.c",metric1=54 ];
+                    171 [ label="fe-queries.c",metric1=157 ];
+                    172 [ label="fe-server.c",metric1=121 ];
+                    173 [ label="fe-settings.c",metric1=123 ];
+                    174 [ label="wcwidth.c",metric1=27 ];
+                    175 [ label="formats.c",metric1=410 ];
+                    176 [ label="hilight-text.c",metric1=199 ];
+                    177 [ label="keyboard.c",metric1=262 ];
+                    178 [ label="printtext.c",metric1=129 ];
+                    179 [ label="fe-recode.c",metric1=46 ];
+                    180 [ label="themes.c",metric1=405 ];
+                    181 [ label="window-activity.c",metric1=33 ];
+                    182 [ label="window-commands.c",metric1=168 ];
+                    183 [ label="window-items.c",metric1=78 ];
+                    184 [ label="windows-layout.c",metric1=90 ];
+                    185 [ label="fe-windows.c",metric1=173 ];
+                }
+                subgraph 186 {
+                    graph [ label=irc ];
+                    196 [ label="fe-irc-channels.c",metric1=44 ];
+                    197 [ label="fe-irc-commands.c",metric1=398 ];
+                    198 [ label="fe-irc-messages.c",metric1=170 ];
+                    199 [ label="fe-irc-queries.c",metric1=21 ];
+                    200 [ label="fe-irc-server.c",metric1=72 ];
+                    201 [ label="fe-ircnet.c",metric1=105 ];
+                    202 [ label="fe-ctcp.c",metric1=40 ];
+                    203 [ label="fe-events.c",metric1=216 ];
+                    204 [ label="fe-events-numeric.c",metric1=405 ];
+                    205 [ label="fe-modes.c",metric1=62 ];
+                    206 [ label="fe-netjoin.c",metric1=214 ];
+                    207 [ label="fe-netsplit.c",metric1=144 ];
+                    208 [ label="fe-whois.c",metric1=166 ];
+                    209 [ label="irc-completion.c",metric1=13 ];
+                    10957 [ label="fe-common-irc.c",metric1=1 ];
+                    subgraph 187 {
+                        graph [ label=dcc ];
+                        188 [ label="fe-dcc.c",metric1=52 ];
+                        189 [ label="fe-dcc-chat.c",metric1=198 ];
+                        190 [ label="fe-dcc-chat-messages.c",metric1=34 ];
+                        191 [ label="fe-dcc-get.c",metric1=79 ];
+                        192 [ label="fe-dcc-send.c",metric1=91 ];
+                        193 [ label="fe-dcc-server.c",metric1=27 ];
+                    }
+                    subgraph 194 {
+                        graph [ label=notifylist ];
+                        195 [ label="fe-notifylist.c",metric1=98 ];
+                    }
+                }
+            }
+            subgraph 210 {
+                graph [ label=fe_text ];
+                211 [ label="gui-entry.c",metric1=402 ];
+                212 [ label="gui-expandos.c",metric1=28 ];
+                213 [ label="gui-printtext.c",metric1=65 ];
+                214 [ label="gui-readline.c",metric1=238 ];
+                215 [ label="gui-windows.c",metric1=72 ];
+                216 [ label="lastlog.c",metric1=58 ];
+                217 [ label="mainwindows.c",metric1=218 ];
+                218 [ label="mainwindow-activity.c",metric1=11 ];
+                219 [ label="mainwindows-layout.c",metric1=66 ];
+                220 [ label="statusbar.c",metric1=233 ];
+                221 [ label="statusbar-config.c",metric1=166 ];
+                222 [ label="statusbar-items.c",metric1=133 ];
+                223 [ label="term.c",metric1=33 ];
+                224 [ label="term-dummy.c",metric1=48 ];
+                225 [ label="term-terminfo.c",metric1=199 ];
+                226 [ label="terminfo-core.c",metric1=259 ];
+                227 [ label="textbuffer.c",metric1=184 ];
+                228 [ label="textbuffer-commands.c",metric1=84 ];
+                229 [ label="textbuffer-view.c",metric1=338 ];
+                10956 [ label="irssi.c",metric1=31 ];
+            }
+        }
     }
     180 -> 70;
     180 -> 89;
