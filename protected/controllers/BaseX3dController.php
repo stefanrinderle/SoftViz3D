@@ -12,12 +12,24 @@ class BaseX3dController extends BaseController {
 			
 			$parseResult = Yii::app()->dotFileParser->parse($filename, $includeEdges);
 			
+			$parseResult = $this->removeEmptyStartLayers($parseResult);
+			
 			return Yii::app()->dotArrayToDB->save($parseResult);
 		} catch (Exception $e) {
 			$exception = $e;
 			Yii::app()->user->setFlash('error', 'Input file parsing failed: ' . $e->getMessage());
 			//TODO render another layout file and exit
 		}
+	}
+	
+	private function removeEmptyStartLayers($parseResult) {
+		while (count($parseResult['content']) == 1) {
+			$edges = $parseResult['edges'];
+			$parseResult = $parseResult['content'][0];
+			$parseResult['edges'] = $edges;
+		}
+		
+		return $parseResult;
 	}
 	
 }

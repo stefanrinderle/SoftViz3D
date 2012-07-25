@@ -4,6 +4,10 @@ class User extends CActiveRecord {
 	
 	public $id;
 	
+	public $username;
+	public $password;
+	public $email;
+	
 	public static function model($className=__CLASS__) {
 		return parent::model($className);
 	}
