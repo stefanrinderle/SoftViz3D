@@ -56,6 +56,10 @@ class BoxElement extends CActiveRecord {
 	public function getTranslation() {
 		return explode(" ", $this->translation);
 	}
+	
+	public function getSize() {
+		return explode(" ", $this->size);
+	}
 
 	/**
 	 * @param integer $layoutId

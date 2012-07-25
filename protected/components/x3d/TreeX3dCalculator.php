@@ -11,7 +11,7 @@ class TreeX3dCalculator extends AbstractX3dCalculator {
 		$width = round($bb[2] - $bb[0], 2);
 		$length = round($bb[3] - $bb[1], 2);
 
-		$translation = array($bb[0], $depth * $this->layerSpacing, $bb[1]);
+		$translation = array(0, $depth * $this->layerSpacing, 0);
 		$size = array($width, $length);
 		
 		$colorCalc = ($depth - 1) * 0.3;

@@ -9,28 +9,17 @@ class NewLayerX3dCalculator extends CApplicationComponent {
 	private function addTranslationToLayer($rootId, $transX, $transZ, $isRoot = false) {
 		$layoutElement = BoxElement::model()->findByAttributes(array('inputTreeElementId'=>$rootId));
 
-		$sizeArray = explode(" ", $layoutElement->size);
-		$translationArray = explode(" ", $layoutElement->translation);
+		$sizeArray = $layoutElement->getSize();
 		
 		$nodeWidth = $sizeArray[0];
 		$nodeLength = $sizeArray[1];
 		
-		$translation = array();
-		
-		if ($isRoot) {
-			$translation['x'] = 0;
-			$translation['y'] = $translationArray[1];
-			$translation['z'] = 0;
-		} else {
-			$translation['x'] = $translationArray[0] + $transX;
-			$translation['y'] = $translationArray[1];
-			$translation['z'] = $translationArray[2] + $transZ;
-		}
-			
+		$translation = $layoutElement->getTranslation();
+		$translation[0] = $translation[0] + $transX;
+		$translation[2] = $translation[2] + $transZ;
 		$layoutElement->saveTranslation($translation);
 		
 		// calculate values for the children nodes
-		
 		// first find the chlidren elements of the input tree 
 		$content = InputTreeElement::model()->findAllByAttributes(array('parent_id'=>$layoutElement->inputTreeElementId));
 		
@@ -41,12 +30,7 @@ class NewLayerX3dCalculator extends CApplicationComponent {
 						'inputTreeElementId'=>$value->id,
 						'type'=>BoxElement::$TYPE_FOOTPRINT));
 			
-				$size = explode(" ", $layoutElement->size);
-				
-				// layout node position
-				$nodePosition = $element->getTranslation();
-				$nodePosition[0] = $nodePosition[0] + $transX - $size[0] / 2;
-				$nodePosition[2] = $nodePosition[2] + $transZ - $size[1] / 2;
+				$nodePosition = $this->getNewPosition($element, $transX, $transZ, $layoutElement);
 				
 				$this->addTranslationToLayer($value->id, $nodePosition[0], $nodePosition[2]);
 			} else {
@@ -54,13 +38,21 @@ class NewLayerX3dCalculator extends CApplicationComponent {
 						'inputTreeElementId'=>$value->id,
 						'type'=>BoxElement::$TYPE_BUILDING));
 
-				$size = explode(" ", $layoutElement->size);
+				$nodePosition = $this->getNewPosition($element, $transX, $transZ, $layoutElement);
 				
-				$elemTrans = $element->getTranslation();
-				$elemTrans[0] = $elemTrans[0] + $transX - $size[0] / 2;
-				$elemTrans[2] = $elemTrans[2] + $transZ - $size[1] / 2;
-				$element->saveTranslation($elemTrans);
+				$element->saveTranslation($nodePosition);
 			}
 		}
+	}
+	
+	private function getNewPosition($element, $transX, $transZ, $layoutElement) {
+		$size = $layoutElement->getSize();
+		
+		// layout node position
+		$nodePosition = $element->getTranslation();
+		$nodePosition[0] = $nodePosition[0] + $transX - $size[0] / 2;
+		$nodePosition[2] = $nodePosition[2] + $transZ - $size[1] / 2;
+		
+		return $nodePosition;
 	}
 }
