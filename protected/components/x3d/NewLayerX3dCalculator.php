@@ -22,7 +22,6 @@ class NewLayerX3dCalculator extends CApplicationComponent {
 		// calculate values for the children nodes
 		// first find the chlidren elements of the input tree 
 		$content = InputTreeElement::model()->findAllByAttributes(array('parent_id'=>$layoutElement->inputTreeElementId));
-		
 		foreach ($content as $key => $value) {
 			if (!$value->isLeaf) {
 				// find the according layout representations
@@ -43,6 +42,14 @@ class NewLayerX3dCalculator extends CApplicationComponent {
 					$nodePosition = $this->setNewPosition($element, $transX, $transZ, $layoutElement);
 				}
 			}
+		}
+		
+		$contentEdges = InputDependency::model()->findAllByAttributes(array('parent_id' => $layoutElement->inputTreeElementId));
+		foreach ($contentEdges as $key => $value) {
+			$element = EdgeElement::model()->findByAttributes(array(
+						'inputDependencyId'=>$value->id));
+			
+			$nodePosition = $this->setNewPosition($element, $transX, $transZ, $layoutElement);
 		}
 	}
 	

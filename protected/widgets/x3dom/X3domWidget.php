@@ -11,10 +11,6 @@ class X3domWidget extends CWidget {
 	public function run() {
 		$this->render('x3domStart', array('root' => $this->root));
 		
-		foreach ($this->layers as $layer) {
-			$this->generateX3DOM($layer);
-		}
-
 		$elements = BoxElement::model()->findAllByAttributes(array('layoutId'=>$this->layoutId));
 		foreach ($elements as $element) {
 			if ($element->type == BoxElement::$TYPE_PLATFORM) {
@@ -24,6 +20,11 @@ class X3domWidget extends CWidget {
 			} else if ($element->type == BoxElement::$TYPE_FOOTPRINT) {
 				$this->render('baseObjects/footprint', array('element' => $element));
 			}
+		}
+		
+		$edges = EdgeElement::model()->findAllByAttributes(array('layoutId'=>$this->layoutId));
+		foreach ($edges as $edge) {
+			$this->render('baseObjects/edge', array('edge' => $edge));
 		}
 		
 		$this->render('x3domEnd', array('root' => $this->root));

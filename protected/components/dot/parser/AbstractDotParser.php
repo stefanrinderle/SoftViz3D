@@ -68,13 +68,21 @@ abstract class AbstractDotParser extends CApplicationComponent {
 						$temp = explode(",", $value);
 						if ($key == 0) {
 							// omit "e"
-							array_push($newPosition, array('x' => $temp[1], 'z' => $temp[2]));
+							array_push($newPosition, array('x' => $temp[1], 'y' => 0, 'z' => $temp[2]));
 						} else {
-							array_push($newPosition, array('x' => $temp[0], 'z' => $temp[1]));
+							array_push($newPosition, array('x' => $temp[0], 'y' => 0, 'z' => $temp[1]));
 						}
 					}
 					
 					$edge["attributes"]["pos"] = $newPosition;
+				}
+				
+				if (array_key_exists('style', $edge["attributes"])) {
+					$lineWidth = $edge['attributes']['style'];
+					// TODO: regex
+					$lineWidth = substr($lineWidth, strpos($lineWidth, "(") + 1, strlen($lineWidth) - strpos($lineWidth, "(") - 2);
+						
+					$edge["attributes"]["style"] = $lineWidth;
 				}
 				
 				array_push($this->edgeStore, $edge);

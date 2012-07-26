@@ -90,78 +90,64 @@ class GraphX3dCalculator extends AbstractX3dCalculator {
 	}
 	
 	protected function adjustEdge($edge, $depth) {
+		$layoutId = 1;
+		$inputDependencyId = $edge['attributes']['id'];
+		
+		$translation = array(0, 0, 0);
+		
+		$color = array('r'=>0, 'g'=>0, 'b'=>1);
 		$lineWidth = $edge['attributes']['style'];
-		//TODO: regex
-		$lineWidth = substr($lineWidth, strpos($lineWidth, "(") + 1, strlen($lineWidth) - strpos($lineWidth, "(") - 2);
 		
-		$position = $edge['attributes']['pos'];
+		$edgeElement = EdgeElement::createAndSaveEdgeElement($layoutId, $inputDependencyId, $translation, $color, $lineWidth);
 		
-		$startPos = array('x' => $position[1]['x'],
-						  'y' => $depth * $this->layerSpacing,
-						  'z' => $position[1]['z']);
-		$endPos = array('x' => $position[0]['x'],
-						'y' => $depth * $this->layerSpacing,
-						'z' => $position[0]['z']);
+		$positions = $edge['attributes']['pos'];
 		
-		$edgeSections = array();
-		if (count($position) > 5) {
+		$startPos = $this->setYAxis($positions[1], $depth);
+		$endPos = $this->setYAxis($positions[0], $depth);
+		
+		if (count($positions) > 5) {
 			// 0 and 1 are overall start points 
-			$firstEndPoint = $position[2];
-			$firstEndPoint['y'] = $depth * $this->layerSpacing;
+			$firstEndPoint = $this->setYAxis($positions[2], $depth);
 
-			$firstSection = $this->createSection($startPos, $firstEndPoint);
-			array_push($edgeSections, $firstSection);
+			$element = $this->createSection($edgeElement->id, $startPos, $firstEndPoint);
+			$element->save();
 			
-			for ($i = 3; $i < count($position); $i++) {
-				$position[$i]['y'] = $depth * $this->layerSpacing;
-				$position[$i-1]['y'] = $depth * $this->layerSpacing;
+			for ($i = 3; $i < count($positions); $i++) {
+				$sectionStart = $this->setYAxis($positions[$i - 1], $depth);
+				$sectionEnd = $this->setYAxis($positions[$i], $depth);
 				
-				$section = $this->createSection($position[$i - 1], $position[$i]);
-				array_push($edgeSections, $section);
+				$element = $this->createSection($edgeElement->id, $sectionStart, $sectionEnd);
+				$element->save();
 			}
 			
-			$lastSectionPoint = $position[count($position) - 1];
-			$lastSectionPoint['y'] = $depth * $this->layerSpacing;
-			$endSection = $this->createSection($lastSectionPoint, $endPos);
+			$lastSectionPoint = $this->setYAxis($positions[count($positions) - 1], $depth);
+			$endSection = $this->createSection($edgeElement->id, $lastSectionPoint, $endPos);
+			
 		} else {
-			$endSection = $this->createSection($startPos, $endPos);
+			$endSection = $this->createSection($edgeElement->id, $startPos, $endPos);
 		}
 		
-		// add additional edge end information
-		$mainEdgeHeight = VectorCalculator::magnitude($endSection['edgeVector']);
-		$rotation = VectorCalculator::rotationXAxis($endSection['edgeVector']);
 		$coneLength = $lineWidth * 3;
-		$cylinderLength = $mainEdgeHeight - $coneLength;
+		$cylinderLength = $endSection->length - $coneLength;
 		
-		$endSectionInfos = array(
-				"coneRadius" => $lineWidth * 2,
-				"coneLength" => $coneLength,
-				"cylinderLength" => $cylinderLength,
-				"rotation" => $rotation
-				);
-		$endSection = array_merge($endSection, $endSectionInfos);
+		$endSection->type = EdgeSectionElement::$TYPE_END;
+		$endSection->coneLength = $coneLength;
+		$endSection->coneRadius = $lineWidth * 2;
+		$endSection->cylinderLength = $cylinderLength;
 		
-		$result = array(
-				'id' => $edge['id'],
-				'colour'=>array('r'=>1, 'g'=>0, 'b'=>0),
-				'lineWidth'=>$lineWidth,
-				'edgeSections' => $edgeSections,
-				'endSection' => $endSection
-		);
-	
-		return $result;
+		$endSection->save();
 	}
 	
-	private function createSection($startPos, $endPos) {
+	private function setYAxis($position, $depth) {
+		$position['y'] = $depth * $this->layerSpacing;
+		return $position;
+	}
+	
+	private function createSection($edgeId, $startPos, $endPos) {
 		$edgeVektor = VectorCalculator::vector($startPos, $endPos);
 		$length = VectorCalculator::magnitude($edgeVektor);
 		$rotation = VectorCalculator::rotationXAxis($edgeVektor);
 		
-		return array(
-				"startPos" => $startPos,
-				"edgeVector" => $edgeVektor,
-				"length" => $length,
-				"rotation" => $rotation
-				);
+		return EdgeSectionElement::createDefaultEdgeSectionElement($edgeId, $startPos, $rotation, $length);
 	}
 }

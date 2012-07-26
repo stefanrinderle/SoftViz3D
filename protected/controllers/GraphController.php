@@ -9,6 +9,8 @@ class GraphController extends BaseX3dController
 	public function actionIndex() {
 		/* reset layout database */
 		BoxElement::model()->deleteAll();
+		EdgeElement::model()->deleteAll();
+		EdgeSectionElement::model()->deleteAll();
 		
 		$startTime = $this->getTime();
 		
