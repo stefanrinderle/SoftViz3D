@@ -24,7 +24,8 @@ return array(
 		'application.components.dot.*',
 		'application.components.dot.parser.*',
 		'application.components.goanna.*',
-		'application.components.x3d.*'
+		'application.components.x3d.*',
+		'application.widgets.x3dom.X3domWidget'
 	),
 
 	'modules'=>array(
@@ -74,11 +75,8 @@ return array(
 		'graphX3dCalculator'=>array(
 			'class'=>'GraphX3dCalculator',
 		),
-		'layerX3dCalculator'=>array(
-			'class'=>'LayerX3dCalculator',
-		),
-		'newLayerX3dCalculator'=>array(
-			'class'=>'NewLayerX3dCalculator',
+		'absolutePositionCalculator'=>array(
+			'class'=>'AbsolutePositionCalculator',
 		),
 		'vectorCalculator'=>array(
 			'class'=>'VectorCalculator',

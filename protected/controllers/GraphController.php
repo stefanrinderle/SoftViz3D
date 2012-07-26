@@ -29,18 +29,14 @@ class GraphController extends BaseX3dController
 		$root = InputNode::model()->findByPk($rootId);
 		$root->accept($layout);
 		
-		// STEP 3: calculate absolute translations
-		Yii::app()->newLayerX3dCalculator->calculate($rootId);
-		
 		//echo "Calculation time Layoutvisitor: " . $this->getTimeDifference($startTime) . "<br />";
 		
 		// STEP 4: calculate absolute translations
-		Yii::app()->layerX3dCalculator->calculate($root);
-		$layers = InputNode::model()->findAll();
+		Yii::app()->absolutePositionCalculator->calculate($rootId);
 		
 		//echo "Calculation time absolute translations: " . $this->getTimeDifference($startTime) . "<br />";
 		
 		// STEP 5: show the calculated layout
-		$this->render('index', array('root' => $root, 'layers' => $layers, 'layoutId' => 1));
+		$this->render('index', array('root' => $root, 'layoutId' => 1));
 	}
 }

@@ -1,15 +1,14 @@
 <?php
 class X3domWidget extends CWidget {
 	
-	public $root;
-	public $layers;
-	// can be "tree" or "graph"
-	public $type;
+	public static $TYPE_TREE = "tree";
+	public static $TYPE_GRAPH = "graph";
 	
 	public $layoutId;
+	public $type;
 	
 	public function run() {
-		$this->render('x3domStart', array('root' => $this->root));
+		$this->render('x3domStart', array());
 		
 		$elements = BoxElement::model()->findAllByAttributes(array('layoutId'=>$this->layoutId));
 		foreach ($elements as $element) {
@@ -27,7 +26,7 @@ class X3domWidget extends CWidget {
 			$this->render('baseObjects/edge', array('edge' => $edge));
 		}
 		
-		$this->render('x3domEnd', array('root' => $this->root));
+		$this->render('x3domEnd', array());
 		
 		// include own javascript files
 		Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . '/js/sidebar/sidebar.js');
@@ -35,20 +34,10 @@ class X3domWidget extends CWidget {
 		Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . '/js/sidebar/information.js');
 		Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . '/js/sidebar/manipulation.js');
 		
-		if ($this->type == "tree") {
+		if ($this->type == X3domWidget::$TYPE_TREE) {
 			Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . '/js/sidebar/manipulationTree.js');
-		} else {
+		} else if ($this->type == X3domWidget::$TYPE_GRAPH) {
 			Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . '/js/sidebar/manipulationGraph.js');
-		}
-	}
-	
-	private function generateX3DOM($node) {
-		if ($this->type == "tree") {
-			// nothing more to do here
-		} else {
-			$x3dInfos = $node->getX3dInfos();
-			
-			$this->render('x3dGraphLayer', array('graph'=>$x3dInfos));
 		}
 	}
 }

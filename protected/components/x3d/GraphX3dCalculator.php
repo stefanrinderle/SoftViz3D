@@ -13,7 +13,7 @@ class GraphX3dCalculator extends AbstractX3dCalculator {
 		$length = round($bb[3] - $bb[1], 2);
 	
 		$color = array('r'=>0.7, 'g'=> 1, 'b'=> 1);
-		$transpareny = 0.2;
+		$transparency = 0.2;
 	
 		$translation = array(0, $depth * $this->layerSpacing, 0);
 		$size = array('width'=>$width, 'length'=>$length);

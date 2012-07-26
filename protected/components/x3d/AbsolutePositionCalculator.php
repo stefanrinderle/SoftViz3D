@@ -1,6 +1,6 @@
 <?php
 
-class NewLayerX3dCalculator extends CApplicationComponent {
+class AbsolutePositionCalculator extends CApplicationComponent {
 	
 	public function calculate($rootId) {
 		$this->addTranslationToLayer($rootId, 0, 0, 1);

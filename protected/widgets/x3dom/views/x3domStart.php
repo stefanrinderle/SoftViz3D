@@ -4,5 +4,4 @@
 	<param name="showLog" value="false" ></param>
 	<param name="showStat" value="true" ></param>
 
-	<?php $x3dInfos = $root->getX3dInfos(); ?>
 	<Transform id="x3dSceneWrapper">
