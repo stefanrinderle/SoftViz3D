@@ -2,17 +2,17 @@
 <Group>
 <?php
 
-$this->render('baseObjects/basePlattform', array('bb' => $graph->bb, 'id' => $graph->id));
+//$this->render('baseObjects/basePlattform', array('bb' => $graph->bb, 'id' => $graph->id));
 
-if ($graph->nodes) {
-	foreach ($graph->nodes as $key => $value) {
-		if ($value['isLeaf']) {
-			$this->render('baseObjects/leaf', $value);
-		} else {
-			$this->render('baseObjects/node', $value);
-		}
-	}
-}
+//if ($graph->nodes) {
+//	foreach ($graph->nodes as $key => $value) {
+//		if ($value['isLeaf']) {
+//			$this->render('baseObjects/leaf', $value);
+//		} else {
+//			$this->render('baseObjects/node', $value);
+//		}
+//	}
+//}
 
 if ($graph->edges) {
 	foreach ($graph->edges as $key => $value) {

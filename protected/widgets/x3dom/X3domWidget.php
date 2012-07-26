@@ -21,6 +21,8 @@ class X3domWidget extends CWidget {
 				$this->render('baseObjects/platform', array('element' => $element));
 			} else if ($element->type == BoxElement::$TYPE_BUILDING) {
 				$this->render('baseObjects/building', array('element' => $element));
+			} else if ($element->type == BoxElement::$TYPE_FOOTPRINT) {
+				$this->render('baseObjects/footprint', array('element' => $element));
 			}
 		}
 		

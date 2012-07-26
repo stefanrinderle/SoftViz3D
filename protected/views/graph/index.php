@@ -6,7 +6,7 @@ $this->breadcrumbs=array(
 );
 
 $this->widget('application.widgets.x3dom.X3domWidget',array(
-		'root' => $root, 'layers' => $layers, 'type' => 'graph'
+		'root' => $root, 'layers' => $layers, 'type' => 'graph', 'layoutId' => $layoutId
 ));
 
 $this->widget('application.widgets.sidebar.Sidebar');

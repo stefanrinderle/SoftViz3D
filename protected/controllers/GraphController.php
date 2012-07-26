@@ -7,9 +7,11 @@ class GraphController extends BaseX3dController
 	public $layout='//layouts/column1';
 	
 	public function actionIndex() {
+		/* reset layout database */
+		BoxElement::model()->deleteAll();
+		
 		$startTime = $this->getTime();
 		
-		// STEP 1: Load input dot file
 		$result = $this->loadFiletoDb();
 		$edges = $result['edges'];
 		$rootId = $result['rootId'];
@@ -26,6 +28,8 @@ class GraphController extends BaseX3dController
 		$root = InputNode::model()->findByPk($rootId);
 		$root->accept($layout);
 		
+		// STEP 3: calculate absolute translations
+		Yii::app()->newLayerX3dCalculator->calculate($rootId);
 		
 		//echo "Calculation time Layoutvisitor: " . $this->getTimeDifference($startTime) . "<br />";
 		
@@ -36,6 +40,6 @@ class GraphController extends BaseX3dController
 		//echo "Calculation time absolute translations: " . $this->getTimeDifference($startTime) . "<br />";
 		
 		// STEP 5: show the calculated layout
-		$this->render('index', array('root' => $root, 'layers' => $layers));
+		$this->render('index', array('root' => $root, 'layers' => $layers, 'layoutId' => 1));
 	}
 }

@@ -32,7 +32,7 @@ class TreeX3dCalculator extends AbstractX3dCalculator {
 		
 		$position = $node['attributes']['pos'];
 		$translation = array($position[0], $depth * $this->layerSpacing, $position[1]);
-		$size = array('width'=> 0, 'height'=> 0, 'length' => 0);
+		$size = array(0, 0, 0);
 		
 		$color = array('r'=>0, 'g'=>0, 'b'=>0);
 		$transparency = 0;

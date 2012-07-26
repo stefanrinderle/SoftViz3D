@@ -30,7 +30,7 @@ class NewLayerX3dCalculator extends CApplicationComponent {
 						'inputTreeElementId'=>$value->id,
 						'type'=>BoxElement::$TYPE_FOOTPRINT));
 			
-				$nodePosition = $this->getNewPosition($element, $transX, $transZ, $layoutElement);
+				$nodePosition = $this->setNewPosition($element, $transX, $transZ, $layoutElement);
 				
 				$this->addTranslationToLayer($value->id, $nodePosition[0], $nodePosition[2]);
 			} else {
@@ -38,20 +38,23 @@ class NewLayerX3dCalculator extends CApplicationComponent {
 						'inputTreeElementId'=>$value->id,
 						'type'=>BoxElement::$TYPE_BUILDING));
 
-				$nodePosition = $this->getNewPosition($element, $transX, $transZ, $layoutElement);
-				
-				$element->saveTranslation($nodePosition);
+				// should be not the case after all
+				if ($element) {
+					$nodePosition = $this->setNewPosition($element, $transX, $transZ, $layoutElement);
+				}
 			}
 		}
 	}
 	
-	private function getNewPosition($element, $transX, $transZ, $layoutElement) {
+	private function setNewPosition($element, $transX, $transZ, $layoutElement) {
 		$size = $layoutElement->getSize();
 		
 		// layout node position
 		$nodePosition = $element->getTranslation();
 		$nodePosition[0] = $nodePosition[0] + $transX - $size[0] / 2;
 		$nodePosition[2] = $nodePosition[2] + $transZ - $size[1] / 2;
+		
+		$element->saveTranslation($nodePosition);
 		
 		return $nodePosition;
 	}

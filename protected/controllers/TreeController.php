@@ -25,7 +25,6 @@ class TreeController extends BaseX3dController {
 		
 		// STEP 3: calculate absolute translations
 		Yii::app()->newLayerX3dCalculator->calculate($rootId);
-		//$layers = InputNode::model()->findAll();
 		
 		print_r("Calculation time: " + $this->getTimeDifference($startTime));
 
