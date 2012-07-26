@@ -12,14 +12,13 @@ class GraphController extends BaseX3dController
 		
 		$startTime = $this->getTime();
 		
-		$result = $this->loadFiletoDb();
-		$edges = $result['edges'];
-		$rootId = $result['rootId'];
+		$rootId = $this->loadFiletoDb();
 		
 		//echo "Calculation time write to db: " . $this->getTimeDifference($startTime) . "<br />";
 		
 		// STEP 2: Normalize edges
-		Yii::app()->edgeExpander->execute($edges);
+		$projectId = 0;
+		Yii::app()->dependencyExpander->execute($projectId);
 		
 		//echo "Calculation time edge expander: " . $this->getTimeDifference($startTime) . "<br />";
 		

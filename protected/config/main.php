@@ -40,8 +40,8 @@ return array(
 	// application components
 	'components'=>array(
 		// db folder
-		'edgeExpander'=>array(
-			'class'=>'EdgeExpander',
+		'dependencyExpander'=>array(
+			'class'=>'DependencyExpander',
 		),
 			
 		// dot folder

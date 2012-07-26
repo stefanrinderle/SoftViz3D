@@ -7,9 +7,9 @@ class DotArrayToDB extends CApplicationComponent {
 
 		$this->saveHierarchy($dotArray);
 		
-		$edges = $this->createEdges($dotArray['edges']);
+		$this->saveDependencies($dotArray['edges']);
 
-		return array('edges' => $edges, 'rootId' => $this->rootId);
+		return $this->rootId;
 	}
 	
 	private function saveHierarchy($element, $parentId = null, $level = 0) {
@@ -53,7 +53,7 @@ class DotArrayToDB extends CApplicationComponent {
 		return $label;
 	}
 	
-	private function createEdges($edges) {
+	private function saveDependencies($edges) {
 		// get all tree elements out of db
 		$attr = array(
 				'select'=>'id, name, parent_id',
@@ -72,7 +72,7 @@ class DotArrayToDB extends CApplicationComponent {
 			$out = $treeArray[$edge["source"]];
 			$in = $treeArray[$edge["destination"]];
 	
-			array_push($edgesToSave, InputDependency::createDotInputDependency(
+			array_push($edgesToSave, InputDependency::createAndSaveDotInputDependency(
 					$edge["id"], $out["id"], $in["id"], $out["parent_id"], $in["parent_id"]));
 		}
 	

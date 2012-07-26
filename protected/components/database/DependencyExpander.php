@@ -1,7 +1,6 @@
 <?php
 
-class EdgeExpander extends CApplicationComponent
-{
+class DependencyExpander extends CApplicationComponent {
 	
 	private $flatEdges = array();
 	private $dependenyNodes = array();
@@ -9,9 +8,14 @@ class EdgeExpander extends CApplicationComponent
 	
 	private $nodesCounter = array(); 
 	
-	public function execute($edges) {
+	public function execute($projectId) {
+		// remove old dependency path edges
+		InputDependency::model()->deleteAllByAttributes(array('projectId' => $projectId, 'type' => InputDependency::$TYPE_PATH));
+		
+		$edges = InputDependency::model()->findAllByAttributes(array('projectId' => $projectId));
+		
 		foreach ($edges as $edge) {
-			if ($edge->out_parent_id == $edge->in_parent_id) {
+			if ($edge->type == InputDependency::$TYPE_INPUT_FLAT) {
 				$edge->parent_id = $edge->out_parent_id;
 				array_push($this->flatEdges, $edge);
 				
@@ -30,6 +34,10 @@ class EdgeExpander extends CApplicationComponent
 			$leaf = InputTreeElement::model()->findByPk($key);
 			$leaf->counter = $value;
 			$leaf->save();
+		}
+		
+		foreach ($edges as $edge) {
+			$edge->save();
 		}
 		
 		//print_r("count_flat: " . count($this->flatEdges) . " <br />");

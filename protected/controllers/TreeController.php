@@ -11,8 +11,7 @@ class TreeController extends BaseX3dController {
 		
 		$startTime = $this->getTime();
 		
-		$result = $this->loadFiletoDb();
-		$rootId = $result['rootId'];
+		$rootId = $this->loadFiletoDb();
 
 		// STEP 2: calculate the view layout
 		$layout = new LayoutVisitor(LayoutVisitor::$TYPE_TREE);
