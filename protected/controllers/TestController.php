@@ -10,9 +10,6 @@ class TestController extends BaseController
 		$user = User::model()->findByPk(3);
 		
 		$project = $user->projects[0];
-		print_r(count($project->layouts));
-		
-		die();
 		
 		$this->render('//dumpArray', array('dumpArray' => array()));
 	}

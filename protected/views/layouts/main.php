@@ -27,12 +27,12 @@
 	?>	
 	
 	<!-- include x3dom scripts -->
-	<!-- link rel="stylesheet" type="text/css" href="http://x3dom.org/download/x3dom.css" />
-	<script type="text/javascript" src="http://x3dom.org/download/x3dom.js"></script> -->
+	<link rel="stylesheet" type="text/css" href="http://x3dom.org/download/x3dom.css" />
+	<script type="text/javascript" src="http://x3dom.org/download/x3dom.js"></script>
 	
 	<!-- local x3dom files -->
-	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/js/x3dom/x3dom.css" />
-	<script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/x3dom/x3dom.js"></script>
+	<!-- <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/js/x3dom/x3dom.css" />
+	<script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/x3dom/x3dom.js"></script> -->
 	
 	<title><?php echo CHtml::encode($this->pageTitle); ?></title>
 </head>
@@ -49,18 +49,20 @@
 		<?php $this->widget('zii.widgets.CMenu',array(
 			'items'=>array(
 				array('label'=>'Home', 'url'=>array('/site/index')),
+				array('label'=>'Projects', 'url'=>array('/project/index'), 'visible'=>!Yii::app()->user->isGuest),
 				array('label'=>'Import', 'url'=>array('/import/index')),
 				array('label'=>'Goanna browser', 'url'=>array('/goanna/index')),
 				array('label'=>'File viewer', 'url'=>array('/file/index')),
 				array('label'=>'Structure view', 'url'=>array('/tree/index')),
 				array('label'=>'Dependency view', 'url'=>array('/graph/index')),
-				array('label'=>'Test', 'url'=>array('/test/index')),
+				//array('label'=>'Test', 'url'=>array('/test/index')),
 				array('label'=>'-----', 'url'=>array('')),
-				array('label'=>'About', 'url'=>array('/site/page', 'view'=>'about')),
-				array('label'=>'Feedback', 'url'=>array('/site/feedback')),
 				array('label'=>'Login', 'url'=>array('/user/login'), 'visible'=>Yii::app()->user->isGuest),
 				array('label'=>'Signup', 'url'=>array('/user/signup'), 'visible'=>Yii::app()->user->isGuest),
-				array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/user/logout'), 'visible'=>!Yii::app()->user->isGuest)
+				array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/user/logout'), 'visible'=>!Yii::app()->user->isGuest),
+				array('label'=>'-----', 'url'=>array('')),
+				array('label'=>'Feedback', 'url'=>array('/site/feedback')),
+					array('label'=>'About', 'url'=>array('/site/page', 'view'=>'about'))
 			),
 		)); ?>
 	</div><!-- mainmenu -->

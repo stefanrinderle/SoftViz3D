@@ -3,10 +3,12 @@
 class Project extends CActiveRecord {
 	
 	public $id;
-	
 	public $userId;
 	
+	public $name;
+	
 	public $file;
+	public $fileUpdateTime;
 	
 	public $inputTreeRootId;
 	
@@ -18,6 +20,21 @@ class Project extends CActiveRecord {
 		return 'Project';
 	}
 
+	public function getFileUpdateTime() {
+		if ($this->fileUpdateTime) {
+			$date = new DateTime($this->fileUpdateTime);
+			return $date->format('Y-m-d H:i:s');
+		} else {
+			return -1;
+		}
+	}
+	
+	public function setFileUpdateTime(DateTime $date) {
+		$mysqldate = date( 'Y-m-d H:i:s', $date->getTimestamp());
+		$this->fileUpdateTime = $mysqldate;
+		$this->save();
+	}
+	
 	public function relations() {
 		return array(
 				'user'=>array(self::BELONGS_TO, 'User', 'userId'),

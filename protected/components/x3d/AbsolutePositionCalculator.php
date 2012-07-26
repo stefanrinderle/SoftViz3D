@@ -47,9 +47,12 @@ class AbsolutePositionCalculator extends CApplicationComponent {
 		$contentEdges = InputDependency::model()->findAllByAttributes(array('parent_id' => $layoutElement->inputTreeElementId));
 		foreach ($contentEdges as $key => $value) {
 			$element = EdgeElement::model()->findByAttributes(array(
-						'inputDependencyId'=>$value->id));
+									'inputDependencyId'=>$value->id));
 			
-			$nodePosition = $this->setNewPosition($element, $transX, $transZ, $layoutElement);
+			// should be not the case after all
+			if ($element) {
+				$nodePosition = $this->setNewPosition($element, $transX, $transZ, $layoutElement);
+			}
 		}
 	}
 	
