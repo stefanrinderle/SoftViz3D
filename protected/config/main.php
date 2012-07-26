@@ -69,11 +69,11 @@ return array(
 		),
 			
 		// x3d folder	
-		'treeX3dCalculator'=>array(
-			'class'=>'TreeX3dCalculator',
+		'structureLayout'=>array(
+			'class'=>'structureLayout',
 		),
-		'graphX3dCalculator'=>array(
-			'class'=>'GraphX3dCalculator',
+		'dependencyLayout'=>array(
+			'class'=>'DependencyLayout',
 		),
 		'absolutePositionCalculator'=>array(
 			'class'=>'AbsolutePositionCalculator',

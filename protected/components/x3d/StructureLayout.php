@@ -1,6 +1,6 @@
 <?php
 
-class TreeX3dCalculator extends AbstractX3dCalculator {
+class StructureLayout extends AbstractLayerLayout {
 	
 	private $layerSpacing = 5;
 	

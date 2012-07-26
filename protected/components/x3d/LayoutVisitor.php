@@ -37,9 +37,9 @@ class LayoutVisitor {
 		$layerLayout = $this->calcLayerLayout($layoutElements);
 
 		if ($this->type == LayoutVisitor::$TYPE_TREE) {
-			$x3dInfos = Yii::app()->treeX3dCalculator->calculate($layerLayout, $comp);
+			$x3dInfos = Yii::app()->structureLayout->calculate($layerLayout, $comp);
 		} else {
-			$x3dInfos = Yii::app()->graphX3dCalculator->calculate($layerLayout, $comp);
+			$x3dInfos = Yii::app()->dependencyLayout->calculate($layerLayout, $comp);
 		}
 		
 		$x3dInfos->id = $comp['id'];

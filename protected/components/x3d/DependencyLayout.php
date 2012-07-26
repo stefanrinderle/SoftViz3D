@@ -1,6 +1,6 @@
 <?php
 
-class GraphX3dCalculator extends AbstractX3dCalculator {
+class DependencyLayout extends AbstractLayerLayout {
 	
 	private $nodeHeight = 10;
 	private $layerSpacing = -200;
@@ -55,7 +55,7 @@ class GraphX3dCalculator extends AbstractX3dCalculator {
 			 */
 			$width = $node['attributes']['width'] * LayoutVisitor::$SCALE;
 			
-			$translation = array($position[0], $depth * $this->layerSpacing  + ($this->nodeHeight / 2), $position[1]);
+			$translation = array($position[0], $depth * $this->layerSpacing + ($this->nodeHeight / 2), $position[1]);
 			$size = array('width'=>$width, 'height'=>$this->nodeHeight, 'length'=>$width);
 			
 			$color = array('r'=>1, 'g'=>0.55, 'b'=>0);
