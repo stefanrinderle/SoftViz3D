@@ -63,7 +63,7 @@ class GoannaInterface extends CApplicationComponent {
 	private function getResult($jsonResponse) {
 		$phpArray = json_decode($jsonResponse, true);
 		
-		return $phpArray[results];
+		return $phpArray['results'];
 	}
 	
 	private function doRequest($url) {
@@ -81,6 +81,8 @@ class GoannaInterface extends CApplicationComponent {
 			$request.= "Connection: Close\r\n\r\n";
 		
 			fwrite($fp, $request);
+
+			$response = "";
 			while (!feof($fp)) {
 				$response .= fgets($fp, 128);
 			}

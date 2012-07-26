@@ -16,7 +16,6 @@ class DependencyExpander extends CApplicationComponent {
 		
 		foreach ($edges as $edge) {
 			if ($edge->type == InputDependency::$TYPE_INPUT_FLAT) {
-				$edge->parent_id = $edge->out_parent_id;
 				array_push($this->flatEdges, $edge);
 				
 				$this->incrementNodesCounter($edge->out_id);
@@ -42,7 +41,7 @@ class DependencyExpander extends CApplicationComponent {
 		
 		//print_r("count_flat: " . count($this->flatEdges) . " <br />");
 		//print_r("count_dep: " . count($this->dependencyEdges) . " <br />");
-		// dont show flat edges
+		
 		//foreach ($this->flatEdges as $edge) {
 		//	$edge->save();
 		//}

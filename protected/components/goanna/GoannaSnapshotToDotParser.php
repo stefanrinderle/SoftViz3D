@@ -3,8 +3,7 @@
 Yii::import('application.vendors.*');
 require_once('Image_GraphViz_Copy.php');
 
-class GoannaSnapshotToDotParser extends CApplicationComponent
-{
+class GoannaSnapshotToDotParser extends CApplicationComponent {
 	private $graphViz;
 	
 	private $subgraphIdentifier = 0;
@@ -24,32 +23,32 @@ class GoannaSnapshotToDotParser extends CApplicationComponent
 	
 	private function _scanDependencies($dep) {
 		foreach ($dep as $value) {
-			$this->graphViz->addEdge(array($value[file_id] => $value[depends_id]));
+			$this->graphViz->addEdge(array($value['file_id'] => $value['depends_id']));
 		}
 	}
 	
 	private function _scanDirectory($filesArray, $parentLabel = "default") {
 		$sum = 0;
-		foreach ($filesArray[children] as $key => $value) {
+		foreach ($filesArray['children'] as $key => $value) {
 			
-			if ($value[type] == "ROOT") {
-				$this->_scanDirectory($value, $value[id] + "");
-			} else if ($value[type] == "DIRECTORY") {
+			if ($value['type'] == "ROOT") {
+				$this->_scanDirectory($value, $value['id'] + "");
+			} else if ($value['type'] == "DIRECTORY") {
 				
-				$name = $value[id]  + "";// . "_" . $this->subgraphIdentifier++;
-				$label = $value[name] . "";
+				$name = $value['id']  + "";// . "_" . $this->subgraphIdentifier++;
+				$label = $value['name'] . "";
 				
 				$this->_addSubgraph($name, $label, $parentLabel);
 				
 				$this->_scanDirectory($value, $name);
-			} else if ($value[type] == "FILE") {
+			} else if ($value['type'] == "FILE") {
 				$sum = 0;
-				foreach($value[metrics] as $metric) {
-					$sum += $metric[value];
+				foreach($value['metrics'] as $metric) {
+					$sum += $metric['value'];
 				}
 				
-				$id = $value[id];
-				$name = $value[name];
+				$id = $value['id'];
+				$name = $value['name'];
 				
 				$this->_addNode($id, $name, $sum, $parentLabel);
 			}
@@ -57,8 +56,8 @@ class GoannaSnapshotToDotParser extends CApplicationComponent
 	}
 	
 	private function _addNode($id, $name, $warningCount, $parentId = 'default') {
-		$label = str_replace("-", "_", $label);
-		$this->graphViz->addNode($id, array(label => $name, metric1 => $warningCount), $parentId);
+		$label = str_replace("-", "_", $name);
+		$this->graphViz->addNode($id, array('label' => $name, 'metric1' => $warningCount), $parentId);
 	}
 	
 	private function _addSubgraph($name, $label, $parentId = 'default') {

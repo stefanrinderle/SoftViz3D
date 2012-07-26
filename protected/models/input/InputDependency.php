@@ -42,6 +42,7 @@ class InputDependency extends CActiveRecord {
 		
 		if ($out_parent_id == $in_parent_id) {
 			$element->type = InputDependency::$TYPE_INPUT_FLAT;
+			$element->parent_id = $out_parent_id;
 		} else {
 			$element->type = InputDependency::$TYPE_INPUT_FREE;
 		}
