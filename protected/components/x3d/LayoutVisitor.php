@@ -1,14 +1,9 @@
 <?php
 class LayoutVisitor {
-	public static $TYPE_TREE = "tree";
-	public static $TYPE_GRAPH = "graph";
-	
 	private static $DEFAULT_SIDE_LENGTH = 0.1;
 	
 	public static $SCALE = 72;
 	private $outputFile = '/Users/stefan/Sites/3dArch/protected/runtime/temp.dot';
-
-	private $max_level = 0;
 
 	private $maxMetric1;
 	private $maxMetric2;
@@ -16,8 +11,8 @@ class LayoutVisitor {
 	
 	private $type;
 	
-	function __construct($type) {
-		$this->type = $type;
+	function __construct(AbstractLayerLayout $layout) {
+		$this->layout = $layout;
 		
 		$criteria = new CDbCriteria;
 		$criteria->select='MAX(metric1) as maxMetric1';
@@ -36,27 +31,16 @@ class LayoutVisitor {
 		// create layout array
 		$layerLayout = $this->calcLayerLayout($layoutElements);
 
-		if ($this->type == LayoutVisitor::$TYPE_TREE) {
-			$x3dInfos = Yii::app()->structureLayout->calculate($layerLayout, $comp);
-		} else {
-			$x3dInfos = Yii::app()->dependencyLayout->calculate($layerLayout, $comp);
-		}
-		
-		$x3dInfos->id = $comp['id'];
-		$x3dInfos->depth = $comp['level'];
-		$comp->setX3dInfos($x3dInfos);
-		
-		$bb = $layerLayout['attributes']['bb'];
+		$this->layout->calculate($layerLayout, $comp);
 		
 		// size of the node is the size of its bounding box
+		$bb = $layerLayout['attributes']['bb'];
 		$comp->twoDimSize = array('width' => $bb[2] / self::$SCALE, 'height' => $bb[3] / self::$SCALE);
 
 		return $comp;
 	}
 
 	function visitInputLeaf(InputLeaf $comp) {
-		if ($this->max_level < $comp->level) $this->max_level = $comp->level;
-
  		if (substr($comp->name, 0, 4) == "dep_") {
  			// value between 0 and 1
  			// this was to fat: $comp->counter / $this->maxCounter
@@ -68,7 +52,8 @@ class LayoutVisitor {
  				$side = 1;
  			}
  		} else {
- 			if ($this->type == LayoutVisitor::$TYPE_GRAPH) {
+ 			// refactor -> info should be in layout classes
+ 			if ($this->layout instanceof DependencyLayout) {
 				if ($this->maxCounter != 0) {
 					$value = ($comp->counter / $this->maxCounter) + 0.1;
 					$side = round($value, 2);

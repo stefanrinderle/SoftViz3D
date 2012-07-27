@@ -2,7 +2,9 @@
 
 class StructureLayout extends AbstractLayerLayout {
 	
-	private $layerSpacing = 5;
+	public function __construct() {
+		$this->layerMargin = 5;
+	}
 	
 	protected function adjustBb($layerLayout, $depth, $inputTreeElementId) {
 		$layoutId = 1;
@@ -11,7 +13,7 @@ class StructureLayout extends AbstractLayerLayout {
 		$width = round($bb[2] - $bb[0], 2);
 		$length = round($bb[3] - $bb[1], 2);
 
-		$translation = array(0, $depth * $this->layerSpacing, 0);
+		$translation = array(0, 0, 0);
 		$size = array($width, $length);
 		
 		$colorCalc = ($depth - 1) * 0.3;
@@ -26,12 +28,12 @@ class StructureLayout extends AbstractLayerLayout {
 				$translation, $size, $color, $transparency);
 	}
 	
-	protected function adjustNode($node, $depth) {
+	protected function adjustNode($node) {
 		$layoutId = 1;
 		$inputTreeElementId = $node['attributes']['id'];
 		
 		$position = $node['attributes']['pos'];
-		$translation = array($position[0], $depth * $this->layerSpacing, $position[1]);
+		$translation = array($position[0], 0, $position[1]);
 		$size = array(0, 0, 0);
 		
 		$color = array('r'=>0, 'g'=>0, 'b'=>0);
@@ -42,7 +44,7 @@ class StructureLayout extends AbstractLayerLayout {
 				$translation, $size, $color, $transparency);
 	}
 	
-	protected function adjustLeaf($node, $depth) {
+	protected function adjustLeaf($node) {
 		$layoutId = 1;
 		$inputTreeElementId = $node['attributes']['id'];
 		
@@ -62,7 +64,7 @@ class StructureLayout extends AbstractLayerLayout {
 		}
 	
 		$position = $node['attributes']['pos'];
-		$translation = array($position[0], $depth * $this->layerSpacing  + ($height / 2), $position[1]);
+		$translation = array($position[0], 0, $position[1]);
 		$size = array('width'=>$width, 'height'=>$height, 'length'=>$width);
 		
 		$color = array('r'=>1, 'g'=>0.55, 'b'=>0);
@@ -73,7 +75,7 @@ class StructureLayout extends AbstractLayerLayout {
 				$translation, $size, $color, $transparency);
 	}
 	
-	protected function adjustEdge($node, $depth) {
+	protected function adjustEdge($node) {
 		// nothing to do here
 	}
 }

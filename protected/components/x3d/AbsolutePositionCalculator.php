@@ -2,21 +2,21 @@
 
 class AbsolutePositionCalculator extends CApplicationComponent {
 	
-	public function calculate($rootId) {
-		$this->addTranslationToLayer($rootId, 0, 0, 1);
+	private $layout;
+	
+	public function calculate($rootId, AbstractLayerLayout $layout) {
+		$this->layout = $layout;
+		
+		$this->addTranslationToLayer($rootId, array(0, 0, 0), 1);
 	}
 	
-	private function addTranslationToLayer($rootId, $transX, $transZ, $isRoot = false) {
+	private function addTranslationToLayer($rootId, $parentTranslation, $isRoot = false) {
 		$layoutElement = BoxElement::model()->findByAttributes(array('inputTreeElementId'=>$rootId));
 
-		$sizeArray = $layoutElement->getSize();
-		
-		$nodeWidth = $sizeArray[0];
-		$nodeLength = $sizeArray[1];
-		
 		$translation = $layoutElement->getTranslation();
-		$translation[0] = $translation[0] + $transX;
-		$translation[2] = $translation[2] + $transZ;
+		$translation[0] = $translation[0] + $parentTranslation[0];
+		$translation[1] = $parentTranslation[1];
+		$translation[2] = $translation[2] + $parentTranslation[2];
 		$layoutElement->saveTranslation($translation);
 		
 		// calculate values for the children nodes
@@ -29,9 +29,11 @@ class AbsolutePositionCalculator extends CApplicationComponent {
 						'inputTreeElementId'=>$value->id,
 						'type'=>BoxElement::$TYPE_FOOTPRINT));
 			
-				$nodePosition = $this->setNewPosition($element, $transX, $transZ, $layoutElement);
+				$nodePosition = $this->setNewPosition($element, $parentTranslation, $layoutElement);
 				
-				$this->addTranslationToLayer($value->id, $nodePosition[0], $nodePosition[2]);
+				$nodePosition[1] = $nodePosition[1] + $this->layout->getLayerMargin();
+				
+				$this->addTranslationToLayer($value->id, $nodePosition);
 			} else {
 				$element = BoxElement::model()->findByAttributes(array(
 						'inputTreeElementId'=>$value->id,
@@ -39,7 +41,7 @@ class AbsolutePositionCalculator extends CApplicationComponent {
 
 				// should be not the case after all
 				if ($element) {
-					$nodePosition = $this->setNewPosition($element, $transX, $transZ, $layoutElement);
+					$nodePosition = $this->setNewPosition($element, $parentTranslation, $layoutElement);
 				}
 			}
 		}
@@ -51,18 +53,28 @@ class AbsolutePositionCalculator extends CApplicationComponent {
 			
 			// should be not the case after all
 			if ($element) {
-				$nodePosition = $this->setNewPosition($element, $transX, $transZ, $layoutElement);
+				$nodePosition = $this->setNewPosition($element, $parentTranslation, $layoutElement);
 			}
 		}
 	}
 	
-	private function setNewPosition($element, $transX, $transZ, $layoutElement) {
+	private function setNewPosition($element, $parentTranslation, $layoutElement) {
 		$size = $layoutElement->getSize();
 		
 		// layout node position
 		$nodePosition = $element->getTranslation();
-		$nodePosition[0] = $nodePosition[0] + $transX - $size[0] / 2;
-		$nodePosition[2] = $nodePosition[2] + $transZ - $size[1] / 2;
+		$nodePosition[0] = $nodePosition[0] + $parentTranslation[0] - $size[0] / 2;
+		$nodePosition[1] = $parentTranslation[1];
+		$nodePosition[2] = $nodePosition[2] + $parentTranslation[2] - $size[1] / 2;
+		
+		if ($element instanceof BoxElement) {
+			if ($element->type == BoxElement::$TYPE_BUILDING) {
+				$size = $element->getSize();
+				$nodePosition[1] = $parentTranslation[1] + $size[1] / 2;
+			} else {
+				$nodePosition[1] = $parentTranslation[1];
+			}
+		}
 		
 		$element->saveTranslation($nodePosition);
 		

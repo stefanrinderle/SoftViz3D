@@ -14,12 +14,14 @@ class TreeController extends BaseX3dController {
 		$rootId = $this->loadFiletoDb();
 
 		// STEP 2: calculate the view layout
-		$layout = new LayoutVisitor(LayoutVisitor::$TYPE_TREE);
+		
+		$layout = new StructureLayout();
+		$visitor = new LayoutVisitor($layout);
 		$root = InputNode::model()->findByPk($rootId);
-		$root->accept($layout);
+		$root->accept($visitor);
 		
 		// STEP 3: calculate absolute translations
-		Yii::app()->absolutePositionCalculator->calculate($rootId);
+		Yii::app()->absolutePositionCalculator->calculate($rootId, $layout);
 		
 		print_r("Calculation time: " + $this->getTimeDifference($startTime));
 

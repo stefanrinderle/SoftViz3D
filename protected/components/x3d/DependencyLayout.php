@@ -3,7 +3,10 @@
 class DependencyLayout extends AbstractLayerLayout {
 	
 	private $nodeHeight = 10;
-	private $layerSpacing = -200;
+	
+	public function __construct() {
+		$this->layerMargin = -200;
+	}
 	
 	protected function adjustBb($layerLayout, $depth, $inputTreeElementId) {
 		$layoutId = 1;
@@ -15,7 +18,7 @@ class DependencyLayout extends AbstractLayerLayout {
 		$color = array('r'=>0.7, 'g'=> 1, 'b'=> 1);
 		$transparency = 0.2;
 	
-		$translation = array(0, $depth * $this->layerSpacing, 0);
+		$translation = array(0, 0, 0);
 		$size = array('width'=>$width, 'length'=>$length);
 		
 		BoxElement::createAndSaveBoxElement(
@@ -23,12 +26,13 @@ class DependencyLayout extends AbstractLayerLayout {
 				$translation, $size, $color, $transparency);
 	}
 	
-	protected function adjustNode($node, $depth) {
+	protected function adjustNode($node) {
 		$layoutId = 1;
 		$inputTreeElementId = $node['attributes']['id'];
 		
 		$position = $node['attributes']['pos'];
-		$translation = array($position[0], $depth * $this->layerSpacing, $position[1]);
+		$translation = array($position[0], 0, $position[1]);
+		
 		$size = array($node['attributes']['width'] * LayoutVisitor::$SCALE, 
 						$this->nodeHeight / 2, 
 						$node['attributes']['height'] * LayoutVisitor::$SCALE);
@@ -41,12 +45,12 @@ class DependencyLayout extends AbstractLayerLayout {
 				$translation, $size, $color, $transparency);
 	}
 	
-	protected function adjustLeaf($node, $depth) {
+	protected function adjustLeaf($node) {
 		$layoutId = 1;
 		$inputTreeElementId = $node['attributes']['id'];
 		
 		if (substr($node['id'], 0, 4) == "dep_") {
-			$this->adjustDepLeaf($node, $depth);
+			$this->adjustDepLeaf($node);
 		} else {
 			$position = $node['attributes']['pos'];
 			
@@ -55,7 +59,7 @@ class DependencyLayout extends AbstractLayerLayout {
 			 */
 			$width = $node['attributes']['width'] * LayoutVisitor::$SCALE;
 			
-			$translation = array($position[0], $depth * $this->layerSpacing + ($this->nodeHeight / 2), $position[1]);
+			$translation = array($position[0], 0, $position[1]);
 			$size = array('width'=>$width, 'height'=>$this->nodeHeight, 'length'=>$width);
 			
 			$color = array('r'=>1, 'g'=>0.55, 'b'=>0);
@@ -67,17 +71,17 @@ class DependencyLayout extends AbstractLayerLayout {
 		}
 	}
 	
-	private function adjustDepLeaf($node, $depth) {
+	private function adjustDepLeaf($node) {
 		$layoutId = 1;
 		$inputTreeElementId = $node['attributes']['id'];
 		
 		$position = $node['attributes']['pos'];
 		
-		$height = abs($this->layerSpacing);
+		$height = abs($this->layerMargin);
 		$side = $node['attributes']['width'] * LayoutVisitor::$SCALE;
 	
 		$translation = array('x' => $position[0],
-						'y' => ($depth * $this->layerSpacing) + $height / 2,
+						'y' => 0,
 						'z' => $position[1]);
 		
 		$size = array('width'=> $side, 'height'=>$height, 'length'=>$side);
@@ -89,7 +93,7 @@ class DependencyLayout extends AbstractLayerLayout {
 				$translation, $size, $color, $transparency);
 	}
 	
-	protected function adjustEdge($edge, $depth) {
+	protected function adjustEdge($edge) {
 		$layoutId = 1;
 		$inputDependencyId = $edge['attributes']['id'];
 		
@@ -101,26 +105,26 @@ class DependencyLayout extends AbstractLayerLayout {
 		$edgeElement = EdgeElement::createAndSaveEdgeElement($layoutId, $inputDependencyId, $translation, $color, $lineWidth);
 		
 		$positions = $edge['attributes']['pos'];
-		
-		$startPos = $this->setYAxis($positions[1], $depth);
-		$endPos = $this->setYAxis($positions[0], $depth);
+		// 0 and 1 are overall start points
+		$startPos = $positions[1];
+		$endPos = $positions[0];
 		
 		if (count($positions) > 5) {
-			// 0 and 1 are overall start points 
-			$firstEndPoint = $this->setYAxis($positions[2], $depth);
-
+			$firstEndPoint = $positions[2];
 			$element = $this->createSection($edgeElement->id, $startPos, $firstEndPoint);
 			$element->save();
 			
 			for ($i = 3; $i < count($positions); $i++) {
-				$sectionStart = $this->setYAxis($positions[$i - 1], $depth);
-				$sectionEnd = $this->setYAxis($positions[$i], $depth);
+				$sectionStart = $positions[$i - 1];
+				$sectionEnd = $positions[$i];
 				
-				$element = $this->createSection($edgeElement->id, $sectionStart, $sectionEnd);
-				$element->save();
+				if ($sectionStart != $sectionEnd) {
+					$element = $this->createSection($edgeElement->id, $sectionStart, $sectionEnd);
+					$element->save();
+				}
 			}
 			
-			$lastSectionPoint = $this->setYAxis($positions[count($positions) - 1], $depth);
+			$lastSectionPoint = $positions[count($positions) - 1];
 			$endSection = $this->createSection($edgeElement->id, $lastSectionPoint, $endPos);
 			
 		} else {
@@ -136,11 +140,6 @@ class DependencyLayout extends AbstractLayerLayout {
 		$endSection->cylinderLength = $cylinderLength;
 		
 		$endSection->save();
-	}
-	
-	private function setYAxis($position, $depth) {
-		$position['y'] = $depth * $this->layerSpacing;
-		return $position;
 	}
 	
 	private function createSection($edgeId, $startPos, $endPos) {
