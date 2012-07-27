@@ -29,6 +29,25 @@ class Project extends CActiveRecord {
 		);
 	}
 	
+	public function saveNewFileString($fileString) {
+		$data = mysql_real_escape_string($fileString);
+		$this->file = $data;
+		$this->setFileUpdateTime(new DateTime());
+		
+		$this->save();
+	}
+	
+	public function getFileStringArray() {
+		$data = $this->file;
+		$data = explode("\\n", $data);
+		
+		foreach ($data as $key => $value) {
+			$data[$key] = stripcslashes($value);
+		}
+		
+		return $data;
+	}
+	
 	public function getFileUpdateTime() {
 		if ($this->fileUpdateTime) {
 			$date = new DateTime($this->fileUpdateTime);

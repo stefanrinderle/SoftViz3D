@@ -7,6 +7,9 @@ $this->breadcrumbs=array(
 
 <h2>File Editor</h2>
 
+<p><?php echo CHtml::link('Back', array('file/index', 'projectId' => $projectId)) . "  "; ?></p>
+<p><?php echo CHtml::link('Back to Projects', array('project/index', 'projectId' => $projectId)); ?></p>
+		
 <?php if(Yii::app()->user->hasFlash('error')): ?>
 		<div class="flash-error">
 			<?php echo Yii::app()->user->getFlash('error'); ?>

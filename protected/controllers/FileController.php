@@ -1,101 +1,93 @@
 <?php
 
-class FileController extends BaseController
-{
-	function getTime()
-	{
-		$a = explode (' ',microtime());
-		return(double) $a[0] + $a[1];
+class FileController extends BaseController {
+
+	public function actionIndex($projectId) {
+		$project = Project::model()->findByPk($projectId);
+		
+		$fileArray = $project->getFileStringArray();
+		
+		$content = $this->createEditorString($fileArray);
+		
+		$this->render('index', array('fileContent' => $content, 'projectId' => $projectId));
 	}
 	
-	public function actionIndex() {
-		$filename = Yii::app()->basePath . Yii::app()->params['currentResourceFile'];
+	public function actionCheck($projectId) {
+		$project = Project::model()->findByPk($projectId);
 		
-		$content = array();
-		$depthString = "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
-		$depth = "";
-		
-		if (file_exists($filename) && is_readable($filename)) {
-			$fh = fopen($filename, "r");
-			while (!feof($fh)) {
-				$line = fgets($fh);
-				
-				if (strpos($line, "}")) {
-					$depth = substr($depth, 0, strlen($depth) - strlen($depthString));
-				}
-				
-				array_push($content, $depth . $line);
-				
-				if (strpos($line, "{")) {
-					$depth .= $depthString;
-				} 
-			}
-			# Processing
-			fclose($fh);
-		} else {
-			// show error message
-		}
-		
-		$this->render('index', array(
-                'filename' => $filename,
-				'fileContent' => $content
-		));
-	}
-	
-	public function actionCheck() {
-		$filename = Yii::app()->basePath . Yii::app()->params['currentResourceFile'];
+		//$row = mysql_fetch_assoc();
+		$data = $project->getFileStringArray();
 		
 		try {
-			$result =Yii::app()->dotFileParser->parse($filename);
+			$result =Yii::app()->dotArrayParser->parse($data);
 			
 			Yii::app()->user->setFlash('success', 'File valid');
 			
-			$this->render('check', array('result' => $result));
+			$this->render('check', array('result' => $result, 'projectId' => $projectId));
 		} catch (Exception $e) {
 			$exception = $e;
 			Yii::app()->user->setFlash('error', 'Check failed: ' . $e->getMessage());
 			
-			$this->render('check', array('exception' => $exception));
+			$this->render('check', array('exception' => $exception, 'projectId' => $projectId));
 		}
 	}
 	
-	public function actionEdit() {
-		$filename = Yii::app()->basePath . Yii::app()->params['currentResourceFile'];
-		
+	public function actionEdit($projectId) {
 		$editform = new CForm('application.views.file._editForm', new EditFileForm());
+		
+		$project = Project::model()->findByPk($projectId);
 		
 		if ($editform->submitted('submit') && $editform->validate()) {
 			$content = $editform->model->content;
 		
-			$fileName = Yii::app()->basePath . Yii::app()->params['currentResourceFile'];
+			if ($project && $project->userId == Yii::app()->user->getId()) {
+				$project->saveNewFileString($content);
 		
-			if (file_put_contents($fileName, $content)) {
-				$this->redirect(array('file/index')); 
+				Yii::app()->user->setFlash('success', 'File saved.');
 			} else {
-				Yii::app()->user->setFlash('error', 'Error on saving file. ' . $fileName . ' must be writable by the server.');
+				Yii::app()->user->setFlash('error', 'File could not be saved.');
 			}
 			
+			$this->redirect(array('file/index', 'projectId' => $projectId));
 		}
 		
-		$content = "";
-	
-		if (file_exists($filename) && is_writable($filename)) {
-			$fh = fopen($filename, "r");
-			while (!feof($fh)) {
-				$line = fgets($fh);
-				$content .= $line;
-			}
-			# Processing
-			fclose($fh);
-		} else {
-			Yii::app()->user->setFlash('error', 'Target file not writeable. ' . $fileName . ' must be writable by the server.');
-		}
+		$fileArray = $project->getFileStringArray();
 		
-		$editform->model->content = $content;
+		$content = $this->createEditorString($fileArray, false);
+		$string = "";
+		foreach ($content as $value) {
+			$string .= $value . "\n";
+		}
+		$editform->model->content = htmlspecialchars_decode($string);
 		
 		$this->render('edit', array(
-			'form' => $editform
+			'form' => $editform, 'projectId' => $projectId
 		));
-		}
-	
+	}
+		
+	private function createEditorString($fileArray, $depht = true) {
+			$content = array();
+			if ($depht) {
+				$depthString = "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
+			} else {
+				$depthString = "";
+			}
+			
+			$depth = "";
+		
+			foreach ($fileArray as $line) {
+				if (strpos($line, "}")) {
+					$depth = substr($depth, 0, strlen($depth) - strlen($depthString));
+				}
+		
+				array_push($content, $depth . $line);
+		
+				if (strpos($line, "{")) {
+					$depth .= $depthString;
+				}
+			}
+		
+			return $content;
+	}
+		
 }

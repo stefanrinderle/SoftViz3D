@@ -29,8 +29,6 @@ class ImportController extends BaseController {
 		$filePath = Yii::app()->basePath . '/data/exampleFiles/' . $file;
 		$fp = fopen($filePath, 'r');
 		$fileContent = fread($fp, filesize($filePath));
-		//TODO:????
-		//$content = addslashes($content);
 		fclose($fp);
 
 		$this->saveFile($projectId, $fileContent);
@@ -98,10 +96,7 @@ class ImportController extends BaseController {
 		$project = Project::model()->findByPk($projectId);
 			
 		if ($project && $project->userId == Yii::app()->user->getId()) {
-			$project->file = $fileContent;
-			$project->setFileUpdateTime(new DateTime());
-	
-			$project->save();
+			$project->saveNewFileString($fileContent);
 	
 			Yii::app()->user->setFlash('success', 'File successful imported.');
 		} else {

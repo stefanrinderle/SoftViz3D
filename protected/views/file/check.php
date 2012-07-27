@@ -18,7 +18,9 @@ $this->breadcrumbs=array(
 
 <?php elseif(Yii::app()->user->hasFlash('success')):?>
 	<div class="flash-success">
-			<?php echo Yii::app()->user->getFlash('success'); ?>
+		<p><?php echo Yii::app()->user->getFlash('success'); ?></p>
+		<p><?php echo CHtml::link('Show file', array('file/index', 'projectId' => $projectId)) . "  "; ?></p>
+		<p><?php echo CHtml::link('Back to Projects', array('project/index', 'projectId' => $projectId)); ?></p>
 	</div>
 	<div>
 		<?php echo print_r($result); ?>

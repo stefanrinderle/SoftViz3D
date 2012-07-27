@@ -46,6 +46,8 @@ if (count($projects) == 0) {
 		
 		$time = $project->getFileUpdateTime();
 		if ($time != -1) {
+			echo CHtml::link('Show/edit file', array('file/index', 'projectId' => $project->id));
+			echo "<br />";
 			echo $time;
 		} else {
 			echo "no file";

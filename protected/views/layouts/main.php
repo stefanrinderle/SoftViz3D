@@ -52,7 +52,7 @@
 				array('label'=>'Projects', 'url'=>array('/project/index'), 'visible'=>!Yii::app()->user->isGuest),
 				//array('label'=>'Import', 'url'=>array('/import/index')),
 				array('label'=>'Goanna browser', 'url'=>array('/goanna/index')),
-				array('label'=>'File viewer', 'url'=>array('/file/index')),
+				//array('label'=>'File viewer', 'url'=>array('/file/index')),
 				array('label'=>'Structure view', 'url'=>array('/tree/index')),
 				array('label'=>'Dependency view', 'url'=>array('/graph/index')),
 				//array('label'=>'Test', 'url'=>array('/test/index')),
