@@ -40,9 +40,18 @@ class ImportController extends BaseController {
 		$uploadform = new CForm('application.views.import._uploadDotForm', new DotFileUpload());
 		
 		if ($uploadform->submitted('submit') && $uploadform->validate()) {
-			$fileContent = CUploadedFile::getInstance($uploadform->model, 'inputFile');
+			$uploadedFile = CUploadedFile::getInstance($uploadform->model, 'inputFile');
 			
-			$this->saveFile($projectId, $fileContent);
+			$newFilePath = Yii::app()->basePath . Yii::app()->params['currentResourceFile'];
+			
+			$uploadSuccess = $uploadedFile->saveAs($newFilePath);
+			if (!$uploadSuccess) {
+			   throw new CHttpException('Error uploading file.');  
+			}
+			$content=file_get_contents($newFilePath);
+			unlink($newFilePath);
+			
+			$this->saveFile($projectId, $content);
 			
 			$this->redirect(array('project/index'));
 		}	
