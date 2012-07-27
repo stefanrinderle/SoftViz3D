@@ -1,44 +1,70 @@
-digraph _Users_stefan_Sites_3dArch_x3d {
-      "basisTests.x3d";
-      "basisTestsEdge.x3d";
-      "basisTestsNurbs.x3d";
-      "basisTestsText.x3d";
-      "dependency.dot";
-      "image_graphviz.dot";
-      "layeredLayout.dot";
-      "nurbsTestWindows.x3d";
-      "parser.adot";
-      "parser.dot";
-      "parser.pdf";
-      "parsera.dot";
-      "simpleGraph.adot";
-      "simpleGraph.dot";
-      "simpleGraph2D.adot";
-      "simpleGraph2D.dot";
-      "subgraph.adot";
-      "subgraph.dot";
-      "subgraph.pdf";
-      "subgraphTest.adot";
-      "subgraphTest.dot";
-      "subgraphTest.pdf";
-      "temp.adot";
-      "temp.dot";
-      "testTransparency.x3d";
-      "tvoicerWeb.x3d";
-      "world.adot";
-      "world.dot";
-      "world.pdf";
-      subgraph cluster_vrml_0 {
-           graph [ label=vrml_0 ];
-           "3d.html";
-           "3d.vrml";
-           "node1.png";
-           "node10.png";
-           "node12.png";
-           "node16.png";
-           "node3.png";
-           "node4.png";
-           "node6.png";
-           "node8.png";
-      }
-     } 
+digraph G {
+	subgraph model {
+		m1;
+		m2;
+		m3;
+	}	
+	subgraph view {
+		subgraph viewsC1 {
+			v1c1;
+			v2c1;
+			v3c1;
+		}
+		subgraph viewsC2 {
+			v1c2;
+			v2c2;
+			v3c2;
+		}
+		subgraph viewsC3 {
+			v1c3;
+			v2c3;
+			v3c3;
+		}
+		subgraph viewsC4 {
+			v1c4;
+			v2c4;
+			v3c4;
+		}
+		subgraph viewsC5 {
+			v1c5;
+			v2c5;
+			v3c5;
+		}
+	}
+	subgraph controller {
+		c1;
+		c2;
+		c3;
+		c4;
+		c5;
+	}
+
+	v1c1 -> m1;
+	v2c1 -> m2;
+	v3c2 -> m1;
+	v1c3 -> m2;
+	v1c1 -> m1;
+		
+	c1 -> m1;
+	c1 -> m2;
+	c2 -> m1;
+	c3 -> m1;
+	c4 -> m2;
+	c5 -> m1;
+	
+	c1 -> v1c1;
+	c1 -> v2c1;
+	c1 -> v3c1;
+	c2 -> v1c2;
+	c2 -> v2c2;
+	c2 -> v3c2;
+	c3 -> v1c3;
+	c3 -> v2c3;
+	c3 -> v3c3;
+	c4 -> v1c4;
+	c4 -> v2c4;
+	c4 -> v3c4;
+	c5 -> v1c5;
+	c5 -> v2c5;
+	c5 -> v3c5;
+}

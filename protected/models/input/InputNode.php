@@ -2,7 +2,6 @@
 
 class InputNode extends InputTreeElement {
 	
-	public $x3dInfos;
 	public $isVisible = 1;
 
 	public static function model($className=__CLASS__) {

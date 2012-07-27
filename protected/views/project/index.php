@@ -58,7 +58,7 @@ if (count($projects) == 0) {
 		if (array_key_exists(Layout::$TYPE_STRUCTURE, $layoutType)) {
 			echo $layoutType[Layout::$TYPE_STRUCTURE]->id;
 		} else if ($time != -1) {
-			echo "create";
+			echo CHtml::link('Show/edit file', array('file/index', 'projectId' => $project->id));
 		} else {
 			echo "";
 		}

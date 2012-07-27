@@ -49,7 +49,6 @@ class ImportController extends BaseController {
 			   throw new CHttpException('Error uploading file.');  
 			}
 			$content=file_get_contents($newFilePath);
-			unlink($newFilePath);
 			
 			$this->saveFile($projectId, $content);
 			
