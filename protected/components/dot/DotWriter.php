@@ -3,8 +3,7 @@
 Yii::import('application.vendors.*');
 require_once('Image_GraphViz_Copy.php');
 
-class DotWriter extends CApplicationComponent
-{
+class DotWriter extends CApplicationComponent {
 	private $graphViz;
 	
 	public function writeToFile($elements, $outputFile) {

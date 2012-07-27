@@ -1,6 +1,6 @@
 <?php
 
-abstract class AbstractLayerLayout extends CApplicationComponent {
+abstract class AbstractView extends CApplicationComponent {
 	
 	protected $layerMargin;
 	

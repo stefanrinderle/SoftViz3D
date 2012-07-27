@@ -20,11 +20,12 @@ return array(
 		'application.models.layout.*',
 		'application.controllers.*',
 		'application.components.*',
-		'application.components.database.*',
 		'application.components.dot.*',
 		'application.components.dot.parser.*',
+		'application.components.dot.import.*',
 		'application.components.goanna.*',
-		'application.components.x3d.*',
+		'application.components.layout.*',
+		'application.components.layout.helper.*',
 		'application.widgets.x3dom.X3domWidget'
 	),
 
@@ -68,12 +69,12 @@ return array(
 			'class'=>'JDependToDotParser',
 		),
 			
-		// x3d folder	
-		'structureLayout'=>array(
-			'class'=>'structureLayout',
+		// layout folder	
+		'structureView'=>array(
+			'class'=>'StructureView',
 		),
-		'dependencyLayout'=>array(
-			'class'=>'DependencyLayout',
+		'dependencyView'=>array(
+			'class'=>'DependencyView',
 		),
 		'absolutePositionCalculator'=>array(
 			'class'=>'AbsolutePositionCalculator',

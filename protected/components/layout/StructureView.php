@@ -1,6 +1,6 @@
 <?php
 
-class StructureLayout extends AbstractLayerLayout {
+class StructureView extends AbstractView {
 	
 	public function __construct() {
 		$this->layerMargin = 5;

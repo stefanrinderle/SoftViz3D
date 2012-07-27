@@ -1,8 +1,9 @@
 <?php
 
-class DependencyLayout extends AbstractLayerLayout {
+class DependencyView extends AbstractView {
 	
-	private $nodeHeight = 10;
+	// In this layout the building height is fixed.
+	private $buildingHeight = 10;
 	
 	public function __construct() {
 		$this->layerMargin = -200;
@@ -34,7 +35,7 @@ class DependencyLayout extends AbstractLayerLayout {
 		$translation = array($position[0], 0, $position[1]);
 		
 		$size = array($node['attributes']['width'] * LayoutVisitor::$SCALE, 
-						$this->nodeHeight / 2, 
+						$this->buildingHeight / 2, 
 						$node['attributes']['height'] * LayoutVisitor::$SCALE);
 	
 		$color = array('r'=>1, 'g'=>0, 'b'=>0);
@@ -60,7 +61,7 @@ class DependencyLayout extends AbstractLayerLayout {
 			$width = $node['attributes']['width'] * LayoutVisitor::$SCALE;
 			
 			$translation = array($position[0], 0, $position[1]);
-			$size = array('width'=>$width, 'height'=>$this->nodeHeight, 'length'=>$width);
+			$size = array('width'=>$width, 'height'=>$this->buildingHeight, 'length'=>$width);
 			
 			$color = array('r'=>1, 'g'=>0.55, 'b'=>0);
 			$transparency = 0;

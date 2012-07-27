@@ -11,7 +11,7 @@ class LayoutVisitor {
 	
 	private $type;
 	
-	function __construct(AbstractLayerLayout $layout) {
+	function __construct(AbstractView $layout) {
 		$this->layout = $layout;
 		
 		$criteria = new CDbCriteria;
@@ -53,7 +53,7 @@ class LayoutVisitor {
  			}
  		} else {
  			// refactor -> info should be in layout classes
- 			if ($this->layout instanceof DependencyLayout) {
+ 			if ($this->layout instanceof DependencyView) {
 				if ($this->maxCounter != 0) {
 					$value = ($comp->counter / $this->maxCounter) + 0.1;
 					$side = round($value, 2);
@@ -93,7 +93,8 @@ class LayoutVisitor {
 	}
 
 	/**
-	 * Writes the current elements in an dot file and generated the layout dot file
+	 * Writes the current elements in an dot file, generates the layout dot file
+	 * parse it and return the parsed array back
 	 */
 	private function calcLayerLayout($elements) {
 		Yii::app()->dotWriter->writeToFile($elements, $this->outputFile);
@@ -110,11 +111,11 @@ class LayoutVisitor {
 			}
 		}
 		
-		$layoutDot = Yii::app()->dotCommand->execute($this->outputFile, $layout);
+		$dotLayerString = Yii::app()->dotCommand->execute($this->outputFile, $layout);
 		
-		$newLayout = Yii::app()->dotArrayParser->parse($layoutDot);
+		$layerLayout = Yii::app()->dotArrayParser->parse($dotLayerString);
 		
-		return $newLayout;
+		return $layerLayout;
 	}
 }
 ?>

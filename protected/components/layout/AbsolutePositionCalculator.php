@@ -1,11 +1,15 @@
 <?php
 
+/**
+ * This class will go through the tree structure and set the 3d position for each element.
+ * @author stefan
+ */
 class AbsolutePositionCalculator extends CApplicationComponent {
 	
-	private $layout;
+	private $view;
 	
-	public function calculate($rootId, AbstractLayerLayout $layout) {
-		$this->layout = $layout;
+	public function calculate($rootId, AbstractView $view) {
+		$this->view = $view;
 		
 		$this->addTranslationToLayer($rootId, array(0, 0, 0), 1);
 	}
@@ -31,7 +35,7 @@ class AbsolutePositionCalculator extends CApplicationComponent {
 			
 				$nodePosition = $this->setNewPosition($element, $parentTranslation, $layoutElement);
 				
-				$nodePosition[1] = $nodePosition[1] + $this->layout->getLayerMargin();
+				$nodePosition[1] = $nodePosition[1] + $this->view->getLayerMargin();
 				
 				$this->addTranslationToLayer($value->id, $nodePosition);
 			} else {

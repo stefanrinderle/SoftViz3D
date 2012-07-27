@@ -25,15 +25,15 @@ class GraphController extends BaseX3dController
 		//echo "Calculation time edge expander: " . $this->getTimeDifference($startTime) . "<br />";
 		
 		// STEP 3: calculate the view layout
-		$layout = new DependencyLayout();
-		$visitor = new LayoutVisitor($layout);
+		$view = new DependencyView();
+		$visitor = new LayoutVisitor($view);
 		$root = InputNode::model()->findByPk($rootId);
 		$root->accept($visitor);
 		
 		//echo "Calculation time Layoutvisitor: " . $this->getTimeDifference($startTime) . "<br />";
 		
 		// STEP 4: calculate absolute translations
-		Yii::app()->absolutePositionCalculator->calculate($rootId, $layout);
+		Yii::app()->absolutePositionCalculator->calculate($rootId, $view);
 		
 		//echo "Calculation time absolute translations: " . $this->getTimeDifference($startTime) . "<br />";
 		
