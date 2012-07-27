@@ -2,6 +2,8 @@
 
 abstract class AbstractView extends CApplicationComponent {
 	
+	protected $layoutId;
+	
 	protected $layerMargin;
 	
 	public function calculate($layerLayout, $comp) {

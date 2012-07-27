@@ -8,8 +8,13 @@ class DependencyExpander extends CApplicationComponent {
 	
 	private $nodesCounter = array(); 
 	
+	private $projectId;
+	
 	public function execute($projectId) {
+		$this->projectId = $projectId;
+		
 		// remove old dependency path edges
+		// no more needed but secure is secure :-)
 		InputDependency::model()->deleteAllByAttributes(array('projectId' => $projectId, 'type' => InputDependency::$TYPE_PATH));
 		
 		$edges = InputDependency::model()->findAllByAttributes(array('projectId' => $projectId));
@@ -62,7 +67,7 @@ class DependencyExpander extends CApplicationComponent {
 	}
 	
 	private function expandEdge($source, $dest) {
-		while ($source->parent_id != $dest->parent_id) {
+		while ($source->parentId != $dest->parentId) {
 			if ($source->level > $dest->level) {
 				$this->handleNewDepEdge($source, "in");
 				$source = $source->parent;
@@ -73,7 +78,7 @@ class DependencyExpander extends CApplicationComponent {
 		}
 	
 		//compute till both have the same parent
-		while ($source->parent_id != $dest->parent_id) {
+		while ($source->parentId != $dest->parentId) {
 			if ($source->level > $dest->level) {
 				$this->handleNewDepEdge($source, "in");
 				$source = $source->parent;
@@ -94,7 +99,7 @@ class DependencyExpander extends CApplicationComponent {
 			$edge = $this->dependencyEdges[$depEdgeLabel];
 			$edge->counter++;
 		} else {
-			$element = InputDependency::createInputDependency($depEdgeLabel, $source->id, $dest->id, $source->parent_id);
+			$element = InputDependency::createInputDependency($this->projectId, $depEdgeLabel, $source->id, $dest->id, $source->parentId);
 			$this->dependencyEdges[$depEdgeLabel] = $element;
 		}
 	}
@@ -107,12 +112,12 @@ class DependencyExpander extends CApplicationComponent {
 			$edge = $this->dependencyEdges[$depEdgeLabel];
 			$edge->counter++;
 		} else {
-			$depNodeId = $this->getDependencyNode($node->parent_id, $node->level);
+			$depNodeId = $this->getDependencyNode($node->parentId, $node->level);
 	
 			if ($type == "out") {
-				$element = InputDependency::createInputDependency($depEdgeLabel, $depNodeId, $node->id, $node->parent_id);
+				$element = InputDependency::createInputDependency($this->projectId, $depEdgeLabel, $depNodeId, $node->id, $node->parentId);
 			} else {
-				$element = InputDependency::createInputDependency($depEdgeLabel, $node->id, $depNodeId, $node->parent_id);
+				$element = InputDependency::createInputDependency($this->projectId, $depEdgeLabel, $node->id, $depNodeId, $node->parentId);
 			}
 	
 			$this->dependencyEdges[$depEdgeLabel] = $element;
@@ -128,7 +133,7 @@ class DependencyExpander extends CApplicationComponent {
 			$savedNode->counter++;
 			$depNodeId = $savedNode->id;
 		} else {
-			$node = InputLeaf::create($depNodeLabel, $depNodeLabel, $parentId, $level);
+			$node = InputLeaf::create($this->projectId, $depNodeLabel, $depNodeLabel, $parentId, $level);
 			$node->save();
 			$this->dependenyNodes[$depNodeLabel] = $node;
 			

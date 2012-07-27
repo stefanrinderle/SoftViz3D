@@ -1,6 +1,6 @@
 <?php
 
-class TreeController extends BaseX3dController {
+class TreeController extends BaseProjectFileController {
 	private $sourceFile = '/Users/stefan/Sites/3dArch/x3d/dependency.dot';
 	
 	public $layout='//layouts/column1';

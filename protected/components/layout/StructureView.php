@@ -2,13 +2,13 @@
 
 class StructureView extends AbstractView {
 	
-	public function __construct() {
+	public function __construct($layoutId) {
+		$this->layoutId = $layoutId;
+		
 		$this->layerMargin = 5;
 	}
 	
 	protected function adjustBb($layerLayout, $depth, $inputTreeElementId) {
-		$layoutId = 1;
-
 		$bb = $layerLayout['attributes']['bb'];
 		$width = round($bb[2] - $bb[0], 2);
 		$length = round($bb[3] - $bb[1], 2);
@@ -24,12 +24,11 @@ class StructureView extends AbstractView {
 		$transparency = 0;
 		
 		BoxElement::createAndSaveBoxElement(
-				$layoutId, $inputTreeElementId, BoxElement::$TYPE_PLATFORM, 
+				$this->layoutId, $inputTreeElementId, BoxElement::$TYPE_PLATFORM, 
 				$translation, $size, $color, $transparency);
 	}
 	
 	protected function adjustNode($node) {
-		$layoutId = 1;
 		$inputTreeElementId = $node['attributes']['id'];
 		
 		$position = $node['attributes']['pos'];
@@ -40,12 +39,11 @@ class StructureView extends AbstractView {
 		$transparency = 0;
 		
 		BoxElement::createAndSaveBoxElement(
-				$layoutId, $inputTreeElementId, BoxElement::$TYPE_FOOTPRINT,
+				$this->layoutId, $inputTreeElementId, BoxElement::$TYPE_FOOTPRINT,
 				$translation, $size, $color, $transparency);
 	}
 	
 	protected function adjustLeaf($node) {
-		$layoutId = 1;
 		$inputTreeElementId = $node['attributes']['id'];
 		
 		$width = $node['attributes']['width'] * LayoutVisitor::$SCALE;
@@ -71,7 +69,7 @@ class StructureView extends AbstractView {
 		$transparency = 0;
 		
 		BoxElement::createAndSaveBoxElement(
-				$layoutId, $inputTreeElementId, BoxElement::$TYPE_BUILDING,
+				$this->layoutId, $inputTreeElementId, BoxElement::$TYPE_BUILDING,
 				$translation, $size, $color, $transparency);
 	}
 	

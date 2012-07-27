@@ -10,7 +10,7 @@
 	}
 
 	if ($layer->isVisible) {
-		echo CHtml::button("Hide layer", array("onclick" => "layerRemoveLayerById(" . $layer->id . ", " . $layer->parent_id . ")"));
+		echo CHtml::button("Hide layer", array("onclick" => "layerRemoveLayerById(" . $layer->id . ", " . $layer->parentId . ")"));
 	} else {
 		echo CHtml::button("Show layer", array("onclick" => "layerShowLayerById(" . $layer->id . ")"));
 	}
@@ -40,7 +40,7 @@
 				echo CHtml::link($child->label, "#", array("onclick" => "showLayerDetailsById(" . $child->id . ")"));
 				echo " - ";
 				if ($child->isVisible) {
-					echo CHtml::button("hide", array("onclick" => "layerRemoveLayerById(" . $child->id . ", " . $child->parent_id . ")"));
+					echo CHtml::button("hide", array("onclick" => "layerRemoveLayerById(" . $child->id . ", " . $child->parentId . ")"));
 				} else {
 					echo CHtml::button("show", array("onclick" => "layerShowLayerById(" . $child->id . ")"));
 				}

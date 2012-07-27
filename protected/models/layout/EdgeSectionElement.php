@@ -8,6 +8,8 @@ class EdgeSectionElement extends CActiveRecord {
 	public $id;
 	public $edgeId;
 	
+	public $layoutId;
+	
 	public $type;
 	
 	public $translation;
@@ -32,10 +34,11 @@ class EdgeSectionElement extends CActiveRecord {
 		);
 	}
 	
-	public static function createDefaultEdgeSectionElement($edgeId, $translation, $rotation, $length) {
+	public static function createDefaultEdgeSectionElement($edgeId, $layoutId, $translation, $rotation, $length) {
 		$element = new self('insert');
 		$element->edgeId = $edgeId;
-	
+		$element->layoutId = $layoutId;
+		
 		$element->type = EdgeSectionElement::$TYPE_DEFAULT;
 		
 		$element->translation = implode(' ', $translation);
@@ -45,10 +48,11 @@ class EdgeSectionElement extends CActiveRecord {
 		return $element;
 	}
 	
-	public static function createAndSaveEndEdgeSectionElement($edgeId, $translation, $rotation, $length, $cylinderLength, $coneLength, $coneRadius) {
+	public static function createAndSaveEndEdgeSectionElement($edgeId, $layoutId, $translation, $rotation, $length, $cylinderLength, $coneLength, $coneRadius) {
 		$element = new self('insert');
 		$element->edgeId = $edgeId;
-	
+		$element->layoutId = $layoutId;
+		
 		$element->type = EdgeSectionElement::$TYPE_END;
 	
 		$element->translation = implode(' ', $translation);

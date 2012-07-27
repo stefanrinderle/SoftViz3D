@@ -25,7 +25,7 @@ class AbsolutePositionCalculator extends CApplicationComponent {
 		
 		// calculate values for the children nodes
 		// first find the chlidren elements of the input tree 
-		$content = InputTreeElement::model()->findAllByAttributes(array('parent_id'=>$layoutElement->inputTreeElementId));
+		$content = InputTreeElement::model()->findAllByAttributes(array('parentId'=>$layoutElement->inputTreeElementId));
 		foreach ($content as $key => $value) {
 			if (!$value->isLeaf) {
 				// find the according layout representations
@@ -50,7 +50,7 @@ class AbsolutePositionCalculator extends CApplicationComponent {
 			}
 		}
 		
-		$contentEdges = InputDependency::model()->findAllByAttributes(array('parent_id' => $layoutElement->inputTreeElementId));
+		$contentEdges = InputDependency::model()->findAllByAttributes(array('parentId' => $layoutElement->inputTreeElementId));
 		foreach ($contentEdges as $key => $value) {
 			$element = EdgeElement::model()->findByAttributes(array(
 									'inputDependencyId'=>$value->id));

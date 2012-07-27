@@ -9,20 +9,18 @@ abstract class AbstractDotParser extends CApplicationComponent {
 	private $attrPattern = '/.*\[(.*)\].*/';
 	private $idPattern = '/"?([a-zA-Z0-9_\-\.]+).*(\[).*/';
 	
-	public abstract function parse($data, $includeEdges = true);
+	public abstract function parse($data);
 	
 	protected abstract function getNewLine();
 	
-	protected function start($includeEdges) {
+	protected function start() {
 		$this->edgeStore = array();
 		
 		$this->getNewLine();
 		
 		$this->result = $this->parseGraph();
 		
-		if ($includeEdges) {
-			$this->result['edges'] = $this->edgeStore;
-		}
+		$this->result['edges'] = $this->edgeStore;
 	}
 	
 	private function parseGraph() {

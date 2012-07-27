@@ -5,11 +5,11 @@ class DotArrayParser extends AbstractDotParser {
 	private $inputArrayCounter = 0;
 	private $inputArray;
 	
-	public function parse($array, $includeEdges = true) {
+	public function parse($array) {
 		$this->inputArray = $array;
 		$this->inputArrayCounter = 0;
 		
-		$this->start($includeEdges);
+		$this->start();
 		
 		return $this->result;
 	}

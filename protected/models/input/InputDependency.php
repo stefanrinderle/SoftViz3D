@@ -12,7 +12,7 @@ class InputDependency extends CActiveRecord {
 	public $label;
 	public $out_id;
 	public $in_id;
-	public $parent_id;
+	public $parentId;
 	public $counter = 1;
 	public $isVisible = 1;
 	
@@ -37,12 +37,12 @@ class InputDependency extends CActiveRecord {
 	}
 	
 	// factory method
-	public static function createAndSaveDotInputDependency($label, $out_id, $in_id, $out_parent_id, $in_parent_id) {
+	public static function createAndSaveDotInputDependency($projectId, $label, $out_id, $in_id, $out_parent_id, $in_parent_id) {
 		$element = new self('insert');
 		
 		if ($out_parent_id == $in_parent_id) {
 			$element->type = InputDependency::$TYPE_INPUT_FLAT;
-			$element->parent_id = $out_parent_id;
+			$element->parentId = $out_parent_id;
 		} else {
 			$element->type = InputDependency::$TYPE_INPUT_FREE;
 		}
@@ -51,14 +51,14 @@ class InputDependency extends CActiveRecord {
 		$element->out_id = $out_id;
 		$element->in_id = $in_id;
 	
-		$element->projectId = 0;
+		$element->projectId = $projectId;
 		
 		$element->save();
 		
 		return $element;
 	}
 	
-	public static function createInputDependency($label, $out_id, $in_id, $parent_id = null) {
+	public static function createInputDependency($projectId, $label, $out_id, $in_id, $parentId = null) {
 		$element = new self('insert');
 		
 		$element->type = InputDependency::$TYPE_PATH;
@@ -66,18 +66,11 @@ class InputDependency extends CActiveRecord {
 		$element->label = $label;
 		$element->out_id = $out_id;
 		$element->in_id = $in_id;
-		$element->parent_id = $parent_id;
+		$element->parentId = $parentId;
 		
-		$element->projectId = 0;
+		$element->projectId = $projectId;
 		
 		return $element;
-	}
-	
-	public static function createAndSaveInputDependency($label, $out_id, $in_id, $parent_id = null) {
-		$element = InputDependency::createInputDependency($label, $out_id, $in_id, $parent_id);
-	
-		$element->save();
-		return $element->id;
 	}
 }
 

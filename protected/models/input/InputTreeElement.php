@@ -14,7 +14,7 @@ class InputTreeElement extends CActiveRecord {
 	public $label;
 	
 	// tree structure
-	public $parent_id;
+	public $parentId;
 	public $level;
 	
 	// ER-mapping of inheritance
@@ -39,7 +39,7 @@ class InputTreeElement extends CActiveRecord {
 
 	public function relations() {
 		return array(
-				'parent'=>array(self::BELONGS_TO, 'InputTreeElement', 'parent_id')
+				'parent'=>array(self::BELONGS_TO, 'InputTreeElement', 'parentId')
 		);
 	}
 	

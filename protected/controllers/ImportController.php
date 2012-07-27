@@ -1,6 +1,6 @@
 <?php
 
-class ImportController extends BaseController {
+class ImportController extends BaseProjectFileController {
 	
 	public function actionIndex($projectId) {
 		$uploadDotForm = $this->_handleUploadDotForm($projectId);
@@ -98,17 +98,5 @@ class ImportController extends BaseController {
 		}
 	
 		return $directoryPathform;
-	}
-	
-	private function saveFile($projectId, $fileContent) {
-		$project = Project::model()->findByPk($projectId);
-			
-		if ($project && $project->userId == Yii::app()->user->getId()) {
-			$project->saveNewFileString($fileContent);
-	
-			Yii::app()->user->setFlash('success', 'File successful imported.');
-		} else {
-			Yii::app()->user->setFlash('error', 'File could not be loaded.');
-		}
 	}
 }

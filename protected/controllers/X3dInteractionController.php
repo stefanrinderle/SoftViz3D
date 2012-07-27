@@ -89,7 +89,7 @@ class X3dInteractionController extends BaseController {
 	private function retrieveAllChildrenLayers($layerId) {
 		$result = array();
 	
-		$children = InputNode::model()->findAllByAttributes(array('parent_id'=>$layerId));
+		$children = InputNode::model()->findAllByAttributes(array('parentId'=>$layerId));
 	
 		foreach ($children as $child) {
 			array_push($result, $child);
@@ -116,7 +116,7 @@ class X3dInteractionController extends BaseController {
 	private function hideAllChildrenLayers($layerId) {
 		$result = array();
 	
-		$layers = InputNode::model()->findAllByAttributes(array('parent_id'=>$layerId));
+		$layers = InputNode::model()->findAllByAttributes(array('parentId'=>$layerId));
 		foreach ($layers as $layer) {
 			array_push($result, $layer->id);
 			$result = array_merge($result, $this->hideAllChildrenLayers($layer->id));
@@ -125,12 +125,12 @@ class X3dInteractionController extends BaseController {
 			$layer->save();
 		}
 		
-		$leafs = InputTreeElement::model()->findAllByAttributes(array('parent_id'=>$layerId));
+		$leafs = InputTreeElement::model()->findAllByAttributes(array('parentId'=>$layerId));
 		foreach ($leafs as $leaf) {
 			array_push($result, $leaf->id);
 		}
 		
-		$edges = InputDependency::model()->findAllByAttributes(array('parent_id'=>$layerId));
+		$edges = InputDependency::model()->findAllByAttributes(array('parentId'=>$layerId));
 		foreach ($edges as $edge) {
 			array_push($result, $edge->id);
 		}

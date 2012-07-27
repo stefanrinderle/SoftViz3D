@@ -56,9 +56,10 @@ if (count($projects) == 0) {
 		echo "</td><td>";
 		
 		if (array_key_exists(Layout::$TYPE_STRUCTURE, $layoutType)) {
-			echo $layoutType[Layout::$TYPE_STRUCTURE]->id;
+			echo "view <br />";
+			echo CHtml::link('recalculate', array('view/index', 'projectId' => $project->id, 'viewType' => Layout::$TYPE_STRUCTURE));
 		} else if ($time != -1) {
-			echo CHtml::link('Show/edit file', array('file/index', 'projectId' => $project->id));
+			echo CHtml::link('create layout', array('view/index', 'projectId' => $project->id, 'viewType' => Layout::$TYPE_STRUCTURE));
 		} else {
 			echo "";
 		}

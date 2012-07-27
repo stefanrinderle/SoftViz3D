@@ -26,19 +26,19 @@ class InputNode extends InputTreeElement {
 	public function accept($visitor) {
 		$layoutElements = array();
 		
-		$content = InputNode::model()->findAllByAttributes(array('parent_id'=>$this->id));
+		$content = InputNode::model()->findAllByAttributes(array('parentId'=>$this->id));
 		foreach ($content as $child) {
 			$element = $child->accept($visitor);
 			array_push($layoutElements, $element);
 		}
 		
-		$content = InputLeaf::model()->findAllByAttributes(array('parent_id'=>$this->id));
+		$content = InputLeaf::model()->findAllByAttributes(array('parentId'=>$this->id));
 		foreach ($content as $child) {
 			$element = $child->accept($visitor);
 			array_push($layoutElements, $element);
 		}
 			
-		$edges = InputDependency::model()->findAllByAttributes(array('parent_id'=>$this->id));
+		$edges = InputDependency::model()->findAllByAttributes(array('parentId'=>$this->id));
 		foreach ($edges as $edge) {
 			array_push($layoutElements, $edge);
 		}
@@ -47,24 +47,26 @@ class InputNode extends InputTreeElement {
 	}
 	
 	// factory method
-	public static function createAndSave($name, $label, $parent_id, $level) {
+	public static function createAndSave($projectId, $name, $label, $parentId, $level) {
 		$element = new self('insert');
-		$element->name=$name;
-		$element->label=$label;
-		$element->parent_id=$parent_id;
-		$element->level=$level;
+		$element->projectId = $projectId; 
+		$element->name = $name;
+		$element->label = $label;
+		$element->parentId = $parentId;
+		$element->level = $level;
 		$element->isLeaf = 0;
 	
 		$element->save();
 		return $element->id;
 	}
 	
-	public static function create($name, $label, $parent_id, $level) {
+	public static function create($projectId, $name, $label, $parentId, $level) {
 		$element = new self('insert');
-		$element->name=$name;
-		$element->label=$label;
-		$element->parent_id=$parent_id;
-		$element->level=$level;
+		$element->projectId = $projectId;
+		$element->name = $name;
+		$element->label = $label;
+		$element->parentId = $parentId;
+		$element->level = $level;
 		$element->isLeaf = 0;
 	
 		$element->save();

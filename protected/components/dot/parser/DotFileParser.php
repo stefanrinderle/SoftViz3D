@@ -4,10 +4,10 @@ class DotFileParser extends AbstractDotParser {
 
 	private $parseFileHandle;
 	
-	public function parse($dotFile, $includeEdges = true) {
+	public function parse($dotFile) {
 		$this->parseFileHandle = fopen($dotFile, "r");
 		
-		$this->start($includeEdges);
+		$this->start();
 		
 		fclose($this->parseFileHandle);
 		

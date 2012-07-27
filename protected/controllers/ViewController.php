@@ -1,74 +1,42 @@
 <?php
 
-class TreeController extends BaseController {
+class ViewController extends BaseController {
 	private $sourceFile = '/Users/stefan/Sites/3dArch/x3d/dependency.dot';
-	
-	public $layout='//layouts/column1';
 	
 	public function actionIndex($projectId, $viewType) {
 		$startTime = $this->getTime();
 		
 		$project = Project::model()->findByPk($projectId);
 		
-		if (!$project->inputTreeRootId) {
-			$this->loadFiletoDb($project);
-		}
-		
 		if ($viewType == Layout::$TYPE_STRUCTURE) {
-			if (array_key_exists($project->layouts, Layout::$TYPE_STRUCTURE)) {
+			if (array_key_exists(Layout::$TYPE_STRUCTURE, $project->layouts)) {
 				$layout = $project->layouts[Layout::$TYPE_STRUCTURE];
 				
 				BoxElement::model()->deleteAllByAttributes(array('layoutId'=>$layout->id));
 				EdgeElement::model()->deleteAllByAttributes(array('layoutId'=>$layout->id));
+			} else {
+				$layout = new Layout();
+				$layout->projectId = $projectId;
+				$layout->type = Layout::$TYPE_STRUCTURE;
+				$layout->save();
 			}
 		}
-		
-		print_r("Delete old layout: " + $this->getTimeDifference($startTime));
-		
-		$rootId = $this->loadFiletoDb();
 
+		print_r("Delete old layout: " . $this->getTimeDifference($startTime));
+		
 		// STEP 2: calculate the view layout
 		
-		$view = new StructureView();
+		$view = new StructureView($layout->id);
 		$visitor = new LayoutVisitor($view);
-		$root = InputNode::model()->findByPk($rootId);
+		$root = InputNode::model()->findByPk($project->inputTreeRootId);
 		$root->accept($visitor);
 		
 		// STEP 3: calculate absolute translations
-		Yii::app()->absolutePositionCalculator->calculate($rootId, $view);
+		Yii::app()->absolutePositionCalculator->calculate($project->inputTreeRootId, $view);
 		
 		print_r("Calculation time: " + $this->getTimeDifference($startTime));
 
 		// STEP 5: show the calculated layout
-		$layoutId = 1;
-		$this->render('index', array('layoutId' => $layoutId));
-	}
-	
-	protected function loadFiletoDb(Project $project) {
-		try {
-			/* reset database */
-			InputTreeElement::model()->deleteAll();
-			InputDependency::model()->deleteAll();
-				
-			$parseResult = Yii::app()->dotFileParser->parse($filename, $includeEdges);
-				
-			$parseResult = $this->removeEmptyStartLayers($parseResult);
-				
-			return Yii::app()->dotArrayToDB->save($parseResult);
-		} catch (Exception $e) {
-			$exception = $e;
-			Yii::app()->user->setFlash('error', 'Input file parsing failed: ' . $e->getMessage());
-			//TODO render another layout file and exit
-		}
-	}
-	
-	private function removeEmptyStartLayers($parseResult) {
-		while (count($parseResult['content']) == 1) {
-			$edges = $parseResult['edges'];
-			$parseResult = $parseResult['content'][0];
-			$parseResult['edges'] = $edges;
-		}
-	
-		return $parseResult;
+		$this->render('//tree/index', array('layoutId' => $layout->id));
 	}
 }

@@ -5,13 +5,12 @@ class DependencyView extends AbstractView {
 	// In this layout the building height is fixed.
 	private $buildingHeight = 10;
 	
-	public function __construct() {
+	public function __construct($layoutId) {
+		$this->layoutId = $layoutId;
 		$this->layerMargin = -200;
 	}
 	
 	protected function adjustBb($layerLayout, $depth, $inputTreeElementId) {
-		$layoutId = 1;
-		
 		$bb = $layerLayout['attributes']['bb'];
 		$width = round($bb[2] - $bb[0], 2);
 		$length = round($bb[3] - $bb[1], 2);
@@ -23,12 +22,11 @@ class DependencyView extends AbstractView {
 		$size = array('width'=>$width, 'length'=>$length);
 		
 		BoxElement::createAndSaveBoxElement(
-				$layoutId, $inputTreeElementId, BoxElement::$TYPE_PLATFORM,
+				$this->layoutId, $inputTreeElementId, BoxElement::$TYPE_PLATFORM,
 				$translation, $size, $color, $transparency);
 	}
 	
 	protected function adjustNode($node) {
-		$layoutId = 1;
 		$inputTreeElementId = $node['attributes']['id'];
 		
 		$position = $node['attributes']['pos'];
@@ -42,12 +40,11 @@ class DependencyView extends AbstractView {
 		$transparency = 0.3;
 		
 		BoxElement::createAndSaveBoxElement(
-				$layoutId, $inputTreeElementId, BoxElement::$TYPE_FOOTPRINT,
+				$this->layoutId, $inputTreeElementId, BoxElement::$TYPE_FOOTPRINT,
 				$translation, $size, $color, $transparency);
 	}
 	
 	protected function adjustLeaf($node) {
-		$layoutId = 1;
 		$inputTreeElementId = $node['attributes']['id'];
 		
 		if (substr($node['id'], 0, 4) == "dep_") {
@@ -67,13 +64,12 @@ class DependencyView extends AbstractView {
 			$transparency = 0;
 			
 			BoxElement::createAndSaveBoxElement(
-					$layoutId, $inputTreeElementId, BoxElement::$TYPE_BUILDING,
+					$this->layoutId, $inputTreeElementId, BoxElement::$TYPE_BUILDING,
 					$translation, $size, $color, $transparency);
 		}
 	}
 	
 	private function adjustDepLeaf($node) {
-		$layoutId = 1;
 		$inputTreeElementId = $node['attributes']['id'];
 		
 		$position = $node['attributes']['pos'];
@@ -90,12 +86,11 @@ class DependencyView extends AbstractView {
 		$transparency = 0.3;
 		
 		BoxElement::createAndSaveBoxElement(
-				$layoutId, $inputTreeElementId, BoxElement::$TYPE_BUILDING,
+				$this->layoutId, $inputTreeElementId, BoxElement::$TYPE_BUILDING,
 				$translation, $size, $color, $transparency);
 	}
 	
 	protected function adjustEdge($edge) {
-		$layoutId = 1;
 		$inputDependencyId = $edge['attributes']['id'];
 		
 		$translation = array(0, 0, 0);
@@ -103,7 +98,7 @@ class DependencyView extends AbstractView {
 		$color = array('r'=>0, 'g'=>0, 'b'=>1);
 		$lineWidth = $edge['attributes']['style'];
 		
-		$edgeElement = EdgeElement::createAndSaveEdgeElement($layoutId, $inputDependencyId, $translation, $color, $lineWidth);
+		$edgeElement = EdgeElement::createAndSaveEdgeElement($this->layoutId, $inputDependencyId, $translation, $color, $lineWidth);
 		
 		$positions = $edge['attributes']['pos'];
 		// 0 and 1 are overall start points

@@ -3,24 +3,23 @@
 class DotArrayToDB extends CApplicationComponent {
 	private $rootId;
 	
-	public function save($dotArray) {
-
-		$this->saveHierarchy($dotArray);
+	public function save($projectId, $dotArray) {
+		$this->saveHierarchy($projectId, $dotArray);
 		
-		$this->saveDependencies($dotArray['edges']);
+		$this->saveDependencies($projectId, $dotArray['edges']);
 
 		return $this->rootId;
 	}
 	
-	private function saveHierarchy($element, $parentId = null, $level = 0) {
+	private function saveHierarchy($projectId, $element, $parentId = null, $level = 0) {
 		$identifier = $element["id"];
 		$label = $this->getLabel($element);
 		
 		if (array_key_exists('content', $element)) {
-			$id = InputNode::createAndSave($identifier, $label, $parentId, $level);
+			$id = InputNode::createAndSave($projectId, $identifier, $label, $parentId, $level);
 			
 			foreach ($element["content"] as $value) {
-				$this->saveHierarchy($value, $id, $level + 1);
+				$this->saveHierarchy($projectId, $value, $id, $level + 1);
 			}
 			
 			if (is_null($parentId)) {
@@ -39,7 +38,7 @@ class DotArrayToDB extends CApplicationComponent {
 				$metric2 = null;
 			}
 			
-			InputLeaf::createAndSave($identifier, $label, $parentId, $level, $metric1, $metric2);
+			InputLeaf::createAndSave($projectId, $identifier, $label, $parentId, $level, $metric1, $metric2);
 		} 
 	}
 	
@@ -53,16 +52,13 @@ class DotArrayToDB extends CApplicationComponent {
 		return $label;
 	}
 	
-	private function saveDependencies($edges) {
-		// get all tree elements out of db
-		$attr = array(
-				'select'=>'id, name, parent_id',
-		);
-		$treeElements = InputTreeElement::model()->findAll($attr);
+	private function saveDependencies($projectId, $edges) {
+		$treeElements = InputTreeElement::model()->findAllByAttributes(
+							array('projectId' => $projectId), array('select'=>'id, name, parentId'));
 	
 		$treeArray = array();
 		foreach ($treeElements as $element) {
-			$treeArray[$element->name] = array('id' => $element->id, 'parent_id' => $element->parent_id);
+			$treeArray[$element->name] = array('id' => $element->id, 'parentId' => $element->parentId);
 		}
 	
 		// edges 
@@ -73,7 +69,7 @@ class DotArrayToDB extends CApplicationComponent {
 			$in = $treeArray[$edge["destination"]];
 	
 			array_push($edgesToSave, InputDependency::createAndSaveDotInputDependency(
-					$edge["id"], $out["id"], $in["id"], $out["parent_id"], $in["parent_id"]));
+					$projectId, $edge["id"], $out["id"], $in["id"], $out["parentId"], $in["parentId"]));
 		}
 	
 		return $edgesToSave;
