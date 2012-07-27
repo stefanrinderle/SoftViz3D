@@ -153,6 +153,7 @@ return array(
 		// this is used in contact page
 		'adminEmail'=>'stefan@rinderle.info',
 		'currentResourceFile' => DIRECTORY_SEPARATOR . 'runtime' . DIRECTORY_SEPARATOR . 'actualResource.dot',
-		'tempDotFile' => DIRECTORY_SEPARATOR . 'runtime' . DIRECTORY_SEPARATOR . 'temp.dot'
+		'tempDotFile' => DIRECTORY_SEPARATOR . 'runtime' . DIRECTORY_SEPARATOR . 'temp.dot',
+		'import' => array('jdepend' => false, 'serverDirectory' => false),
 	),
 );

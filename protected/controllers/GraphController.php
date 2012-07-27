@@ -1,7 +1,6 @@
 <?php
 
-class GraphController extends BaseX3dController
-{
+class GraphController extends BaseX3dController {
 	private $sourceFile = '/Users/stefan/Sites/3dArch/x3d/dependency.dot';
 	
 	public $layout='//layouts/column1';

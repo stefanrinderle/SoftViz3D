@@ -31,46 +31,82 @@ $this->breadcrumbs=array(
 	
 	<h3>Upload own file</h3>
 	
-	<div class="form">
-		<?php echo $uploadDotForm; ?>
-	</div>
-	
-	<div class="form">
-		<?php echo $uploadJDependForm; ?>
-	</div>
-	
-	<h3>Generate dot file from server directory structure</h3>
-	
-	<div class="form">
-		<?php echo $directoryPathForm; ?>
-	</div>
+	<table>
+	<tr>
+	<td>
+		<div class="form">
+			<?php echo $uploadDotForm; ?>
+		</div>
+	</td><td>
+		<div class="form">
+			<?php 
+			if (Yii::app()->params['import']['jdepend']) {
+				echo $uploadJDependForm;
+			} else {
+				echo "jdepend import disabled";
+			}
+			 ?>
+		</div>
+	</td>
+	</tr>
+	</table>
 	
 	<h3>Load example files:</h3>
 	
 	<table>
 	  <tr>
 	    <th>Showcase</th>
-	    <th>Goanna export</th>
+	    <th colspan="2">Goanna example projects</th>
 	  </tr>
 	  <tr>
 	    <td>
-	    	<p><?php echo CHtml::link('Simple tree example', array('import/simpleTree')); ?></p>
-	
-			<p><?php echo CHtml::link('Simple metric tree example', array('import/simpleMetricTree')); ?></p>
-			
-			<p><?php echo CHtml::link('Simple graph example', array('import/simpleGraph')); ?></p>
-			
-			<p><?php echo CHtml::link('MVC example', array('import/mvc')); ?></p>
+	    	<?php 
+	    		$handle = opendir (Yii::app()->basePath . "/data/exampleFiles/");
+	    		
+				while ($file = readdir($handle)) {
+					if ($file != "." && $file != ".." && $file != "goanna") {
+						echo "<p>";
+					 	echo CHtml::link($file, array('import/exampleFile', 'file' => $file, 'projectId' => $projectId));
+					 	echo "</p>";
+					}
+				}
+				closedir($handle);
+	    	?>
 	    </td>
 	    <td>
-	    	<p><?php echo CHtml::link('Irssi', array('import/goanna', 'project'=> "irssi")); ?></p>
-	    	<p><?php echo CHtml::link('Mongrel2', array('import/goanna', 'project' => "mongrel2")); ?></p>
-	    	<p><?php echo CHtml::link('Nusmv', array('import/goanna', 'project' => "nusmv")); ?></p>
-	    	<p><?php echo CHtml::link('Firefox warnings', array('import/goanna', 'project' => "firefox")); ?></p>
-	    	<p><?php echo CHtml::link('Wireshark', array('import/goanna', 'project' => "wireshark")); ?></p>
-			<p><?php echo CHtml::link('Postgresql', array('import/goanna', 'project' => "postgresql")); ?></p>
-			<p><?php echo CHtml::link('Chromium', array('import/goanna', 'project' => "chromium")); ?></p>
+	    	<?php 
+	    		$handle = opendir (Yii::app()->basePath . "/data/exampleFiles/goanna");
+	    		
+	    		$counter = 0;
+	    		
+				while ($file = readdir($handle)) {
+					if ($file != "." && $file != "..") {
+						$counter = $counter + 1;
+						
+						echo "<p>";
+					 	echo CHtml::link($file, array('import/goanna', 'file' => $file, 'projectId' => $projectId));
+					 	echo "</p>";
+					}	
+					if ($counter != 0 && $counter % 4 == 0) {
+						echo "</td><td>";
+					}
+				}
+				closedir($handle);
+	    	?>
 	    </td>
 	  </tr>
 	</table>
+	
+	<h3>Generate dot file from server directory structure</h3>
+
+	<div class="form">
+			<?php 
+			if (Yii::app()->params['import']['serverDirectory']) {
+				echo $directoryPathForm; 
+			} else {
+				echo "server directory path import disabled";
+			}
+			?>
+	</div>
+	
 <?php endif; ?>

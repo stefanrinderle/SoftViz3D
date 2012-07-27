@@ -20,6 +20,15 @@ class Project extends CActiveRecord {
 		return 'Project';
 	}
 
+	public function relations() {
+		return array(
+				'user'=>array(self::BELONGS_TO, 'User', 'userId'),
+				'inputTreeRoot'=>array(self::BELONGS_TO, 'InputTreeElement', 'inputTreeRootId'),
+				'inputDependencies'=>array(self::HAS_MANY, 'InputDependency', 'projectId'),
+				'layouts'=>array(self::HAS_MANY, 'Layout', 'projectId')
+		);
+	}
+	
 	public function getFileUpdateTime() {
 		if ($this->fileUpdateTime) {
 			$date = new DateTime($this->fileUpdateTime);
@@ -34,16 +43,6 @@ class Project extends CActiveRecord {
 		$this->fileUpdateTime = $mysqldate;
 		$this->save();
 	}
-	
-	public function relations() {
-		return array(
-				'user'=>array(self::BELONGS_TO, 'User', 'userId'),
-				'inputTreeRoot'=>array(self::BELONGS_TO, 'InputTreeElement', 'inputTreeRootId'),
-				'inputDependencies'=>array(self::HAS_MANY, 'InputDependency', 'projectId'),
-				'layouts'=>array(self::HAS_MANY, 'Layout', 'projectId')
-		);
-	}
-	
 }
 
 ?>

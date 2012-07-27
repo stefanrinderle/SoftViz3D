@@ -50,7 +50,7 @@
 			'items'=>array(
 				array('label'=>'Home', 'url'=>array('/site/index')),
 				array('label'=>'Projects', 'url'=>array('/project/index'), 'visible'=>!Yii::app()->user->isGuest),
-				array('label'=>'Import', 'url'=>array('/import/index')),
+				//array('label'=>'Import', 'url'=>array('/import/index')),
 				array('label'=>'Goanna browser', 'url'=>array('/goanna/index')),
 				array('label'=>'File viewer', 'url'=>array('/file/index')),
 				array('label'=>'Structure view', 'url'=>array('/tree/index')),

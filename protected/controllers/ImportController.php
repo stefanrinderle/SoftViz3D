@@ -1,78 +1,58 @@
 <?php
 
-class ImportController extends BaseController
-{
-	function getTime()
-	{
-		$a = explode (' ',microtime());
-		return(double) $a[0] + $a[1];
-	}
+class ImportController extends BaseController {
 	
-	public function actionIndex() {
+	public function actionIndex($projectId) {
+		$uploadDotForm = $this->_handleUploadDotForm($projectId);
+
+		$uploadJDependForm = $this->_handleUploadJDependForm($projectId);
+		
 		$directoryPathform = $this->_handleDirectoryPathForm();
-		
-		$uploadDotForm = $this->_handleUploadDotForm();
-		
-		$uploadJDependForm = $this->_handleUploadJDependForm();
-		
+				
 		$this->render('index', array(
                 'uploadDotForm' => $uploadDotForm,
 				'uploadJDependForm' => $uploadJDependForm,
-				'directoryPathForm' => $directoryPathform
+				'directoryPathForm' => $directoryPathform,
+				'projectId' => $projectId
 		));
 	}
 	
-	public function actionSimpleTree() {
-		$this->_copyExampleFile(Yii::app()->basePath . '/data/exampleFiles/simpleTree.dot');
-	}
-	
-	public function actionSimpleMetricTree() {
-		$this->_copyExampleFile(Yii::app()->basePath . '/data/exampleFiles/simpleMetricTree.dot');
-	}
-	
-	public function actionSimpleGraph() {
-		$this->_copyExampleFile(Yii::app()->basePath . '/data/exampleFiles/simpleGraph.dot');
-	}
-	
-	public function actionGoanna($project) {
-		$this->_copyExampleFile(Yii::app()->basePath . '/data/exampleFiles/goanna/' . $project . '.dot');
-	}
-	
-	public function actionMvc() {
-		$this->_copyExampleFile(Yii::app()->basePath . '/data/exampleFiles/mvc.dot');
-	}
-	
-	private function _copyExampleFile($sourceFileName) {
-		$result = copy($sourceFileName, Yii::app()->basePath . Yii::app()->params['currentResourceFile']);
+	public function actionGoanna($file, $projectId) {
+		$file = "goanna/" . $file;
 		
-		if ($result) {
-			Yii::app()->user->setFlash('success', 'File successful imported.');
-		} else {
-			Yii::app()->user->setFlash('error', 'File could not be loaded.');
-		}
-		
-		$this->render('index', array());
+		$this->actionExampleFile($file, $projectId);
 	}
 	
-	private function _handleUploadDotForm() {
+	public function actionExampleFile($file, $projectId) {
+		$project = Project::model()->findByPk($projectId);
+		
+		$filePath = Yii::app()->basePath . '/data/exampleFiles/' . $file;
+		$fp = fopen($filePath, 'r');
+		$fileContent = fread($fp, filesize($filePath));
+		//TODO:????
+		//$content = addslashes($content);
+		fclose($fp);
+
+		$this->saveFile($projectId, $fileContent);
+		
+		$this->redirect(array('project/index'));
+	}
+
+	private function _handleUploadDotForm($projectId) {
 		$uploadform = new CForm('application.views.import._uploadDotForm', new DotFileUpload());
 		
 		if ($uploadform->submitted('submit') && $uploadform->validate()) {
-			$uploadform->model->inputFile = CUploadedFile::getInstance($uploadform->model, 'inputFile');
+			$fileContent = CUploadedFile::getInstance($uploadform->model, 'inputFile');
 			
-			$fileName = Yii::app()->basePath . Yii::app()->params['currentResourceFile'];
+			$this->saveFile($projectId, $fileContent);
 			
-			if ($uploadform->model->inputFile->saveAs($fileName)) {
-				Yii::app()->user->setFlash('success', 'File successful imported.');
-			} else {
-				Yii::app()->user->setFlash('error', 'Target file not writeable. ' . $fileName . ' must be writable by the server.');
-			}
-		}
+			$this->redirect(array('project/index'));
+		}	
 		
 		return $uploadform;
 	}
 	
-	private function _handleUploadJDependForm() {
+	private function _handleUploadJDependForm($projectId) {
 		$uploadform = new CForm('application.views.import._uploadJDependForm', new JDependFileUpload());
 	
 		if ($uploadform->submitted('submit') && $uploadform->validate()) {
@@ -114,5 +94,18 @@ class ImportController extends BaseController
 		return $directoryPathform;
 	}
 	
+	private function saveFile($projectId, $fileContent) {
+		$project = Project::model()->findByPk($projectId);
+			
+		if ($project && $project->userId == Yii::app()->user->getId()) {
+			$project->file = $fileContent;
+			$project->setFileUpdateTime(new DateTime());
 	
+			$project->save();
+	
+			Yii::app()->user->setFlash('success', 'File successful imported.');
+		} else {
+			Yii::app()->user->setFlash('error', 'File could not be loaded.');
+		}
+	}
 }

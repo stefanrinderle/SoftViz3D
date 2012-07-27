@@ -3,7 +3,7 @@
 class DotFileUpload extends CFormModel {
  
     public $inputFile;
- 
+    
     /**
      * @return array validation rules for model attributes.
      */

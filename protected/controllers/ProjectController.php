@@ -14,4 +14,24 @@ class ProjectController extends BaseController {
 		$this->render('index', array('projects' => $projects));
 	}
 	
+	public function actionNew() {
+		$model = new NewProjectForm();
+		
+		if(isset($_POST['NewProjectForm'])) {
+			$model->attributes = $_POST['NewProjectForm'];
+				
+			if($model->validate()) {
+				$project = new Project();
+				$project->name = $model->name;
+				$project->userId = Yii::app()->user->getId();
+				
+				$project->save();
+		
+				$this->redirect(array('project/index'));
+				
+			}
+		}
+		$this->render('newProject', array('model' => $model));
+		
+	}
 }

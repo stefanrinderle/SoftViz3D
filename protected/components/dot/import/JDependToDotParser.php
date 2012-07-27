@@ -16,7 +16,8 @@ class JDependToDotParser extends CApplicationComponent {
 		
 		$this->parsePackages($root->Packages);
 		
-		$this->graphViz->saveParsedGraph($outputFile);
+		print_r($this->graphViz->parse());
+		die();
 		
 		return true;
 	}

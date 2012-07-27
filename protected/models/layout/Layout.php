@@ -2,6 +2,10 @@
 
 class Layout extends CActiveRecord {
 	
+	public static $TYPE_STRUCTURE = 0;
+	public static $TYPE_DEPENDENCY_DETAIL = 1;
+	public static $TYPE_DEPENDENCY_METRIC = 2;
+	
 	public $id;
 	
 	public $projectId;
