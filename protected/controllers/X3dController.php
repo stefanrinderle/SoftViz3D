@@ -2,7 +2,7 @@
 
 class X3dController extends BaseController {
 	
-	public $layout='//layouts/x3d';
+	public $layout='//x3d/layout';
 	
 	public function actionIndex($layoutId) {
 		$layout = Layout::model()->findByPk($layoutId);

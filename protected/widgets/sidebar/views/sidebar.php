@@ -1,4 +1,4 @@
-<div id="sidebar" style="float: right; width: 250px;">
+<div id="sidebar">
 
 	<h3><a href="#">Details</a></h3>
 	<div id="details">
