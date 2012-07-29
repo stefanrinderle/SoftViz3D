@@ -1,7 +1,6 @@
 <?php
 
-class UserController extends BaseController
-{
+class UserController extends BaseController {
 	/**
 	 * Declares class-based actions.
 	 */

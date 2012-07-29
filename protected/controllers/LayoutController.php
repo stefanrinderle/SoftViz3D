@@ -1,8 +1,7 @@
 <?php
 
 class LayoutController extends BaseController {
-	private $sourceFile = '/Users/stefan/Sites/3dArch/x3d/dependency.dot';
-	
+
 	public function actionIndex($projectId, $layoutType) {
 		$startTime = $this->getTime();
 		
@@ -21,8 +20,6 @@ class LayoutController extends BaseController {
 			$layout->save();
 		}
 
-		//print_r("Delete old layout: " . $this->getTimeDifference($startTime));
-		
 		// STEP 2: calculate the view layout
 		
 		$view = $layout->getViewClass($layoutType, $layout->id);
