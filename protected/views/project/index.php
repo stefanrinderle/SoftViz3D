@@ -34,7 +34,7 @@ if (count($projects) == 0) {
 } else {
 	foreach($projects as $project) {
 
-		$layoutType = $project->getLayoutTypeArray();
+		$layoutArray = $project->getLayoutTypeArray();
 		
 		echo "<tr><td>";
 		echo "(" . $project->id . ")" . $project->name;
@@ -54,17 +54,17 @@ if (count($projects) == 0) {
 		echo "</td><td>";
 		
 		$this->widget('application.widgets.project.ProjectLayoutCell',
-				array('layoutType' => Layout::$TYPE_STRUCTURE, 'layoutArray' => $layoutType, 'project' => $project));
+				array('layoutType' => Layout::$TYPE_STRUCTURE, 'layoutArray' => $layoutArray, 'project' => $project));
 				
 		echo "</td><td>";
 		
 		$this->widget('application.widgets.project.ProjectLayoutCell',
-				array('layoutType' => Layout::$TYPE_DEPENDENCY_DETAIL, 'layoutArray' => $layoutType, 'project' => $project));
+				array('layoutType' => Layout::$TYPE_DEPENDENCY_DETAIL, 'layoutArray' => $layoutArray, 'project' => $project));
 		
 		echo "</td><td>";
 		
 		$this->widget('application.widgets.project.ProjectLayoutCell',
-				array('layoutType' => Layout::$TYPE_DEPENDENCY_METRIC, 'layoutArray' => $layoutType, 'project' => $project));
+				array('layoutType' => Layout::$TYPE_DEPENDENCY_METRIC, 'layoutArray' => $layoutArray, 'project' => $project));
 		
 		echo "</td><td>";
 	}

@@ -6,7 +6,7 @@ $this->breadcrumbs=array(
 );
 
 $this->widget('application.widgets.x3dom.X3domWidget',
-		array('type' => X3domWidget::$TYPE_TREE, 'layoutId' => $layoutId));
+		array('layout' => $layout));
 
 $this->widget('application.widgets.sidebar.Sidebar');
 ?>

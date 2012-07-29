@@ -1,16 +1,12 @@
 <?php
 class X3domWidget extends CWidget {
-	
-	public static $TYPE_TREE = "tree";
-	public static $TYPE_GRAPH = "graph";
-	
-	public $layoutId;
-	public $type;
+		
+	public $layout;
 	
 	public function run() {
 		$this->render('x3domStart', array());
 		
-		$elements = BoxElement::model()->findAllByAttributes(array('layoutId'=>$this->layoutId));
+		$elements = BoxElement::model()->findAllByAttributes(array('layoutId'=>$this->layout->id));
 		foreach ($elements as $element) {
 			if ($element->type == BoxElement::$TYPE_PLATFORM) {
 				$this->render('baseObjects/platform', array('element' => $element));
@@ -21,7 +17,7 @@ class X3domWidget extends CWidget {
 			}
 		}
 		
-		$edges = EdgeElement::model()->findAllByAttributes(array('layoutId'=>$this->layoutId));
+		$edges = EdgeElement::model()->findAllByAttributes(array('layoutId'=>$this->layout->id));
 		foreach ($edges as $edge) {
 			$this->render('baseObjects/edge', array('edge' => $edge));
 		}
@@ -34,9 +30,9 @@ class X3domWidget extends CWidget {
 		Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . '/js/sidebar/information.js');
 		Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . '/js/sidebar/manipulation.js');
 		
-		if ($this->type == X3domWidget::$TYPE_TREE) {
+		if ($this->layout->type == Layout::$TYPE_STRUCTURE) {
 			Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . '/js/sidebar/manipulationTree.js');
-		} else if ($this->type == X3domWidget::$TYPE_GRAPH) {
+		} else if ($this->layout->type == Layout::$TYPE_DEPENDENCY_DETAIL || $this->layout->type == Layout::$TYPE_DEPENDENCY_METRIC) {
 			Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . '/js/sidebar/manipulationGraph.js');
 		}
 	}

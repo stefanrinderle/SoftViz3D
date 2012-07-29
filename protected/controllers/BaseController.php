@@ -21,8 +21,7 @@ class BaseController extends CController
 	 */
 	public $breadcrumbs=array();
 	
-	public function getTime()
-	{
+	public function getTime() {
 		$a = explode (' ',microtime());
 		return(double) $a[0] + $a[1];
 	}
