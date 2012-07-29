@@ -32,6 +32,5 @@ class ProjectController extends BaseController {
 			}
 		}
 		$this->render('newProject', array('model' => $model));
-		
 	}
 }

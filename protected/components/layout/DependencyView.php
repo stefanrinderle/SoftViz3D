@@ -2,12 +2,19 @@
 
 class DependencyView extends AbstractView {
 	
+	//TODO type umsetzen
+	public static $TYPE_DETAIL = 0;
+	public static $TYPE_METRIC = 1;
+	
 	// In this layout the building height is fixed.
 	private $buildingHeight = 10;
+	private $type;
 	
-	public function __construct($layoutId) {
+	public function __construct($layoutId, $type) {
 		$this->layoutId = $layoutId;
 		$this->layerMargin = -200;
+		
+		$this->type = $type;
 	}
 	
 	protected function adjustBb($layerLayout, $depth, $inputTreeElementId) {
@@ -143,6 +150,6 @@ class DependencyView extends AbstractView {
 		$length = VectorCalculator::magnitude($edgeVektor);
 		$rotation = VectorCalculator::rotationXAxis($edgeVektor);
 		
-		return EdgeSectionElement::createDefaultEdgeSectionElement($edgeId, $startPos, $rotation, $length);
+		return EdgeSectionElement::createDefaultEdgeSectionElement($edgeId, $this->layoutId, $startPos, $rotation, $length);
 	}
 }

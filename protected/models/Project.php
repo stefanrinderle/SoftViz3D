@@ -57,7 +57,14 @@ class Project extends CActiveRecord {
 		}
 	}
 	
-	public function setFileUpdateTime(DateTime $date) {
+	public function getLayoutTypeArray() {
+		$result = array();
+		foreach ($this->layouts as $layout) {
+			$result[$layout->type] = $layout;
+		}
+		return $result;
+	}
+	private function setFileUpdateTime(DateTime $date) {
 		$mysqldate = date( 'Y-m-d H:i:s', $date->getTimestamp());
 		$this->fileUpdateTime = $mysqldate;
 		$this->save();

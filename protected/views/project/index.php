@@ -25,7 +25,7 @@ echo CHtml::button('New project', array('submit' => array('project/new')));
 
 <table>
 <tr><th>Name</th><th>File uploaded</th><th>Structure view</th>
-	<th>Dependency View <br />(Detail mode)</th><th>Dependency View <br />(Metric mode)</th><th>Options</th></tr>
+	<th>Dependency View <br />(Detail mode)</th><th>Dependency View <br />(Metric mode)</th></tr>
 
 <?php 
 
@@ -34,11 +34,7 @@ if (count($projects) == 0) {
 } else {
 	foreach($projects as $project) {
 
-		$layouts = $project->layouts;
-		$layoutType = array();
-		foreach ($layouts as $layout) {
-			$layoutType[$layout->type] = $layout;
-		}
+		$layoutType = $project->getLayoutTypeArray();
 		
 		echo "<tr><td>";
 		echo "(" . $project->id . ")" . $project->name;
@@ -48,47 +44,29 @@ if (count($projects) == 0) {
 		if ($time != -1) {
 			echo CHtml::link('Show/edit file', array('file/index', 'projectId' => $project->id));
 			echo "<br />";
-			echo $time;
+			echo $time . "<br />";
+			echo CHtml::link('Import/Upload file', array('import/index', 'projectId' => $project->id));
 		} else {
-			echo "no file";
+			echo "no file <br />";
+			echo CHtml::link('Import/Upload file', array('import/index', 'projectId' => $project->id));
 		}
 
 		echo "</td><td>";
 		
-		if (array_key_exists(Layout::$TYPE_STRUCTURE, $layoutType)) {
-			echo "view <br />";
-			echo CHtml::link('recalculate', array('view/index', 'projectId' => $project->id, 'viewType' => Layout::$TYPE_STRUCTURE));
-		} else if ($time != -1) {
-			echo CHtml::link('create layout', array('view/index', 'projectId' => $project->id, 'viewType' => Layout::$TYPE_STRUCTURE));
-		} else {
-			echo "";
-		}
+		$this->widget('application.widgets.project.ProjectLayoutCell',
+				array('layoutType' => Layout::$TYPE_STRUCTURE, 'layoutArray' => $layoutType, 'project' => $project));
+				
+		echo "</td><td>";
+		
+		$this->widget('application.widgets.project.ProjectLayoutCell',
+				array('layoutType' => Layout::$TYPE_DEPENDENCY_DETAIL, 'layoutArray' => $layoutType, 'project' => $project));
 		
 		echo "</td><td>";
 		
-		if (array_key_exists(Layout::$TYPE_DEPENDENCY_DETAIL, $layoutType)) {
-			echo $layoutType[Layout::$TYPE_DEPENDENCY_DETAIL]->id;
-		} else if ($time != -1) {
-			echo "create";
-		} else {
-			echo "";
-		}
+		$this->widget('application.widgets.project.ProjectLayoutCell',
+				array('layoutType' => Layout::$TYPE_DEPENDENCY_METRIC, 'layoutArray' => $layoutType, 'project' => $project));
 		
 		echo "</td><td>";
-		
-		if (array_key_exists(Layout::$TYPE_DEPENDENCY_METRIC, $layoutType)) {
-			echo $layoutType[Layout::$TYPE_DEPENDENCY_METRIC]->id;
-		} else if ($time != -1) {
-			echo "create";
-		} else {
-			echo "";
-		}
-		
-		echo "</td><td>";
-		
-		echo CHtml::link('Import/Upload file', array('import/index', 'projectId' => $project->id));
-		
-		echo "</td></tr>";
 	}
 }
 

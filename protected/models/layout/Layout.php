@@ -12,8 +12,7 @@ class Layout extends CActiveRecord {
 	
 	public $type;
 	
-	//$creationTime
-	//$summary, statistics...
+	public $creationTime;
 	
 	public static function model($className=__CLASS__) {
 		return parent::model($className);
@@ -30,6 +29,36 @@ class Layout extends CActiveRecord {
 		);
 	}
 	
+	public function getViewClass($layoutType, $layoutId) {
+		switch ($layoutType) {
+			case Layout::$TYPE_STRUCTURE:
+				return new StructureView($layoutId);
+			break;
+			case Layout::$TYPE_DEPENDENCY_DETAIL:
+				return new DependencyView($layoutId, DependencyView::$TYPE_DETAIL);
+			break;
+			case Layout::$TYPE_DEPENDENCY_METRIC:
+				return new DependencyView($layoutId, DependencyView::$TYPE_METRIC);
+			break;
+			default:
+				//error
+			break;
+		}
+	}
+	
+	public function getCreationTime() {
+		if ($this->creationTime) {
+			$date = new DateTime($this->creationTime);
+			return $date->format('Y-m-d H:i:s');
+		} else {
+			return -1;
+		}
+	}
+	
+	public function setCreationTime(DateTime $date) {
+		$mysqldate = date( 'Y-m-d H:i:s', $date->getTimestamp());
+		$this->creationTime = $mysqldate;
+	}
 }
 
 ?>
