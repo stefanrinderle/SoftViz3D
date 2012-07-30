@@ -18,7 +18,7 @@ abstract class AbstractView extends CApplicationComponent {
 		$this->adjustBb($layerLayout, $depth, $inputTreeElementId);
 	
 		foreach ($layerLayout['content'] as $key => $value) {
-				if ($value['attributes']['type'] == "node") {
+				if ($value['attributes']['type'] == InputTreeElement::$TYPE_NODE) {
 					$this->adjustNode($value);
 				} else {
 					$this->adjustLeaf($value);

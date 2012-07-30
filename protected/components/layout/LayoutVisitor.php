@@ -41,7 +41,7 @@ class LayoutVisitor {
 	}
 
 	function visitInputLeaf(InputLeaf $comp) {
- 		if (substr($comp->name, 0, 4) == "dep_") {
+ 		if ($comp->type == InputTreeElement::$TYPE_LEAF_INTERFACE) {
  			// value between 0 and 1
  			// this was to fat: $comp->counter / $this->maxCounter
  			//TODO: this should not be possible

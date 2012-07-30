@@ -27,7 +27,7 @@ class AbsolutePositionCalculator extends CApplicationComponent {
 		// first find the chlidren elements of the input tree 
 		$content = InputTreeElement::model()->findAllByAttributes(array('parentId'=>$layoutElement->inputTreeElementId));
 		foreach ($content as $key => $value) {
-			if (!$value->isLeaf) {
+			if ($value->type == InputTreeElement::$TYPE_NODE) {
 				// find the according layout representations
 				$element = BoxElement::model()->findByAttributes(array(
 						'inputTreeElementId'=>$value->id,

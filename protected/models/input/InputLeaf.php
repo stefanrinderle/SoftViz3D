@@ -16,7 +16,8 @@ class InputLeaf extends InputTreeElement {
 
     public function defaultScope(){
     	return array(
-    			'condition'=>"isLeaf='1'"
+    		'condition'=>'type=:leaf OR type=:interface', 
+            'params'=>array(':leaf'=>InputTreeElement::$TYPE_LEAF, ':interface'=>InputTreeElement::$TYPE_LEAF_INTERFACE)
     	);
     }
     
@@ -25,26 +26,24 @@ class InputLeaf extends InputTreeElement {
 	}
 	
 	// factory method
-	public static function createAndSave($projectId, $name, $label, $parentId, $level, $metric1 = 0, $metric2 = 0) {
-		$element = InputLeaf::create($projectId, $name, $label, $parentId, $level, $metric1, $metric2);
-		
-		$element->save();
-		return $element->id;
-	}
-	
-	public static function create($projectId, $name, $label, $parentId, $level, $metric1 = 0, $metric2 = 0) {
+	public static function createAndSave($projectId, $type, $name, $label, $parentId, $level, $metric1 = 0, $metric2 = 0) {
 		$element = new self('insert');
 		$element->projectId = $projectId;
+		$element->type = $type;
+		
 		$element->label = $label;
 		$element->name = $name;
+		
 		$element->parentId = $parentId;
 		$element->level = $level;
-		$element->isLeaf = 1;
+		
 		$element->metric1 = $metric1;
 		$element->metric2 = $metric2;
 		
+		$element->save();
 		return $element;
 	}
+	
 }
 
 ?>

@@ -79,16 +79,10 @@ class StructureView extends AbstractView {
 	
 	// @Override
 	public function getAllChildInputLeaves($parentId) {
-		$leaves = InputLeaf::model()->findAllByAttributes(array('parentId'=>$parentId));
+		$leaves = InputLeaf::model()->findAllByAttributes(
+						array('parentId' => $parentId, 'type'=> InputTreeElement::$TYPE_LEAF));
 		
-		$result = array();
-		foreach ($leaves as $value) {
-			if (substr($value->name, 0, 4) != "dep_") {
-				array_push($result, $value);
-			}
-		}
-		
-		return $result;
+		return $leaves;
 	}
 
 	// @Override

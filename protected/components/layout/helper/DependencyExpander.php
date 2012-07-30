@@ -2,8 +2,10 @@
 
 class DependencyExpander extends CApplicationComponent {
 	
+	private static $INTERACE_PREFIX = "interface_";
+	
 	private $flatEdges = array();
-	private $dependenyNodes = array();
+	private $interfaceLeaves = array();
 	private $dependencyEdges = array();
 	
 	private $nodesCounter = array(); 
@@ -50,7 +52,7 @@ class DependencyExpander extends CApplicationComponent {
 		//foreach ($this->flatEdges as $edge) {
 		//	$edge->save();
 		//}
-		foreach ($this->dependenyNodes as $node) {
+		foreach ($this->interfaceLeaves as $node) {
 			$node->save();
 		}
 		foreach ($this->dependencyEdges as $edge) {
@@ -107,12 +109,11 @@ class DependencyExpander extends CApplicationComponent {
 	private function handleNewDepEdge($node, $type) {
 		$depEdgeLabel = "depEdge_" . $type . "_" . $node->id;
 	
-		
 		if (array_key_exists($depEdgeLabel, $this->dependencyEdges)) {
 			$edge = $this->dependencyEdges[$depEdgeLabel];
 			$edge->counter++;
 		} else {
-			$depNodeId = $this->getDependencyNode($node->parentId, $node->level);
+			$depNodeId = $this->getInterfaceNode($node->parentId, $node->level);
 	
 			if ($type == "out") {
 				$element = InputDependency::createInputDependency($this->projectId, $depEdgeLabel, $depNodeId, $node->id, $node->parentId);
@@ -124,22 +125,25 @@ class DependencyExpander extends CApplicationComponent {
 		}
 	}
 	
-	private function getDependencyNode($parentId, $level) {
-		$depPrefix = "dep_";
-		$depNodeLabel = $depPrefix . $parentId;
+	private function getInterfaceNode($parentId, $level) {
+		$intLeafLabel = DependencyExpander::$INTERACE_PREFIX . $parentId;
 	
-		if (array_key_exists($depNodeLabel, $this->dependenyNodes)) {
-			$savedNode = $this->dependenyNodes[$depNodeLabel];
-			$savedNode->counter++;
-			$depNodeId = $savedNode->id;
+		if (array_key_exists($intLeafLabel, $this->interfaceLeaves)) {
+			$savedLeaf = $this->interfaceLeaves[$intLeafLabel];
+			$savedLeaf->counter++;
+			$intNodeId = $savedLeaf->id;
 		} else {
-			$node = InputLeaf::create($this->projectId, $depNodeLabel, $depNodeLabel, $parentId, $level);
-			$node->save();
-			$this->dependenyNodes[$depNodeLabel] = $node;
+			$node = InputLeaf::createAndSave(
+							$this->projectId, 
+							InputTreeElement::$TYPE_LEAF_INTERFACE, 
+							$intLeafLabel, $intLeafLabel, 
+							$parentId, $level);
+							
+			$this->interfaceLeaves[$intLeafLabel] = $node;
 			
-			$depNodeId = $node->id;
+			$intNodeId = $node->id;
 		}
 		
-		return $depNodeId;
+		return $intNodeId;
 	}
 }

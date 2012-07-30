@@ -54,8 +54,8 @@ class DependencyView extends AbstractView {
 	protected function adjustLeaf($node) {
 		$inputTreeElementId = $node['attributes']['id'];
 		
-		if (substr($node['id'], 0, 4) == "dep_") {
-			$this->adjustDepLeaf($node);
+		if ($node['attributes']['type'] == InputTreeElement::$TYPE_LEAF_INTERFACE) {
+			$this->adjustInterfaceLeaf($node);
 		} else {
 			$position = $node['attributes']['pos'];
 			
@@ -76,7 +76,7 @@ class DependencyView extends AbstractView {
 		}
 	}
 	
-	private function adjustDepLeaf($node) {
+	private function adjustInterfaceLeaf($node) {
 		$inputTreeElementId = $node['attributes']['id'];
 		
 		$position = $node['attributes']['pos'];

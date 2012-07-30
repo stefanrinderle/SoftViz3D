@@ -38,7 +38,7 @@ class DotArrayToDB extends CApplicationComponent {
 				$metric2 = null;
 			}
 			
-			InputLeaf::createAndSave($projectId, $identifier, $label, $parentId, $level, $metric1, $metric2);
+			InputLeaf::createAndSave($projectId, InputTreeElement::$TYPE_LEAF, $identifier, $label, $parentId, $level, $metric1, $metric2);
 		} 
 	}
 	

@@ -8,7 +8,8 @@ class InputNode extends InputTreeElement {
 
 	public function defaultScope() {
 		return array(
-				'condition'=>"isLeaf='0'"
+			'condition'=>'type=:node', 
+            'params'=>array(':node'=>InputTreeElement::$TYPE_NODE)
 		);
 	}
 	
@@ -52,7 +53,7 @@ class InputNode extends InputTreeElement {
 		$element->label = $label;
 		$element->parentId = $parentId;
 		$element->level = $level;
-		$element->isLeaf = 0;
+		$element->type = InputTreeElement::$TYPE_NODE;
 	
 		$element->save();
 		return $element->id;
@@ -65,11 +66,12 @@ class InputNode extends InputTreeElement {
 		$element->label = $label;
 		$element->parentId = $parentId;
 		$element->level = $level;
-		$element->isLeaf = 0;
+		$element->type = InputTreeElement::$TYPE_NODE;
 	
 		$element->save();
 		return $element;
 	}
+
 }
 
 ?>

@@ -2,6 +2,10 @@
 
 class InputTreeElement extends CActiveRecord {
 	
+	public static $TYPE_NODE = 0;
+	public static $TYPE_LEAF = 1;
+	public static $TYPE_LEAF_INTERFACE = 2;
+	
 	// db pk
 	public $id;
 	
@@ -18,7 +22,7 @@ class InputTreeElement extends CActiveRecord {
 	public $level;
 	
 	// ER-mapping of inheritance
-	public $isLeaf;
+	public $type;
 
 	/**
 	 * Proposed size for the next layout layer.
