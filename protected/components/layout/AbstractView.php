@@ -2,7 +2,7 @@
 
 abstract class AbstractView extends CApplicationComponent {
 	
-	protected $layoutId;
+	public $layoutId;
 	
 	protected $layerMargin;
 	

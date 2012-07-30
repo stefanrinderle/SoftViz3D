@@ -15,7 +15,7 @@ class AbsolutePositionCalculator extends CApplicationComponent {
 	}
 	
 	private function addTranslationToLayer($rootId, $parentTranslation, $isRoot = false) {
-		$layoutElement = BoxElement::model()->findByAttributes(array('inputTreeElementId'=>$rootId));
+		$layoutElement = BoxElement::model()->findByAttributes(array('inputTreeElementId'=>$rootId, 'layoutId' => $this->view->layoutId));
 
 		$translation = $layoutElement->getTranslation();
 		$translation[0] = $translation[0] + $parentTranslation[0];
@@ -31,6 +31,7 @@ class AbsolutePositionCalculator extends CApplicationComponent {
 				// find the according layout representations
 				$element = BoxElement::model()->findByAttributes(array(
 						'inputTreeElementId'=>$value->id,
+						'layoutId' => $this->view->layoutId,
 						'type'=>BoxElement::$TYPE_FOOTPRINT));
 			
 				$nodePosition = $this->setNewPosition($element, $parentTranslation, $layoutElement);
@@ -41,6 +42,7 @@ class AbsolutePositionCalculator extends CApplicationComponent {
 			} else {
 				$element = BoxElement::model()->findByAttributes(array(
 						'inputTreeElementId'=>$value->id,
+						'layoutId' => $this->view->layoutId,
 						'type'=>BoxElement::$TYPE_BUILDING));
 
 				// should be not the case after all
@@ -53,7 +55,8 @@ class AbsolutePositionCalculator extends CApplicationComponent {
 		$contentEdges = InputDependency::model()->findAllByAttributes(array('parentId' => $layoutElement->inputTreeElementId));
 		foreach ($contentEdges as $key => $value) {
 			$element = EdgeElement::model()->findByAttributes(array(
-									'inputDependencyId'=>$value->id));
+							'inputDependencyId'=>$value->id, 
+							'layoutId' => $this->view->layoutId));
 			
 			// should be not the case after all
 			if ($element) {

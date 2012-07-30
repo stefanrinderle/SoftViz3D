@@ -29,16 +29,16 @@ class Layout extends CActiveRecord {
 		);
 	}
 	
-	public function getViewClass($layoutType, $layoutId) {
-		switch ($layoutType) {
+	public function getViewClass() {
+		switch ($this->type) {
 			case Layout::$TYPE_STRUCTURE:
-				return new StructureView($layoutId);
+				return new StructureView($this->id);
 			break;
 			case Layout::$TYPE_DEPENDENCY_DETAIL:
-				return new DependencyView($layoutId, DependencyView::$TYPE_DETAIL);
+				return new DependencyView($this->id, DependencyView::$TYPE_DETAIL);
 			break;
 			case Layout::$TYPE_DEPENDENCY_METRIC:
-				return new DependencyView($layoutId, DependencyView::$TYPE_METRIC);
+				return new DependencyView($this->id, DependencyView::$TYPE_METRIC);
 			break;
 			default:
 				//error

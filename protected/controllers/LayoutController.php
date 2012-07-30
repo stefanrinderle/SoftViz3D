@@ -7,11 +7,16 @@ class LayoutController extends BaseController {
 		
 		$project = Project::model()->findByPk($projectId);
 		
-		if (array_key_exists($layoutType, $project->layouts)) {
-			$layout = $project->layouts[$layoutType];
-				
+		$layoutArray = $project->getLayoutTypeArray();
+		
+		if (array_key_exists($layoutType, $layoutArray)) {
+			$layout = $layoutArray[$layoutType];
+			$layout->setCreationTime(new DateTime());
+			$layout->save();
+			
 			BoxElement::model()->deleteAllByAttributes(array('layoutId'=>$layout->id));
 			EdgeElement::model()->deleteAllByAttributes(array('layoutId'=>$layout->id));
+			EdgeSectionElement::model()->deleteAllByAttributes(array('layoutId'=>$layout->id));
 		} else {
 			$layout = new Layout();
 			$layout->setCreationTime(new DateTime());
@@ -21,8 +26,7 @@ class LayoutController extends BaseController {
 		}
 
 		// STEP 2: calculate the view layout
-		
-		$view = $layout->getViewClass($layoutType, $layout->id);
+		$view = $layout->getViewClass();
 		$visitor = new LayoutVisitor($view);
 		$root = InputNode::model()->findByPk($project->inputTreeRootId);
 		$root->accept($visitor);

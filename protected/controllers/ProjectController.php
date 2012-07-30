@@ -5,6 +5,16 @@ require_once('Image_GraphViz_Copy.php');
 
 class ProjectController extends BaseController {
 	
+	// please remove :-)
+	public function actionClear() {
+		Layout::model()->deleteAll();
+		BoxElement::model()->deleteAll();
+		EdgeElement::model()->deleteAll();
+		EdgeSectionElement::model()->deleteAll();
+		
+		$this->redirect(array('project/index'));
+	}
+	
 	public function actionIndex() {
 		
 		$user = Yii::app()->user;
