@@ -2,8 +2,6 @@
 
 class InputNode extends InputTreeElement {
 	
-	public $isVisible = 1;
-
 	public static function model($className=__CLASS__) {
 		return parent::model($className);
 	}
@@ -26,19 +24,19 @@ class InputNode extends InputTreeElement {
 	public function accept($visitor) {
 		$layoutElements = array();
 		
-		$content = InputNode::model()->findAllByAttributes(array('parentId'=>$this->id));
+		$content = $visitor->layout->getAllChildInputNodes($this->id);
 		foreach ($content as $child) {
 			$element = $child->accept($visitor);
 			array_push($layoutElements, $element);
 		}
 		
-		$content = InputLeaf::model()->findAllByAttributes(array('parentId'=>$this->id));
+		$content = $visitor->layout->getAllChildInputLeaves($this->id);
 		foreach ($content as $child) {
 			$element = $child->accept($visitor);
 			array_push($layoutElements, $element);
 		}
 			
-		$edges = InputDependency::model()->findAllByAttributes(array('parentId'=>$this->id));
+		$edges = $visitor->layout->getAllChildInputDependencies($this->id);
 		foreach ($edges as $edge) {
 			array_push($layoutElements, $edge);
 		}

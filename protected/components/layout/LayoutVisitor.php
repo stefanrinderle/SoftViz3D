@@ -9,7 +9,7 @@ class LayoutVisitor {
 	private $maxMetric2;
 	private $maxCounter;
 	
-	private $type;
+	public $layout;
 	
 	function __construct(AbstractView $layout) {
 		$this->layout = $layout;
@@ -35,7 +35,7 @@ class LayoutVisitor {
 		
 		// size of the node is the size of its bounding box
 		$bb = $layerLayout['attributes']['bb'];
-		$comp->twoDimSize = array('width' => $bb[2] / self::$SCALE, 'height' => $bb[3] / self::$SCALE);
+		$comp->proposedSize = array('width' => $bb[2] / self::$SCALE, 'height' => $bb[3] / self::$SCALE);
 
 		return $comp;
 	}
@@ -88,7 +88,7 @@ class LayoutVisitor {
  			}
  		}
  		
-		$comp->twoDimSize = array('width' => $side, 'height' => $side);
+		$comp->proposedSize = array('width' => $side, 'height' => $side);
 		return $comp;
 	}
 

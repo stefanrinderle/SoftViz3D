@@ -37,4 +37,17 @@ abstract class AbstractView extends CApplicationComponent {
 	protected abstract function adjustLeaf($node);
 	
 	protected abstract function adjustEdge($node);
+	
+	public function getAllChildInputNodes($parentId) {
+		return InputNode::model()->findAllByAttributes(array('parentId'=>$parentId));
+	}
+	
+	public function getAllChildInputLeaves($parentId) {
+		return InputLeaf::model()->findAllByAttributes(array('parentId'=>$parentId));
+	}
+	
+	public function getAllChildInputDependencies($parentId) {
+		return InputDependency::model()->findAllByAttributes(array('parentId'=>$parentId));
+	}
+	
 }

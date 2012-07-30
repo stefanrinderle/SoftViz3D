@@ -14,7 +14,6 @@ class InputDependency extends CActiveRecord {
 	public $in_id;
 	public $parentId;
 	public $counter = 1;
-	public $isVisible = 1;
 	
 	public $maxCounter;
 	

@@ -32,8 +32,8 @@ class DotWriter extends CApplicationComponent {
 				$attr = array();
 				$attr['shape'] = "rectangle";
 								
-				$attr['width'] = $value->twoDimSize['width'];
-				$attr['height'] = $value->twoDimSize['height'];
+				$attr['width'] = $value->proposedSize['width'];
+				$attr['height'] = $value->proposedSize['height'];
 
 				$attr['fixedsize'] = "true";
 				$attr['id'] = $value->id;

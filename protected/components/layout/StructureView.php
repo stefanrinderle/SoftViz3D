@@ -76,4 +76,23 @@ class StructureView extends AbstractView {
 	protected function adjustEdge($node) {
 		// nothing to do here
 	}
+	
+	// @Override
+	public function getAllChildInputLeaves($parentId) {
+		$leaves = InputLeaf::model()->findAllByAttributes(array('parentId'=>$parentId));
+		
+		$result = array();
+		foreach ($leaves as $value) {
+			if (substr($value->name, 0, 4) != "dep_") {
+				array_push($result, $value);
+			}
+		}
+		
+		return $result;
+	}
+
+	// @Override
+	public function getAllChildInputDependencies($parentId) {
+		return array();
+	}
 }

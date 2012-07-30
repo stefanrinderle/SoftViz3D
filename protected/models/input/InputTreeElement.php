@@ -20,8 +20,11 @@ class InputTreeElement extends CActiveRecord {
 	// ER-mapping of inheritance
 	public $isLeaf;
 
-	// not in database yet because not nesessary
-	public $twoDimSize;
+	/**
+	 * Proposed size for the next layout layer.
+	 * Not in database yet because not nesessary.
+	 */
+	public $proposedSize;
 	
 	// max metric attributes necessary because CActiveRecord
 	// needs it for the calculation 
