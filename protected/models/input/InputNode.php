@@ -58,19 +58,6 @@ class InputNode extends InputTreeElement {
 		$element->save();
 		return $element->id;
 	}
-	
-	public static function create($projectId, $name, $label, $parentId, $level) {
-		$element = new self('insert');
-		$element->projectId = $projectId;
-		$element->name = $name;
-		$element->label = $label;
-		$element->parentId = $parentId;
-		$element->level = $level;
-		$element->type = InputTreeElement::$TYPE_NODE;
-	
-		$element->save();
-		return $element;
-	}
 
 }
 
