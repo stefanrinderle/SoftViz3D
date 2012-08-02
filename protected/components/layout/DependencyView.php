@@ -152,4 +152,22 @@ class DependencyView extends AbstractView {
 		
 		return EdgeSectionElement::createDefaultEdgeSectionElement($edgeId, $this->layoutId, $startPos, $rotation, $length);
 	}
+	
+	// @Override
+	public function getAllChildInputDependencies($parentId) {
+		if ($this->type == DependencyView::$TYPE_DETAIL) {
+			$condition  = 'parentId = :parentId AND (type = :flat OR type = :path)';
+			$params     = array(':flat' => InputDependency::$TYPE_INPUT_FLAT, 
+								':path' => InputDependency::$TYPE_PATH,
+								':parentId' => $parentId);
+			
+			$result = InputDependency::model()->findAllByAttributes(array(), $condition, $params);
+		} else {
+			$result = InputDependency::model()->findAllByAttributes(
+					array('parentId' => $parentId, 'type'=> InputDependency::$TYPE_PATH));
+		}
+		
+		return $result;
+	}
+	
 }

@@ -49,9 +49,9 @@ class DependencyExpander extends CApplicationComponent {
 		//print_r("count_flat: " . count($this->flatEdges) . " <br />");
 		//print_r("count_dep: " . count($this->dependencyEdges) . " <br />");
 		
-		//foreach ($this->flatEdges as $edge) {
-		//	$edge->save();
-		//}
+		foreach ($this->flatEdges as $edge) {
+			$edge->save();
+		}
 		foreach ($this->interfaceLeaves as $node) {
 			$node->save();
 		}
