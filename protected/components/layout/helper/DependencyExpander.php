@@ -3,6 +3,7 @@
 class DependencyExpander extends CApplicationComponent {
 	
 	private static $INTERACE_PREFIX = "interface_";
+	private static $DEP_PATH_EDGE_PREFIX = "depPath_";
 	
 	private $flatEdges = array();
 	private $interfaceLeaves = array();
@@ -12,49 +13,47 @@ class DependencyExpander extends CApplicationComponent {
 	
 	private $projectId;
 	
+	//TEST:
+	public function getTime() {
+		$a = explode (' ',microtime());
+		return(double) $a[0] + $a[1];
+	}
+	
+	public function getTimeDifference($start) {
+		return $this->getTime() - $start;
+	}
+	//!TEST
+	
 	public function execute($projectId) {
 		$this->projectId = $projectId;
 		
-		// remove old dependency path edges
-		// no more needed but secure is secure :-)
+		// remove old dependency path edges - not needed but secure is secure :-)
 		InputDependency::model()->deleteAllByAttributes(array('projectId' => $projectId, 'type' => InputDependency::$TYPE_PATH));
 		
-		$edges = InputDependency::model()->findAllByAttributes(array('projectId' => $projectId));
+		$dependencies = InputDependency::model()->findAllByAttributes(array('projectId' => $projectId));
 		
-		foreach ($edges as $edge) {
-			if ($edge->type == InputDependency::$TYPE_INPUT_FLAT) {
-				array_push($this->flatEdges, $edge);
-				
-				$this->incrementNodesCounter($edge->out_id);
-				$this->incrementNodesCounter($edge->in_id);
+		foreach ($dependencies as $dep) {
+			if ($dep->type == InputDependency::$TYPE_INPUT_FLAT) {
+				$this->incrementNodesCounter($dep->out_id);
+				$this->incrementNodesCounter($dep->in_id);
 			} else {
-				$out = $edge->outElement;
-				$in = $edge->inElement;
+				$out = $dep->outElement;
+				$in = $dep->inElement;
 				// search for the common ancestor
-				$this->expandEdge($out, $in);
+				$this->createDependencyPath($out, $in);
 			}
 		}
 		
-		//OPTIMIZE WITH UPDATE
 		foreach($this->nodesCounter as $key => $value) {
 			$leaf = InputTreeElement::model()->findByPk($key);
 			$leaf->counter = $value;
 			$leaf->save();
 		}
 		
-		foreach ($edges as $edge) {
-			$edge->save();
-		}
-		
-		//print_r("count_flat: " . count($this->flatEdges) . " <br />");
-		//print_r("count_dep: " . count($this->dependencyEdges) . " <br />");
-		
-		foreach ($this->flatEdges as $edge) {
-			$edge->save();
-		}
 		foreach ($this->interfaceLeaves as $node) {
 			$node->save();
 		}
+		
 		foreach ($this->dependencyEdges as $edge) {
 			$edge->save();
 		}
@@ -68,13 +67,13 @@ class DependencyExpander extends CApplicationComponent {
 		}
 	}
 	
-	private function expandEdge($source, $dest) {
+	private function createDependencyPath($source, $dest) {
 		while ($source->parentId != $dest->parentId) {
 			if ($source->level > $dest->level) {
-				$this->handleNewDepEdge($source, "in");
+				$this->handleNewDepEdge($source, false);
 				$source = $source->parent;
 			} else {
-				$this->handleNewDepEdge($dest, "out");
+				$this->handleNewDepEdge($dest, true);
 				$dest = $dest->parent;
 			}
 		}
@@ -82,10 +81,10 @@ class DependencyExpander extends CApplicationComponent {
 		//compute till both have the same parent
 		while ($source->parentId != $dest->parentId) {
 			if ($source->level > $dest->level) {
-				$this->handleNewDepEdge($source, "in");
+				$this->handleNewDepEdge($source, false);
 				$source = $source->parent;
 			} else {
-				$this->handleNewDepEdge($dest, "out");
+				$this->handleNewDepEdge($dest, true);
 				$dest = $dest->parent;
 			}
 		}
@@ -94,8 +93,7 @@ class DependencyExpander extends CApplicationComponent {
 	}
 	
 	private function handleNewFlatDepEdge($source, $dest) {
-		$type = "out";
-		$depEdgeLabel = "depEdge_" . $type . "_" . $source->id;
+		$depEdgeLabel = DependencyExpander::$DEP_PATH_EDGE_PREFIX . "_" . $source->id;
 		
 		if (array_key_exists($depEdgeLabel, $this->dependencyEdges)) {
 			$edge = $this->dependencyEdges[$depEdgeLabel];
@@ -106,8 +104,8 @@ class DependencyExpander extends CApplicationComponent {
 		}
 	}
 	
-	private function handleNewDepEdge($node, $type) {
-		$depEdgeLabel = "depEdge_" . $type . "_" . $node->id;
+	private function handleNewDepEdge($node, $isOut) {
+		$depEdgeLabel = DependencyExpander::$DEP_PATH_EDGE_PREFIX . "_" . $node->id;
 	
 		if (array_key_exists($depEdgeLabel, $this->dependencyEdges)) {
 			$edge = $this->dependencyEdges[$depEdgeLabel];
@@ -115,7 +113,7 @@ class DependencyExpander extends CApplicationComponent {
 		} else {
 			$depNodeId = $this->getInterfaceNode($node->parentId, $node->level);
 	
-			if ($type == "out") {
+			if ($isOut) {
 				$element = InputDependency::createInputDependency($this->projectId, $depEdgeLabel, $depNodeId, $node->id, $node->parentId);
 			} else {
 				$element = InputDependency::createInputDependency($this->projectId, $depEdgeLabel, $node->id, $depNodeId, $node->parentId);

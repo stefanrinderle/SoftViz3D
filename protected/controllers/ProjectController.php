@@ -16,7 +16,6 @@ class ProjectController extends BaseController {
 	}
 	
 	public function actionIndex() {
-		
 		$user = Yii::app()->user;
 		
 		$projects = Project::model()->findAllByAttributes(array('userId'=>$user->getId()));
