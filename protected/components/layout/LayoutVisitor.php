@@ -8,23 +8,38 @@ class LayoutVisitor {
 	private $maxMetric1;
 	private $maxMetric2;
 	private $maxCounter;
+	private $maxDependencyCounter;
 	
 	public $layout;
 	
-	function __construct(AbstractView $layout) {
+	function __construct(AbstractView $layout, $projectId) {
 		$this->layout = $layout;
+		
+		$params = array(':projectId' => $projectId);
 		
 		$criteria = new CDbCriteria;
 		$criteria->select='MAX(metric1) as maxMetric1';
+		$criteria->condition = 'projectId = :projectId';
+		$criteria->params = $params;
 		$this->maxMetric1 = InputLeaf::model()->find($criteria)->maxMetric1;
 		
 		$criteria = new CDbCriteria;
 		$criteria->select='MAX(metric2) as maxMetric2';
+		$criteria->condition = 'projectId = :projectId';
+		$criteria->params = $params;
 		$this->maxMetric2 = InputLeaf::model()->find($criteria)->maxMetric2;
 		
 		$criteria = new CDbCriteria;
 		$criteria->select='MAX(counter) as maxCounter';
+		$criteria->condition = 'projectId = :projectId';
+		$criteria->params = $params;
 		$this->maxCounter = InputLeaf::model()->find($criteria)->maxCounter;
+		
+		$criteria = new CDbCriteria;
+		$criteria->select='MAX(counter) as maxCounter';
+		$criteria->condition = 'projectId = :projectId';
+		$criteria->params = $params;
+		$this->maxCounter = InputDependency::model()->find($criteria)->maxCounter;
 	}
 	
 	function visitInputNode(InputNode $comp, $layoutElements) {
@@ -97,7 +112,7 @@ class LayoutVisitor {
 	 * parse it and return the parsed array back
 	 */
 	private function calcLayerLayout($elements) {
-		Yii::app()->dotWriter->writeToFile($elements, $this->outputFile);
+		Yii::app()->dotWriter->writeToFile($elements, $this->outputFile, $this->maxCounter);
 		
 		$layout = "neato";
 		if (count($elements) == 1) {

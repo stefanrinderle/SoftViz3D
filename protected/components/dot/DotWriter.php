@@ -6,27 +6,19 @@ require_once('Image_GraphViz_Copy.php');
 class DotWriter extends CApplicationComponent {
 	private $graphViz;
 	
-	public function writeToFile($elements, $outputFile) {
+	public function writeToFile($elements, $outputFile, $maxDependencyCounter) {
 		//$directed = true, $attributes = array(), $name = 'G', $strict = false, $returnError = false
 		$attr = array();
 // 		$attr['mindist'] = 0.5;
 		
 		$this->graphViz = new Image_GraphViz_Copy(true, $attr);
 		
-		$this->writeElements($elements);
+		$this->writeElements($elements, $maxDependencyCounter);
 	
 		$this->graphViz->saveParsedGraph($outputFile);
 	}
 	
-	public function writeToString($elements) {
-		$this->graphViz = new Image_GraphViz_Copy();
-		
-		$this->writeElements($elements);
-		
-		return $this->graphViz->parse();
-	}
-	
-	private function writeElements($elements) {
+	private function writeElements($elements, $maxDependencyCounter) {
 		foreach ($elements as $key => $value) {
 			if ($value instanceOf InputTreeElement) {
 				$attr = array();
@@ -48,7 +40,8 @@ class DotWriter extends CApplicationComponent {
 				$this->graphViz->addNode($value->name, $attr);
 			} else if ($value instanceOf InputDependency) {
 // 				if ($value->counter != 1) {
-					$width = 1 + (($value->counter - 1) * 0.2);
+					$width = ($value->counter / $maxDependencyCounter) * 10;
+					$width = 1 + $width;
 					
 					$name1 = $value->outElement->name;
 					$name2 = $value->inElement->name;
@@ -56,7 +49,6 @@ class DotWriter extends CApplicationComponent {
 					$this->graphViz->addEdge(array($name1 => $name2),
 							array('id' => $value->id,
 									'style' => 'setlinewidth(' . $width . ')'));
-					
 // 				}
 			}
 		}

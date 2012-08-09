@@ -16,8 +16,8 @@ class InputLeaf extends InputTreeElement {
 
     public function defaultScope(){
     	return array(
-    		'condition'=>'type=:leaf OR type=:interface', 
-            'params'=>array(':leaf'=>InputTreeElement::$TYPE_LEAF, ':interface'=>InputTreeElement::$TYPE_LEAF_INTERFACE)
+    		'condition' => 'type=:leaf OR type=:interface', 
+            'params' => array(':leaf' => InputTreeElement::$TYPE_LEAF, ':interface' => InputTreeElement::$TYPE_LEAF_INTERFACE)
     	);
     }
     

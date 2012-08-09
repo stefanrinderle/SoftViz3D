@@ -41,7 +41,7 @@ class InputNode extends InputTreeElement {
 		foreach ($edges as $edge) {
 			array_push($layoutElements, $edge);
 		}
-			
+		
 		return $visitor->visitInputNode($this, $layoutElements);
 	}
 	

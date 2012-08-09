@@ -27,14 +27,12 @@ class LayoutController extends BaseController {
 
 		// STEP 2: calculate the view layout
 		$view = $layout->getViewClass();
-		$visitor = new LayoutVisitor($view);
+		$visitor = new LayoutVisitor($view, $projectId);
 		$root = InputNode::model()->findByPk($project->inputTreeRootId);
 		$root->accept($visitor);
 		
 		// STEP 3: calculate absolute translations
 		Yii::app()->absolutePositionCalculator->calculate($project->inputTreeRootId, $view);
-		
-		//print_r("Calculation time: " + $this->getTimeDifference($startTime));
 		
 		$this->redirect(array('project/index'));
 	}
