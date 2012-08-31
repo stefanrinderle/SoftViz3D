@@ -4,7 +4,9 @@ class LayerDetails extends CWidget {
     public $layerId;
  
     public function run() {
-    	$layer = InputNode::model()->findByPk($this->layerId);
+    	$box = BoxElement::model()->findByPk($this->layerId); 
+    	
+    	$layer = InputNode::model()->findByPk($box->inputTreeElementId);
     	$parent = InputNode::model()->findByPk($layer->parentId);
     	$children = InputTreeElement::model()->findAllByAttributes(array('parentId'=>$layer->id));
     	

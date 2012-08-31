@@ -104,7 +104,7 @@ class X3dInteractionController extends BaseController {
 	 * all child leafs and layers.
 	 */
 	public function actionRemoveLayer($id = null) {
-		$root = InputNode::model()->findByPk($id);
+		$root = BoxElement::model()->findByPk($id);
 		$root->isVisible = 0;
 		$root->save();
 	

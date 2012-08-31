@@ -12,10 +12,10 @@
 	</p>
 					
 	<?php 
-	if ($parentLayer->isVisible) {
-		echo CHtml::button("Hide parent layer", array("onclick" => "leafRemoveLayerById(" . $parentLayer->id . ")"));
+	if ($parentBox->isVisible) {
+		echo CHtml::button("Hide parent layer", array("onclick" => "leafRemoveLayerById(" . $parentBox->id . ")"));
 	} else {
-		echo CHtml::button("Show parent layer", array("onclick" => "leafShowLayerById(" . $parentLayer->id . ")"));
+		echo CHtml::button("Show parent layer", array("onclick" => "leafShowLayerById(" . $parentBox->id . ")"));
 	}
 	?>
 </div>

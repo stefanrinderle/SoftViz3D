@@ -4,11 +4,15 @@ class LeafDetails extends CWidget {
     public $leafId;
  
     public function run() {
-    	$leaf = InputLeaf::model()->findByPk($this->leafId);
     	
+		$box = BoxElement::model()->findByPk($this->leafId);
+    	
+ 		$leaf = InputLeaf::model()->findByPk($box->inputTreeElementId);   	
     	$parent = InputNode::model()->findByPk($leaf->parentId);
     	
-        $this->render('leafDetails', array('leaf' => $leaf, 'parentLayer' => $parent));
+    	$parentBox = BoxElement::model()->findByAttributes(array('inputTreeElementId' => $parent->id));
+    	
+        $this->render('leafDetails', array('leaf' => $leaf, 'parentLayer' => $parent, 'parentBox' => $parentBox));
     }
  
 }

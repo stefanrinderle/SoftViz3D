@@ -26,6 +26,9 @@ class BoxElement extends CActiveRecord {
 	// float between 0 and 1
 	public $transparency;
 	
+	// bool
+	public $isVisible = true;
+	
 	/**
 	 * 2D rectangle only width and length
 	 * format: [width] [length]

@@ -5,10 +5,10 @@ function showLayerDetails(event) {
 }
 
 function showLayerDetailsById(id) {
+	setFocus(id);
+	
 	jQuery.ajax({'success':function(data) {
 			$("#sidebar #details").html(data);
-			
-			setFocus(id);
 	   },'url':'./index.php?r=x3dInteraction/getLayerDetails&id=' + id,'cache':false});return false;
 }
 
@@ -18,10 +18,10 @@ function showLeafDetails(event) {
 }
 
 function showLeafDetailsById(id) {
+	setFocus(id);
+	
 	jQuery.ajax({'success':function(data) {
 			$("#sidebar #details").html(data);
-			
-			setFocus(id);
 	   },'url':'./index.php?r=x3dInteraction/getLeafDetails&id=' + id,'cache':false});return false;
 }
 

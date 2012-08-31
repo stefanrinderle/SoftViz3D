@@ -39,7 +39,6 @@ class DotWriter extends CApplicationComponent {
 				
 				$this->graphViz->addNode($value->name, $attr);
 			} else if ($value instanceOf InputDependency) {
-// 				if ($value->counter != 1) {
 					$width = ($value->counter / $maxDependencyCounter) * 10;
 					$width = 1 + $width;
 					
@@ -49,7 +48,6 @@ class DotWriter extends CApplicationComponent {
 					$this->graphViz->addEdge(array($name1 => $name2),
 							array('id' => $value->id,
 									'style' => 'setlinewidth(' . $width . ')'));
-// 				}
 			}
 		}
 	}
