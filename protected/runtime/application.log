@@ -1676,3 +1676,169 @@ REQUEST_URI=/sri/DaSViz3d/index.php?r=layout/index&projectId=18&layoutType=1
 in /var/www/sri/DaSViz3d/protected/components/dot/parser/AbstractDotParser.php (183)
 in /var/www/sri/DaSViz3d/protected/components/dot/parser/AbstractDotParser.php (59)
 in /var/www/sri/DaSViz3d/protected/components/dot/parser/AbstractDotParser.php (21)
+2013/02/03 20:46:21 [error] [php] fsockopen(): php_network_getaddresses: getaddrinfo failed: Name or service not known (/var/www/sri/DaSViz3d/protected/components/goanna/GoannaInterface.php:75)
+Stack trace:
+#0 /var/www/sri/DaSViz3d/protected/controllers/GoannaController.php(6): GoannaInterface->getProjects()
+#1 /var/www/sri/DaSViz3d/yii/framework/web/actions/CInlineAction.php(49): GoannaController->actionIndex()
+#2 /var/www/sri/DaSViz3d/yii/framework/web/CController.php(308): CInlineAction->runWithParams()
+#3 /var/www/sri/DaSViz3d/yii/framework/web/CController.php(286): GoannaController->runAction()
+#4 /var/www/sri/DaSViz3d/yii/framework/web/CController.php(265): GoannaController->runActionWithFilters()
+#5 /var/www/sri/DaSViz3d/yii/framework/web/CWebApplication.php(282): GoannaController->run()
+#6 /var/www/sri/DaSViz3d/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#7 /var/www/sri/DaSViz3d/yii/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#8 /var/www/sri/DaSViz3d/index.php(16): CWebApplication->run()
+REQUEST_URI=/sri/DaSViz3d/index.php?r=goanna/index
+in /var/www/sri/DaSViz3d/protected/components/goanna/GoannaInterface.php (75)
+in /var/www/sri/DaSViz3d/protected/components/goanna/GoannaInterface.php (12)
+in /var/www/sri/DaSViz3d/protected/controllers/GoannaController.php (6)
+2013/02/03 20:56:52 [error] [exception.CException] exception 'CException' with message 'SiteController cannot find the requested view "thesis".' in /var/www/sri/DaSViz3d/yii/framework/web/CController.php:878
+Stack trace:
+#0 /var/www/sri/DaSViz3d/yii/framework/web/CController.php(782): CController->renderPartial('thesis', Array, true)
+#1 /var/www/sri/DaSViz3d/protected/controllers/SiteController.php(40): CController->render('thesis', Array)
+#2 /var/www/sri/DaSViz3d/yii/framework/web/actions/CInlineAction.php(49): SiteController->actionThesis()
+#3 /var/www/sri/DaSViz3d/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#4 /var/www/sri/DaSViz3d/yii/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#5 /var/www/sri/DaSViz3d/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /var/www/sri/DaSViz3d/yii/framework/web/CWebApplication.php(282): CController->run('thesis')
+#7 /var/www/sri/DaSViz3d/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('site/thesis')
+#8 /var/www/sri/DaSViz3d/yii/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#9 /var/www/sri/DaSViz3d/index.php(16): CApplication->run()
+#10 {main}
+REQUEST_URI=/sri/DaSViz3d/index.php?r=site/thesis&view=thesis
+HTTP_REFERER=http://localhost/sri/DaSViz3d/index.php?r=site/page&view=admin
+---
+2013/02/03 21:25:46 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "examples".' in /var/www/sri/DaSViz3d/yii/framework/web/CController.php:483
+Stack trace:
+#0 /var/www/sri/DaSViz3d/yii/framework/web/CController.php(270): CController->missingAction('examples')
+#1 /var/www/sri/DaSViz3d/yii/framework/web/CWebApplication.php(282): CController->run('examples')
+#2 /var/www/sri/DaSViz3d/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('site/examples')
+#3 /var/www/sri/DaSViz3d/yii/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#4 /var/www/sri/DaSViz3d/index.php(16): CApplication->run()
+#5 {main}
+REQUEST_URI=/sri/DaSViz3d/index.php?r=site/examples
+HTTP_REFERER=http://localhost/sri/DaSViz3d/index.php?r=project/index
+---
+2013/02/03 21:26:19 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "examples".' in /var/www/sri/DaSViz3d/yii/framework/web/CController.php:483
+Stack trace:
+#0 /var/www/sri/DaSViz3d/yii/framework/web/CController.php(270): CController->missingAction('examples')
+#1 /var/www/sri/DaSViz3d/yii/framework/web/CWebApplication.php(282): CController->run('examples')
+#2 /var/www/sri/DaSViz3d/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('site/examples')
+#3 /var/www/sri/DaSViz3d/yii/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#4 /var/www/sri/DaSViz3d/index.php(16): CApplication->run()
+#5 {main}
+REQUEST_URI=/sri/DaSViz3d/index.php?r=site/examples
+HTTP_REFERER=http://localhost/sri/DaSViz3d/index.php?r=project/index
+---
+2013/02/03 22:03:54 [error] [php] Trying to get property of non-object (/var/www/sri/DaSViz3d/protected/widgets/x3dom/X3domWidget.php:9)
+Stack trace:
+#0 /var/www/sri/DaSViz3d/yii/framework/web/CBaseController.php(126): require()
+#1 /var/www/sri/DaSViz3d/yii/framework/web/CBaseController.php(95): X3dController->renderInternal()
+#2 /var/www/sri/DaSViz3d/yii/framework/web/CController.php(869): X3dController->renderFile()
+#3 /var/www/sri/DaSViz3d/yii/framework/web/CController.php(782): X3dController->renderPartial()
+#4 /var/www/sri/DaSViz3d/protected/controllers/X3dController.php(10): X3dController->render()
+#5 unknown(0): X3dController->actionIndex()
+#6 /var/www/sri/DaSViz3d/yii/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs()
+#7 /var/www/sri/DaSViz3d/yii/framework/web/actions/CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#8 /var/www/sri/DaSViz3d/yii/framework/web/CController.php(308): CInlineAction->runWithParams()
+#9 /var/www/sri/DaSViz3d/yii/framework/web/CController.php(286): X3dController->runAction()
+#10 /var/www/sri/DaSViz3d/yii/framework/web/CController.php(265): X3dController->runActionWithFilters()
+#11 /var/www/sri/DaSViz3d/yii/framework/web/CWebApplication.php(282): X3dController->run()
+#12 /var/www/sri/DaSViz3d/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#13 /var/www/sri/DaSViz3d/yii/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#14 /var/www/sri/DaSViz3d/index.php(16): CWebApplication->run()
+REQUEST_URI=/sri/DaSViz3d/index.php?r=x3d/index&layoutId=1
+in /var/www/sri/DaSViz3d/protected/widgets/x3dom/X3domWidget.php (9)
+in /var/www/sri/DaSViz3d/protected/views/x3d/index.php (9)
+in /var/www/sri/DaSViz3d/protected/controllers/X3dController.php (10)
+2013/02/03 22:04:02 [error] [php] Trying to get property of non-object (/var/www/sri/DaSViz3d/protected/widgets/x3dom/X3domWidget.php:9)
+Stack trace:
+#0 /var/www/sri/DaSViz3d/yii/framework/web/CBaseController.php(126): require()
+#1 /var/www/sri/DaSViz3d/yii/framework/web/CBaseController.php(95): X3dController->renderInternal()
+#2 /var/www/sri/DaSViz3d/yii/framework/web/CController.php(869): X3dController->renderFile()
+#3 /var/www/sri/DaSViz3d/yii/framework/web/CController.php(782): X3dController->renderPartial()
+#4 /var/www/sri/DaSViz3d/protected/controllers/X3dController.php(10): X3dController->render()
+#5 unknown(0): X3dController->actionIndex()
+#6 /var/www/sri/DaSViz3d/yii/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs()
+#7 /var/www/sri/DaSViz3d/yii/framework/web/actions/CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#8 /var/www/sri/DaSViz3d/yii/framework/web/CController.php(308): CInlineAction->runWithParams()
+#9 /var/www/sri/DaSViz3d/yii/framework/web/CController.php(286): X3dController->runAction()
+#10 /var/www/sri/DaSViz3d/yii/framework/web/CController.php(265): X3dController->runActionWithFilters()
+#11 /var/www/sri/DaSViz3d/yii/framework/web/CWebApplication.php(282): X3dController->run()
+#12 /var/www/sri/DaSViz3d/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#13 /var/www/sri/DaSViz3d/yii/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#14 /var/www/sri/DaSViz3d/index.php(16): CWebApplication->run()
+REQUEST_URI=/sri/DaSViz3d/index.php?r=x3d/index&layoutId=3
+in /var/www/sri/DaSViz3d/protected/widgets/x3dom/X3domWidget.php (9)
+in /var/www/sri/DaSViz3d/protected/views/x3d/index.php (9)
+in /var/www/sri/DaSViz3d/protected/controllers/X3dController.php (10)
+2013/02/03 22:04:18 [error] [php] Trying to get property of non-object (/var/www/sri/DaSViz3d/protected/widgets/x3dom/X3domWidget.php:9)
+Stack trace:
+#0 /var/www/sri/DaSViz3d/yii/framework/web/CBaseController.php(126): require()
+#1 /var/www/sri/DaSViz3d/yii/framework/web/CBaseController.php(95): X3dController->renderInternal()
+#2 /var/www/sri/DaSViz3d/yii/framework/web/CController.php(869): X3dController->renderFile()
+#3 /var/www/sri/DaSViz3d/yii/framework/web/CController.php(782): X3dController->renderPartial()
+#4 /var/www/sri/DaSViz3d/protected/controllers/X3dController.php(10): X3dController->render()
+#5 unknown(0): X3dController->actionIndex()
+#6 /var/www/sri/DaSViz3d/yii/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs()
+#7 /var/www/sri/DaSViz3d/yii/framework/web/actions/CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#8 /var/www/sri/DaSViz3d/yii/framework/web/CController.php(308): CInlineAction->runWithParams()
+#9 /var/www/sri/DaSViz3d/yii/framework/web/CController.php(286): X3dController->runAction()
+#10 /var/www/sri/DaSViz3d/yii/framework/web/CController.php(265): X3dController->runActionWithFilters()
+#11 /var/www/sri/DaSViz3d/yii/framework/web/CWebApplication.php(282): X3dController->run()
+#12 /var/www/sri/DaSViz3d/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#13 /var/www/sri/DaSViz3d/yii/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#14 /var/www/sri/DaSViz3d/index.php(16): CWebApplication->run()
+REQUEST_URI=/sri/DaSViz3d/index.php?r=x3d/index&layoutId=1
+in /var/www/sri/DaSViz3d/protected/widgets/x3dom/X3domWidget.php (9)
+in /var/www/sri/DaSViz3d/protected/views/x3d/index.php (9)
+in /var/www/sri/DaSViz3d/protected/controllers/X3dController.php (10)
+2013/02/03 22:23:57 [error] [php] Trying to get property of non-object (/var/www/sri/DaSViz3d/protected/widgets/sidebar/LayerDetails.php:10)
+Stack trace:
+#0 unknown(0): X3dInteractionController->actionGetLayerDetails()
+#1 /var/www/sri/DaSViz3d/yii/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs()
+#2 /var/www/sri/DaSViz3d/yii/framework/web/actions/CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#3 /var/www/sri/DaSViz3d/yii/framework/web/CController.php(308): CInlineAction->runWithParams()
+#4 /var/www/sri/DaSViz3d/yii/framework/web/CController.php(286): X3dInteractionController->runAction()
+#5 /var/www/sri/DaSViz3d/yii/framework/web/CController.php(265): X3dInteractionController->runActionWithFilters()
+#6 /var/www/sri/DaSViz3d/yii/framework/web/CWebApplication.php(282): X3dInteractionController->run()
+#7 /var/www/sri/DaSViz3d/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#8 /var/www/sri/DaSViz3d/yii/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#9 /var/www/sri/DaSViz3d/index.php(16): CWebApplication->run()
+REQUEST_URI=/sri/DaSViz3d/index.php?r=x3dInteraction/getLayerDetails&id=2&_=1359926637400
+in /var/www/sri/DaSViz3d/protected/widgets/sidebar/LayerDetails.php (10)
+in /var/www/sri/DaSViz3d/protected/controllers/X3dInteractionController.php (7)
+in /var/www/sri/DaSViz3d/index.php (16)
+2013/02/03 22:23:59 [error] [exception.CException] exception 'CException' with message 'Property "InputNode.isVisible" is not defined.' in /var/www/sri/DaSViz3d/yii/framework/base/CComponent.php:130
+Stack trace:
+#0 /var/www/sri/DaSViz3d/yii/framework/db/ar/CActiveRecord.php(143): CComponent->__get('isVisible')
+#1 /var/www/sri/DaSViz3d/protected/controllers/X3dInteractionController.php(37): CActiveRecord->__get('isVisible')
+#2 [internal function]: X3dInteractionController->actionExpandAll('52')
+#3 /var/www/sri/DaSViz3d/yii/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs(Object(X3dInteractionController), Array)
+#4 /var/www/sri/DaSViz3d/yii/framework/web/actions/CInlineAction.php(47): CAction->runWithParamsInternal(Object(X3dInteractionController), Object(ReflectionMethod), Array)
+#5 /var/www/sri/DaSViz3d/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#6 /var/www/sri/DaSViz3d/yii/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#7 /var/www/sri/DaSViz3d/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 /var/www/sri/DaSViz3d/yii/framework/web/CWebApplication.php(282): CController->run('expandAll')
+#9 /var/www/sri/DaSViz3d/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('x3dInteraction/...')
+#10 /var/www/sri/DaSViz3d/yii/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#11 /var/www/sri/DaSViz3d/index.php(16): CApplication->run()
+#12 {main}
+REQUEST_URI=/sri/DaSViz3d/index.php?r=x3dInteraction/expandAll&id=52&_=1359926639373
+HTTP_REFERER=http://localhost/sri/DaSViz3d/index.php?r=x3d/index&layoutId=1
+---
+2013/02/03 22:24:00 [error] [php] Trying to get property of non-object (/var/www/sri/DaSViz3d/protected/widgets/sidebar/LayerDetails.php:10)
+Stack trace:
+#0 unknown(0): X3dInteractionController->actionGetLayerDetails()
+#1 /var/www/sri/DaSViz3d/yii/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs()
+#2 /var/www/sri/DaSViz3d/yii/framework/web/actions/CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#3 /var/www/sri/DaSViz3d/yii/framework/web/CController.php(308): CInlineAction->runWithParams()
+#4 /var/www/sri/DaSViz3d/yii/framework/web/CController.php(286): X3dInteractionController->runAction()
+#5 /var/www/sri/DaSViz3d/yii/framework/web/CController.php(265): X3dInteractionController->runActionWithFilters()
+#6 /var/www/sri/DaSViz3d/yii/framework/web/CWebApplication.php(282): X3dInteractionController->run()
+#7 /var/www/sri/DaSViz3d/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#8 /var/www/sri/DaSViz3d/yii/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#9 /var/www/sri/DaSViz3d/index.php(16): CWebApplication->run()
+REQUEST_URI=/sri/DaSViz3d/index.php?r=x3dInteraction/getLayerDetails&id=2&_=1359926640656
+in /var/www/sri/DaSViz3d/protected/widgets/sidebar/LayerDetails.php (10)
+in /var/www/sri/DaSViz3d/protected/controllers/X3dInteractionController.php (7)
+in /var/www/sri/DaSViz3d/index.php (16)

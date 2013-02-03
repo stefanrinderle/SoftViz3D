@@ -41,9 +41,10 @@
 		<?php $this->widget('zii.widgets.CMenu',array(
 			'items'=>array(
 				array('label'=>'Home', 'url'=>array('/site/index')),
+				array('label'=>'Examples', 'url'=>array('/site/page', 'view'=>'examples')),
 				array('label'=>'Projects', 'url'=>array('/project/index'), 'visible'=>!Yii::app()->user->isGuest),
 				//array('label'=>'Import', 'url'=>array('/import/index')),
-				array('label'=>'Goanna browser', 'url'=>array('/goanna/index')),
+				//array('label'=>'Goanna browser', 'url'=>array('/goanna/index')),
 				//array('label'=>'File viewer', 'url'=>array('/file/index')),
 				//array('label'=>'Test', 'url'=>array('/test/index')),
 				array('label'=>'-----', 'url'=>array('')),
@@ -51,10 +52,10 @@
 				array('label'=>'Signup', 'url'=>array('/user/signup'), 'visible'=>Yii::app()->user->isGuest),
 				array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/user/logout'), 'visible'=>!Yii::app()->user->isGuest),
 				array('label'=>'-----', 'url'=>array('')),
-				array('label'=>'Admin', 'url'=>array('/site/page', 'view'=>'check')),
-				array('label'=>'-----', 'url'=>array('')),
-				array('label'=>'Feedback', 'url'=>array('/site/feedback')),
-				array('label'=>'About', 'url'=>array('/site/page', 'view'=>'about'))
+				//array('label'=>'Admin', 'url'=>array('/site/page', 'view'=>'admin')),
+				//array('label'=>'-----', 'url'=>array('')),
+				array('label'=>'Thesis', 'url'=>array('/site/page', 'view'=>'thesis')),
+				array('label'=>'Feedback', 'url'=>array('/site/feedback'))
 			),
 		)); ?>
 	</div><!-- mainmenu -->
