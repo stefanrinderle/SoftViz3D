@@ -112,9 +112,9 @@ return array(
 //		),
  		'db'=>array(
  				'class'=>'CDbConnection',
- 				'connectionString'=>'mysql:host=localhost;dbname=graph',
- 				'username'=>'root',
- 				'password'=>'20S10a..'
+ 				'connectionString'=>'mysql:host=localhost;dbname=das3dviz',
+ 				'username'=>'das3dviz',
+ 				'password'=>'C6FjpEdnADMCm48S'
  		),
 		// uncomment the following to use a MySQL database
 		/*
@@ -151,6 +151,7 @@ return array(
 	// using Yii::app()->params['paramName']
 	'params'=>array(
 		// this is used in contact page
+		'dotFolder'=>'/usr/bin/dot',
 		'adminEmail'=>'stefan@rinderle.info',
 		'currentResourceFile' => DIRECTORY_SEPARATOR . 'runtime' . DIRECTORY_SEPARATOR . 'actualResource.dot',
 		'tempDotFile' => DIRECTORY_SEPARATOR . 'runtime' . DIRECTORY_SEPARATOR . 'temp.dot',

@@ -15,9 +15,13 @@ class DotArrayParser extends AbstractDotParser {
 	}
 
 	protected function getNewLine() {
-		$this->currentLine = $this->inputArray[$this->inputArrayCounter++];
-		
-		$this->checkLineFeed();
+		if ($this->inputArrayCounter < count($this->inputArray)) {
+			$this->currentLine = $this->inputArray[$this->inputArrayCounter++];
+			$this->checkLineFeed();
+		} else {
+			$this->inputArrayCounter++;
+			return null;
+		}
 	}
 	
 }

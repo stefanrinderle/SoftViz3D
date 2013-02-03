@@ -19,6 +19,7 @@ class ProjectController extends BaseController {
 		$user = Yii::app()->user;
 		
 		$projects = Project::model()->findAllByAttributes(array('userId'=>$user->getId()));
+		sort($projects);
 		
 		$this->render('index', array('projects' => $projects));
 	}

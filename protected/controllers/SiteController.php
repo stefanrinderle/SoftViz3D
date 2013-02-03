@@ -27,7 +27,7 @@ class SiteController extends BaseController {
 	public function actionIndex() {
 		// renders the view file 'protected/views/site/index.php'
 		// using the default layout 'protected/views/layouts/main.php'
-		$this->render('index');
+		$this->render('index', array());
 	}
 
 	/**
@@ -53,7 +53,7 @@ class SiteController extends BaseController {
 			$model->attributes=$_POST['FeedbackForm'];
 			if($model->validate()) {
 				$headers="From: {$model->email}\r\nReply-To: {$model->email}";
-				mail(Yii::app()->params['adminEmail'],$model->subject,$model->body,$headers);
+				mail(Yii::app()->params['adminEmail'], $model->subject,$model->body,$headers);
 				Yii::app()->user->setFlash('feedback','Thank you for your feedback.');
 				$this->refresh();
 			}

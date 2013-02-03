@@ -51,8 +51,10 @@
 				array('label'=>'Signup', 'url'=>array('/user/signup'), 'visible'=>Yii::app()->user->isGuest),
 				array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/user/logout'), 'visible'=>!Yii::app()->user->isGuest),
 				array('label'=>'-----', 'url'=>array('')),
+				array('label'=>'Admin', 'url'=>array('/site/page', 'view'=>'check')),
+				array('label'=>'-----', 'url'=>array('')),
 				array('label'=>'Feedback', 'url'=>array('/site/feedback')),
-					array('label'=>'About', 'url'=>array('/site/page', 'view'=>'about'))
+				array('label'=>'About', 'url'=>array('/site/page', 'view'=>'about'))
 			),
 		)); ?>
 	</div><!-- mainmenu -->

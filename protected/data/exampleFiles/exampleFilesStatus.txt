@@ -1,0 +1,23 @@
+Tasks in Github:
+Sync github tasks with eclipse mylyn
+Create user response after layout calculation with additional statistic information
+
+What                -> Description
+
+simpleGraph         -> OK
+simpleTree          -> OK
+mvc                 -> OK (looks great as simple example)
+simpleMetricTree    -> problem building are weight too high in structure view
+
+---
+Major problem is the width of bigger dependency visualizations!!!
+---
+
+jsonc               -> OK
+mongodb             -> problem layout. Two strange arrows in detail view. Metric mode looks very good.
+audacity            -> problem layout performance. Good example for bad graphviz layout in structure view. Detail layout generation (30 s max excecution time exceeded). Metric mode ok.
+mplayer             -> problem layout performance. Detail layout generation (30 s max excecution time exceeded). Metric mode ok.
+wireshark           -> problem visualization performance. Detail layout creation under 30 sec but visualization takes too long. Metric mode ok.
+firefox             -> warning check items in the view compared with nodes in the input dot. 
+                    -> problem layout performance (detail and metrics).
+dovecot             -> problem layout performance (detail). 

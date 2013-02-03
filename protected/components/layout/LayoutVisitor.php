@@ -3,8 +3,8 @@ class LayoutVisitor {
 	private static $DEFAULT_SIDE_LENGTH = 0.1;
 	
 	public static $SCALE = 72;
-	private $outputFile = '/Users/stefan/Sites/3dArch/protected/runtime/temp.dot';
 
+	private $tempDotFile;
 	private $maxMetric1;
 	private $maxMetric2;
 	private $maxCounter;
@@ -14,6 +14,7 @@ class LayoutVisitor {
 	
 	function __construct(AbstractView $layout, $projectId) {
 		$this->layout = $layout;
+		$this->tempDotFile = Yii::app()->basePath . Yii::app()->params['tempDotFile'];
 		
 		$params = array(':projectId' => $projectId);
 		
@@ -112,7 +113,7 @@ class LayoutVisitor {
 	 * parse it and return the parsed array back
 	 */
 	private function calcLayerLayout($elements) {
-		Yii::app()->dotWriter->writeToFile($elements, $this->outputFile, $this->maxCounter);
+		Yii::app()->dotWriter->writeToFile($elements, $this->tempDotFile, $this->maxCounter);
 		
 		$layout = "neato";
 		if (count($elements) == 1) {
@@ -126,7 +127,7 @@ class LayoutVisitor {
 			}
 		}
 		
-		$dotLayerString = Yii::app()->dotCommand->execute($this->outputFile, $layout);
+		$dotLayerString = Yii::app()->dotCommand->execute($this->tempDotFile, $layout);
 		
 		$layerLayout = Yii::app()->dotArrayParser->parse($dotLayerString);
 		
