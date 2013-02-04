@@ -25,8 +25,6 @@ class X3domWidget extends CWidget {
 		$this->render('x3domEnd', array());
 		
 		// include own javascript files
-		Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . '/js/sidebar/sidebar.js');
-		Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . '/js/sidebar/navigation.js');
 		Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . '/js/sidebar/information.js');
 		Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . '/js/sidebar/manipulation.js');
 		

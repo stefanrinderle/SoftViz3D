@@ -31,8 +31,8 @@
 </head>
 
 <body>
-
+<div id="x3dcontent">
 	<?php echo $content; ?>
-
+</div>
 </body>
 </html>

@@ -8,5 +8,5 @@ $this->breadcrumbs=array(
 $this->widget('application.widgets.x3dom.X3domWidget',
 		array('layout' => $layout));
 
-//$this->widget('application.widgets.sidebar.Sidebar');
+$this->widget('application.widgets.sidebar.Sidebar');
 ?>
