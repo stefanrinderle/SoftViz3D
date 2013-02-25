@@ -1,7 +1,4 @@
 digraph G {
-    2765 [ shape=rectangle,width=4.4722222222222,height=4.5277777777778,fixedsize=true,id=22656,type=0 ];
-    2771 [ shape=rectangle,width=1.8333333333333,height=1.7222222222222,fixedsize=true,id=22723,type=0 ];
-    2788 [ shape=rectangle,width=1.2916666666667,height=1.4166666666667,fixedsize=true,id=22750,type=0 ];
-    2794 [ shape=rectangle,width=1.5694444444444,height=1.5277777777778,fixedsize=true,id=22759,type=0 ];
-    2810 [ shape=rectangle,width=1.3888888888889,height=0.97222222222222,fixedsize=true,id=22772,type=0 ];
+    cluster_0 [ shape=rectangle,width=0.45833333333333,height=0.125,fixedsize=true,id=22796,type=0 ];
+    cluster_1 [ shape=rectangle,width=0.45833333333333,height=0.125,fixedsize=true,id=22799,type=0 ];
 }

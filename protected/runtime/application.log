@@ -1842,3 +1842,129 @@ REQUEST_URI=/sri/DaSViz3d/index.php?r=x3dInteraction/getLayerDetails&id=2&_=1359
 in /var/www/sri/DaSViz3d/protected/widgets/sidebar/LayerDetails.php (10)
 in /var/www/sri/DaSViz3d/protected/controllers/X3dInteractionController.php (7)
 in /var/www/sri/DaSViz3d/index.php (16)
+2013/02/15 19:17:32 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The requested view "structure" was not found.' in /var/www/sri/DaSViz3d/yii/framework/web/actions/CViewAction.php:112
+Stack trace:
+#0 /var/www/sri/DaSViz3d/yii/framework/web/actions/CViewAction.php(123): CViewAction->resolveView('structure')
+#1 /var/www/sri/DaSViz3d/yii/framework/web/actions/CAction.php(76): CViewAction->run()
+#2 /var/www/sri/DaSViz3d/yii/framework/web/CController.php(308): CAction->runWithParams(Array)
+#3 /var/www/sri/DaSViz3d/yii/framework/web/CController.php(286): CController->runAction(Object(CViewAction))
+#4 /var/www/sri/DaSViz3d/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CViewAction), Array)
+#5 /var/www/sri/DaSViz3d/yii/framework/web/CWebApplication.php(282): CController->run('page')
+#6 /var/www/sri/DaSViz3d/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('site/page')
+#7 /var/www/sri/DaSViz3d/yii/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#8 /var/www/sri/DaSViz3d/index.php(16): CApplication->run()
+#9 {main}
+REQUEST_URI=/sri/DaSViz3d/index.php?r=site/page&view=structure
+HTTP_REFERER=http://localhost/sri/DaSViz3d/index.php?r=site/index
+---
+2013/02/15 19:18:34 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The requested view "structure" was not found.' in /var/www/sri/DaSViz3d/yii/framework/web/actions/CViewAction.php:112
+Stack trace:
+#0 /var/www/sri/DaSViz3d/yii/framework/web/actions/CViewAction.php(123): CViewAction->resolveView('structure')
+#1 /var/www/sri/DaSViz3d/yii/framework/web/actions/CAction.php(76): CViewAction->run()
+#2 /var/www/sri/DaSViz3d/yii/framework/web/CController.php(308): CAction->runWithParams(Array)
+#3 /var/www/sri/DaSViz3d/yii/framework/web/CController.php(286): CController->runAction(Object(CViewAction))
+#4 /var/www/sri/DaSViz3d/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CViewAction), Array)
+#5 /var/www/sri/DaSViz3d/yii/framework/web/CWebApplication.php(282): CController->run('page')
+#6 /var/www/sri/DaSViz3d/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('site/page')
+#7 /var/www/sri/DaSViz3d/yii/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#8 /var/www/sri/DaSViz3d/index.php(16): CApplication->run()
+#9 {main}
+REQUEST_URI=/sri/DaSViz3d/index.php?r=site/page&view=structure
+HTTP_REFERER=http://localhost/sri/DaSViz3d/index.php?r=site/index
+---
+2013/02/15 19:18:42 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The requested view "structure" was not found.' in /var/www/sri/DaSViz3d/yii/framework/web/actions/CViewAction.php:112
+Stack trace:
+#0 /var/www/sri/DaSViz3d/yii/framework/web/actions/CViewAction.php(123): CViewAction->resolveView('structure')
+#1 /var/www/sri/DaSViz3d/yii/framework/web/actions/CAction.php(76): CViewAction->run()
+#2 /var/www/sri/DaSViz3d/yii/framework/web/CController.php(308): CAction->runWithParams(Array)
+#3 /var/www/sri/DaSViz3d/yii/framework/web/CController.php(286): CController->runAction(Object(CViewAction))
+#4 /var/www/sri/DaSViz3d/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CViewAction), Array)
+#5 /var/www/sri/DaSViz3d/yii/framework/web/CWebApplication.php(282): CController->run('page')
+#6 /var/www/sri/DaSViz3d/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('site/page')
+#7 /var/www/sri/DaSViz3d/yii/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#8 /var/www/sri/DaSViz3d/index.php(16): CApplication->run()
+#9 {main}
+REQUEST_URI=/sri/DaSViz3d/index.php?r=site/page&view=structure
+HTTP_REFERER=http://localhost/sri/DaSViz3d/index.php?r=site/index
+---
+2013/02/15 19:19:32 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The requested view "structure" was not found.' in /var/www/sri/DaSViz3d/yii/framework/web/actions/CViewAction.php:112
+Stack trace:
+#0 /var/www/sri/DaSViz3d/yii/framework/web/actions/CViewAction.php(123): CViewAction->resolveView('structure')
+#1 /var/www/sri/DaSViz3d/yii/framework/web/actions/CAction.php(76): CViewAction->run()
+#2 /var/www/sri/DaSViz3d/yii/framework/web/CController.php(308): CAction->runWithParams(Array)
+#3 /var/www/sri/DaSViz3d/yii/framework/web/CController.php(286): CController->runAction(Object(CViewAction))
+#4 /var/www/sri/DaSViz3d/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CViewAction), Array)
+#5 /var/www/sri/DaSViz3d/yii/framework/web/CWebApplication.php(282): CController->run('page')
+#6 /var/www/sri/DaSViz3d/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('site/page')
+#7 /var/www/sri/DaSViz3d/yii/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#8 /var/www/sri/DaSViz3d/index.php(16): CApplication->run()
+#9 {main}
+REQUEST_URI=/sri/DaSViz3d/index.php?r=site/page&view=structure
+HTTP_REFERER=http://localhost/sri/DaSViz3d/index.php?r=site/index
+---
+2013/02/15 19:19:34 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The requested view "structure" was not found.' in /var/www/sri/DaSViz3d/yii/framework/web/actions/CViewAction.php:112
+Stack trace:
+#0 /var/www/sri/DaSViz3d/yii/framework/web/actions/CViewAction.php(123): CViewAction->resolveView('structure')
+#1 /var/www/sri/DaSViz3d/yii/framework/web/actions/CAction.php(76): CViewAction->run()
+#2 /var/www/sri/DaSViz3d/yii/framework/web/CController.php(308): CAction->runWithParams(Array)
+#3 /var/www/sri/DaSViz3d/yii/framework/web/CController.php(286): CController->runAction(Object(CViewAction))
+#4 /var/www/sri/DaSViz3d/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CViewAction), Array)
+#5 /var/www/sri/DaSViz3d/yii/framework/web/CWebApplication.php(282): CController->run('page')
+#6 /var/www/sri/DaSViz3d/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('site/page')
+#7 /var/www/sri/DaSViz3d/yii/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#8 /var/www/sri/DaSViz3d/index.php(16): CApplication->run()
+#9 {main}
+REQUEST_URI=/sri/DaSViz3d/index.php?r=site/page&view=structure
+HTTP_REFERER=http://localhost/sri/DaSViz3d/index.php?r=site/page&view=structure
+---
+2013/02/15 19:19:35 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The requested view "structure" was not found.' in /var/www/sri/DaSViz3d/yii/framework/web/actions/CViewAction.php:112
+Stack trace:
+#0 /var/www/sri/DaSViz3d/yii/framework/web/actions/CViewAction.php(123): CViewAction->resolveView('structure')
+#1 /var/www/sri/DaSViz3d/yii/framework/web/actions/CAction.php(76): CViewAction->run()
+#2 /var/www/sri/DaSViz3d/yii/framework/web/CController.php(308): CAction->runWithParams(Array)
+#3 /var/www/sri/DaSViz3d/yii/framework/web/CController.php(286): CController->runAction(Object(CViewAction))
+#4 /var/www/sri/DaSViz3d/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CViewAction), Array)
+#5 /var/www/sri/DaSViz3d/yii/framework/web/CWebApplication.php(282): CController->run('page')
+#6 /var/www/sri/DaSViz3d/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('site/page')
+#7 /var/www/sri/DaSViz3d/yii/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#8 /var/www/sri/DaSViz3d/index.php(16): CApplication->run()
+#9 {main}
+REQUEST_URI=/sri/DaSViz3d/index.php?r=site/page&view=structure
+HTTP_REFERER=http://localhost/sri/DaSViz3d/index.php?r=site/page&view=structure
+---
+2013/02/15 19:19:36 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The requested view "structure" was not found.' in /var/www/sri/DaSViz3d/yii/framework/web/actions/CViewAction.php:112
+Stack trace:
+#0 /var/www/sri/DaSViz3d/yii/framework/web/actions/CViewAction.php(123): CViewAction->resolveView('structure')
+#1 /var/www/sri/DaSViz3d/yii/framework/web/actions/CAction.php(76): CViewAction->run()
+#2 /var/www/sri/DaSViz3d/yii/framework/web/CController.php(308): CAction->runWithParams(Array)
+#3 /var/www/sri/DaSViz3d/yii/framework/web/CController.php(286): CController->runAction(Object(CViewAction))
+#4 /var/www/sri/DaSViz3d/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CViewAction), Array)
+#5 /var/www/sri/DaSViz3d/yii/framework/web/CWebApplication.php(282): CController->run('page')
+#6 /var/www/sri/DaSViz3d/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('site/page')
+#7 /var/www/sri/DaSViz3d/yii/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#8 /var/www/sri/DaSViz3d/index.php(16): CApplication->run()
+#9 {main}
+REQUEST_URI=/sri/DaSViz3d/index.php?r=site/page&view=structure
+HTTP_REFERER=http://localhost/sri/DaSViz3d/index.php?r=site/page&view=structure
+---
+2013/02/15 19:35:20 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "index4".' in /var/www/sri/DaSViz3d/yii/framework/web/CController.php:483
+Stack trace:
+#0 /var/www/sri/DaSViz3d/yii/framework/web/CController.php(270): CController->missingAction('index4')
+#1 /var/www/sri/DaSViz3d/yii/framework/web/CWebApplication.php(282): CController->run('index4')
+#2 /var/www/sri/DaSViz3d/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('project/index4')
+#3 /var/www/sri/DaSViz3d/yii/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#4 /var/www/sri/DaSViz3d/index.php(16): CApplication->run()
+#5 {main}
+REQUEST_URI=/sri/DaSViz3d/index.php?r=project/index4
+---
+2013/02/15 19:55:43 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "index".' in /var/www/sri/DaSViz3d/yii/framework/web/CController.php:483
+Stack trace:
+#0 /var/www/sri/DaSViz3d/yii/framework/web/CController.php(270): CController->missingAction('index')
+#1 /var/www/sri/DaSViz3d/yii/framework/web/CWebApplication.php(282): CController->run('index')
+#2 /var/www/sri/DaSViz3d/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('site/index')
+#3 /var/www/sri/DaSViz3d/yii/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#4 /var/www/sri/DaSViz3d/index.php(16): CApplication->run()
+#5 {main}
+REQUEST_URI=/sri/DaSViz3d/index.php?r=site/index
+HTTP_REFERER=http://localhost/sri/DaSViz3d/index.php?r=site/page&view=dependencies
+---

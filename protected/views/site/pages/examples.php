@@ -5,6 +5,7 @@ $this->breadcrumbs=array(
 );
 ?>
 
+<h1>Examples</h1>
 <p>
 The example files are created by the Goanna tool. <a href="http://redlizards.com/">Goanna</a> (http://redlizards.com/) is a
 	static program analysis tool for C/C++ software projects based on model
@@ -26,7 +27,6 @@ each district is built on top of the parent object so the result looks like a ci
 on hills. The space for the children districts will therefore be reserved in the
 parent layer to prevent any overlappings.</p>
 
-<h4>Visualized metrics</h4>
 <p>The following structure view examples are created with the information provided by the
 Goanna tool mentioned above. The analysis was performed in June 2012. The building size and
 length is dependent on the possible errors found by the static analysis tool.</p>
@@ -44,11 +44,11 @@ echo CHtml::link('Chromium project (June 2012) structure view',
 	array('x3d/index', 'layoutId' => 3), array('target' => '_blank'));
 ?>			
 </h4>
-<p>
+<!-- p>
 As you can see in this example. There are a few problems with this size of example:<br />
 - It requires a powerful graphic card on the client.
 - There are still z-index problems in the visualization.
-</p>
+</p>  -->
 
 <h2>Dependencies</h2>
 <p>

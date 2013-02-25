@@ -31,16 +31,6 @@ class SiteController extends BaseController {
 	}
 	
 	/**
-	 * This is the default 'index' action that is invoked
-	 * when an action is not explicitly requested by users.
-	 */
-	public function actionThesis() {
-		// renders the view file 'protected/views/site/index.php'
-		// using the default layout 'protected/views/layouts/main.php'
-		$this->render('thesis', array());
-	}
-
-	/**
 	 * This is the action to handle external exceptions.
 	 */
 	public function actionError() {

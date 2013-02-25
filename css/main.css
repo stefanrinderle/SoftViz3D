@@ -3,7 +3,24 @@ body {
 	padding: 0;
 	color: #555;
 	font: normal 10pt Arial, Helvetica, sans-serif;
-	background: #EFEFEF;
+	background-image:url('blackCircles.jpg');
+    background-repeat:no-repeat;
+    background-attachment:fixed;
+    background-position:center; 
+    background-color: #000000;
+}
+
+.container {
+	max-width: 1200px;
+	margin-left: auto ;
+    margin-right: auto ;
+}
+
+#sidebar {
+	float: left;
+	width: 180px;
+	padding: 10px;
+    font-size: 13px;
 }
 
 #page {
@@ -17,18 +34,22 @@ body {
 	margin: 0;
 	padding: 0;
 	border-top: 3px solid #C9E0ED;
+	border-bottom: 3px solid #C9E0ED;
 }
 
 #content {
-	padding: 20px;
+	width: 920px;
+	min-height: 600px;
+	float: right;
+	border-left: 3px solid #C9E0ED;
+	padding: 10px 15px;
 }
 
 #footer {
 	padding: 10px;
-	margin: 10px 20px;
 	font-size: 0.8em;
 	text-align: center;
-	border-top: 1px solid #C9E0ED;
+	border-top: 3px solid #C9E0ED;
 }
 
 #logo {
@@ -37,7 +58,10 @@ body {
 }
 
 #mainmenu {
-	background: white url(bg.gif) repeat-x left top;
+	float: left;
+    width: 220px;
+    padding: 10px;
+    font-size: 13px;
 }
 
 #mainmenu ul {
@@ -46,14 +70,13 @@ body {
 }
 
 #mainmenu ul li {
-	display: inline;
+	display: block;
+	padding-bottom: 10px;
 }
 
 #mainmenu ul li a {
-	color: #ffffff;
 	background-color: transparent;
-	font-size: 12px;
-	font-weight: bold;
+	font-size: large;
 	text-decoration: none;
 	padding: 5px 8px;
 }
@@ -111,6 +134,7 @@ div.view {
 }
 
 div.breadcrumbs {
+	float: right;
 	font-size: 0.9em;
 	padding: 5px 20px;
 }

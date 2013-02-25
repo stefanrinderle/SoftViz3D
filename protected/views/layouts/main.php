@@ -26,6 +26,11 @@
 		);
 	?>	
 	
+	<!-- local x3dom files -->
+	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/js/x3dom-nightly/x3dom.css" />
+	<script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/x3dom-nightly/x3dom-full.debug.js"></script>
+	
+	
 	<title><?php echo CHtml::encode($this->pageTitle); ?></title>
 </head>
 
@@ -42,6 +47,8 @@
 			'items'=>array(
 				array('label'=>'Home', 'url'=>array('/site/index')),
 				array('label'=>'Examples', 'url'=>array('/site/page', 'view'=>'examples')),
+				array('label'=>'About structure', 'url'=>array('/site/page', 'view'=>'structure')),
+				array('label'=>'About dependencies', 'url'=>array('/site/page', 'view'=>'dependencies')),
 				array('label'=>'Projects', 'url'=>array('/project/index'), 'visible'=>!Yii::app()->user->isGuest),
 				//array('label'=>'Import', 'url'=>array('/import/index')),
 				//array('label'=>'Goanna browser', 'url'=>array('/goanna/index')),
@@ -59,13 +66,14 @@
 			),
 		)); ?>
 	</div><!-- mainmenu -->
-	
 	<?php 
-	if(isset($this->breadcrumbs)) {
+	/*
+	 * if(isset($this->breadcrumbs)) {
 		$this->widget('zii.widgets.CBreadcrumbs', array(
 			'links'=>$this->breadcrumbs,
 		));
-	}
+		}
+	 */
 	?>
 
 	<div id="content">
