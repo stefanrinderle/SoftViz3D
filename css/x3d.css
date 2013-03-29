@@ -1,10 +1,14 @@
 #the_x3delement {
     background: #DDDDDD;
     width: 80%;
+    height: 100%;
 }
 
 
 #sidebar {
     float: right; 
-    width: 19%;
+    width: 17%;
+    padding: 10px;
+    font-size: 13px;
+    color: #DEDEDE;
 }

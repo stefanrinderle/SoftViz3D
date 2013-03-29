@@ -145,11 +145,10 @@ parent layer to prevent any overlappings (1).
 </p>
 
 <h4>
-	You now have the opportunity to try this 3d visualization tool with
-	example files
-	<?php 
+Go for some live examples: 
+<?php 
 	echo CHtml::link(' here', array('/site/page', 'view'=>'examples'));
-	?>
+?>
 </h4>
 <h4>Please feel free to give Feedback
 	<?php 
