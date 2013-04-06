@@ -12,7 +12,7 @@ class DotCommand extends CApplicationComponent
 		exec($command, $msg, $return_val);
 		
 		// strange problem with trailing } at the end of the output
-		//array_pop($msg);
+		array_pop($msg);
 		
 		if ($return_val != 0) {
 			throw new Exception("dot command error: " . $msg);

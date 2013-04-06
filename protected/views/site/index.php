@@ -32,6 +32,12 @@ The dependency view shows a new approach for visualizing dependencies within the
 </tr>
 </table>
 
+<center>
+<h1>Tool workflow</h1>
+
+<img src="<?php echo Yii::app()->request->baseUrl; ?>/images/tool_workflow" width="800px">
+</center>
+
 <p>This project started as a master thesis as the National ICT Australia
 	in Sydney. Thanks to Franck Cassez and Ralf Huuck for the help during
 	the thesis.</p>

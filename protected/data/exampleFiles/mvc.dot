@@ -13,7 +13,7 @@ digraph G {
 		subgraph viewsC2 {
 			v1c2;
 			v2c2;
-			v3c2;
+		/Users/stefan/Sites/SoftViz3D/protected/data/exampleFiles/simpleMetricTree.dot	v3c2;
 		}
 		subgraph viewsC3 {
 			v1c3;

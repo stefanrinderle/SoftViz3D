@@ -179,15 +179,15 @@ abstract class AbstractDotParser extends CApplicationComponent {
 		$edgePattern = '/\ *"?([a-zA-Z0-9_\-\.]+)"?\ *->\ *"?([a-zA-Z0-9_\-\.]+)"?.*;/';
 		preg_match($edgePattern, $this->currentLine, $attrMatch);
 		
-		//if ($attrMatch) {
+		if ($attrMatch) {
 			$result["id"] = $attrMatch[1] . " -> " . $attrMatch[2];
 			$result["source"] = $attrMatch[1];
 			$result["destination"] = $attrMatch[2];
 			$result["attributes"] = $this->getAttributes($line);
-		//} else {
-		// 	var_dump("line " . $line);
-		//	throw new Exception("Edge line parse error. Line: " . $line);
-		//}
+		} else {
+		 	var_dump("line " . $line);
+			throw new Exception("Edge line parse error. Line: " . $line);
+		}
 		
 		return $result;
 	}
