@@ -1,5 +1,7 @@
 ## Welcome!
 
+First of all: Visit the project website: http://softviz3d.rinderle.info/
+
 This project started as a master thesis as the National ICT Australia in Sydney. 
 Thanks to Franck Cassez and Ralf Huuck for the help during the thesis.
 

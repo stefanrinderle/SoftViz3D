@@ -27,7 +27,7 @@ in the visualization.</li>
 </ul>
 
 <table><tr>
-<td><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/structure_dot" width="300px"></td>
+<td><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/structure_dot.jpg" width="300px"></td>
 <td>
 <x3d id="the_x3delement" xmlns="http://www.x3dom.org/x3dom">
 

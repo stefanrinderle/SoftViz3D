@@ -18,7 +18,7 @@ be shown as a footprint in the parent layer (2, 4). Leaf nodes will be depicted 
 buildings inside the districts (3, 5, 6, 7).
 </p>
 <p>
-<img src="<?php echo Yii::app()->request->baseUrl; ?>/images/simpleGraphExample" width="300px">
+<img src="<?php echo Yii::app()->request->baseUrl; ?>/images/simpleGraphExample.jpg" width="300px">
 </p>
 
 <h2>Input dependency transformation</h2>
@@ -45,8 +45,8 @@ The total number of connections between two objects in the tree will be given as
 additional input to the layout algorithm and the visualization.
 </p>
 <table><tr>
-<td><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/abstractDepTreeImpl" width="300px"></td>
-<td><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/abstractDepTreeImplFormal" width="200px"></td>
+<td><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/abstractDepTreeImpl.jpg" width="300px"></td>
+<td><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/abstractDepTreeImplFormal.jpg" width="200px"></td>
 </tr></table>
 <p>
 Every dependency created by this transformation is either one between siblings or a 
@@ -82,7 +82,7 @@ the bigger the size (side length) of it will be. The figure below shows the depe
 of the input of the figures above.
 </p>
 <p>
-<img src="<?php echo Yii::app()->request->baseUrl; ?>/images/simpleDepGraphExample" width="500px">
+<img src="<?php echo Yii::app()->request->baseUrl; ?>/images/simpleDepGraphExample.jpg" width="500px">
 </p>
 <p>
 Using real-life projects instead of example structures can lead to an overload of information 

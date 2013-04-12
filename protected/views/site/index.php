@@ -27,15 +27,15 @@ The dependency view shows a new approach for visualizing dependencies within the
 <p>
 
 <table><tr>
-<td><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/firefox" width="400px"></td>
-<td><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/nusmv" width="400px"></td>
+<td><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/firefox.jpg" width="400px"></td>
+<td><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/nusmv.jpg" width="400px"></td>
 </tr>
 </table>
 
 <center>
 <h1>Tool workflow</h1>
 
-<img src="<?php echo Yii::app()->request->baseUrl; ?>/images/tool_workflow" width="800px">
+<img src="<?php echo Yii::app()->request->baseUrl; ?>/images/tool_workflow.jpg" width="800px">
 </center>
 
 <p>This project started as a master thesis as the National ICT Australia

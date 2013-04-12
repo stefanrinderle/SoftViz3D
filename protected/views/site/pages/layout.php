@@ -17,8 +17,8 @@ algorithm and will then be translated into 3D positions and objects.
 </p>
 
 <table><tr>
-<td><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/layeredLayout" width="300px"></td>
-<td><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/layeredLayout3d" width="200px"></td>
+<td><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/layeredLayout.jpg" width="300px"></td>
+<td><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/layeredLayout3d.jpg" width="200px"></td>
 </tr></table>
 
 <h2>Layout for the structure view</h2>
