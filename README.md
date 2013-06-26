@@ -9,6 +9,8 @@ a plugin for sonar, which hopefully will do the same as this one.
 The crucial advantage is that sonar is used by a lot of people and
 also can also deliver all required data.
 
+[Sonar plugin](https://github.com/stefanrinderle/sonar-softviz3d)
+
 ## Welcome!
 
 First of all: Visit the project website: http://softviz3d.rinderle.info/

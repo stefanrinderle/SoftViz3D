@@ -12,6 +12,8 @@ The crucial advantage is that sonar is used by a lot of people and
 also can also deliver all required data.
 </p>
 
+<a href="https://github.com/stefanrinderle/sonar-softviz3d">Sonar plugin</a>
+
 <h2>
 	Welcome to the project homepage
 </h2>
