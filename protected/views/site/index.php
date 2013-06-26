@@ -1,8 +1,20 @@
 <?php $this->pageTitle=Yii::app()->name; ?>
 
-<h1>
+<h1>@Deprecated</h1>
+<p>
+I have decided to stop any work on this project. 
+Although all used components are open source, it is difficult 
+to get the required data out of the projects.
+</p><p>
+I will continue my work on 3d software visualization with
+a plugin for sonar, which hopefully will do the same as this one.
+The crucial advantage is that sonar is used by a lot of people and
+also can also deliver all required data.
+</p>
+
+<h2>
 	Welcome to the project homepage
-</h1>
+</h2>
 
 <p>
 This work presents a tool for 3D visualization of software structures and dependencies that can be integrated in the software development process.

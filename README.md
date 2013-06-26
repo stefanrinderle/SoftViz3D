@@ -1,3 +1,14 @@
+# @Deprecated
+
+I have decided to stop any work on this project. 
+Although all used components are open source, it is difficult 
+to get the required data out of the projects.
+
+I will continue my work on 3d software visualization with
+a plugin for sonar, which hopefully will do the same as this one.
+The crucial advantage is that sonar is used by a lot of people and
+also can also deliver all required data.
+
 ## Welcome!
 
 First of all: Visit the project website: http://softviz3d.rinderle.info/
