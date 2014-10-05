@@ -2,6 +2,6 @@
 
 <Scene>
 	<param name="showLog" value="false" ></param>
-	<param name="showStat" value="true" ></param>
+	<param name="showStat" value="false" ></param>
 
 	<Transform id="x3dSceneWrapper">

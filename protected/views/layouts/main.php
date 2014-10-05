@@ -55,16 +55,16 @@
 				//array('label'=>'Goanna browser', 'url'=>array('/goanna/index')),
 				//array('label'=>'File viewer', 'url'=>array('/file/index')),
 				//array('label'=>'Test', 'url'=>array('/test/index')),
-				array('label'=>'-----', 'url'=>array('')),
-				array('label'=>'Projects', 'url'=>array('/project/index'), 'visible'=>!Yii::app()->user->isGuest),
-				array('label'=>'Login', 'url'=>array('/user/login'), 'visible'=>Yii::app()->user->isGuest),
-				array('label'=>'Signup', 'url'=>array('/user/signup'), 'visible'=>Yii::app()->user->isGuest),
-				array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/user/logout'), 'visible'=>!Yii::app()->user->isGuest),
-				array('label'=>'-----', 'url'=>array('')),
+//				array('label'=>'-----', 'url'=>array('')),
+//				array('label'=>'Projects', 'url'=>array('/project/index'), 'visible'=>!Yii::app()->user->isGuest),
+//				array('label'=>'Login', 'url'=>array('/user/login'), 'visible'=>Yii::app()->user->isGuest),
+//				array('label'=>'Signup', 'url'=>array('/user/signup'), 'visible'=>Yii::app()->user->isGuest),
+//				array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/user/logout'), 'visible'=>!Yii::app()->user->isGuest),
+//				array('label'=>'-----', 'url'=>array('')),
 				//array('label'=>'Admin', 'url'=>array('/site/page', 'view'=>'admin')),
 				//array('label'=>'-----', 'url'=>array('')),
 				array('label'=>'Thesis', 'url'=>array('/site/page', 'view'=>'thesis')),
-				array('label'=>'Feedback', 'url'=>array('/site/feedback'))
+//				array('label'=>'Feedback', 'url'=>array('/site/feedback'))
 			),
 		)); ?>
 	</div><!-- mainmenu -->

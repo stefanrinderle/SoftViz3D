@@ -33,7 +33,7 @@ in the visualization.</li>
 
 <Scene>
 	<param name="showLog" value="false" ></param>
-	<param name="showStat" value="true" ></param>
+	<param name="showStat" value="false" ></param>
 
 	<Transform id="x3dSceneWrapper"><Transform id="80238" onclick="layerClickedEvent(event);" 
 			translation="-20 5 -14" rotation="1 0 0 -1.57">
@@ -149,9 +149,4 @@ Go for some live examples:
 <?php 
 	echo CHtml::link(' here', array('/site/page', 'view'=>'examples'));
 ?>
-</h4>
-<h4>Please feel free to give Feedback
-	<?php 
-	echo CHtml::link(' here', array('/site/feedback'));
-	?>
 </h4>

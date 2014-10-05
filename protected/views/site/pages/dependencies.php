@@ -99,8 +99,3 @@ Go for some live examples:
 	echo CHtml::link(' here', array('/site/page', 'view'=>'examples'));
 ?>
 </h4>
-<h4>Please feel free to give Feedback
-	<?php 
-	echo CHtml::link(' here', array('/site/feedback'));
-	?>
-</h4> 

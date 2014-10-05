@@ -12,8 +12,11 @@ The crucial advantage is that sonar is used by a lot of people and
 also can also deliver all required data.
 </p>
 
-<a href="https://github.com/stefanrinderle/sonar-softviz3d">Sonar plugin</a>
+<h1>
+    <a href="https://github.com/stefanrinderle/sonar-softviz3d">Sonar plugin on GitHub</a>
+</h1>
 
+<p></p>
 <h2>
 	Welcome to the project homepage
 </h2>
@@ -30,11 +33,6 @@ The dependency view shows a new approach for visualizing dependencies within the
 	example files
 	<?php 
 	echo CHtml::link(' here', array('/site/page', 'view'=>'examples'));
-	?>
-</h4>
-<h4>Please feel free to give Feedback
-	<?php 
-	echo CHtml::link(' here', array('/site/feedback'));
 	?>
 </h4>
 

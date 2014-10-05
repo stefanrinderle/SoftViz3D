@@ -13,7 +13,7 @@ also can also deliver all required data.
 
 ## Welcome!
 
-First of all: Visit the project website: http://softviz3d.rinderle.info/
+First of all: Visit the project website: http://rinderle.info/3dArch
 
 This project started as a master thesis as the National ICT Australia in Sydney. 
 Thanks to Franck Cassez and Ralf Huuck for the help during the thesis.
@@ -29,7 +29,7 @@ Thanks to Franck Cassez and Ralf Huuck for the help during the thesis.
 
 ### Get it on :-)
 
-* Get the source code from github: https://github.com/stefanrinderle/DaSViz3d
+* Get the source code from github: https://github.com/stefanrinderle/SoftViz3D
 * Set access rights ./permissionScript.sh
 * adjust configuration file in protected/config/main.php
   - Set db connection settings (param array db)
