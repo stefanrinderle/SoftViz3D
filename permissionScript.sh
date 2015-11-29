@@ -1,4 +1,4 @@
-Please make sure the directory exists and is writable by the Web server process
+#Please make sure the directory exists and is writable by the Web server process
 chmod -R 777 protected/runtime
 
 chmod -R 777 assets

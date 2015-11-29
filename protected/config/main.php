@@ -112,7 +112,7 @@ return array(
 //		),
  		'db'=>array(
  				'class'=>'CDbConnection',
- 				'connectionString'=>'mysql:host=localhost;dbname=softviz3d',
+ 				'connectionString'=>'mysql:host=localhost:3306;dbname=softviz3d',
  				'username'=>'softviz3d',
  				'password'=>'softviz3d'
  		),
@@ -155,6 +155,6 @@ return array(
 		'adminEmail'=>'stefan@rinderle.info',
 		'currentResourceFile' => DIRECTORY_SEPARATOR . 'runtime' . DIRECTORY_SEPARATOR . 'actualResource.dot',
 		'tempDotFile' => DIRECTORY_SEPARATOR . 'runtime' . DIRECTORY_SEPARATOR . 'temp.dot',
-		'import' => array('jdepend' => false, 'serverDirectory' => false),
+		'import' => array('jdepend' => true, 'serverDirectory' => true),
 	),
 );

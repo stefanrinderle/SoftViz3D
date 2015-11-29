@@ -51,20 +51,20 @@
 				array('label'=>'About dependencies', 'url'=>array('/site/page', 'view'=>'dependencies')),
 				array('label'=>'About the layout', 'url'=>array('/site/page', 'view'=>'layout')),
 				array('label'=>'About the UI', 'url'=>array('/site/page', 'view'=>'userInterface')),
-				//array('label'=>'Import', 'url'=>array('/import/index')),
-				//array('label'=>'Goanna browser', 'url'=>array('/goanna/index')),
-				//array('label'=>'File viewer', 'url'=>array('/file/index')),
-				//array('label'=>'Test', 'url'=>array('/test/index')),
-//				array('label'=>'-----', 'url'=>array('')),
-//				array('label'=>'Projects', 'url'=>array('/project/index'), 'visible'=>!Yii::app()->user->isGuest),
-//				array('label'=>'Login', 'url'=>array('/user/login'), 'visible'=>Yii::app()->user->isGuest),
-//				array('label'=>'Signup', 'url'=>array('/user/signup'), 'visible'=>Yii::app()->user->isGuest),
-//				array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/user/logout'), 'visible'=>!Yii::app()->user->isGuest),
-//				array('label'=>'-----', 'url'=>array('')),
-				//array('label'=>'Admin', 'url'=>array('/site/page', 'view'=>'admin')),
-				//array('label'=>'-----', 'url'=>array('')),
+				array('label'=>'Import', 'url'=>array('/import/index')),
+				array('label'=>'Goanna browser', 'url'=>array('/goanna/index')),
+				array('label'=>'File viewer', 'url'=>array('/file/index')),
+				array('label'=>'Test', 'url'=>array('/test/index')),
+				array('label'=>'-----', 'url'=>array('')),
+				array('label'=>'Projects', 'url'=>array('/project/index'), 'visible'=>!Yii::app()->user->isGuest),
+				array('label'=>'Login', 'url'=>array('/user/login'), 'visible'=>Yii::app()->user->isGuest),
+				array('label'=>'Signup', 'url'=>array('/user/signup'), 'visible'=>Yii::app()->user->isGuest),
+				array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/user/logout'), 'visible'=>!Yii::app()->user->isGuest),
+				array('label'=>'-----', 'url'=>array('')),
+				array('label'=>'Admin', 'url'=>array('/site/page', 'view'=>'admin')),
+				array('label'=>'-----', 'url'=>array('')),
 				array('label'=>'Thesis', 'url'=>array('/site/page', 'view'=>'thesis')),
-//				array('label'=>'Feedback', 'url'=>array('/site/feedback'))
+				array('label'=>'Feedback', 'url'=>array('/site/feedback'))
 			),
 		)); ?>
 	</div><!-- mainmenu -->
@@ -85,7 +85,7 @@
 	<div class="clear"></div>
 
 	<div id="footer">
-		Copyright &copy; <?php echo date('Y'); ?> by Stefan Rinderle.<br/>
+		Copyright &copy; 2015 by Stefan Rinderle.<br/>
 		All Rights Reserved.<br/>
 		<?php echo Yii::powered(); ?>
 	</div><!-- footer -->
